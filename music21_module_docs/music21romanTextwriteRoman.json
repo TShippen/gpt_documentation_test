@@ -1,0 +1,382 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.romanText.writeRoman",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.romanText.tsvConverter",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.scale",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.romanText.writeRoman\nRnWriter\nRnWriter\nRnWriter.getChordString()\nRnWriter.prepSequentialListOfLines()\nRnWriter.prepTitle()\n\n\n\n\nFunctions\nintBeat()\nrnString()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.romanText.writeRoman\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Writer for the \u0098RomanText' format (Tymoczko, Gotham, Cuthbert, & Ariza ISMIR 2019)",
+        "type": "Title"
+    },
+    {
+        "text": "RnWriter\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.romanText.writeRoman.",
+        "type": "Title"
+    },
+    {
+        "text": "RnWriter",
+        "type": "Title"
+    },
+    {
+        "text": "obj",
+        "type": "Title"
+    },
+    {
+        "text": "Music21Object",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Extracts the relevant information from a source\n(usually a Stream of\nRomanNumeral objects) for\nwriting to text files in the \u0098RomanText' format (rntxt).\nWriting rntxt is handled externally in the\nWriteRoman() so\nmost users will never need to call this class directly, only invoking\nit indirectly through .write(\u0098rntxt').\nPossible exceptions include users who want to convert Roman numerals into rntxt type\nstrings and want to work with those strings directly, without writing to disk.\nFor consistency with the\nshow() and write()\nmethods across music21, this class is theoretically callable on\nany type of music21 object.\nMost relevant use cases will involve calling a\nstream containing one or more Roman numerals.\nThis class supports any such stream:\nan Opus object of one or more scores,\na Score with or without Part (s),\na Part, or\na Measure.\n>>> scoreBach = corpus.parse('bach/choraleAnalyses/riemenschneider004.rntxt')\n>>> rnWriterFromScore = romanText.writeRoman.RnWriter(scoreBach)\n\n\nThe strings are stored in the RnWriter's combinedList variable, starting with the metadata:\n>>> rnWriterFromScore.combinedList[0]\n'Composer: J. S. Bach'\n\n\nComposer and work metadata is inherited from score metadata wherever possible.\nA composer entry will register directly as will any entries for\nworkTitle, movementNumber, and movementName\n(see prepTitle() for details).\n>>> rnWriterFromScore.combinedList[0] == 'Composer: ' + rnWriterFromScore.composer\nTrue\n\n\nAs always, these metadata entries are user-settable.\nMake any adjustments to the metadata before calling this class.\nAfter the metadata, the list continues with strings for each measure in order.\nHere's the last in our example:\n>>> rnWriterFromScore.combinedList[-1]\n'm10 V6/V b2 V b3 I'\n\n\nIn the case of the score, the top part is assumed to contain the Roman numerals.\nThis is consistent with the parsing of rntxt which involves putting Roman numerals in a part\n(the top, and only part) within a score.\nIn all other cases, the objects are iteratively inserted into larger streams until we end up\nwith a part object (e.g. measure > part).\n>>> rn = roman.RomanNumeral('viio64', 'a')\n>>> rnWriterFromRn = romanText.writeRoman.RnWriter(rn)\n>>> rnWriterFromRn.combinedList[0]\n'Composer: Composer unknown'\n\n\n>>> rnWriterFromRn.combinedList[-1]\n'm0 a: viio64'",
+        "type": "ListItem"
+    },
+    {
+        "text": "RnWriter bases",
+        "type": "Title"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "RnWriter read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "RnWriter methods",
+        "type": "Title"
+    },
+    {
+        "text": "RnWriter.",
+        "type": "Title"
+    },
+    {
+        "text": "getChordString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "rn",
+        "type": "Title"
+    },
+    {
+        "text": "RomanNumeral",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Produce a string from a Roman numeral with the chord and\nthe key if that key constitutes a change from the foregoing context.\n>>> p = stream.Part()\n>>> m = stream.Measure()\n>>> m.insert(0, meter.TimeSignature('4/4'))\n>>> m.insert(0, roman.RomanNumeral('V', 'G'))\n>>> p.insert(0, m)\n>>> testCase = romanText.writeRoman.RnWriter(p)\n>>> sameKeyChord = testCase.getChordString(roman.RomanNumeral('I', 'G'))\n>>> sameKeyChord\n'I'\n\n\n>>> changeKeyChord = testCase.getChordString(roman.RomanNumeral('V', 'D'))\n>>> changeKeyChord\n'D: V'",
+        "type": "ListItem"
+    },
+    {
+        "text": "RnWriter.",
+        "type": "Title"
+    },
+    {
+        "text": "prepSequentialListOfLines",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Prepares a sequential list of text lines, with time signatures and Roman numerals\nadding this to the (already prepared) metadata preamble ready for printing.\n>>> p = stream.Part()\n>>> m = stream.Measure(number=1)\n>>> m.insert(0, meter.TimeSignature('4/4'))\n>>> m.insert(0, roman.RomanNumeral('V', 'G'))\n>>> p.insert(0, m)\n>>> testCase = romanText.writeRoman.RnWriter(p)\n>>> testCase.combinedList[-1]  # Last entry, after the metadata\n'm1 G: V'\n\n\nThis follows the wider rntxt syntax in supporting\nTime Signature (TimeSignature) changes and\nRepeats marks (Repeat)\nbut only (currently) between measures.\nLet's add a new measure to the stream we started,\nwith a time signature change beforehand and\nboth start and end repeats in it:\n>>> m2 = stream.Measure(number=2)\n>>> m2.insert(0, meter.TimeSignature('3/4'))\n>>> m2.leftBarline = bar.Repeat(direction='start')\n>>> m2.rightBarline = bar.Repeat(direction='end')\n>>> m2.insert(0, roman.RomanNumeral('I', 'G'))\n>>> p.insert(0, m2)\n>>> testCase = romanText.writeRoman.RnWriter(p)\n\n\nThe last line of the .combinedList gives the new measure:\n>>> testCase.combinedList[-1]\n'm2 ||: I :||'\n\n\nThe line before that gives the time signature change:\n>>> testCase.combinedList[-2]\n'Time Signature: 3/4'",
+        "type": "ListItem"
+    },
+    {
+        "text": "RnWriter.",
+        "type": "Title"
+    },
+    {
+        "text": "prepTitle",
+        "type": "Title"
+    },
+    {
+        "text": "md",
+        "type": "Title"
+    },
+    {
+        "text": "Metadata",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Attempt to prepare a single work title from the score metadata looking at each of\nthe title, movementNumber and movementName attributes.\nFailing that, a placeholder \u0098Title unknown' stands in.\n>>> s = stream.Score()\n>>> rnScore = romanText.writeRoman.RnWriter(s)\n>>> rnScore.title\n'Title unknown'\n\n\n>>> s.insert(0, metadata.Metadata())\n>>> s.metadata.title = 'Fake title'\n>>> s.metadata.movementNumber = 123456789\n>>> s.metadata.movementName = 'Fake movementName'\n>>> rnScoreWithMD = romanText.writeRoman.RnWriter(s)\n>>> rnScoreWithMD.title\n'Fake title - No.123456789: Fake movementName'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.romanText.writeRoman.",
+        "type": "Title"
+    },
+    {
+        "text": "intBeat",
+        "type": "Title"
+    },
+    {
+        "text": "beat",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "float",
+        "type": "Title"
+    },
+    {
+        "text": "Fraction",
+        "type": "Title"
+    },
+    {
+        "text": "roundValue",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Converts beats to integers if possible, and otherwise to rounded decimals.\nAccepts input as string, int, float, or fractions.Fraction.\n>>> testInt = romanText.writeRoman.intBeat(1, roundValue=2)\n>>> testInt\n1\n\n\n>>> testFrac = romanText.writeRoman.intBeat(8 / 3, roundValue=2)\n>>> testFrac\n2.67\n\n\n>>> testStr = romanText.writeRoman.intBeat('0.666666666', roundValue=2)\n>>> testStr\n0.67\n\n\nThe roundValue sets the number of decimal places to round to. The default is two:\n>>> testRound2 = romanText.writeRoman.intBeat(1.11111111, roundValue=2)\n>>> testRound2\n1.11\n\n\nBut this can be set to any integer:\n>>> testRound1 = romanText.writeRoman.intBeat(1.11111111, roundValue=1)\n>>> testRound1\n1.1\n\n\nRaises an error if called on a negative value.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.romanText.writeRoman.",
+        "type": "Title"
+    },
+    {
+        "text": "rnString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "measureNumber",
+        "type": "Title"
+    },
+    {
+        "text": "int | str",
+        "type": "Title"
+    },
+    {
+        "text": "beat",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "float",
+        "type": "Title"
+    },
+    {
+        "text": "Fraction",
+        "type": "Title"
+    },
+    {
+        "text": "chordString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "inString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "str | None",
+        "type": "Title"
+    },
+    {
+        "text": "''",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Creates or extends a string of RomanText such that the output corresponds to a single\nmeasure line.\nIf the inString is not given, None, or an empty string then this function starts a new line.\n>>> lineStarter = romanText.writeRoman.rnString(14, 1, 'G: I')\n>>> lineStarter\n'm14 G: I'\n\n\nFor any other inString, that string is the start of a measure line continued by the new values\n>>> continuation = romanText.writeRoman.rnString(14, 2, 'viio6', 'm14 G: I')\n>>> continuation\n'm14 G: I b2 viio6'\n\n\nNaturally, this function requires the measure number of any such continuation to match\nthat of the inString and raises an error where that is not the case.\nAs these examples show, the chordString can be a Roman numeral alone (e.g. \u0098viio6')\nor one prefixed by a change of key (\u0098G: I').",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.romanText.writeRoman",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

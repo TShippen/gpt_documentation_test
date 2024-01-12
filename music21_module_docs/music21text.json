@@ -1,0 +1,674 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.text",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.tempo",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.tie",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.text\nTextBox\nTextBox\nTextBox.content\nTextBox.page\n\n\n\n\nLanguageDetector\nLanguageDetector\nLanguageDetector.mostLikelyLanguage()\nLanguageDetector.mostLikelyLanguageNumeric()\nLanguageDetector.readExcerpts()\n\n\n\n\nTrigram\nTrigram\nTrigram.length\nTrigram.likely()\nTrigram.makeWords()\nTrigram.measure()\nTrigram.parseExcerpt()\nTrigram.similarity()\n\n\n\n\nFunctions\nassembleAllLyrics()\nassembleLyrics()\npostpendArticle()\nprependArticle()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.text\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Utility routines for processing text in scores and other musical objects.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "TextBox\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.text.",
+        "type": "Title"
+    },
+    {
+        "text": "TextBox",
+        "type": "Title"
+    },
+    {
+        "text": "content",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "500",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "500",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A TextBox is arbitrary text that might be positioned anywhere on a page,\nindependent of notes or staffs. A page attribute specifies what page this text is found on;\nstyle.absoluteY and style.absoluteX position the text from the bottom left corner in\nunits of tenths.\nThis object is similar to the TextExpression object, but does not have as many position\nparameters, enclosure attributes, and the ability to convert to\nRepeatExpressions and TempoTexts.\n>>> y = 1000  # set a fixed vertical distance\n>>> s = stream.Stream()\n\n\nSpecify character, x position, y position\n>>> tb = text.TextBox('m', 250, y)\n>>> tb.style.fontSize = 40\n>>> tb.style.alignVertical = 'bottom'\n>>> s.append(tb)\n\n\n>>> tb = text.TextBox('u', 300, y)\n>>> tb.style.fontSize = 60\n>>> tb.style.alignVertical = 'bottom'\n>>> s.append(tb)\n\n\n>>> tb = text.TextBox('s', 550, y)\n>>> tb.style.fontSize = 120\n>>> tb.style.alignVertical = 'bottom'\n>>> s.append(tb)\n\n\n>>> tb = text.TextBox('ic', 700, y)\n>>> tb.style.alignVertical = 'bottom'\n>>> tb.style.fontSize = 20\n>>> tb.style.fontStyle = 'italic'\n>>> s.append(tb)\n\n\n>>> tb = text.TextBox('21', 850, y)\n>>> tb.style.alignVertical = 'bottom'\n>>> tb.style.fontSize = 80\n>>> tb.style.fontWeight = 'bold'\n>>> tb.style.fontStyle = 'italic'\n>>> s.append(tb)\n\n\n>>> s.show()",
+        "type": "ListItem"
+    },
+    {
+        "text": "TextBox bases",
+        "type": "Title"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "TextBox read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "TextBox read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "TextBox.",
+        "type": "Title"
+    },
+    {
+        "text": "content",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get or set the content.\n>>> te = text.TextBox('Con fuoco')\n>>> te.content\n'Con fuoco'\n>>> te.style.justify = 'center'\n>>> te.style.justify\n'center'",
+        "type": "ListItem"
+    },
+    {
+        "text": "TextBox.",
+        "type": "Title"
+    },
+    {
+        "text": "page",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get or set the page number. The first page (page 1) is the default.\n>>> te = text.TextBox('Great Score')\n>>> te.content\n'Great Score'\n>>> te.page\n1\n>>> te.page = 2\n>>> te.page\n2",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "TextBox methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "TextBox instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "LanguageDetector\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.text.",
+        "type": "Title"
+    },
+    {
+        "text": "LanguageDetector",
+        "type": "Title"
+    },
+    {
+        "text": "text",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Attempts to detect language on the basis of trigrams.\n>>> ld = text.LanguageDetector()\n>>> ld.mostLikelyLanguage('Guten Morgen Frau Wieck. Ich bin Robert.')\n'de'\n\n\nNote that accuracy improves with longer texts, and that the trigrams are\ncase sensitive.  Putting \u009cMorgen\u009d in lowercase evaluates the text as Dutch.\nSupported languages are currently:\n>>> text.LanguageDetector.languageLong\n{'en': 'English',\n 'fr': 'French',\n 'it': 'Italian',\n 'de': 'German',\n 'cn': 'Chinese',\n 'la': 'Latin',\n 'nl': 'Dutch'}\n\n\nSee also, documentation for Trigram.",
+        "type": "ListItem"
+    },
+    {
+        "text": "LanguageDetector methods",
+        "type": "Title"
+    },
+    {
+        "text": "LanguageDetector.",
+        "type": "Title"
+    },
+    {
+        "text": "mostLikelyLanguage",
+        "type": "Title"
+    },
+    {
+        "text": "excerpt",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 str | None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns the code of the most likely language for a passage, works on\nunicode or ascii. Current languages are:\n>>> text.LanguageDetector.languageCodes\n['en', 'fr', 'it', 'de', 'cn', 'la', 'nl']\n\n\nor None if no language is detected.\n>>> ld = text.LanguageDetector()\n>>> ld.mostLikelyLanguage('Hello there, how are you doing today? '\n...                       + \"I haven't seen you in a while.\")\n'en'\n>>> ld.mostLikelyLanguage('Ciao come stai? Sono molto lento oggi, ma non so perche.')\n'it'\n>>> ld.mostLikelyLanguage('Credo in unum deum. Patrem omnipotentem. Factorum celi')\n'la'\n\n\n>>> ld = text.LanguageDetector()\n>>> ld.mostLikelyLanguage('') is None\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "LanguageDetector.",
+        "type": "Title"
+    },
+    {
+        "text": "mostLikelyLanguageNumeric",
+        "type": "Title"
+    },
+    {
+        "text": "excerpt",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "returns a number representing the most likely language for a passage\nor 0 if there is no text.\nUseful for feature extraction.\nThe codes are the index of the language name in LanguageDetector.languageCodes + 1\n>>> ld = text.LanguageDetector()\n>>> for index in range(len(ld.languageCodes)):\n...    print(str(index + 1) + ' ' +  ld.languageCodes[index])\n1 en\n2 fr\n3 it\n4 de\n5 cn\n6 la\n7 nl\n>>> numLang = ld.mostLikelyLanguageNumeric('Hello there, how are you doing today? '\n...                + \"I haven't seen you in a while.\")\n>>> numLang\n1\n>>> ld.languageCodes[numLang - 1]\n'en'",
+        "type": "ListItem"
+    },
+    {
+        "text": "classmethod",
+        "type": "Title"
+    },
+    {
+        "text": "LanguageDetector.",
+        "type": "Title"
+    },
+    {
+        "text": "readExcerpts",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Read the stored trigrams once and store them for later.\nCalled on first LanguageDectector read.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Trigram\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.text.",
+        "type": "Title"
+    },
+    {
+        "text": "Trigram",
+        "type": "Title"
+    },
+    {
+        "text": "excerptList",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "See LanguageDetector above.\nFrom https://code.activestate.com/recipes/326576-language-detection-using-character-trigrams/\nThe frequency of three character\nsequences is calculated.  When treated as a vector, this information\ncan be compared to other trigrams, and the difference between them\nseen as an angle.  The cosine of this angle varies between 1 for\ncomplete similarity, and 0 for utter difference.  Since letter\ncombinations are characteristic to a language, this can be used to\ndetermine the language of a body of text. For example:\n>>> reference_en = Trigram('/path/to/reference/text/english')\n>>> reference_de = Trigram('/path/to/reference/text/german')\n>>> unknown = Trigram('url://pointing/to/unknown/text')\n>>> unknown.similarity(reference_de)\n#_DOCS_SHOW 0.4\n>>> unknown.similarity(reference_en)\n#_DOCS_SHOW 0.95\n\n\nwould indicate the unknown text is almost certainly English.  As\nsyntax sugar, the minus sign is overloaded to return the difference\nbetween texts, so the above objects would give you:\n#_DOCS_SHOW >>> unknown - reference_de\n#_DOCS_SHOW 0.6\n#_DOCS_SHOW >>> reference_en - unknown    # order doesn't matter.\n#_DOCS_SHOW 0.05\nAs it stands, the Trigram ignores character set information, which\nmeans you can only accurately compare within a single encoding\n(iso-8859-1 in the examples).  A more complete implementation might\nconvert to unicode first.\nAs an extra bonus, there is a method to make up nonsense words in the\nstyle of the Trigram's text.\n>>> reference_en.makeWords(30)\nMy withillonquiver and ald, by now wittlectionsurper, may sequia,\ntory, I ad my notter. Marriusbabilly She lady for rachalle spen hat knong al elf",
+        "type": "ListItem"
+    },
+    {
+        "text": "Trigram read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Trigram.",
+        "type": "Title"
+    },
+    {
+        "text": "length",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "Trigram methods",
+        "type": "Title"
+    },
+    {
+        "text": "Trigram.",
+        "type": "Title"
+    },
+    {
+        "text": "likely",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns a character likely to follow the given string\ntwo character string, or a space if nothing is found.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Trigram.",
+        "type": "Title"
+    },
+    {
+        "text": "makeWords",
+        "type": "Title"
+    },
+    {
+        "text": "count",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "returns a string of made-up words based on the known text.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Trigram.",
+        "type": "Title"
+    },
+    {
+        "text": "measure",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "calculates the scalar length of the trigram vector and\nstores it in self.length.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Trigram.",
+        "type": "Title"
+    },
+    {
+        "text": "parseExcerpt",
+        "type": "Title"
+    },
+    {
+        "text": "excerpt",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "Trigram.",
+        "type": "Title"
+    },
+    {
+        "text": "similarity",
+        "type": "Title"
+    },
+    {
+        "text": "other",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "returns a number between 0 and 1 indicating similarity between\ntwo trigrams.\n1 means an identical ratio of trigrams;\n0 means no trigrams in common.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.text.",
+        "type": "Title"
+    },
+    {
+        "text": "assembleAllLyrics",
+        "type": "Title"
+    },
+    {
+        "text": "streamIn",
+        "type": "Title"
+    },
+    {
+        "text": "maxLyrics",
+        "type": "Title"
+    },
+    {
+        "text": "10",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "lyricSeparation",
+        "type": "Title"
+    },
+    {
+        "text": "'\\n'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Concatenate all Lyrics text from a stream separated by lyricSeparation.\nThe Stream is automatically recursed.\nuses assembleLyrics to do the heavy work.\nmaxLyrics just determines how many times we should parse through the score, since it is\nnot easy to determine what the maximum number of lyrics exist in the score.\nHere is a demo with one note and five lyrics.\n>>> f = corpus.parse('demos/multiple-verses.xml')\n>>> text.assembleLyrics(f, 1)\n'1. First'\n>>> text.assembleLyrics(f, 2)\n'2. Second'\n>>> l = text.assembleAllLyrics(f)\n>>> l\n'1. First\\n2. Second\\n3. Third\\n4. Fourth\\n5. Fifth'\n\n\n\nChanged in v8: no lyric separator appears at the beginning.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.text.",
+        "type": "Title"
+    },
+    {
+        "text": "assembleLyrics",
+        "type": "Title"
+    },
+    {
+        "text": "streamIn",
+        "type": "Title"
+    },
+    {
+        "text": "lineNumber",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Concatenate text from a stream. The Stream is automatically flattened.\nThe lineNumber parameter determines which line of text is assembled,\nas a ONE-indexed identifier in the .lyrics array.\n(To be changed in v8 to go with an identifier.).  This means that\nlineNumber=0 will retrieve the last line of text.\n>>> s = stream.Stream()\n>>> n1 = note.Note()\n>>> n1.lyric = 'Hi'\n>>> n2 = note.Note()\n>>> n2.lyric = 'there'\n>>> s.append(n1)\n>>> s.append(n2)\n>>> text.assembleLyrics(s)\n'Hi there'\n\n\nComposite lyrics can also be assembled.\n>>> composite = note.Lyric()\n>>> composite0 = note.Lyric(text=\"He'\", syllabic='begin')\n>>> composite1 = note.Lyric(text=\"ya\", syllabic='end')\n>>> composite1.elisionBefore = '_'\n>>> composite.components = [composite0, composite1]\n>>> n1.lyrics[0] = composite\n>>> text.assembleLyrics(s)\n\"He'_ya there\"\n\n\nTo get the lyrics from another line, set the lineNumber attribute.\n(see also assembleAllLyrics() to get all\nlyrics).\n>>> n1.addLyric('Bye')\n>>> n2.addLyric('Now')\n>>> text.assembleLyrics(s, lineNumber=2)\n'Bye Now'",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.text.",
+        "type": "Title"
+    },
+    {
+        "text": "postpendArticle",
+        "type": "Title"
+    },
+    {
+        "text": "src",
+        "type": "Title"
+    },
+    {
+        "text": "language",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a text string, if an article is found in a leading position,\nplace it at the end with a comma.\n>>> text.postpendArticle('The Ale is Dear')\n'Ale is Dear, The'\n>>> text.postpendArticle('The Ale is Dear', 'en')\n'Ale is Dear, The'\n>>> text.postpendArticle('The Ale is Dear', 'it')\n'The Ale is Dear'\n>>> text.postpendArticle('Il Combattimento di Tancredi e Clorinda', 'it')\n'Combattimento di Tancredi e Clorinda, Il'",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.text.",
+        "type": "Title"
+    },
+    {
+        "text": "prependArticle",
+        "type": "Title"
+    },
+    {
+        "text": "src",
+        "type": "Title"
+    },
+    {
+        "text": "language",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a text string, if an article is found in a trailing position with a comma,\nplace the article in front and remove the comma.\n>>> text.prependArticle('Ale is Dear, The')\n'The Ale is Dear'\n>>> text.prependArticle('Ale is Dear, The', 'en')\n'The Ale is Dear'\n>>> text.prependArticle('Ale is Dear, The', 'it')\n'Ale is Dear, The'\n>>> text.prependArticle('Combattimento di Tancredi e Clorinda, Il', 'it')\n'Il Combattimento di Tancredi e Clorinda'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.text",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

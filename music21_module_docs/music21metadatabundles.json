@@ -1,0 +1,978 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.metadata.bundles",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.metadata",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.metadata.caching",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.metadata.bundles\nMetadataBundle\nMetadataBundle\nMetadataBundle.filePath\nMetadataBundle.name\nMetadataBundle.corpus\nMetadataBundle.__eq__()\nMetadataBundle.__getitem__()\nMetadataBundle.addFromPaths()\nMetadataBundle.clear()\nMetadataBundle.corpusPathToKey()\nMetadataBundle.delete()\nMetadataBundle.difference()\nMetadataBundle.intersection()\nMetadataBundle.isdisjoint()\nMetadataBundle.issubset()\nMetadataBundle.issuperset()\nMetadataBundle.listSearchFields()\nMetadataBundle.read()\nMetadataBundle.search()\nMetadataBundle.symmetric_difference()\nMetadataBundle.union()\nMetadataBundle.validate()\nMetadataBundle.write()\n\n\n\n\nMetadataEntry\nMetadataEntry\nMetadataEntry.corpusName\nMetadataEntry.corpusPath\nMetadataEntry.metadata\nMetadataEntry.number\nMetadataEntry.sourcePath\nMetadataEntry.parse()\nMetadataEntry.search()\nMetadataEntry.show()\n\n\n\n\nFunctions\ndemo_bundle()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.metadata.bundles\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "MetadataBundle\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.metadata.bundles.",
+        "type": "Title"
+    },
+    {
+        "text": "MetadataBundle",
+        "type": "Title"
+    },
+    {
+        "text": "expr",
+        "type": "Title"
+    },
+    {
+        "text": "'music21.corpus.corpora.Corpus'",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "An object that provides access to, searches within, and stores and loads\nmultiple Metadata objects.\n>>> coreBundle = corpus.corpora.CoreCorpus().metadataBundle\n>>> coreBundle\n<music21.metadata.bundles.MetadataBundle 'core': {151... entries}>\n\n\n(The coreBundle has around 15100 entries; I've put \u0098\u2026' in the\ndocs so I don't need to rewrite them every time we add a new piece)\n>>> searchResults = coreBundle.search('bach', field='composer')\n>>> searchResults\n<music21.metadata.bundles.MetadataBundle {363 entries}>\n\n\n>>> resultsEntries = searchResults.search('3/4')\n>>> resultsEntries\n<music21.metadata.bundles.MetadataBundle {40 entries}>\n\n\nResults are ordered by their source path:\n>>> resultsEntries[0]\n<music21.metadata.bundles.MetadataEntry 'bach_bwv11_6_mxl'>\n\n\nTo get a score out of the entry, call .parse()\n>>> resultsEntries[0].parse()\n<music21.stream.Score ...>\n\n\nOr pass it into converter:\n>>> converter.parse(resultsEntries[0])\n<music21.stream.Score ...>\n\n\nA metadata bundle can be instantiated in three ways, (1) from a Corpus instance,\nor (2) a string indicating which corpus name to draw from, and then calling\n.read() or (3) by calling\n.metadataBundle on a corpus object.  This\ncalls .read() automatically:\nMethod 1:\n>>> coreCorpus = corpus.corpora.CoreCorpus()\n>>> coreBundle = metadata.bundles.MetadataBundle(coreCorpus)\n>>> localCorpus = corpus.corpora.LocalCorpus()\n>>> localBundle = metadata.bundles.MetadataBundle(localCorpus)\n\n\nMethod 2:\n>>> coreBundle = metadata.bundles.MetadataBundle('core')\n>>> localBundle = metadata.bundles.MetadataBundle('local')\n\n\nAfter calling these you'll need to call read():\n>>> coreBundle\n<music21.metadata.bundles.MetadataBundle 'core': {0 entries}>\n>>> coreBundle.read()\n<music21.metadata.bundles.MetadataBundle 'core': {151... entries}>\n>>> coreBundle\n<music21.metadata.bundles.MetadataBundle 'core': {151... entries}>\n\n\nMethod 3:\n>>> coreBundle = corpus.corpora.CoreCorpus().metadataBundle\n>>> localBundle = corpus.corpora.LocalCorpus().metadataBundle\n\n\n>>> coreBundle\n<music21.metadata.bundles.MetadataBundle 'core': {151... entries}>\n\n\nAdditionally, any two metadata bundles can be operated on together as\nthough they were sets, allowing us to build up more complex searches:\n>>> coreBundle = corpus.corpora.CoreCorpus().metadataBundle\n>>> bachBundle = coreBundle.search('bach', 'composer')\n>>> bachBundle\n<music21.metadata.bundles.MetadataBundle {363 entries}>\n>>> tripleMeterBundle = coreBundle.search('3/4')\n>>> tripleMeterBundle\n<music21.metadata.bundles.MetadataBundle {1875 entries}>\n>>> bachBundle.intersection(tripleMeterBundle)\n<music21.metadata.bundles.MetadataBundle {40 entries}>\n\n\nFinally, a metadata bundle need not be associated with any corpus at all,\nand can be populated ad hoc:\n>>> anonymousBundle = metadata.bundles.MetadataBundle()\n>>> mdb = corpus.corpora.CoreCorpus().search('monteverdi')[:4]\n>>> paths = [common.getCorpusFilePath() / x.sourcePath for x in mdb]\n>>> failedPaths = anonymousBundle.addFromPaths(\n...     paths, useMultiprocessing=False)\n>>> failedPaths\n[]\n>>> anonymousBundle\n<music21.metadata.bundles.MetadataBundle {4 entries}>",
+        "type": "ListItem"
+    },
+    {
+        "text": "MetadataBundle bases",
+        "type": "Title"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "MetadataBundle read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "MetadataBundle.",
+        "type": "Title"
+    },
+    {
+        "text": "filePath",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The filesystem name of the cached metadata bundle, if the metadata\nbundle's name is not None.\n>>> ccPath = corpus.corpora.CoreCorpus().metadataBundle.filePath\n>>> ccPath.name\n'core.p.gz'\n>>> '_metadataCache' in ccPath.parts\nTrue\n\n\n>>> localPath = corpus.corpora.LocalCorpus().metadataBundle.filePath\n>>> localPath.name\n'local.p.gz'\n\n\nLocal corpora metadata is stored in the scratch dir, not the\ncorpus directory\n>>> '_metadataCache' in localPath.parts\nFalse\n\n\n>>> funkCorpus = corpus.corpora.LocalCorpus('funk')\n>>> funkPath = funkCorpus.metadataBundle.filePath\n>>> funkPath.name\n'local-funk.p.gz'",
+        "type": "ListItem"
+    },
+    {
+        "text": "MetadataBundle.",
+        "type": "Title"
+    },
+    {
+        "text": "name",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The name of the metadata bundle.\nCan be \u0098core', \u0098local', \u0098{name}' where name is the name\nof a named local corpus or None.\nThe names \u0098core' and \u0098local' refer to the core and local\ncorpora respectively: (virtual corpus is currently offline)\n>>> metadata.bundles.MetadataBundle().name is None\nTrue\n>>> corpus.corpora.CoreCorpus().metadataBundle.name\n'core'\n\n\n>>> funkCorpus = corpus.corpora.LocalCorpus('funk')\n>>> funkCorpus.metadataBundle.name\n'funk'\n\n\nReturn string or None.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "MetadataBundle read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "MetadataBundle.",
+        "type": "Title"
+    },
+    {
+        "text": "corpus",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The corpus.corpora.Corpus object associated with the metadata\nbundle's name.\n>>> coreBundle = corpus.corpora.CoreCorpus().metadataBundle\n>>> coreBundle\n<music21.metadata.bundles.MetadataBundle 'core': {151... entries}>\n>>> coreBundle.corpus\n<music21.corpus.corpora.CoreCorpus>",
+        "type": "ListItem"
+    },
+    {
+        "text": "MetadataBundle methods",
+        "type": "Title"
+    },
+    {
+        "text": "MetadataBundle.",
+        "type": "Title"
+    },
+    {
+        "text": "__eq__",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "other",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "True if expr is of the same type, and contains an identical set of\nentries, otherwise false:\n>>> coreBundle = corpus.corpora.CoreCorpus().metadataBundle\n>>> bachBundle = coreBundle.search('bach', 'composer')\n>>> corelliBundle = coreBundle.search('corelli', 'composer')\n>>> bachBundle == corelliBundle\nFalse\n>>> bachBundle == coreBundle.search(\n...     'bach',\n...     field='composer',\n...     )\nTrue\n>>> bachBundle == 'foo'\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "MetadataBundle.",
+        "type": "Title"
+    },
+    {
+        "text": "__getitem__",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "MetadataBundle.",
+        "type": "Title"
+    },
+    {
+        "text": "addFromPaths",
+        "type": "Title"
+    },
+    {
+        "text": "paths",
+        "type": "Title"
+    },
+    {
+        "text": "parseUsingCorpus",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "useMultiprocessing",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "storeOnDisk",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "verbose",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Parse and store metadata from numerous files.\nIf any files cannot be loaded, their file paths will be collected in a\nlist that is returned.\nReturns a list of file paths with errors and stores the extracted\nmetadata in self._metadataEntries.\n>>> metadataBundle = metadata.bundles.MetadataBundle()\n>>> p = corpus.corpora.CoreCorpus().getWorkList('bach/bwv66.6')\n>>> metadataBundle.addFromPaths(\n...     p,\n...     parseUsingCorpus=False,\n...     useMultiprocessing=False,\n...     )\n[]\n>>> len(metadataBundle._metadataEntries)\n1\n\n\nSet Verbose to True to get updates even if debug is off.",
+        "type": "ListItem"
+    },
+    {
+        "text": "MetadataBundle.",
+        "type": "Title"
+    },
+    {
+        "text": "clear",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Clear all keys in a metadata bundle:\n>>> coreBundle = corpus.corpora.CoreCorpus().metadataBundle\n>>> bachBundle = coreBundle.search('bach', 'composer')\n>>> bachBundle\n<music21.metadata.bundles.MetadataBundle {363 entries}>\n\n\n>>> bachBundle.clear()\n>>> bachBundle\n<music21.metadata.bundles.MetadataBundle {0 entries}>\n\n\nReturns None.",
+        "type": "ListItem"
+    },
+    {
+        "text": "static",
+        "type": "Title"
+    },
+    {
+        "text": "MetadataBundle.",
+        "type": "Title"
+    },
+    {
+        "text": "corpusPathToKey",
+        "type": "Title"
+    },
+    {
+        "text": "filePath",
+        "type": "Title"
+    },
+    {
+        "text": "number",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a file path or corpus path, return the metadata key:\n>>> mb = metadata.bundles.MetadataBundle()\n>>> key = mb.corpusPathToKey('bach/bwv1007/prelude')\n>>> key.endswith('bach_bwv1007_prelude')\nTrue\n\n\n>>> key = mb.corpusPathToKey('corelli/opus3no1/1grave.xml')\n>>> key.endswith('corelli_opus3no1_1grave_xml')\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "MetadataBundle.",
+        "type": "Title"
+    },
+    {
+        "text": "delete",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Delete the filesystem cache of a named metadata bundle.\nDoes not delete the in-memory metadata bundle.\nReturn None.",
+        "type": "ListItem"
+    },
+    {
+        "text": "MetadataBundle.",
+        "type": "Title"
+    },
+    {
+        "text": "difference",
+        "type": "Title"
+    },
+    {
+        "text": "metadataBundle",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Compute the set-wise difference of two metadata bundles:\n>>> coreBundle = corpus.corpora.CoreCorpus().metadataBundle\n>>> bachBundle = coreBundle.search('bach', 'composer')\n>>> bachBundle\n<music21.metadata.bundles.MetadataBundle {363 entries}>\n\n\n>>> tripleMeterBundle = coreBundle.search('3/4')\n>>> tripleMeterBundle\n<music21.metadata.bundles.MetadataBundle {1875 entries}>\n\n\n>>> bachBundle.difference(tripleMeterBundle)\n<music21.metadata.bundles.MetadataBundle {323 entries}>\n\n\nReturns a new metadata bundle.",
+        "type": "ListItem"
+    },
+    {
+        "text": "MetadataBundle.",
+        "type": "Title"
+    },
+    {
+        "text": "intersection",
+        "type": "Title"
+    },
+    {
+        "text": "metadataBundle",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Compute the set-wise intersection of two metadata bundles:\n>>> coreBundle = corpus.corpora.CoreCorpus().metadataBundle\n>>> bachBundle = coreBundle.search('bach', 'composer')\n>>> bachBundle\n<music21.metadata.bundles.MetadataBundle {363 entries}>\n\n\n>>> tripleMeterBundle = coreBundle.search('3/4')\n>>> tripleMeterBundle\n<music21.metadata.bundles.MetadataBundle {1875 entries}>\n\n\n>>> bachBundle.intersection(tripleMeterBundle)\n<music21.metadata.bundles.MetadataBundle {40 entries}>\n\n\nReturns a new MetadataBundle.",
+        "type": "ListItem"
+    },
+    {
+        "text": "MetadataBundle.",
+        "type": "Title"
+    },
+    {
+        "text": "isdisjoint",
+        "type": "Title"
+    },
+    {
+        "text": "metadataBundle",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "True if the set of keys in one metadata bundle are disjoint with\nthe set of keys in another:\n>>> coreBundle = corpus.corpora.CoreCorpus().metadataBundle\n>>> bachBundle = coreBundle.search('bach', 'composer')\n>>> bachBundle\n<music21.metadata.bundles.MetadataBundle {363 entries}>\n\n\n>>> corelliBundle = coreBundle.search('corelli', 'composer')\n>>> corelliBundle\n<music21.metadata.bundles.MetadataBundle {1 entry}>\n\n\n>>> bachBundle.isdisjoint(corelliBundle)\nTrue\n\n\n>>> tripleMeterBundle = coreBundle.search('3/4')\n>>> tripleMeterBundle\n<music21.metadata.bundles.MetadataBundle {1875 entries}>\n\n\n>>> bachBundle.isdisjoint(tripleMeterBundle)\nFalse\n\n\nReturns boolean.",
+        "type": "ListItem"
+    },
+    {
+        "text": "MetadataBundle.",
+        "type": "Title"
+    },
+    {
+        "text": "issubset",
+        "type": "Title"
+    },
+    {
+        "text": "metadataBundle",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "True if the set of keys in one metadata bundle are a subset of\nthe keys in another:\n>>> coreBundle = corpus.corpora.CoreCorpus().metadataBundle\n>>> bachBundle = coreBundle.search('bach', 'composer')\n>>> bachBundle\n<music21.metadata.bundles.MetadataBundle {363 entries}>\n\n\n>>> tripleMeterBachBundle = bachBundle.search('3/4')\n>>> tripleMeterBachBundle\n<music21.metadata.bundles.MetadataBundle {40 entries}>\n\n\n>>> tripleMeterBachBundle.issubset(bachBundle)\nTrue\n\n\n>>> bachBundle.issubset(tripleMeterBachBundle)\nFalse\n\n\nReturns boolean.",
+        "type": "ListItem"
+    },
+    {
+        "text": "MetadataBundle.",
+        "type": "Title"
+    },
+    {
+        "text": "issuperset",
+        "type": "Title"
+    },
+    {
+        "text": "metadataBundle",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "True if the set of keys in one metadata bundle are a superset of\nthe keys in another:\n>>> coreBundle = corpus.corpora.CoreCorpus().metadataBundle\n>>> bachBundle = coreBundle.search('bach', 'composer')\n>>> bachBundle\n<music21.metadata.bundles.MetadataBundle {363 entries}>\n\n\n>>> tripleMeterBachBundle = bachBundle.search('3/4')\n>>> tripleMeterBachBundle\n<music21.metadata.bundles.MetadataBundle {40 entries}>\n\n\n>>> tripleMeterBachBundle.issuperset(bachBundle)\nFalse\n\n\n>>> bachBundle.issuperset(tripleMeterBachBundle)\nTrue\n\n\nReturns boolean.",
+        "type": "ListItem"
+    },
+    {
+        "text": "static",
+        "type": "Title"
+    },
+    {
+        "text": "MetadataBundle.",
+        "type": "Title"
+    },
+    {
+        "text": "listSearchFields",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "List all available search field names:\n>>> for field in metadata.bundles.MetadataBundle.listSearchFields():\n...     field\n...\n'abstract'\n'accessRights'\n'accompanyingMaterialWriter'\n...\n'composer'\n'composerAlias'\n'composerCorporate'\n'conceptor'\n'conductor'\n...\n'dateCreated'\n'dateFirstPublished'\n'dateIssued'\n'dateModified'\n'dateSubmitted'\n'dateValid'\n...\n'tempoFirst'\n'tempos'\n'textLanguage'\n'textOriginalLanguage'\n'timeSignatureFirst'\n'timeSignatures'\n'title'\n...",
+        "type": "ListItem"
+    },
+    {
+        "text": "MetadataBundle.",
+        "type": "Title"
+    },
+    {
+        "text": "read",
+        "type": "Title"
+    },
+    {
+        "text": "filePath",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Load cached metadata from the file path suggested by the name of this\nMetadataBundle (\u0098core', \u0098local', or a name).\nIf a specific filepath is given with the filePath keyword, attempt to\nload cached metadata from the file at that location.\nIf filePath is None, and self.filePath is also None, do nothing.\n>>> coreBundle = metadata.bundles.MetadataBundle('core').read()\n\n\nIf a metadata is unnamed, and no file path is specified, an exception\nwill be thrown:\n>>> anonymousBundle = metadata.bundles.MetadataBundle().read()\nTraceback (most recent call last):\nmusic21.exceptions21.MetadataException: Unnamed MetadataBundles have\n    no default file path to read from.",
+        "type": "ListItem"
+    },
+    {
+        "text": "MetadataBundle.",
+        "type": "Title"
+    },
+    {
+        "text": "search",
+        "type": "Title"
+    },
+    {
+        "text": "query",
+        "type": "Title"
+    },
+    {
+        "text": "str | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "field",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "fileExtensions",
+        "type": "Title"
+    },
+    {
+        "text": "Iterable[str]",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Perform search, on all stored metadata, permit regular expression\nmatching.\n>>> workList = corpus.corpora.CoreCorpus().getWorkList('ciconia')\n>>> metadataBundle = metadata.bundles.MetadataBundle()\n>>> failedPaths = metadataBundle.addFromPaths(\n...     workList,\n...     parseUsingCorpus=False,\n...     useMultiprocessing=False,\n...     )\n>>> failedPaths\n[]\n\n\n>>> searchResult = metadataBundle.search(\n...     'cicon',\n...     field='composer'\n...     )\n>>> searchResult\n<music21.metadata.bundles.MetadataBundle {1 entry}>\n>>> len(searchResult)\n1\n>>> searchResult[0]\n<music21.metadata.bundles.MetadataEntry 'ciconia_quod_jactatur_xml'>\n>>> searchResult = metadataBundle.search(\n...     'cicon',\n...     field='composer',\n...     fileExtensions=('.krn',),\n...     )\n>>> len(searchResult)  # no files in this format\n0\n\n\n>>> searchResult = metadataBundle.search(\n...     'cicon',\n...     field='composer',\n...     fileExtensions=('.xml',),\n...     )\n>>> len(searchResult)\n1\n\n\nSearches can also use keyword args:\n>>> metadataBundle.search(composer='cicon')\n<music21.metadata.bundles.MetadataBundle {1 entry}>",
+        "type": "ListItem"
+    },
+    {
+        "text": "MetadataBundle.",
+        "type": "Title"
+    },
+    {
+        "text": "symmetric_difference",
+        "type": "Title"
+    },
+    {
+        "text": "metadataBundle",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Compute the set-wise symmetric difference of two metadata bundles:\n>>> coreBundle = corpus.corpora.CoreCorpus().metadataBundle\n>>> bachBundle = coreBundle.search('bach', 'composer')\n>>> bachBundle\n<music21.metadata.bundles.MetadataBundle {363 entries}>\n>>> tripleMeterBundle = coreBundle.search('3/4')\n>>> tripleMeterBundle\n<music21.metadata.bundles.MetadataBundle {1875 entries}>\n>>> bachBundle.symmetric_difference(tripleMeterBundle)\n<music21.metadata.bundles.MetadataBundle {2158 entries}>\n\n\nReturns a new MetadataBundle.",
+        "type": "ListItem"
+    },
+    {
+        "text": "MetadataBundle.",
+        "type": "Title"
+    },
+    {
+        "text": "union",
+        "type": "Title"
+    },
+    {
+        "text": "metadataBundle",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Compute the set-wise union of two metadata bundles:\n>>> coreBundle = corpus.corpora.CoreCorpus().metadataBundle\n>>> bachBundle = coreBundle.search('bach', 'composer')\n>>> bachBundle\n<music21.metadata.bundles.MetadataBundle {363 entries}>\n>>> beethovenBundle = coreBundle.search(\n...     'beethoven',\n...     field='composer',\n...     )\n>>> beethovenBundle\n<music21.metadata.bundles.MetadataBundle {23 entries}>\n\n\n>>> bachBundle.union(beethovenBundle)\n<music21.metadata.bundles.MetadataBundle {386 entries}>\n\n\nReturns a new MetadataBundle.",
+        "type": "ListItem"
+    },
+    {
+        "text": "MetadataBundle.",
+        "type": "Title"
+    },
+    {
+        "text": "validate",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Validate each metadata entry in a metadata bundle.\nIf the entry represents a non-virtual corpus asset, test that its\nsource path is locatable on disk.  If not, remove the metadata entry\nfrom the metadata bundle.",
+        "type": "ListItem"
+    },
+    {
+        "text": "MetadataBundle.",
+        "type": "Title"
+    },
+    {
+        "text": "write",
+        "type": "Title"
+    },
+    {
+        "text": "filePath",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Write the metadata bundle to disk as a pickle file.\nIf filePath is None, use self.filePath.\nReturns the metadata bundle.\n>>> bachBundle = coreBundle.search('bach', 'composer')\n>>> bachBundle\n<music21.metadata.bundles.MetadataBundle {363 entries}>\n>>> bachBundle.filePath is None\nTrue\n\n\n>>> import os\n>>> e = environment.Environment()\n>>> tempFilePath = e.getTempFile()\n>>> bachBundle.write(filePath=tempFilePath)\n<music21.metadata.bundles.MetadataBundle {363 entries}>\n>>> os.remove(tempFilePath)",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "MetadataEntry\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.metadata.bundles.",
+        "type": "Title"
+    },
+    {
+        "text": "MetadataEntry",
+        "type": "Title"
+    },
+    {
+        "text": "sourcePath",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "number",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "metadataPayload",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "corpusName",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "An entry in a metadata bundle.\nThe metadata entry holds information about the source of the metadata,\nand can be parsed to reconstitute the score object the metadata was\nderived from:\n>>> coreBundle = corpus.corpora.CoreCorpus().metadataBundle\n>>> metadataEntry = coreBundle.search('bwv66.6')[0]\n>>> metadataEntry\n<music21.metadata.bundles.MetadataEntry 'bach_bwv66_6_mxl'>\n\n\nThe sourcePath of the metadata entry refers to the file path at which its\nscore file is found:\n>>> metadataEntry.sourcePath\nPosixPath('bach/bwv66.6.mxl')\n\n\nThe metadata property contains its RichMetadata object:\n>>> metadataEntry.metadata\n<music21.metadata.RichMetadata object at 0x...>\n\n\nNote that the id is not necessarily the current memory location.\nAnd the metadata entry can be parsed:\n>>> metadataEntry.parse()\n<music21.stream.Score ...>",
+        "type": "ListItem"
+    },
+    {
+        "text": "MetadataEntry bases",
+        "type": "Title"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "MetadataEntry read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "MetadataEntry.",
+        "type": "Title"
+    },
+    {
+        "text": "corpusName",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "MetadataEntry.",
+        "type": "Title"
+    },
+    {
+        "text": "corpusPath",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "MetadataEntry.",
+        "type": "Title"
+    },
+    {
+        "text": "metadata",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns the Metadata object that is stored in the bundle.",
+        "type": "ListItem"
+    },
+    {
+        "text": "MetadataEntry.",
+        "type": "Title"
+    },
+    {
+        "text": "number",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "MetadataEntry.",
+        "type": "Title"
+    },
+    {
+        "text": "sourcePath",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "MetadataEntry methods",
+        "type": "Title"
+    },
+    {
+        "text": "MetadataEntry.",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "MetadataEntry.",
+        "type": "Title"
+    },
+    {
+        "text": "search",
+        "type": "Title"
+    },
+    {
+        "text": "query",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "field",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "MetadataEntry.",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "showFormat",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.metadata.bundles.",
+        "type": "Title"
+    },
+    {
+        "text": "demo_bundle",
+        "type": "Title"
+    },
+    {
+        "text": "which",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "This helps with testing by reusing bundles.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.metadata.bundles",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

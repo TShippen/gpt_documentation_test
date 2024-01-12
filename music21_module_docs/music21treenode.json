@@ -1,0 +1,574 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.tree.node",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.tree.fromStream",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.tree.spans",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.tree.node\nElementNode\nElementNode\nElementNode.highestPosition\nElementNode.lowestPosition\nElementNode.updateEndTimes()\nElementNode.updateIndices()\nElementNode.endTimeHigh\nElementNode.endTimeLow\nElementNode.payloadElementIndex\nElementNode.subtreeElementsStartIndex\nElementNode.subtreeElementsStopIndex\n\n\n\n\nOffsetNode\nOffsetNode\nOffsetNode.payloadEndTimes()\nOffsetNode.updateEndTimes()\nOffsetNode.updateIndices()\nOffsetNode.payload\nOffsetNode.payloadElementsStartIndex\nOffsetNode.payloadElementsStopIndex",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.tree.node\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Internal data structures for timespan collections.",
+        "type": "Title"
+    },
+    {
+        "text": "This is an implementation detail of the TimespanTree class.  Most music21 users\ncan happily ignore this module.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "ElementNode\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.tree.node.",
+        "type": "Title"
+    },
+    {
+        "text": "ElementNode",
+        "type": "Title"
+    },
+    {
+        "text": "position",
+        "type": "Title"
+    },
+    {
+        "text": "payload",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A node containing a single element, which is aware of the element's\nendTime and index within a stream, as well as the endTimes and indices of the\nelements to the left and right of it.\nHere's an element node that is at first is no different from an AVL node, except in\nrepresentation:\n>>> n = note.Note('C4')\n>>> n.duration.quarterLength = 2.0\n>>> n.offset = 4.0\n\n\n>>> elNode = tree.node.ElementNode(n.sortTuple(), n)\n>>> elNode\n<ElementNode: Start:4.0 <0.20...> Indices:(l:-1 *-1* r:-1) Payload:<music21.note.Note C>>\n\n\n>>> avlNode = tree.core.AVLNode(4.0, n)\n>>> avlNode\n<AVLNode: Start:4.0 Height:0 L:None R:None>\n\n\nBut now let's give n a stream context where it is element 1 in the measure.\n>>> m = stream.Measure()\n>>> r = note.Rest(type='whole')\n>>> m.insert(0.0, r)\n>>> m.insert(4.0, n)\n>>> n2 = note.Note('F#4')\n>>> n2.duration.quarterLength = 3.0\n>>> m.insert(6.0, n2)\n\n\nLet's create an ElementNode object for each object and attach them to elNode:\n>>> rElNode = tree.node.ElementNode(r.sortTuple(), r)\n>>> n2ElNode = tree.node.ElementNode(n2.sortTuple(), n2)\n>>> elNode.leftChild = rElNode\n>>> elNode.update()\n>>> elNode.rightChild = n2ElNode\n>>> elNode.update()\n\n\nEverything so far could be done w/ AVLNodes, which are not music21 specific.\nBut now we'll add some specific features, based on the information from the Stream.\n>>> m[1] is n\nTrue\n>>> m.highestTime\n9.0\n>>> m.offset\n0.0\n\n\n>>> rElNode.payloadElementIndex = 0\n>>> elNode.payloadElementIndex = 1\n>>> n2ElNode.payloadElementIndex = 2\n\n\n>>> elNode.updateIndices()\n>>> elNode.updateEndTimes()\n\n\nNow let's look at the ElementNode:\n>>> elNode\n<ElementNode: Start:4.0 <0.20...> Indices:(l:0 *1* r:3) Payload:<music21.note.Note C>>\n\n\nelNode is at 4.0.  With it and underneath it are nodes from 0 <= nodes < 3.  This\nseemingly screwy way of counting is exactly slice notation: [0:3].\nSo if we wanted to get a certain index number we would know that index 0 is in the\nleftChild's payload, index 2 is in the rightChild's payload, and index 1 is this node's\npayload.  This information is easy to compute for ElementNodes, since each node holds\nexactly one element (since the position here is a sortTuple which is unique); for its\nsubclass, OffsetNode, where multiple elements can be in a node, this will become\nmuch more important and harder to work with.\nHere is how you can actually get this information.\n>>> elNode.subtreeElementsStartIndex\n0\n>>> elNode.subtreeElementsStopIndex\n3\n\n\nIf they've never been set then they return -1, but the .updateIndices() call above\nset these number for the children also. So they return the node's own index and one above:\n>>> n2ElNode.subtreeElementsStartIndex\n2\n>>> n2ElNode.subtreeElementsStopIndex\n3\n\n\nNow here is the thing that actually makes trees based on ElementNodes useful.  Each node\nknows the lowest and highest endTime as well as offset among the nodes below it:\n>>> elNode.lowestPosition.offset\n0.0\n>>> elNode.endTimeLow\n4.0\n>>> elNode.highestPosition.offset\n6.0\n>>> elNode.endTimeHigh\n9.0\n\n\nWhat's so great about this?  If you're doing a \u009cgetElementsByOffset\u009d search, you\ncan know from this information whether there's going to be an element whose start or\nend time will possibly match the offset span without needing to descend into the tree.\nThe last element in a Stream often doesn't has the highest endTime (think of different\nvoices, flat streams, etc.) so searches for offsets are often O(n) when\nthey could be O(log n) if the information were cached into a tree as this does.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ElementNode bases",
+        "type": "Title"
+    },
+    {
+        "text": "AVLNode",
+        "type": "ListItem"
+    },
+    {
+        "text": "SlottedObjectMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "ElementNode read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "ElementNode.",
+        "type": "Title"
+    },
+    {
+        "text": "highestPosition",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns the highest position in the tree rooted on this node.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ElementNode.",
+        "type": "Title"
+    },
+    {
+        "text": "lowestPosition",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns the lowest position in the tree rooted on this node.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ElementNode methods",
+        "type": "Title"
+    },
+    {
+        "text": "ElementNode.",
+        "type": "Title"
+    },
+    {
+        "text": "updateEndTimes",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Traverses the tree structure and updates cached maximum and minimum\nendTime values for the subtrees rooted at each node.\nUsed internally by ElementTree.\nReturns None.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ElementNode.",
+        "type": "Title"
+    },
+    {
+        "text": "updateIndices",
+        "type": "Title"
+    },
+    {
+        "text": "parentStopIndex",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Updates the payloadElementIndex, and the subtreeElementsStartIndex and\nsubtreeElementsStopIndex (and does so for all child nodes) by traversing\nthe tree structure.\nUpdates cached indices which keep\ntrack of the index of the element stored at each node, and of the\nminimum and maximum indices of the subtrees rooted at each node.\nCalled on rootNode of a tree that uses ElementNodes, such as ElementTree\nparentStopIndex specifies the stop index of the parent node, if known.\nIt is used internally by the function.\nReturns None.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from AVLNode:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "debug() moveAttributes() rebalance() rotateLeftLeft() rotateLeftRight() rotateRightLeft() rotateRightRight() update()",
+        "type": "Table"
+    },
+    {
+        "text": "ElementNode instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "ElementNode.",
+        "type": "Title"
+    },
+    {
+        "text": "endTimeHigh",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The highest endTime of any node in the subtree rooted on this node.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ElementNode.",
+        "type": "Title"
+    },
+    {
+        "text": "endTimeLow",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The lowest endTime of any node in the subtree rooted on this node.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ElementNode.",
+        "type": "Title"
+    },
+    {
+        "text": "payloadElementIndex",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The index in a stream of the element stored in the payload of this node.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ElementNode.",
+        "type": "Title"
+    },
+    {
+        "text": "subtreeElementsStartIndex",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The lowest element index of an element in the payload of any node of the\nsubtree rooted on this node.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ElementNode.",
+        "type": "Title"
+    },
+    {
+        "text": "subtreeElementsStopIndex",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The highest element index of an element in the payload of any node of the\nsubtree rooted on this node.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Instance variables inherited from AVLNode:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "balance height leftChild payload position rightChild",
+        "type": "Table"
+    },
+    {
+        "text": "OffsetNode\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.tree.node.",
+        "type": "Title"
+    },
+    {
+        "text": "OffsetNode",
+        "type": "Title"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "payload",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A node representing zero, one, or many elements at an offset.  It has all the\npower of an ElementNode but substantially more.\nHere's an example of what it means and does:\n>>> score = tree.makeExampleScore()\n>>> sf = score.flatten()\n>>> sf.show('text', addEndTimes=True)\n{0.0 - 0.0} <music21.instrument.Instrument 'PartA: : '>\n{0.0 - 0.0} <music21.instrument.Instrument 'PartB: : '>\n{0.0 - 0.0} <music21.clef.BassClef>\n{0.0 - 0.0} <music21.clef.BassClef>\n{0.0 - 0.0} <music21.meter.TimeSignature 2/4>\n{0.0 - 0.0} <music21.meter.TimeSignature 2/4>\n{0.0 - 1.0} <music21.note.Note C>\n{0.0 - 2.0} <music21.note.Note C#>\n{1.0 - 2.0} <music21.note.Note D>\n{2.0 - 3.0} <music21.note.Note E>\n{2.0 - 4.0} <music21.note.Note G#>\n{3.0 - 4.0} <music21.note.Note F>\n{4.0 - 5.0} <music21.note.Note G>\n{4.0 - 6.0} <music21.note.Note E#>\n{5.0 - 6.0} <music21.note.Note A>\n{6.0 - 7.0} <music21.note.Note B>\n{6.0 - 8.0} <music21.note.Note D#>\n{7.0 - 8.0} <music21.note.Note C>\n{8.0 - 8.0} <music21.bar.Barline type=final>\n{8.0 - 8.0} <music21.bar.Barline type=final>\n\n\n>>> scoreTree = tree.fromStream.asTimespans(sf, flatten=False, classList=None)\n>>> rn = scoreTree.rootNode\n\n\nThe RootNode here represents the starting position of the Note F at 3.0; It is the center\nof the elements in the flat Stream.  Its index is 5 (that is, it's the sixth note in the\nelement list) and its offset is 3.0\n>>> rn\n<OffsetNode 3.0 Indices:0,11,12,20 Length:1>\n>>> sf[11]\n<music21.note.Note F>\n>>> sf[11].offset\n3.0\n\n\nThus, the indices of 0:5:6:12 indicate that the left-side of the node handles indices\nfrom >= 0 to < 5; and the right-side of the node handles indices >= 6 and < 12, and this node\nhandles indices >= 5 and < 6.\nThe Length: {1} indicates that there is exactly one element at this location, that is,\nthe F.\nThe \u009cpayload\u009d of the node, is just that element wrapped in a list wrapped in an\nElementTimespan or PitchedTimespan:\n>>> rn.payload\n[<PitchedTimespan (3.0 to 4.0) <music21.note.Note F>>]\n>>> rn.payload[0].element\n<music21.note.Note F>\n>>> rn.payload[0].element is sf[11]\nTrue\n\n\nWe can look at the leftChild of the root node to get some more interesting cases:\n>>> left = rn.leftChild\n>>> left\n<OffsetNode 1.0 Indices:0,8,9,11 Length:1>\n\n\nIn the leftNode of the leftNode of the rootNode there are eight elements:\nmetadata and both notes that begin on offset 0.0:\n>>> leftLeft = left.leftChild\n>>> leftLeft\n<OffsetNode 0.0 Indices:0,0,8,8 Length:8>\n\n\n>>> leftLeft.payload\n[<ElementTimespan (0.0 to 0.0) <music21.instrument.Instrument 'PartA: : '>>,\n <ElementTimespan (0.0 to 0.0) <music21.instrument.Instrument 'PartB: : '>>,\n <ElementTimespan (0.0 to 0.0) <music21.clef.BassClef>>,\n <ElementTimespan (0.0 to 0.0) <music21.clef.BassClef>>,\n <ElementTimespan (0.0 to 0.0) <music21.meter.TimeSignature 2/4>>,\n <ElementTimespan (0.0 to 0.0) <music21.meter.TimeSignature 2/4>>,\n <PitchedTimespan (0.0 to 1.0) <music21.note.Note C>>,\n <PitchedTimespan (0.0 to 2.0) <music21.note.Note C#>>]\n\n\nThe Indices:0,0,8,8 indicates that leftLeft has neither left nor right children\n>>> leftLeft.leftChild is None\nTrue\n>>> leftLeft.rightChild is None\nTrue\n\n\nWhat makes an OffsetNode more interesting than other AWL Nodes is that it is aware of\nthe fact that it might have objects that end at different times, such as the zero-length\nmetadata and the 2.0 length half note\n>>> leftLeft.endTimeLow\n0.0\n>>> leftLeft.endTimeHigh\n2.0",
+        "type": "ListItem"
+    },
+    {
+        "text": "OffsetNode bases",
+        "type": "Title"
+    },
+    {
+        "text": "ElementNode",
+        "type": "ListItem"
+    },
+    {
+        "text": "AVLNode",
+        "type": "ListItem"
+    },
+    {
+        "text": "SlottedObjectMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "OffsetNode read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from ElementNode:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "highestPosition lowestPosition",
+        "type": "Table"
+    },
+    {
+        "text": "OffsetNode methods",
+        "type": "Title"
+    },
+    {
+        "text": "OffsetNode.",
+        "type": "Title"
+    },
+    {
+        "text": "payloadEndTimes",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "returns a (potentially unsorted) list of all the end times for all TimeSpans or\nElements in the payload.  Does not trust el.endTime because it might refer to a\ndifferent offset.  Rather, it takes the position and adds it to the\nduration.quarterLength.\n>>> offsetNode = tree.node.OffsetNode(40)\n>>> n = note.Note()\n>>> offsetNode.payload.append(n)\n>>> ts = tree.spans.Timespan(40, 44)\n>>> offsetNode.payload.append(ts)\n>>> offsetNode.payloadEndTimes()\n[41.0, 44.0]",
+        "type": "ListItem"
+    },
+    {
+        "text": "OffsetNode.",
+        "type": "Title"
+    },
+    {
+        "text": "updateEndTimes",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Traverses the tree structure and updates cached maximum and minimum\nendTime values for the subtrees rooted at each node.\nUsed internally by OffsetTree.\nReturns None",
+        "type": "ListItem"
+    },
+    {
+        "text": "OffsetNode.",
+        "type": "Title"
+    },
+    {
+        "text": "updateIndices",
+        "type": "Title"
+    },
+    {
+        "text": "parentStopIndex",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Updates the payloadElementsStartIndex, the payloadElementsStopIndex\nand the subtreeElementsStartIndex and\nsubtreeElementsStopIndex (and does so for all child nodes) by traversing\nthe tree structure.\nUpdates cached indices which keep\ntrack of the index of the element stored at each node, and of the\nminimum and maximum indices of the subtrees rooted at each node.\nCalled on rootNode of a tree that uses OffsetNodes, such as OffsetTree\nor TimespanTree\nReturns None.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from AVLNode:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "debug() moveAttributes() rebalance() rotateLeftLeft() rotateLeftRight() rotateRightLeft() rotateRightRight() update()",
+        "type": "Table"
+    },
+    {
+        "text": "OffsetNode instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "OffsetNode.",
+        "type": "Title"
+    },
+    {
+        "text": "payload",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The contents of the node at this point.  Usually a list of ElementTimespans\nor PitchedTimespans.\n>>> score = tree.makeExampleScore()\n>>> scoreTree = tree.fromStream.asTimespans(score, flatten=True,\n...                  classList=(note.Note, chord.Chord))\n>>> print(scoreTree.rootNode.debug())\n<OffsetNode 3.0 Indices:0,5,6,12 Length:1>\nL: <OffsetNode 1.0 Indices:0,2,3,5 Length:1>\nL: <OffsetNode 0.0 Indices:0,0,2,2 Length:2>\nR: <OffsetNode 2.0 Indices:3,3,5,5 Length:2>\nR: <OffsetNode 5.0 Indices:6,8,9,12 Length:1>\nL: <OffsetNode 4.0 Indices:6,6,8,8 Length:2>\nR: <OffsetNode 6.0 Indices:9,9,11,12 Length:2>\nR: <OffsetNode 7.0 Indices:11,11,12,12 Length:1>\n\n\n>>> scoreTree.rootNode.payload\n[<PitchedTimespan (3.0 to 4.0) <music21.note.Note F>>]\n\n\n>>> scoreTree.rootNode.leftChild.payload\n[<PitchedTimespan (1.0 to 2.0) <music21.note.Note D>>]\n\n\n>>> for x in scoreTree.rootNode.leftChild.rightChild.payload:\n...     x\n...\n<PitchedTimespan (2.0 to 3.0) <music21.note.Note E>>\n<PitchedTimespan (2.0 to 4.0) <music21.note.Note G#>>\n\n\n>>> scoreTree.rootNode.rightChild.payload\n[<PitchedTimespan (5.0 to 6.0) <music21.note.Note A>>]",
+        "type": "ListItem"
+    },
+    {
+        "text": "OffsetNode.",
+        "type": "Title"
+    },
+    {
+        "text": "payloadElementsStartIndex",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The timespan start index (i.e., the first x where s[x] is found in this Node's payload)\nof only those timespans stored in the payload of this node.",
+        "type": "ListItem"
+    },
+    {
+        "text": "OffsetNode.",
+        "type": "Title"
+    },
+    {
+        "text": "payloadElementsStopIndex",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The timespan stop index (i.e., the last x where s[x] is found in this Node's payload)\nof only those timespans stored in the payload of this node.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Instance variables inherited from ElementNode:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "endTimeHigh endTimeLow payloadElementIndex subtreeElementsStartIndex subtreeElementsStopIndex",
+        "type": "Table"
+    },
+    {
+        "text": "Instance variables inherited from AVLNode:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "balance height leftChild payload position rightChild",
+        "type": "Table"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.tree.node",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

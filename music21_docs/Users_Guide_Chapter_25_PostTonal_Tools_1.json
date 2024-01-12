@@ -1,0 +1,1262 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 25: Post-Tonal Tools (1)",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide, Chapter 24: Configuring Environment Settings",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide, Chapter 26: Stream Iteration and Filtering",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide, Chapter 25: Post-Tonal Tools (1)\nPitches as Pitch Classes\nChords as Forte Set Classes\nCreating and Processing Twelve-Tone Matrices",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide\nUser's Guide: Table of Contents\nUser's Guide, Chapter 1: Installing and Getting Started with music21\nUser's Guide, Chapter 2: Notes\nUser's Guide, Chapter 3: Pitches, Durations, and Notes again\nUser's Guide, Chapter 4: Lists, Streams (I) and Output\nUser's Guide, Chapter 5: Lists of Lists, Functions, and Recursion\nUser's Guide, Chapter 6: Streams (II): Hierarchies, Recursion, and Flattening\nUser's Guide, Chapter 7: Chords\nUser's Guide, Chapter 8: Installing MusicXML Readers and File Formats (1)\nUser's Guide, Chapter 9: Chordify\nUser's Guide, Chapter 10: Examples 1\nUser's Guide, Chapter 11: Corpus Searching\nUser's Guide, Chapter 12: Getting Back to Basics: The Music21Object\nUser's Guide, Chapter 13: More Music21Object Attributes and Properties\nUser's Guide: Chapter 14: Time Signatures and Beats\nUser's Guide, Chapter 15: Keys and KeySignatures\nUser's Guide, Chapter 16: TinyNotation\nUser's Guide: Chapter 17: Derivations\nUser's Guide: Chapter 18: Intervals\nUser's Guide, Chapter 19: Advanced Durations (Complex and Tuplets)\nUser's Guide, Chapter 20: Examples 2\nUser's Guide, Chapter 21: Ordering and Sorting of Stream Elements\nUser's Guide, Chapter 22: Graphing and plotting\nUser's Guide, Chapter 23: Roman Numeral Analysis\nUser's Guide, Chapter 24: Configuring Environment Settings\nUser's Guide, Chapter 25: Post-Tonal Tools (1)\nUser's Guide, Chapter 26: Stream Iteration and Filtering\nUser's Guide, Chapter 27: Grace Notes\nUser's Guide, Chapter 28: Lyric Searching\nUser's Guide, Chapter 29: Spanners 1 (Slurs)\nUser's Guide, Chapter 30: Examples 3\nUser's Guide, Chapter 31: Clefs, Ties, and Beams\nUser's Guide, Chapter 32: Articulations\nUser's Guide, Chapter 44: Advanced Graphing (Axes, Plots, and Graphs)\nUser's Guide, Chapter 53: Advanced Corpus and Metadata Searching\nUser's Guide, Chapter 54: Extending Converter with New Formats\nUser's Guide, Chapter 55: Advanced Meter Topics\nUser's Guide, Chapter 58: Understanding Sites and Contexts\nUser's Guide, Chapter 61: TimespanTrees and Verticalities",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 25: Post-Tonal Tools (1)\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "The music21 toolkit features many tools for analyzing and creating music\nwithin a post-tonal context. A Chord can be\nidentified as a Forte class, a list of pitch classes can be used to\ncreate a 12-tone matrix, and many other analytical tools are available.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "This overview will illustrate key features of music21's post tonal\ntools. For complete documentation on post-tonal tools, see the many\nmethods in Chord as well as the objects in\nmusic21.serial, such as\nTwelveToneMatrix and\nTwelveToneRow.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Pitches as Pitch Classes\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Any music21 Pitch, or a\nNote containing Pitch, can be expressed as\npitch class integers using the\npitchClass and\npitchClassString\nproperties.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "In the following example, the parse() function\nis used to create a Score object. The\nid attribute of each contained\nPart is presented in a list.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "We'll start our look at post-tonal music with a most-decidedly tonal\npiece, Beethoven's Opus 59.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "from",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "import",
+        "type": "Title"
+    },
+    {
+        "text": "aScore",
+        "type": "Title"
+    },
+    {
+        "text": "corpus",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "'beethoven/opus59no2'",
+        "type": "Title"
+    },
+    {
+        "text": "id",
+        "type": "Title"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "aScore",
+        "type": "Title"
+    },
+    {
+        "text": "parts",
+        "type": "Title"
+    },
+    {
+        "text": "'Violin I.'",
+        "type": "Title"
+    },
+    {
+        "text": "'Violin II.'",
+        "type": "Title"
+    },
+    {
+        "text": "'Viola.'",
+        "type": "Title"
+    },
+    {
+        "text": "'Violoncello.'",
+        "type": "Title"
+    },
+    {
+        "text": "We can view the fourth and fifth measures of the violin Part by\nobtaining the Part from the Stream with\ngetElementById() method. Next, we can\nextract the desired measures with the\nmeasures() method. Calling the\nshow() method will, assuming correct\nsetup of your environment, open a display of the extracted measures.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "vlnPart",
+        "type": "Title"
+    },
+    {
+        "text": "aScore",
+        "type": "Title"
+    },
+    {
+        "text": "getElementById",
+        "type": "Title"
+    },
+    {
+        "text": "'Violin I.'",
+        "type": "Title"
+    },
+    {
+        "text": "mRange",
+        "type": "Title"
+    },
+    {
+        "text": "vlnPart",
+        "type": "Title"
+    },
+    {
+        "text": "measures",
+        "type": "Title"
+    },
+    {
+        "text": "mRange",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "If we want to gather all Pitch objects from\nthis measure range, we can use the\npitches property. This returns\na list of all Pitch objects. All pitch objects have\npitchClass and\npitchClassString\nproperties, providing either integer or string representations,\nrespectively.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "', '",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "join",
+        "type": "Title"
+    },
+    {
+        "text": "([",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "mRange",
+        "type": "Title"
+    },
+    {
+        "text": "pitches",
+        "type": "Title"
+    },
+    {
+        "text": "])",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'A4, F#4, G4, G4, B4, E5, G5, G5, G5, C#6, E6, E6, E6, G6, C#5'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "pitchClass",
+        "type": "Title"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "mRange",
+        "type": "Title"
+    },
+    {
+        "text": "pitches",
+        "type": "Title"
+    },
+    {
+        "text": "11",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "If we want to label the notes in our measure range with the Note's pitch\nclass representation, we can iterate over the notes and assign the pitch\nclass representation to the Note's lyric. This is a common way to\nannotate Note and Chord objects in music21. The results can be displayed\nwith the show() method.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Here is the image from when we were using a Beethoven Quartet as an\nexample:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "mRange",
+        "type": "Title"
+    },
+    {
+        "text": "recurse",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "notes",
+        "type": "Title"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "tie",
+        "type": "Title"
+    },
+    {
+        "text": "is",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "or",
+        "type": "Title"
+    },
+    {
+        "text": "tie",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "==",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'start'",
+        "type": "Title"
+    },
+    {
+        "text": "lyric",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "pitchClassString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "mRange",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Chords as Forte Set Classes\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Any music21 Chord can be interpreted as a Forte set class. Additional, a\nwide variety of analytical features, derived from the Forte set class,\nare available as methods of the chord.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "For an example, lets create a sequence of generated aggregate-completing\ntrichords stored on a Stream. That is, we will construct chords with\npitch classes, drawing them from a list of all pitch classes. These\npitches will be supplied to a Chord object and stored on a Stream.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "aStream",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Stream",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "src",
+        "type": "Title"
+    },
+    {
+        "text": "list",
+        "type": "Title"
+    },
+    {
+        "text": "range",
+        "type": "Title"
+    },
+    {
+        "text": "12",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "))",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "# cheate a list of integers 0 through 11",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "src",
+        "type": "Title"
+    },
+    {
+        "text": "src",
+        "type": "Title"
+    },
+    {
+        "text": "src",
+        "type": "Title"
+    },
+    {
+        "text": "src",
+        "type": "Title"
+    },
+    {
+        "text": "src",
+        "type": "Title"
+    },
+    {
+        "text": "src",
+        "type": "Title"
+    },
+    {
+        "text": "12",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "# recombine",
+        "type": "Title"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "range",
+        "type": "Title"
+    },
+    {
+        "text": "12",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "aStream",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "src",
+        "type": "Title"
+    },
+    {
+        "text": "]))",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "aStream",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "These Chords, like all Chords in music21, can be interpreted as Forte\nset classes. The Chord object offers numerous methods that retrieve data\nfrom the set class representation of the Chord. The following is just a\nsampling of some of the many relevant methods.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "aStream",
+        "type": "Title"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "orderedPitchClassesString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "023",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "148",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "567",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "AB",
+        "type": "Title"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "aStream",
+        "type": "Title"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "forteClass",
+        "type": "Title"
+    },
+    {
+        "text": "11",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "aStream",
+        "type": "Title"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "forteClassTnI",
+        "type": "Title"
+    },
+    {
+        "text": "11",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "aStream",
+        "type": "Title"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "normalOrder",
+        "type": "Title"
+    },
+    {
+        "text": "10",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "11",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "aStream",
+        "type": "Title"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "primeFormString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "013",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "037",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "012",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "012",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "aStream",
+        "type": "Title"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "intervalVector",
+        "type": "Title"
+    },
+    {
+        "text": "To annotate the Chords stored on the Stream with their Forte name, we\ncan iterate over the Stream and assign the Forte name to each Chord's\nlyric attribute.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "aStream",
+        "type": "Title"
+    },
+    {
+        "text": "lyric",
+        "type": "Title"
+    },
+    {
+        "text": "forteClass",
+        "type": "Title"
+    },
+    {
+        "text": "aStream",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "We can use the itertools.combinations function to find all possible\nsubsets of a chord for a given cardinality. (Hat tip to John Chittum for\nthe hint). Here is the all tri-chord hexachord which contains within\nit all possible three-note chords under inversion and transposition:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "import",
+        "type": "Title"
+    },
+    {
+        "text": "itertools",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "([",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "])",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "commonName",
+        "type": "Title"
+    },
+    {
+        "text": "'all tri-chord hexachord'",
+        "type": "Title"
+    },
+    {
+        "text": "Now we'll test this create a set to hold the Forte number for each\ntrichord and see that all twelve of them are there:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "cc",
+        "type": "Title"
+    },
+    {
+        "text": "set",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "itertools",
+        "type": "Title"
+    },
+    {
+        "text": "combinations",
+        "type": "Title"
+    },
+    {
+        "text": "pitches",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "cc",
+        "type": "Title"
+    },
+    {
+        "text": "add",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "forteClassNumber",
+        "type": "Title"
+    },
+    {
+        "text": "cc",
+        "type": "Title"
+    },
+    {
+        "text": "10",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "11",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "12",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Creating and Processing Twelve-Tone Matrices\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "The music21 music21.serial module provides a Stream-based\nrepresentation of a 12-Tone row, as well as the ability to view these\nrows as a matrix. Additionally, numerous 12-tone rows from works are\navailable as classes.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "For example, we can create an instance of the row from Alban Berg's\nViolin Concerto, use the show() method to display its contents as\ntext, and then create and print a\nTwelveToneMatrix object.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "aRow",
+        "type": "Title"
+    },
+    {
+        "text": "serial",
+        "type": "Title"
+    },
+    {
+        "text": "getHistoricalRowByName",
+        "type": "Title"
+    },
+    {
+        "text": "'RowBergViolinConcerto'",
+        "type": "Title"
+    },
+    {
+        "text": "aRow",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "'text'",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">",
+        "type": "ListItem"
+    },
+    {
+        "text": "2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "3.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "4.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "5.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "6.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "7.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "8.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "9.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "10.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">",
+        "type": "ListItem"
+    },
+    {
+        "text": "11.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "aMatrix",
+        "type": "Title"
+    },
+    {
+        "text": "aRow",
+        "type": "Title"
+    },
+    {
+        "text": "matrix",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "aMatrix",
+        "type": "Title"
+    },
+    {
+        "text": "We might divide this row into trichords, present each of those trichords\nas Chords, and label the resulting pitch classes and Forte set class. As\nshown above, we can set the lyric attribute to assign a single line\nof text. If we need to assign multiple lines of text, the Note and Chord\nmethod addLyric() can be used to add\nsuccessive lines.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "bStream",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Stream",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "range",
+        "type": "Title"
+    },
+    {
+        "text": "12",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "aRow",
+        "type": "Title"
+    },
+    {
+        "text": "])",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "addLyric",
+        "type": "Title"
+    },
+    {
+        "text": "primeFormString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "addLyric",
+        "type": "Title"
+    },
+    {
+        "text": "forteClass",
+        "type": "Title"
+    },
+    {
+        "text": "bStream",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "bStream",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "This should give a decent introduction to working with post-tonal music\n\u2014 we'll return to this when we discuss searching for post-tonal\nstructures, but there's still a lot to find in a Stream, and we want to\ntake it one step at a time \u2014 the best way to do so is to understand\nChapter 26, Stream Iteration and Filtering",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 25: Post-Tonal Tools (1)",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

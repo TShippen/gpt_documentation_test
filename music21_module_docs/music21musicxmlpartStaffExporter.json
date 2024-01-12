@@ -1,0 +1,462 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.musicxml.partStaffExporter",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.musicxml.m21ToXml",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.musicxml.test_m21ToXml",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.musicxml.partStaffExporter\nPartStaffExporterMixin\nPartStaffExporterMixin\nPartStaffExporterMixin.addStaffTagsMultiStaffParts()\nPartStaffExporterMixin.cleanUpSubsequentPartStaffs()\nPartStaffExporterMixin.getRootForPartStaff()\nPartStaffExporterMixin.joinPartStaffs()\nPartStaffExporterMixin.joinableGroups()\nPartStaffExporterMixin.moveMeasureContents()\nPartStaffExporterMixin.movePartStaffMeasureContents()\nPartStaffExporterMixin.processSubsequentPartStaff()\nPartStaffExporterMixin.setEarliestAttributesAndClefsPartStaff()\n\n\n\n\nFunctions\naddStaffTags()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.musicxml.partStaffExporter\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "A mixin to ScoreExporter that includes the capabilities for producing a single\nMusicXML <part> from multiple music21 PartStaff objects.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "PartStaffExporterMixin\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.musicxml.partStaffExporter.",
+        "type": "Title"
+    },
+    {
+        "text": "PartStaffExporterMixin",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "PartStaffExporterMixin methods",
+        "type": "Title"
+    },
+    {
+        "text": "PartStaffExporterMixin.",
+        "type": "Title"
+    },
+    {
+        "text": "addStaffTagsMultiStaffParts",
+        "type": "Title"
+    },
+    {
+        "text": "group",
+        "type": "Title"
+    },
+    {
+        "text": "StaffGroup",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Create child <staff> tags under each <note>, <direction>, and <forward> element\nin the <part>s being joined.\nCalled by joinPartStaffs().\n>>> from music21.musicxml import testPrimitive\n>>> s = converter.parse(testPrimitive.pianoStaff43a)\n>>> SX = musicxml.m21ToXml.ScoreExporter(s)\n>>> root = SX.parse()\n>>> m1 = root.find('part/measure')\n>>> SX.dump(m1)\n<measure implicit=\"no\" number=\"1\">\n...\n  <note>\n    <pitch>\n      <step>F</step>\n      <octave>4</octave>\n    </pitch>\n    <duration>40320</duration>\n    <voice>1</voice>\n    <type>whole</type>\n    <staff>1</staff>\n  </note>\n  <backup>\n    <duration>40320</duration>\n  </backup>\n  <note>\n    <pitch>\n      <step>B</step>\n      <octave>2</octave>\n    </pitch>\n    <duration>40320</duration>\n    <voice>2</voice>\n    <type>whole</type>\n    <staff>2</staff>\n  </note>\n</measure>",
+        "type": "ListItem"
+    },
+    {
+        "text": "PartStaffExporterMixin.",
+        "type": "Title"
+    },
+    {
+        "text": "cleanUpSubsequentPartStaffs",
+        "type": "Title"
+    },
+    {
+        "text": "group",
+        "type": "Title"
+    },
+    {
+        "text": "StaffGroup",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Now that the contents of all PartStaffs in group have been represented\nby a single PartExporter, remove any\nobsolete PartExporter from self.partExporterList.\nCalled by joinPartStaffs()\n>>> from music21.musicxml import testPrimitive\n>>> s = converter.parse(testPrimitive.pianoStaff43a)\n>>> SX = musicxml.m21ToXml.ScoreExporter(s)\n>>> SX.scorePreliminaries()\n>>> SX.parsePartlikeScore()\n>>> len(SX.partExporterList)\n2\n>>> SX.postPartProcess()\n>>> len(SX.partExporterList)\n1",
+        "type": "ListItem"
+    },
+    {
+        "text": "PartStaffExporterMixin.",
+        "type": "Title"
+    },
+    {
+        "text": "getRootForPartStaff",
+        "type": "Title"
+    },
+    {
+        "text": "partStaff",
+        "type": "Title"
+    },
+    {
+        "text": "PartStaff",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 Element",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Look up the <part> Element being used to represent the music21 partStaff.\n>>> from music21.musicxml import testPrimitive\n>>> s = converter.parse(testPrimitive.pianoStaff43a)\n>>> SX = musicxml.m21ToXml.ScoreExporter(s)\n>>> SX.scorePreliminaries()\n>>> SX.parsePartlikeScore()\n>>> SX.getRootForPartStaff(s.parts[0])\n<Element 'part' at 0x...\n\n\n>>> other = stream.PartStaff()\n>>> other.id = 'unrelated'\n>>> SX.getRootForPartStaff(other)\nTraceback (most recent call last):\nmusic21.musicxml.xmlObjects.MusicXMLExportException:\n    <music21.stream.PartStaff unrelated> not found in self.partExporterList",
+        "type": "ListItem"
+    },
+    {
+        "text": "PartStaffExporterMixin.",
+        "type": "Title"
+    },
+    {
+        "text": "joinPartStaffs",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Collect <part> elements exported from\nPartStaff objects under a single\n<part> element using <staff> and <voice> subelements.\nHere we load in a simple 2-staff piano piece.  Note that they\nare both elements of the PartStaff\nStream subclass.\n>>> from music21.musicxml import testPrimitive\n>>> s = converter.parse(testPrimitive.pianoStaff43a)\n>>> s.show('text')\n{0.0} <music21.metadata.Metadata object at 0x107d6a100>\n{0.0} <music21.stream.PartStaff P1-Staff1>\n    {0.0} <music21.instrument.Instrument 'P1: MusicXML Part: '>\n    {0.0} <music21.stream.Measure 1 offset=0.0>\n        {0.0} <music21.clef.TrebleClef>\n        {0.0} <music21.key.KeySignature of no sharps or flats>\n        {0.0} <music21.meter.TimeSignature 4/4>\n        {0.0} <music21.note.Note F>\n{0.0} <music21.stream.PartStaff P1-Staff2>\n    {0.0} <music21.instrument.Instrument 'P1: MusicXML Part: '>\n    {0.0} <music21.stream.Measure 1 offset=0.0>\n        {0.0} <music21.clef.BassClef>\n        {0.0} <music21.key.KeySignature of no sharps or flats>\n        {0.0} <music21.meter.TimeSignature 4/4>\n        {0.0} <music21.note.Note B>\n{0.0} <music21.layout.StaffGroup\n         <music21.stream.PartStaff P1-Staff1><music21.stream.PartStaff P1-Staff2>>\n\n\nNow these get joined into a single part in the parse() process:\n>>> SX = musicxml.m21ToXml.ScoreExporter(s)\n>>> root = SX.parse()\n>>> parts = root.findall('part')\n>>> len(parts)\n1\n\n\n>>> clefs = root.findall('.//clef')\n>>> len(clefs)\n2\n\n\nNote that there are exactly two notes (an F and B) in the original score,\nso there are exactly two staff tags in the output.\n>>> staffTags = root.findall('part/measure/note/staff')\n>>> len(staffTags)\n2",
+        "type": "ListItem"
+    },
+    {
+        "text": "PartStaffExporterMixin.",
+        "type": "Title"
+    },
+    {
+        "text": "joinableGroups",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 list[music21.layout.StaffGroup]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns a list of StaffGroup objects that\nrepresent PartStaff objects that can be\njoined into a single MusicXML <part>, so long as there exists a\nPartExporter for it in ScoreExporter.partExporterList.\nSets previousPartStaffInGroup.\n>>> s = stream.Score()\n\n\nGroup 1: three staves.\n>>> p1a = stream.PartStaff(id='p1a')\n>>> p1a.insert(0, stream.Measure())\n>>> p1b = stream.PartStaff(id='p1b')\n>>> p1b.insert(0, stream.Measure())\n>>> p1c = stream.PartStaff(id='p1c')\n>>> p1c.insert(0, stream.Measure())\n>>> sg1 = layout.StaffGroup([p1a, p1b, p1c])\n\n\nGroup 2: two staves.\n>>> p2a = stream.PartStaff(id='p2a')\n>>> p2a.insert(0, stream.Measure())\n>>> p2b = stream.PartStaff(id='p2b')\n>>> p2b.insert(0, stream.Measure())\n>>> sg2 = layout.StaffGroup([p2a, p2b])\n\n\nGroup 3: one staff \u2014 will not be merged.\n>>> p3a = stream.PartStaff(id='p3a')\n>>> p3a.insert(0, stream.Measure())\n>>> sg3 = layout.StaffGroup([p3a])\n\n\nGroup 4: two staves, but no measures, will not be merged:\n>>> p4a = stream.PartStaff(id='p4a')\n>>> p4b = stream.PartStaff(id='p4b')\n>>> sg4 = layout.StaffGroup([p4a, p4b])\n\n\nGroup 5: two staves, but no staff group\n>>> p5a = stream.PartStaff(id='p5a')\n>>> p5a.insert(0, stream.Measure())\n>>> p5b = stream.PartStaff(id='p5b')\n>>> p5b.insert(0, stream.Measure())\n\n\nGroup 6: same as Group 2, just to show that valid groups can come later\n>>> p6a = stream.PartStaff(id='p6a')\n>>> p6a.insert(0, stream.Measure())\n>>> p6b = stream.PartStaff(id='p6b')\n>>> p6b.insert(0, stream.Measure())\n>>> sg6 = layout.StaffGroup([p6a, p6b])\n\n\nGroup 7: same as Group 6, but with Parts instead of PartStaffs\n>>> p7a = stream.Part(id='p7a')\n>>> p7a.insert(0, stream.Measure())\n>>> p7b = stream.Part(id='p7b')\n>>> p7b.insert(0, stream.Measure())\n>>> sg7 = layout.StaffGroup([p7a, p7b])\n\n\nGroup 8: encloses same objects as Group 6, just to show it's gracefully ignored\n>>> sg8 = layout.StaffGroup([p6a, p6b])\n\n\n>>> for el in (p1a, p1b, p1c, sg1, p2a, p2b, sg2, p3a, sg3,\n...            p4a, p4b, sg4, p5a, p5b, p6a, p6b, sg6, p7a, p7b, sg7, sg8):\n...     s.insert(0, el)\n\n\n>>> SX = musicxml.m21ToXml.ScoreExporter(s)\n>>> SX.scorePreliminaries()\n>>> SX.parsePartlikeScore()  # populate .partExporterList\n>>> SX.joinableGroups()\n[<music21.layout.StaffGroup <... p1a><... p1b><... p1c>>,\n <music21.layout.StaffGroup <... p2a><... p2b>>,\n <music21.layout.StaffGroup <... p6a><... p6b>>]",
+        "type": "ListItem"
+    },
+    {
+        "text": "static",
+        "type": "Title"
+    },
+    {
+        "text": "PartStaffExporterMixin.",
+        "type": "Title"
+    },
+    {
+        "text": "moveMeasureContents",
+        "type": "Title"
+    },
+    {
+        "text": "measure",
+        "type": "Title"
+    },
+    {
+        "text": "Element",
+        "type": "Title"
+    },
+    {
+        "text": "otherMeasure",
+        "type": "Title"
+    },
+    {
+        "text": "Element",
+        "type": "Title"
+    },
+    {
+        "text": "staffNumber",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Move the child elements of measure into otherMeasure;\ncreate voice numbers if needed;\nbump voice numbers if they conflict;\naccount for <backup> and <forward> tags;\nskip <print> tags;\nset \u009cnumber\u009d on midmeasure clef changes;\nreplace existing <barline> tags.\n>>> from xml.etree.ElementTree import fromstring as El\n>>> measure = El('<measure><note /></measure>')\n>>> otherMeasure = El('<measure><note /></measure>')\n>>> SX = musicxml.m21ToXml.ScoreExporter\n>>> SX.moveMeasureContents(measure, otherMeasure, 2)\n>>> SX().dump(otherMeasure)\n<measure>\n  <note>\n    <voice>1</voice>\n  </note>\n  <note>\n    <voice>2</voice>\n  </note>\n</measure>\n\n\n>>> SX.moveMeasureContents(El('<junk />'), otherMeasure, 2)\nTraceback (most recent call last):\nmusic21.musicxml.xmlObjects.MusicXMLExportException:\n    moveMeasureContents() called on <Element 'junk'...\n\n\nOnly one <barline> should be exported per merged measure:\n>>> from music21.musicxml import testPrimitive\n>>> s = converter.parse(testPrimitive.mixedVoices1a)\n>>> SX = musicxml.m21ToXml.ScoreExporter(s)\n>>> root = SX.parse()\n>>> root.findall('part/measure/barline')\n[<Element 'barline' at 0x...]",
+        "type": "ListItem"
+    },
+    {
+        "text": "PartStaffExporterMixin.",
+        "type": "Title"
+    },
+    {
+        "text": "movePartStaffMeasureContents",
+        "type": "Title"
+    },
+    {
+        "text": "group",
+        "type": "Title"
+    },
+    {
+        "text": "StaffGroup",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "For every <part> after the first, find the corresponding measure in the initial\n<part> and merge the contents by inserting all contained elements.\nCalled by joinPartStaffs()\nStaffGroup must be a valid one from\njoinableGroups().",
+        "type": "ListItem"
+    },
+    {
+        "text": "PartStaffExporterMixin.",
+        "type": "Title"
+    },
+    {
+        "text": "processSubsequentPartStaff",
+        "type": "Title"
+    },
+    {
+        "text": "target",
+        "type": "Title"
+    },
+    {
+        "text": "Element",
+        "type": "Title"
+    },
+    {
+        "text": "source",
+        "type": "Title"
+    },
+    {
+        "text": "Element",
+        "type": "Title"
+    },
+    {
+        "text": "staffNum",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 dict[int, list[xml.etree.ElementTree.Element]]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Move elements from subsequent PartStaff's measures into target: the <part>\nelement representing the initial PartStaff that will soon represent the merged whole.\nCalled by\nmovePartStaffMeasureContents(),\nwhich is in turn called by\njoinPartStaffs().",
+        "type": "ListItem"
+    },
+    {
+        "text": "PartStaffExporterMixin.",
+        "type": "Title"
+    },
+    {
+        "text": "setEarliestAttributesAndClefsPartStaff",
+        "type": "Title"
+    },
+    {
+        "text": "group",
+        "type": "Title"
+    },
+    {
+        "text": "StaffGroup",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Set the <staff>, <key>, <time>, and <clef> information on the earliest\nmeasure <attributes> tag in the <part> representing the joined PartStaffs.\nNeed the earliest <attributes> tag, which may not exist in the merged <part>\nuntil moved there by movePartStaffMeasureContents() \u2014\ne.g. RH of piano doesn't appear until m. 40, and earlier music for LH needs\nto be merged first in order to find earliest <attributes>.\nCalled by joinPartStaffs()\nMultiple keys:\n>>> from music21.musicxml import testPrimitive\n>>> xmlDir = common.getSourceFilePath() / 'musicxml' / 'lilypondTestSuite'\n>>> s = converter.parse(xmlDir / '43b-MultiStaff-DifferentKeys.xml')\n>>> SX = musicxml.m21ToXml.ScoreExporter(s)\n>>> root = SX.parse()\n>>> m1 = root.find('part/measure')\n>>> SX.dump(m1)\n<measure implicit=\"no\" number=\"1\">\n  <attributes>\n    <divisions>10080</divisions>\n    <key number=\"1\">\n      <fifths>0</fifths>\n    </key>\n    <key number=\"2\">\n      <fifths>2</fifths>\n    </key>\n    <time>\n      <beats>4</beats>\n      <beat-type>4</beat-type>\n    </time>\n    <staves>2</staves>\n    <clef number=\"1\">\n      <sign>G</sign>\n      <line>2</line>\n    </clef>\n    <clef number=\"2\">\n      <sign>F</sign>\n      <line>4</line>\n    </clef>\n  </attributes>\n...\n</measure>\n\n\nMultiple meters (not very well supported by MusicXML readers):\n>>> from music21.musicxml import testPrimitive\n>>> s = converter.parse(testPrimitive.pianoStaffPolymeterWithClefOctaveChange)\n>>> SX = musicxml.m21ToXml.ScoreExporter(s)\n>>> root = SX.parse()\n>>> m1 = root.find('part/measure')\n>>> SX.dump(m1)\n<measure implicit=\"no\" number=\"1\">\n    <attributes>\n    <divisions>10080</divisions>\n    <key>\n        <fifths>0</fifths>\n    </key>\n    <time number=\"1\">\n        <beats>4</beats>\n        <beat-type>4</beat-type>\n    </time>\n    <time number=\"2\">\n        <beats>2</beats>\n        <beat-type>2</beat-type>\n    </time>\n    <staves>2</staves>\n    <clef number=\"1\">\n        <sign>G</sign>\n        <line>2</line>\n    </clef>\n    <clef number=\"2\">\n        <sign>G</sign>\n        <line>2</line>\n        <clef-octave-change>-1</clef-octave-change>\n    </clef>\n    </attributes>\n...\n</measure>",
+        "type": "ListItem"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.musicxml.partStaffExporter.",
+        "type": "Title"
+    },
+    {
+        "text": "addStaffTags",
+        "type": "Title"
+    },
+    {
+        "text": "measure",
+        "type": "Title"
+    },
+    {
+        "text": "Element",
+        "type": "Title"
+    },
+    {
+        "text": "staffNumber",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "tagList",
+        "type": "Title"
+    },
+    {
+        "text": "list[str]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "For a <measure> tag measure, add a <staff> grandchild to any instance of\na child tag of a type in tagList.\n>>> from xml.etree.ElementTree import fromstring as El\n>>> from music21.musicxml.partStaffExporter import addStaffTags\n>>> from music21.musicxml.helpers import dump\n>>> elem = El(\"\"\"\n...     <measure number=\"1\">\n...        <note>\n...          <rest measure=\"yes\" />\n...          <duration>8</duration>\n...        </note>\n...      </measure>\"\"\"\n...     )\n>>> addStaffTags(elem, 2, tagList=['note', 'forward', 'direction', 'harmony'])\n>>> dump(elem)\n<measure number=\"1\">\n  <note>\n    <rest measure=\"yes\" />\n    <duration>8</duration>\n    <staff>2</staff>\n  </note>\n</measure>\n\n\nRaise if a <staff> grandchild is already present:\n>>> addStaffTags(elem, 2, tagList=['note', 'forward', 'direction'])\nTraceback (most recent call last):\nmusic21.musicxml.xmlObjects.MusicXMLExportException:\n    In part (), measure (1): Attempted to create a second <staff> tag\n\n\nThe function doesn't accept elements other than <measure>:\n>>> addStaffTags(elem.find('note'), 2, tagList=['direction'])\nTraceback (most recent call last):\nmusic21.musicxml.xmlObjects.MusicXMLExportException:\n    addStaffTags() only accepts <measure> tags",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.musicxml.partStaffExporter",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

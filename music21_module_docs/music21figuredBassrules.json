@@ -1,0 +1,454 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.figuredBass.rules",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.figuredBass.resolution",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.figuredBass.segment",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.figuredBass.rules\nRules\nRules\nRules.applyConsecutivePossibRulesToResolution\nRules.applySinglePossibRulesToResolution\nRules.doubledRootInDim7\nRules.forbidHiddenFifths\nRules.forbidHiddenOctaves\nRules.forbidIncompletePossibilities\nRules.forbidParallelFifths\nRules.forbidParallelOctaves\nRules.forbidVoiceCrossing\nRules.forbidVoiceOverlap\nRules.partMovementLimits\nRules.resolveAugmentedSixthProperly\nRules.resolveDiminishedSeventhProperly\nRules.resolveDominantSeventhProperly\nRules.restrictDoublingsInItalianA6Resolution\nRules.upperPartsMaxSemitoneSeparation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.figuredBass.rules\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Rules\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.figuredBass.rules.",
+        "type": "Title"
+    },
+    {
+        "text": "Rules",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A Rules object is provided as an input to a Segment,\nand controls the application of methods designed to filter out undesired possibilities in\na single Segment or undesired progressions between two consecutive Segments.\nThe rules are categorized in an identical manner to methods\nin possibility:\n1) Single Possibility Rules. These rules apply to any possibility within a\nsingle Segment (possibA), and\nare applied in finding correct possibilities for a Segment\nin allCorrectSinglePossibilities().\n2) Consecutive Possibility Rules. These rules apply between any correct\nsingle possibility in segmentA\n(possibA) and any correct single possibility in segmentB (possibB),\nsegmentB coming directly after segmentA.\nThey are applied in finding correct (possibA, possibB) pairs between\ntwo Segments\nin allCorrectConsecutivePossibilities().\n3) Special Resolution Rules. These rules apply to Segments\nwhose segmentChord is an\naugmented sixth, dominant seventh, or diminished seventh chord, and are\napplied as necessary in\nallCorrectConsecutivePossibilities().\n>>> from music21.figuredBass import rules\n>>> fbRules = rules.Rules()\n>>> fbRules\n<music21.figuredBass.rules.Rules>\n>>> fbRules.forbidParallelFifths = False\n>>> fbRules.upperPartsMaxSemitoneSeparation = None",
+        "type": "ListItem"
+    },
+    {
+        "text": "Rules bases",
+        "type": "Title"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "Rules read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "Rules methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Rules instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Rules.",
+        "type": "Title"
+    },
+    {
+        "text": "applyConsecutivePossibRulesToResolution",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "False by default. If True, consecutive possibility rules are applied\nbetween (specialPossib, resPossib) pairs.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Rules.",
+        "type": "Title"
+    },
+    {
+        "text": "applySinglePossibRulesToResolution",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "False by default. If True, single possibility rules are applied to\nresolution possibilities.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Rules.",
+        "type": "Title"
+    },
+    {
+        "text": "doubledRootInDim7",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "False by default. If True, Diminished seventh resolutions to the\ntonic will contain a doubled root, as opposed to a doubled third.\nRule is ignored (determined in context)\nif segmentChord is in first inversion.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Rules.",
+        "type": "Title"
+    },
+    {
+        "text": "forbidHiddenFifths",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "True by default. If True,\nhiddenFifth() is applied to all\n(possibA, possibB) pairs, and all those pairs for which the method returns\nFalse are retained.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Rules.",
+        "type": "Title"
+    },
+    {
+        "text": "forbidHiddenOctaves",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "True by default. If True,\nhiddenOctave() is applied to all\n(possibA, possibB) pairs, and all those pairs for which the method returns\nFalse are retained.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Rules.",
+        "type": "Title"
+    },
+    {
+        "text": "forbidIncompletePossibilities",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "True by default. If True,\nisIncomplete() is applied to all possibA,\nand all those possibilities for which the method returns False are retained.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Rules.",
+        "type": "Title"
+    },
+    {
+        "text": "forbidParallelFifths",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "True by default. If True,\nparallelFifths() is applied to all\n(possibA, possibB) pairs, and all those pairs for which the method returns\nFalse are retained.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Rules.",
+        "type": "Title"
+    },
+    {
+        "text": "forbidParallelOctaves",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "True by default. If True,\nparallelOctaves() is applied to all\n(possibA, possibB) pairs, and all those pairs for which the method returns\nFalse are retained.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Rules.",
+        "type": "Title"
+    },
+    {
+        "text": "forbidVoiceCrossing",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "True by default. If True,\nvoiceCrossing() is applied to all possibA,\nand all those possibilities for which the method returns False are retained.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Rules.",
+        "type": "Title"
+    },
+    {
+        "text": "forbidVoiceOverlap",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "True by default. If True,\nvoiceOverlap() is applied to all\n(possibA, possibB) pairs, and all those pairs for which the method returns\nFalse are retained.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Rules.",
+        "type": "Title"
+    },
+    {
+        "text": "partMovementLimits",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "[] (empty list) by default. Contains (partNumber, maxSeparation)\npairs provided as arguments\nto partMovementsWithinLimits().\nMethod is applied to all (possibA, possibB) pairs, and all those pairs\nfor which the method returns True are retained.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Rules.",
+        "type": "Title"
+    },
+    {
+        "text": "resolveAugmentedSixthProperly",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "True by default. If True, Segments\nwhose segmentChord spells out an\naugmented sixth chord are resolved properly by\nusing resolveAugmentedSixthSegment().",
+        "type": "ListItem"
+    },
+    {
+        "text": "Rules.",
+        "type": "Title"
+    },
+    {
+        "text": "resolveDiminishedSeventhProperly",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "True by default. If True, Segments\nwhose segmentChord spells out\na fully-diminished seventh chord are resolved properly by\nusing resolveDiminishedSeventhSegment().",
+        "type": "ListItem"
+    },
+    {
+        "text": "Rules.",
+        "type": "Title"
+    },
+    {
+        "text": "resolveDominantSeventhProperly",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "True by default. If True, Segments\nwhose segmentChord spells out a\ndominant seventh chord are resolved properly by\nusing resolveDominantSeventhSegment().",
+        "type": "ListItem"
+    },
+    {
+        "text": "Rules.",
+        "type": "Title"
+    },
+    {
+        "text": "restrictDoublingsInItalianA6Resolution",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "True by default. If True, then doublings in the It+6 chord are limited to the\ntonic, or fifth. Setting this to False allows doubling of the root or third, most likely\nthrough parallel unisons if forbidParallelOctaves\nis set to True.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Rules.",
+        "type": "Title"
+    },
+    {
+        "text": "upperPartsMaxSemitoneSeparation",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "12 by default. A number, in semitones,\nrepresenting the maxSemitoneSeparation argument provided to\nupperPartsWithinLimit().\nMethod is applied to all possibA, and all those possibilities for which the method returns\nTrue are retained.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.figuredBass.rules",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

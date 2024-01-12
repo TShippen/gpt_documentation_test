@@ -1,0 +1,226 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.decorators",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.common.classTools",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.common.enums",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.common.decorators\nFunctions\ncacheMethod()\ndeprecated()\noptional_arg_decorator()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.decorators\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.common.decorators.",
+        "type": "Title"
+    },
+    {
+        "text": "cacheMethod",
+        "type": "Title"
+    },
+    {
+        "text": "method",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A decorator for music21Objects or other objects that\nassumes that there is a ._cache Dictionary in the instance\nand returns or sets that value if it exists, otherwise calls the method\nand stores the value.\nTo be used ONLY with zero-arg calls.  Like properties.  Well, can be\nused by others but will not store per-value caches.\nNot a generic memorize, because by storing in one ._cache place,\na .clearCache() method can eliminate them.\nUses the name of the function as the cache key.\n\nNew in v6: helps to make all the caches easier to work with.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.decorators.",
+        "type": "Title"
+    },
+    {
+        "text": "deprecated",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "method",
+        "type": "Title"
+    },
+    {
+        "text": "startDate",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "removeDate",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "message",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Decorator that marks a function as deprecated and should not be called.\nBecause we're all developers, it does not use DeprecationWarning, which no\none would ever see, but UserWarning.\nWarns once per session and never again.\nUse without arguments for a simple case:\nFor demonstrating I need to screw with stderr\u2026\n>>> import sys\n>>> saveStdErr = sys.stderr\n>>> sys.stderr = sys.stdout\n\n\n>>> @common.deprecated\n... def hi(msg):\n...     print(msg)\n\n\n(I'm printing \u009c/\u009d at the beginning because message begins with the filename and that is\ndifferent on each system, but you can't use ellipses at the beginning of a doctest)\n>>> print('/'); hi('myke')\n/...Music21DeprecationWarning: hi was deprecated\n        and will disappear soon. Find alternative methods.\n...\n myke\n\n\nA second call raises no warning:\n>>> hi('myke')\nmyke\n\n\nNow a new function demonstrating the argument form.\n>>> @common.deprecated('February 1972', 'September 2099', 'You should be okay...')\n... def bye(msg):\n...     print(msg)\n\n\n>>> print('/'); bye('world')\n/...Music21DeprecationWarning: bye was deprecated on February 1972\n        and will disappear at or after September 2099. You should be okay...\n...\nworld\n\n\nRestore stderr at the end.\n>>> sys.stderr = saveStdErr",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.decorators.",
+        "type": "Title"
+    },
+    {
+        "text": "optional_arg_decorator",
+        "type": "Title"
+    },
+    {
+        "text": "fn",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "a decorator for decorators.  Allows them to either have or not have arguments.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.decorators",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

@@ -1,0 +1,1610 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.romanText.translate",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.romanText.rtObjects",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.romanText.tsvConverter",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.romanText.translate\nPartTranslator\nPartTranslator\nPartTranslator.fillMeasureFromPreviousRn()\nPartTranslator.fillToMeasureToken()\nPartTranslator.parseKeySignatureTag()\nPartTranslator.processRTChord()\nPartTranslator.setAnalyticKey()\nPartTranslator.setMinorRootParse()\nPartTranslator.translateMeasureLineToken()\nPartTranslator.translateOneLineToken()\nPartTranslator.translateSingleMeasure()\nPartTranslator.translateSingleMeasureAtom()\nPartTranslator.translateTokens()\n\n\n\n\nRomanTextUnprocessedMetadata\nRomanTextUnprocessedMetadata\n\n\nRomanTextUnprocessedToken\nRomanTextUnprocessedToken\n\n\nFunctions\nappendMeasureToRepeatEndingsDict()\nfixPickupMeasure()\nromanTextToStreamOpus()\nromanTextToStreamScore()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.romanText.translate\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Translation routines for roman numeral analysis text files, as defined\nand demonstrated by Dmitri Tymoczko.  Also used for the ClercqTemperley\nformat which is similar but a little different.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "This module is really only needed for people extending the parser,\nfor others it's simple to get Harmony, RomanNumeral, Key (or KeySignature)\nand other objects out of an rntxt file by running this:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "monteverdi",
+        "type": "Title"
+    },
+    {
+        "text": "corpus",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "'monteverdi/madrigal.3.1.rntxt'",
+        "type": "Title"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "monteverdi",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "'text'",
+        "type": "Title"
+    },
+    {
+        "text": "{0.0} <music21.metadata.Metadata object at 0x...>",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "{0.0} <music21.stream.Part ...>",
+        "type": "Title"
+    },
+    {
+        "text": "{0.0} <music21.stream.Measure 1 offset=0.0>",
+        "type": "Title"
+    },
+    {
+        "text": "{0.0} <music21.key.KeySignature of 1 flat>",
+        "type": "Title"
+    },
+    {
+        "text": "{0.0} <music21.meter.TimeSignature 4/4>",
+        "type": "Title"
+    },
+    {
+        "text": "{0.0} <music21.roman.RomanNumeral vi in F major>",
+        "type": "Title"
+    },
+    {
+        "text": "{3.0} <music21.roman.RomanNumeral V[no3] in F major>",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "{4.0} <music21.stream.Measure 2 offset=4.0>",
+        "type": "Title"
+    },
+    {
+        "text": "{0.0} <music21.roman.RomanNumeral I in F major>",
+        "type": "Title"
+    },
+    {
+        "text": "{3.0} <music21.roman.RomanNumeral IV in F major>",
+        "type": "Title"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Then the stream can be analyzed with something like this, storing\nthe data to make a histogram of scale degree usage within a key:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "degreeDictionary",
+        "type": "Title"
+    },
+    {
+        "text": "{}",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "monteverdi",
+        "type": "Title"
+    },
+    {
+        "text": "recurse",
+        "type": "Title"
+    },
+    {
+        "text": "():",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "isinstance",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "roman",
+        "type": "Title"
+    },
+    {
+        "text": "RomanNumeral",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "figure",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "pitches",
+        "type": "Title"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "degree",
+        "type": "Title"
+    },
+    {
+        "text": "accidental",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "getScaleDegreeAndAccidentalFromPitch",
+        "type": "Title"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "accidental",
+        "type": "Title"
+    },
+    {
+        "text": "is",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "degreeString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "degree",
+        "type": "Title"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "else",
+        "type": "Title"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "degreeString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "degree",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "accidental",
+        "type": "Title"
+    },
+    {
+        "text": "modifier",
+        "type": "Title"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "degreeString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "not",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "degreeDictionary",
+        "type": "Title"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "degreeDictionary",
+        "type": "Title"
+    },
+    {
+        "text": "degreeString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "else",
+        "type": "Title"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "degreeDictionary",
+        "type": "Title"
+    },
+    {
+        "text": "degreeString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "+=",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "degTuple",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "degreeString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "degTuple",
+        "type": "Title"
+    },
+    {
+        "text": "vi F major",
+        "type": "Title"
+    },
+    {
+        "text": "('D5', '6')",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "('F5', '1')",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "('A5', '3')",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "V[no3] F major",
+        "type": "Title"
+    },
+    {
+        "text": "('C5', '5')",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "('G5', '2')",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "I F major",
+        "type": "Title"
+    },
+    {
+        "text": "('F4', '1')",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "('A4', '3')",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "('C5', '5')",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "V6 g minor",
+        "type": "Title"
+    },
+    {
+        "text": "('F#5', '7#')",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "('A5', '2')",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "('D6', '5')",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "i g minor",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "('G4', '1')",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "('B-4', '3')",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "('D5', '5')",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Now if we'd like we can get a Histogram of the data.\nIt's a little complex, but worth seeing in full:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "import",
+        "type": "Title"
+    },
+    {
+        "text": "operator",
+        "type": "Title"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "histogram",
+        "type": "Title"
+    },
+    {
+        "text": "graph",
+        "type": "Title"
+    },
+    {
+        "text": "primitives",
+        "type": "Title"
+    },
+    {
+        "text": "GraphHistogram",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "data",
+        "type": "Title"
+    },
+    {
+        "text": "[]",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "xLabels",
+        "type": "Title"
+    },
+    {
+        "text": "[]",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "values",
+        "type": "Title"
+    },
+    {
+        "text": "[]",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "ddList",
+        "type": "Title"
+    },
+    {
+        "text": "list",
+        "type": "Title"
+    },
+    {
+        "text": "degreeDictionary",
+        "type": "Title"
+    },
+    {
+        "text": "items",
+        "type": "Title"
+    },
+    {
+        "text": "())",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "deg",
+        "type": "Title"
+    },
+    {
+        "text": "value",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "sorted",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "ddList",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "operator",
+        "type": "Title"
+    },
+    {
+        "text": "itemgetter",
+        "type": "Title"
+    },
+    {
+        "text": "),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "reverse",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "data",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "((",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "degreeDictionary",
+        "type": "Title"
+    },
+    {
+        "text": "deg",
+        "type": "Title"
+    },
+    {
+        "text": "]),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "xLabels",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "((",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ".5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "deg",
+        "type": "Title"
+    },
+    {
+        "text": "),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "values",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "degreeDictionary",
+        "type": "Title"
+    },
+    {
+        "text": "deg",
+        "type": "Title"
+    },
+    {
+        "text": "])",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "+=",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "histogram",
+        "type": "Title"
+    },
+    {
+        "text": "data",
+        "type": "Title"
+    },
+    {
+        "text": "data",
+        "type": "Title"
+    },
+    {
+        "text": "These commands give nice labels for the data; optional:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "histogram",
+        "type": "Title"
+    },
+    {
+        "text": "setIntegerTicksFromData",
+        "type": "Title"
+    },
+    {
+        "text": "values",
+        "type": "Title"
+    },
+    {
+        "text": "'y'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "histogram",
+        "type": "Title"
+    },
+    {
+        "text": "setTicks",
+        "type": "Title"
+    },
+    {
+        "text": "'x'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "xLabels",
+        "type": "Title"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "histogram",
+        "type": "Title"
+    },
+    {
+        "text": "setAxisLabel",
+        "type": "Title"
+    },
+    {
+        "text": "'x'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'ScaleDegree'",
+        "type": "Title"
+    },
+    {
+        "text": "Now generate the histogram:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "PartTranslator\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.romanText.translate.",
+        "type": "Title"
+    },
+    {
+        "text": "PartTranslator",
+        "type": "Title"
+    },
+    {
+        "text": "md",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A refactoring of the previously massive romanTextToStreamScore function\nto allow for more fine-grained testing (eventually), and to\nget past the absurdly high number of nested blocks (the previous translator\nwas written under severe time constraints).",
+        "type": "ListItem"
+    },
+    {
+        "text": "PartTranslator methods",
+        "type": "Title"
+    },
+    {
+        "text": "PartTranslator.",
+        "type": "Title"
+    },
+    {
+        "text": "fillMeasureFromPreviousRn",
+        "type": "Title"
+    },
+    {
+        "text": "mFill",
+        "type": "Title"
+    },
+    {
+        "text": "Measure",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "PartTranslator.",
+        "type": "Title"
+    },
+    {
+        "text": "fillToMeasureToken",
+        "type": "Title"
+    },
+    {
+        "text": "measureToken",
+        "type": "Title"
+    },
+    {
+        "text": "RTMeasure",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Create a series of measures which extend the previous RN until the measure number\nimplied by measureToken.",
+        "type": "ListItem"
+    },
+    {
+        "text": "PartTranslator.",
+        "type": "Title"
+    },
+    {
+        "text": "parseKeySignatureTag",
+        "type": "Title"
+    },
+    {
+        "text": "rtTagged",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "RTTagged",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Parse a key signature tag which has already been determined to\nbe a key signature.\n>>> tag = romanText.rtObjects.RTTagged('KeySignature: -4')\n>>> tag.isKeySignature()\nTrue\n>>> tag.data\n'-4'\n\n\n>>> pt = romanText.translate.PartTranslator()\n>>> pt.keySigCurrent is None\nTrue\n>>> pt.setKeySigFromFirstKeyToken\nTrue\n>>> pt.foundAKeySignatureSoFar\nFalse\n\n\n>>> pt.parseKeySignatureTag(tag)\n>>> pt.keySigCurrent\n<music21.key.KeySignature of 4 flats>\n>>> pt.setKeySigFromFirstKeyToken\nFalse\n>>> pt.foundAKeySignatureSoFar\nTrue\n\n\n>>> tag = romanText.rtObjects.RTTagged('KeySignature: xyz')\n>>> pt.parseKeySignatureTag(tag)\nTraceback (most recent call last):\nmusic21.romanText.translate.RomanTextTranslateException:\n    Cannot parse key signature: 'xyz'",
+        "type": "ListItem"
+    },
+    {
+        "text": "PartTranslator.",
+        "type": "Title"
+    },
+    {
+        "text": "processRTChord",
+        "type": "Title"
+    },
+    {
+        "text": "currentOffset",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Process a single RTChord atom.",
+        "type": "ListItem"
+    },
+    {
+        "text": "PartTranslator.",
+        "type": "Title"
+    },
+    {
+        "text": "setAnalyticKey",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Indicates a change in the analyzed key, not a change in anything\nelse, such as the keySignature.",
+        "type": "ListItem"
+    },
+    {
+        "text": "PartTranslator.",
+        "type": "Title"
+    },
+    {
+        "text": "setMinorRootParse",
+        "type": "Title"
+    },
+    {
+        "text": "rtTagged",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "RTTagged",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Set Roman Numeral parsing standards from a token.\n>>> pt = romanText.translate.PartTranslator()\n>>> pt.sixthMinor\n<Minor67Default.CAUTIONARY: 2>\n\n\n>>> tag = romanText.rtObjects.RTTagged('SixthMinor: Flat')\n>>> tag.isSixthMinor()\nTrue\n>>> pt.setMinorRootParse(tag)\n>>> pt.sixthMinor\n<Minor67Default.FLAT: 4>\n\n\nHarmonic sets to FLAT for sixth and SHARP for seventh\n>>> for config in 'flat sharp quality cautionary harmonic'.split():\n...     tag = romanText.rtObjects.RTTagged('Seventh Minor: ' + config)\n...     pt.setMinorRootParse(tag)\n...     print(pt.seventhMinor)\nMinor67Default.FLAT\nMinor67Default.SHARP\nMinor67Default.QUALITY\nMinor67Default.CAUTIONARY\nMinor67Default.SHARP\n\n\n>>> tag = romanText.rtObjects.RTTagged('Sixth Minor: harmonic')\n>>> pt.setMinorRootParse(tag)\n>>> print(pt.sixthMinor)\nMinor67Default.FLAT\n\n\nUnknown settings raise a RomanTextTranslateException\n>>> tag = romanText.rtObjects.RTTagged('Seventh Minor: asdf')\n>>> pt.setMinorRootParse(tag)\nTraceback (most recent call last):\nmusic21.romanText.translate.RomanTextTranslateException:\n    Cannot parse setting vi or vii parsing: 'asdf'",
+        "type": "ListItem"
+    },
+    {
+        "text": "PartTranslator.",
+        "type": "Title"
+    },
+    {
+        "text": "translateMeasureLineToken",
+        "type": "Title"
+    },
+    {
+        "text": "measureLineToken",
+        "type": "Title"
+    },
+    {
+        "text": "RTMeasure",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Translate a measure token consisting of a single line such as:\nm21 b3 V b4 C: IV\n\n\nOr it might be a variant measure, or a copy instruction.",
+        "type": "ListItem"
+    },
+    {
+        "text": "PartTranslator.",
+        "type": "Title"
+    },
+    {
+        "text": "translateOneLineToken",
+        "type": "Title"
+    },
+    {
+        "text": "lineToken",
+        "type": "Title"
+    },
+    {
+        "text": "RTTagged",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Translates one line token and set the current settings.\nA token in this case consists of an entire line's worth.\nIt might be a token such as \u0098Title: Neko Funjatta' or\na composite token such as \u0098m23 b4 IV6'",
+        "type": "ListItem"
+    },
+    {
+        "text": "PartTranslator.",
+        "type": "Title"
+    },
+    {
+        "text": "translateSingleMeasure",
+        "type": "Title"
+    },
+    {
+        "text": "measureToken",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a measureToken, return a stream.Measure object with\nthe appropriate atoms set.",
+        "type": "ListItem"
+    },
+    {
+        "text": "PartTranslator.",
+        "type": "Title"
+    },
+    {
+        "text": "translateSingleMeasureAtom",
+        "type": "Title"
+    },
+    {
+        "text": "isLastAtomInMeasure",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Translate a single atom in a measure token.\na is the Atom\nm is a stream.Measure object.\nUses coreInsert and coreAppend methods, so must have m.coreElementsChanged()\ncalled afterwards.",
+        "type": "ListItem"
+    },
+    {
+        "text": "PartTranslator.",
+        "type": "Title"
+    },
+    {
+        "text": "translateTokens",
+        "type": "Title"
+    },
+    {
+        "text": "tokens",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "RomanTextUnprocessedMetadata\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.romanText.translate.",
+        "type": "Title"
+    },
+    {
+        "text": "RomanTextUnprocessedMetadata",
+        "type": "Title"
+    },
+    {
+        "text": "tag",
+        "type": "Title"
+    },
+    {
+        "text": "''",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "data",
+        "type": "Title"
+    },
+    {
+        "text": "''",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "RomanTextUnprocessedMetadata bases",
+        "type": "Title"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "RomanTextUnprocessedMetadata read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "RomanTextUnprocessedMetadata read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "RomanTextUnprocessedMetadata methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "RomanTextUnprocessedMetadata instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "RomanTextUnprocessedToken\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.romanText.translate.",
+        "type": "Title"
+    },
+    {
+        "text": "RomanTextUnprocessedToken",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "obj",
+        "type": "Title"
+    },
+    {
+        "text": "Any",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "RomanTextUnprocessedToken bases",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "ElementWrapper",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "RomanTextUnprocessedToken read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "RomanTextUnprocessedToken read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "RomanTextUnprocessedToken methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "RomanTextUnprocessedToken instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from ElementWrapper:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "obj",
+        "type": "Table"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.romanText.translate.",
+        "type": "Title"
+    },
+    {
+        "text": "appendMeasureToRepeatEndingsDict",
+        "type": "Title"
+    },
+    {
+        "text": "rtMeasureObj",
+        "type": "Title"
+    },
+    {
+        "text": "RTMeasure",
+        "type": "Title"
+    },
+    {
+        "text": "Measure",
+        "type": "Title"
+    },
+    {
+        "text": "repeatEndings",
+        "type": "Title"
+    },
+    {
+        "text": "dict",
+        "type": "Title"
+    },
+    {
+        "text": "measureNumber",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Takes an RTMeasure object (which might represent one or more\nmeasures; but currently only one) and a music21 stream.Measure object and\nstore it as a tuple in the repeatEndings dictionary to mark where the\ntranslator should later mark for adding endings.\nIf the optional measureNumber is specified, we use that rather than the\ntoken number to add to the dict.\nThis does not yet work for skipped measures.\n>>> rtm = romanText.rtObjects.RTMeasure('m15a V6 b1.5 V6/5 b2 I b3 viio6')\n>>> rtm.repeatLetter\n['a']\n>>> rtm2 = romanText.rtObjects.RTMeasure('m15b V6 b1.5 V6/5 b2 I')\n>>> rtm2.repeatLetter\n['b']\n>>> repeatEndings = {}\n>>> m1 = stream.Measure()\n>>> m2 = stream.Measure()\n>>> romanText.translate.appendMeasureToRepeatEndingsDict(rtm, m1, repeatEndings)\n>>> repeatEndings\n{1: [(15, <music21.stream.Measure 0a offset=0.0>)]}\n>>> romanText.translate.appendMeasureToRepeatEndingsDict(rtm2, m2, repeatEndings)\n>>> repeatEndings[1], repeatEndings[2]\n([(15, <music21.stream.Measure 0a offset=0.0>)],\n [(15, <music21.stream.Measure 0b offset=0.0>)])\n>>> repeatEndings[2][0][1] is m2\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.romanText.translate.",
+        "type": "Title"
+    },
+    {
+        "text": "fixPickupMeasure",
+        "type": "Title"
+    },
+    {
+        "text": "partObject",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Fix a pickup measure if any.\nWe determine a pickup measure by being measure 0 and not having an RN\nobject at the beginning.  Will also pad the last measure right and\ncut the duration of the final chord to match.\nDemonstration: an otherwise incorrect part\n>>> p = stream.Part()\n>>> m0 = stream.Measure()\n>>> m0.number = 0\n>>> k0 = key.Key('G')\n>>> m0.insert(0, k0)\n>>> m0.insert(0, meter.TimeSignature('4/4'))\n>>> m0.insert(3, roman.RomanNumeral('I', k0, quarterLength=1.0))\n>>> m1 = stream.Measure()\n>>> m1.number = 1\n>>> m1.append(roman.RomanNumeral('V', k0, quarterLength=4.0))\n>>> m2 = stream.Measure()\n>>> m2.number = 2\n>>> m2.append(roman.RomanNumeral('I', k0, quarterLength=4.0))\n>>> p.insert(0, m0)\n>>> p.insert(4, m1)\n>>> p.insert(8, m2)\n\n\nAfter running fixPickupMeasure()\n>>> romanText.translate.fixPickupMeasure(p)\n>>> p.show('text')\n{0.0} <music21.stream.Measure 0 offset=0.0>\n    {0.0} <music21.key.Key of G major>\n    {0.0} <music21.meter.TimeSignature 4/4>\n    {0.0} <music21.roman.RomanNumeral I in G major>\n{1.0} <music21.stream.Measure 1 offset=1.0>\n    {0.0} <music21.roman.RomanNumeral V in G major>\n{5.0} <music21.stream.Measure 2 offset=5.0>\n    {0.0} <music21.roman.RomanNumeral I in G major>\n\n\n>>> m0.paddingLeft\n3.0\n>>> m2.paddingRight\n1.0\n>>> m2[roman.RomanNumeral].last().duration\n<music21.duration.Duration 3.0>",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.romanText.translate.",
+        "type": "Title"
+    },
+    {
+        "text": "romanTextToStreamOpus",
+        "type": "Title"
+    },
+    {
+        "text": "rtHandler",
+        "type": "Title"
+    },
+    {
+        "text": "inputM21",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The main processing routine for RomanText objects that may or may not\nbe multi movement.\nTakes in a romanText.rtObjects.RTFile() object, or a string as rtHandler.\nRuns romanTextToStreamScore() as its main work.\nIf inputM21 is None then it will create a Score or Opus object.\nReturn either a Score object, or, if a multi-movement work is defined, an\nOpus object.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.romanText.translate.",
+        "type": "Title"
+    },
+    {
+        "text": "romanTextToStreamScore",
+        "type": "Title"
+    },
+    {
+        "text": "rtHandler",
+        "type": "Title"
+    },
+    {
+        "text": "inputM21",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The main processing module for single-movement RomanText works.\nGiven a romanText handler or string, return or fill a Score Stream.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.romanText.translate",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

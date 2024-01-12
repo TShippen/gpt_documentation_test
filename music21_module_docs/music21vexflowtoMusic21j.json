@@ -1,0 +1,410 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.vexflow.toMusic21j",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.variant",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.voiceLeading",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.vexflow.toMusic21j\nVexflowPickler\nVexflowPickler\nVexflowPickler.fromObject()\nVexflowPickler.fromStream()\nVexflowPickler.getHTML()\nVexflowPickler.getJSBody()\nVexflowPickler.getJSBodyScript()\nVexflowPickler.getLoadTemplate()\nVexflowPickler.splitLongJSON()\n\n\n\n\nFunctions\nfromObject()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.vexflow.toMusic21j\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Convert a music21 object into JSON and send it to the browser for music21j to use.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "VexflowPickler\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.vexflow.toMusic21j.",
+        "type": "Title"
+    },
+    {
+        "text": "VexflowPickler",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "VexflowPickler methods",
+        "type": "Title"
+    },
+    {
+        "text": "VexflowPickler.",
+        "type": "Title"
+    },
+    {
+        "text": "fromObject",
+        "type": "Title"
+    },
+    {
+        "text": "thisObject",
+        "type": "Title"
+    },
+    {
+        "text": "mode",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "VexflowPickler.",
+        "type": "Title"
+    },
+    {
+        "text": "fromStream",
+        "type": "Title"
+    },
+    {
+        "text": "thisStream",
+        "type": "Title"
+    },
+    {
+        "text": "mode",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "VexflowPickler.",
+        "type": "Title"
+    },
+    {
+        "text": "getHTML",
+        "type": "Title"
+    },
+    {
+        "text": "dataSplit",
+        "type": "Title"
+    },
+    {
+        "text": "title",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "defaults",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get the complete HTML page to pass to the browser:\n>>> vfp = vexflow.toMusic21j.VexflowPickler()\n>>> print(vfp.getHTML('{\"hi\": \"hello\"}', 'myPiece'))\n   <!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\"\n            \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n        <html xmlns=\"http://www.w3.org/1999/xhtml\">\n        <head>\n    <meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\" />\n    <!-- for MSIE 10 on Windows 8 -->\n    <meta http-equiv=\"X-UA-Compatible\" content=\"requiresActiveX=true\"/>\n    <title>myPiece</title>\n    <script data-main='http://web.mit.edu/music21/music21j/src/music21'\n            src='http://web.mit.edu/music21/music21j/ext/require/require.js'></script>\n    <script>\n    require(['music21'], function() {\n                    var pickleIn = {\"hi\": \"hello\"};\n                    var jpc = new music21.fromPython.Converter();\n                    streamObj = jpc.run(pickleIn);\n                    streamObj.renderOptions.events.resize = \"reflow\";\n                streamObj.appendNewCanvas();\n                });\n    </script>\n    </head>\n    <body>\n    </body>\n    </html>",
+        "type": "ListItem"
+    },
+    {
+        "text": "VexflowPickler.",
+        "type": "Title"
+    },
+    {
+        "text": "getJSBody",
+        "type": "Title"
+    },
+    {
+        "text": "dataSplit",
+        "type": "Title"
+    },
+    {
+        "text": "defaults",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get the javascript code without the <script> tags to render the JSON\n>>> vfp = vexflow.toMusic21j.VexflowPickler()\n>>> print(vfp.getJSBody('{\"hi\": \"hello\"}'))\n        require(['music21'], function() {\n            var pickleIn = {\"hi\": \"hello\"};\n            var jpc = new music21.fromPython.Converter();\n            streamObj = jpc.run(pickleIn);\n            streamObj.renderOptions.events.resize = \"reflow\";\n        streamObj.appendNewCanvas();\n        });",
+        "type": "ListItem"
+    },
+    {
+        "text": "VexflowPickler.",
+        "type": "Title"
+    },
+    {
+        "text": "getJSBodyScript",
+        "type": "Title"
+    },
+    {
+        "text": "dataSplit",
+        "type": "Title"
+    },
+    {
+        "text": "defaults",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get the <script>\u2026</script> tag to render the JSON\n>>> vfp = vexflow.toMusic21j.VexflowPickler()\n>>> print(vfp.getJSBodyScript('{\"hi\": \"hello\"}'))\n   <script>\n        require(['music21'], function() {\n            var pickleIn = {\"hi\": \"hello\"};\n            var jpc = new music21.fromPython.Converter();\n            streamObj = jpc.run(pickleIn);\n            streamObj.renderOptions.events.resize = \"reflow\";\n        streamObj.appendNewCanvas();\n        });\n    </script>",
+        "type": "ListItem"
+    },
+    {
+        "text": "VexflowPickler.",
+        "type": "Title"
+    },
+    {
+        "text": "getLoadTemplate",
+        "type": "Title"
+    },
+    {
+        "text": "urls",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Gets the <script> tag for loading music21 from require.js\n>>> vfp = vexflow.toMusic21j.VexflowPickler()\n>>> vfp.getLoadTemplate()\n\"<script data-main='http://web.mit.edu/music21/music21j/src/music21'\n    src='http://web.mit.edu/music21/music21j/ext/require/require.js'></script>\"\n\n\n>>> d = {'m21URI': 'file:///tmp/music21', 'requireURI': 'http://requirejs.com/require.js'}\n>>> vfp.getLoadTemplate(d)\n\"<script data-main='file:///tmp/music21' src='http://requirejs.com/require.js'></script>\"",
+        "type": "ListItem"
+    },
+    {
+        "text": "VexflowPickler.",
+        "type": "Title"
+    },
+    {
+        "text": "splitLongJSON",
+        "type": "Title"
+    },
+    {
+        "text": "jsonString",
+        "type": "Title"
+    },
+    {
+        "text": "chunkSize",
+        "type": "Title"
+    },
+    {
+        "text": "110",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.vexflow.toMusic21j.",
+        "type": "Title"
+    },
+    {
+        "text": "fromObject",
+        "type": "Title"
+    },
+    {
+        "text": "thisObject",
+        "type": "Title"
+    },
+    {
+        "text": "mode",
+        "type": "Title"
+    },
+    {
+        "text": "'html'",
+        "type": "Title"
+    },
+    {
+        "text": "local",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "returns a string of data for a given Music21Object such as a Score, Note, etc. that\ncan be displayed in a browser using the music21j package.  Called by .show(\u0098vexflow').\n>>> n = note.Note('C#4')\n>>> print(vexflow.toMusic21j.fromObject(n))\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\"\n        \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n<html xmlns=\"http://www.w3.org/1999/xhtml\">\n<head>\n    <meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\" />\n    <!-- for MSIE 10 on Windows 8 -->\n    <meta http-equiv=\"X-UA-Compatible\" content=\"requiresActiveX=true\"/>\n    <title>Music21 Fragment</title>\n    <script data-main='http://web.mit.edu/music21/music21j/src/music21'\n            src='http://web.mit.edu/music21/music21j/ext/require/require.js'></script>\n    <script>\n        require(['music21'], function() {\n            var pickleIn = '{\"m21Version\": {\"py/tuple\": [1, 9, 2]}, \"stream\":\n{\"_mutable\": true, \"_activeSite\": null, \"' +\n'_priority\": 0, \"_elements\": [], \"_cache\": {}, \"definesExplicitPageBreaks\":\nfalse, \"_unlinkedDuration\": null, \"' +\n'id\": ..., \"_duration\": null, \"py/object\": \"music21.stream.Stream\",\n\"streamStatus\": {\"py/object\": \"music' +\n'21.stream.streamStatus.StreamStatus\", \"_enharmonics\": null,\n\"_dirty\": null, \"_concertPitch\": null, \"_accidentals\"' +\n': null, \"_ties\": null, \"_rests\": null, \"_ornaments\": null,\n\"_client\": null, \"_beams\": null, \"_measures\": nu' +\n...\n'd\": null}, \"definesExplicitSystemBreaks\": false, ...}}';\n            var jpc = new music21.fromPython.Converter();\n            streamObj = jpc.run(pickleIn);\n            streamObj.renderOptions.events.resize = \"reflow\";\n            streamObj.appendNewCanvas();\n        });\n    </script>\n\n</head>\n<body>\n</body>\n</html>\n\n\n\nChanged in v8: mode and useLocal are keyword only.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.vexflow.toMusic21j",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

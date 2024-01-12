@@ -1,0 +1,1454 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.meter.base",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.metadata.properties",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.meter.core",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.meter.base\nTimeSignature\nTimeSignature\nTimeSignature.beatCountName\nTimeSignature.beatDivisionCount\nTimeSignature.beatDivisionCountName\nTimeSignature.beatDivisionDurations\nTimeSignature.beatDuration\nTimeSignature.beatLengthToQuarterLengthRatio\nTimeSignature.beatSubDivisionDurations\nTimeSignature.classification\nTimeSignature.quarterLengthToBeatLengthRatio\nTimeSignature.barDuration\nTimeSignature.beatCount\nTimeSignature.denominator\nTimeSignature.numerator\nTimeSignature.ratioString\nTimeSignature.summedNumerator\nTimeSignature.averageBeatStrength()\nTimeSignature.getAccent()\nTimeSignature.getAccentWeight()\nTimeSignature.getBeams()\nTimeSignature.getBeat()\nTimeSignature.getBeatDepth()\nTimeSignature.getBeatDuration()\nTimeSignature.getBeatOffsets()\nTimeSignature.getBeatProgress()\nTimeSignature.getBeatProportion()\nTimeSignature.getBeatProportionStr()\nTimeSignature.getMeasureOffsetOrMeterModulusOffset()\nTimeSignature.getOffsetFromBeat()\nTimeSignature.load()\nTimeSignature.ratioEqual()\nTimeSignature.resetValues()\nTimeSignature.setAccentWeight()\nTimeSignature.setDisplay()\nTimeSignature.accentSequence\nTimeSignature.beamSequence\nTimeSignature.beatSequence\nTimeSignature.displaySequence\nTimeSignature.symbol\nTimeSignature.symbolizeDenominator\n\n\n\n\nSenzaMisuraTimeSignature\nSenzaMisuraTimeSignature\n\n\nTimeSignatureBase\nTimeSignatureBase\n\n\nFunctions\nbestTimeSignature()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.meter.base\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "This module defines the TimeSignature object,\nas well as component objects for defining nested metrical structures,\nMeterTerminal and MeterSequence objects.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "TimeSignature\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.meter.base.",
+        "type": "Title"
+    },
+    {
+        "text": "TimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "value",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "'4/4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "divisions",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The TimeSignature object represents time signatures in musical scores\n(4/4, 3/8, 2/4+5/16, Cut, etc.).\nTimeSignatures should be present in the first Measure of each Part\nthat they apply to.  Alternatively you can put the time signature at the\nfront of a Part or at the beginning of a Score, and they will work\nwithin music21, but they won't necessarily display properly in MusicXML,\nLilypond, etc.  So best is to create structures where the TimeSignature\ngoes in the first Measure of the score, as below:\n>>> s = stream.Score()\n>>> p = stream.Part()\n>>> m1 = stream.Measure()\n>>> ts = meter.TimeSignature('3/4')\n>>> m1.insert(0, ts)\n>>> m1.insert(0, note.Note('C#3', type='half'))\n>>> n = note.Note('D3', type='quarter')  # we will need this later\n>>> m1.insert(1.0, n)\n>>> m1.number = 1\n>>> p.insert(0, m1)\n>>> s.insert(0, p)\n>>> s.show('t')\n{0.0} <music21.stream.Part ...>\n    {0.0} <music21.stream.Measure 1 offset=0.0>\n        {0.0} <music21.meter.TimeSignature 3/4>\n        {0.0} <music21.note.Note C#>\n        {1.0} <music21.note.Note D>\n\n\nBasic operations on a TimeSignature object are designed to be very simple.\n>>> ts.ratioString\n'3/4'\n\n\n>>> ts.numerator\n3\n\n\n>>> ts.beatCount\n3\n\n\n>>> ts.beatCountName\n'Triple'\n\n\n>>> ts.beatDuration.quarterLength\n1.0\n\n\nAs an alternative to putting a TimeSignature in a Stream at a specific\nposition (offset), it can be assigned to a special property in Measure that\npositions the TimeSignature at the start of a Measure.  Notice that when we\nshow() the Measure (or if we iterate through it), the TimeSignature\nappears as if it's in the measure itself:\n>>> m2 = stream.Measure()\n>>> m2.number = 2\n>>> ts2 = meter.TimeSignature('2/4')\n>>> m2.timeSignature = ts2\n>>> m2.append(note.Note('E3', type='half'))\n>>> p.append(m2)\n>>> s.show('text')\n{0.0} <music21.stream.Part ...>\n    {0.0} <music21.stream.Measure 1 offset=0.0>\n        {0.0} <music21.meter.TimeSignature 3/4>\n        {0.0} <music21.note.Note C#>\n        {1.0} <music21.note.Note D>\n    {2.0} <music21.stream.Measure 2 offset=2.0>\n        {0.0} <music21.meter.TimeSignature 2/4>\n        {0.0} <music21.note.Note E>\n\n\nOnce a Note has a local TimeSignature, a Note can get its beat position and\nother meter-specific parameters.  Remember n, our quarter note at offset\n2.0 of m1, a 3/4 measure? Let's get its beat:\n>>> n.beat\n2.0\n\n\nThis feature is more useful if there are more beats:\n>>> m3 = stream.Measure()\n>>> m3.timeSignature = meter.TimeSignature('3/4')\n>>> eighth = note.Note(type='eighth')\n>>> m3.repeatAppend(eighth, 6)\n>>> [thisNote.beatStr for thisNote in m3.notes]\n['1', '1 1/2', '2', '2 1/2', '3', '3 1/2']\n\n\nNow lets change its measure's TimeSignature and see what happens:\n>>> sixEight = meter.TimeSignature('6/8')\n>>> m3.timeSignature = sixEight\n>>> [thisNote.beatStr for thisNote in m3.notes]\n['1', '1 1/3', '1 2/3', '2', '2 1/3', '2 2/3']\n\n\nTimeSignature(\u00986/8') defaults to fast 6/8:\n>>> sixEight.beatCount\n2\n\n\n>>> sixEight.beatDuration.quarterLength\n1.5\n\n\n>>> sixEight.beatDivisionCountName\n'Compound'\n\n\nLet's make it slow 6/8 instead:\n>>> sixEight.beatCount = 6\n>>> sixEight.beatDuration.quarterLength\n0.5\n\n\n>>> sixEight.beatDivisionCountName\n'Simple'\n\n\nNow let's look at the beatStr for each of the notes in m3:\n>>> [thisNote.beatStr for thisNote in m3.notes]\n['1', '2', '3', '4', '5', '6']\n\n\nAs of v7., 3/8 also defaults to fast 3/8, that is, one beat:\n>>> meter.TimeSignature('3/8').beatCount\n1\n\n\nTimeSignatures can also use symbols instead of numbers\n>>> tsCommon = meter.TimeSignature('c')  # or common\n>>> tsCommon.beatCount\n4\n>>> tsCommon.denominator\n4\n\n\n>>> tsCommon.symbol\n'common'\n\n\n>>> tsCut = meter.TimeSignature('cut')\n>>> tsCut.beatCount\n2\n>>> tsCut.denominator\n2\n\n\n>>> tsCut.symbol\n'cut'\n\n\nFor other time signatures, the symbol is \u0098' (not set) or \u0098normal'\n>>> sixEight.symbol\n''\n\n\nFor complete details on using this object, see\nUser's Guide Chapter 14: Time Signatures and\nUser's Guide Chapter 55: Advanced Meter and\nThat's it for the simple aspects of TimeSignature objects.  You know\nenough to get started now!\nUnder the hood, they're extremely powerful.  For musicians, TimeSignatures\ndo (at least) three different things:\n\nThey define where the beats in the measure are and how many there are.\nThey indicate how the notes should be beamed\nThey give a sense of how much accent or weight each note gets, which\nalso defines which are important notes and which might be ornaments.\n\nThese three aspects of TimeSignatures are controlled by the\nbeatSequence,\nbeamSequence, and\naccentSequence properties of the\nTimeSignature.  Each of them is an independent\nMeterSequence element which might have nested\nproperties (e.g., an 11/16 meter might be beamed as {1/4+1/4+{1/8+1/16}}),\nso if you want to change how beats are calculated or beams are generated\nyou'll want to learn more about meter.MeterSequence objects.\nThere's a fourth MeterSequence object inside a TimeSignature, and that is\nthe displaySequence. That determines\nhow the TimeSignature should actually look on paper.  Normally this\nMeterSequence is pretty simple.  In \u00984/4' it's usually just \u00984/4'.  But\nif you have the \u009811/16' time above, you may want to have it displayed as\n\u00982/4+3/16' or \u009811/16 (2/4+3/16)'.  Or you might want the written\nTimeSignature to contradict what the notes imply.  All this can be done\nwith .displaySequence.\nEquality\nFor two time signatures to be considered equal,\nthey have the same name and internal structure.\nThe name is tested by the symbol.\nThis helps distinguish between \u0098Cut' and \u00982/2', for example.\n>>> tsCut = meter.TimeSignature('Cut')\n>>> ts22 = meter.TimeSignature('2/2')\n>>> tsCut == ts22\nFalse\n\n\nThe internal structure is currently tested simply by the\nbeatCount and\nratioString attributes.\nThe check of beatCount\nhelps to distinguish the \u0098fast' (2-beat) from \u0098slow' (6-beat)\nversions of 6/8, for example.\n>>> fast68 = meter.TimeSignature('fast 6/8')\n>>> slow68 = meter.TimeSignature('slow 6/8')\n>>> fast68 == slow68\nFalse\n\n\nComplementing this,\nratioString\nprovides a check of the internal divsions such that\n\u00982/8+3/8' is different from \u00983/8+2/8', for example,\ndespite the fact that they could both be written as \u00985/8'.\n>>> ts2n3 = meter.TimeSignature('2/8+3/8')\n>>> ts3n2 = meter.TimeSignature('3/8+2/8')\n>>> ts2n3 == ts3n2\nFalse\n\n\nFor a less restrictive test of this, see\nratioEqual()\nwhich returns True for all cases of \u00985/8'.\n>>> ts2n3.ratioEqual(ts3n2)\nTrue\n\n\nYes, equality is ever True:\n>>> one44 = meter.TimeSignature('4/4')\n>>> another44 = meter.TimeSignature()  # '4/4' by default\n>>> one44 == another44\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "TimeSignature bases",
+        "type": "Title"
+    },
+    {
+        "text": "TimeSignatureBase",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "TimeSignature read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "TimeSignature.",
+        "type": "Title"
+    },
+    {
+        "text": "beatCountName",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return the beat count name, or the name given for the number of beat units.\nFor example, 2/4 is duple; 9/4 is triple.\n>>> ts = meter.TimeSignature('3/4')\n>>> ts.beatCountName\n'Triple'\n\n\n>>> ts = meter.TimeSignature('6/8')\n>>> ts.beatCountName\n'Duple'",
+        "type": "ListItem"
+    },
+    {
+        "text": "TimeSignature.",
+        "type": "Title"
+    },
+    {
+        "text": "beatDivisionCount",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return the count of background beat units found within one beat,\nor the number of subdivisions in the beat unit in this TimeSignature.\n>>> ts = meter.TimeSignature('3/4')\n>>> ts.beatDivisionCount\n2\n\n\n>>> ts = meter.TimeSignature('6/8')\n>>> ts.beatDivisionCount\n3\n\n\n>>> ts = meter.TimeSignature('15/8')\n>>> ts.beatDivisionCount\n3\n\n\n>>> ts = meter.TimeSignature('3/8')\n>>> ts.beatDivisionCount\n1\n\n\n>>> ts = meter.TimeSignature('13/8', 13)\n>>> ts.beatDivisionCount\n1\n\n\n\nChanged in v7: return 1 instead of a TimeSignatureException.",
+        "type": "ListItem"
+    },
+    {
+        "text": "TimeSignature.",
+        "type": "Title"
+    },
+    {
+        "text": "beatDivisionCountName",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return the beat count name, or the name given for the number of beat units.\nFor example, 2/4 is duple; 9/4 is triple.\n>>> ts = meter.TimeSignature('3/4')\n>>> ts.beatDivisionCountName\n'Simple'\n\n\n>>> ts = meter.TimeSignature('6/8')\n>>> ts.beatDivisionCountName\n'Compound'\n\n\nRare cases of 5-beat divisions return \u0098Other', like this 10/8 divided into\n5/8 + 5/8 with no further subdivisions:\n>>> ts = meter.TimeSignature('10/8')\n>>> ts.beatSequence.partition(2)\n>>> ts.beatSequence\n<music21.meter.core.MeterSequence {5/8+5/8}>\n>>> for i, mt in enumerate(ts.beatSequence):\n...     ts.beatSequence[i] = mt.subdivideByCount(5)\n>>> ts.beatSequence\n<music21.meter.core.MeterSequence {{1/8+1/8+1/8+1/8+1/8}+{1/8+1/8+1/8+1/8+1/8}}>\n>>> ts.beatDivisionCountName\n'Other'",
+        "type": "ListItem"
+    },
+    {
+        "text": "TimeSignature.",
+        "type": "Title"
+    },
+    {
+        "text": "beatDivisionDurations",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return the beat division, or the durations that make up one beat,\nas a list of Duration objects, if and only if\nthe TimeSignature has a uniform beat division for all beats.\n>>> ts = meter.TimeSignature('3/4')\n>>> ts.beatDivisionDurations\n[<music21.duration.Duration 0.5>,\n <music21.duration.Duration 0.5>]\n\n\n>>> ts = meter.TimeSignature('6/8')\n>>> ts.beatDivisionDurations\n[<music21.duration.Duration 0.5>,\n <music21.duration.Duration 0.5>,\n <music21.duration.Duration 0.5>]\n\n\nValue returned of non-uniform beat divisions will change at any time\nafter v7.1 to avoid raising an exception.",
+        "type": "ListItem"
+    },
+    {
+        "text": "TimeSignature.",
+        "type": "Title"
+    },
+    {
+        "text": "beatDuration",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a Duration object equal to the beat unit\nof this Time Signature, if and only if this TimeSignature has a uniform beat unit.\nOtherwise raises an exception in v7.1 but will change to returning NaN\nsoon fasterwards.\n>>> ts = meter.TimeSignature('3/4')\n>>> ts.beatDuration\n<music21.duration.Duration 1.0>\n>>> ts = meter.TimeSignature('6/8')\n>>> ts.beatDuration\n<music21.duration.Duration 1.5>\n\n\n>>> ts = meter.TimeSignature('7/8')\n>>> ts.beatDuration\n<music21.duration.Duration 0.5>\n\n\n>>> ts = meter.TimeSignature('3/8')\n>>> ts.beatDuration\n<music21.duration.Duration 1.5>\n>>> ts.beatCount = 3\n>>> ts.beatDuration\n<music21.duration.Duration 0.5>\n\n\nCannot do this because of asymmetry\n>>> ts = meter.TimeSignature('2/4+3/16')\n>>> ts.beatDuration\nTraceback (most recent call last):\nmusic21.exceptions21.TimeSignatureException: non-uniform beat unit: [2.0, 0.75]\n\n\n\nChanged in v7: return NaN rather than raising Exception in property.",
+        "type": "ListItem"
+    },
+    {
+        "text": "TimeSignature.",
+        "type": "Title"
+    },
+    {
+        "text": "beatLengthToQuarterLengthRatio",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns 4.0 / denominator\u2026 seems a bit silly\u2026\n>>> a = meter.TimeSignature('3/2')\n>>> a.beatLengthToQuarterLengthRatio\n2.0",
+        "type": "ListItem"
+    },
+    {
+        "text": "TimeSignature.",
+        "type": "Title"
+    },
+    {
+        "text": "beatSubDivisionDurations",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a subdivision of the beat division, or a list\nof Duration objects representing each beat division\ndivided by two.\n>>> ts = meter.TimeSignature('3/4')\n>>> ts.beatSubDivisionDurations\n[<music21.duration.Duration 0.25>, <music21.duration.Duration 0.25>,\n <music21.duration.Duration 0.25>, <music21.duration.Duration 0.25>]\n\n\n>>> ts = meter.TimeSignature('6/8')\n>>> ts.beatSubDivisionDurations\n[<music21.duration.Duration 0.25>, <music21.duration.Duration 0.25>,\n <music21.duration.Duration 0.25>, <music21.duration.Duration 0.25>,\n <music21.duration.Duration 0.25>, <music21.duration.Duration 0.25>]",
+        "type": "ListItem"
+    },
+    {
+        "text": "TimeSignature.",
+        "type": "Title"
+    },
+    {
+        "text": "classification",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return the classification of this TimeSignature,\nsuch as Simple Triple or Compound Quadruple.\n>>> ts = meter.TimeSignature('3/4')\n>>> ts.classification\n'Simple Triple'\n>>> ts = meter.TimeSignature('6/8')\n>>> ts.classification\n'Compound Duple'\n>>> ts = meter.TimeSignature('4/32')\n>>> ts.classification\n'Simple Quadruple'",
+        "type": "ListItem"
+    },
+    {
+        "text": "TimeSignature.",
+        "type": "Title"
+    },
+    {
+        "text": "quarterLengthToBeatLengthRatio",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns denominator/4.0\u2026 seems a bit silly\u2026",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "TimeSignature read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "TimeSignature.",
+        "type": "Title"
+    },
+    {
+        "text": "barDuration",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a Duration object equal to the\ntotal length of this TimeSignature.\n>>> ts = meter.TimeSignature('5/16')\n>>> ts.barDuration\n<music21.duration.Duration 1.25>\n\n\n>>> ts2 = meter.TimeSignature('3/8')\n>>> d = ts2.barDuration\n>>> d.type\n'quarter'\n>>> d.dots\n1\n>>> d.quarterLength\n1.5\n\n\nThis can be overridden to create different representations\nor to contradict the meter.\n>>> d2 = duration.Duration(1.75)\n>>> ts2.barDuration = d2\n>>> ts2.barDuration\n<music21.duration.Duration 1.75>\n\n\nAn uninitialized TimeSignature returns 4.0 for 4/4\n>>> meter.TimeSignature().barDuration\n<music21.duration.Duration 4.0>",
+        "type": "ListItem"
+    },
+    {
+        "text": "TimeSignature.",
+        "type": "Title"
+    },
+    {
+        "text": "beatCount",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return or set the count of beat units, or the number of beats in this TimeSignature.\nWhen setting beat units, one level of sub-partitions is automatically defined.\nUsers can specify beat count values as integers or as lists of durations.\nFor more precise configuration of the beat MeterSequence,\nmanipulate the .beatSequence attribute directly.\n>>> ts = meter.TimeSignature('3/4')\n>>> ts.beatCount\n3\n>>> ts.beatDuration.quarterLength\n1.0\n>>> ts.beatCount = [1, 1, 1, 1, 1, 1]\n>>> ts.beatCount\n6\n>>> ts.beatDuration.quarterLength\n0.5\n\n\nSetting a beat-count directly is a simple, high-level way to configure the beatSequence.\nNote that his may not configure lower level partitions correctly,\nand will raise an error if the provided beat count is not supported by the\noverall duration of the .beatSequence MeterSequence.\n>>> ts = meter.TimeSignature('6/8')\n>>> ts.beatCount  # default is 2 beats\n2\n>>> ts.beatSequence\n<music21.meter.core.MeterSequence {{1/8+1/8+1/8}+{1/8+1/8+1/8}}>\n>>> ts.beatDivisionCountName\n'Compound'\n>>> ts.beatCount = 6\n>>> ts.beatSequence\n<music21.meter.core.MeterSequence\n    {{1/16+1/16}+{1/16+1/16}+{1/16+1/16}+{1/16+1/16}+{1/16+1/16}+{1/16+1/16}}>\n>>> ts.beatDivisionCountName\n'Simple'\n>>> ts.beatCount = 123\nTraceback (most recent call last):\nmusic21.exceptions21.TimeSignatureException: cannot partition beat with provided value: 123\n\n\n>>> ts = meter.TimeSignature('3/4')\n>>> ts.beatCount = 6\n>>> ts.beatDuration.quarterLength\n0.5",
+        "type": "ListItem"
+    },
+    {
+        "text": "TimeSignature.",
+        "type": "Title"
+    },
+    {
+        "text": "denominator",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return the denominator of the TimeSignature as a number or set it.\n(for complex TimeSignatures, note that this comes from the .beamSequence\nof the TimeSignature)\n>>> ts = meter.TimeSignature('3/4')\n>>> ts.denominator\n4\n>>> ts.denominator = 8\n>>> ts.ratioString\n'3/8'\n\n\nIn this following case, the TimeSignature is silently being converted to 9/8\nto get a single digit denominator:\n>>> ts = meter.TimeSignature('2/4+5/8')\n>>> ts.denominator\n8",
+        "type": "ListItem"
+    },
+    {
+        "text": "TimeSignature.",
+        "type": "Title"
+    },
+    {
+        "text": "numerator",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return the numerator of the TimeSignature as a number.\nCan set the numerator for a simple TimeSignature.\nTo set the numerator of a complex TimeSignature, change beatCount.\n(for complex TimeSignatures, note that this comes from the .beamSequence\nof the TimeSignature)\n>>> ts = meter.TimeSignature('3/4')\n>>> ts.numerator\n3\n>>> ts.numerator = 5\n>>> ts\n<music21.meter.TimeSignature 5/4>\n\n\nIn this case, the TimeSignature is silently being converted to 9/8\nto get a single digit numerator:\n>>> ts = meter.TimeSignature('2/4+5/8')\n>>> ts.numerator\n9\n\n\nSetting a summed time signature's numerator will change to a\nsimple time signature\n>>> ts.numerator = 11\n>>> ts\n<music21.meter.TimeSignature 11/8>",
+        "type": "ListItem"
+    },
+    {
+        "text": "TimeSignature.",
+        "type": "Title"
+    },
+    {
+        "text": "ratioString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns or sets a simple string representing the time signature ratio.\n>>> threeFour = meter.TimeSignature('3/4')\n>>> threeFour.ratioString\n'3/4'\n\n\nIt can also be set to load a new one, but \u0098.load()' is better\u2026\n>>> threeFour.ratioString = '5/8'  # now this variable name is dumb!\n>>> threeFour.numerator\n5\n>>> threeFour.denominator\n8\n\n\n>>> complexTime = meter.TimeSignature('2/4+3/8')\n>>> complexTime.ratioString\n'2/4+3/8'\n\n\nFor advanced users, getting the ratioString is the equivalent of\npartitionDisplay on the displaySequence:\n>>> complexTime.displaySequence.partitionDisplay\n'2/4+3/8'",
+        "type": "ListItem"
+    },
+    {
+        "text": "TimeSignature.",
+        "type": "Title"
+    },
+    {
+        "text": "summedNumerator",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "TimeSignature methods",
+        "type": "Title"
+    },
+    {
+        "text": "TimeSignature.",
+        "type": "Title"
+    },
+    {
+        "text": "averageBeatStrength",
+        "type": "Title"
+    },
+    {
+        "text": "streamIn",
+        "type": "Title"
+    },
+    {
+        "text": "notesOnly",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "returns a float of the average beat strength of all objects (or if notesOnly is True\n[default] only the notes) in the Stream specified as streamIn.\n>>> s = converter.parse('C4 D4 E8 F8', format='tinyNotation').flatten().notes.stream()\n>>> sixEight = meter.TimeSignature('6/8')\n>>> sixEight.averageBeatStrength(s)\n0.4375\n>>> threeFour = meter.TimeSignature('3/4')\n>>> threeFour.averageBeatStrength(s)\n0.5625\n\n\nIf notesOnly is False then test objects will give added\nweight to the beginning of the measure:\n>>> sixEight.averageBeatStrength(s, notesOnly=False)\n0.4375\n>>> s.insert(0.0, clef.TrebleClef())\n>>> s.insert(0.0, clef.BassClef())\n>>> sixEight.averageBeatStrength(s, notesOnly=False)\n0.625",
+        "type": "ListItem"
+    },
+    {
+        "text": "TimeSignature.",
+        "type": "Title"
+    },
+    {
+        "text": "getAccent",
+        "type": "Title"
+    },
+    {
+        "text": "qLenPos",
+        "type": "Title"
+    },
+    {
+        "text": "OffsetQL",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return True or False if the qLenPos is at the start of an accent\ndivision.\n>>> a = meter.TimeSignature('3/4', 3)\n>>> a.accentSequence.partition([2, 1])\n>>> a.accentSequence\n<music21.meter.core.MeterSequence {2/4+1/4}>\n>>> a.getAccent(0.0)\nTrue\n>>> a.getAccent(1.0)\nFalse\n>>> a.getAccent(2.0)\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "TimeSignature.",
+        "type": "Title"
+    },
+    {
+        "text": "getAccentWeight",
+        "type": "Title"
+    },
+    {
+        "text": "qLenPos",
+        "type": "Title"
+    },
+    {
+        "text": "level",
+        "type": "Title"
+    },
+    {
+        "text": "forcePositionMatch",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "permitMeterModulus",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a qLenPos,  return an accent level. In general, accents are assumed to\ndefine only a first-level weight.\nIf forcePositionMatch is True, an accent will only be returned if the\nprovided qLenPos is a near exact match to the provided quarter length. Otherwise,\nhalf of the minimum quarter length will be provided.\nIf permitMeterModulus is True, quarter length positions greater than\nthe duration of the Meter will be accepted as the modulus of the total meter duration.\n>>> ts1 = meter.TimeSignature('3/4')\n>>> [ts1.getAccentWeight(x) for x in range(3)]\n[1.0, 0.5, 0.5]\n\n\nReturns an error\u2026\n>>> [ts1.getAccentWeight(x) for x in range(6)]\nTraceback (most recent call last):\nmusic21.exceptions21.MeterException: cannot access from qLenPos 3.0\n    where total duration is 3.0\n\n\n\u2026unless permitMeterModulus is employed\n>>> [ts1.getAccentWeight(x, permitMeterModulus=True) for x in range(6)]\n[1.0, 0.5, 0.5, 1.0, 0.5, 0.5]",
+        "type": "ListItem"
+    },
+    {
+        "text": "TimeSignature.",
+        "type": "Title"
+    },
+    {
+        "text": "getBeams",
+        "type": "Title"
+    },
+    {
+        "text": "srcList",
+        "type": "Title"
+    },
+    {
+        "text": "measureStartOffset",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u2192 list[music21.beam.Beams | None]",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a qLen position and an iterable of Music21Objects, return a list of Beams objects.\nThe iterable can be a list (of elements) or a Stream (preferably flat)\nor a StreamIterator from which Durations\nand information about note vs. rest will be\nextracted.\nObjects are assumed to be adjoining; offsets are not used, except for\nmeasureStartOffset()\nMust process a list/Stream at time, because we cannot tell when a beam ends\nunless we see the context of adjoining durations.\n>>> a = meter.TimeSignature('2/4', 2)\n>>> a.beamSequence[0] = a.beamSequence[0].subdivide(2)\n>>> a.beamSequence[1] = a.beamSequence[1].subdivide(2)\n>>> a.beamSequence\n<music21.meter.core.MeterSequence {{1/8+1/8}+{1/8+1/8}}>\n>>> b = [note.Note(type='16th') for _ in range(8)]\n>>> c = a.getBeams(b)\n>>> len(c) == len(b)\nTrue\n>>> print(c)\n[<music21.beam.Beams <music21.beam.Beam 1/start>/<music21.beam.Beam 2/start>>,\n <music21.beam.Beams <music21.beam.Beam 1/continue>/<music21.beam.Beam 2/stop>>,\n <music21.beam.Beams <music21.beam.Beam 1/continue>/<music21.beam.Beam 2/start>>,\n <music21.beam.Beams <music21.beam.Beam 1/stop>/<music21.beam.Beam 2/stop>>,\n <music21.beam.Beams <music21.beam.Beam 1/start>/<music21.beam.Beam 2/start>>,\n <music21.beam.Beams <music21.beam.Beam 1/continue>/<music21.beam.Beam 2/stop>>,\n <music21.beam.Beams <music21.beam.Beam 1/continue>/<music21.beam.Beam 2/start>>,\n <music21.beam.Beams <music21.beam.Beam 1/stop>/<music21.beam.Beam 2/stop>>]\n\n\n>>> a = meter.TimeSignature('6/8')\n>>> b = [note.Note(type='eighth') for _ in range(6)]\n>>> c = a.getBeams(b)\n>>> print(c)\n[<music21.beam.Beams <music21.beam.Beam 1/start>>,\n <music21.beam.Beams <music21.beam.Beam 1/continue>>,\n <music21.beam.Beams <music21.beam.Beam 1/stop>>,\n <music21.beam.Beams <music21.beam.Beam 1/start>>,\n <music21.beam.Beams <music21.beam.Beam 1/continue>>,\n <music21.beam.Beams <music21.beam.Beam 1/stop>>]\n\n\n>>> fourFour = meter.TimeSignature('4/4')\n>>> nList = [note.Note(type=d) for d in ('eighth', 'quarter', 'eighth',\n...                                      'eighth', 'quarter', 'eighth')]\n>>> beamList = fourFour.getBeams(nList)\n>>> print(beamList)\n[None, None, None, None, None, None]\n\n\nPickup measure support included by taking in an additional measureStartOffset argument.\n>>> twoTwo = meter.TimeSignature('2/2')\n>>> nList = [note.Note(type='eighth') for _ in range(5)]\n>>> beamList = twoTwo.getBeams(nList, measureStartOffset=1.5)\n>>> print(beamList)\n[None,\n <music21.beam.Beams <music21.beam.Beam 1/start>>,\n <music21.beam.Beams <music21.beam.Beam 1/continue>>,\n <music21.beam.Beams <music21.beam.Beam 1/continue>>,\n <music21.beam.Beams <music21.beam.Beam 1/stop>>]\n\n\nFixed in v.7 \u2014 incomplete final measures in 6/8:\n>>> sixEight = meter.TimeSignature('6/8')\n>>> nList = [note.Note(type='quarter'), note.Note(type='eighth'), note.Note(type='eighth')]\n>>> beamList = sixEight.getBeams(nList)\n>>> print(beamList)\n[None, None, None]\n\n\nAnd Measure objects with paddingRight set:\n>>> twoFour = meter.TimeSignature('2/4')\n>>> m = stream.Measure([note.Note(type='eighth') for _ in range(3)])\n>>> m.paddingRight = 0.5\n>>> twoFour.getBeams(m)\n[<music21.beam.Beams <music21.beam.Beam 1/start>>,\n <music21.beam.Beams <music21.beam.Beam 1/stop>>,\n None]",
+        "type": "ListItem"
+    },
+    {
+        "text": "TimeSignature.",
+        "type": "Title"
+    },
+    {
+        "text": "getBeat",
+        "type": "Title"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given an offset (quarterLength position), get the beat, where beats count from 1\nIf you want a fractional number for the beat, see getBeatProportion.\nTODO: In v7 \u2014 getBeat will probably do what getBeatProportion does now\u2026\nbut just with 1 added to it.\n>>> a = meter.TimeSignature('3/4', 3)\n>>> a.getBeat(0)\n1\n>>> a.getBeat(2.5)\n3\n>>> a.beatSequence.partition(['3/8', '3/8'])\n>>> a.getBeat(2.5)\n2",
+        "type": "ListItem"
+    },
+    {
+        "text": "TimeSignature.",
+        "type": "Title"
+    },
+    {
+        "text": "getBeatDepth",
+        "type": "Title"
+    },
+    {
+        "text": "qLenPos",
+        "type": "Title"
+    },
+    {
+        "text": "align",
+        "type": "Title"
+    },
+    {
+        "text": "'quantize'",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return the number of levels of beat partitioning given a QL into the TimeSignature.\nNote that by default beat partitioning always has a single, top-level partition.\nThe align parameter is passed to the offsetToDepth()\nmethod, and can be used to find depths based on start position overlaps.\n>>> a = meter.TimeSignature('3/4', 3)\n>>> a.getBeatDepth(0)\n1\n>>> a.getBeatDepth(1)\n1\n>>> a.getBeatDepth(2)\n1\n\n\n>>> b = meter.TimeSignature('3/4', 1)\n>>> b.beatSequence[0] = b.beatSequence[0].subdivide(3)\n>>> b.beatSequence[0][0] = b.beatSequence[0][0].subdivide(2)\n>>> b.beatSequence[0][1] = b.beatSequence[0][1].subdivide(2)\n>>> b.beatSequence[0][2] = b.beatSequence[0][2].subdivide(2)\n>>> b.getBeatDepth(0)\n3\n>>> b.getBeatDepth(0.5)\n1\n>>> b.getBeatDepth(1)\n2",
+        "type": "ListItem"
+    },
+    {
+        "text": "TimeSignature.",
+        "type": "Title"
+    },
+    {
+        "text": "getBeatDuration",
+        "type": "Title"
+    },
+    {
+        "text": "qLenPos",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns a Duration\nobject representing the length of the beat\nfound at qLenPos.  For most standard\nmeters, you can give qLenPos = 0\nand get the length of any beat in\nthe TimeSignature; but the simpler\nmusic21.meter.TimeSignature.beatDuration parameter,\nwill do that for you just as well.\nThe advantage of this method is that\nit will work for asymmetrical meters, as the second\nexample shows.\nEx. 1: beat duration for 3/4 is always 1.0\nno matter where in the meter you query.\n>>> ts1 = meter.TimeSignature('3/4')\n>>> ts1.getBeatDuration(0.5)\n<music21.duration.Duration 1.0>\n>>> ts1.getBeatDuration(2.5)\n<music21.duration.Duration 1.0>\n\n\nEx. 2: same for 6/8:\n>>> ts2 = meter.TimeSignature('6/8')\n>>> ts2.getBeatDuration(2.5)\n<music21.duration.Duration 1.5>\n\n\nEx. 3: but for a compound meter of 3/8 + 2/8,\nwhere you ask for the beat duration\nwill determine the length of the beat:\n>>> ts3 = meter.TimeSignature('3/8+2/8')  # will partition as 2 beat\n>>> ts3.getBeatDuration(0.5)\n<music21.duration.Duration 1.5>\n>>> ts3.getBeatDuration(1.5)\n<music21.duration.Duration 1.0>",
+        "type": "ListItem"
+    },
+    {
+        "text": "TimeSignature.",
+        "type": "Title"
+    },
+    {
+        "text": "getBeatOffsets",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return offset positions in a list for the start of each beat,\nassuming this object is found at offset zero.\n>>> a = meter.TimeSignature('3/4')\n>>> a.getBeatOffsets()\n[0.0, 1.0, 2.0]\n>>> a = meter.TimeSignature('6/8')\n>>> a.getBeatOffsets()\n[0.0, 1.5]",
+        "type": "ListItem"
+    },
+    {
+        "text": "TimeSignature.",
+        "type": "Title"
+    },
+    {
+        "text": "getBeatProgress",
+        "type": "Title"
+    },
+    {
+        "text": "qLenPos",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a quarterLength position, get the beat,\nwhere beats count from 1, and return the\namount of qLen into this beat the supplied qLenPos\nis.\n>>> a = meter.TimeSignature('3/4', 3)\n>>> a.getBeatProgress(0)\n(1, 0)\n>>> a.getBeatProgress(0.75)\n(1, 0.75)\n>>> a.getBeatProgress(1.0)\n(2, 0.0)\n>>> a.getBeatProgress(2.5)\n(3, 0.5)\n\n\nWorks for specifically partitioned meters too:\n>>> a.beatSequence.partition(['3/8', '3/8'])\n>>> a.getBeatProgress(2.5)\n(2, 1.0)",
+        "type": "ListItem"
+    },
+    {
+        "text": "TimeSignature.",
+        "type": "Title"
+    },
+    {
+        "text": "getBeatProportion",
+        "type": "Title"
+    },
+    {
+        "text": "qLenPos",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a quarter length position into the meter, return the numerical progress\nthrough the beat (where beats count from one) with a floating-point or fractional value\nbetween 0 and 1 appended to this value that gives the proportional progress into the beat.\nFor faster, integer values, use simply .getBeat()\n>>> ts1 = meter.TimeSignature('3/4')\n>>> ts1.getBeatProportion(0.0)\n1.0\n>>> ts1.getBeatProportion(0.5)\n1.5\n>>> ts1.getBeatProportion(1.0)\n2.0\n\n\n>>> ts3 = meter.TimeSignature('3/8+2/8')  # will partition as 2 beat\n>>> ts3.getBeatProportion(0.75)\n1.5\n>>> ts3.getBeatProportion(2.0)\n2.5",
+        "type": "ListItem"
+    },
+    {
+        "text": "TimeSignature.",
+        "type": "Title"
+    },
+    {
+        "text": "getBeatProportionStr",
+        "type": "Title"
+    },
+    {
+        "text": "qLenPos",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a string presentation of the beat.\n>>> ts1 = meter.TimeSignature('3/4')\n>>> ts1.getBeatProportionStr(0.0)\n'1'\n>>> ts1.getBeatProportionStr(0.5)\n'1 1/2'\n>>> ts1.getBeatProportionStr(1.0)\n'2'\n>>> ts3 = meter.TimeSignature('3/8+2/8')  # will partition as 2 beat\n>>> ts3.getBeatProportionStr(0.75)\n'1 1/2'\n>>> ts3.getBeatProportionStr(2)\n'2 1/2'\n\n\n>>> ts4 = meter.TimeSignature('6/8')  # will partition as 2 beat",
+        "type": "ListItem"
+    },
+    {
+        "text": "TimeSignature.",
+        "type": "Title"
+    },
+    {
+        "text": "getMeasureOffsetOrMeterModulusOffset",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return the measure offset based on a Measure, if it exists,\notherwise based on meter modulus of the TimeSignature.\n>>> m = stream.Measure()\n>>> ts1 = meter.TimeSignature('3/4')\n>>> m.insert(0, ts1)\n>>> n1 = note.Note()\n>>> m.insert(2, n1)\n>>> ts1.getMeasureOffsetOrMeterModulusOffset(n1)\n2.0\n\n\nExceeding the range of the Measure gets a modulus\n>>> n2 = note.Note()\n>>> m.insert(4.0, n2)\n>>> ts1.getMeasureOffsetOrMeterModulusOffset(n2)\n1.0\n\n\nCan be applied to Notes in a Stream with a TimeSignature.\n>>> ts2 = meter.TimeSignature('5/4')\n>>> s2 = stream.Stream()\n>>> s2.insert(0, ts2)\n>>> n3 = note.Note()\n>>> s2.insert(3, n3)\n>>> ts2.getMeasureOffsetOrMeterModulusOffset(n3)\n3.0\n\n\n>>> n4 = note.Note()\n>>> s2.insert(5, n4)\n>>> ts2.getMeasureOffsetOrMeterModulusOffset(n4)\n0.0",
+        "type": "ListItem"
+    },
+    {
+        "text": "TimeSignature.",
+        "type": "Title"
+    },
+    {
+        "text": "getOffsetFromBeat",
+        "type": "Title"
+    },
+    {
+        "text": "beat",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a beat value, convert into an offset position.\n>>> ts1 = meter.TimeSignature('3/4')\n>>> ts1.getOffsetFromBeat(1)\n0.0\n>>> ts1.getOffsetFromBeat(2)\n1.0\n>>> ts1.getOffsetFromBeat(3)\n2.0\n>>> ts1.getOffsetFromBeat(3.5)\n2.5\n>>> ts1.getOffsetFromBeat(3.25)\n2.25\n\n\n>>> from fractions import Fraction\n>>> ts1.getOffsetFromBeat(Fraction(8, 3))  # 2.66666\nFraction(5, 3)\n\n\n>>> ts1 = meter.TimeSignature('6/8')\n>>> ts1.getOffsetFromBeat(1)\n0.0\n>>> ts1.getOffsetFromBeat(2)\n1.5\n>>> ts1.getOffsetFromBeat(2.33)\n2.0\n>>> ts1.getOffsetFromBeat(2.5)  # will be + 0.5 * 1.5\n2.25\n>>> ts1.getOffsetFromBeat(2.66)\n2.5\n\n\nWorks for asymmetrical meters as well:\n>>> ts3 = meter.TimeSignature('3/8+2/8')  # will partition as 2 beat\n>>> ts3.getOffsetFromBeat(1)\n0.0\n>>> ts3.getOffsetFromBeat(2)\n1.5\n>>> ts3.getOffsetFromBeat(1.66)\n1.0\n>>> ts3.getOffsetFromBeat(2.5)\n2.0\n\n\nLet's try this on a real piece, a 4/4 chorale with a one beat pickup.  Here we get the\nnormal offset from the active TimeSignature, but we subtract out the pickup length which\nis in a Measure's paddingLeft property.\n>>> c = corpus.parse('bwv1.6')\n>>> for m in c.parts.first().getElementsByClass(stream.Measure):\n...     ts = m.timeSignature or m.getContextByClass(meter.TimeSignature)\n...     print('%s %s' % (m.number, ts.getOffsetFromBeat(4.5) - m.paddingLeft))\n0 0.5\n1 3.5\n2 3.5\n...",
+        "type": "ListItem"
+    },
+    {
+        "text": "TimeSignature.",
+        "type": "Title"
+    },
+    {
+        "text": "load",
+        "type": "Title"
+    },
+    {
+        "text": "value",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "divisions",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Load up a TimeSignature with a string value.\n>>> ts = meter.TimeSignature()\n>>> ts.load('4/4')\n>>> ts\n<music21.meter.TimeSignature 4/4>\n\n\n>>> ts.load('c')\n>>> ts.symbol\n'common'\n\n\n>>> ts.load('2/4+3/8')\n>>> ts\n<music21.meter.TimeSignature 2/4+3/8>\n\n\n>>> ts.load('fast 6/8')\n>>> ts.beatCount\n2\n>>> ts.load('slow 6/8')\n>>> ts.beatCount\n6\n\n\nLoading destroys all preexisting internal representations",
+        "type": "ListItem"
+    },
+    {
+        "text": "TimeSignature.",
+        "type": "Title"
+    },
+    {
+        "text": "ratioEqual",
+        "type": "Title"
+    },
+    {
+        "text": "other",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A basic form of comparison; does not determine if any internal structures are equal; o\nonly outermost ratio.",
+        "type": "ListItem"
+    },
+    {
+        "text": "TimeSignature.",
+        "type": "Title"
+    },
+    {
+        "text": "resetValues",
+        "type": "Title"
+    },
+    {
+        "text": "value",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "'4/4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "divisions",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "reset all values according to a new value and optionally, the number of\ndivisions.",
+        "type": "ListItem"
+    },
+    {
+        "text": "TimeSignature.",
+        "type": "Title"
+    },
+    {
+        "text": "setAccentWeight",
+        "type": "Title"
+    },
+    {
+        "text": "weights",
+        "type": "Title"
+    },
+    {
+        "text": "Sequence",
+        "type": "Title"
+    },
+    {
+        "text": "float",
+        "type": "Title"
+    },
+    {
+        "text": "float",
+        "type": "Title"
+    },
+    {
+        "text": "level",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Set accent weight, or floating point scalars, for the accent MeterSequence.\nProvide a list of float values; if this list is shorter than the length\nof the MeterSequence, it will be looped; if this list is longer,\nonly the relevant values at the beginning will be used.\nIf the accent MeterSequence is subdivided, the level of depth to set is given by the\noptional level argument.\n>>> a = meter.TimeSignature('4/4', 4)\n>>> len(a.accentSequence)\n4\n>>> a.setAccentWeight([0.8, 0.2])\n>>> a.getAccentWeight(0.0)\n0.8...\n>>> a.getAccentWeight(0.5)\n0.8...\n>>> a.getAccentWeight(1.0)\n0.2...\n>>> a.getAccentWeight(2.5)\n0.8...\n>>> a.getAccentWeight(3.5)\n0.2...",
+        "type": "ListItem"
+    },
+    {
+        "text": "TimeSignature.",
+        "type": "Title"
+    },
+    {
+        "text": "setDisplay",
+        "type": "Title"
+    },
+    {
+        "text": "value",
+        "type": "Title"
+    },
+    {
+        "text": "partitionRequest",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Set an independent display value for a meter.\n>>> a = meter.TimeSignature()\n>>> a.load('3/4')\n>>> a.setDisplay('2/8+2/8+2/8')\n>>> a.displaySequence\n<music21.meter.core.MeterSequence {2/8+2/8+2/8}>\n>>> a.beamSequence\n<music21.meter.core.MeterSequence {{1/8+1/8}+{1/8+1/8}+{1/8+1/8}}>\n>>> a.beatSequence  # a single top-level partition is default for beat\n<music21.meter.core.MeterSequence {{1/8+1/8}+{1/8+1/8}+{1/8+1/8}}>\n>>> a.setDisplay('3/4')\n>>> a.displaySequence\n<music21.meter.core.MeterSequence {3/4}>",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "TimeSignature instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "TimeSignature.",
+        "type": "Title"
+    },
+    {
+        "text": "accentSequence",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A MeterSequence governing accent partitioning.",
+        "type": "ListItem"
+    },
+    {
+        "text": "TimeSignature.",
+        "type": "Title"
+    },
+    {
+        "text": "beamSequence",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A MeterSequence governing automatic beaming.",
+        "type": "ListItem"
+    },
+    {
+        "text": "TimeSignature.",
+        "type": "Title"
+    },
+    {
+        "text": "beatSequence",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A MeterSequence governing beat partitioning.",
+        "type": "ListItem"
+    },
+    {
+        "text": "TimeSignature.",
+        "type": "Title"
+    },
+    {
+        "text": "displaySequence",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A MeterSequence governing the display of the TimeSignature.",
+        "type": "ListItem"
+    },
+    {
+        "text": "TimeSignature.",
+        "type": "Title"
+    },
+    {
+        "text": "symbol",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A string representation of how to display the TimeSignature.\ncan be \u009ccommon\u009d, \u009ccut\u009d, \u009csingle-number\u009d (i.e.,\nno denominator), or \u009cnormal\u009d or \u009c\u009d.",
+        "type": "ListItem"
+    },
+    {
+        "text": "TimeSignature.",
+        "type": "Title"
+    },
+    {
+        "text": "symbolizeDenominator",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "If set to True (default is False) then the denominator\nwill be displayed as a symbol rather than\na number.  Hindemith uses this in his scores.\nFinale and other MusicXML readers do not support this\nso do not expect proper output yet.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "SenzaMisuraTimeSignature\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.meter.base.",
+        "type": "Title"
+    },
+    {
+        "text": "SenzaMisuraTimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "text",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A SenzaMisuraTimeSignature represents the absence of a TimeSignature\nIt is NOT a TimeSignature subclass, only because it has none of the attributes\nof a TimeSignature.\n>>> smts = meter.SenzaMisuraTimeSignature('0')\n>>> smts.text\n'0'\n>>> smts\n<music21.meter.SenzaMisuraTimeSignature 0>",
+        "type": "ListItem"
+    },
+    {
+        "text": "SenzaMisuraTimeSignature bases",
+        "type": "Title"
+    },
+    {
+        "text": "TimeSignatureBase",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "SenzaMisuraTimeSignature read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "SenzaMisuraTimeSignature read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "SenzaMisuraTimeSignature methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "SenzaMisuraTimeSignature instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "TimeSignatureBase\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.meter.base.",
+        "type": "Title"
+    },
+    {
+        "text": "TimeSignatureBase",
+        "type": "Title"
+    },
+    {
+        "text": "id",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "groups",
+        "type": "Title"
+    },
+    {
+        "text": "Groups | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "sites",
+        "type": "Title"
+    },
+    {
+        "text": "Sites | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "Duration | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "activeSite",
+        "type": "Title"
+    },
+    {
+        "text": "stream.Stream | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "style",
+        "type": "Title"
+    },
+    {
+        "text": "Style | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "editorial",
+        "type": "Title"
+    },
+    {
+        "text": "Editorial | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "OffsetQL",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "quarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "OffsetQLIn | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A base class for TimeSignature and SenzaMisuraTimeSignature to\ninherit from.",
+        "type": "ListItem"
+    },
+    {
+        "text": "TimeSignatureBase bases",
+        "type": "Title"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "TimeSignatureBase read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "TimeSignatureBase read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "TimeSignatureBase methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "TimeSignatureBase instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.meter.base.",
+        "type": "Title"
+    },
+    {
+        "text": "bestTimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "meas",
+        "type": "Title"
+    },
+    {
+        "text": "stream.Stream",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 music21.meter.TimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a Measure (or any Stream) with elements in it, get a TimeSignature that contains all\nelements.\nNote: this does not yet accommodate triplets.\n>>> s = converter.parse('tinynotation: C4 D4 E8 F8').flatten().notes\n>>> m = stream.Measure()\n>>> for el in s:\n...     m.insert(el.offset, el)\n>>> ts = meter.bestTimeSignature(m)\n>>> ts\n<music21.meter.TimeSignature 3/4>\n\n\n>>> s2 = converter.parse('tinynotation: C8. D16 E8 F8. G16 A8').flatten().notes\n>>> m2 = stream.Measure()\n>>> for el in s2:\n...     m2.insert(el.offset, el)\n>>> ts2 = meter.bestTimeSignature(m2)\n>>> ts2\n<music21.meter.TimeSignature 6/8>\n\n\n>>> s3 = converter.parse('C2 D2 E2', format='tinyNotation').flatten().notes\n>>> m3 = stream.Measure()\n>>> for el in s3:\n...     m3.insert(el.offset, el)\n>>> ts3 = meter.bestTimeSignature(m3)\n>>> ts3\n<music21.meter.TimeSignature 3/2>\n\n\n>>> s4 = converter.parse('C8. D16 E8 F8. G16 A8 C4. D4.', format='tinyNotation').flatten().notes\n>>> m4 = stream.Measure()\n>>> for el in s4:\n...     m4.insert(el.offset, el)\n>>> ts4 = meter.bestTimeSignature(m4)\n>>> ts4\n<music21.meter.TimeSignature 12/8>\n\n\n>>> s5 = converter.parse('C4 D2 E4 F2', format='tinyNotation').flatten().notes\n>>> m5 = stream.Measure()\n>>> for el in s5:\n...     m5.insert(el.offset, el)\n>>> ts5 = meter.bestTimeSignature(m5)\n>>> ts5\n<music21.meter.TimeSignature 6/4>\n\n\n>>> s6 = converter.parse('C4 D16.', format='tinyNotation').flatten().notes\n>>> m6 = stream.Measure()\n>>> for el in s6:\n...     m6.insert(el.offset, el)\n>>> ts6 = meter.bestTimeSignature(m6)\n>>> ts6\n<music21.meter.TimeSignature 11/32>\n\n\nComplex durations (arose in han2.abc, number 445)\n>>> m7 = stream.Measure()\n>>> m7.append(note.Note('D', quarterLength=3.5))\n>>> m7.append(note.Note('E', quarterLength=5.5))\n>>> ts7 = meter.bestTimeSignature(m7)\n>>> ts7\n<music21.meter.TimeSignature 9/4>",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.meter.base",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

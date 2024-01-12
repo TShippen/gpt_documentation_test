@@ -1,0 +1,758 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Testing music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "Documenting music21",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "Testing music21\nModule-level testing\nDocumentation Testing\nRunning all tests\nContinuous Integration Tests\nCode Coverage Tests\nTesting the User's Guide\nConclusion",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference\nTesting music21\nDocumenting music21\nDocumenting modules and classes\nBuilding Documentation\nUsing music21 with the Jupyter (iPython) Notebook\nUsing music21 with Git\nUnofficial MusicXML Test Suite\nMusic21's Mistakes",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "Testing music21\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Music21 works only because the code has been extensively tested so\nthat new changes are confirmed not to break existing code. Time spent\ntesting always slows down coding in the short run, but long experience\nhas shown that it saves coding time in the long run. Contributions to\nmusic21 without tests will always be rejected, so as developers,\nit's important that code be well tested.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "All functions/methods/etc. need documentation and at least one test.\nOh, and that test must pass.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Module-level testing\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Every music21 module should have exactly one class called Test\nwhich should run the tests for the module. (If the module is getting\nvery big, it is possible to have this class reside in a different\nmodule, so long as it is imported into the module that it tests).",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Make the Test class be a subclass of unittest and each of the test\nmethods within it must begin with test, for instance\ntestTupletsEndProperly.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "import",
+        "type": "Title"
+    },
+    {
+        "text": "unittest",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "Test",
+        "type": "Title"
+    },
+    {
+        "text": "unittest",
+        "type": "Title"
+    },
+    {
+        "text": "TestCase",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "def",
+        "type": "Title"
+    },
+    {
+        "text": "testNotesHaveStemDirection",
+        "type": "Title"
+    },
+    {
+        "text": "self",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "from",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "import",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'C#'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "self",
+        "type": "Title"
+    },
+    {
+        "text": "assertTrue",
+        "type": "Title"
+    },
+    {
+        "text": "hasattr",
+        "type": "Title"
+    },
+    {
+        "text": "'stemDirection'",
+        "type": "Title"
+    },
+    {
+        "text": "))",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "stemDirection",
+        "type": "Title"
+    },
+    {
+        "text": "'down'",
+        "type": "Title"
+    },
+    {
+        "text": "self",
+        "type": "Title"
+    },
+    {
+        "text": "assertEqual",
+        "type": "Title"
+    },
+    {
+        "text": "stemDirection",
+        "type": "Title"
+    },
+    {
+        "text": "'down'",
+        "type": "Title"
+    },
+    {
+        "text": "The Test class must not produce any output if the tests succeed.\nThey must not create new windows, lose the focus from the current\nwindow, play music, etc. They must not rely on modules that are not part\nof the music21 ecosystem (i.e., scipy).",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "If you need to create a second test that generates external output,\ncreate a second unittest.TestCase called TestExternal. Tests\nshould run quickly: what \u009cquickly\u009d means depends on the complexity of\nwhat is being contributed; a major new module can add a few seconds to\nthe test suite. A tiny addition, should add milliseconds at most. If\nyour test adds 10 seconds to running, that's 10 seconds that everyone\nwill have to wait when running test. If you need to have a test that\ntakes a lot of time, create a second Test class called TestSlow.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "End your file so that if the module is run directly, it calls these\ntests.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "__name__",
+        "type": "Title"
+    },
+    {
+        "text": "==",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\"__main__\"",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "import",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "mainTest",
+        "type": "Title"
+    },
+    {
+        "text": "Test",
+        "type": "Title"
+    },
+    {
+        "text": "----------------------------------------------------------------------",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Ran",
+        "type": "Title"
+    },
+    {
+        "text": "test",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "0.001",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "OK",
+        "type": "Title"
+    },
+    {
+        "text": "instead of music21.mainTest(Test) you can write\nmusic21.mainTest(Test, verbose=True) or while debugging\nmusic21.mainTest(Test, runTest='testNotesHaveStemDirection') to run\na single test. Or to run a single test, you can pass it from the command\nline:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "python3",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "py",
+        "type": "Title"
+    },
+    {
+        "text": "testNotesHaveStemDirection",
+        "type": "Title"
+    },
+    {
+        "text": "You can also call the tests for the module with:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "python3",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Documentation Testing\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "One great feature Python has is the ability to write tests within the\ndocumentation itself (\u009cdoctest\u009d). We use a lot of these to\ndemonstrate expected behavior in calling a method or function and also\nto test that the expected behavior works. However, doctests do take up\nspace in the documentation, so do not write anything that can't be read\n(use the module-level testing instead).",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Doc tests are written like so:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "def",
+        "type": "Title"
+    },
+    {
+        "text": "flipStemDirection",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'''",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Takes in a note with a `.stemDirection` of 'up' or 'down'",
+        "type": "Title"
+    },
+    {
+        "text": "and transforms it to the other.  Does nothing if the `stemDirection` is not defined.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Notes without stem direction of `up` or `down` are left alone:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": ">>> n = note.Note()",
+        "type": "NarrativeText"
+    },
+    {
+        "text": ">>> n.stemDirection",
+        "type": "Title"
+    },
+    {
+        "text": "'unspecified'",
+        "type": "Title"
+    },
+    {
+        "text": ">>> flipStemDirection(n)",
+        "type": "Title"
+    },
+    {
+        "text": ">>> n.stemDirection",
+        "type": "Title"
+    },
+    {
+        "text": "'unspecified'",
+        "type": "Title"
+    },
+    {
+        "text": "Here we flip an `up` to `down` and back again.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": ">>> n.stemDirection = 'up'",
+        "type": "Title"
+    },
+    {
+        "text": ">>> flipStemDirection(n)",
+        "type": "Title"
+    },
+    {
+        "text": ">>> n.stemDirection",
+        "type": "Title"
+    },
+    {
+        "text": "'down'",
+        "type": "Title"
+    },
+    {
+        "text": ">>> flipStemDirection(n)",
+        "type": "Title"
+    },
+    {
+        "text": ">>> n.stemDirection",
+        "type": "Title"
+    },
+    {
+        "text": "'up'",
+        "type": "Title"
+    },
+    {
+        "text": "Objects without `.stemDirection` raise a Music21Exception",
+        "type": "NarrativeText"
+    },
+    {
+        "text": ">>> r = note.Rest()",
+        "type": "Title"
+    },
+    {
+        "text": ">>> flipStemDirection(r)",
+        "type": "Title"
+    },
+    {
+        "text": "Traceback (most recent call last):",
+        "type": "Title"
+    },
+    {
+        "text": "music21.exceptions21.Music21Exception: flipStemDirection only works on Notes",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "'''",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "try",
+        "type": "Title"
+    },
+    {
+        "text": "sd",
+        "type": "Title"
+    },
+    {
+        "text": "stemDirection",
+        "type": "Title"
+    },
+    {
+        "text": "except",
+        "type": "Title"
+    },
+    {
+        "text": "AttributeError",
+        "type": "Title"
+    },
+    {
+        "text": "raise",
+        "type": "Title"
+    },
+    {
+        "text": "exceptions21",
+        "type": "Title"
+    },
+    {
+        "text": "Music21Exception",
+        "type": "Title"
+    },
+    {
+        "text": "\"flipStemDirection only works on Notes\"",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "sd",
+        "type": "Title"
+    },
+    {
+        "text": "==",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'up'",
+        "type": "Title"
+    },
+    {
+        "text": "stemDirection",
+        "type": "Title"
+    },
+    {
+        "text": "'down'",
+        "type": "Title"
+    },
+    {
+        "text": "elif",
+        "type": "Title"
+    },
+    {
+        "text": "sd",
+        "type": "Title"
+    },
+    {
+        "text": "==",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'down'",
+        "type": "Title"
+    },
+    {
+        "text": "stemDirection",
+        "type": "Title"
+    },
+    {
+        "text": "'up'",
+        "type": "Title"
+    },
+    {
+        "text": "Generally in a doctest, the full path to the function (assuming\nfrom music21 import *) must be given, so if this function were in a\nhypothetical stem.py file, it would need to be called as\nstem.flipStemDirection. The reason for this is that we're writing\ntests and docs at the same time, so we want to document usage as our\nusers (who are suggested to run from music21 import *) will need to\nrun the routine.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "All doctests start with a clean slate of variables, so variables created\nin a prior doctest will not be available in another.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Running all tests\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Once you've made sure your contributions to a module work, you'll want\nto run all the tests in the system.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "The simplest way of running all the tests for music21 is to run:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "python3",
+        "type": "Title"
+    },
+    {
+        "text": "test",
+        "type": "Title"
+    },
+    {
+        "text": "multiprocessTest",
+        "type": "Title"
+    },
+    {
+        "text": "py",
+        "type": "Title"
+    },
+    {
+        "text": "This will use (n - 1) of your n-processor system to run all of the\ntests and will print a lot of output along the way. The tests run in\nreverse-alphabetical order (with some slow tests boosted to the\nbeginning). All failed tests will appear near the bottom of the output.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "A few modules are not tested in multiprocessTest because they do not\nplay well with multiprocessing or are in obscure subdirectories. They do\nnot need to be tested on a general basis, but before a major release\nthey should be tested with:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "python3",
+        "type": "Title"
+    },
+    {
+        "text": "test",
+        "type": "Title"
+    },
+    {
+        "text": "singleCoreAll",
+        "type": "Title"
+    },
+    {
+        "text": "py",
+        "type": "Title"
+    },
+    {
+        "text": "Before a release, this should be run with every version of Python that\nis supported (and preferably on both Mac and PC). This can be a pain, so\nfortunately we have\u2026",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Continuous Integration Tests\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Upon any commit or pull request, continuous integration testing on\nGithub runs. See:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "https",
+        "type": "Title"
+    },
+    {
+        "text": "//",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "github",
+        "type": "Title"
+    },
+    {
+        "text": "com",
+        "type": "Title"
+    },
+    {
+        "text": "cuthbertLab",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "actions",
+        "type": "Title"
+    },
+    {
+        "text": "and hopefully it's running Green at least for the master branch. GitHub\nruns the ciMain() function of test/singleCoreAll which is the same\nas the main() function except it exits with 0 or -1 or whatever the\nUNIX convention for failure is (I always forget\u2014that's why I coded it).\nThanks to the great folks at GitHub, the risks of accepting pull\nrequests is lower (though not zero, especially in cases where there are\nchanges to external output or to parsing files outside the corpus).\nAlthough the amount of time to run varies depending on the load of\nGitHub, keep a look out for changes that significantly slow down the\nsystem \u2014 they may indicate an inefficient algorithm.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "All pull requests must pass GitHub to be accepted. It doesn't matter\nthat \u009cthat bug was probably there before\u009d \u2014 it's time to fix it or to\nget help fixing it.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Code Coverage Tests\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "One of the systems running on GitHub will always run slower than the\nrest. This system is running coverage to measure how much of the\nmusic21 code is being run. For the results see:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "https",
+        "type": "Title"
+    },
+    {
+        "text": "//",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "coveralls",
+        "type": "Title"
+    },
+    {
+        "text": "io",
+        "type": "Title"
+    },
+    {
+        "text": "github",
+        "type": "Title"
+    },
+    {
+        "text": "cuthbertLab",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "While 100% code coverage is impossible, increasing the coverage\npercentage with each new contribution is essential. We're at 93% code\ncoverage and get the green badge of pride on our README.md file, and we\nlike that!",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "If something should be impossible to trigger, but the code is being\nmaintained for some reason, you can add \u009c# pragma: no cover\u009d to the\nline or to the fork, but this is generally a no-no.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Testing the User's Guide\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Most new contributions will not change the documentation, but\noccasionally it will. To make sure that the documentation is correct,\nrun testDocumentation.py (under Python 3 only) in the\ndocumentation directory (outside the music21 source code\ndirectory). If there are any changes, check to make sure they make sense\n(maybe there are some new files in the corpus that is changing the count\nsomewhere?) and if they do, rerun the notebook with that documentation\n(line by line!) and make sure that the new output makes better sense\nthan the previous.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "This can take some time, so it does not need to be done for every\ncommit.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Conclusion\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "The music21 project relies on great tests, both to ensure everything\nis working properly and also to save time for those who will support\nyour code in the future. One of the main things we can always use\ncontributors to is writing tests for code that is under tested, so\nplease feel free to grab some code from Coveralls and contribute tests\nfor it. It may sound like a small contribution, but it's one that will\nbe greatly appreciated.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Testing music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

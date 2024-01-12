@@ -1,0 +1,374 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.chord.tables",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.chord",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.chord.tools",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.chord.tables\nChordTableAddress\nChordTableAddress\n\n\nFunctions\naddressToForteName()\naddressToPrimeForm()\nseekChordTablesAddress()\naddressToCommonNames()\naddressToIntervalVector()\naddressToTransposedNormalForm()\naddressToZAddress()\nforteIndexToInversionsAvailable()\nintervalVectorToAddress()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.chord.tables\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "This module stores numerous data lists used in deriving set-class values and other post-tonal\nchord representations. All features of this module are made available through\nChord objects. Use of this module directly is thus not necessary.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "ChordTableAddress\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.chord.tables.",
+        "type": "Title"
+    },
+    {
+        "text": "ChordTableAddress",
+        "type": "Title"
+    },
+    {
+        "text": "cardinality",
+        "type": "Title"
+    },
+    {
+        "text": "forteClass",
+        "type": "Title"
+    },
+    {
+        "text": "inversion",
+        "type": "Title"
+    },
+    {
+        "text": "pcOriginal",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.chord.tables.",
+        "type": "Title"
+    },
+    {
+        "text": "addressToForteName",
+        "type": "Title"
+    },
+    {
+        "text": "address",
+        "type": "Title"
+    },
+    {
+        "text": "classification",
+        "type": "Title"
+    },
+    {
+        "text": "'tn'",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given an address, return the set-class name as a string.  By default,\nA and B are appended to chords without inversional equivalence:\n>>> octachord_address = chord.tables.ChordTableAddress(8, 15, -1, 10)\n>>> chord.tables.addressToForteName(octachord_address)\n'8-15B'\n>>> chord.tables.addressToForteName((8, 15))\n'8-15A'\n\n\nThe augmented triad is invariant under inversion, so it gets no designation:\n>>> chord.tables.addressToForteName((3, 12))\n'3-12'\n\n\nIf classification is the string \u0098tni' then the \u009cA\u009d and \u009cB\u009d for inversions\nwill be omitted.\n>>> chord.tables.addressToForteName((8, 15), 'tni')\n'8-15'\n>>> chord.tables.addressToForteName((5, 37))\n'5-37'",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.chord.tables.",
+        "type": "Title"
+    },
+    {
+        "text": "addressToPrimeForm",
+        "type": "Title"
+    },
+    {
+        "text": "address",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a TN address, return the prime form\n>>> chord.tables.addressToPrimeForm((3, 1, 0))\n(0, 1, 2)\n\n\nSince we are talking about primeForm, inversion does not matter.\nThese both return the minor triad.\n>>> chord.tables.addressToPrimeForm((3, 11, -1))\n(0, 3, 7)\n>>> chord.tables.addressToPrimeForm((3, 11, 1))\n(0, 3, 7)\n\n\nIf inversion is omitted or None the default value is used:\n>>> chord.tables.addressToPrimeForm((3, 11))\n(0, 3, 7)\n>>> chord.tables.addressToPrimeForm((3, 11, None))\n(0, 3, 7)",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.chord.tables.",
+        "type": "Title"
+    },
+    {
+        "text": "seekChordTablesAddress",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Utility method to return the address to the chord table; used by\nmany Chord operations, such as .primeForm, .normalOrder, etc.\nTable addresses are a ChordTableAddress named-tuple giving\nthe cardinality, the Forte-index-number, the inversion, and the original\npitch class that matched (it may be arbitrary for a symmetrical chord like\nthe diminished seventh chord).\nInversion is either 0 (for symmetrical under inversion) or -1, 1\n>>> c1 = chord.Chord(['c3'])\n>>> chord.tables.seekChordTablesAddress(c1)\nChordTableAddress(cardinality=1, forteClass=1, inversion=0, pcOriginal=0)\n\n\nHere the only note that is missing is A-sharp/B-flat.\n>>> c1 = chord.Chord(\n...     ['c', 'c#', 'd', 'd#', 'e', 'f', 'f#', 'g', 'g#', 'a', 'b']\n...     )\n>>> chord.tables.seekChordTablesAddress(c1)\nChordTableAddress(cardinality=11, forteClass=1, inversion=0, pcOriginal=11)\n\n\nThe major chord is considered the inversion of the minor:\n>>> c1 = chord.Chord(['g', 'b', 'd'])\n>>> chord.tables.seekChordTablesAddress(c1)\nChordTableAddress(cardinality=3, forteClass=11, inversion=-1, pcOriginal=7)\n\n\n>>> c1 = chord.Chord(['c', 'e-', 'g'])\n>>> chord.tables.seekChordTablesAddress(c1)\nChordTableAddress(cardinality=3, forteClass=11, inversion=1, pcOriginal=0)\n\n\nChords invariant under inversion give an inversion of 0.\n>>> c1 = chord.Chord(['c', 'c#', 'd#', 'e', 'f#', 'g#', 'a#'])\n>>> chord.tables.seekChordTablesAddress(c1)\nChordTableAddress(cardinality=7, forteClass=34, inversion=0, pcOriginal=0)\n\n\n>>> c1 = chord.Chord(['c', 'c#', 'b'])\n>>> chord.tables.seekChordTablesAddress(c1)\nChordTableAddress(cardinality=3, forteClass=1, inversion=0, pcOriginal=11)\n\n\nZero-length chords raise a pitch exception:\n>>> c2 = chord.Chord()\n>>> chord.tables.seekChordTablesAddress(c2)\nTraceback (most recent call last):\nmusic21.chord.tables.ChordTablesException: cannot access chord tables address\n    for Chord with 0 pitches\n\n\nNOTE: this was once a time-consuming operation, though it is\nnow quite a bit faster than before (order of 100 microseconds).  Nonetheless\nshould only be run when necessary.  Methods that call this should\ntry (as chord.Chord does) to cache the result.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.chord.tables.",
+        "type": "Title"
+    },
+    {
+        "text": "addressToCommonNames",
+        "type": "Title"
+    },
+    {
+        "text": "address",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a TN address, return one or more common names if available:\n>>> chord.tables.addressToCommonNames((3, 1, 0))\n['chromatic trimirror']\n\n\n>>> major_address = chord.tables.ChordTableAddress(3, 11, -1, 2)\n>>> chord.tables.addressToCommonNames(major_address)\n['major triad']\n\n\nMore than one name might be returned:\n>>> chord.tables.addressToCommonNames([7, 33])\n[\u0098Neapolitan-major mode', \u0098leading-whole-tone mode']\nThis system does not take into account spelling or inversion, so\nthat the minor triad would give the same name.  The .commonName\nproperty of the chord.Chord object itself takes into account\nnon-post-tonal spellings.\nNote that names referring to ethnic stereotypes that are not in\ncommon usage will be removed in music21 v8 or at any time\nthereafter without a deprecation cycle.\nThose matching this description that are still in common use will be demoted\nto the end of the list of names and may still be removed in the future.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.chord.tables.",
+        "type": "Title"
+    },
+    {
+        "text": "addressToIntervalVector",
+        "type": "Title"
+    },
+    {
+        "text": "address",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a TN address, return the interval class vector as a 6-tuple\n>>> chord.tables.addressToIntervalVector((3, 1, 0))\n(2, 1, 0, 0, 0, 0)\n>>> chord.tables.addressToIntervalVector((3, 11, -1))\n(0, 0, 1, 1, 1, 0)\n>>> chord.tables.addressToIntervalVector((3, 11, 1))\n(0, 0, 1, 1, 1, 0)\n\n\nInversion can be omitted or None without causing an error (or, of course,\nchanging the output)\n>>> chord.tables.addressToIntervalVector((4, 29))\n(1, 1, 1, 1, 1, 1)\n>>> chord.tables.addressToIntervalVector((3, 11, None))\n(0, 0, 1, 1, 1, 0)",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.chord.tables.",
+        "type": "Title"
+    },
+    {
+        "text": "addressToTransposedNormalForm",
+        "type": "Title"
+    },
+    {
+        "text": "address",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a TN address, return the normal form transposed to start on 0.\n>>> chord.tables.addressToTransposedNormalForm((3, 1, 0))\n(0, 1, 2)\n>>> chord.tables.addressToTransposedNormalForm((3, 11, -1))\n(0, 4, 7)\n>>> chord.tables.addressToTransposedNormalForm((3, 11, 1))\n(0, 3, 7)\n\n\nIf the inversion in the address is omitted or None,\nthen the default inversion is used:\n>>> chord.tables.addressToTransposedNormalForm((3, 11))\n(0, 3, 7)\n>>> chord.tables.addressToTransposedNormalForm((3, 11, None))\n(0, 3, 7)\n>>> chord.tables.addressToTransposedNormalForm((3, 1))\n(0, 1, 2)",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.chord.tables.",
+        "type": "Title"
+    },
+    {
+        "text": "addressToZAddress",
+        "type": "Title"
+    },
+    {
+        "text": "address",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a TN address, return the ChordTableAddress of the Z-set if one exists.\nIf none exists, returns None.\n>>> chord.tables.addressToZAddress((5, 12))\nChordTableAddress(cardinality=5, forteClass=36, inversion=1, pcOriginal=None)\n>>> chord.tables.addressToZAddress((5, 36, None))\nChordTableAddress(cardinality=5, forteClass=12, inversion=0, pcOriginal=None)\n\n\n>>> print(chord.tables.addressToZAddress([3, 11]))\nNone\n\n\n>>> chord.tables.addressToZAddress((5, 37))\nChordTableAddress(cardinality=5, forteClass=17, inversion=0, pcOriginal=None)\n>>> chord.tables.addressToZAddress((8, 29))\nChordTableAddress(cardinality=8, forteClass=15, inversion=1, pcOriginal=None)",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.chord.tables.",
+        "type": "Title"
+    },
+    {
+        "text": "forteIndexToInversionsAvailable",
+        "type": "Title"
+    },
+    {
+        "text": "card",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return possible inversion values for any cardinality and Forte index\n>>> chord.tables.forteIndexToInversionsAvailable(3, 1)\n[0]\n>>> chord.tables.forteIndexToInversionsAvailable(3, 2)\n[-1, 1]\n>>> chord.tables.forteIndexToInversionsAvailable(3, 3)\n[-1, 1]\n>>> chord.tables.forteIndexToInversionsAvailable(3, 6)\n[0]\n>>> chord.tables.forteIndexToInversionsAvailable(3, 12)\n[0]",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.chord.tables.",
+        "type": "Title"
+    },
+    {
+        "text": "intervalVectorToAddress",
+        "type": "Title"
+    },
+    {
+        "text": "vector",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a vector as a 6-tuple, return a list of\nChordTableAddress namedtuples for\nall addresses that match that vector.\n>>> chord.tables.intervalVectorToAddress((7, 6, 5, 4, 4, 2))\n[ChordTableAddress(cardinality=8, forteClass=1, inversion=None, pcOriginal=None)]\n>>> chord.tables.intervalVectorToAddress((12, 12, 12, 12, 12, 6))\n[ChordTableAddress(cardinality=12, forteClass=1, inversion=None, pcOriginal=None)]\n\n\nVector can also be a list:\n>>> chord.tables.intervalVectorToAddress([2, 2, 3, 1, 1, 1])\n[ChordTableAddress(cardinality=5, forteClass=10, inversion=None, pcOriginal=None)]\n\n\nA value that matches nothing returns an empty set.\n>>> chord.tables.intervalVectorToAddress((2, 2, 3, 1, 1, 99))\n[]\n\n\nIn the case of Z-related pairs, such as the all-interval tetrachord,\nmore than one address will be returned.\n>>> chord.tables.intervalVectorToAddress((1, 1, 1, 1, 1, 1))\n[ChordTableAddress(cardinality=4, forteClass=15, inversion=None, pcOriginal=None),\n ChordTableAddress(cardinality=4, forteClass=29, inversion=None, pcOriginal=None)]\n\n\nIf the vector does not have six elements, raises a ValueError:\n>>> chord.tables.intervalVectorToAddress([0, 2, 4])\nTraceback (most recent call last):\nValueError: Vector must have exactly six entries",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.chord.tables",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

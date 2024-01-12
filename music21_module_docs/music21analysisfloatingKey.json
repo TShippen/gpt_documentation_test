@@ -1,0 +1,270 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.analysis.floatingKey",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.analysis.enharmonics",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.analysis.harmonicFunction",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.analysis.floatingKey\nKeyAnalyzer\nKeyAnalyzer\nKeyAnalyzer.getInterpretationByMeasure()\nKeyAnalyzer.getRawKeyByMeasure()\nKeyAnalyzer.run()\nKeyAnalyzer.smoothInterpretationByMeasure()\n\n\n\n\nFunctions\ndivide()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.analysis.floatingKey\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "The floatingKey analyzer will give an approximation of the key at any point in\na score down to the measure level using a fixed window.  It helps smooth out\nmeasures emphasizing non-chord tones, etc.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "KeyAnalyzer\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.analysis.floatingKey.",
+        "type": "Title"
+    },
+    {
+        "text": "KeyAnalyzer",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "KeyAnalyzer is the main object to use for floating analysis.\nThe windowSize attribute (default 4) determines how many measures to look at in making\nthe decision.  Make it larger for pieces (like Mozart sonatas) that you expect fewer key\nchanges.  Make it smaller for pieces (like Bach chorales) that you expect more key changes.\nOr set it to an integer based on the number of the measures in the piece.\nThe weightAlgorithm attribute determines how to scale the weight of measures according to\ntheir distance.  Currently only one algorithm is supported: floatingKey.divide.\nTODO: Needs more work to work with second endings, partial measures, etc.\n>>> b = corpus.parse('bwv66.6')\n>>> ka = analysis.floatingKey.KeyAnalyzer(b)\n>>> ka.windowSize = 2  # chorale uses quick key changes\n>>> ka.run()  # first measure is the pickup\n[<music21.key.Key of A major>, <music21.key.Key of A major>, <music21.key.Key of A major>,\n <music21.key.Key of f# minor>, <music21.key.Key of f# minor>, <music21.key.Key of f# minor>,\n <music21.key.Key of f# minor>, <music21.key.Key of f# minor>,\n <music21.key.Key of f# minor>, <music21.key.Key of f# minor>]\n\n\nRaw analysis (no smoothing):\n>>> ka.getRawKeyByMeasure()\n[<music21.key.Key of A major>, <music21.key.Key of E major>, <music21.key.Key of A major>,\n <music21.key.Key of f# minor>, <music21.key.Key of E major>, <music21.key.Key of A major>,\n <music21.key.Key of b minor>, <music21.key.Key of C# major>,\n <music21.key.Key of F# major>, <music21.key.Key of b minor>]\n\n\nMajor smoothing\u2026\n>>> ka.windowSize = ka.numMeasures // 2\n>>> ka.run()  # only the pickup seems to be in A major by this approach\n[<music21.key.Key of A major>, <music21.key.Key of f# minor>, <music21.key.Key of f# minor>,\n <music21.key.Key of f# minor>, <music21.key.Key of f# minor>, <music21.key.Key of f# minor>,\n <music21.key.Key of f# minor>, <music21.key.Key of f# minor>,\n <music21.key.Key of f# minor>, <music21.key.Key of f# minor>]\n\n\n>>> tiny = converter.parse('tinyNotation: c1 e1 g1 c1 d-4 d-4 d-4 d-4')\n>>> ka = analysis.floatingKey.KeyAnalyzer(tiny)\n>>> ka.windowSize = 1\n>>> ka.run()  # This previously only gave four elements: am, CM, CM, CM\n[<music21.key.Key of a minor>, <music21.key.Key of C major>, <music21.key.Key of C major>,\n <music21.key.Key of C major>, <music21.key.Key of b- minor>]\n\n\nNo measures will fail.\n>>> s = stream.Part([note.Note()])\n>>> ka = analysis.floatingKey.KeyAnalyzer(s)\nTraceback (most recent call last):\nmusic21.analysis.floatingKey.FloatingKeyException: Stream must have Measures inside it\n\n\n\nChanged in v7: analysis now incorporates final measures in pieces without pickup measures:",
+        "type": "ListItem"
+    },
+    {
+        "text": "KeyAnalyzer methods",
+        "type": "Title"
+    },
+    {
+        "text": "KeyAnalyzer.",
+        "type": "Title"
+    },
+    {
+        "text": "getInterpretationByMeasure",
+        "type": "Title"
+    },
+    {
+        "text": "mIndex",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns a dictionary of interpretations for the measure.\nmIndex is 0-indexed.",
+        "type": "ListItem"
+    },
+    {
+        "text": "KeyAnalyzer.",
+        "type": "Title"
+    },
+    {
+        "text": "getRawKeyByMeasure",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "KeyAnalyzer.",
+        "type": "Title"
+    },
+    {
+        "text": "run",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "KeyAnalyzer.",
+        "type": "Title"
+    },
+    {
+        "text": "smoothInterpretationByMeasure",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.analysis.floatingKey.",
+        "type": "Title"
+    },
+    {
+        "text": "divide",
+        "type": "Title"
+    },
+    {
+        "text": "coefficient",
+        "type": "Title"
+    },
+    {
+        "text": "distance",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Divide the coefficient by the absolute value of the distance + 1\n>>> analysis.floatingKey.divide(4.0, -1)\n2.0",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.analysis.floatingKey",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

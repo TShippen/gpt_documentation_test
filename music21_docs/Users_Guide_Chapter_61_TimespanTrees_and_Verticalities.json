@@ -1,0 +1,6026 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 61: TimespanTrees and Verticalities",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide, Chapter 58: Understanding Sites and Contexts",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "Module Reference",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide, Chapter 61: TimespanTrees and Verticalities\nSo what is the point of a tree?\nTimeSpans vs Music21Objects\nmakeElement: the guts of Chordify",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide\nUser's Guide: Table of Contents\nUser's Guide, Chapter 1: Installing and Getting Started with music21\nUser's Guide, Chapter 2: Notes\nUser's Guide, Chapter 3: Pitches, Durations, and Notes again\nUser's Guide, Chapter 4: Lists, Streams (I) and Output\nUser's Guide, Chapter 5: Lists of Lists, Functions, and Recursion\nUser's Guide, Chapter 6: Streams (II): Hierarchies, Recursion, and Flattening\nUser's Guide, Chapter 7: Chords\nUser's Guide, Chapter 8: Installing MusicXML Readers and File Formats (1)\nUser's Guide, Chapter 9: Chordify\nUser's Guide, Chapter 10: Examples 1\nUser's Guide, Chapter 11: Corpus Searching\nUser's Guide, Chapter 12: Getting Back to Basics: The Music21Object\nUser's Guide, Chapter 13: More Music21Object Attributes and Properties\nUser's Guide: Chapter 14: Time Signatures and Beats\nUser's Guide, Chapter 15: Keys and KeySignatures\nUser's Guide, Chapter 16: TinyNotation\nUser's Guide: Chapter 17: Derivations\nUser's Guide: Chapter 18: Intervals\nUser's Guide, Chapter 19: Advanced Durations (Complex and Tuplets)\nUser's Guide, Chapter 20: Examples 2\nUser's Guide, Chapter 21: Ordering and Sorting of Stream Elements\nUser's Guide, Chapter 22: Graphing and plotting\nUser's Guide, Chapter 23: Roman Numeral Analysis\nUser's Guide, Chapter 24: Configuring Environment Settings\nUser's Guide, Chapter 25: Post-Tonal Tools (1)\nUser's Guide, Chapter 26: Stream Iteration and Filtering\nUser's Guide, Chapter 27: Grace Notes\nUser's Guide, Chapter 28: Lyric Searching\nUser's Guide, Chapter 29: Spanners 1 (Slurs)\nUser's Guide, Chapter 30: Examples 3\nUser's Guide, Chapter 31: Clefs, Ties, and Beams\nUser's Guide, Chapter 32: Articulations\nUser's Guide, Chapter 44: Advanced Graphing (Axes, Plots, and Graphs)\nUser's Guide, Chapter 53: Advanced Corpus and Metadata Searching\nUser's Guide, Chapter 54: Extending Converter with New Formats\nUser's Guide, Chapter 55: Advanced Meter Topics\nUser's Guide, Chapter 58: Understanding Sites and Contexts\nUser's Guide, Chapter 61: TimespanTrees and Verticalities",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 61: TimespanTrees and Verticalities\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Every music21 Stream has two different and coexisting\nrepresentations. The standard representation treats the Stream as if it\nis a sort of List or array of elements. This is the representation that\nyou will use for nearly all standard work with music21 and it is the\nonly one exposed by most methods and operations (I myself often forget\nthat the other representation exists!) But there is a second one that is\nused for some of the most powerful aspects of music21 and that is the\n\u009ctree\u009d representation.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Tree representations make it extremely fast to work with an entire\nStream hierarchy all at once. When working with a music21 Stream\ntree, notes can be deleted or elongated or moved without needing to\nupdate their contexts until the Stream is released to its standard\nrepresentation. They are thus extremely powerful for analytical tools\nsuch as vocabulary reduction. The\nchordify() method of Streams makes\nextensive use of trees, as does the\ngetContextByClass() method of all\nMusic21Objects.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "For those who care about implementation details, trees use a\nself-balancing AVL tree to keep track of the position and duration of\nobjects. Even though it is currently implemented in Python alone, for a\nlarge score, the tree view can be many orders of magnitude faster to\nwork with than the C-language methods used in the standard\nrepresentation.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Let us start with a Bach chorale that will give some sense of how trees\nmight be helpful:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "from",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "import",
+        "type": "Title"
+    },
+    {
+        "text": "bach",
+        "type": "Title"
+    },
+    {
+        "text": "corpus",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "'bach/bwv269'",
+        "type": "Title"
+    },
+    {
+        "text": "bach",
+        "type": "Title"
+    },
+    {
+        "text": "id",
+        "type": "Title"
+    },
+    {
+        "text": "'bwv269'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "bach",
+        "type": "Title"
+    },
+    {
+        "text": "measures",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "We will start with most fully-functional of the various types of trees,\nthe TimespanTree. The\n.asTimespans(flatten=True) method on all Stream objects will get a\ntree of all timepoints in the piece:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "tsTree",
+        "type": "Title"
+    },
+    {
+        "text": "bach",
+        "type": "Title"
+    },
+    {
+        "text": "asTimespans",
+        "type": "Title"
+    },
+    {
+        "text": "flatten",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "tsTree",
+        "type": "Title"
+    },
+    {
+        "text": "TimespanTree",
+        "type": "Title"
+    },
+    {
+        "text": "280",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "63.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Score",
+        "type": "Title"
+    },
+    {
+        "text": "bwv269",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The TimespanTree knows which score it came from, though at this point it\nis disconnected from the original stream. It knows how many elements are\nin it (280) and what the flattened offset range of the tree is (from 0\nto 63, or 21 measures of 3/4).",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "We can get the first element in the tree as expected:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "tsTree",
+        "type": "Title"
+    },
+    {
+        "text": "ElementTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "text",
+        "type": "Title"
+    },
+    {
+        "text": "TextBox",
+        "type": "Title"
+    },
+    {
+        "text": "'PDF \u00c2\u00a9 2004...'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "And iterate over the tree as you might expect:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "ts",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "tsTree",
+        "type": "Title"
+    },
+    {
+        "text": "20",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "32",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "]:",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "ts",
+        "type": "Title"
+    },
+    {
+        "text": "ElementTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "instrument",
+        "type": "Title"
+    },
+    {
+        "text": "Instrument",
+        "type": "Title"
+    },
+    {
+        "text": "'P4: Bass: '",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "ElementTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "layout",
+        "type": "Title"
+    },
+    {
+        "text": "SystemLayout",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "ElementTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "layout",
+        "type": "Title"
+    },
+    {
+        "text": "StaffLayout",
+        "type": "Title"
+    },
+    {
+        "text": "distance",
+        "type": "Title"
+    },
+    {
+        "text": "130",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "staffNumber",
+        "type": "Title"
+    },
+    {
+        "text": "staffSize",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "staffLines",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "ElementTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "clef",
+        "type": "Title"
+    },
+    {
+        "text": "BassClef",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "ElementTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "Key",
+        "type": "Title"
+    },
+    {
+        "text": "of",
+        "type": "Title"
+    },
+    {
+        "text": "major",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "ElementTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "meter",
+        "type": "Title"
+    },
+    {
+        "text": "TimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "ElementTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "layout",
+        "type": "Title"
+    },
+    {
+        "text": "ScoreLayout",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "ElementTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "layout",
+        "type": "Title"
+    },
+    {
+        "text": "StaffGroup",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Part",
+        "type": "Title"
+    },
+    {
+        "text": "Soprano",
+        "type": "Title"
+    },
+    {
+        "text": "><",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Part",
+        "type": "Title"
+    },
+    {
+        "text": "Alto",
+        "type": "Title"
+    },
+    {
+        "text": "><",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Part",
+        "type": "Title"
+    },
+    {
+        "text": "Tenor",
+        "type": "Title"
+    },
+    {
+        "text": "><",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Part",
+        "type": "Title"
+    },
+    {
+        "text": "Bass",
+        "type": "Title"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "PitchedTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "PitchedTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "PitchedTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "PitchedTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Notice that there are two types of \u009cTimeSpans\u009d in the tree,\n\u009cPitchedTimespans\u009d which contain anything that has one or more pitches,\nand \u009cElementTimespans\u009d which have everything else. The TimeSpans record\ntheir offsets from the beginning of the score and their \u009cendTime\u009d.\nLooking at measure 3 of the score makes this clearer. I found these\nnumbers via trial and error:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "ts",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "tsTree",
+        "type": "Title"
+    },
+    {
+        "text": "55",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "71",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "]:",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "ts",
+        "type": "Title"
+    },
+    {
+        "text": "PitchedTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "7.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "7.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "PitchedTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "7.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "7.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "PitchedTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "7.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "8.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "PitchedTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "7.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "8.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "PitchedTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "7.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "8.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "PitchedTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "7.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "8.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "PitchedTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "8.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "8.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "PitchedTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "8.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "8.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "PitchedTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "8.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "9.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "PitchedTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "8.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "9.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "PitchedTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "8.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "9.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "PitchedTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "8.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "9.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "PitchedTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "9.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "10.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "PitchedTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "9.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "10.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "PitchedTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "9.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "10.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "PitchedTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "9.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "10.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Note that the notes here are not sorted in any particular order. Reading\nfrom bottom to top at offset 7 would be \u009cC C E G\u009d. But this is not a\nconcern because using indexes in a tree misses the point of them.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "So what is the point of a tree?\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Trees let programmers find particular musical elements extremely fast.\nSo for instance, we can get all the elements starting at offset 7 with\nelementsStartingAt:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "tsTree",
+        "type": "Title"
+    },
+    {
+        "text": "elementsStartingAt",
+        "type": "Title"
+    },
+    {
+        "text": "7.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "PitchedTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "7.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "7.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "PitchedTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "7.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "7.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "PitchedTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "7.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "8.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "PitchedTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "7.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "8.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "And to get the actual notes in there, we use the .element property\nof the timespan:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "ts",
+        "type": "Title"
+    },
+    {
+        "text": "element",
+        "type": "Title"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "ts",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "tsTree",
+        "type": "Title"
+    },
+    {
+        "text": "elementsStartingAt",
+        "type": "Title"
+    },
+    {
+        "text": "7.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ")]",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "This is basically the same as .getElementsByOffsetInHierarchy():",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "list",
+        "type": "Title"
+    },
+    {
+        "text": "bach",
+        "type": "Title"
+    },
+    {
+        "text": "recurse",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "notes",
+        "type": "Title"
+    },
+    {
+        "text": "getElementsByOffsetInHierarchy",
+        "type": "Title"
+    },
+    {
+        "text": "7.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "))",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "But it is much faster, because the AVL tree can do a search for\nparticular elements in O(log n) time. It can even find elements\nending at a certain point or overlapping a point just as fast:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "tsTree",
+        "type": "Title"
+    },
+    {
+        "text": "elementsOverlappingOffset",
+        "type": "Title"
+    },
+    {
+        "text": "7.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "PitchedTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "7.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "8.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "PitchedTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "7.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "8.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "tsTree",
+        "type": "Title"
+    },
+    {
+        "text": "elementsStoppingAt",
+        "type": "Title"
+    },
+    {
+        "text": "7.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "PitchedTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "7.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "7.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "PitchedTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "7.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "7.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A timespan tree knows all of its \u009ctimePoints\u009d which are places where an\nelement either stops or starts:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "tsTree",
+        "type": "Title"
+    },
+    {
+        "text": "allTimePoints",
+        "type": "Title"
+    },
+    {
+        "text": "()[:",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "13",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "2.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "3.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "4.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "5.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "5.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "6.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "7.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "7.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "8.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "8.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Here are measures 3-4 alone to remind us of what is happening there:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "bach",
+        "type": "Title"
+    },
+    {
+        "text": "measures",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "What is the chord sounding on beat 2 (offset 8)? We can find out by\ncreating a \u009cVerticality\u009d at this moment:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "tsTree",
+        "type": "Title"
+    },
+    {
+        "text": "getVerticalityAt",
+        "type": "Title"
+    },
+    {
+        "text": "8.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "tree",
+        "type": "Title"
+    },
+    {
+        "text": "verticality",
+        "type": "Title"
+    },
+    {
+        "text": "Verticality",
+        "type": "Title"
+    },
+    {
+        "text": "8.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "B2",
+        "type": "Title"
+    },
+    {
+        "text": "C4",
+        "type": "Title"
+    },
+    {
+        "text": "E4",
+        "type": "Title"
+    },
+    {
+        "text": "G4",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "As of version 7, there are two different classes called Verticality,\none in VoiceLeading and one in tree.verticality \u2014 in music21 version 8,\nonly the tree.verticality.Verticality will be available.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "The Verticality object knows which elements are just starting:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "startTimespans",
+        "type": "Title"
+    },
+    {
+        "text": "PitchedTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "8.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "8.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "PitchedTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "8.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "8.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "PitchedTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "8.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "9.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "and which are continuing:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "overlapTimespans",
+        "type": "Title"
+    },
+    {
+        "text": "PitchedTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "7.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "8.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ",)",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "It also knows which elements are have just stopped before the\nVerticality:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "stopTimespans",
+        "type": "Title"
+    },
+    {
+        "text": "PitchedTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "7.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "8.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "PitchedTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "7.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "8.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "PitchedTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "7.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "8.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "These timespans are not properly part of the verticality itself, so\ntheir pitches are not listed in the verticality itself. Verticalities\ncan also have non-pitched objects:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "v_start",
+        "type": "Title"
+    },
+    {
+        "text": "tsTree",
+        "type": "Title"
+    },
+    {
+        "text": "getVerticalityAt",
+        "type": "Title"
+    },
+    {
+        "text": "v_start",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "tree",
+        "type": "Title"
+    },
+    {
+        "text": "verticality",
+        "type": "Title"
+    },
+    {
+        "text": "Verticality",
+        "type": "Title"
+    },
+    {
+        "text": "G2",
+        "type": "Title"
+    },
+    {
+        "text": "B3",
+        "type": "Title"
+    },
+    {
+        "text": "D4",
+        "type": "Title"
+    },
+    {
+        "text": "G4",
+        "type": "Title"
+    },
+    {
+        "text": "v_start",
+        "type": "Title"
+    },
+    {
+        "text": "startTimespans",
+        "type": "Title"
+    },
+    {
+        "text": "[:",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "10",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "ElementTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "text",
+        "type": "Title"
+    },
+    {
+        "text": "TextBox",
+        "type": "Title"
+    },
+    {
+        "text": "'PDF \u00c2\u00a9 2004...'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "ElementTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "text",
+        "type": "Title"
+    },
+    {
+        "text": "TextBox",
+        "type": "Title"
+    },
+    {
+        "text": "'BWV 269'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "ElementTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "metadata",
+        "type": "Title"
+    },
+    {
+        "text": "Metadata",
+        "type": "Title"
+    },
+    {
+        "text": "object",
+        "type": "Title"
+    },
+    {
+        "text": "at",
+        "type": "Title"
+    },
+    {
+        "text": "0x7f905dbaa250",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "ElementTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "instrument",
+        "type": "Title"
+    },
+    {
+        "text": "Instrument",
+        "type": "Title"
+    },
+    {
+        "text": "'P1: Soprano: '",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "ElementTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "layout",
+        "type": "Title"
+    },
+    {
+        "text": "SystemLayout",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "ElementTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "clef",
+        "type": "Title"
+    },
+    {
+        "text": "TrebleClef",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "ElementTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "Key",
+        "type": "Title"
+    },
+    {
+        "text": "of",
+        "type": "Title"
+    },
+    {
+        "text": "major",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "ElementTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "meter",
+        "type": "Title"
+    },
+    {
+        "text": "TimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "ElementTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "instrument",
+        "type": "Title"
+    },
+    {
+        "text": "Instrument",
+        "type": "Title"
+    },
+    {
+        "text": "'P2: Alto: '",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "ElementTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "layout",
+        "type": "Title"
+    },
+    {
+        "text": "SystemLayout",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Verticalities with PitchedTimespans in them can figure out the bass\ntimespan:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "bassTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "PitchedTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "8.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "8.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "They are also still connected to their original tree and know their\noffset:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "timespanTree",
+        "type": "Title"
+    },
+    {
+        "text": "TimespanTree",
+        "type": "Title"
+    },
+    {
+        "text": "280",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "63.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Score",
+        "type": "Title"
+    },
+    {
+        "text": "bwv269",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "8.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "And using this information they can get the verticalities just\npreceeding or following them:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "previousVerticality",
+        "type": "Title"
+    },
+    {
+        "text": "nextVerticality",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "tree",
+        "type": "Title"
+    },
+    {
+        "text": "verticality",
+        "type": "Title"
+    },
+    {
+        "text": "Verticality",
+        "type": "Title"
+    },
+    {
+        "text": "7.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "C3",
+        "type": "Title"
+    },
+    {
+        "text": "B3",
+        "type": "Title"
+    },
+    {
+        "text": "D4",
+        "type": "Title"
+    },
+    {
+        "text": "G4",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "tree",
+        "type": "Title"
+    },
+    {
+        "text": "verticality",
+        "type": "Title"
+    },
+    {
+        "text": "Verticality",
+        "type": "Title"
+    },
+    {
+        "text": "8.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A2",
+        "type": "Title"
+    },
+    {
+        "text": "C4",
+        "type": "Title"
+    },
+    {
+        "text": "#4 A4}>)",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "There is an easy way of getting all the pitches in a Verticality:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "pitchSet",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "B2",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "C4",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "E4",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "G4",
+        "type": "Title"
+    },
+    {
+        "text": "And a Verticality can become a chord:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "v_ch",
+        "type": "Title"
+    },
+    {
+        "text": "toChord",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "v_ch",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "B2",
+        "type": "Title"
+    },
+    {
+        "text": "C4",
+        "type": "Title"
+    },
+    {
+        "text": "E4",
+        "type": "Title"
+    },
+    {
+        "text": "G4",
+        "type": "Title"
+    },
+    {
+        "text": "This is a very dumb chord that just gets a default duration. So even\nthough the time between this verticality and the next one is only 0.5\n(eighth note), the duration is still 1.0:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "v_ch",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "Duration",
+        "type": "Title"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "But, combined with the .iterateVerticalities() method on\nTimespanTrees, the isChord() method can make some quick analytical\nmethods. For instance, how many moments in this chorale are dissonant\nand how many are consonant?",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "totalConsonances",
+        "type": "Title"
+    },
+    {
+        "text": "totalDissonances",
+        "type": "Title"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "tsTree",
+        "type": "Title"
+    },
+    {
+        "text": "iterateVerticalities",
+        "type": "Title"
+    },
+    {
+        "text": "():",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "toChord",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "isConsonant",
+        "type": "Title"
+    },
+    {
+        "text": "():",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "totalConsonances",
+        "type": "Title"
+    },
+    {
+        "text": "+=",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "else",
+        "type": "Title"
+    },
+    {
+        "text": "totalDissonances",
+        "type": "Title"
+    },
+    {
+        "text": "+=",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "totalConsonances",
+        "type": "Title"
+    },
+    {
+        "text": "totalDissonances",
+        "type": "Title"
+    },
+    {
+        "text": "48",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "33",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "So about 60% of the vertical moments are consonant, and 40% are\ndissonant. But is this an accurate perception? We can instead sum up the\ntotal consonant duration vs.\u00c2\u00a0dissonant duration using the\ntimeToNextEvent property on Verticalities (new in v7.3):",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "totalConsonanceDuration",
+        "type": "Title"
+    },
+    {
+        "text": "totalDissonanceDuration",
+        "type": "Title"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "tsTree",
+        "type": "Title"
+    },
+    {
+        "text": "iterateVerticalities",
+        "type": "Title"
+    },
+    {
+        "text": "():",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "nextTime",
+        "type": "Title"
+    },
+    {
+        "text": "timeToNextEvent",
+        "type": "Title"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "toChord",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "isConsonant",
+        "type": "Title"
+    },
+    {
+        "text": "():",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "totalConsonanceDuration",
+        "type": "Title"
+    },
+    {
+        "text": "+=",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "nextTime",
+        "type": "Title"
+    },
+    {
+        "text": "else",
+        "type": "Title"
+    },
+    {
+        "text": "totalDissonanceDuration",
+        "type": "Title"
+    },
+    {
+        "text": "+=",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "nextTime",
+        "type": "Title"
+    },
+    {
+        "text": "totalConsonanceDuration",
+        "type": "Title"
+    },
+    {
+        "text": "totalDissonanceDuration",
+        "type": "Title"
+    },
+    {
+        "text": "43.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "20.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Only a little changed here, it's about a 2/3 to 1/3 proportion of\nconsonance to dissonance, but it is nice to see that the total adds up\nto 63, the number of quarter notes in the piece, as we saw above.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Because Verticalities know the TimeSpans that stop just before the\nactual event, they are closely related to\nVoiceLeadingQuartet objects. A\nverticality can find all the VoiceLeadingQuartets at that moment it\nbegins. We will first create a new tree that does not have anything but\nGeneralNote objects (otherwise Instrument objects and other such things\ncan get in the way of finding voiceleading moments).",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "tsTree",
+        "type": "Title"
+    },
+    {
+        "text": "bach",
+        "type": "Title"
+    },
+    {
+        "text": "asTimespans",
+        "type": "Title"
+    },
+    {
+        "text": "flatten",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "classList",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "GeneralNote",
+        "type": "Title"
+    },
+    {
+        "text": ",))",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "tsTree",
+        "type": "Title"
+    },
+    {
+        "text": "getVerticalityAt",
+        "type": "Title"
+    },
+    {
+        "text": "2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "tree",
+        "type": "Title"
+    },
+    {
+        "text": "verticality",
+        "type": "Title"
+    },
+    {
+        "text": "Verticality",
+        "type": "Title"
+    },
+    {
+        "text": "2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "E3",
+        "type": "Title"
+    },
+    {
+        "text": "C4",
+        "type": "Title"
+    },
+    {
+        "text": "E4",
+        "type": "Title"
+    },
+    {
+        "text": "G4",
+        "type": "Title"
+    },
+    {
+        "text": "getAllVoiceLeadingQuartets",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "voiceLeading",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "VoiceLeadingQuartet",
+        "type": "Title"
+    },
+    {
+        "text": "v1n1",
+        "type": "Title"
+    },
+    {
+        "text": "B3",
+        "type": "Title"
+    },
+    {
+        "text": "v1n2",
+        "type": "Title"
+    },
+    {
+        "text": "C4",
+        "type": "Title"
+    },
+    {
+        "text": "v2n1",
+        "type": "Title"
+    },
+    {
+        "text": "D4",
+        "type": "Title"
+    },
+    {
+        "text": "v2n2",
+        "type": "Title"
+    },
+    {
+        "text": "E4",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "voiceLeading",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "VoiceLeadingQuartet",
+        "type": "Title"
+    },
+    {
+        "text": "v1n1",
+        "type": "Title"
+    },
+    {
+        "text": "B3",
+        "type": "Title"
+    },
+    {
+        "text": "v1n2",
+        "type": "Title"
+    },
+    {
+        "text": "C4",
+        "type": "Title"
+    },
+    {
+        "text": "v2n1",
+        "type": "Title"
+    },
+    {
+        "text": "G3",
+        "type": "Title"
+    },
+    {
+        "text": "v2n2",
+        "type": "Title"
+    },
+    {
+        "text": "E3",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "voiceLeading",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "VoiceLeadingQuartet",
+        "type": "Title"
+    },
+    {
+        "text": "v1n1",
+        "type": "Title"
+    },
+    {
+        "text": "B3",
+        "type": "Title"
+    },
+    {
+        "text": "v1n2",
+        "type": "Title"
+    },
+    {
+        "text": "C4",
+        "type": "Title"
+    },
+    {
+        "text": "v2n1",
+        "type": "Title"
+    },
+    {
+        "text": "G4",
+        "type": "Title"
+    },
+    {
+        "text": "v2n2",
+        "type": "Title"
+    },
+    {
+        "text": "G4",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "voiceLeading",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "VoiceLeadingQuartet",
+        "type": "Title"
+    },
+    {
+        "text": "v1n1",
+        "type": "Title"
+    },
+    {
+        "text": "D4",
+        "type": "Title"
+    },
+    {
+        "text": "v1n2",
+        "type": "Title"
+    },
+    {
+        "text": "E4",
+        "type": "Title"
+    },
+    {
+        "text": "v2n1",
+        "type": "Title"
+    },
+    {
+        "text": "G3",
+        "type": "Title"
+    },
+    {
+        "text": "v2n2",
+        "type": "Title"
+    },
+    {
+        "text": "E3",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "voiceLeading",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "VoiceLeadingQuartet",
+        "type": "Title"
+    },
+    {
+        "text": "v1n1",
+        "type": "Title"
+    },
+    {
+        "text": "D4",
+        "type": "Title"
+    },
+    {
+        "text": "v1n2",
+        "type": "Title"
+    },
+    {
+        "text": "E4",
+        "type": "Title"
+    },
+    {
+        "text": "v2n1",
+        "type": "Title"
+    },
+    {
+        "text": "G4",
+        "type": "Title"
+    },
+    {
+        "text": "v2n2",
+        "type": "Title"
+    },
+    {
+        "text": "G4",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "voiceLeading",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "VoiceLeadingQuartet",
+        "type": "Title"
+    },
+    {
+        "text": "v1n1",
+        "type": "Title"
+    },
+    {
+        "text": "G3",
+        "type": "Title"
+    },
+    {
+        "text": "v1n2",
+        "type": "Title"
+    },
+    {
+        "text": "E3",
+        "type": "Title"
+    },
+    {
+        "text": "v2n1",
+        "type": "Title"
+    },
+    {
+        "text": "G4",
+        "type": "Title"
+    },
+    {
+        "text": "v2n2",
+        "type": "Title"
+    },
+    {
+        "text": "G4",
+        "type": "Title"
+    },
+    {
+        "text": "Reminding ourselves of the opening of the piece, this looks reasonable.\nThe voice-leading moment is between beats 1 and 2 of the first full\nmeasure.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "bach",
+        "type": "Title"
+    },
+    {
+        "text": "measures",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Note again that the order simultaneous elements are returned from a tree\ncan seem a bit of voodoo. Fortunately, it is possible still to get back\nwhat parts the various notes of the VoiceLeadingQuartet come from:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "all_vlqs",
+        "type": "Title"
+    },
+    {
+        "text": "getAllVoiceLeadingQuartets",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "vlq0",
+        "type": "Title"
+    },
+    {
+        "text": "all_vlqs",
+        "type": "Title"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "vlq0",
+        "type": "Title"
+    },
+    {
+        "text": "v1n1",
+        "type": "Title"
+    },
+    {
+        "text": "vlq0",
+        "type": "Title"
+    },
+    {
+        "text": "v1n1",
+        "type": "Title"
+    },
+    {
+        "text": "getContextByClass",
+        "type": "Title"
+    },
+    {
+        "text": "'Part'",
+        "type": "Title"
+    },
+    {
+        "text": "))",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "vlq0",
+        "type": "Title"
+    },
+    {
+        "text": "v2n1",
+        "type": "Title"
+    },
+    {
+        "text": "vlq0",
+        "type": "Title"
+    },
+    {
+        "text": "v2n1",
+        "type": "Title"
+    },
+    {
+        "text": "getContextByClass",
+        "type": "Title"
+    },
+    {
+        "text": "'Part'",
+        "type": "Title"
+    },
+    {
+        "text": "))",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Part",
+        "type": "Title"
+    },
+    {
+        "text": "Tenor",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Part",
+        "type": "Title"
+    },
+    {
+        "text": "Alto",
+        "type": "Title"
+    },
+    {
+        "text": "Verticalities can also find all the paired motions showing part by part:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "getPairedMotion",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "[(",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "PitchedTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "PitchedTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "2.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "PitchedTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "PitchedTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "3.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "PitchedTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "PitchedTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "3.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "PitchedTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "3.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "PitchedTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "3.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ")]",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "There are also pre-filtering functions that prevent making more\nVoiceLeadingQuartets than are needed. Let us move our attention to the\nverticality one beat back and look at the voiceleading motion from the\nend of the pickup measure to the first full measure, where only the bass\nmoves (and that, only by octave).",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "tsTree",
+        "type": "Title"
+    },
+    {
+        "text": "getVerticalityAt",
+        "type": "Title"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "tree",
+        "type": "Title"
+    },
+    {
+        "text": "verticality",
+        "type": "Title"
+    },
+    {
+        "text": "Verticality",
+        "type": "Title"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "G3",
+        "type": "Title"
+    },
+    {
+        "text": "B3",
+        "type": "Title"
+    },
+    {
+        "text": "D4",
+        "type": "Title"
+    },
+    {
+        "text": "G4",
+        "type": "Title"
+    },
+    {
+        "text": "By default, voice leading quartets representing no-motion are removed:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "getAllVoiceLeadingQuartets",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "voiceLeading",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "VoiceLeadingQuartet",
+        "type": "Title"
+    },
+    {
+        "text": "v1n1",
+        "type": "Title"
+    },
+    {
+        "text": "D4",
+        "type": "Title"
+    },
+    {
+        "text": "v1n2",
+        "type": "Title"
+    },
+    {
+        "text": "D4",
+        "type": "Title"
+    },
+    {
+        "text": "v2n1",
+        "type": "Title"
+    },
+    {
+        "text": "G2",
+        "type": "Title"
+    },
+    {
+        "text": "v2n2",
+        "type": "Title"
+    },
+    {
+        "text": "G3",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "voiceLeading",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "VoiceLeadingQuartet",
+        "type": "Title"
+    },
+    {
+        "text": "v1n1",
+        "type": "Title"
+    },
+    {
+        "text": "B3",
+        "type": "Title"
+    },
+    {
+        "text": "v1n2",
+        "type": "Title"
+    },
+    {
+        "text": "B3",
+        "type": "Title"
+    },
+    {
+        "text": "v2n1",
+        "type": "Title"
+    },
+    {
+        "text": "G2",
+        "type": "Title"
+    },
+    {
+        "text": "v2n2",
+        "type": "Title"
+    },
+    {
+        "text": "G3",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "voiceLeading",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "VoiceLeadingQuartet",
+        "type": "Title"
+    },
+    {
+        "text": "v1n1",
+        "type": "Title"
+    },
+    {
+        "text": "G2",
+        "type": "Title"
+    },
+    {
+        "text": "v1n2",
+        "type": "Title"
+    },
+    {
+        "text": "G3",
+        "type": "Title"
+    },
+    {
+        "text": "v2n1",
+        "type": "Title"
+    },
+    {
+        "text": "G4",
+        "type": "Title"
+    },
+    {
+        "text": "v2n2",
+        "type": "Title"
+    },
+    {
+        "text": "G4",
+        "type": "Title"
+    },
+    {
+        "text": "they can be added back:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "getAllVoiceLeadingQuartets",
+        "type": "Title"
+    },
+    {
+        "text": "includeNoMotion",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "voiceLeading",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "VoiceLeadingQuartet",
+        "type": "Title"
+    },
+    {
+        "text": "v1n1",
+        "type": "Title"
+    },
+    {
+        "text": "D4",
+        "type": "Title"
+    },
+    {
+        "text": "v1n2",
+        "type": "Title"
+    },
+    {
+        "text": "D4",
+        "type": "Title"
+    },
+    {
+        "text": "v2n1",
+        "type": "Title"
+    },
+    {
+        "text": "B3",
+        "type": "Title"
+    },
+    {
+        "text": "v2n2",
+        "type": "Title"
+    },
+    {
+        "text": "B3",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "voiceLeading",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "VoiceLeadingQuartet",
+        "type": "Title"
+    },
+    {
+        "text": "v1n1",
+        "type": "Title"
+    },
+    {
+        "text": "D4",
+        "type": "Title"
+    },
+    {
+        "text": "v1n2",
+        "type": "Title"
+    },
+    {
+        "text": "D4",
+        "type": "Title"
+    },
+    {
+        "text": "v2n1",
+        "type": "Title"
+    },
+    {
+        "text": "G2",
+        "type": "Title"
+    },
+    {
+        "text": "v2n2",
+        "type": "Title"
+    },
+    {
+        "text": "G3",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "voiceLeading",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "VoiceLeadingQuartet",
+        "type": "Title"
+    },
+    {
+        "text": "v1n1",
+        "type": "Title"
+    },
+    {
+        "text": "D4",
+        "type": "Title"
+    },
+    {
+        "text": "v1n2",
+        "type": "Title"
+    },
+    {
+        "text": "D4",
+        "type": "Title"
+    },
+    {
+        "text": "v2n1",
+        "type": "Title"
+    },
+    {
+        "text": "G4",
+        "type": "Title"
+    },
+    {
+        "text": "v2n2",
+        "type": "Title"
+    },
+    {
+        "text": "G4",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "voiceLeading",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "VoiceLeadingQuartet",
+        "type": "Title"
+    },
+    {
+        "text": "v1n1",
+        "type": "Title"
+    },
+    {
+        "text": "B3",
+        "type": "Title"
+    },
+    {
+        "text": "v1n2",
+        "type": "Title"
+    },
+    {
+        "text": "B3",
+        "type": "Title"
+    },
+    {
+        "text": "v2n1",
+        "type": "Title"
+    },
+    {
+        "text": "G2",
+        "type": "Title"
+    },
+    {
+        "text": "v2n2",
+        "type": "Title"
+    },
+    {
+        "text": "G3",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "voiceLeading",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "VoiceLeadingQuartet",
+        "type": "Title"
+    },
+    {
+        "text": "v1n1",
+        "type": "Title"
+    },
+    {
+        "text": "B3",
+        "type": "Title"
+    },
+    {
+        "text": "v1n2",
+        "type": "Title"
+    },
+    {
+        "text": "B3",
+        "type": "Title"
+    },
+    {
+        "text": "v2n1",
+        "type": "Title"
+    },
+    {
+        "text": "G4",
+        "type": "Title"
+    },
+    {
+        "text": "v2n2",
+        "type": "Title"
+    },
+    {
+        "text": "G4",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "voiceLeading",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "VoiceLeadingQuartet",
+        "type": "Title"
+    },
+    {
+        "text": "v1n1",
+        "type": "Title"
+    },
+    {
+        "text": "G2",
+        "type": "Title"
+    },
+    {
+        "text": "v1n2",
+        "type": "Title"
+    },
+    {
+        "text": "G3",
+        "type": "Title"
+    },
+    {
+        "text": "v2n1",
+        "type": "Title"
+    },
+    {
+        "text": "G4",
+        "type": "Title"
+    },
+    {
+        "text": "v2n2",
+        "type": "Title"
+    },
+    {
+        "text": "G4",
+        "type": "Title"
+    },
+    {
+        "text": "or we can filter further and remove oblique motion as well, which will\nremove all VoiceLeadingQuartets here:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "getAllVoiceLeadingQuartets",
+        "type": "Title"
+    },
+    {
+        "text": "includeOblique",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "[]",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "TimeSpans vs Music21Objects\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "TimeSpans (including PitchedTimeSpans) are not Music21Objects, so they\ncannot be put into Streams. Rather, they are wrappers around elements\nalready in the Stream, such as Notes, Clefs, etc. When the TimespanTree\nis first created, each element is in exactly one TimeSpan, but that can\nchange. Here we will grab a PitchedTimeSpan from measure 2 and then\ndivide it into two halves:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "fs_span",
+        "type": "Title"
+    },
+    {
+        "text": "tsTree",
+        "type": "Title"
+    },
+    {
+        "text": "20",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "fs_span",
+        "type": "Title"
+    },
+    {
+        "text": "PitchedTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "5.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "6.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "fs_span",
+        "type": "Title"
+    },
+    {
+        "text": "splitAt",
+        "type": "Title"
+    },
+    {
+        "text": "5.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "PitchedTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "5.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "5.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#>>,",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "PitchedTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "5.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "6.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#>>)",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The timespan itself is unchanged:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "fs_span",
+        "type": "Title"
+    },
+    {
+        "text": "PitchedTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "5.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "6.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "So we will split again and show that the element is the same in both:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "first_half",
+        "type": "Title"
+    },
+    {
+        "text": "second_half",
+        "type": "Title"
+    },
+    {
+        "text": "fs_span",
+        "type": "Title"
+    },
+    {
+        "text": "splitAt",
+        "type": "Title"
+    },
+    {
+        "text": "5.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "first_half",
+        "type": "Title"
+    },
+    {
+        "text": "element",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "first_half",
+        "type": "Title"
+    },
+    {
+        "text": "element",
+        "type": "Title"
+    },
+    {
+        "text": "is",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "second_half",
+        "type": "Title"
+    },
+    {
+        "text": "element",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "Splitting the TimeSpan does not change the duration of the element:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "first_half",
+        "type": "Title"
+    },
+    {
+        "text": "element",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "Duration",
+        "type": "Title"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "There is a reason for this complexity (and you were warned that trees\nwere a complex topic). Updating a duration of a Music21Object takes a\ngood amount of processing time: the type or tuplets need to change,\ntheir containing Streams update their own durations, and so on. By\nmanipulating the TimeSpan's lengths separately from the object, many\nchanges to a representation of the score can be done before the final\noutput is created.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "However, a TimeSpan can create an object with the duration of the\nTimeSpan:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "new_fs",
+        "type": "Title"
+    },
+    {
+        "text": "first_half",
+        "type": "Title"
+    },
+    {
+        "text": "makeElement",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "new_fs",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "new_fs",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "quarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "0.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "However, the new object is not the same as the old object, but is\ninstead a copy:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "new_fs",
+        "type": "Title"
+    },
+    {
+        "text": "is",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "fs_span",
+        "type": "Title"
+    },
+    {
+        "text": "element",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "new_fs",
+        "type": "Title"
+    },
+    {
+        "text": "derivation",
+        "type": "Title"
+    },
+    {
+        "text": "origin",
+        "type": "Title"
+    },
+    {
+        "text": "is",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "fs_span",
+        "type": "Title"
+    },
+    {
+        "text": "element",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "If you want to modify the element in place, call\nmakeElement(makeCopy=False).",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Note that when iterating verticalities, the same TimeSpans may appear in\nmultiple verticalities, once in the .startTimespans, zero, one, or more\ntimes in the .overlapTimeSpans, and once in the .stopTimespans. And the\nverticality's distance to the next verticality is not necessarily the\nsame as any TimeSpan's duration. As in this example:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "p1",
+        "type": "Title"
+    },
+    {
+        "text": "converter",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "'tinyNotation: 4/4 c2. e4'",
+        "type": "Title"
+    },
+    {
+        "text": "p2",
+        "type": "Title"
+    },
+    {
+        "text": "converter",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "'tinyNotation: 4/4 E4 G2.'",
+        "type": "Title"
+    },
+    {
+        "text": "sc",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Score",
+        "type": "Title"
+    },
+    {
+        "text": "([",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "p1",
+        "type": "Title"
+    },
+    {
+        "text": "p2",
+        "type": "Title"
+    },
+    {
+        "text": "])",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "sc",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "from",
+        "type": "Title"
+    },
+    {
+        "text": "pprint",
+        "type": "Title"
+    },
+    {
+        "text": "import",
+        "type": "Title"
+    },
+    {
+        "text": "pprint",
+        "type": "Title"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "vert",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "sc",
+        "type": "Title"
+    },
+    {
+        "text": "asTimespans",
+        "type": "Title"
+    },
+    {
+        "text": "flatten",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "classList",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ",))",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "iterateVerticalities",
+        "type": "Title"
+    },
+    {
+        "text": "():",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "pprint",
+        "type": "Title"
+    },
+    {
+        "text": "([",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "vert",
+        "type": "Title"
+    },
+    {
+        "text": "timeToNextEvent",
+        "type": "Title"
+    },
+    {
+        "text": "vert",
+        "type": "Title"
+    },
+    {
+        "text": "stopTimespans",
+        "type": "Title"
+    },
+    {
+        "text": "vert",
+        "type": "Title"
+    },
+    {
+        "text": "startTimespans",
+        "type": "Title"
+    },
+    {
+        "text": "vert",
+        "type": "Title"
+    },
+    {
+        "text": "overlapTimespans",
+        "type": "Title"
+    },
+    {
+        "text": "])",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "(),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "PitchedTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "PitchedTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "3.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "()]",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "PitchedTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ",),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "PitchedTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "4.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ",),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "PitchedTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "3.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ",)]",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "PitchedTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "3.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ",),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "PitchedTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "3.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "4.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ",),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "PitchedTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "4.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ",)]",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The second Verticality has two quarter notes until the next one, but\nnone of the TimeSpans involved in it, nor their contained elements, have\na duration of 2.0.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "One last thing for now to mention about durations and timing of\nTimeSpans, is that they are always floats even if they contain tuplets\nwhich usually have Fractional elements:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "triplet_score",
+        "type": "Title"
+    },
+    {
+        "text": "converter",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "'tinyNotation: 2/4 trip{c8 d e} f4'",
+        "type": "Title"
+    },
+    {
+        "text": "triplet_score",
+        "type": "Title"
+    },
+    {
+        "text": "id",
+        "type": "Title"
+    },
+    {
+        "text": "'triplet_score'",
+        "type": "Title"
+    },
+    {
+        "text": "triplet_score",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "triplet_tree",
+        "type": "Title"
+    },
+    {
+        "text": "triplet_score",
+        "type": "Title"
+    },
+    {
+        "text": "asTimespans",
+        "type": "Title"
+    },
+    {
+        "text": "flatten",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "classList",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ",))",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "triplet_tree",
+        "type": "Title"
+    },
+    {
+        "text": "TimespanTree",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Part",
+        "type": "Title"
+    },
+    {
+        "text": "triplet_score",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "vert",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "triplet_tree",
+        "type": "Title"
+    },
+    {
+        "text": "iterateVerticalities",
+        "type": "Title"
+    },
+    {
+        "text": "():",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "'---'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "vert",
+        "type": "Title"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "vert",
+        "type": "Title"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "vert",
+        "type": "Title"
+    },
+    {
+        "text": "startTimespans",
+        "type": "Title"
+    },
+    {
+        "text": "---",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "tree",
+        "type": "Title"
+    },
+    {
+        "text": "verticality",
+        "type": "Title"
+    },
+    {
+        "text": "Verticality",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "C4",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "PitchedTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "0.3333333333333333",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ",)",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "---",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "tree",
+        "type": "Title"
+    },
+    {
+        "text": "verticality",
+        "type": "Title"
+    },
+    {
+        "text": "Verticality",
+        "type": "Title"
+    },
+    {
+        "text": "0.3333333333333333",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "D4",
+        "type": "Title"
+    },
+    {
+        "text": "0.3333333333333333",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "PitchedTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "0.3333333333333333",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "0.6666666666666666",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ",)",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "---",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "tree",
+        "type": "Title"
+    },
+    {
+        "text": "verticality",
+        "type": "Title"
+    },
+    {
+        "text": "Verticality",
+        "type": "Title"
+    },
+    {
+        "text": "0.6666666666666666",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "E4",
+        "type": "Title"
+    },
+    {
+        "text": "0.6666666666666666",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "PitchedTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "0.6666666666666666",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ",)",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "---",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "tree",
+        "type": "Title"
+    },
+    {
+        "text": "verticality",
+        "type": "Title"
+    },
+    {
+        "text": "Verticality",
+        "type": "Title"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "F4",
+        "type": "Title"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "PitchedTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ",)",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "We do this with trees because it allows much faster manipulations, and\nit is an advanced feature for people who are willing to use\nmusic21.common.numberTools.opFrac() on outputs or math.isclose()\nto compare:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "vert",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "triplet_tree",
+        "type": "Title"
+    },
+    {
+        "text": "iterateVerticalities",
+        "type": "Title"
+    },
+    {
+        "text": "():",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "repr",
+        "type": "Title"
+    },
+    {
+        "text": "common",
+        "type": "Title"
+    },
+    {
+        "text": "opFrac",
+        "type": "Title"
+    },
+    {
+        "text": "vert",
+        "type": "Title"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": ")))",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Fraction",
+        "type": "Title"
+    },
+    {
+        "text": "Fraction",
+        "type": "Title"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "triplet_tree",
+        "type": "Title"
+    },
+    {
+        "text": "getVerticalityAt",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "tree",
+        "type": "Title"
+    },
+    {
+        "text": "verticality",
+        "type": "Title"
+    },
+    {
+        "text": "Verticality",
+        "type": "Title"
+    },
+    {
+        "text": "0.3333333333333333",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "D4",
+        "type": "Title"
+    },
+    {
+        "text": "makeElement: the guts of Chordify\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Verticalities have a better way of making elements than toChord, and\nthat is makeElement().\nThe makeElement method will return rests where there is nothing playing,\nand will do things like make sure that only one copy of any articulation\nor expression class is appended to the element (and only if the element\nis in the right place to take the articulation). It will also\nintelligently add ties if you are making an element which extends into\nthe next chord, and by default will remove redundant pitches and make\ncopies of elements.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "If it sounds like you will never use something like that, because you\nhave chordify(), you're absolutely\nright! Trees, Verticalities, and makeElement are what powers chordify.\nSo you would only use makeElement individually if you wanted to\nperform manipulations on the Stream before chordifying, such as to\nremove passing tones or notes that are shorter than a certain length.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "We will return to using TimespanTrees to make reductions in the next\nchapter (to be written).",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "For now, you've reached the end of the User's Guide.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "More information on just about every music21 concept can be found in the\nModule Reference. Find a module you're\ninterested in and enjoy a deeper dive!",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 61: TimespanTrees and Verticalities",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

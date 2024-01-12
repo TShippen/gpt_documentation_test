@@ -1,0 +1,750 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.figuredBass.segment",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.figuredBass.rules",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.freezeThaw",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.figuredBass.segment\nOverlaidSegment\nOverlaidSegment\nOverlaidSegment.allSinglePossibilities()\n\n\n\n\nSegment\nSegment\nSegment.allCorrectConsecutivePossibilities()\nSegment.allCorrectSinglePossibilities()\nSegment.allSinglePossibilities()\nSegment.consecutivePossibilityRules()\nSegment.resolveAugmentedSixthSegment()\nSegment.resolveDiminishedSeventhSegment()\nSegment.resolveDominantSeventhSegment()\nSegment.singlePossibilityRules()\nSegment.specialResolutionRules()\nSegment.allPitchesAboveBass\nSegment.bassNote\nSegment.fbRules\nSegment.numParts\nSegment.pitchNamesInChord\nSegment.segmentChord\n\n\n\n\nFunctions\ngetPitches()\nprintRules()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.figuredBass.segment\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "OverlaidSegment\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.figuredBass.segment.",
+        "type": "Title"
+    },
+    {
+        "text": "OverlaidSegment",
+        "type": "Title"
+    },
+    {
+        "text": "bassNote",
+        "type": "Title"
+    },
+    {
+        "text": "str | Note",
+        "type": "Title"
+    },
+    {
+        "text": "'C3'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "notationString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "str | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "fbScale",
+        "type": "Title"
+    },
+    {
+        "text": "FiguredBassScale | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "fbRules",
+        "type": "Title"
+    },
+    {
+        "text": "Rules | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "numParts",
+        "type": "Title"
+    },
+    {
+        "text": "maxPitch",
+        "type": "Title"
+    },
+    {
+        "text": "str | Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "'B5'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "listOfPitches",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Class to allow Segments to be overlaid with non-chord notes.",
+        "type": "ListItem"
+    },
+    {
+        "text": "OverlaidSegment bases",
+        "type": "Title"
+    },
+    {
+        "text": "Segment",
+        "type": "ListItem"
+    },
+    {
+        "text": "OverlaidSegment methods",
+        "type": "Title"
+    },
+    {
+        "text": "OverlaidSegment.",
+        "type": "Title"
+    },
+    {
+        "text": "allSinglePossibilities",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns an iterator through a set of naive possibilities for\na Segment, using numParts,\nthe pitch of bassNote, and\nallPitchesAboveBass.\n>>> from music21.figuredBass import segment\n>>> segmentA = segment.Segment()\n>>> allPossib = segmentA.allSinglePossibilities()\n>>> allPossib.__class__\n<... 'itertools.product'>\n\n\nThe number of naive possibilities is always the length of\nallPitchesAboveBass\nraised to the (numParts - 1)\npower. The power is 1 less than the number of parts because\nthe bass pitch is constant.\n>>> allPossibList = list(allPossib)\n>>> len(segmentA.allPitchesAboveBass)\n9\n>>> segmentA.numParts\n4\n>>> len(segmentA.allPitchesAboveBass) ** (segmentA.numParts-1)\n729\n>>> len(allPossibList)\n729\n\n\n>>> for i in (81, 275, 426):\n...    [str(p) for p in allPossibList[i]]\n['E3', 'C3', 'C3', 'C3']\n['C4', 'C4', 'G4', 'C3']\n['G4', 'G3', 'C4', 'C3']",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from Segment:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "allCorrectConsecutivePossibilities() allCorrectSinglePossibilities() consecutivePossibilityRules() resolveAugmentedSixthSegment() resolveDiminishedSeventhSegment() resolveDominantSeventhSegment() singlePossibilityRules() specialResolutionRules()",
+        "type": "Table"
+    },
+    {
+        "text": "OverlaidSegment instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from Segment:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "allPitchesAboveBass bassNote fbRules numParts pitchNamesInChord segmentChord",
+        "type": "Table"
+    },
+    {
+        "text": "Segment\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.figuredBass.segment.",
+        "type": "Title"
+    },
+    {
+        "text": "Segment",
+        "type": "Title"
+    },
+    {
+        "text": "bassNote",
+        "type": "Title"
+    },
+    {
+        "text": "str | Note",
+        "type": "Title"
+    },
+    {
+        "text": "'C3'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "notationString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "str | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "fbScale",
+        "type": "Title"
+    },
+    {
+        "text": "FiguredBassScale | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "fbRules",
+        "type": "Title"
+    },
+    {
+        "text": "Rules | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "numParts",
+        "type": "Title"
+    },
+    {
+        "text": "maxPitch",
+        "type": "Title"
+    },
+    {
+        "text": "str | Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "'B5'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "listOfPitches",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "Segment methods",
+        "type": "Title"
+    },
+    {
+        "text": "Segment.",
+        "type": "Title"
+    },
+    {
+        "text": "allCorrectConsecutivePossibilities",
+        "type": "Title"
+    },
+    {
+        "text": "segmentB",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns an iterator through correct (possibA, possibB) pairs.\n\nIf segmentA (self) is a special Segment, meaning that one of the Segment\nresolution methods in specialResolutionRules()\nneeds to be applied, then this method returns every correct possibility of segmentA\nmatched up with exactly one resolution possibility.\nIf segmentA is an ordinary, non-special Segment, then this method returns every\ncombination of correct possibilities of segmentA and correct possibilities of segmentB\nwhich passes all filters\nin consecutivePossibilityRules().\n\nTwo notes on segmentA being a special Segment:\n\nBy default, resolution possibilities are not filtered\nusing singlePossibilityRules()\nrules of segmentB. Filter by setting\napplySinglePossibRulesToResolution to True.\nBy default, (possibA, possibB) pairs are not filtered\nusing consecutivePossibilityRules()\nrules of segmentA. Filter by setting\napplyConsecutivePossibRulesToResolution\nto True.\n\n>>> from music21.figuredBass import segment\n>>> segmentA = segment.Segment(bassNote=note.Note('C3'), notationString='')\n>>> segmentB = segment.Segment(bassNote=note.Note('D3'), notationString='4,3')\n\n\nHere, an ordinary resolution is being executed, because segmentA is an ordinary Segment.\n>>> consecutivePairs1 = segmentA.allCorrectConsecutivePossibilities(segmentB)\n>>> consecutivePairsList1 = list(consecutivePairs1)\n>>> len(consecutivePairsList1)\n31\n>>> consecutivePairsList1[29]\n((<...G5>, <...G5>, <...E5>, <...C3>), (<...G5>, <...F5>, <...B4>, <...D3>))\n\n\nHere, a special resolution is being executed, because segmentA below is a\nspecial Segment.\n>>> segmentA = segment.Segment(bassNote=note.Note('D3'), notationString='4,3')\n>>> segmentB = segment.Segment(bassNote=note.Note('C3'), notationString='')\n>>> consecutivePairs2 = segmentA.allCorrectConsecutivePossibilities(segmentB)\n>>> consecutivePairsList2 = list(consecutivePairs2)\n>>> len(consecutivePairsList2)\n6\n>>> consecutivePairsList2[5]\n((<...G5>, <...F5>, <...B4>, <...D3>), (<...G5>, <...E5>, <...C5>, <...C3>))",
+        "type": "ListItem"
+    },
+    {
+        "text": "Segment.",
+        "type": "Title"
+    },
+    {
+        "text": "allCorrectSinglePossibilities",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Uses allSinglePossibilities() and\nreturns an iterator through a set of correct possibilities for\na Segment, all possibilities which pass all filters in\nsinglePossibilityRules().\n>>> from music21.figuredBass import segment\n>>> segmentA = segment.Segment()\n>>> allPossib = segmentA.allSinglePossibilities()\n>>> allCorrectPossib = segmentA.allCorrectSinglePossibilities()\n\n\nMost of the 729 naive possibilities were filtered out using the default rules set,\nleaving only 21.\n>>> allPossibList = list(allPossib)\n>>> len(allPossibList)\n729\n>>> allCorrectPossibList = list(allCorrectPossib)\n>>> len(allCorrectPossibList)\n21\n\n\n>>> for i in (5, 12, 20):\n...   [str(p) for p in allCorrectPossibList[i]]\n['E4', 'G3', 'G3', 'C3']\n['C5', 'G4', 'E4', 'C3']\n['G5', 'G5', 'E5', 'C3']",
+        "type": "ListItem"
+    },
+    {
+        "text": "Segment.",
+        "type": "Title"
+    },
+    {
+        "text": "allSinglePossibilities",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns an iterator through a set of naive possibilities for\na Segment, using numParts,\nthe pitch of bassNote, and\nallPitchesAboveBass.\n>>> from music21.figuredBass import segment\n>>> segmentA = segment.Segment()\n>>> allPossib = segmentA.allSinglePossibilities()\n>>> allPossib.__class__\n<... 'itertools.product'>\n\n\nThe number of naive possibilities is always the length of\nallPitchesAboveBass\nraised to the (numParts - 1)\npower. The power is 1 less than the number of parts because\nthe bass pitch is constant.\n>>> allPossibList = list(allPossib)\n>>> len(segmentA.allPitchesAboveBass)\n9\n>>> segmentA.numParts\n4\n>>> len(segmentA.allPitchesAboveBass) ** (segmentA.numParts-1)\n729\n>>> len(allPossibList)\n729\n\n\n>>> for i in (81, 275, 426):\n...    [str(p) for p in allPossibList[i]]\n['E3', 'C3', 'C3', 'C3']\n['C4', 'C4', 'G4', 'C3']\n['G4', 'G3', 'C4', 'C3']",
+        "type": "ListItem"
+    },
+    {
+        "text": "Segment.",
+        "type": "Title"
+    },
+    {
+        "text": "consecutivePossibilityRules",
+        "type": "Title"
+    },
+    {
+        "text": "fbRules",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A framework for storing consecutive possibility rules and methods to be applied\nin allCorrectConsecutivePossibilities().\nTakes in a Rules object, fbRules; if None\nthen a new rules.Rules() object is created.\nItems are added within this method in the following form:\n\n(willRunOnlyIfTrue, methodToRun, keepSolutionsWhichReturn, optionalArgs)\n\nThese items are compiled internally when\nallCorrectConsecutivePossibilities()\nis called on a Segment. Here, the compilation of rules and methods\nbases on a default fbRules is shown.\n>>> from music21.figuredBass import segment\n>>> segmentA = segment.Segment()\n>>> allConsecutiveRules = segmentA.consecutivePossibilityRules()\n\n\n>>> segment.printRules(allConsecutiveRules)\nWill run:  Method:                       Keep solutions which return:  Arguments:\nTrue       partsSame                     True                          []\nFalse      upperPartsSame                True                          None\nTrue       voiceOverlap                  False                         None\nTrue       partMovementsWithinLimits     True                          []\nTrue       parallelFifths                False                         None\nTrue       parallelOctaves               False                         None\nTrue       hiddenFifth                   False                         None\nTrue       hiddenOctave                  False                         None\nFalse      couldBeItalianA6Resolution    True           [<music21.pitch.Pitch C3>,\n                                                         <music21.pitch.Pitch C3>,\n                                                         <music21.pitch.Pitch E3>,\n                                                         <music21.pitch.Pitch G3>], True\n\n\nNow, a modified fbRules is provided, allowing hidden octaves and\nvoice overlap, and limiting the soprano line to stepwise motion.\n>>> from music21.figuredBass import rules\n>>> fbRules = rules.Rules()\n>>> fbRules.forbidVoiceOverlap = False\n>>> fbRules.forbidHiddenOctaves = False\n>>> fbRules.partMovementLimits.append((1, 2))\n>>> allConsecutiveRules = segmentA.consecutivePossibilityRules(fbRules)\n>>> segment.printRules(allConsecutiveRules)\nWill run:  Method:                       Keep solutions which return:  Arguments:\nTrue       partsSame                     True                          []\nFalse      upperPartsSame                True                          None\nFalse      voiceOverlap                  False                         None\nTrue       partMovementsWithinLimits     True                          [(1, 2)]\nTrue       parallelFifths                False                         None\nTrue       parallelOctaves               False                         None\nTrue       hiddenFifth                   False                         None\nFalse      hiddenOctave                  False                         None\nFalse      couldBeItalianA6Resolution    True           [<music21.pitch.Pitch C3>,\n                                                         <music21.pitch.Pitch C3>,\n                                                         <music21.pitch.Pitch E3>,\n                                                         <music21.pitch.Pitch G3>], True",
+        "type": "ListItem"
+    },
+    {
+        "text": "Segment.",
+        "type": "Title"
+    },
+    {
+        "text": "resolveAugmentedSixthSegment",
+        "type": "Title"
+    },
+    {
+        "text": "segmentB",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Can resolve a Segment whose segmentChord\nspells out a\nFrench, German, or Swiss augmented sixth chord. Italian augmented sixth Segments\nare solved as an\nordinary Segment using couldBeItalianA6Resolution().\nIf no\napplicable method in resolution can be used, the Segment\nis resolved\nas an ordinary Segment.\n>>> from music21.figuredBass import segment\n>>> segmentA = segment.Segment(bassNote=note.Note('A-2'), notationString='#6,b5,3')\n>>> segmentA.pitchNamesInChord  # spell out a Gr+6 chord\n['A-', 'C', 'E-', 'F#']\n>>> allAugSixthPossib = segmentA.allCorrectSinglePossibilities()\n>>> allAugSixthPossibList = list(allAugSixthPossib)\n>>> len(allAugSixthPossibList)\n7\n\n\n>>> allAugSixthPossibList[1]\n(<music21.pitch.Pitch C4>, <music21.pitch.Pitch F#3>, <...E-3>, <...A-2>)\n>>> allAugSixthPossibList[4]\n(<music21.pitch.Pitch C5>, <music21.pitch.Pitch F#4>, <...E-4>, <...A-2>)\n\n\n>>> segmentB = segment.Segment(bassNote=note.Note('G2'), notationString='')\n>>> allAugResPossibPairs = segmentA.resolveAugmentedSixthSegment(segmentB)\n>>> allAugResPossibPairsList = list(allAugResPossibPairs)\n>>> len(allAugResPossibPairsList)\n7\n>>> allAugResPossibPairsList[1]\n((<...C4>, <...F#3>, <...E-3>, <...A-2>), (<...B3>, <...G3>, <...D3>, <...G2>))\n>>> allAugResPossibPairsList[4]\n((<...C5>, <...F#4>, <...E-4>, <...A-2>), (<...B4>, <...G4>, <...D4>, <...G2>))",
+        "type": "ListItem"
+    },
+    {
+        "text": "Segment.",
+        "type": "Title"
+    },
+    {
+        "text": "resolveDiminishedSeventhSegment",
+        "type": "Title"
+    },
+    {
+        "text": "segmentB",
+        "type": "Title"
+    },
+    {
+        "text": "doubledRoot",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Can resolve a Segment whose segmentChord\nspells out a diminished seventh chord. If no applicable method in\nresolution can be used, the Segment is resolved\nas an ordinary Segment.\n>>> from music21.figuredBass import segment\n>>> segmentA = segment.Segment(bassNote=note.Note('B2'), notationString='b7')\n>>> allDimPossib = segmentA.allCorrectSinglePossibilities()\n>>> allDimPossibList = list(allDimPossib)\n>>> len(allDimPossibList)\n7\n>>> [p.nameWithOctave for p in allDimPossibList[4]]\n['D5', 'A-4', 'F4', 'B2']\n>>> [p.nameWithOctave for p in allDimPossibList[6]]\n['A-5', 'F5', 'D5', 'B2']\n\n\n>>> segmentB = segment.Segment(bassNote=note.Note('C3'), notationString='')\n>>> dimResPairs = segmentA.resolveDiminishedSeventhSegment(segmentB)\n>>> dimResPairsList = list(dimResPairs)\n>>> len(dimResPairsList)\n7\n>>> dimResPairsList[4]\n((<...D5>, <...A-4>, <...F4>, <...B2>), (<...E5>, <...G4>, <...E4>, <...C3>))\n>>> dimResPairsList[6]\n((<...A-5>, <...F5>, <...D5>, <...B2>), (<...G5>, <...E5>, <...E5>, <...C3>))",
+        "type": "ListItem"
+    },
+    {
+        "text": "Segment.",
+        "type": "Title"
+    },
+    {
+        "text": "resolveDominantSeventhSegment",
+        "type": "Title"
+    },
+    {
+        "text": "segmentB",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Can resolve a Segment whose segmentChord\nspells out a dominant seventh chord. If no applicable method in\nresolution can be used, the Segment is resolved\nas an ordinary Segment.\n>>> from music21.figuredBass import segment\n>>> segmentA = segment.Segment(bassNote=note.Note('G2'), notationString='7')\n>>> allDomPossib = segmentA.allCorrectSinglePossibilities()\n>>> allDomPossibList = list(allDomPossib)\n>>> len(allDomPossibList)\n8\n>>> allDomPossibList[2]\n(<music21.pitch.Pitch D4>, <music21.pitch.Pitch B3>,\n <music21.pitch.Pitch F3>, <music21.pitch.Pitch G2>)\n>>> allDomPossibList[5]\n(<music21.pitch.Pitch D5>, <music21.pitch.Pitch B4>,\n <music21.pitch.Pitch F4>, <music21.pitch.Pitch G2>)\n\n\nHere, the Soprano pitch of resolution (C6) exceeds default maxPitch of B5, so\nit's filtered out.\n>>> [p.nameWithOctave for p in allDomPossibList[7]]\n['B5', 'F5', 'D5', 'G2']\n\n\n>>> segmentB = segment.Segment(bassNote=note.Note('C3'), notationString='')\n>>> domResPairs = segmentA.resolveDominantSeventhSegment(segmentB)\n>>> domResPairsList = list(domResPairs)\n>>> len(domResPairsList)\n7\n>>> domResPairsList[2]\n((<music21.pitch.Pitch D4>, <...B3>, <...F3>, <...G2>),\n (<...C4>, <...C4>, <...E3>, <...C3>))\n>>> domResPairsList[5]\n((<...D5>, <...B4>, <...F4>, <...G2>), (<...C5>, <...C5>, <...E4>, <...C3>))",
+        "type": "ListItem"
+    },
+    {
+        "text": "Segment.",
+        "type": "Title"
+    },
+    {
+        "text": "singlePossibilityRules",
+        "type": "Title"
+    },
+    {
+        "text": "fbRules",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A framework for storing single possibility rules and methods to be applied\nin allCorrectSinglePossibilities().\nTakes in a Rules object, fbRules.\nIf None then a new rules object is created.\nItems are added within this method in the following form:\n(willRunOnlyIfTrue, methodToRun, keepSolutionsWhichReturn, optionalArgs)\nThese items are compiled internally when\nallCorrectSinglePossibilities()\nis called on a Segment. Here, the compilation of rules and\nmethods bases on a default fbRules is shown.\n>>> from music21.figuredBass import segment\n>>> segmentA = segment.Segment()\n>>> allSingleRules = segmentA.singlePossibilityRules()\n>>> segment.printRules(allSingleRules)\nWill run:  Method:                       Keep solutions which return:  Arguments:\nTrue       isIncomplete                  False                         ['C', 'E', 'G']\nTrue       upperPartsWithinLimit         True                          12\nTrue       voiceCrossing                 False                         None\n\n\nHere, a modified fbRules is provided, which allows for incomplete possibilities.\n>>> from music21.figuredBass import rules\n>>> fbRules = rules.Rules()\n>>> fbRules.forbidIncompletePossibilities = False\n>>> allSingleRules = segmentA.singlePossibilityRules(fbRules)\n>>> segment.printRules(allSingleRules)\nWill run:  Method:                       Keep solutions which return:  Arguments:\nFalse      isIncomplete                  False                         ['C', 'E', 'G']\nTrue       upperPartsWithinLimit         True                          12\nTrue       voiceCrossing                 False                         None",
+        "type": "ListItem"
+    },
+    {
+        "text": "Segment.",
+        "type": "Title"
+    },
+    {
+        "text": "specialResolutionRules",
+        "type": "Title"
+    },
+    {
+        "text": "fbRules",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A framework for storing methods which perform special resolutions\non Segments. Unlike the methods in\nsinglePossibilityRules() and\nconsecutivePossibilityRules(),\nthese methods deal with the Segment itself, and rely on submethods\nto resolve the individual possibilities accordingly depending on what\nthe resolution Segment is.\nIf fbRules is None, then a new rules.Rules() object is created.\nItems are added within this method in the following form:\n(willRunOnlyIfTrue, methodToRun, optionalArgs)\nThese items are compiled internally\nwhen allCorrectConsecutivePossibilities()\nis called on a Segment. Here, the compilation of rules and methods\nbased on a default fbRules is shown.\n>>> from music21.figuredBass import segment\n>>> segmentA = segment.Segment()\n>>> allSpecialResRules = segmentA.specialResolutionRules()\n>>> segment.printRules(allSpecialResRules, maxLength=3)\nWill run:  Method:                          Arguments:\nFalse      resolveDominantSeventhSegment    None\nFalse      resolveDiminishedSeventhSegment  False\nFalse      resolveAugmentedSixthSegment     None\n\n\nDominant Seventh Segment:\n>>> segmentA = segment.Segment(bassNote=note.Note('B2'), notationString='6,5')\n>>> allSpecialResRules = segmentA.specialResolutionRules()\n>>> segment.printRules(allSpecialResRules, maxLength=3)\nWill run:  Method:                          Arguments:\nTrue       resolveDominantSeventhSegment    None\nFalse      resolveDiminishedSeventhSegment  False\nFalse      resolveAugmentedSixthSegment     None\n\n\nFully-Diminished Seventh Segment:\n>>> segmentA = segment.Segment(bassNote=note.Note('B2'), notationString='-7')\n>>> allSpecialResRules = segmentA.specialResolutionRules()\n>>> segment.printRules(allSpecialResRules, maxLength=3)\nWill run:  Method:                          Arguments:\nFalse      resolveDominantSeventhSegment    None\nTrue       resolveDiminishedSeventhSegment  False\nFalse      resolveAugmentedSixthSegment     None\n\n\nAugmented Sixth Segment:\n>>> segmentA = segment.Segment(bassNote=note.Note('A-2'), notationString='#6,b5')\n>>> allSpecialResRules = segmentA.specialResolutionRules()\n>>> segment.printRules(allSpecialResRules, maxLength=3)\nWill run:  Method:                          Arguments:\nFalse      resolveDominantSeventhSegment    None\nFalse      resolveDiminishedSeventhSegment  False\nTrue       resolveAugmentedSixthSegment     None",
+        "type": "ListItem"
+    },
+    {
+        "text": "Segment instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Segment.",
+        "type": "Title"
+    },
+    {
+        "text": "allPitchesAboveBass",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A list of allowable pitches in the upper parts of a possibility.\nThis is derived using\ngetPitches(), providing bassNote.pitch,\nmaxPitch\nfrom the Rules object, and\npitchNamesInChord as arguments.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Segment.",
+        "type": "Title"
+    },
+    {
+        "text": "bassNote",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A Note whose pitch\nforms the bass of each possibility.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Segment.",
+        "type": "Title"
+    },
+    {
+        "text": "fbRules",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A deepcopy of the Rules object provided.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Segment.",
+        "type": "Title"
+    },
+    {
+        "text": "numParts",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The number of parts (including the bass) that possibilities\nshould contain, which\ncomes directly from numParts\nin the Rules object.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Segment.",
+        "type": "Title"
+    },
+    {
+        "text": "pitchNamesInChord",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A list of allowable pitch names.\nThis is derived from bassNote.pitch and notationString\nusing getPitchNames().",
+        "type": "ListItem"
+    },
+    {
+        "text": "Segment.",
+        "type": "Title"
+    },
+    {
+        "text": "segmentChord",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "allPitchesAboveBass\nrepresented as a Chord.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.figuredBass.segment.",
+        "type": "Title"
+    },
+    {
+        "text": "getPitches",
+        "type": "Title"
+    },
+    {
+        "text": "pitchNames",
+        "type": "Title"
+    },
+    {
+        "text": "('C', 'E', 'G')",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "bassPitch",
+        "type": "Title"
+    },
+    {
+        "text": "str | Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "'C3'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "maxPitch",
+        "type": "Title"
+    },
+    {
+        "text": "str | Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "'C8'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a list of pitchNames, a bassPitch, and a maxPitch, returns a sorted list of\npitches between the two limits (inclusive) which correspond to items in pitchNames.\n>>> from music21.figuredBass import segment\n>>> pitches = segment.getPitches()\n>>> print(', '.join([p.nameWithOctave for p in pitches]))\nC3, E3, G3, C4, E4, G4, C5, E5, G5, C6, E6, G6, C7, E7, G7, C8\n\n\n>>> pitches = segment.getPitches(['G', 'B', 'D', 'F'], bassPitch=pitch.Pitch('B2'))\n>>> print(', '.join([p.nameWithOctave for p in pitches]))\nB2, D3, F3, G3, B3, D4, F4, G4, B4, D5, F5, G5, B5, D6, F6, G6, B6, D7, F7, G7, B7\n\n\n>>> pitches = segment.getPitches(['F##', 'A#', 'C#'], bassPitch=pitch.Pitch('A#3'))\n>>> print(', '.join([p.nameWithOctave for p in pitches]))\nA#3, C#4, F##4, A#4, C#5, F##5, A#5, C#6, F##6, A#6, C#7, F##7, A#7\n\n\nThe maxPitch must have an octave:\n>>> segment.getPitches(maxPitch=pitch.Pitch('E'))\nTraceback (most recent call last):\nValueError: maxPitch must be given an octave",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.figuredBass.segment.",
+        "type": "Title"
+    },
+    {
+        "text": "printRules",
+        "type": "Title"
+    },
+    {
+        "text": "rulesList",
+        "type": "Title"
+    },
+    {
+        "text": "maxLength",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Method which can print to the console rules inputted into\nsinglePossibilityRules(),\nconsecutivePossibilityRules(), and\nspecialResolutionRules().\nFor the first two methods, maxLength is 4. For the third method, maxLength is 3.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.figuredBass.segment",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

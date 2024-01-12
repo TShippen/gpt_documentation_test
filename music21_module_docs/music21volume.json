@@ -1,0 +1,566 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.volume",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.volpiano",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "Installation",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.volume\nVolume\nVolume\nVolume.cachedRealized\nVolume.cachedRealizedStr\nVolume.realized\nVolume.velocity\nVolume.velocityScalar\nVolume.getDynamicContext()\nVolume.getRealized()\nVolume.getRealizedStr()\nVolume.mergeAttributes()\n\n\n\n\nFunctions\nrealizeVolume()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.volume\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "This module defines the object model of Volume, covering all representation of\namplitude, volume, velocity, and related parameters.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Volume\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.volume.",
+        "type": "Title"
+    },
+    {
+        "text": "Volume",
+        "type": "Title"
+    },
+    {
+        "text": "client",
+        "type": "Title"
+    },
+    {
+        "text": "NotRest | None",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "velocity",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "velocityScalar",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "velocityIsRelative",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The Volume object lives on NotRest objects and subclasses. It is not a\nMusic21Object subclass.\n>>> v = volume.Volume(velocity=90)\n>>> v\n<music21.volume.Volume realized=0.71>\n>>> v.velocity\n90\n\n\n>>> n = note.Note('C5')\n>>> v = n.volume\n>>> v.velocity = 20\n>>> v.client is n\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "Volume bases",
+        "type": "Title"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "SlottedObjectMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "Volume read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Volume.",
+        "type": "Title"
+    },
+    {
+        "text": "cachedRealized",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return the cached realized value of this volume. This will be the last\nrealized value or, if that value has not been set, a newly realized\nvalue. If the caller knows that the realized values have all been\nrecently set, using this property will add significant performance\nboost.\n>>> v = volume.Volume(velocity=128)\n>>> v.cachedRealized\n1.0",
+        "type": "ListItem"
+    },
+    {
+        "text": "Volume.",
+        "type": "Title"
+    },
+    {
+        "text": "cachedRealizedStr",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Convenience property for testing.\n>>> v = volume.Volume(velocity=128)\n>>> v.cachedRealizedStr\n'1.0'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Volume.",
+        "type": "Title"
+    },
+    {
+        "text": "realized",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "Volume read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Volume.",
+        "type": "Title"
+    },
+    {
+        "text": "velocity",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get or set the velocity value, a numerical value between 0 and 127 and\navailable setting amplitude on each Note or Pitch in chord.\n>>> n = note.Note()\n>>> n.volume.velocity = 20\n>>> n.volume.client == n\nTrue\n\n\n>>> n.volume.velocity\n20",
+        "type": "ListItem"
+    },
+    {
+        "text": "Volume.",
+        "type": "Title"
+    },
+    {
+        "text": "velocityScalar",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get or set the velocityScalar value, a numerical value between 0\nand 1 and available setting amplitude on each Note or Pitch in\nchord. This value is mapped to the range 0 to 127 on output.\nNote that this value is derived from the set velocity value.\nFloating point error seen here will not be found in the velocity\nvalue.\nWhen setting this value, an integer-based velocity value will be\nderived and stored.\n>>> n = note.Note()\n>>> n.volume.velocityScalar = 0.5\n>>> n.volume.velocity\n64\n\n\n>>> n.volume.velocity = 127\n>>> n.volume.velocityScalar\n1.0\n\n\nIf velocity is not set, then this will return None\n>>> n = note.Note()\n>>> n.volume.velocityScalar is None\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "Volume methods",
+        "type": "Title"
+    },
+    {
+        "text": "Volume.",
+        "type": "Title"
+    },
+    {
+        "text": "getDynamicContext",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return the dynamic context of this Volume, based on the position of the\nclient of this object.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Volume.",
+        "type": "Title"
+    },
+    {
+        "text": "getRealized",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "useDynamicContext",
+        "type": "Title"
+    },
+    {
+        "text": "bool | Dynamic",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "useVelocity",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "useArticulations",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "Articulation",
+        "type": "Title"
+    },
+    {
+        "text": "Iterable",
+        "type": "Title"
+    },
+    {
+        "text": "Articulation",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "baseLevel",
+        "type": "Title"
+    },
+    {
+        "text": "0.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "clip",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get a realized unit-interval scalar for this Volume. This scalar is to\nbe applied to the dynamic range of whatever output is available,\nwhatever that may be.\nThe baseLevel value is a middle value between 0 and 1 that all\nscalars modify. This also becomes the default value for unspecified\ndynamics. When scalars (between 0 and 1) are used, their values are\ndoubled, such that mid-values (around 0.5, which become 1) make no\nchange.\nThis can optionally take into account dynamicContext, useVelocity,\nand useArticulation.\nIf useDynamicContext is True, a context search for a dynamic will be\ndone, else dynamics are ignored. Alternatively, the useDynamicContext\nmay supply a Dynamic object that will be used instead of a context\nsearch.\nIf useArticulations is True and client is not None, any articulations\nfound on that client will be used to adjust the volume. Alternatively,\nthe useArticulations parameter may supply an iterable of articulations\nthat will be used instead of that available on a client.\nThe velocityIsRelative tag determines if the velocity value includes\ncontextual values, such as dynamics and accents, or not.\n>>> s = stream.Stream()\n>>> s.repeatAppend(note.Note('d3', quarterLength=0.5), 8)\n>>> s.insert([0, dynamics.Dynamic('p'),\n...           1, dynamics.Dynamic('mp'),\n...           2, dynamics.Dynamic('mf'),\n...           3, dynamics.Dynamic('f')])\n\n\n>>> s.notes[0].volume.getRealized()\n0.496...\n\n\n>>> s.notes[1].volume.getRealized()\n0.496...\n\n\n>>> s.notes[2].volume.getRealized()\n0.63779...\n\n\n>>> s.notes[7].volume.getRealized()\n0.99212...\n\n\nvelocity, if set, will be scaled by dynamics\n>>> s.notes[7].volume.velocity = 20\n>>> s.notes[7].volume.getRealized()\n0.22047...\n\n\nunless we set the velocity to not be relative\u2026\n>>> s.notes[7].volume.velocityIsRelative = False\n>>> s.notes[7].volume.getRealized()\n0.1574803...",
+        "type": "ListItem"
+    },
+    {
+        "text": "Volume.",
+        "type": "Title"
+    },
+    {
+        "text": "getRealizedStr",
+        "type": "Title"
+    },
+    {
+        "text": "useDynamicContext",
+        "type": "Title"
+    },
+    {
+        "text": "Dynamic | bool",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "useVelocity",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "useArticulations",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "Articulation",
+        "type": "Title"
+    },
+    {
+        "text": "Iterable",
+        "type": "Title"
+    },
+    {
+        "text": "Articulation",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "baseLevel",
+        "type": "Title"
+    },
+    {
+        "text": "0.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "clip",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return the realized as rounded and formatted string value. Useful for testing.\n>>> v = volume.Volume(velocity=64)\n>>> v.getRealizedStr()\n'0.5'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Volume.",
+        "type": "Title"
+    },
+    {
+        "text": "mergeAttributes",
+        "type": "Title"
+    },
+    {
+        "text": "other",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given another Volume object, gather all attributes except client.\nValues are always copied, not passed by reference.\n>>> n1 = note.Note()\n>>> v1 = volume.Volume()\n>>> v1.velocity = 111\n>>> v1.client = n1\n\n\n>>> v2 = volume.Volume()\n>>> v2.mergeAttributes(v1)\n>>> v2.client is None\nTrue\n>>> v2.velocity\n111",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.volume.",
+        "type": "Title"
+    },
+    {
+        "text": "realizeVolume",
+        "type": "Title"
+    },
+    {
+        "text": "srcStream",
+        "type": "Title"
+    },
+    {
+        "text": "setAbsoluteVelocity",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "useDynamicContext",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "useVelocity",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "useArticulations",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a Stream with one level of dynamics\n(e.g., a Part, or two Staffs that share Dynamics),\ndestructively modify it to set all realized volume levels.\nThese values will be stored in the Volume object as cachedRealized values.\nThis is a top-down routine, as opposed to bottom-up values available with\ncontext searches on Volume. This thus offers a performance benefit.\nThis is always done in place.\nIf setAbsoluteVelocity is True, the realized values will overwrite all\nexisting velocity values, and the Volume objects velocityIsRelative\nparameters will be set to False.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.volume",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

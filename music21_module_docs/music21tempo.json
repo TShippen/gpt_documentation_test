@@ -1,0 +1,1950 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.tempo",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.tablature",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.text",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.tempo\nMetronomeMark\nMetronomeMark\nMetronomeMark.number\nMetronomeMark.numberSounding\nMetronomeMark.referent\nMetronomeMark.text\nMetronomeMark.durationToSeconds()\nMetronomeMark.getEquivalentByReferent()\nMetronomeMark.getMaintainedNumberWithReferent()\nMetronomeMark.getQuarterBPM()\nMetronomeMark.getTextExpression()\nMetronomeMark.secondsPerQuarter()\nMetronomeMark.secondsToDuration()\nMetronomeMark.setQuarterBPM()\nMetronomeMark.placement\n\n\n\n\nTempoText\nTempoText\nTempoText.text\nTempoText.applyTextFormatting()\nTempoText.getMetronomeMark()\nTempoText.getTextExpression()\nTempoText.isCommonTempoText()\nTempoText.setTextExpression()\n\n\n\n\nMetricModulation\nMetricModulation\nMetricModulation.number\nMetricModulation.newMetronome\nMetricModulation.newReferent\nMetricModulation.oldMetronome\nMetricModulation.oldReferent\nMetricModulation.setEqualityByReferent()\nMetricModulation.setOtherByReferent()\nMetricModulation.updateByContext()\n\n\n\n\nTempoIndication\nTempoIndication\nTempoIndication.getPreviousMetronomeMark()\nTempoIndication.getSoundingMetronomeMark()\n\n\n\n\nAccelerandoSpanner\nAccelerandoSpanner\n\n\nRitardandoSpanner\nRitardandoSpanner\n\n\nTempoChangeSpanner\nTempoChangeSpanner\n\n\nFunctions\ninterpolateElements()\nconvertTempoByReferent()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.tempo\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "This module defines objects for describing tempo and changes in tempo.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "MetronomeMark\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.tempo.",
+        "type": "Title"
+    },
+    {
+        "text": "MetronomeMark",
+        "type": "Title"
+    },
+    {
+        "text": "text",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "number",
+        "type": "Title"
+    },
+    {
+        "text": "OffsetQLIn | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "referent",
+        "type": "Title"
+    },
+    {
+        "text": "OffsetQLIn",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "duration.Duration",
+        "type": "Title"
+    },
+    {
+        "text": "base.Music21Object",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "parentheses",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "playbackOnly",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "numberSounding",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "OffsetQLIn | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "numberImplicit",
+        "type": "Title"
+    },
+    {
+        "text": "bool | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A way of specifying a particular tempo with a text string,\na referent (a duration) and a number.\nThe referent attribute is a Duration object, or a string duration type or\na floating-point quarter-length value used to create a Duration.\nMetronomeMarks, as Music21Object subclasses, also have .duration object\nproperty independent of the referent.\n>>> a = tempo.MetronomeMark('slow', 40, note.Note(type='half'))\n>>> a.number\n40\n>>> a.referent\n<music21.duration.Duration 2.0>\n>>> a.referent.type\n'half'\n>>> print(a.text)\nslow\n\n\nSome text marks will automatically suggest a number.\n>>> mm = tempo.MetronomeMark('adagio')\n>>> mm.number\n56\n>>> mm.numberImplicit\nTrue\n\n\nFor certain numbers, a text value can be set implicitly\n>>> tm2 = tempo.MetronomeMark(number=208)\n>>> print(tm2.text)\nprestissimo\n>>> tm2.referent\n<music21.duration.Duration 1.0>\n\n\nUnicode values work fine thanks to Python 3:\n>>> marking = 'tr\u00c3\u00a8s vite'\n>>> marking\n'tr\u00c3\u00a8s vite'\n>>> print(tempo.defaultTempoValues[marking])\n144\n>>> tm2 = tempo.MetronomeMark(marking)\n>>> tm2.text.endswith('vite')\nTrue\n>>> tm2.number\n144\n\n\nFor playback only (no score output) set numberSounding but no number:\n>>> fast = tempo.MetronomeMark(numberSounding=168)\n>>> fast\n<music21.tempo.MetronomeMark Quarter=168 (playback only)>",
+        "type": "ListItem"
+    },
+    {
+        "text": "MetronomeMark bases",
+        "type": "Title"
+    },
+    {
+        "text": "TempoIndication",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "MetronomeMark read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "MetronomeMark read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "MetronomeMark.",
+        "type": "Title"
+    },
+    {
+        "text": "number",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get and set the number, or the numerical value of the Metronome.\n>>> mm = tempo.MetronomeMark('slow')\n>>> mm.number\n56\n>>> mm.numberImplicit\nTrue\n>>> mm.number = 52.5\n>>> mm.number\n52.5\n>>> mm.numberImplicit\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "MetronomeMark.",
+        "type": "Title"
+    },
+    {
+        "text": "numberSounding",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get and set the numberSounding, or the numerical value of the Metronome that\nis used for playback independent of display. If numberSounding is None, number is\nassumed to be numberSounding.\n>>> mm = tempo.MetronomeMark('slow')\n>>> mm.number\n56\n>>> mm.numberImplicit\nTrue\n>>> mm.numberSounding is None\nTrue\n>>> mm.numberSounding = 120\n>>> mm.numberSounding\n120",
+        "type": "ListItem"
+    },
+    {
+        "text": "MetronomeMark.",
+        "type": "Title"
+    },
+    {
+        "text": "referent",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get or set the referent, or the Duration object that is the\nreference for the tempo value in BPM.",
+        "type": "ListItem"
+    },
+    {
+        "text": "MetronomeMark.",
+        "type": "Title"
+    },
+    {
+        "text": "text",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get or set a text string for this MetronomeMark. Internally implemented as a\nTempoText object, which stores the text in\na TextExpression object.\n>>> mm = tempo.MetronomeMark(number=123)\n>>> mm.text == None\nTrue\n>>> mm.text = 'medium fast'\n>>> print(mm.text)\nmedium fast",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "MetronomeMark methods",
+        "type": "Title"
+    },
+    {
+        "text": "MetronomeMark.",
+        "type": "Title"
+    },
+    {
+        "text": "durationToSeconds",
+        "type": "Title"
+    },
+    {
+        "text": "durationOrQuarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a duration specified as a Duration object or a\nquarter length, return the resultant time in seconds at the tempo specified by\nthis MetronomeMark.\n>>> mm1 = tempo.MetronomeMark(referent=1.0, number=60.0)\n>>> mm1.durationToSeconds(60)\n60.0\n>>> mm1.durationToSeconds(duration.Duration('16th'))\n0.25",
+        "type": "ListItem"
+    },
+    {
+        "text": "MetronomeMark.",
+        "type": "Title"
+    },
+    {
+        "text": "getEquivalentByReferent",
+        "type": "Title"
+    },
+    {
+        "text": "referent",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a new MetronomeMark object that has an equivalent speed but\ndifferent number and referent values based on a supplied referent\n(given as a Duration type, quarterLength, or Duration object).\n>>> mm1 = tempo.MetronomeMark(number=60, referent=1.0)\n>>> mm1.getEquivalentByReferent(0.5)\n<music21.tempo.MetronomeMark larghetto Eighth=120>\n>>> mm1.getEquivalentByReferent(duration.Duration('half'))\n<music21.tempo.MetronomeMark larghetto Half=30>\n\n\n>>> mm1.getEquivalentByReferent('longa')\n<music21.tempo.MetronomeMark larghetto Imperfect Longa=3.75>",
+        "type": "ListItem"
+    },
+    {
+        "text": "MetronomeMark.",
+        "type": "Title"
+    },
+    {
+        "text": "getMaintainedNumberWithReferent",
+        "type": "Title"
+    },
+    {
+        "text": "referent",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a new MetronomeMark object that has an equivalent number but a new referent.",
+        "type": "ListItem"
+    },
+    {
+        "text": "MetronomeMark.",
+        "type": "Title"
+    },
+    {
+        "text": "getQuarterBPM",
+        "type": "Title"
+    },
+    {
+        "text": "useNumberSounding",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 float | None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get a BPM value where the beat is a quarter; must convert from the\ndefined beat to a quarter beat. Will return None if no beat number is defined.\nThis mostly used for generating MusicXML <sound> tags when necessary.\n>>> mm = tempo.MetronomeMark(number=60, referent='half')\n>>> mm.getQuarterBPM()\n120.0\n>>> mm.referent = 'quarter'\n>>> mm.getQuarterBPM()\n60.0",
+        "type": "ListItem"
+    },
+    {
+        "text": "MetronomeMark.",
+        "type": "Title"
+    },
+    {
+        "text": "getTextExpression",
+        "type": "Title"
+    },
+    {
+        "text": "returnImplicit",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "If there is a TextExpression available that is not implicit, return it;\notherwise, return None.\n>>> mm = tempo.MetronomeMark('presto')\n>>> mm.number\n184\n>>> mm.numberImplicit\nTrue\n>>> mm.getTextExpression()\n<music21.expressions.TextExpression 'presto'>\n>>> mm.textImplicit\nFalse\n\n\n>>> mm = tempo.MetronomeMark(number=90)\n>>> mm.numberImplicit\nFalse\n>>> mm.textImplicit\nTrue\n>>> mm.getTextExpression() is None\nTrue\n>>> mm.getTextExpression(returnImplicit=True)\n<music21.expressions.TextExpression 'maestoso'>",
+        "type": "ListItem"
+    },
+    {
+        "text": "MetronomeMark.",
+        "type": "Title"
+    },
+    {
+        "text": "secondsPerQuarter",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return the duration in seconds for each quarter length\n(not necessarily the referent) of this MetronomeMark.\n>>> mm1 = tempo.MetronomeMark(referent=1.0, number=60.0)\n>>> mm1.secondsPerQuarter()\n1.0\n>>> mm1 = tempo.MetronomeMark(referent=2.0, number=60.0)\n>>> mm1.secondsPerQuarter()\n0.5\n>>> mm1 = tempo.MetronomeMark(referent=2.0, number=30.0)\n>>> mm1.secondsPerQuarter()\n1.0",
+        "type": "ListItem"
+    },
+    {
+        "text": "MetronomeMark.",
+        "type": "Title"
+    },
+    {
+        "text": "secondsToDuration",
+        "type": "Title"
+    },
+    {
+        "text": "seconds",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a duration in seconds,\nreturn a Duration object equal to that time.\n>>> mm1 = tempo.MetronomeMark(referent=1.0, number=60.0)\n>>> mm1.secondsToDuration(0.25)\n<music21.duration.Duration 0.25>\n>>> mm1.secondsToDuration(0.5).type\n'eighth'\n>>> mm1.secondsToDuration(1)\n<music21.duration.Duration 1.0>",
+        "type": "ListItem"
+    },
+    {
+        "text": "MetronomeMark.",
+        "type": "Title"
+    },
+    {
+        "text": "setQuarterBPM",
+        "type": "Title"
+    },
+    {
+        "text": "value",
+        "type": "Title"
+    },
+    {
+        "text": "setNumber",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a value in BPM, use it to set the value of this MetronomeMark.\nBPM values are assumed to refer only to quarter notes; different beat values,\nif defined here, will be scaled\n>>> mm = tempo.MetronomeMark(number=60, referent='half')\n>>> mm.setQuarterBPM(240)  # set to 240 for a quarter\n>>> mm.number  # a half is half as fast\n120",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from TempoIndication:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "getPreviousMetronomeMark() getSoundingMetronomeMark()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "MetronomeMark instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "MetronomeMark.",
+        "type": "Title"
+    },
+    {
+        "text": "placement",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Staff placement: \u0098above', \u0098below', or None.\nA setting of None implies that the placement will be determined\nby notation software and no particular placement is demanded.\nThis is not placed in the .style property, since for some expressions,\nthe placement above or below an object has semantic\nmeaning and is not purely presentational.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "TempoText\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.tempo.",
+        "type": "Title"
+    },
+    {
+        "text": "TempoText",
+        "type": "Title"
+    },
+    {
+        "text": "text",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>> import music21\n>>> tm = music21.tempo.TempoText('adagio')\n>>> tm\n<music21.tempo.TempoText 'adagio'>\n>>> print(tm.text)\nadagio",
+        "type": "ListItem"
+    },
+    {
+        "text": "TempoText bases",
+        "type": "Title"
+    },
+    {
+        "text": "TempoIndication",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "TempoText read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "TempoText read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "TempoText.",
+        "type": "Title"
+    },
+    {
+        "text": "text",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get or set the text as a string.\n>>> import music21\n>>> tm = music21.tempo.TempoText('adagio')\n>>> tm.text\n'adagio'\n>>> tm.getTextExpression()\n<music21.expressions.TextExpression 'adagio'>",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "TempoText methods",
+        "type": "Title"
+    },
+    {
+        "text": "TempoText.",
+        "type": "Title"
+    },
+    {
+        "text": "applyTextFormatting",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "te",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "numberImplicit",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Apply the default text formatting to the text expression version of this tempo mark",
+        "type": "ListItem"
+    },
+    {
+        "text": "TempoText.",
+        "type": "Title"
+    },
+    {
+        "text": "getMetronomeMark",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a MetronomeMark object that is configured from this objects Text.\n>>> tt = tempo.TempoText('slow')\n>>> mm = tt.getMetronomeMark()\n>>> mm.number\n56",
+        "type": "ListItem"
+    },
+    {
+        "text": "TempoText.",
+        "type": "Title"
+    },
+    {
+        "text": "getTextExpression",
+        "type": "Title"
+    },
+    {
+        "text": "numberImplicit",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a TextExpression object for this text.\nWhat is this a deepcopy and not the actual one?",
+        "type": "ListItem"
+    },
+    {
+        "text": "TempoText.",
+        "type": "Title"
+    },
+    {
+        "text": "isCommonTempoText",
+        "type": "Title"
+    },
+    {
+        "text": "value",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return True or False if the supplied text seems like a\nplausible Tempo indications be used for this TempoText.\n>>> tt = tempo.TempoText('adagio')\n>>> tt.isCommonTempoText()\nTrue\n\n\n>>> tt = tempo.TempoText('Largo e piano')\n>>> tt.isCommonTempoText()\nTrue\n\n\n>>> tt = tempo.TempoText('undulating')\n>>> tt.isCommonTempoText()\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "TempoText.",
+        "type": "Title"
+    },
+    {
+        "text": "setTextExpression",
+        "type": "Title"
+    },
+    {
+        "text": "value",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a TextExpression, set it in this object.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from TempoIndication:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "getPreviousMetronomeMark() getSoundingMetronomeMark()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "TempoText instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "MetricModulation\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.tempo.",
+        "type": "Title"
+    },
+    {
+        "text": "MetricModulation",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A class for representing the relationship between two MetronomeMarks.\nGenerally this relationship is one of equality, where the number is maintained but\nthe referent that number is applied to each change.\nThe basic definition of a MetricModulation is given by supplying two MetronomeMarks,\none for the oldMetronome, the other for the newMetronome. High level properties,\noldReferent and newReferent, and convenience methods permit only setting the referent.\nThe classicalStyle attribute determines of the first MetronomeMark describes the\nnew tempo, not the old (the reverse of expected usage).\nThe maintainBeat attribute determines if, after an equality statement,\nthe beat is maintained. This is relevant for moving from 3/4 to 6/8, for example.\n>>> s = stream.Stream()\n>>> mm1 = tempo.MetronomeMark(number=60)\n>>> s.append(mm1)\n>>> s.repeatAppend(note.Note(quarterLength=1), 2)\n>>> s.repeatAppend(note.Note(quarterLength=0.5), 4)\n\n\n>>> mmod1 = tempo.MetricModulation()\n>>> mmod1.oldReferent = 0.5  # can use Duration objects\n>>> mmod1.newReferent = 'quarter'  # can use Duration objects\n>>> s.append(mmod1)\n>>> mmod1.updateByContext()  # get number from last MetronomeMark on Stream\n>>> mmod1.newMetronome\n<music21.tempo.MetronomeMark animato Quarter=120>\n\n\n>>> s.append(note.Note())\n>>> s.repeatAppend(note.Note(quarterLength=1.5), 2)\n\n\n>>> mmod2 = tempo.MetricModulation()\n>>> s.append(mmod2)  # if the obj is added to Stream, can set referents\n>>> mmod2.oldReferent = 1.5  # will get number from previous MetronomeMark\n>>> mmod2.newReferent = 'quarter'\n>>> mmod2.newMetronome\n<music21.tempo.MetronomeMark animato Quarter=80>\n\n\nNote that an initial metric modulation can set old and new referents and get None as\ntempo numbers:\n>>> mmod3 = tempo.MetricModulation()\n>>> mmod3.oldReferent = 'half'\n>>> mmod3.newReferent = '16th'\n>>> mmod3\n<music21.tempo.MetricModulation\n    <music21.tempo.MetronomeMark\n        Half=None>=<music21.tempo.MetronomeMark 16th=None>>\n\n\ntest w/ more sane referents that either the old or the new can change without a tempo number\n>>> mmod3.oldReferent = 'quarter'\n>>> mmod3.newReferent = 'eighth'\n>>> mmod3\n<music21.tempo.MetricModulation\n    <music21.tempo.MetronomeMark\n        Quarter=None>=<music21.tempo.MetronomeMark Eighth=None>>\n>>> mmod3.oldMetronome\n<music21.tempo.MetronomeMark Quarter=None>\n>>> mmod3.oldMetronome.number = 60\n\n\nNew number automatically updates:\n>>> mmod3\n<music21.tempo.MetricModulation\n    <music21.tempo.MetronomeMark larghetto\n        Quarter=60>=<music21.tempo.MetronomeMark larghetto Eighth=60>>",
+        "type": "ListItem"
+    },
+    {
+        "text": "MetricModulation bases",
+        "type": "Title"
+    },
+    {
+        "text": "TempoIndication",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "MetricModulation read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "MetricModulation.",
+        "type": "Title"
+    },
+    {
+        "text": "number",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get and the number of the MetricModulation, or the number\nassigned to the new MetronomeMark.\n>>> s = stream.Stream()\n>>> mm1 = tempo.MetronomeMark(number=60)\n>>> s.append(mm1)\n>>> s.repeatAppend(note.Note(quarterLength=1), 2)\n>>> s.repeatAppend(note.Note(quarterLength=0.5), 4)\n\n\n>>> mmod1 = tempo.MetricModulation()\n>>> mmod1.oldReferent = 0.5  # can use Duration objects\n>>> mmod1.newReferent = 'quarter'\n>>> s.append(mmod1)\n>>> mmod1.updateByContext()\n>>> mmod1.newMetronome\n<music21.tempo.MetronomeMark animato Quarter=120>\n>>> mmod1.number\n120",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "MetricModulation read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "MetricModulation.",
+        "type": "Title"
+    },
+    {
+        "text": "newMetronome",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get or set the right MetronomeMark\nobject for the new, or following value.\n>>> mm1 = tempo.MetronomeMark(number=60, referent=1)\n>>> mm1\n<music21.tempo.MetronomeMark larghetto Quarter=60>\n>>> mmod1 = tempo.MetricModulation()\n>>> mmod1.newMetronome = mm1\n>>> mmod1.newMetronome = 'junk'\nTraceback (most recent call last):\nmusic21.tempo.MetricModulationException: newMetronome property must be\n    set with a MetronomeMark instance",
+        "type": "ListItem"
+    },
+    {
+        "text": "MetricModulation.",
+        "type": "Title"
+    },
+    {
+        "text": "newReferent",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get or set the referent of the new MetronomeMark.\n>>> mm1 = tempo.MetronomeMark(number=60, referent=1)\n>>> mmod1 = tempo.MetricModulation()\n>>> mmod1.newMetronome = mm1\n>>> mmod1.newMetronome\n<music21.tempo.MetronomeMark larghetto Quarter=60>\n>>> mmod1.newReferent = 0.25\n>>> mmod1.newMetronome\n<music21.tempo.MetronomeMark larghetto 16th=240>",
+        "type": "ListItem"
+    },
+    {
+        "text": "MetricModulation.",
+        "type": "Title"
+    },
+    {
+        "text": "oldMetronome",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get or set the left MetronomeMark object\nfor the old, or previous value.\n>>> mm1 = tempo.MetronomeMark(number=60, referent=1)\n>>> mm1\n<music21.tempo.MetronomeMark larghetto Quarter=60>\n>>> mmod1 = tempo.MetricModulation()\n>>> mmod1.oldMetronome = mm1\n\n\nNote that we do need to have a proper MetronomeMark instance to figure this out:\n>>> mmod1.oldMetronome = 'junk'\nTraceback (most recent call last):\nmusic21.tempo.MetricModulationException: oldMetronome property\n    must be set with a MetronomeMark instance",
+        "type": "ListItem"
+    },
+    {
+        "text": "MetricModulation.",
+        "type": "Title"
+    },
+    {
+        "text": "oldReferent",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get or set the referent of the old MetronomeMark.\n>>> mm1 = tempo.MetronomeMark(number=60, referent=1)\n>>> mmod1 = tempo.MetricModulation()\n>>> mmod1.oldMetronome = mm1\n>>> mmod1.oldMetronome\n<music21.tempo.MetronomeMark larghetto Quarter=60>\n>>> mmod1.oldReferent = 0.25\n>>> mmod1.oldMetronome\n<music21.tempo.MetronomeMark larghetto 16th=240>",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "MetricModulation methods",
+        "type": "Title"
+    },
+    {
+        "text": "MetricModulation.",
+        "type": "Title"
+    },
+    {
+        "text": "setEqualityByReferent",
+        "type": "Title"
+    },
+    {
+        "text": "side",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "referent",
+        "type": "Title"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Set the other side of the metric modulation to\nan equality; side can be specified, or if one side\nis None, that side will be set.\n>>> mm1 = tempo.MetronomeMark(number=60, referent=1)\n>>> mmod1 = tempo.MetricModulation()\n>>> mmod1.newMetronome = mm1\n>>> mmod1.setEqualityByReferent(None, 2)\n>>> mmod1\n<music21.tempo.MetricModulation\n     <music21.tempo.MetronomeMark larghetto\n           Half=30>=<music21.tempo.MetronomeMark larghetto Quarter=60>>",
+        "type": "ListItem"
+    },
+    {
+        "text": "MetricModulation.",
+        "type": "Title"
+    },
+    {
+        "text": "setOtherByReferent",
+        "type": "Title"
+    },
+    {
+        "text": "side",
+        "type": "Title"
+    },
+    {
+        "text": "str | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "referent",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "float",
+        "type": "Title"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Set the other side of the metric modulation not based on equality,\nbut on a direct translation of the tempo value.\nreferent can be a string type or an int/float quarter length",
+        "type": "ListItem"
+    },
+    {
+        "text": "MetricModulation.",
+        "type": "Title"
+    },
+    {
+        "text": "updateByContext",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Update this metric modulation based on the context,\nor the surrounding MetronomeMarks or MetricModulations.\nThe object needs to reside in a Stream for this to be effective.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from TempoIndication:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "getPreviousMetronomeMark() getSoundingMetronomeMark()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "MetricModulation instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "TempoIndication\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.tempo.",
+        "type": "Title"
+    },
+    {
+        "text": "TempoIndication",
+        "type": "Title"
+    },
+    {
+        "text": "id",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "groups",
+        "type": "Title"
+    },
+    {
+        "text": "Groups | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "sites",
+        "type": "Title"
+    },
+    {
+        "text": "Sites | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "Duration | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "activeSite",
+        "type": "Title"
+    },
+    {
+        "text": "stream.Stream | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "style",
+        "type": "Title"
+    },
+    {
+        "text": "Style | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "editorial",
+        "type": "Title"
+    },
+    {
+        "text": "Editorial | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "OffsetQL",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "quarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "OffsetQLIn | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A generic base class for all tempo indications to inherit.\nCan be used to filter out all types of tempo indications.",
+        "type": "ListItem"
+    },
+    {
+        "text": "TempoIndication bases",
+        "type": "Title"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "TempoIndication read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "TempoIndication read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "TempoIndication methods",
+        "type": "Title"
+    },
+    {
+        "text": "TempoIndication.",
+        "type": "Title"
+    },
+    {
+        "text": "getPreviousMetronomeMark",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Do activeSite and context searches to try to find the last relevant\nMetronomeMark or MetricModulation object. If a MetricModulation mark is found,\nreturn the new MetronomeMark, or the last relevant.\n>>> s = stream.Stream()\n>>> s.insert(0, tempo.MetronomeMark(number=120))\n>>> mm1 = tempo.MetronomeMark(number=90)\n>>> s.insert(20, mm1)\n>>> mm1.getPreviousMetronomeMark()\n<music21.tempo.MetronomeMark animato Quarter=120>",
+        "type": "ListItem"
+    },
+    {
+        "text": "TempoIndication.",
+        "type": "Title"
+    },
+    {
+        "text": "getSoundingMetronomeMark",
+        "type": "Title"
+    },
+    {
+        "text": "found",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get the appropriate MetronomeMark from any sort of TempoIndication, regardless of class.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "TempoIndication instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "AccelerandoSpanner\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.tempo.",
+        "type": "Title"
+    },
+    {
+        "text": "AccelerandoSpanner",
+        "type": "Title"
+    },
+    {
+        "text": "spannedElements",
+        "type": "Title"
+    },
+    {
+        "text": "Music21Object",
+        "type": "Title"
+    },
+    {
+        "text": "Sequence",
+        "type": "Title"
+    },
+    {
+        "text": "Music21Object",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Spanner representing a speeding up.",
+        "type": "ListItem"
+    },
+    {
+        "text": "AccelerandoSpanner bases",
+        "type": "Title"
+    },
+    {
+        "text": "TempoChangeSpanner",
+        "type": "ListItem"
+    },
+    {
+        "text": "Spanner",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "AccelerandoSpanner read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "AccelerandoSpanner read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "AccelerandoSpanner methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from Spanner:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__getitem__() addSpannedElements() fill() getFirst() getLast() getSpannedElementIds() getSpannedElements() getSpannedElementsByClass() hasSpannedElement() isFirst() isLast() purgeLocations() purgeOrphans() replaceSpannedElement()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "AccelerandoSpanner instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "RitardandoSpanner\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.tempo.",
+        "type": "Title"
+    },
+    {
+        "text": "RitardandoSpanner",
+        "type": "Title"
+    },
+    {
+        "text": "spannedElements",
+        "type": "Title"
+    },
+    {
+        "text": "Music21Object",
+        "type": "Title"
+    },
+    {
+        "text": "Sequence",
+        "type": "Title"
+    },
+    {
+        "text": "Music21Object",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Spanner representing a slowing down.",
+        "type": "ListItem"
+    },
+    {
+        "text": "RitardandoSpanner bases",
+        "type": "Title"
+    },
+    {
+        "text": "TempoChangeSpanner",
+        "type": "ListItem"
+    },
+    {
+        "text": "Spanner",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "RitardandoSpanner read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "RitardandoSpanner read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "RitardandoSpanner methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from Spanner:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__getitem__() addSpannedElements() fill() getFirst() getLast() getSpannedElementIds() getSpannedElements() getSpannedElementsByClass() hasSpannedElement() isFirst() isLast() purgeLocations() purgeOrphans() replaceSpannedElement()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "RitardandoSpanner instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "TempoChangeSpanner\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.tempo.",
+        "type": "Title"
+    },
+    {
+        "text": "TempoChangeSpanner",
+        "type": "Title"
+    },
+    {
+        "text": "spannedElements",
+        "type": "Title"
+    },
+    {
+        "text": "Music21Object",
+        "type": "Title"
+    },
+    {
+        "text": "Sequence",
+        "type": "Title"
+    },
+    {
+        "text": "Music21Object",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Spanners showing tempo-change.  They do nothing right now.",
+        "type": "ListItem"
+    },
+    {
+        "text": "TempoChangeSpanner bases",
+        "type": "Title"
+    },
+    {
+        "text": "Spanner",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "TempoChangeSpanner read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "TempoChangeSpanner read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "TempoChangeSpanner methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from Spanner:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__getitem__() addSpannedElements() fill() getFirst() getLast() getSpannedElementIds() getSpannedElements() getSpannedElementsByClass() hasSpannedElement() isFirst() isLast() purgeLocations() purgeOrphans() replaceSpannedElement()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "TempoChangeSpanner instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.tempo.",
+        "type": "Title"
+    },
+    {
+        "text": "interpolateElements",
+        "type": "Title"
+    },
+    {
+        "text": "element1",
+        "type": "Title"
+    },
+    {
+        "text": "element2",
+        "type": "Title"
+    },
+    {
+        "text": "sourceStream",
+        "type": "Title"
+    },
+    {
+        "text": "destinationStream",
+        "type": "Title"
+    },
+    {
+        "text": "autoAdd",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Assume that element1 and element2 are two elements in sourceStream\nand destinationStream with other elements (say eA, eB, eC) between\nthem.  For instance, element1 could be the downbeat at offset 10\nin sourceStream (a Stream representing a score) and offset 20.5\nin destinationStream (which might be a Stream representing the\ntiming of notes in particular recording at approximately but not\nexactly qtr = 30). Element2 could be the following downbeat in 4/4,\nat offset 14 in source but offset 25.0 in the recording:\n>>> sourceStream = stream.Stream()\n>>> destinationStream = stream.Stream()\n>>> element1 = note.Note('C4', type='quarter')\n>>> element2 = note.Note('G4', type='quarter')\n>>> sourceStream.insert(10, element1)\n>>> destinationStream.insert(20.5, element1)\n>>> sourceStream.insert(14, element2)\n>>> destinationStream.insert(25.0, element2)\n\n\nSuppose eA, eB, and eC are three quarter notes that lie\nbetween element1 and element2 in sourceStream\nand destinationStream, as in:\n>>> eA = note.Note('D4', type='quarter')\n>>> eB = note.Note('E4', type='quarter')\n>>> eC = note.Note('F4', type='quarter')\n>>> sourceStream.insert(11, eA)\n>>> sourceStream.insert(12, eB)\n>>> sourceStream.insert(13, eC)\n>>> destinationStream.append([eA, eB, eC])  # not needed if autoAdd were true\n\n\nthen running this function will cause eA, eB, and eC\nto have offsets 21.625, 22.75, and 23.875 respectively\nin destinationStream:\n>>> tempo.interpolateElements(element1, element2,\n...         sourceStream, destinationStream, autoAdd=False)\n>>> for el in [eA, eB, eC]:\n...    print(el.getOffsetBySite(destinationStream))\n21.625\n22.75\n23.875\n\n\nif the elements between element1 and element2 do not yet\nappear in destinationStream, they are automatically added\nunless autoAdd is False.\n(with the default autoAdd, elements are automatically added to new streams):\n>>> destStream2 = stream.Stream()\n>>> destStream2.insert(10.1, element1)\n>>> destStream2.insert(50.5, element2)\n>>> tempo.interpolateElements(element1, element2, sourceStream, destStream2)\n>>> for el in [eA, eB, eC]:\n...    print('%.1f' % (el.getOffsetBySite(destStream2),))\n20.2\n30.3\n40.4\n\n\n(unless autoAdd is set to False, in which case a Tempo Exception arises:)\n>>> destStream3 = stream.Stream()\n>>> destStream3.insert(100, element1)\n>>> destStream3.insert(500, element2)\n>>> eA.id = 'blah'\n>>> tempo.interpolateElements(element1, element2, sourceStream, destStream3, autoAdd=False)\nTraceback (most recent call last):\nmusic21.tempo.TempoException: Could not find element <music21.note.Note D> with id ...",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.tempo.",
+        "type": "Title"
+    },
+    {
+        "text": "convertTempoByReferent",
+        "type": "Title"
+    },
+    {
+        "text": "numberSrc",
+        "type": "Title"
+    },
+    {
+        "text": "int | float",
+        "type": "Title"
+    },
+    {
+        "text": "quarterLengthBeatSrc",
+        "type": "Title"
+    },
+    {
+        "text": "int | float",
+        "type": "Title"
+    },
+    {
+        "text": "quarterLengthBeatDst",
+        "type": "Title"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u2192 float",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Convert between equivalent tempi, where the speed stays the\nsame but the beat referent and number change.\n60 bpm at quarter, going to half\n>>> tempo.convertTempoByReferent(60, 1, 2)\n30.0\n\n\n60 bpm at quarter, going to 16th\n>>> tempo.convertTempoByReferent(60, 1, 0.25)\n240.0\n\n\n60 at dotted quarter, get quarter\n>>> tempo.convertTempoByReferent(60, 1.5, 1)\n90.0\n\n\n60 at dotted quarter, get half\n>>> tempo.convertTempoByReferent(60, 1.5, 2)\n45.0\n\n\n60 at dotted quarter, get trip\n>>> tempo.convertTempoByReferent(60, 1.5, 1/3)\n270.0\n\n\nA Fraction instance can also be used:\n>>> tempo.convertTempoByReferent(60, 1.5, common.opFrac(1/3))\n270.0",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.tempo",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

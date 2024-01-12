@@ -1,0 +1,366 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.figuredBass.examples",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.figuredBass.checker",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.figuredBass.notation",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.figuredBass.examples\nFunctions\nexampleA()\nexampleB()\nexampleC()\nexampleD()\nV43ResolutionExample()\nviio65ResolutionExample()\naugmentedSixthResolutionExample()\nitalianA6ResolutionExample()\ntwelveBarBlues()\ngenerateBoogieVamp()\ngenerateTripletBlues()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.figuredBass.examples\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "FiguredBassLine instance.\nThese can be realized by calling",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "realize(), which takes in an\noptional",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Rules object.\nThe result is a",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Realization\nobject which can generate realizations as instances of",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Score",
+        "type": "Title"
+    },
+    {
+        "text": "show().",
+        "type": "Title"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.figuredBass.examples.",
+        "type": "Title"
+    },
+    {
+        "text": "exampleA",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "This example was a homework assignment for 21M.302: Harmony & Counterpoint II\nat MIT in the fall of 2010, taught by Charles Shadle of the MIT Music Program.\n>>> from music21.figuredBass import examples\n>>> fbLine = examples.exampleA()\n>>> fbLine.generateBassLine().show()\n\n\n\nThe following is a realization of fbLine in four parts using the default rules set.\nThe soprano part is limited to stepwise motion, and the alto and tenor parts are\nlimited to motions within a perfect octave.\n>>> from music21.figuredBass import rules\n>>> fbRules = rules.Rules()\n>>> fbRules.partMovementLimits = [(1, 2), (2, 12), (3, 12)]\n>>> fbRealization1 = fbLine.realize(fbRules)\n>>> fbRealization1.getNumSolutions()\n360\n>>> fbRealization1.generateRandomRealization().show()\n\n\n\nNow, the restriction on upper parts being within a perfect octave of each other is\nremoved, and fbLine is realized again.\n>>> fbRules.upperPartsMaxSemitoneSeparation = None\n>>> fbRealization2 = fbLine.realize(fbRules)\n>>> fbRealization2.keyboardStyleOutput = False\n>>> fbRealization2.getNumSolutions()\n3713168\n>>> fbRealization2.generateRandomRealization().show()",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.figuredBass.examples.",
+        "type": "Title"
+    },
+    {
+        "text": "exampleB",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "This example was retrieved from page 114 of The Music Theory Handbook by Marjorie Merryman.\n>>> from music21.figuredBass import examples\n>>> fbLine = examples.exampleB()\n>>> fbLine.generateBassLine().show()\n\n\n\nFirst, fbLine is realized with the default rules set.\n>>> fbRealization1 = fbLine.realize()\n>>> fbRealization1.getNumSolutions()\n422\n>>> fbRealization1.generateRandomRealization().show()\n\n\n\nNow, a Rules object is created, and the restriction that the chords\nneed to be complete is lifted. fbLine is realized once again.\n>>> from music21.figuredBass import rules\n>>> fbRules = rules.Rules()\n>>> fbRules.forbidIncompletePossibilities = False\n>>> fbRealization2 = fbLine.realize(fbRules)\n>>> fbRealization2.getNumSolutions()\n188974\n>>> fbRealization2.generateRandomRealization().show()",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.figuredBass.examples.",
+        "type": "Title"
+    },
+    {
+        "text": "exampleC",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "This example was retrieved from page 114 of The Music Theory Handbook by Marjorie Merryman.\n>>> from music21.figuredBass import examples\n>>> fbLine = examples.exampleC()\n>>> fbLine.generateBassLine().show()\n\n\n\nFirst, fbLine is realized with the default rules set.\n>>> fbRealization1 = fbLine.realize()\n>>> fbRealization1.getNumSolutions()\n833\n>>> fbRealization1.generateRandomRealization().show()\n\n\n\nNow, parallel fifths are allowed in realizations. The image below\nshows one of them. There is a parallel fifth between the bass and\nalto parts going from the half-diminished 6,5 (B,F#) to the dominant\nseventh (C#,G#) in the second measure.\n>>> from music21.figuredBass import rules\n>>> fbRules = rules.Rules()\n>>> fbRules.forbidParallelFifths = False\n>>> fbRealization2 = fbLine.realize(fbRules)\n>>> fbRealization2.getNumSolutions()\n2427\n>>> fbRealization2.generateRandomRealization().show()",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.figuredBass.examples.",
+        "type": "Title"
+    },
+    {
+        "text": "exampleD",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "This example was a homework assignment for 21M.302: Harmony & Counterpoint II\nat MIT in the fall of 2010, taught by Charles Shadle of the MIT Music Program.\n>>> from music21.figuredBass import examples\n>>> fbLine = examples.exampleD()\n>>> fbLine.generateBassLine().show()\n\n\n\nThe following is a realization of fbLine in four parts using the default rules set.\nThe soprano part is limited to stepwise motion, and the alto and tenor parts are\nlimited to motions within a perfect octave.\n>>> from music21.figuredBass import rules\n>>> fbRules = rules.Rules()\n>>> fbRules.partMovementLimits = [(1, 2), (2, 12), (3, 12)]\n>>> fbRealization1 = fbLine.realize(fbRules)\n>>> fbRealization1.getNumSolutions()\n1560\n>>> fbRealization1.generateRandomRealization().show()\n\n\n\nNow, the restriction on voice overlap is lifted, which is common in keyboard-style\nfigured bass, and fbLine is realized again. Voice overlap can be seen in the fourth\nmeasure.\n>>> fbRules.forbidVoiceOverlap = False\n>>> fbRealization2 = fbLine.realize(fbRules)\n>>> fbRealization2.getNumSolutions()\n109006\n>>> fbRealization2.generateRandomRealization().show()\n\n\n\nNow, the restriction on voice overlap is reset, but the restriction on the upper parts\nbeing within a perfect octave of each other is removed. fbLine is realized again.\n>>> fbRules.forbidVoiceOverlap = True\n>>> fbRules.upperPartsMaxSemitoneSeparation = None\n>>> fbRealization3 = fbLine.realize(fbRules)\n>>> fbRealization3.getNumSolutions()\n29629539\n>>> fbRealization3.keyboardStyleOutput = False\n>>> fbRealization3.generateRandomRealization().show()",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.figuredBass.examples.",
+        "type": "Title"
+    },
+    {
+        "text": "V43ResolutionExample",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The dominant 4,3 can resolve to either the tonic 5,3 or tonic 6,3. The proper resolution\nis dependent on the bass note of the tonic, and is determined in context, as shown in the\nfollowing figured bass realization.\n>>> from music21.figuredBass import examples\n>>> fbLine = examples.V43ResolutionExample()\n>>> fbRealization = fbLine.realize()\n>>> fbRealization.generateRandomRealization().show()",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.figuredBass.examples.",
+        "type": "Title"
+    },
+    {
+        "text": "viio65ResolutionExample",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "For a fully diminished seventh chord resolving to the tonic, the resolution chord\ncan contain either a doubled third (standard resolution) or a doubled tonic (alternate\nresolution), depending on whether the third of the diminished chord rises or falls.\nThe user can control this in a Rules object by modifying\ndoubledRootInDim7.\nHowever, when resolving a diminished 6,5, the third is found in the bass and the\nproper resolution is determined in context, regardless of user preference.\nThe following shows both cases involving a diminished 6,5. The resolution of the\nfirst diminished chord has a doubled D, while that of the second has a doubled F#.\nNotice that the resolution of the first involves a diminished fifth (E, Bb) going\nto a perfect fifth (D, A).\n>>> from music21.figuredBass import examples\n>>> fbLine = examples.viio65ResolutionExample()\n>>> fbRealization = fbLine.realize()\n>>> fbRealization.generateRandomRealization().show()",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.figuredBass.examples.",
+        "type": "Title"
+    },
+    {
+        "text": "augmentedSixthResolutionExample",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "This example was retrieved from page 61 of The Music Theory Handbook by Marjorie Merryman.\nItalian (8,#6,3), French (#6,4,3), German (#6,5,3), and Swiss (#6,#4,3)\naugmented sixth resolutions to\neither the major dominant or the major/minor tonic 6,4 are supported.\nThe first four bars show the\nresolutions to the dominant in the order above, while the last bar\nshows the German augmented sixth\nresolving to the tonic.\n>>> from music21.figuredBass import examples\n>>> fbLine = examples.augmentedSixthResolutionExample()\n>>> fbRealization = fbLine.realize()\n>>> fbRealization.generateRandomRealization().show()",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.figuredBass.examples.",
+        "type": "Title"
+    },
+    {
+        "text": "italianA6ResolutionExample",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The Italian augmented sixth chord (It+6) is the only\naugmented sixth chord to consist of only three\npitch names, and when represented in four parts, the\ntonic is doubled. The tonic can resolve up, down or\nstay the same, and in four parts, the two tonics always\nresolve differently, resulting in two equally\nacceptable resolutions. An alternate approach to resolving\nthe It+6 chord was taken, such that an It+6\nchord could map internally to two different resolutions.\nEvery other special resolution in fbRealizer\nconsists of a 1:1 mapping of special chords to resolutions.\nHere, the It+6 chord is resolving to the dominant, minor tonic,\nand major tonic, respectively. In the\ndominant resolution shown, the tonics (D) are resolving inward,\nbut they can resolve outward as well. In\nthe minor tonic resolution, the higher tonic is resolving up to F,\nand the lower tonic remains the same.\nIn the major tonic resolution, the higher tonic remains the same,\nwhile the lower tonic resolves up to the F#.\n>>> from music21.figuredBass import examples\n>>> from music21.figuredBass import rules\n>>> fbLine = examples.italianA6ResolutionExample()\n>>> fbRules = rules.Rules()\n>>> fbRules.upperPartsMaxSemitoneSeparation = None\n>>> fbRules.partMovementLimits.append([1, 4])\n>>> fbRealization = fbLine.realize(fbRules)\n>>> fbRealization.keyboardStyleOutput = False\n>>> fbRealization.generateRandomRealization().show()",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.figuredBass.examples.",
+        "type": "Title"
+    },
+    {
+        "text": "twelveBarBlues",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "This is a progression in Bb major based on the twelve bar blues. The progression used is:\n\nI  |  IV  |  I  |  I7\nIV |  IV  |  I  |  I7\nV7 |  IV6 |  I  |  I\n\n>>> from music21.figuredBass import examples\n>>> from music21.figuredBass import rules\n>>> bluesLine = examples.twelveBarBlues()\n>>> bluesLine.generateBassLine().show()\n\n\n\n>>> fbRules = rules.Rules()\n>>> fbRules.partMovementLimits = [(1, 4), (2, 12), (3, 12)]\n>>> fbRules.forbidVoiceOverlap = False\n>>> blRealization = bluesLine.realize(fbRules)\n>>> blRealization.getNumSolutions()\n2224978\n>>> blRealization.generateRandomRealization().show()",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.figuredBass.examples.",
+        "type": "Title"
+    },
+    {
+        "text": "generateBoogieVamp",
+        "type": "Title"
+    },
+    {
+        "text": "blRealization",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "numRepeats",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Turns whole notes in twelve bar blues bass line to blues boogie woogie bass line. Takes\nin numRepeats, which is the number of times to repeat the bass line. Also, takes in a\nrealization of twelveBarBlues(). If none is provided,\na default realization with forbidVoiceOverlap\nset to False and partMovementLimits set to\n[(1, 4), (2, 12), (3, 12)] is used.\n>>> from music21.figuredBass import examples\n>>> examples.generateBoogieVamp(numRepeats=1).show()",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.figuredBass.examples.",
+        "type": "Title"
+    },
+    {
+        "text": "generateTripletBlues",
+        "type": "Title"
+    },
+    {
+        "text": "blRealization",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "numRepeats",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Turns whole notes in twelve bar blues bass line to triplet blues bass line. Takes\nin numRepeats, which is the number of times to repeat the bass line. Also, takes in a\nrealization of twelveBarBlues(). If none is provided,\na default realization with forbidVoiceOverlap\nset to False and partMovementLimits set to\n[(1, 4), (2, 12), (3, 12)] is used.\n>>> from music21.figuredBass import examples\n>>> examples.generateTripletBlues(numRepeats=1).show()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.figuredBass.examples",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

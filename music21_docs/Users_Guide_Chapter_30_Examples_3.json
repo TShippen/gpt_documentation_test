@@ -1,0 +1,3454 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 30: Examples 3",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide, Chapter 29: Spanners 1 (Slurs)",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide, Chapter 31: Clefs, Ties, and Beams",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide, Chapter 30: Examples 3\nRoman Numeral Analysis on a Melody",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide\nUser's Guide: Table of Contents\nUser's Guide, Chapter 1: Installing and Getting Started with music21\nUser's Guide, Chapter 2: Notes\nUser's Guide, Chapter 3: Pitches, Durations, and Notes again\nUser's Guide, Chapter 4: Lists, Streams (I) and Output\nUser's Guide, Chapter 5: Lists of Lists, Functions, and Recursion\nUser's Guide, Chapter 6: Streams (II): Hierarchies, Recursion, and Flattening\nUser's Guide, Chapter 7: Chords\nUser's Guide, Chapter 8: Installing MusicXML Readers and File Formats (1)\nUser's Guide, Chapter 9: Chordify\nUser's Guide, Chapter 10: Examples 1\nUser's Guide, Chapter 11: Corpus Searching\nUser's Guide, Chapter 12: Getting Back to Basics: The Music21Object\nUser's Guide, Chapter 13: More Music21Object Attributes and Properties\nUser's Guide: Chapter 14: Time Signatures and Beats\nUser's Guide, Chapter 15: Keys and KeySignatures\nUser's Guide, Chapter 16: TinyNotation\nUser's Guide: Chapter 17: Derivations\nUser's Guide: Chapter 18: Intervals\nUser's Guide, Chapter 19: Advanced Durations (Complex and Tuplets)\nUser's Guide, Chapter 20: Examples 2\nUser's Guide, Chapter 21: Ordering and Sorting of Stream Elements\nUser's Guide, Chapter 22: Graphing and plotting\nUser's Guide, Chapter 23: Roman Numeral Analysis\nUser's Guide, Chapter 24: Configuring Environment Settings\nUser's Guide, Chapter 25: Post-Tonal Tools (1)\nUser's Guide, Chapter 26: Stream Iteration and Filtering\nUser's Guide, Chapter 27: Grace Notes\nUser's Guide, Chapter 28: Lyric Searching\nUser's Guide, Chapter 29: Spanners 1 (Slurs)\nUser's Guide, Chapter 30: Examples 3\nUser's Guide, Chapter 31: Clefs, Ties, and Beams\nUser's Guide, Chapter 32: Articulations\nUser's Guide, Chapter 44: Advanced Graphing (Axes, Plots, and Graphs)\nUser's Guide, Chapter 53: Advanced Corpus and Metadata Searching\nUser's Guide, Chapter 54: Extending Converter with New Formats\nUser's Guide, Chapter 55: Advanced Meter Topics\nUser's Guide, Chapter 58: Understanding Sites and Contexts\nUser's Guide, Chapter 61: TimespanTrees and Verticalities",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 30: Examples 3\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Since the last set of examples in\nChapter 20, we've learned about\nsorting streams, graphs and plots, roman numerals, environment,\npost-tonal tools, iterators, grace notes, and spanners. Now let's put as\nmany of these together as we can to analyze music computationally.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "The corpus of music21 includes the over 1050 songs, reels, jigs,\nfrom Ryan's Mammoth Collection of Fiddle Tunes, thanks to John\nChambers and others. The\ncollection was originally published in 1883 by Blake Howe after William\nBradbury Ryan's work. Let's use these, which are called \u009cryansMammoth\u009d\nin the corpus, for some examples.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "(Note that some of the tunes in this corpus are based on uncredited\ntunes either by African-American composers or adapted from such tunes\n[\u009cMinstrel Songs\u009d], and for these reasons were attacked in Dwight's\nJournal as too \u009ctrashy\u009d (1855, p.\u00c2\u00a0118) for cosmopolitan New England\ntastes. The work of finding the 19th-century Black compositional\ngeniuses behind the original tunes continues, and I hope we can\nsupplement the adpated melodies in the corpus with originals in the near\nfuture. In the meantime, I hope that the computational studies of these\nworks can stick a finger in the face of John Sullivan Dwight, if his\nmyopic vision of American creativity could ever see it.)",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "First we'll load music21 and search the corpus for these tunes:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "from",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "import",
+        "type": "Title"
+    },
+    {
+        "text": "ryans",
+        "type": "Title"
+    },
+    {
+        "text": "corpus",
+        "type": "Title"
+    },
+    {
+        "text": "search",
+        "type": "Title"
+    },
+    {
+        "text": "'ryansMammoth'",
+        "type": "Title"
+    },
+    {
+        "text": "ryans",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "metadata",
+        "type": "Title"
+    },
+    {
+        "text": "bundles",
+        "type": "Title"
+    },
+    {
+        "text": "MetadataBundle",
+        "type": "Title"
+    },
+    {
+        "text": "1059",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "entries",
+        "type": "Title"
+    },
+    {
+        "text": "Let's look at one of these that I know is called \u0098Highland Regiment':",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "highland",
+        "type": "Title"
+    },
+    {
+        "text": "ryans",
+        "type": "Title"
+    },
+    {
+        "text": "search",
+        "type": "Title"
+    },
+    {
+        "text": "'Highland Regiment'",
+        "type": "Title"
+    },
+    {
+        "text": "highland",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "metadata",
+        "type": "Title"
+    },
+    {
+        "text": "bundles",
+        "type": "Title"
+    },
+    {
+        "text": "MetadataBundle",
+        "type": "Title"
+    },
+    {
+        "text": "entry",
+        "type": "Title"
+    },
+    {
+        "text": "highlandParsed",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "highland",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "highlandParsed",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "measures",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Let's take our knowledge of spanners and see if the last note of a slur\nis generally higher or lower than the first note. We'll use a\nRecursiveIterator with a ClassFilter of \u0098Slur' to find them all:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "highlandIterator",
+        "type": "Title"
+    },
+    {
+        "text": "highlandParsed",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "recurse",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "highlandSlurs",
+        "type": "Title"
+    },
+    {
+        "text": "highlandIterator",
+        "type": "Title"
+    },
+    {
+        "text": "getElementsByClass",
+        "type": "Title"
+    },
+    {
+        "text": "'Slur'",
+        "type": "Title"
+    },
+    {
+        "text": "higher",
+        "type": "Title"
+    },
+    {
+        "text": "lower",
+        "type": "Title"
+    },
+    {
+        "text": "same",
+        "type": "Title"
+    },
+    {
+        "text": "# could happen for slurs longer than 2 notes",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "sl",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "highlandSlurs",
+        "type": "Title"
+    },
+    {
+        "text": "firstNote",
+        "type": "Title"
+    },
+    {
+        "text": "sl",
+        "type": "Title"
+    },
+    {
+        "text": "getFirst",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "lastNote",
+        "type": "Title"
+    },
+    {
+        "text": "sl",
+        "type": "Title"
+    },
+    {
+        "text": "getLast",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "psDiff",
+        "type": "Title"
+    },
+    {
+        "text": "lastNote",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "ps",
+        "type": "Title"
+    },
+    {
+        "text": "firstNote",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "ps",
+        "type": "Title"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "psDiff",
+        "type": "Title"
+    },
+    {
+        "text": "higher",
+        "type": "Title"
+    },
+    {
+        "text": "+=",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "elif",
+        "type": "Title"
+    },
+    {
+        "text": "psDiff",
+        "type": "Title"
+    },
+    {
+        "text": "lower",
+        "type": "Title"
+    },
+    {
+        "text": "+=",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "else",
+        "type": "Title"
+    },
+    {
+        "text": "same",
+        "type": "Title"
+    },
+    {
+        "text": "+=",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "higher",
+        "type": "Title"
+    },
+    {
+        "text": "lower",
+        "type": "Title"
+    },
+    {
+        "text": "same",
+        "type": "Title"
+    },
+    {
+        "text": "19",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "30",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Hmmm\u2026 it looks like of the 49 slurs in this piece, more of them end\nlower than higher. Let's do this on a sample of the first 20 pieces in\nthe collection. Let's augment our slur counting function a little bit,\nand make it safe in case a slur begins on a Chord, by taking the average\npitch value of all the notes in the Chord, introduce a Counter object\nfrom Python's collections module, and go to it:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "from",
+        "type": "Title"
+    },
+    {
+        "text": "statistics",
+        "type": "Title"
+    },
+    {
+        "text": "import",
+        "type": "Title"
+    },
+    {
+        "text": "mean",
+        "type": "Title"
+    },
+    {
+        "text": "from",
+        "type": "Title"
+    },
+    {
+        "text": "collections",
+        "type": "Title"
+    },
+    {
+        "text": "import",
+        "type": "Title"
+    },
+    {
+        "text": "Counter",
+        "type": "Title"
+    },
+    {
+        "text": "totalCounter",
+        "type": "Title"
+    },
+    {
+        "text": "Counter",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "def",
+        "type": "Title"
+    },
+    {
+        "text": "countOneSlur",
+        "type": "Title"
+    },
+    {
+        "text": "sl",
+        "type": "Title"
+    },
+    {
+        "text": "totalCounter",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "firstNote",
+        "type": "Title"
+    },
+    {
+        "text": "sl",
+        "type": "Title"
+    },
+    {
+        "text": "getFirst",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "lastNote",
+        "type": "Title"
+    },
+    {
+        "text": "sl",
+        "type": "Title"
+    },
+    {
+        "text": "getLast",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "not",
+        "type": "Title"
+    },
+    {
+        "text": "hasattr",
+        "type": "Title"
+    },
+    {
+        "text": "firstNote",
+        "type": "Title"
+    },
+    {
+        "text": "'pitches'",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "return",
+        "type": "Title"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "not",
+        "type": "Title"
+    },
+    {
+        "text": "hasattr",
+        "type": "Title"
+    },
+    {
+        "text": "lastNote",
+        "type": "Title"
+    },
+    {
+        "text": "'pitches'",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "return",
+        "type": "Title"
+    },
+    {
+        "text": "firstNotePs",
+        "type": "Title"
+    },
+    {
+        "text": "mean",
+        "type": "Title"
+    },
+    {
+        "text": "ps",
+        "type": "Title"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "firstNote",
+        "type": "Title"
+    },
+    {
+        "text": "pitches",
+        "type": "Title"
+    },
+    {
+        "text": "lastNotePs",
+        "type": "Title"
+    },
+    {
+        "text": "mean",
+        "type": "Title"
+    },
+    {
+        "text": "ps",
+        "type": "Title"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "lastNote",
+        "type": "Title"
+    },
+    {
+        "text": "pitches",
+        "type": "Title"
+    },
+    {
+        "text": "psDiff",
+        "type": "Title"
+    },
+    {
+        "text": "lastNotePs",
+        "type": "Title"
+    },
+    {
+        "text": "firstNotePs",
+        "type": "Title"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "psDiff",
+        "type": "Title"
+    },
+    {
+        "text": "totalCounter",
+        "type": "Title"
+    },
+    {
+        "text": "'higher'",
+        "type": "Title"
+    },
+    {
+        "text": "+=",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "elif",
+        "type": "Title"
+    },
+    {
+        "text": "psDiff",
+        "type": "Title"
+    },
+    {
+        "text": "totalCounter",
+        "type": "Title"
+    },
+    {
+        "text": "'lower'",
+        "type": "Title"
+    },
+    {
+        "text": "+=",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "else",
+        "type": "Title"
+    },
+    {
+        "text": "totalCounter",
+        "type": "Title"
+    },
+    {
+        "text": "'same'",
+        "type": "Title"
+    },
+    {
+        "text": "+=",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Now let's make a function that takes in an object from corpus.search\nand parses it and runs each slur through countOneSlur.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "def",
+        "type": "Title"
+    },
+    {
+        "text": "runOneScore",
+        "type": "Title"
+    },
+    {
+        "text": "scCorpusSearchObject",
+        "type": "Title"
+    },
+    {
+        "text": "totalCounter",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "scParsed",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "scCorpusSearchObject",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "sl",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "scParsed",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "recurse",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "getElementsByClass",
+        "type": "Title"
+    },
+    {
+        "text": "'Slur'",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "countOneSlur",
+        "type": "Title"
+    },
+    {
+        "text": "sl",
+        "type": "Title"
+    },
+    {
+        "text": "totalCounter",
+        "type": "Title"
+    },
+    {
+        "text": "Always important to test to make sure we haven't broken anything. This\nshould give the same answer as before:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "runOneScore",
+        "type": "Title"
+    },
+    {
+        "text": "highland",
+        "type": "Title"
+    },
+    {
+        "text": "],",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "totalCounter",
+        "type": "Title"
+    },
+    {
+        "text": "totalCounter",
+        "type": "Title"
+    },
+    {
+        "text": "Counter",
+        "type": "Title"
+    },
+    {
+        "text": "({",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'lower'",
+        "type": "Title"
+    },
+    {
+        "text": "30",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'higher'",
+        "type": "Title"
+    },
+    {
+        "text": "19",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "})",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "It works as before, though there's no \u009csame\u009d entry in totalCounter\nsince we did not encounter such a case. Let's reset our counter and run\nthe first 20 pieces through the process:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "totalCounter",
+        "type": "Title"
+    },
+    {
+        "text": "Counter",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "stop",
+        "type": "Title"
+    },
+    {
+        "text": "20",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "piece",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "ryans",
+        "type": "Title"
+    },
+    {
+        "text": "runOneScore",
+        "type": "Title"
+    },
+    {
+        "text": "piece",
+        "type": "Title"
+    },
+    {
+        "text": "totalCounter",
+        "type": "Title"
+    },
+    {
+        "text": "stop",
+        "type": "Title"
+    },
+    {
+        "text": "stop",
+        "type": "Title"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "stop",
+        "type": "Title"
+    },
+    {
+        "text": "==",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "break",
+        "type": "Title"
+    },
+    {
+        "text": "totalCounter",
+        "type": "Title"
+    },
+    {
+        "text": "Counter",
+        "type": "Title"
+    },
+    {
+        "text": "({",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'lower'",
+        "type": "Title"
+    },
+    {
+        "text": "90",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'higher'",
+        "type": "Title"
+    },
+    {
+        "text": "80",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'same'",
+        "type": "Title"
+    },
+    {
+        "text": "11",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "})",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Hmmm\u2026 this still shows a few more \u009clower\u009d cases than \u009chigher\u009d but not\nvery much of a difference. In fact, the entire difference of 10 can be\nattributed to the first test example, since \u009cHighland Regiment\u009d is in\nthis test set. Maybe the notion that slurs more often end on lower notes\nthan higher notes can be rejected, but I think we'd like to run the\nwhole data set first. Simply remove the \u009cstop\u009d and \u009cbreak\u009d variables\nfrom above and the results will come back in a minute or two. I ran it\nand got these results:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Counter",
+        "type": "Title"
+    },
+    {
+        "text": "({",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'higher'",
+        "type": "Title"
+    },
+    {
+        "text": "3321",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'lower'",
+        "type": "Title"
+    },
+    {
+        "text": "3637",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'same'",
+        "type": "Title"
+    },
+    {
+        "text": "425",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "})",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Again, it's about 10% more times that a slur ends below the first note\nthan above \u2014 that's the same ratio as we saw for the first ten pieces,\nbut it might be quite statistically significant given the much larger\ndataset. After all, if you flip a coin three times, it's not that\nunusual to get all heads or all tails, but if you flip a coin one\nthousand times, even 550 heads and 450 tails is quite significant as an\nindicator of bias in the coin.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "So let's write a little test program that treats 'higher' and\n'lower' as if they are coin flips and see how often we get results\noutside the range (in either direction) as our counter results.\nnumBiased takes in a Counter object, and a number of trials to\nrun, flips a coin as many times as the higher and lower values and\nprints out the fraction of the flip trials that lie outside the range.\nOptionally, it can print out the exceptional results along the way:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "import",
+        "type": "Title"
+    },
+    {
+        "text": "random",
+        "type": "Title"
+    },
+    {
+        "text": "def",
+        "type": "Title"
+    },
+    {
+        "text": "numBiased",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "inCounter",
+        "type": "Title"
+    },
+    {
+        "text": "trials",
+        "type": "Title"
+    },
+    {
+        "text": "100",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "printData",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "chanceTrials",
+        "type": "Title"
+    },
+    {
+        "text": "totalSimulations",
+        "type": "Title"
+    },
+    {
+        "text": "inCounter",
+        "type": "Title"
+    },
+    {
+        "text": "'higher'",
+        "type": "Title"
+    },
+    {
+        "text": "inCounter",
+        "type": "Title"
+    },
+    {
+        "text": "'lower'",
+        "type": "Title"
+    },
+    {
+        "text": "maxValue",
+        "type": "Title"
+    },
+    {
+        "text": "max",
+        "type": "Title"
+    },
+    {
+        "text": "([",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "inCounter",
+        "type": "Title"
+    },
+    {
+        "text": "'higher'",
+        "type": "Title"
+    },
+    {
+        "text": "],",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "inCounter",
+        "type": "Title"
+    },
+    {
+        "text": "'lower'",
+        "type": "Title"
+    },
+    {
+        "text": "]])",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "minValue",
+        "type": "Title"
+    },
+    {
+        "text": "min",
+        "type": "Title"
+    },
+    {
+        "text": "([",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "inCounter",
+        "type": "Title"
+    },
+    {
+        "text": "'higher'",
+        "type": "Title"
+    },
+    {
+        "text": "],",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "inCounter",
+        "type": "Title"
+    },
+    {
+        "text": "'lower'",
+        "type": "Title"
+    },
+    {
+        "text": "]])",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "trialNum",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "range",
+        "type": "Title"
+    },
+    {
+        "text": "trials",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "randCounter",
+        "type": "Title"
+    },
+    {
+        "text": "Counter",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "flipNum",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "range",
+        "type": "Title"
+    },
+    {
+        "text": "totalSimulations",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "random",
+        "type": "Title"
+    },
+    {
+        "text": "randint",
+        "type": "Title"
+    },
+    {
+        "text": "==",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "outcome",
+        "type": "Title"
+    },
+    {
+        "text": "'higher'",
+        "type": "Title"
+    },
+    {
+        "text": "else",
+        "type": "Title"
+    },
+    {
+        "text": "outcome",
+        "type": "Title"
+    },
+    {
+        "text": "'lower'",
+        "type": "Title"
+    },
+    {
+        "text": "randCounter",
+        "type": "Title"
+    },
+    {
+        "text": "outcome",
+        "type": "Title"
+    },
+    {
+        "text": "+=",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "randCounter",
+        "type": "Title"
+    },
+    {
+        "text": "'higher'",
+        "type": "Title"
+    },
+    {
+        "text": "maxValue",
+        "type": "Title"
+    },
+    {
+        "text": "and",
+        "type": "Title"
+    },
+    {
+        "text": "randCounter",
+        "type": "Title"
+    },
+    {
+        "text": "'higher'",
+        "type": "Title"
+    },
+    {
+        "text": "minValue",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "chanceTrials",
+        "type": "Title"
+    },
+    {
+        "text": "+=",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "elif",
+        "type": "Title"
+    },
+    {
+        "text": "printData",
+        "type": "Title"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "randCounter",
+        "type": "Title"
+    },
+    {
+        "text": "return",
+        "type": "Title"
+    },
+    {
+        "text": "chanceTrials",
+        "type": "Title"
+    },
+    {
+        "text": "trials",
+        "type": "Title"
+    },
+    {
+        "text": "We'll run it first on the data from \u009cHighland Regiment\u009d, printing out\nthe intermediate values along the way:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "numBiased",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Counter",
+        "type": "Title"
+    },
+    {
+        "text": "({",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'higher'",
+        "type": "Title"
+    },
+    {
+        "text": "19",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'lower'",
+        "type": "Title"
+    },
+    {
+        "text": "30",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "}),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "printData",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "Counter",
+        "type": "Title"
+    },
+    {
+        "text": "({",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'higher'",
+        "type": "Title"
+    },
+    {
+        "text": "30",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'lower'",
+        "type": "Title"
+    },
+    {
+        "text": "19",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "})",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Counter",
+        "type": "Title"
+    },
+    {
+        "text": "({",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'higher'",
+        "type": "Title"
+    },
+    {
+        "text": "31",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'lower'",
+        "type": "Title"
+    },
+    {
+        "text": "18",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "})",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Counter",
+        "type": "Title"
+    },
+    {
+        "text": "({",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'higher'",
+        "type": "Title"
+    },
+    {
+        "text": "31",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'lower'",
+        "type": "Title"
+    },
+    {
+        "text": "18",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "})",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Counter",
+        "type": "Title"
+    },
+    {
+        "text": "({",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'lower'",
+        "type": "Title"
+    },
+    {
+        "text": "32",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'higher'",
+        "type": "Title"
+    },
+    {
+        "text": "17",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "})",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Counter",
+        "type": "Title"
+    },
+    {
+        "text": "({",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'lower'",
+        "type": "Title"
+    },
+    {
+        "text": "30",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'higher'",
+        "type": "Title"
+    },
+    {
+        "text": "19",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "})",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Counter",
+        "type": "Title"
+    },
+    {
+        "text": "({",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'lower'",
+        "type": "Title"
+    },
+    {
+        "text": "30",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'higher'",
+        "type": "Title"
+    },
+    {
+        "text": "19",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "})",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Counter",
+        "type": "Title"
+    },
+    {
+        "text": "({",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'lower'",
+        "type": "Title"
+    },
+    {
+        "text": "31",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'higher'",
+        "type": "Title"
+    },
+    {
+        "text": "18",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "})",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Counter",
+        "type": "Title"
+    },
+    {
+        "text": "({",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'lower'",
+        "type": "Title"
+    },
+    {
+        "text": "31",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'higher'",
+        "type": "Title"
+    },
+    {
+        "text": "18",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "})",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Counter",
+        "type": "Title"
+    },
+    {
+        "text": "({",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'lower'",
+        "type": "Title"
+    },
+    {
+        "text": "30",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'higher'",
+        "type": "Title"
+    },
+    {
+        "text": "19",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "})",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Counter",
+        "type": "Title"
+    },
+    {
+        "text": "({",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'higher'",
+        "type": "Title"
+    },
+    {
+        "text": "30",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'lower'",
+        "type": "Title"
+    },
+    {
+        "text": "19",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "})",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Counter",
+        "type": "Title"
+    },
+    {
+        "text": "({",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'lower'",
+        "type": "Title"
+    },
+    {
+        "text": "30",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'higher'",
+        "type": "Title"
+    },
+    {
+        "text": "19",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "})",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Counter",
+        "type": "Title"
+    },
+    {
+        "text": "({",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'higher'",
+        "type": "Title"
+    },
+    {
+        "text": "30",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'lower'",
+        "type": "Title"
+    },
+    {
+        "text": "19",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "})",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Counter",
+        "type": "Title"
+    },
+    {
+        "text": "({",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'higher'",
+        "type": "Title"
+    },
+    {
+        "text": "31",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'lower'",
+        "type": "Title"
+    },
+    {
+        "text": "18",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "})",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Counter",
+        "type": "Title"
+    },
+    {
+        "text": "({",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'lower'",
+        "type": "Title"
+    },
+    {
+        "text": "31",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'higher'",
+        "type": "Title"
+    },
+    {
+        "text": "18",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "})",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Counter",
+        "type": "Title"
+    },
+    {
+        "text": "({",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'lower'",
+        "type": "Title"
+    },
+    {
+        "text": "31",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'higher'",
+        "type": "Title"
+    },
+    {
+        "text": "18",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "})",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "0.85",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Most of the time, the results are within the range of Highland Regiment,\nbut this is below the 0.95 threshold that would allow us to say that\nthere's something happening here. The results for the first ten pieces\nare even closer to a null hypothesis:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "numBiased",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Counter",
+        "type": "Title"
+    },
+    {
+        "text": "({",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'higher'",
+        "type": "Title"
+    },
+    {
+        "text": "80",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'lower'",
+        "type": "Title"
+    },
+    {
+        "text": "90",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'same'",
+        "type": "Title"
+    },
+    {
+        "text": "11",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "}))",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "0.46",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "But, as I noted above, much larger trials may be much more significant.\nWe will run it on the Counter object for the whole piece and see\nwhat the results are:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "totalCounter",
+        "type": "Title"
+    },
+    {
+        "text": "Counter",
+        "type": "Title"
+    },
+    {
+        "text": "({",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'higher'",
+        "type": "Title"
+    },
+    {
+        "text": "3321",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'lower'",
+        "type": "Title"
+    },
+    {
+        "text": "3637",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'same'",
+        "type": "Title"
+    },
+    {
+        "text": "425",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "})",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "numBiased",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "totalCounter",
+        "type": "Title"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Those are very significant results! There wasn't a single case where\ncoins were flipped about 7000 times and we got fewer than 3321 or more\nthan 3637 heads or tails! Thus we can definitely say that in this\ncollection of fiddle tunes, you're more likely to slur down than up \u2014\nthe size of the results is small, but the significance is high.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Roman Numeral Analysis on a Melody\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "The majority of the pieces in Ryan's Mammoth Collection are\nsingle-voice pieces, which might make Roman Numeral analysis difficult,\nbut actually it can be even more interesting this way. Let's take a tune\nfrom close to MIT's home, a reel called \u009cThe Boston\u009d:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "bostonMD",
+        "type": "Title"
+    },
+    {
+        "text": "ryans",
+        "type": "Title"
+    },
+    {
+        "text": "search",
+        "type": "Title"
+    },
+    {
+        "text": "'The Boston -- Reel'",
+        "type": "Title"
+    },
+    {
+        "text": "bostonMD",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "metadata",
+        "type": "Title"
+    },
+    {
+        "text": "bundles",
+        "type": "Title"
+    },
+    {
+        "text": "MetadataBundle",
+        "type": "Title"
+    },
+    {
+        "text": "entry",
+        "type": "Title"
+    },
+    {
+        "text": "boston",
+        "type": "Title"
+    },
+    {
+        "text": "bostonMD",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "boston",
+        "type": "Title"
+    },
+    {
+        "text": "measures",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Now let's create a chord from each beat in the piece (skipping the\npickup notes), aggregating all the pitches from within that beat. First,\nwe'll create a new Part object that has the same framework of\nMeasures as the original, along with time signatures, etc., but no\nnotes. We'll use the .template() method but tell it not to fill it\nwith rests.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "bostonPart",
+        "type": "Title"
+    },
+    {
+        "text": "boston",
+        "type": "Title"
+    },
+    {
+        "text": "parts",
+        "type": "Title"
+    },
+    {
+        "text": "outPart",
+        "type": "Title"
+    },
+    {
+        "text": "bostonPart",
+        "type": "Title"
+    },
+    {
+        "text": "template",
+        "type": "Title"
+    },
+    {
+        "text": "fillWithRests",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "Like we've done before, we'll start from the smallest part and work\noutwards. Since we will be working with RomanNumerals, we'll have to\nknow what key we are in; so we can analyze the piece; hopefully this\nwill be F major.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "pieceKey",
+        "type": "Title"
+    },
+    {
+        "text": "boston",
+        "type": "Title"
+    },
+    {
+        "text": "analyze",
+        "type": "Title"
+    },
+    {
+        "text": "'key'",
+        "type": "Title"
+    },
+    {
+        "text": "pieceKey",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "Key",
+        "type": "Title"
+    },
+    {
+        "text": "of",
+        "type": "Title"
+    },
+    {
+        "text": "major",
+        "type": "Title"
+    },
+    {
+        "text": "Now let's make a routine that turns a list of Notes into a RomanNumeral\nobject:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "def",
+        "type": "Title"
+    },
+    {
+        "text": "notesToRoman",
+        "type": "Title"
+    },
+    {
+        "text": "notes",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "uniquePitches",
+        "type": "Title"
+    },
+    {
+        "text": "set",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "notes",
+        "type": "Title"
+    },
+    {
+        "text": "ch",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "list",
+        "type": "Title"
+    },
+    {
+        "text": "uniquePitches",
+        "type": "Title"
+    },
+    {
+        "text": "))",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "return",
+        "type": "Title"
+    },
+    {
+        "text": "roman",
+        "type": "Title"
+    },
+    {
+        "text": "romanNumeralFromChord",
+        "type": "Title"
+    },
+    {
+        "text": "ch",
+        "type": "Title"
+    },
+    {
+        "text": "pieceKey",
+        "type": "Title"
+    },
+    {
+        "text": "Let's test it with the notes of measure 1:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "noteIterator",
+        "type": "Title"
+    },
+    {
+        "text": "bostonPart",
+        "type": "Title"
+    },
+    {
+        "text": "measure",
+        "type": "Title"
+    },
+    {
+        "text": "notes",
+        "type": "Title"
+    },
+    {
+        "text": "rn1",
+        "type": "Title"
+    },
+    {
+        "text": "notesToRoman",
+        "type": "Title"
+    },
+    {
+        "text": "noteIterator",
+        "type": "Title"
+    },
+    {
+        "text": "rn1",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "roman",
+        "type": "Title"
+    },
+    {
+        "text": "RomanNumeral",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "major",
+        "type": "Title"
+    },
+    {
+        "text": "Great, this is exactly what we're looking for. Now let's go into each\nmeasure that is full and analyze it separately.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Now we'll go into each measure that is full, and analyze it separately.\nWe'll get everything from offset 0 to 1, then 1 to 2:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "inMeasures",
+        "type": "Title"
+    },
+    {
+        "text": "list",
+        "type": "Title"
+    },
+    {
+        "text": "bostonPart",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Measure",
+        "type": "Title"
+    },
+    {
+        "text": "])",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "outMeasures",
+        "type": "Title"
+    },
+    {
+        "text": "list",
+        "type": "Title"
+    },
+    {
+        "text": "outPart",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Measure",
+        "type": "Title"
+    },
+    {
+        "text": "])",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "range",
+        "type": "Title"
+    },
+    {
+        "text": "14",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "inMeasure",
+        "type": "Title"
+    },
+    {
+        "text": "inMeasures",
+        "type": "Title"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "inMeasure",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "quarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "!=",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "continue",
+        "type": "Title"
+    },
+    {
+        "text": "outMeasure",
+        "type": "Title"
+    },
+    {
+        "text": "outMeasures",
+        "type": "Title"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "beatStart",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "beatNotes",
+        "type": "Title"
+    },
+    {
+        "text": "inMeasure",
+        "type": "Title"
+    },
+    {
+        "text": "getElementsByOffset",
+        "type": "Title"
+    },
+    {
+        "text": "beatStart",
+        "type": "Title"
+    },
+    {
+        "text": "beatStart",
+        "type": "Title"
+    },
+    {
+        "text": "includeEndBoundary",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "getElementsByClass",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "NotRest",
+        "type": "Title"
+    },
+    {
+        "text": "beatRN",
+        "type": "Title"
+    },
+    {
+        "text": "notesToRoman",
+        "type": "Title"
+    },
+    {
+        "text": "beatNotes",
+        "type": "Title"
+    },
+    {
+        "text": "beatRN",
+        "type": "Title"
+    },
+    {
+        "text": "lyric",
+        "type": "Title"
+    },
+    {
+        "text": "beatRN",
+        "type": "Title"
+    },
+    {
+        "text": "figure",
+        "type": "Title"
+    },
+    {
+        "text": "outMeasure",
+        "type": "Title"
+    },
+    {
+        "text": "insert",
+        "type": "Title"
+    },
+    {
+        "text": "beatStart",
+        "type": "Title"
+    },
+    {
+        "text": "beatRN",
+        "type": "Title"
+    },
+    {
+        "text": "outPart",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Well, that's a great way to earn a C-minus in any music analysis class!\nYes, all of these chords are correct, but only a few are useful for\nanalysis. So let's do two things: (1) filter out all notes that are on a\nvery weak position (the second or fourth sixteenth note) and are a\npassing or neighbor tone or something like that, and (2) not show the\nfigure for anything with the functionality of a \u009ciii\u009d chord or less.\nFirst let's redefine notesToRoman to do just that.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "def",
+        "type": "Title"
+    },
+    {
+        "text": "notesToRoman",
+        "type": "Title"
+    },
+    {
+        "text": "notes",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "goodPitches",
+        "type": "Title"
+    },
+    {
+        "text": "set",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "notes",
+        "type": "Title"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "==",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "goodPitches",
+        "type": "Title"
+    },
+    {
+        "text": "add",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "else",
+        "type": "Title"
+    },
+    {
+        "text": "nPrev",
+        "type": "Title"
+    },
+    {
+        "text": "previous",
+        "type": "Title"
+    },
+    {
+        "text": "'Note'",
+        "type": "Title"
+    },
+    {
+        "text": "nNext",
+        "type": "Title"
+    },
+    {
+        "text": "next",
+        "type": "Title"
+    },
+    {
+        "text": "'Note'",
+        "type": "Title"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "nPrev",
+        "type": "Title"
+    },
+    {
+        "text": "is",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "or",
+        "type": "Title"
+    },
+    {
+        "text": "nNext",
+        "type": "Title"
+    },
+    {
+        "text": "is",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "continue",
+        "type": "Title"
+    },
+    {
+        "text": "prevInterval",
+        "type": "Title"
+    },
+    {
+        "text": "interval",
+        "type": "Title"
+    },
+    {
+        "text": "Interval",
+        "type": "Title"
+    },
+    {
+        "text": "nPrev",
+        "type": "Title"
+    },
+    {
+        "text": "nextInterval",
+        "type": "Title"
+    },
+    {
+        "text": "interval",
+        "type": "Title"
+    },
+    {
+        "text": "Interval",
+        "type": "Title"
+    },
+    {
+        "text": "nNext",
+        "type": "Title"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "prevInterval",
+        "type": "Title"
+    },
+    {
+        "text": "generic",
+        "type": "Title"
+    },
+    {
+        "text": "undirected",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "and",
+        "type": "Title"
+    },
+    {
+        "text": "nextInterval",
+        "type": "Title"
+    },
+    {
+        "text": "generic",
+        "type": "Title"
+    },
+    {
+        "text": "undirected",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": ")):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "pass",
+        "type": "Title"
+    },
+    {
+        "text": "else",
+        "type": "Title"
+    },
+    {
+        "text": "goodPitches",
+        "type": "Title"
+    },
+    {
+        "text": "add",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "ch",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "list",
+        "type": "Title"
+    },
+    {
+        "text": "goodPitches",
+        "type": "Title"
+    },
+    {
+        "text": "))",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "return",
+        "type": "Title"
+    },
+    {
+        "text": "roman",
+        "type": "Title"
+    },
+    {
+        "text": "romanNumeralFromChord",
+        "type": "Title"
+    },
+    {
+        "text": "ch",
+        "type": "Title"
+    },
+    {
+        "text": "pieceKey",
+        "type": "Title"
+    },
+    {
+        "text": "Now we can figure out that functionalityScore minimum:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "iii",
+        "type": "Title"
+    },
+    {
+        "text": "roman",
+        "type": "Title"
+    },
+    {
+        "text": "RomanNumeral",
+        "type": "Title"
+    },
+    {
+        "text": "'iii'",
+        "type": "Title"
+    },
+    {
+        "text": "iii",
+        "type": "Title"
+    },
+    {
+        "text": "functionalityScore",
+        "type": "Title"
+    },
+    {
+        "text": "15",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "And let's re-run it:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "outPart",
+        "type": "Title"
+    },
+    {
+        "text": "bostonPart",
+        "type": "Title"
+    },
+    {
+        "text": "template",
+        "type": "Title"
+    },
+    {
+        "text": "fillWithRests",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "inMeasures",
+        "type": "Title"
+    },
+    {
+        "text": "list",
+        "type": "Title"
+    },
+    {
+        "text": "bostonPart",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Measure",
+        "type": "Title"
+    },
+    {
+        "text": "])",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "outMeasures",
+        "type": "Title"
+    },
+    {
+        "text": "list",
+        "type": "Title"
+    },
+    {
+        "text": "outPart",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Measure",
+        "type": "Title"
+    },
+    {
+        "text": "])",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "range",
+        "type": "Title"
+    },
+    {
+        "text": "14",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "inMeasure",
+        "type": "Title"
+    },
+    {
+        "text": "inMeasures",
+        "type": "Title"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "inMeasure",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "quarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "!=",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "continue",
+        "type": "Title"
+    },
+    {
+        "text": "outMeasure",
+        "type": "Title"
+    },
+    {
+        "text": "outMeasures",
+        "type": "Title"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "beatStart",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "beatNotes",
+        "type": "Title"
+    },
+    {
+        "text": "inMeasure",
+        "type": "Title"
+    },
+    {
+        "text": "getElementsByOffset",
+        "type": "Title"
+    },
+    {
+        "text": "beatStart",
+        "type": "Title"
+    },
+    {
+        "text": "beatStart",
+        "type": "Title"
+    },
+    {
+        "text": "includeEndBoundary",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "getElementsByClass",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "NotRest",
+        "type": "Title"
+    },
+    {
+        "text": "beatRN",
+        "type": "Title"
+    },
+    {
+        "text": "notesToRoman",
+        "type": "Title"
+    },
+    {
+        "text": "beatNotes",
+        "type": "Title"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "beatRN",
+        "type": "Title"
+    },
+    {
+        "text": "functionalityScore",
+        "type": "Title"
+    },
+    {
+        "text": "15",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "beatRN",
+        "type": "Title"
+    },
+    {
+        "text": "lyric",
+        "type": "Title"
+    },
+    {
+        "text": "beatRN",
+        "type": "Title"
+    },
+    {
+        "text": "figure",
+        "type": "Title"
+    },
+    {
+        "text": "outMeasure",
+        "type": "Title"
+    },
+    {
+        "text": "insert",
+        "type": "Title"
+    },
+    {
+        "text": "beatStart",
+        "type": "Title"
+    },
+    {
+        "text": "beatRN",
+        "type": "Title"
+    },
+    {
+        "text": "outPart",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "It's still not great, but we get a much better sense from this that the\ndiminished chord on vii in root position is often being used in place of\nV as a dominant in this piece. Let's run the routine one more time and\nthis time put the lyrics directly back in the score:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "inMeasures",
+        "type": "Title"
+    },
+    {
+        "text": "list",
+        "type": "Title"
+    },
+    {
+        "text": "bostonPart",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Measure",
+        "type": "Title"
+    },
+    {
+        "text": "])",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "range",
+        "type": "Title"
+    },
+    {
+        "text": "14",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "inMeasure",
+        "type": "Title"
+    },
+    {
+        "text": "inMeasures",
+        "type": "Title"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "inMeasure",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "quarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "!=",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "continue",
+        "type": "Title"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "beatStart",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "beatNotes",
+        "type": "Title"
+    },
+    {
+        "text": "inMeasure",
+        "type": "Title"
+    },
+    {
+        "text": "getElementsByOffset",
+        "type": "Title"
+    },
+    {
+        "text": "beatStart",
+        "type": "Title"
+    },
+    {
+        "text": "beatStart",
+        "type": "Title"
+    },
+    {
+        "text": "includeEndBoundary",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "getElementsByClass",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "NotRest",
+        "type": "Title"
+    },
+    {
+        "text": "beatRN",
+        "type": "Title"
+    },
+    {
+        "text": "notesToRoman",
+        "type": "Title"
+    },
+    {
+        "text": "beatNotes",
+        "type": "Title"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "beatRN",
+        "type": "Title"
+    },
+    {
+        "text": "functionalityScore",
+        "type": "Title"
+    },
+    {
+        "text": "15",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "beatNotes",
+        "type": "Title"
+    },
+    {
+        "text": "lyric",
+        "type": "Title"
+    },
+    {
+        "text": "beatRN",
+        "type": "Title"
+    },
+    {
+        "text": "figure",
+        "type": "Title"
+    },
+    {
+        "text": "bostonPart",
+        "type": "Title"
+    },
+    {
+        "text": "measures",
+        "type": "Title"
+    },
+    {
+        "text": "13",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "This is looking pretty decent, but have no fears, we'll find more\nsophisticated score reduction tools in music21 in the chapters to\ncome.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Let's visualize this whole piece as a piano roll:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "bostonPart",
+        "type": "Title"
+    },
+    {
+        "text": "plot",
+        "type": "Title"
+    },
+    {
+        "text": "'pianoroll'",
+        "type": "Title"
+    },
+    {
+        "text": "Here the centrality of the low F and the C5 stand out, along with an\navoidance of the low tonic during the middle section, from measures\n10-15, which I presume emphasizes the dominant harmony, but due to the\npresence of B-flats, is not in the dominant.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "bostonPart",
+        "type": "Title"
+    },
+    {
+        "text": "measures",
+        "type": "Title"
+    },
+    {
+        "text": "10",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "15",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "analyze",
+        "type": "Title"
+    },
+    {
+        "text": "'key'",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "Key",
+        "type": "Title"
+    },
+    {
+        "text": "of",
+        "type": "Title"
+    },
+    {
+        "text": "major",
+        "type": "Title"
+    },
+    {
+        "text": "It's clear that this piece is not chromatic at all, as a histogram of\nthe pitch classes will show well:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "bostonPart",
+        "type": "Title"
+    },
+    {
+        "text": "plot",
+        "type": "Title"
+    },
+    {
+        "text": "'histogram'",
+        "type": "Title"
+    },
+    {
+        "text": "'pitchClass'",
+        "type": "Title"
+    },
+    {
+        "text": "Are there particular pitches \u2014 perhaps exploiting the open strings \u2014\nthat appear more often in this repertory? We can stitch a bunch of\npieces together and see. We'll use an Opus Stream, which is a Stream\nthat can hold other scores:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "manyScores",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Opus",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "range",
+        "type": "Title"
+    },
+    {
+        "text": "50",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "sc",
+        "type": "Title"
+    },
+    {
+        "text": "ryans",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "manyScores",
+        "type": "Title"
+    },
+    {
+        "text": "insert",
+        "type": "Title"
+    },
+    {
+        "text": "sc",
+        "type": "Title"
+    },
+    {
+        "text": "manyScores",
+        "type": "Title"
+    },
+    {
+        "text": "plot",
+        "type": "Title"
+    },
+    {
+        "text": "'histogram'",
+        "type": "Title"
+    },
+    {
+        "text": "'pitchClass'",
+        "type": "Title"
+    },
+    {
+        "text": "It appears Boston Reel was \u009cwicked queer\u009d for using F major. Many more\npieces emphasize notes of the open strings on the violin, with A, D, and\nE being the top three most used pitches (with G about tied with B).",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Well, we didn't get to everything since the last set of examples, but we\ngot through a lot, and I hope it gives some sense of what you could do\nwith your own repertory. Let's now dial back the difficulty for the next\nsection and look at some fundamental objects we've missed in\nChapter 31: Clefs, Ties, and Beams.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 30: Examples 3",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

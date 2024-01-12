@@ -1,0 +1,2098 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.metadata.primitives",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.metadata.caching",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.metadata.properties",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.metadata.primitives\nText\nText\nText.language\nText.__eq__()\nText.getNormalizedArticle()\n\n\n\n\nDate\nDate\nDate.datetime\nDate.hasError\nDate.hasTime\nDate.__eq__()\nDate.errorToSymbol()\nDate.load()\nDate.loadDatetime()\nDate.loadOther()\nDate.loadStr()\n\n\n\n\nDateSingle\nDateSingle\n\n\nDateRelative\nDateRelative\nDateRelative.relevance\n\n\n\n\nDateBetween\nDateBetween\nDateBetween.relevance\n\n\n\n\nDateSelection\nDateSelection\nDateSelection.relevance\n\n\n\n\nContributor\nContributor\nContributor.name\nContributor.names\nContributor.role\nContributor.__eq__()\nContributor.abbreviationToRole()\nContributor.age()\nContributor.roleToAbbreviation()\n\n\n\n\nCopyright\nCopyright\nCopyright.__eq__()\n\n\n\n\nCreator\nCreator\n\n\nDatePrimitive\nDatePrimitive\nDatePrimitive.datetime\nDatePrimitive.relevance\nDatePrimitive.__eq__()\n\n\n\n\nImprint\nImprint",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.metadata.primitives\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Text\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.metadata.primitives.",
+        "type": "Title"
+    },
+    {
+        "text": "Text",
+        "type": "Title"
+    },
+    {
+        "text": "data",
+        "type": "Title"
+    },
+    {
+        "text": "str | Text",
+        "type": "Title"
+    },
+    {
+        "text": "''",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "language",
+        "type": "Title"
+    },
+    {
+        "text": "str | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "isTranslated",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "bool | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "encodingScheme",
+        "type": "Title"
+    },
+    {
+        "text": "str | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "One unit of text data: a title, a name, or some other text data. Store the\nstring and a language name or code. This object can be used and/or\nsubclassed for a variety for of text storage.\n>>> td = metadata.Text('concerto in d', 'en')\n>>> str(td)\n'concerto in d'\n>>> td.language\n'en'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Text bases",
+        "type": "Title"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "Text read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "Text read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Text.",
+        "type": "Title"
+    },
+    {
+        "text": "language",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Set the language of the Text stored within.\n>>> myText = metadata.Text('my text')\n>>> myText.language = 'en'\n>>> myText.language\n'en'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Text methods",
+        "type": "Title"
+    },
+    {
+        "text": "Text.",
+        "type": "Title"
+    },
+    {
+        "text": "__eq__",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "other",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>> t1 = metadata.Text('some text')\n>>> t2 = metadata.Text('some text')\n>>> t1 == t2\nTrue\n\n\nLanguage, isTranslated, and encodingScheme must all exactly match for equality.\n>>> t2 = metadata.Text('some text', language='en')\n>>> t1 == t2\nFalse\n>>> t2 = metadata.Text('some text', isTranslated=True)\n>>> t1 == t2\nFalse\n>>> t2 = metadata.Text('some text', encodingScheme='scheme42')\n>>> t1 == t2\nFalse\n\n\nComparison with non-Text types, including bare strings,\nwill always be considered unequal.\n>>> t1 == 'some text'\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "Text.",
+        "type": "Title"
+    },
+    {
+        "text": "getNormalizedArticle",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a string representation with normalized articles.\n>>> td = metadata.Text('Ale is Dear, The', language='en')\n>>> str(td)\n'Ale is Dear, The'\n\n\n>>> td.getNormalizedArticle()\n'The Ale is Dear'\n\n\nThe language will determine whether the article is moved:\n>>> td.language = 'de'\n>>> td.getNormalizedArticle()\n'Ale is Dear, The'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Date\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.metadata.primitives.",
+        "type": "Title"
+    },
+    {
+        "text": "Date",
+        "type": "Title"
+    },
+    {
+        "text": "year",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "month",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "day",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "hour",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "minute",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "second",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "float",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "yearError",
+        "type": "Title"
+    },
+    {
+        "text": "str | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "monthError",
+        "type": "Title"
+    },
+    {
+        "text": "str | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "dayError",
+        "type": "Title"
+    },
+    {
+        "text": "str | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "hourError",
+        "type": "Title"
+    },
+    {
+        "text": "str | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "minuteError",
+        "type": "Title"
+    },
+    {
+        "text": "str | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "secondError",
+        "type": "Title"
+    },
+    {
+        "text": "str | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A single date value, specified by year, month, day, hour, minute, and\nsecond. Note that this class has been created, instead of using Python's\ndatetime, to provide greater flexibility for processing unconventional\ndates, ancient dates, dates with error, and date ranges.\nThe datetime property can be used to\nretrieve a datetime object when necessary.\nAdditionally, each value can be specified as uncertain or approximate;\nif None, assumed to be certain.\nDate objects are fundamental components of\nDateSingle and related subclasses that represent\nsingle dates and date ranges.\n>>> a = metadata.Date(year=1843, yearError='approximate')\n>>> a.year\n1843\n\n\n>>> a.yearError\n'approximate'\n\n\n>>> a = metadata.Date(year='1843?')\n>>> a.yearError\n'uncertain'\n\n\n>>> d = metadata.Date(year=1805, month=3, monthError='approximate')\n>>> str(d)\n'1805/03~/--'\n\n\nNote that milliseconds are not retained, as this is a tool for musicology\nand not for file timestamps.  However, unlike datetime objects, dates\nin the distant past are supported (though not currently BC/BCE dates).",
+        "type": "ListItem"
+    },
+    {
+        "text": "Date bases",
+        "type": "Title"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "Date read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Date.",
+        "type": "Title"
+    },
+    {
+        "text": "datetime",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get a datetime object from a metadata.Date() object\n>>> a = metadata.Date(year=1843, month=3, day=3)\n>>> str(a)\n'1843/03/03'\n\n\n>>> a.datetime\ndatetime.datetime(1843, 3, 3, 0, 0)\n\n\nLack of a required date element raises an exception:\n>>> a = metadata.Date(year=1843, month=3)\n>>> str(a)\n'1843/03/--'\n\n\n>>> a.datetime\nTraceback (most recent call last):\nTypeError: ...argument 'day' (pos 3)...",
+        "type": "ListItem"
+    },
+    {
+        "text": "Date.",
+        "type": "Title"
+    },
+    {
+        "text": "hasError",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return True if any data points have error defined:\n>>> a = metadata.Date(\n...     year=1843,\n...     month=3,\n...     day=3,\n...     dayError='approximate',\n...     )\n>>> a.hasError\nTrue\n\n\n>>> b = metadata.Date(\n...     year=1843,\n...     month=3,\n...     day=3,\n...     minute=3,\n...     )\n>>> b.hasError\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "Date.",
+        "type": "Title"
+    },
+    {
+        "text": "hasTime",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return True if any time elements are defined:\n>>> a = metadata.Date(year=1843, month=3, day=3)\n>>> a.hasTime\nFalse\n\n\n>>> b = metadata.Date(year=1843, month=3, day=3, minute=3)\n>>> b.hasTime\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "Date methods",
+        "type": "Title"
+    },
+    {
+        "text": "Date.",
+        "type": "Title"
+    },
+    {
+        "text": "__eq__",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "other",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return self==value.",
+        "type": "ListItem"
+    },
+    {
+        "text": "static",
+        "type": "Title"
+    },
+    {
+        "text": "Date.",
+        "type": "Title"
+    },
+    {
+        "text": "errorToSymbol",
+        "type": "Title"
+    },
+    {
+        "text": "value",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Convert an error string (approximate, uncertain) into a symbol.\n>>> metadata.Date.errorToSymbol('approximate')\n'~'\n\n\n>>> metadata.Date.errorToSymbol('uncertain')\n'?'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Date.",
+        "type": "Title"
+    },
+    {
+        "text": "load",
+        "type": "Title"
+    },
+    {
+        "text": "value",
+        "type": "Title"
+    },
+    {
+        "text": "Date",
+        "type": "Title"
+    },
+    {
+        "text": "datetime",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Load values by string, datetime object, or Date object:\n>>> a = metadata.Date(year=1843, month=3, day=3)\n>>> b = metadata.Date()\n>>> b.load(a)\n>>> b.year\n1843\n\n\nIf there is an error, a ValueError is raised, but the\nincorrect values are retained:\n>>> d = metadata.Date()\n>>> d.load('1999/14/32/25:60:61')\nTraceback (most recent call last):\nValueError: Month must be between 1 and 12, not 14.\n>>> str(d)\n'1999/14/32/25:60:61'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Date.",
+        "type": "Title"
+    },
+    {
+        "text": "loadDatetime",
+        "type": "Title"
+    },
+    {
+        "text": "dt",
+        "type": "Title"
+    },
+    {
+        "text": "datetime",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Load time data from a datetime object:\n>>> import datetime\n>>> dt = datetime.datetime(2005, 2, 1)\n>>> dt\ndatetime.datetime(2005, 2, 1, 0, 0)\n\n\n>>> m21mdDate = metadata.Date()\n>>> m21mdDate.loadDatetime(dt)\n>>> str(m21mdDate)\n'2005/02/01'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Date.",
+        "type": "Title"
+    },
+    {
+        "text": "loadOther",
+        "type": "Title"
+    },
+    {
+        "text": "other",
+        "type": "Title"
+    },
+    {
+        "text": "Date",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Load values based on another Date object.  (the \u009cOther\u009d in \u009cloadOther\u009d\nmeans another Date object, not just anything.\n>>> a = metadata.Date(year=1843, month=3, day=3, yearError='approximate')\n>>> b = metadata.Date()\n>>> b.loadOther(a)\n>>> b.year\n1843\n>>> b.yearError\n'approximate'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Date.",
+        "type": "Title"
+    },
+    {
+        "text": "loadStr",
+        "type": "Title"
+    },
+    {
+        "text": "dateStr",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Load a string date representation, which might have approximate\nsymbols.\nAssume year/month/day/hour:minute:second:\n>>> d = metadata.Date()\n>>> d.loadStr('1030?/12~/?4')\n>>> d.month, d.monthError\n(12, 'approximate')\n\n\n>>> d.year, d.yearError\n(1030, 'uncertain')\n\n\n>>> d.month, d.monthError\n(12, 'approximate')\n\n\n>>> d.day, d.dayError\n(4, 'uncertain')\n\n\n>>> d = metadata.Date()\n>>> d.loadStr('1834/12/4/4:50:32')\n>>> d.minute, d.second\n(50, 32)",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "DateSingle\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.metadata.primitives.",
+        "type": "Title"
+    },
+    {
+        "text": "DateSingle",
+        "type": "Title"
+    },
+    {
+        "text": "data",
+        "type": "Title"
+    },
+    {
+        "text": "Date",
+        "type": "Title"
+    },
+    {
+        "text": "datetime",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "''",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "relevance",
+        "type": "Title"
+    },
+    {
+        "text": "'certain'",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Store a date, either as certain, approximate, or uncertain relevance.\nThe relevance attribute is limited within each DateSingle subclass\ndepending on the design of the class. Alternative relevance types should be\nconfigured as other DateSingle subclasses.\n>>> dd = metadata.DateSingle('2009/12/31', 'approximate')\n>>> dd\n<music21.metadata.primitives.DateSingle 2009/12/31>\n\n\n>>> str(dd)\n'2009/12/31'\n\n\n>>> dd.relevance\n'approximate'\n\n\n>>> dd = metadata.DateSingle('1805/3/12', 'uncertain')\n>>> str(dd)\n'1805/03/12'",
+        "type": "ListItem"
+    },
+    {
+        "text": "DateSingle bases",
+        "type": "Title"
+    },
+    {
+        "text": "DatePrimitive",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "DateSingle read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from DatePrimitive:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "datetime",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "DateSingle read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from DatePrimitive:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "relevance",
+        "type": "Table"
+    },
+    {
+        "text": "DateSingle methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from DatePrimitive:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "DateRelative\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.metadata.primitives.",
+        "type": "Title"
+    },
+    {
+        "text": "DateRelative",
+        "type": "Title"
+    },
+    {
+        "text": "data",
+        "type": "Title"
+    },
+    {
+        "text": "Date",
+        "type": "Title"
+    },
+    {
+        "text": "datetime",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "''",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "relevance",
+        "type": "Title"
+    },
+    {
+        "text": "'after'",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Store a relative date, sometime prior or sometime after, onorbefore, or onorafter`.\n>>> dd = metadata.DateRelative('2009/12/31', 'prior')\n>>> str(dd)\n'prior to 2009/12/31'\n>>> dd.relevance = 'after'\n>>> str(dd)\n'after 2009/12/31'\n\n\n>>> dd = metadata.DateRelative('2009/12/31', 'certain')\nTraceback (most recent call last):\nmusic21.exceptions21.MetadataException: Relevance value is not\n    supported by this object: 'certain'",
+        "type": "ListItem"
+    },
+    {
+        "text": "DateRelative bases",
+        "type": "Title"
+    },
+    {
+        "text": "DatePrimitive",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "DateRelative read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from DatePrimitive:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "datetime",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "DateRelative read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "DateRelative.",
+        "type": "Title"
+    },
+    {
+        "text": "relevance",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The relevance attribute takes one of four\nvalues, \u0098prior', \u0098after', or\n\u0098onorbefore' or \u0098onorafter'.",
+        "type": "ListItem"
+    },
+    {
+        "text": "DateRelative methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from DatePrimitive:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "DateBetween\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.metadata.primitives.",
+        "type": "Title"
+    },
+    {
+        "text": "DateBetween",
+        "type": "Title"
+    },
+    {
+        "text": "data",
+        "type": "Title"
+    },
+    {
+        "text": "Iterable",
+        "type": "Title"
+    },
+    {
+        "text": "Date",
+        "type": "Title"
+    },
+    {
+        "text": "datetime",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "relevance",
+        "type": "Title"
+    },
+    {
+        "text": "'between'",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Store a relative date, sometime between two dates:\n>>> dd = metadata.DateBetween(['2009/12/31', '2010/1/28'])\n>>> str(dd)\n'2009/12/31 to 2010/01/28'\n\n\n>>> dd = metadata.DateBetween(['2009/12/31', '2010/1/28'], 'certain')\nTraceback (most recent call last):\nmusic21.exceptions21.MetadataException: Relevance value is not\n    supported by this object: 'certain'\n\n\n>>> d1 = metadata.Date(year=1605)\n>>> d2 = metadata.Date(year=1608, month='11?')\n>>> dd = metadata.DateBetween([d1, d2])\n>>> str(dd)\n'1605/--/-- to 1608/11?/--'",
+        "type": "ListItem"
+    },
+    {
+        "text": "DateBetween bases",
+        "type": "Title"
+    },
+    {
+        "text": "DatePrimitive",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "DateBetween read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from DatePrimitive:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "datetime",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "DateBetween read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "DateBetween.",
+        "type": "Title"
+    },
+    {
+        "text": "relevance",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The relevance attribute takes only one value:\n\u0098between'.",
+        "type": "ListItem"
+    },
+    {
+        "text": "DateBetween methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from DatePrimitive:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "DateSelection\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.metadata.primitives.",
+        "type": "Title"
+    },
+    {
+        "text": "DateSelection",
+        "type": "Title"
+    },
+    {
+        "text": "data",
+        "type": "Title"
+    },
+    {
+        "text": "Iterable",
+        "type": "Title"
+    },
+    {
+        "text": "Date",
+        "type": "Title"
+    },
+    {
+        "text": "datetime",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "relevance",
+        "type": "Title"
+    },
+    {
+        "text": "'or'",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Store a selection of dates, or a collection of dates that might all be\npossible\n>>> dd = metadata.DateSelection(\n...     ['2009/12/31', '2010/1/28', '1894/1/28'],\n...     )\n>>> str(dd)\n'2009/12/31 or 2010/01/28 or 1894/01/28'\n\n\n>>> dd = metadata.DateSelection(\n...     [1750, '1775/03?'],\n...     'and'\n...     )\n>>> str(dd)\n'1750/--/-- and 1775/03?/--'\n\n\n>>> dd = metadata.DateSelection(\n...     ['2009/12/31', '2010/1/28'],\n...     'certain',\n...     )\nTraceback (most recent call last):\nmusic21.exceptions21.MetadataException: Relevance value is not\n    supported by this object: 'certain'\n\n\nNote that \u00981350 or 1351 and 1375' is not supported yet.",
+        "type": "ListItem"
+    },
+    {
+        "text": "DateSelection bases",
+        "type": "Title"
+    },
+    {
+        "text": "DatePrimitive",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "DateSelection read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from DatePrimitive:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "datetime",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "DateSelection read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "DateSelection.",
+        "type": "Title"
+    },
+    {
+        "text": "relevance",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The relevance attribute takes only two values:\n\u0098or' or \u0098and'.",
+        "type": "ListItem"
+    },
+    {
+        "text": "DateSelection methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from DatePrimitive:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Contributor\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.metadata.primitives.",
+        "type": "Title"
+    },
+    {
+        "text": "Contributor",
+        "type": "Title"
+    },
+    {
+        "text": "name",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "Text",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "names",
+        "type": "Title"
+    },
+    {
+        "text": "Iterable",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "Text",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "role",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "Text",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "birth",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "DateSingle",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "death",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "DateSingle",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A person that contributed to a work. Can be a composer, lyricist, arranger,\nor other type of contributor.  In MusicXML, these are \u009ccreator\u009d elements.\n>>> td = metadata.Contributor(role='composer', name='Chopin, Fryderyk')\n>>> td.role\n'composer'\n\n\n>>> td.name\n'Chopin, Fryderyk'\n\n\n>>> td.relevance\n'contributor'\n\n\n>>> td\n<music21.metadata.primitives.Contributor composer:Chopin, Fryderyk>",
+        "type": "ListItem"
+    },
+    {
+        "text": "Contributor bases",
+        "type": "Title"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "Contributor read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "Contributor read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Contributor.",
+        "type": "Title"
+    },
+    {
+        "text": "name",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns the text name, or the first of many names entered.\n>>> td = metadata.Contributor(\n...     role='composer',\n...     names=['Chopin, Fryderyk', 'Chopin, Frederick'],\n...     )\n>>> td.name\n'Chopin, Fryderyk'\n\n\n>>> td.names\n['Chopin, Fryderyk', 'Chopin, Frederick']",
+        "type": "ListItem"
+    },
+    {
+        "text": "Contributor.",
+        "type": "Title"
+    },
+    {
+        "text": "names",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns all names in a list.\n>>> td = metadata.Contributor(\n...     role='composer',\n...     names=['Chopin, Fryderyk', 'Chopin, Frederick'],\n...     )\n>>> td.names\n['Chopin, Fryderyk', 'Chopin, Frederick']\n\n\n>>> td.names = ['Czerny', 'Spohr']\n>>> td.names\n['Czerny', 'Spohr']",
+        "type": "ListItem"
+    },
+    {
+        "text": "Contributor.",
+        "type": "Title"
+    },
+    {
+        "text": "role",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The role is what part this Contributor plays in the work.  Both\nfull roll strings and roll abbreviations may be used.\n>>> td = metadata.Contributor()\n>>> td.role = 'composer'\n>>> td.role\n'composer'\n\n\nIn case of a Humdrum role abbreviation, the role that is set\nis the full name:\n>>> td.role = 'lor'\n>>> td.role\n'orchestrator'\n\n\nRoles can be created on the fly:\n>>> td.role = 'court jester'\n>>> td.role\n'court jester'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Contributor methods",
+        "type": "Title"
+    },
+    {
+        "text": "Contributor.",
+        "type": "Title"
+    },
+    {
+        "text": "__eq__",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "other",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>> c1 = metadata.Contributor(\n...         role='composer',\n...         name='The Composer',\n...         birth='1923',\n...         death='2013'\n... )\n>>> c2 = metadata.Contributor(\n...         role='composer',\n...         name='The Composer',\n...         birth='1923',\n...         death='2013'\n... )\n\n\nNames, role, birth, and death must all be identical for equality.\n>>> c1 == c2\nTrue\n>>> c2.role = 'lyricist'\n>>> c1 == c2\nFalse\n>>> c2 = metadata.Contributor(\n...         role='composer',\n...         name='A Composer',\n...         birth='1923',\n...         death='2013'\n... )\n>>> c1 == c2\nFalse\n>>> c2 = metadata.Contributor(\n...         role='composer',\n...         names=['A Composer', 'The Composer'],\n...         birth='1923',\n...         death='2013'\n... )\n>>> c1 == c2\nFalse\n>>> c2 = metadata.Contributor(\n...         role='composer',\n...         name='The Composer',\n...         birth='1924',\n...         death='2013'\n... )\n>>> c1 == c2\nFalse\n>>> c2 = metadata.Contributor(\n...         role='composer',\n...         name='The Composer',\n...         birth='1923',\n...         death='2012'\n... )\n>>> c1 == c2\nFalse\n\n\nComparison with a non-Contributor object always returns False.\n>>> c1 == 'The Composer'\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "static",
+        "type": "Title"
+    },
+    {
+        "text": "Contributor.",
+        "type": "Title"
+    },
+    {
+        "text": "abbreviationToRole",
+        "type": "Title"
+    },
+    {
+        "text": "abbreviation",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Convert abbreviation to role name:\n>>> metadata.Contributor.abbreviationToRole('com')\n'composer'\n\n\n>>> metadata.Contributor.abbreviationToRole('lib')\n'librettist'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Contributor.",
+        "type": "Title"
+    },
+    {
+        "text": "age",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 timedelta | None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Calculate the age at death of the Contributor, returning a\ndatetime.timedelta object.\n>>> a = metadata.Contributor(\n...     name='Beethoven, Ludwig van',\n...     role='composer',\n...     birth='1770/12/17',\n...     death='1827/3/26',\n...     )\n\n\n>>> a.birth\n<music21.metadata.primitives.DateSingle 1770/12/17>\n\n\n>>> a.age()\ndatetime.timedelta(days=20552)\n\n\n>>> a.age().days\n20552\n\n\n>>> years = a.age().days // 365\n>>> years\n56\n\n\nIf the composer is still alive, it returns the composer's current age.\n>>> shaw = metadata.Contributor(\n...     name='Shaw, Caroline',\n...     role='composer',\n...     birth='1982/08/01',\n...     )\n>>> shaw_years = shaw.age().days // 365\n\n\nThis test will fail in 2067:\n>>> 36 < shaw_years < 85\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "static",
+        "type": "Title"
+    },
+    {
+        "text": "Contributor.",
+        "type": "Title"
+    },
+    {
+        "text": "roleToAbbreviation",
+        "type": "Title"
+    },
+    {
+        "text": "roleName",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Convert roleName to role abbreviation:\n>>> metadata.Contributor.roleToAbbreviation('composer')\n'com'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Copyright\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.metadata.primitives.",
+        "type": "Title"
+    },
+    {
+        "text": "Copyright",
+        "type": "Title"
+    },
+    {
+        "text": "data",
+        "type": "Title"
+    },
+    {
+        "text": "str | Text",
+        "type": "Title"
+    },
+    {
+        "text": "''",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "language",
+        "type": "Title"
+    },
+    {
+        "text": "str | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "isTranslated",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "bool | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "role",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A subclass of text that can also have a role\n>>> c = metadata.primitives.Copyright('Copyright 1945 Florence Price')\n>>> c\n<music21.metadata.primitives.Copyright Copyright 1945 Florence Price>\n>>> c.role is None\nTrue\n>>> str(c)\n'Copyright 1945 Florence Price'\n\n\nThe text, language, isTranslated, role, etc. must be identical for equality.\n>>> c2 = metadata.Copyright('Copyright 1945 Florence Price')\n>>> c == c2\nTrue\n>>> c2 = metadata.Copyright('Copyright \u00c2\u00a9 1945 Florence Price')\n>>> c == c2\nFalse\n>>> c2 = metadata.Copyright('Copyright 1945 Florence Price', language='en')\n>>> c == c2\nFalse\n>>> c2 = metadata.Copyright('Copyright 1945 Florence Price', isTranslated=True)\n>>> c == c2\nFalse\n>>> c2 = metadata.Copyright('Copyright 1945 Florence Price', role='other')\n>>> c == c2\nFalse\n\n\nComparison against a non-Copyright object will always return False.\n>>> c == 1945\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "Copyright bases",
+        "type": "Title"
+    },
+    {
+        "text": "Text",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "Copyright read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "Copyright read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Text:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "language",
+        "type": "Table"
+    },
+    {
+        "text": "Copyright methods",
+        "type": "Title"
+    },
+    {
+        "text": "Copyright.",
+        "type": "Title"
+    },
+    {
+        "text": "__eq__",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "other",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>> t1 = metadata.Text('some text')\n>>> t2 = metadata.Text('some text')\n>>> t1 == t2\nTrue\n\n\nLanguage, isTranslated, and encodingScheme must all exactly match for equality.\n>>> t2 = metadata.Text('some text', language='en')\n>>> t1 == t2\nFalse\n>>> t2 = metadata.Text('some text', isTranslated=True)\n>>> t1 == t2\nFalse\n>>> t2 = metadata.Text('some text', encodingScheme='scheme42')\n>>> t1 == t2\nFalse\n\n\nComparison with non-Text types, including bare strings,\nwill always be considered unequal.\n>>> t1 == 'some text'\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from Text:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "getNormalizedArticle()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Creator\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.metadata.primitives.",
+        "type": "Title"
+    },
+    {
+        "text": "Creator",
+        "type": "Title"
+    },
+    {
+        "text": "name",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "Text",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "names",
+        "type": "Title"
+    },
+    {
+        "text": "Iterable",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "Text",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "role",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "Text",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "birth",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "DateSingle",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "death",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "DateSingle",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A person that created a work. Can be a composer, lyricist, arranger, or\nother type of contributor.\nIn MusicXML, these are \u009ccreator\u009d elements.\n>>> td = metadata.Creator(role='composer', name='Chopin, Fryderyk')\n>>> td.role\n'composer'\n\n\n>>> td.name\n'Chopin, Fryderyk'\n\n\n>>> td.relevance\n'creator'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Creator bases",
+        "type": "Title"
+    },
+    {
+        "text": "Contributor",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "Creator read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "Creator read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Contributor:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "name names role",
+        "type": "Table"
+    },
+    {
+        "text": "Creator methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from Contributor:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() abbreviationToRole() age() roleToAbbreviation()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "DatePrimitive\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.metadata.primitives.",
+        "type": "Title"
+    },
+    {
+        "text": "DatePrimitive",
+        "type": "Title"
+    },
+    {
+        "text": "relevance",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "'certain'",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A default class for all date objects, which can have different types\nand different \u009crelevance\u009d values.\nNote that the interaction between uncertainty on an entire DatePrimitive object\nvs uncertainty on a particular Date value, like month, is ill-defined\nand needs work.",
+        "type": "ListItem"
+    },
+    {
+        "text": "DatePrimitive bases",
+        "type": "Title"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "DatePrimitive read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "DatePrimitive.",
+        "type": "Title"
+    },
+    {
+        "text": "datetime",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get a datetime object.\n>>> a = metadata.DateSingle('1843/03/03')\n>>> str(a)\n'1843/03/03'\n\n\n>>> a.datetime\ndatetime.datetime(1843, 3, 3, 0, 0)\n\n\n>>> a = metadata.DateSingle('1843/03')\n>>> str(a)\n'1843/03/--'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "DatePrimitive read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "DatePrimitive.",
+        "type": "Title"
+    },
+    {
+        "text": "relevance",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The relevance attribute takes one of three\nvalues, \u0098certain', \u0098approximate', or\n\u0098uncertain'.",
+        "type": "ListItem"
+    },
+    {
+        "text": "DatePrimitive methods",
+        "type": "Title"
+    },
+    {
+        "text": "DatePrimitive.",
+        "type": "Title"
+    },
+    {
+        "text": "__eq__",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "other",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>> dd = metadata.DateSingle('1805/3/12', 'uncertain')\n>>> dd2 = metadata.DateSingle('1805/3/12', 'uncertain')\n>>> str(dd)\n'1805/03/12'\n>>> dd == dd2\nTrue\n>>> dd2.relevance='certain'\n>>> dd == dd2\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Imprint\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.metadata.primitives.",
+        "type": "Title"
+    },
+    {
+        "text": "Imprint",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "An object representation of imprint, or publication.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Imprint bases",
+        "type": "Title"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "Imprint read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "Imprint methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.metadata.primitives",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

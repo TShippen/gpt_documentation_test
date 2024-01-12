@@ -1,0 +1,1454 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 22: Graphing and plotting",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide, Chapter 21: Ordering and Sorting of Stream Elements",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide, Chapter 23: Roman Numeral Analysis",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide, Chapter 22: Graphing and plotting\nPiano Rolls!\nInstalling graphing software\nWhere are graphs located?\nWhat sorts of graphs are there?\nApplication \u2014 pitchSpace counting",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide\nUser's Guide: Table of Contents\nUser's Guide, Chapter 1: Installing and Getting Started with music21\nUser's Guide, Chapter 2: Notes\nUser's Guide, Chapter 3: Pitches, Durations, and Notes again\nUser's Guide, Chapter 4: Lists, Streams (I) and Output\nUser's Guide, Chapter 5: Lists of Lists, Functions, and Recursion\nUser's Guide, Chapter 6: Streams (II): Hierarchies, Recursion, and Flattening\nUser's Guide, Chapter 7: Chords\nUser's Guide, Chapter 8: Installing MusicXML Readers and File Formats (1)\nUser's Guide, Chapter 9: Chordify\nUser's Guide, Chapter 10: Examples 1\nUser's Guide, Chapter 11: Corpus Searching\nUser's Guide, Chapter 12: Getting Back to Basics: The Music21Object\nUser's Guide, Chapter 13: More Music21Object Attributes and Properties\nUser's Guide: Chapter 14: Time Signatures and Beats\nUser's Guide, Chapter 15: Keys and KeySignatures\nUser's Guide, Chapter 16: TinyNotation\nUser's Guide: Chapter 17: Derivations\nUser's Guide: Chapter 18: Intervals\nUser's Guide, Chapter 19: Advanced Durations (Complex and Tuplets)\nUser's Guide, Chapter 20: Examples 2\nUser's Guide, Chapter 21: Ordering and Sorting of Stream Elements\nUser's Guide, Chapter 22: Graphing and plotting\nUser's Guide, Chapter 23: Roman Numeral Analysis\nUser's Guide, Chapter 24: Configuring Environment Settings\nUser's Guide, Chapter 25: Post-Tonal Tools (1)\nUser's Guide, Chapter 26: Stream Iteration and Filtering\nUser's Guide, Chapter 27: Grace Notes\nUser's Guide, Chapter 28: Lyric Searching\nUser's Guide, Chapter 29: Spanners 1 (Slurs)\nUser's Guide, Chapter 30: Examples 3\nUser's Guide, Chapter 31: Clefs, Ties, and Beams\nUser's Guide, Chapter 32: Articulations\nUser's Guide, Chapter 44: Advanced Graphing (Axes, Plots, and Graphs)\nUser's Guide, Chapter 53: Advanced Corpus and Metadata Searching\nUser's Guide, Chapter 54: Extending Converter with New Formats\nUser's Guide, Chapter 55: Advanced Meter Topics\nUser's Guide, Chapter 58: Understanding Sites and Contexts\nUser's Guide, Chapter 61: TimespanTrees and Verticalities",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 22: Graphing and plotting\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Music notation isn't the only way to understand music visually.\nSometimes a plot of a musical score can reveal relationships across a\npiece that are hard to understand otherwise. music21 includes a lot\nof ways to visualize notes, scores, and measures, and in this chapter we\nwill see some of the most common ones.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Piano Rolls!\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "The easiest way to see how pitches evolve over the course of a piece is\nto create a virtual representation of a piano roll. Unlike a traditional\npiano roll, time is usually represented on the horizontal axis and pitch\nheight along the vertical. The easiest way to see how this works is\nsimply to create one of these graphs, so we can get started. Let's load\nup some Verdi:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "from",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "import",
+        "type": "Title"
+    },
+    {
+        "text": "verdi",
+        "type": "Title"
+    },
+    {
+        "text": "corpus",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "'verdi/laDonnaEMobile'",
+        "type": "Title"
+    },
+    {
+        "text": "verdi",
+        "type": "Title"
+    },
+    {
+        "text": "id",
+        "type": "Title"
+    },
+    {
+        "text": "'verdi'",
+        "type": "Title"
+    },
+    {
+        "text": "verdi",
+        "type": "Title"
+    },
+    {
+        "text": "measures",
+        "type": "Title"
+    },
+    {
+        "text": "10",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "First, let's visualize the vocal part alone:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "voice",
+        "type": "Title"
+    },
+    {
+        "text": "verdi",
+        "type": "Title"
+    },
+    {
+        "text": "parts",
+        "type": "Title"
+    },
+    {
+        "text": "voice",
+        "type": "Title"
+    },
+    {
+        "text": "measures",
+        "type": "Title"
+    },
+    {
+        "text": "10",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "plot",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The default here is to plot pitch against time, calculated in measures.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "If you are following along with these examples in a Jupyter or Google\nnotebook, and you're not on the latest matplotlib/JupyterLab be sure to\nexecute the magic command:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "matplotlib",
+        "type": "Title"
+    },
+    {
+        "text": "inline",
+        "type": "Title"
+    },
+    {
+        "text": "To ensure that the graphs show up inside your notebook.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "music21 takes care of some of the hard things that can make\nvisualizing music in most data visualization software (such as Microsoft\nExcel) difficult. For instance, measure numbers are used directly as\nthey appear in the score; pitches are labeled with names only when they\nappear (including the choosing most commonly appearing enharmonic\nspelling, using proper sharp and flat signs instead of \u009cb\u009d and \u009c#\u009d). We\ncan make a fake piece to see how this works:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "fakePiece",
+        "type": "Title"
+    },
+    {
+        "text": "converter",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "\"tinyNotation: 1/4 c#4 2/4 d-4 e#4 3/4 e#2 f4 4/4 c#4 d'--2\"",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "fakePiece",
+        "type": "Title"
+    },
+    {
+        "text": "id",
+        "type": "Title"
+    },
+    {
+        "text": "'fake'",
+        "type": "Title"
+    },
+    {
+        "text": "fakePiece",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "fakePiece",
+        "type": "Title"
+    },
+    {
+        "text": "plot",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "(This was hard to do! And we're, I hope justifiably, proud of getting\nthings like this right. Major shoutout to Christopher Ariza who wrote\n90% of the graphing code).",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "We can make other types of graphs just as easily. For instance, plotting\nlengths of notes against their position in space. For this one, a little\npiece by Schoenberg (Opus 19, no. 2) is great, since the repetition of\nG4 + B4 as eighth notes becomes clear:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "schoenberg",
+        "type": "Title"
+    },
+    {
+        "text": "corpus",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "'schoenberg/opus19'",
+        "type": "Title"
+    },
+    {
+        "text": "schoenberg",
+        "type": "Title"
+    },
+    {
+        "text": "id",
+        "type": "Title"
+    },
+    {
+        "text": "'schoenberg'",
+        "type": "Title"
+    },
+    {
+        "text": "schoenberg",
+        "type": "Title"
+    },
+    {
+        "text": "measures",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Let's do a scatter plot of quarterLength against pitch:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "schoenberg",
+        "type": "Title"
+    },
+    {
+        "text": "plot",
+        "type": "Title"
+    },
+    {
+        "text": "'scatter'",
+        "type": "Title"
+    },
+    {
+        "text": "'quarterLength'",
+        "type": "Title"
+    },
+    {
+        "text": "'pitch'",
+        "type": "Title"
+    },
+    {
+        "text": "title",
+        "type": "Title"
+    },
+    {
+        "text": "'See the G and B!'",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "It's a little small on this website (you can make it as big as you want\non your own with the keyword dpi=400 or so), so maybe just a\nhistogram of pitch would be better:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "schoenberg",
+        "type": "Title"
+    },
+    {
+        "text": "plot",
+        "type": "Title"
+    },
+    {
+        "text": "'histogram'",
+        "type": "Title"
+    },
+    {
+        "text": "'octave'",
+        "type": "Title"
+    },
+    {
+        "text": "xHideUnused",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "yAxisLabel",
+        "type": "Title"
+    },
+    {
+        "text": "'Number of Pitches'",
+        "type": "Title"
+    },
+    {
+        "text": "Or even just pitch classes:",
+        "type": "Title"
+    },
+    {
+        "text": "schoenberg",
+        "type": "Title"
+    },
+    {
+        "text": "plot",
+        "type": "Title"
+    },
+    {
+        "text": "'histogram'",
+        "type": "Title"
+    },
+    {
+        "text": "'pitchClass'",
+        "type": "Title"
+    },
+    {
+        "text": "Okay, so we've gotten a taste for graphs, let's look more closely at how\nto make them:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Installing graphing software\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "All plots require installing the matplotlib and numpy libraries.\nYou should have them installed when you installed music21.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Where are graphs located?\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.graph modules,\nspecifically:",
+        "type": "Title"
+    },
+    {
+        "text": "music21.graph.primitives,",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21.graph.plot\nand",
+        "type": "Title"
+    },
+    {
+        "text": "music21.graph.axis. With some utility functions located in",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "music21.graph.utilities and",
+        "type": "Title"
+    },
+    {
+        "text": "music21.graph.findPlot.",
+        "type": "Title"
+    },
+    {
+        "text": "What sorts of graphs are there?\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "We can look in graph.findPlot.FORMATS for the list of possible\ngraphs:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "graph",
+        "type": "Title"
+    },
+    {
+        "text": "findPlot",
+        "type": "Title"
+    },
+    {
+        "text": "FORMATS",
+        "type": "Title"
+    },
+    {
+        "text": "'horizontalbar'",
+        "type": "Title"
+    },
+    {
+        "text": "'histogram'",
+        "type": "Title"
+    },
+    {
+        "text": "'scatter'",
+        "type": "Title"
+    },
+    {
+        "text": "'scatterweighted'",
+        "type": "Title"
+    },
+    {
+        "text": "'3dbars'",
+        "type": "Title"
+    },
+    {
+        "text": "'colorgrid'",
+        "type": "Title"
+    },
+    {
+        "text": "'horizontalbarweighted'",
+        "type": "Title"
+    },
+    {
+        "text": "We might as well start by trying them!",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "verdi",
+        "type": "Title"
+    },
+    {
+        "text": "plot",
+        "type": "Title"
+    },
+    {
+        "text": "'horizontalbar'",
+        "type": "Title"
+    },
+    {
+        "text": "There are three types of horizontalbar types defined, so we got all\nof them. For the next we'll be more picky\u2026",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "This one we've already seen. Same with the next one:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "verdi",
+        "type": "Title"
+    },
+    {
+        "text": "plot",
+        "type": "Title"
+    },
+    {
+        "text": "'histogram'",
+        "type": "Title"
+    },
+    {
+        "text": "'pitch'",
+        "type": "Title"
+    },
+    {
+        "text": "schoenberg",
+        "type": "Title"
+    },
+    {
+        "text": "plot",
+        "type": "Title"
+    },
+    {
+        "text": "'scatter'",
+        "type": "Title"
+    },
+    {
+        "text": "'pitch'",
+        "type": "Title"
+    },
+    {
+        "text": "'quarterLength'",
+        "type": "Title"
+    },
+    {
+        "text": "There were two kinds of scatter plots \u2014 one that plotted quarter length\nagainst pitch and one that plotted pitch against dynamics. We'll figure\nout how to get the one we want later. Let's keep going:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "verdi",
+        "type": "Title"
+    },
+    {
+        "text": "measures",
+        "type": "Title"
+    },
+    {
+        "text": "10",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "plot",
+        "type": "Title"
+    },
+    {
+        "text": "'scatterweighted'",
+        "type": "Title"
+    },
+    {
+        "text": "'pitch'",
+        "type": "Title"
+    },
+    {
+        "text": "'quarterLength'",
+        "type": "Title"
+    },
+    {
+        "text": "Because this next one returns two graphs, inside a notebook you may need\nreturnInNotebook=True to see the map of colors to keys:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "verdi",
+        "type": "Title"
+    },
+    {
+        "text": "plot",
+        "type": "Title"
+    },
+    {
+        "text": "'colorgrid'",
+        "type": "Title"
+    },
+    {
+        "text": "returnInNotebook",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "graph",
+        "type": "Title"
+    },
+    {
+        "text": "plot",
+        "type": "Title"
+    },
+    {
+        "text": "WindowedKey",
+        "type": "Title"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Score",
+        "type": "Title"
+    },
+    {
+        "text": "verdi",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Here we can see each part plotted when it plays and with dynamics:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "schoenberg",
+        "type": "Title"
+    },
+    {
+        "text": "plot",
+        "type": "Title"
+    },
+    {
+        "text": "'horizontalbarweighted'",
+        "type": "Title"
+    },
+    {
+        "text": "and we've saved the silliest for last:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "verdi",
+        "type": "Title"
+    },
+    {
+        "text": "plot",
+        "type": "Title"
+    },
+    {
+        "text": "'3dbars'",
+        "type": "Title"
+    },
+    {
+        "text": "The 3D aspect looks pretty cool, but I have a hard time learning from\nit.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Each of these plots also has a bunch of synonyms in case you want to use\nother terms:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "graph",
+        "type": "Title"
+    },
+    {
+        "text": "findPlot",
+        "type": "Title"
+    },
+    {
+        "text": "FORMAT_SYNONYMS",
+        "type": "Title"
+    },
+    {
+        "text": "[(",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'horizontalbar'",
+        "type": "Title"
+    },
+    {
+        "text": "'bar'",
+        "type": "Title"
+    },
+    {
+        "text": "'horizontal'",
+        "type": "Title"
+    },
+    {
+        "text": "'pianoroll'",
+        "type": "Title"
+    },
+    {
+        "text": "'piano'",
+        "type": "Title"
+    },
+    {
+        "text": "),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'histogram'",
+        "type": "Title"
+    },
+    {
+        "text": "'histo'",
+        "type": "Title"
+    },
+    {
+        "text": "'count'",
+        "type": "Title"
+    },
+    {
+        "text": "),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'scatter'",
+        "type": "Title"
+    },
+    {
+        "text": "'point'",
+        "type": "Title"
+    },
+    {
+        "text": "),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'scatterweighted'",
+        "type": "Title"
+    },
+    {
+        "text": "'weightedscatter'",
+        "type": "Title"
+    },
+    {
+        "text": "'weighted'",
+        "type": "Title"
+    },
+    {
+        "text": "),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'3dbars'",
+        "type": "Title"
+    },
+    {
+        "text": "'3d'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'colorgrid'",
+        "type": "Title"
+    },
+    {
+        "text": "'grid'",
+        "type": "Title"
+    },
+    {
+        "text": "'window'",
+        "type": "Title"
+    },
+    {
+        "text": "'windowed'",
+        "type": "Title"
+    },
+    {
+        "text": "),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'horizontalbarweighted'",
+        "type": "Title"
+    },
+    {
+        "text": "'barweighted'",
+        "type": "Title"
+    },
+    {
+        "text": "'weightedbar'",
+        "type": "Title"
+    },
+    {
+        "text": ")]",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "For completeness, there are a couple of shortcuts you can use also:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "graph",
+        "type": "Title"
+    },
+    {
+        "text": "findPlot",
+        "type": "Title"
+    },
+    {
+        "text": "PLOTCLASS_SHORTCUTS",
+        "type": "Title"
+    },
+    {
+        "text": "'ambitus'",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "graph",
+        "type": "Title"
+    },
+    {
+        "text": "plot",
+        "type": "Title"
+    },
+    {
+        "text": "WindowedAmbitus",
+        "type": "Title"
+    },
+    {
+        "text": "'dolan'",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "graph",
+        "type": "Title"
+    },
+    {
+        "text": "plot",
+        "type": "Title"
+    },
+    {
+        "text": "Dolan",
+        "type": "Title"
+    },
+    {
+        "text": "'instruments'",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "graph",
+        "type": "Title"
+    },
+    {
+        "text": "plot",
+        "type": "Title"
+    },
+    {
+        "text": "Dolan",
+        "type": "Title"
+    },
+    {
+        "text": "'key'",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "graph",
+        "type": "Title"
+    },
+    {
+        "text": "plot",
+        "type": "Title"
+    },
+    {
+        "text": "WindowedKey",
+        "type": "Title"
+    },
+    {
+        "text": "'pianoroll'",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "graph",
+        "type": "Title"
+    },
+    {
+        "text": "plot",
+        "type": "Title"
+    },
+    {
+        "text": "HorizontalBarPitchSpaceOffset",
+        "type": "Title"
+    },
+    {
+        "text": "Okay, so now you know what types of graphs you can make. The next\narguments determine what sorts of things you can put on the axes:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "verdi",
+        "type": "Title"
+    },
+    {
+        "text": "plot",
+        "type": "Title"
+    },
+    {
+        "text": "'scatter'",
+        "type": "Title"
+    },
+    {
+        "text": "'pitchClass'",
+        "type": "Title"
+    },
+    {
+        "text": "'quarterLength'",
+        "type": "Title"
+    },
+    {
+        "text": "verdi",
+        "type": "Title"
+    },
+    {
+        "text": "plot",
+        "type": "Title"
+    },
+    {
+        "text": "'scatter'",
+        "type": "Title"
+    },
+    {
+        "text": "'dynamics'",
+        "type": "Title"
+    },
+    {
+        "text": "We can see all the different things that we can put as an axis via\nmusic21.graph.findPlot.getAxisQuantities():",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "graph",
+        "type": "Title"
+    },
+    {
+        "text": "findPlot",
+        "type": "Title"
+    },
+    {
+        "text": "getAxisQuantities",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'generic'",
+        "type": "Title"
+    },
+    {
+        "text": "'count'",
+        "type": "Title"
+    },
+    {
+        "text": "'dynamic'",
+        "type": "Title"
+    },
+    {
+        "text": "'offset'",
+        "type": "Title"
+    },
+    {
+        "text": "'offsetEnd'",
+        "type": "Title"
+    },
+    {
+        "text": "'pitchGeneric'",
+        "type": "Title"
+    },
+    {
+        "text": "'pitchClass'",
+        "type": "Title"
+    },
+    {
+        "text": "'pitchSpace'",
+        "type": "Title"
+    },
+    {
+        "text": "'octave'",
+        "type": "Title"
+    },
+    {
+        "text": "'position'",
+        "type": "Title"
+    },
+    {
+        "text": "'quarterLength'",
+        "type": "Title"
+    },
+    {
+        "text": "Some of these have synonyms that you can use instead:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "graph",
+        "type": "Title"
+    },
+    {
+        "text": "findPlot",
+        "type": "Title"
+    },
+    {
+        "text": "getAxisQuantities",
+        "type": "Title"
+    },
+    {
+        "text": "synonyms",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "'generic'",
+        "type": "Title"
+    },
+    {
+        "text": "'one'",
+        "type": "Title"
+    },
+    {
+        "text": "'nothing'",
+        "type": "Title"
+    },
+    {
+        "text": "'blank'",
+        "type": "Title"
+    },
+    {
+        "text": "'count'",
+        "type": "Title"
+    },
+    {
+        "text": "'quantity'",
+        "type": "Title"
+    },
+    {
+        "text": "'frequency'",
+        "type": "Title"
+    },
+    {
+        "text": "'counting'",
+        "type": "Title"
+    },
+    {
+        "text": "'dynamic'",
+        "type": "Title"
+    },
+    {
+        "text": "'dynamics'",
+        "type": "Title"
+    },
+    {
+        "text": "'volume'",
+        "type": "Title"
+    },
+    {
+        "text": "'offset'",
+        "type": "Title"
+    },
+    {
+        "text": "'measure'",
+        "type": "Title"
+    },
+    {
+        "text": "'offsets'",
+        "type": "Title"
+    },
+    {
+        "text": "'measures'",
+        "type": "Title"
+    },
+    {
+        "text": "'time'",
+        "type": "Title"
+    },
+    {
+        "text": "'offsetEnd'",
+        "type": "Title"
+    },
+    {
+        "text": "'timespans'",
+        "type": "Title"
+    },
+    {
+        "text": "'timespan'",
+        "type": "Title"
+    },
+    {
+        "text": "'pitchGeneric'",
+        "type": "Title"
+    },
+    {
+        "text": "'pitchClass'",
+        "type": "Title"
+    },
+    {
+        "text": "'pitchclass'",
+        "type": "Title"
+    },
+    {
+        "text": "'pc'",
+        "type": "Title"
+    },
+    {
+        "text": "'pitchSpace'",
+        "type": "Title"
+    },
+    {
+        "text": "'pitch'",
+        "type": "Title"
+    },
+    {
+        "text": "'pitchspace'",
+        "type": "Title"
+    },
+    {
+        "text": "'ps'",
+        "type": "Title"
+    },
+    {
+        "text": "'octave'",
+        "type": "Title"
+    },
+    {
+        "text": "'octaves'",
+        "type": "Title"
+    },
+    {
+        "text": "'position'",
+        "type": "Title"
+    },
+    {
+        "text": "'positions'",
+        "type": "Title"
+    },
+    {
+        "text": "'quarterLength'",
+        "type": "Title"
+    },
+    {
+        "text": "'ql'",
+        "type": "Title"
+    },
+    {
+        "text": "'quarterlengths'",
+        "type": "Title"
+    },
+    {
+        "text": "'durations'",
+        "type": "Title"
+    },
+    {
+        "text": "'duration'",
+        "type": "Title"
+    },
+    {
+        "text": "Application \u2014 pitchSpace counting\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Both Robert Schumann and Frederic Chopin were composers living in the\nfirst half of the nineteenth century, both working in the tonal\ntradition. Their music sounds similar but strikingly different. Does\ntheir distribution of pitches have something to do with it? Let's\ncompare a Schumann piece in the corpus (String Quartet opus 41, no. 1,\nmovement 3) with a Chopin piece in the corpus (Mazurka in C# minor, opus\n6, no. 2):",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "schumann",
+        "type": "Title"
+    },
+    {
+        "text": "corpus",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "'schumann/opus41no1'",
+        "type": "Title"
+    },
+    {
+        "text": "schumann",
+        "type": "Title"
+    },
+    {
+        "text": "plot",
+        "type": "Title"
+    },
+    {
+        "text": "'histogram'",
+        "type": "Title"
+    },
+    {
+        "text": "'pitch'",
+        "type": "Title"
+    },
+    {
+        "text": "Schumann's piece has a sort of bell-curve shaped distribution. Yes, some\nnotes stand out, A2, E3, and E4\u2014it is in a-minor after all\u2026",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "schumann",
+        "type": "Title"
+    },
+    {
+        "text": "analyze",
+        "type": "Title"
+    },
+    {
+        "text": "'key'",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "Key",
+        "type": "Title"
+    },
+    {
+        "text": "of",
+        "type": "Title"
+    },
+    {
+        "text": "minor",
+        "type": "Title"
+    },
+    {
+        "text": "but for the most part, it's pretty nicely shaped. Compare it to the work\nby Chopin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "chopin",
+        "type": "Title"
+    },
+    {
+        "text": "corpus",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "'chopin/mazurka'",
+        "type": "Title"
+    },
+    {
+        "text": "chopin",
+        "type": "Title"
+    },
+    {
+        "text": "plot",
+        "type": "Title"
+    },
+    {
+        "text": "'histogram'",
+        "type": "Title"
+    },
+    {
+        "text": "'pitch'",
+        "type": "Title"
+    },
+    {
+        "text": "Chopin's piece has jagged points everywhere like a poorly planned city\n(Abu Dhabi?) with a few notes, especially G#4 sticking out. Does this\nsay something different about Chopin as a composer? Or is it a function\nof the fact that the Chopin piece is for piano and the Schumann piece is\nfor a group of four instruments, three of which have different ranges?\nWe can't compare Chopin's string quartets\u2014he didn't write any\u2014and\nunfortunately, we can't compare Robert Schumann's piano music, since I\ndon't know any pieces except for very short ones and excerpts that have\nbeen entered into musicxml. But we can compare Clara Schumann's pitch\nusage, since a freely available transcription of her four Polonaises,\nop. 1 has been encoded by\n\u009cCypressdome\u009d.\nLet's check out the first of these:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "cs",
+        "type": "Title"
+    },
+    {
+        "text": "corpus",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "'schumann_clara/polonaise_op1n1'",
+        "type": "Title"
+    },
+    {
+        "text": "cs",
+        "type": "Title"
+    },
+    {
+        "text": "id",
+        "type": "Title"
+    },
+    {
+        "text": "'Clara_Schumann'",
+        "type": "Title"
+    },
+    {
+        "text": "cs",
+        "type": "Title"
+    },
+    {
+        "text": "measures",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "cs",
+        "type": "Title"
+    },
+    {
+        "text": "plot",
+        "type": "Title"
+    },
+    {
+        "text": "'histogram'",
+        "type": "Title"
+    },
+    {
+        "text": "'pitchSpace'",
+        "type": "Title"
+    },
+    {
+        "text": "It's one piece, and we'd love to have much more (in fact, the other\nthree Polonaises are in the corpus as well), but it looks promising!",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "(Oh, and in case you're seeing lots of\n<music21.graph.plot.Histohooyet for <music21.stream... garbage when\nplotting, just assign the result of the plot to a variable like _ as\nwe did above)",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "There's a lot more that can be done with graphing, but that's a topic\nfor later. If we're going to do traditional analysis we've got to know\nwhere our Is and Vs are, and for that, we'll need\nChapter 23: Roman Numeral Analysis",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 22: Graphing and plotting",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

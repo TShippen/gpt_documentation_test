@@ -1,0 +1,1854 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.midi.translate",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.midi.realtime",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.musedata",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.midi.translate\nFunctions\nstreamToMidiFile()\nmidiFileToStream()\nassignPacketsToChannels()\nchannelInstrumentData()\nchordToMidiEvents()\nconductorStream()\ndurationToMidiTicks()\nelementToMidiEventList()\nfilterPacketsByTrackId()\ngetEndEvents()\ngetMetaEvents()\ngetNotesFromEvents()\ngetPacketFromMidiEvent()\ngetStartEvents()\ngetTimeForEvents()\ninsertConductorEvents()\ninstrumentToMidiEvents()\nkeySignatureToMidiEvents()\nmidiAsciiStringToBinaryString()\nmidiEventsToChord()\nmidiEventsToInstrument()\nmidiEventsToKey()\nmidiEventsToNote()\nmidiEventsToTempo()\nmidiEventsToTimeSignature()\nmidiFilePathToStream()\nmidiStringToStream()\nmidiTrackToStream()\nmidiTracksToStreams()\nmusic21ObjectToMidiFile()\nnoteToMidiEvents()\noffsetToMidiTicks()\npacketStorageFromSubstreamList()\npacketsToDeltaSeparatedEvents()\npacketsToMidiTrack()\nprepareStreamForMidi()\nstreamHierarchyToMidiTracks()\nstreamToPackets()\ntempoToMidiEvents()\nticksToDuration()\ntimeSignatureToMidiEvents()\nupdatePacketStorageWithChannelInfo()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.midi.translate\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Module to translate MIDI data to music21 Streams and vice versa.  Note that quantization of\nnotes takes place in the quantize() method not here.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.midi.translate.",
+        "type": "Title"
+    },
+    {
+        "text": "streamToMidiFile",
+        "type": "Title"
+    },
+    {
+        "text": "inputM21",
+        "type": "Title"
+    },
+    {
+        "text": "stream.Stream",
+        "type": "Title"
+    },
+    {
+        "text": "addStartDelay",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "acceptableChannelList",
+        "type": "Title"
+    },
+    {
+        "text": "list",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 midi.MidiFile",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Converts a Stream hierarchy into a MidiFile object.\n>>> s = stream.Stream()\n>>> n = note.Note('g#')\n>>> n.quarterLength = 0.5\n>>> s.repeatAppend(n, 4)\n>>> mf = midi.translate.streamToMidiFile(s)\n>>> mf.tracks[0].index  # Track 0: conductor track\n0\n>>> len(mf.tracks[1].events)  # Track 1: music track\n22\n\n\nFrom here, you can call mf.writestr() to get the actual file info.\n>>> sc = scale.PhrygianScale('g')\n>>> s = stream.Stream()\n>>> x=[s.append(note.Note(sc.pitchFromDegree(i % 11), quarterLength=0.25)) for i in range(60)]\n>>> mf = midi.translate.streamToMidiFile(s)\n>>> mf.open('/Volumes/disc/_scratch/midi.mid', 'wb')\n>>> mf.write()\n>>> mf.close()\n\n\nSee channelInstrumentData() for documentation on acceptableChannelList.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.midi.translate.",
+        "type": "Title"
+    },
+    {
+        "text": "midiFileToStream",
+        "type": "Title"
+    },
+    {
+        "text": "mf",
+        "type": "Title"
+    },
+    {
+        "text": "midi.MidiFile",
+        "type": "Title"
+    },
+    {
+        "text": "inputM21",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "quantizePost",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Note: this is NOT the normal way to read a MIDI file.  The best way is generally:\n\nscore = converter.parse(\u0098path/to/file.mid')\n\nConvert a MidiFile object to a\nStream object.\nThe inputM21 object can specify an existing Stream (or Stream subclass) to fill.\nKeywords to control quantization:\nquantizePost controls whether to quantize the output. (Default: True)\nquarterLengthDivisors allows for overriding the default quantization units\nin defaults.quantizationQuarterLengthDivisors. (Default: (4, 3)).\n>>> import os\n>>> fp = common.getSourceFilePath() / 'midi' / 'testPrimitive' / 'test05.mid'\n>>> mf = midi.MidiFile()\n>>> mf.open(fp)\n>>> mf.read()\n>>> mf.close()\n>>> len(mf.tracks)\n1\n>>> s = midi.translate.midiFileToStream(mf)\n>>> s\n<music21.stream.Score ...>\n>>> len(s.flatten().notesAndRests)\n14\n\n\n\nChanged in v8: inputM21 and quantizePost are keyword only.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.midi.translate.",
+        "type": "Title"
+    },
+    {
+        "text": "assignPacketsToChannels",
+        "type": "Title"
+    },
+    {
+        "text": "packets",
+        "type": "Title"
+    },
+    {
+        "text": "channelByInstrument",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "channelsDynamic",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "initTrackIdToChannelMap",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a list of packets, assign each to a channel.\nDo each track one at time, based on the track id.\nShift to different channels if a pitch bend is necessary.\nKeep track of which channels are available.\nNeed to insert a program change in the empty channel\ntoo, based on last instrument.\nInsert pitch bend messages as well,\none for start of event, one for end of event.\npackets is a list of packets.\nchannelByInstrument should be a dictionary.\nchannelsDynamic should be a list.\ninitTrackIdToChannelMap should be a dictionary.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.midi.translate.",
+        "type": "Title"
+    },
+    {
+        "text": "channelInstrumentData",
+        "type": "Title"
+    },
+    {
+        "text": "Stream",
+        "type": "Title"
+    },
+    {
+        "text": "acceptableChannelList",
+        "type": "Title"
+    },
+    {
+        "text": "list",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 tuple[dict[int | None, int], list[int]]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Read through Stream s and finding instruments in it, return a 2-tuple,\nthe first a dictionary mapping MIDI program numbers to channel numbers,\nand the second, a list of unassigned channels that can be used for dynamic\nallocation. One channel is always left unassigned for dynamic allocation.\nIf the number of needed channels exceeds the number of available ones,\nany further MIDI program numbers are assigned to channel 1.\nSubstreams without notes or rests (e.g. representing a conductor track)\nwill not consume a channel.\nOnly necessarily works if prepareStreamForMidi()\nhas been run before calling this routine.\nAn instrument's .midiChannel attribute is observed.\nNone is the default .midiChannel for all instruments except\nUnpitchedPercussion\nsubclasses. Put another way, the priority is:\n\nInstrument instance .midiChannel (set by user or imported from MIDI)\nUnpitchedPercussion subclasses receive MIDI Channel 10 (9 in music21)\nThe channel mappings produced by reading from acceptableChannelList,\nor the default range 1-16. (More precisely, 1-15, since one dynamic channel\nis always reserved.)\n\n\nWarning\nThe attribute .midiChannel on Instrument\nis 0-indexed, but .channel on MidiEvent is 1-indexed,\nas are all references to channels in this function.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.midi.translate.",
+        "type": "Title"
+    },
+    {
+        "text": "chordToMidiEvents",
+        "type": "Title"
+    },
+    {
+        "text": "inputM21",
+        "type": "Title"
+    },
+    {
+        "text": "chord.ChordBase",
+        "type": "Title"
+    },
+    {
+        "text": "includeDeltaTime",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "channel",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 list[midi.DeltaTime | midi.MidiEvent]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Translates a Chord object to a\nlist of base.DeltaTime and base.MidiEvents objects.\nThe channel can be specified, otherwise channel 1 is assumed.\nSee noteToMidiEvents above for more details.\n>>> c = chord.Chord(['c3', 'g#4', 'b5'])\n>>> c.volume = volume.Volume(velocity=90)\n>>> c.volume.velocityIsRelative = False\n>>> eventList = midi.translate.chordToMidiEvents(c)\n>>> eventList\n[<music21.midi.DeltaTime (empty) track=None, channel=None>,\n <music21.midi.MidiEvent NOTE_ON, track=None, channel=1, pitch=48, velocity=90>,\n <music21.midi.DeltaTime (empty) track=None, channel=None>,\n <music21.midi.MidiEvent NOTE_ON, track=None, channel=1, pitch=68, velocity=90>,\n <music21.midi.DeltaTime (empty) track=None, channel=None>,\n <music21.midi.MidiEvent NOTE_ON, track=None, channel=1, pitch=83, velocity=90>,\n <music21.midi.DeltaTime t=10080, track=None, channel=None>,\n <music21.midi.MidiEvent NOTE_OFF, track=None, channel=1, pitch=48, velocity=0>,\n <music21.midi.DeltaTime (empty) track=None, channel=None>,\n <music21.midi.MidiEvent NOTE_OFF, track=None, channel=1, pitch=68, velocity=0>,\n <music21.midi.DeltaTime (empty) track=None, channel=None>,\n <music21.midi.MidiEvent NOTE_OFF, track=None, channel=1, pitch=83, velocity=0>]\n\n\n\nChanged in v7: made keyword-only.\nChanged in v8: added support for PercussionChord",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.midi.translate.",
+        "type": "Title"
+    },
+    {
+        "text": "conductorStream",
+        "type": "Title"
+    },
+    {
+        "text": "Stream",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 Part",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Strip the given stream of any events that belong in a conductor track\nrather than in a music track, and returns a Part\ncontaining just those events, without duplicates, suitable for being a\nPart to turn into a conductor track.\nSets a default MetronomeMark of 120 if no MetronomeMarks are present\nand a TimeSignature of 4/4 if not present.\nEnsures that the conductor track always sorts before other parts.\nHere we purposely use nested generic streams instead of Scores, Parts, etc.\nto show that this still works.  But you should use Score, Part, Measure instead.\n>>> s = stream.Stream(id='scoreLike')\n>>> p = stream.Stream(id='partLike')\n>>> p.priority = -2\n>>> m = stream.Stream(id='measureLike')\n>>> m.append(tempo.MetronomeMark(100))\n>>> m.append(note.Note('C4'))\n>>> p.append(m)\n>>> s.insert(0, p)\n>>> conductor = midi.translate.conductorStream(s)\n>>> conductor.priority\n-3\n\n\nThe MetronomeMark is moved and a default TimeSignature is added:\n>>> conductor.show('text')\n{0.0} <music21.instrument.Conductor 'Conductor'>\n{0.0} <music21.tempo.MetronomeMark Quarter=100>\n{0.0} <music21.meter.TimeSignature 4/4>\n\n\nThe original stream still has the note:\n>>> s.show('text')\n{0.0} <music21.stream.Stream partLike>\n    {0.0} <music21.stream.Stream measureLike>\n        {0.0} <music21.note.Note C>",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.midi.translate.",
+        "type": "Title"
+    },
+    {
+        "text": "durationToMidiTicks",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Converts a Duration object to midi ticks.\nDepends on defaults.ticksPerQuarter, Returns an int.\nDoes not use defaults.ticksAtStart\n>>> n = note.Note()\n>>> n.duration.type = 'half'\n>>> midi.translate.durationToMidiTicks(n.duration)\n20160\n\n\n>>> d = duration.Duration('quarter')\n>>> dReference = midi.translate.ticksToDuration(10080, inputM21DurationObject=d)\n>>> dReference is d\nTrue\n>>> d.type\n'quarter'\n>>> d.type = '16th'\n>>> d.quarterLength\n0.25\n>>> midi.translate.durationToMidiTicks(d)\n2520",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.midi.translate.",
+        "type": "Title"
+    },
+    {
+        "text": "elementToMidiEventList",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "base.Music21Object",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 list[midi.MidiEvent | midi.MidiEvent] | None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a list of MidiEvents (or None) from a Music21Object,\nassuming that dynamics have already been applied, etc.\nDoes not include DeltaTime objects.\nChannel (1-indexed) is set to the default, 1.\nTrack is not set.\n>>> n = note.Note('C4')\n>>> midiEvents = midi.translate.elementToMidiEventList(n)\n>>> midiEvents\n[<music21.midi.MidiEvent NOTE_ON, track=None, channel=1, pitch=60, velocity=90>,\n <music21.midi.MidiEvent NOTE_OFF, track=None, channel=1, pitch=60, velocity=0>]",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.midi.translate.",
+        "type": "Title"
+    },
+    {
+        "text": "filterPacketsByTrackId",
+        "type": "Title"
+    },
+    {
+        "text": "packetsSrc",
+        "type": "Title"
+    },
+    {
+        "text": "list",
+        "type": "Title"
+    },
+    {
+        "text": "dict",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "Any",
+        "type": "Title"
+    },
+    {
+        "text": "trackIdFilter",
+        "type": "Title"
+    },
+    {
+        "text": "int | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 list[dict[str, Any]]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a list of Packet dictionaries, return a list of\nonly those whose trackId matches the filter.\n>>> packets = [\n...     {'trackId': 1, 'name': 'hello'},\n...     {'trackId': 2, 'name': 'bye'},\n...     {'trackId': 1, 'name': 'hi'},\n... ]\n>>> midi.translate.filterPacketsByTrackId(packets, 1)\n[{'trackId': 1, 'name': 'hello'},\n {'trackId': 1, 'name': 'hi'}]\n>>> midi.translate.filterPacketsByTrackId(packets, 2)\n[{'trackId': 2, 'name': 'bye'}]\n\n\nIf no trackIdFilter is passed, the original list is returned:\n>>> midi.translate.filterPacketsByTrackId(packets) is packets\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.midi.translate.",
+        "type": "Title"
+    },
+    {
+        "text": "getEndEvents",
+        "type": "Title"
+    },
+    {
+        "text": "mt",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "channel",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns a list of midi.MidiEvent objects found at the end of a track.\n>>> midi.translate.getEndEvents(channel=2)\n[<music21.midi.DeltaTime t=10080, track=None, channel=2>,\n <music21.midi.MidiEvent END_OF_TRACK, track=None, channel=2, data=b''>]",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.midi.translate.",
+        "type": "Title"
+    },
+    {
+        "text": "getMetaEvents",
+        "type": "Title"
+    },
+    {
+        "text": "events",
+        "type": "Title"
+    },
+    {
+        "text": "list",
+        "type": "Title"
+    },
+    {
+        "text": "tuple",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "midi.MidiEvent",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 list[tuple[int, base.Music21Object]]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.midi.translate.",
+        "type": "Title"
+    },
+    {
+        "text": "getNotesFromEvents",
+        "type": "Title"
+    },
+    {
+        "text": "events",
+        "type": "Title"
+    },
+    {
+        "text": "list",
+        "type": "Title"
+    },
+    {
+        "text": "tuple",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "midi.MidiEvent",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 list[tuple[tuple[int, midi.MidiEvent], tuple[int, midi.MidiEvent]]]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns a list of Tuples of MIDI events that are pairs of note-on and\nnote-off events.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.midi.translate.",
+        "type": "Title"
+    },
+    {
+        "text": "getPacketFromMidiEvent",
+        "type": "Title"
+    },
+    {
+        "text": "trackId",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "midiEvent",
+        "type": "Title"
+    },
+    {
+        "text": "midi.MidiEvent",
+        "type": "Title"
+    },
+    {
+        "text": "obj",
+        "type": "Title"
+    },
+    {
+        "text": "base.Music21Object | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "lastInstrument",
+        "type": "Title"
+    },
+    {
+        "text": "instrument.Instrument | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 dict[str, t.Any]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Pack a dictionary of parameters for each event.\nPackets are used for sorting and configuring all note events.\nIncludes offset, any cent shift, the midi event, and the source object.\nOffset and duration values stored here are MIDI ticks, not quarter lengths.\n>>> n = note.Note('C4')\n>>> midiEvents = midi.translate.elementToMidiEventList(n)\n>>> getPacket = midi.translate.getPacketFromMidiEvent\n>>> getPacket(trackId=1, offset=0, midiEvent=midiEvents[0], obj=n)\n{'trackId': 1,\n 'offset': 0,\n 'midiEvent': <music21.midi.MidiEvent NOTE_ON, track=None, channel=1, pitch=60, velocity=90>,\n 'obj': <music21.note.Note C>,\n 'centShift': None,\n 'duration': 10080,\n 'lastInstrument': None}\n>>> inst = instrument.Harpsichord()\n>>> getPacket(trackId=1, offset=0, midiEvent=midiEvents[1], obj=n, lastInstrument=inst)\n{'trackId': 1,\n 'offset': 0,\n 'midiEvent': <music21.midi.MidiEvent NOTE_OFF, track=None, channel=1, pitch=60, velocity=0>,\n 'obj': <music21.note.Note C>,\n 'centShift': None,\n 'duration': 0,\n 'lastInstrument': <music21.instrument.Harpsichord 'Harpsichord'>}",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.midi.translate.",
+        "type": "Title"
+    },
+    {
+        "text": "getStartEvents",
+        "type": "Title"
+    },
+    {
+        "text": "mt",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "channel",
+        "type": "Title"
+    },
+    {
+        "text": "instrumentObj",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns a list of midi.MidiEvent objects found at the beginning of a track.\nA MidiTrack reference can be provided via the mt parameter.\n>>> midi.translate.getStartEvents()\n[<music21.midi.DeltaTime (empty) track=None, channel=1>,\n <music21.midi.MidiEvent SEQUENCE_TRACK_NAME, track=None, channel=1, data=b''>]\n\n\n>>> midi.translate.getStartEvents(channel=2, instrumentObj=instrument.Harpsichord())\n[<music21.midi.DeltaTime (empty) track=None, channel=2>,\n <music21.midi.MidiEvent SEQUENCE_TRACK_NAME, track=None, channel=2, data=b'Harpsichord'>,\n <music21.midi.DeltaTime (empty) track=None, channel=2>,\n <music21.midi.MidiEvent PROGRAM_CHANGE, track=None, channel=2, data=6>]",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.midi.translate.",
+        "type": "Title"
+    },
+    {
+        "text": "getTimeForEvents",
+        "type": "Title"
+    },
+    {
+        "text": "mt",
+        "type": "Title"
+    },
+    {
+        "text": "midi.MidiTrack",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 list[tuple[int, midi.MidiEvent]]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get a list of tuples of (tickTime, MidiEvent) from the events with time deltas.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.midi.translate.",
+        "type": "Title"
+    },
+    {
+        "text": "insertConductorEvents",
+        "type": "Title"
+    },
+    {
+        "text": "conductorPart",
+        "type": "Title"
+    },
+    {
+        "text": "Part",
+        "type": "Title"
+    },
+    {
+        "text": "target",
+        "type": "Title"
+    },
+    {
+        "text": "Part",
+        "type": "Title"
+    },
+    {
+        "text": "isFirst",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Insert a deepcopy of any TimeSignature, KeySignature, or MetronomeMark\nfound in the conductorPart into the target Part at the same offset.\nObligatory to do this before making measures. New in v7.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.midi.translate.",
+        "type": "Title"
+    },
+    {
+        "text": "instrumentToMidiEvents",
+        "type": "Title"
+    },
+    {
+        "text": "inputM21",
+        "type": "Title"
+    },
+    {
+        "text": "includeDeltaTime",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "midiTrack",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "channel",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Converts a Instrument object to a list of MidiEvents\nTODO: DOCS and TESTS",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.midi.translate.",
+        "type": "Title"
+    },
+    {
+        "text": "keySignatureToMidiEvents",
+        "type": "Title"
+    },
+    {
+        "text": "ks",
+        "type": "Title"
+    },
+    {
+        "text": "key.KeySignature",
+        "type": "Title"
+    },
+    {
+        "text": "includeDeltaTime",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 list[midi.DeltaTime | midi.MidiEvent]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Convert a single Key or\nKeySignature object to\na two-element list of midi events,\nwhere the first is an empty DeltaTime (unless includeDeltaTime is False) and the second\nis a KEY_SIGNATURE MidiEvent\n>>> ks = key.KeySignature(2)\n>>> ks\n<music21.key.KeySignature of 2 sharps>\n>>> eventList = midi.translate.keySignatureToMidiEvents(ks)\n>>> eventList\n[<music21.midi.DeltaTime (empty) track=None, channel=None>,\n <music21.midi.MidiEvent KEY_SIGNATURE, track=None, channel=1, data=b'\\x02\\x00'>]\n\n\n>>> k = key.Key('b-')\n>>> k\n<music21.key.Key of b- minor>\n>>> eventList = midi.translate.keySignatureToMidiEvents(k, includeDeltaTime=False)\n>>> eventList\n[<music21.midi.MidiEvent KEY_SIGNATURE, track=None, channel=1, data=b'\\xfb\\x01'>]",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.midi.translate.",
+        "type": "Title"
+    },
+    {
+        "text": "midiAsciiStringToBinaryString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "midiFormat",
+        "type": "Title"
+    },
+    {
+        "text": "ticksPerQuarterNote",
+        "type": "Title"
+    },
+    {
+        "text": "960",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "tracksEventsList",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bytes",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Convert Ascii midi data to a bytes object (formerly binary midi string).\ntracksEventsList contains a list of tracks which contain also a list of events.\n\nasciiMidiEventList = [\u00980 90 27 66', \u00980 90 3e 60', \u00983840 80 27 00', \u00980 80 3e 00']\n\nThe format of one event is : \u0098aa bb cc dd':\naa = delta time to last event (integer)\nbb = Midi event type\ncc = Note number (hex)\ndd = Velocity (integer)\n\n\nExample:\n>>> asciiMidiEventList = []\n>>> asciiMidiEventList.append('0 90 31 15')\n>>> midiTrack = []\n>>> midiTrack.append(asciiMidiEventList)\n>>> midiBinaryBytes = midi.translate.midiAsciiStringToBinaryString(tracksEventsList=midiTrack)\n>>> midiBinaryBytes\nb'MThd\\x00\\x00\\x00\\x06\\x00\\x01\\x00\\x01\\x03\\xc0MTrk\\x00\\x00\\x00\\x04\\x00\\x901\\x0f'\n\n\nNote that the name is from pre-Python 3.  There is now in fact nothing called a \u009cbinary string\u009d\nit is in fact a bytes object.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.midi.translate.",
+        "type": "Title"
+    },
+    {
+        "text": "midiEventsToChord",
+        "type": "Title"
+    },
+    {
+        "text": "eventList",
+        "type": "Title"
+    },
+    {
+        "text": "Sequence",
+        "type": "Title"
+    },
+    {
+        "text": "tuple",
+        "type": "Title"
+    },
+    {
+        "text": "tuple",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "midi.MidiEvent",
+        "type": "Title"
+    },
+    {
+        "text": "tuple",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "midi.MidiEvent",
+        "type": "Title"
+    },
+    {
+        "text": "ticksPerQuarter",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "10080",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u2192 chord.ChordBase",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Creates a Chord from a list of DeltaTime or integers\nand MidiEvent objects grouped as follows:\n[((time_pitch1_on, pitch1_note_on_event),\n  (time_pitch1_off, pitch1_note_off_event)\n  ),\n ((time_pitch2_on, pitch2_note_on_event),\n  (time_pitch2_off, pitch2_note_off_event)\n  ),\n\n\n\u2026etc\u2026\nmidiEventsToNote().\nAll DeltaTime objects except the first (for the first note on)\nand last (for the last note off) are ignored.\n>>> mt = midi.MidiTrack(1)\n\n\n>>> dt1 = midi.DeltaTime(mt)\n>>> me1 = midi.MidiEvent(mt)\n>>> me1.type = midi.ChannelVoiceMessages.NOTE_ON\n>>> me1.pitch = 45\n>>> me1.velocity = 94\n\n\nNote that only the times of the first NOTE_ON and last NOTE_OFF matter, so\nwe don't even bother setting the time of dt3 and dt4.\n>>> dt3 = midi.DeltaTime(mt)\n>>> me3 = midi.MidiEvent(mt)\n>>> me3.type = midi.ChannelVoiceMessages.NOTE_OFF\n\n\nThe pitch of the NOTE_OFF events are not checked by this function.  They\nare assumed to have been aligned by the previous parser.\n>>> me3.pitch = 45\n>>> me3.velocity = 0\n\n\n>>> dt2 = midi.DeltaTime(mt)\n>>> me2 = midi.MidiEvent(mt)\n>>> me2.type = midi.ChannelVoiceMessages.NOTE_ON\n>>> me2.pitch = 46\n>>> me2.velocity = 94\n\n\n>>> dt4 = midi.DeltaTime(mt)\n>>> dt4.time = 20160\n\n\n>>> me4 = midi.MidiEvent(mt)\n>>> me4.type = midi.ChannelVoiceMessages.NOTE_OFF\n>>> me4.pitch = 46\n>>> me4.velocity = 0\n\n\n>>> c = midi.translate.midiEventsToChord([((dt1.time, me1), (dt3.time, me3)),\n...                                       ((dt2.time, me2), (dt4.time, me4))])\n>>> c\n<music21.chord.Chord A2 B-2>\n>>> c.duration.quarterLength\n2.0\n\n\nIf the channel is set to 10, then a PercussionChord is returned:\n>>> me2.channel = 10\n>>> midi.translate.midiEventsToChord([((dt1.time, me1), (dt3.time, me3)),\n...                                   ((dt2.time, me2), (dt4.time, me4))])\n<music21.percussion.PercussionChord [Tom-Tom Hi-Hat Cymbal]>\n\n\n\nChanged in v7: Uses the last DeltaTime in the list to get the end time.\nChanged in v7.3: Returns a PercussionChord if\nany event is on channel 10.\nChanged in v8: inputM21 is no longer supported.  Flat list format is removed.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.midi.translate.",
+        "type": "Title"
+    },
+    {
+        "text": "midiEventsToInstrument",
+        "type": "Title"
+    },
+    {
+        "text": "eventList",
+        "type": "Title"
+    },
+    {
+        "text": "midi.MidiEvent",
+        "type": "Title"
+    },
+    {
+        "text": "tuple",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "midi.MidiEvent",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 instrument.Instrument",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Convert a single MIDI event into a music21 Instrument object.\n>>> me = midi.MidiEvent()\n>>> me.type = midi.ChannelVoiceMessages.PROGRAM_CHANGE\n>>> me.data = 53  # MIDI program 54: Voice Oohs\n>>> midi.translate.midiEventsToInstrument(me)\n<music21.instrument.Vocalist 'Voice'>\n\n\nThe percussion map will be used if the channel is 10:\n>>> me.channel = 10\n>>> instrumentObj = midi.translate.midiEventsToInstrument(me)\n>>> instrumentObj\n<music21.instrument.UnpitchedPercussion 'Percussion'>\n>>> instrumentObj.midiChannel  # 0-indexed in music21\n9\n>>> instrumentObj.midiProgram  # 0-indexed in music21\n53",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.midi.translate.",
+        "type": "Title"
+    },
+    {
+        "text": "midiEventsToKey",
+        "type": "Title"
+    },
+    {
+        "text": "eventList",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 Key",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Convert a single MIDI event into a KeySignature object.\n>>> mt = midi.MidiTrack(1)\n>>> me1 = midi.MidiEvent(mt)\n>>> me1.type = midi.MetaEvents.KEY_SIGNATURE\n>>> me1.data = midi.putNumbersAsList([2, 0])  # d major\n>>> ks = midi.translate.midiEventsToKey(me1)\n>>> ks\n<music21.key.Key of D major>\n>>> ks.mode\n'major'\n\n\n>>> me2 = midi.MidiEvent(mt)\n>>> me2.type = midi.MetaEvents.KEY_SIGNATURE\n>>> me2.data = midi.putNumbersAsList([-2, 1])  # g minor\n>>> me2.data\nb'\\xfe\\x01'\n>>> midi.getNumbersAsList(me2.data)\n[254, 1]\n>>> ks = midi.translate.midiEventsToKey(me2)\n>>> ks\n<music21.key.Key of g minor>\n>>> ks.sharps\n-2\n>>> ks.mode\n'minor'",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.midi.translate.",
+        "type": "Title"
+    },
+    {
+        "text": "midiEventsToNote",
+        "type": "Title"
+    },
+    {
+        "text": "eventTuple",
+        "type": "Title"
+    },
+    {
+        "text": "tuple",
+        "type": "Title"
+    },
+    {
+        "text": "tuple",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "midi.MidiEvent",
+        "type": "Title"
+    },
+    {
+        "text": "tuple",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "midi.MidiEvent",
+        "type": "Title"
+    },
+    {
+        "text": "ticksPerQuarter",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "10080",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u2192 note.Note | note.Unpitched",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Convert from a tuple of two tuples of an int and a midi.MidiEvent objects\nto a music21 Note.  The events should be arranged as follows:\n\n((int timeStart, midiEvent1), (int timeEnd, midiEvent2))\n\nIt is assumed, but not checked, that midiEvent2 is an\nappropriate Note_Off command.  Thus, only three elements are really needed.\nN.B. this takes in a list of music21 MidiEvent objects so see [\u2026] on how to\nconvert raw MIDI data to MidiEvent objects\nIn this example, we start a NOTE_ON event at offset 1.0 that lasts\nfor 2.0 quarter notes until we\nsend a zero-velocity NOTE_ON (=NOTE_OFF) event for the same pitch.\n>>> mt = midi.MidiTrack(1)\n>>> dt1 = midi.DeltaTime(mt)\n>>> dt1.time = 10080\n\n\n>>> me1 = midi.MidiEvent(mt)\n>>> me1.type = midi.ChannelVoiceMessages.NOTE_ON\n>>> me1.pitch = 45\n>>> me1.velocity = 94\n\n\n>>> dt2 = midi.DeltaTime(mt)\n>>> dt2.time = 20160\n\n\n>>> me2 = midi.MidiEvent(mt)\n>>> me2.type = midi.ChannelVoiceMessages.NOTE_ON\n>>> me2.pitch = 45\n>>> me2.velocity = 0\n\n\n>>> n = midi.translate.midiEventsToNote(((dt1.time, me1), (dt2.time, me2)))\n>>> n.pitch\n<music21.pitch.Pitch A2>\n>>> n.duration.quarterLength\n1.0\n>>> n.volume.velocity\n94\n\n\nIf channel is 10, an Unpitched element is returned.\n>>> me1.channel = 10\n>>> unp = midi.translate.midiEventsToNote(((dt1.time, me1), (dt2.time, me2)))\n>>> unp\n<music21.note.Unpitched object at 0x...>\n\n\nAccess the storedInstrument:\n>>> unp.storedInstrument\n<music21.instrument.TomTom 'Tom-Tom'>\n\n\nAnd with values that cannot be translated, a generic\nUnpitchedPercussion instance is given:\n>>> me1.pitch = 1\n>>> unp = midi.translate.midiEventsToNote(((dt1.time, me1), (dt2.time, me2)))\n>>> unp.storedInstrument\n<music21.instrument.UnpitchedPercussion 'Percussion'>\n\n\n\n\nChanged in v7.3: Returns None if inputM21 is provided. Returns aUnpitched instance if the event is on Channel 10.\n\n\n\n\nChanged in v8: inputM21 is no longer supported.The only supported usage now is two tuples.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.midi.translate.",
+        "type": "Title"
+    },
+    {
+        "text": "midiEventsToTempo",
+        "type": "Title"
+    },
+    {
+        "text": "eventList",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Convert a single MIDI event into a music21 Tempo object.\nTODO: Need Tests",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.midi.translate.",
+        "type": "Title"
+    },
+    {
+        "text": "midiEventsToTimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "eventList",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Convert a single MIDI event into a music21 TimeSignature object.\n>>> mt = midi.MidiTrack(1)\n>>> me1 = midi.MidiEvent(mt)\n>>> me1.type = midi.MetaEvents.TIME_SIGNATURE\n>>> me1.data = midi.putNumbersAsList([3, 1, 24, 8])  # 3/2 time\n>>> ts = midi.translate.midiEventsToTimeSignature(me1)\n>>> ts\n<music21.meter.TimeSignature 3/2>\n\n\n>>> me2 = midi.MidiEvent(mt)\n>>> me2.type = midi.MetaEvents.TIME_SIGNATURE\n>>> me2.data = midi.putNumbersAsList([3, 4])  # 3/16 time\n>>> ts = midi.translate.midiEventsToTimeSignature(me2)\n>>> ts\n<music21.meter.TimeSignature 3/16>",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.midi.translate.",
+        "type": "Title"
+    },
+    {
+        "text": "midiFilePathToStream",
+        "type": "Title"
+    },
+    {
+        "text": "filePath",
+        "type": "Title"
+    },
+    {
+        "text": "inputM21",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Used by music21.converter:\nTake in a file path (name of a file on disk) and using midiFileToStream,\nreturn a Score object (or if inputM21 is passed in,\nuse that object instead).\nKeywords to control quantization:\nquantizePost controls whether to quantize the output. (Default: True)\nquarterLengthDivisors allows for overriding the default quantization units\nin defaults.quantizationQuarterLengthDivisors. (Default: (4, 3)).\n>>> fp = '/Users/test/music21/midi/testPrimitive/test05.mid'\n>>> streamScore = midi.translate.midiFilePathToStream(fp)\n>>> streamScore\n<music21.stream.Score ...>\n\n\n\nChanged in v8: inputM21 is keyword only.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.midi.translate.",
+        "type": "Title"
+    },
+    {
+        "text": "midiStringToStream",
+        "type": "Title"
+    },
+    {
+        "text": "strData",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Convert a string of binary midi data to a Music21 stream.Score object.\nKeywords to control quantization:\nquantizePost controls whether to quantize the output. (Default: True)\nquarterLengthDivisors allows for overriding the default quantization units\nin defaults.quantizationQuarterLengthDivisors. (Default: (4, 3)).\nN.B. \u2014 this has been somewhat problematic, so use at your own risk.\n>>> midiBinStr = (b'MThd\\x00\\x00\\x00\\x06\\x00\\x01\\x00\\x01\\x04\\x00'\n...               + b'MTrk\\x00\\x00\\x00\\x16\\x00\\xff\\x03\\x00\\x00\\xe0\\x00@\\x00'\n...               + b'\\x90CZ\\x88\\x00\\x80C\\x00\\x88\\x00\\xff/\\x00')\n>>> s = midi.translate.midiStringToStream(midiBinStr)\n>>> s.show('text')\n{0.0} <music21.stream.Part 0x108aa94f0>\n    {0.0} <music21.stream.Measure 1 offset=0.0>\n        {0.0} <music21.instrument.Instrument ''>\n        {0.0} <music21.clef.TrebleClef>\n        {0.0} <music21.meter.TimeSignature 4/4>\n        {0.0} <music21.note.Note G>\n        {1.0} <music21.note.Rest dotted-half>\n        {4.0} <music21.bar.Barline type=final>",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.midi.translate.",
+        "type": "Title"
+    },
+    {
+        "text": "midiTrackToStream",
+        "type": "Title"
+    },
+    {
+        "text": "mt",
+        "type": "Title"
+    },
+    {
+        "text": "ticksPerQuarter",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "10080",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "quantizePost",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "inputM21",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "conductorPart",
+        "type": "Title"
+    },
+    {
+        "text": "Part | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "isFirst",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "quarterLengthDivisors",
+        "type": "Title"
+    },
+    {
+        "text": "Sequence[int]",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 Part",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Note that quantization takes place in stream.py since it's useful not just for MIDI.\n>>> fp = common.getSourceFilePath() / 'midi' / 'testPrimitive' / 'test05.mid'\n>>> mf = midi.MidiFile()\n>>> mf.open(fp)\n>>> mf.read()\n>>> mf.close()\n>>> mf\n<music21.midi.MidiFile 1 track>\n>>> len(mf.tracks)\n1\n>>> mt = mf.tracks[0]\n>>> mt\n<music21.midi.MidiTrack 0 -- 56 events>\n>>> mt.events\n[<music21.midi.DeltaTime ...>,\n <music21.midi.MidiEvent SEQUENCE_TRACK_NAME...>,\n <music21.midi.DeltaTime ...>,\n <music21.midi.MidiEvent NOTE_ON, track=0, channel=1, pitch=36, velocity=90>,\n ...]\n>>> p = midi.translate.midiTrackToStream(mt, ticksPerQuarter=mf.ticksPerQuarterNote)\n>>> p\n<music21.stream.Part ...>\n>>> len(p.recurse().notesAndRests)\n14\n>>> p.recurse().notes.first().pitch.midi\n36\n>>> p.recurse().notes.first().volume.velocity\n90\n\n\nNote that as of music21 v7, the Part object already has measures made:\n>>> p.show('text')\n{0.0} <music21.stream.Measure 1 offset=0.0>\n    {0.0} <music21.instrument.Instrument ''>\n    {0.0} <music21.clef.TrebleClef>\n    {0.0} <music21.meter.TimeSignature 4/4>\n    {0.0} <music21.note.Note C>\n    {1.0} <music21.note.Rest quarter>\n    {2.0} <music21.chord.Chord F3 G#4 C5>\n    {3.0} <music21.note.Rest quarter>\n{4.0} <music21.stream.Measure 2 offset=4.0>\n    {0.0} <music21.note.Rest eighth>\n    {0.5} <music21.note.Note B->\n    {1.5} <music21.note.Rest half>\n    {3.5} <music21.chord.Chord D2 A4>\n{8.0} <music21.stream.Measure 3 offset=8.0>\n    {0.0} <music21.note.Rest eighth>\n    {0.5} <music21.chord.Chord C#2 B-3 G#6>\n    {1.0} <music21.note.Rest dotted-quarter>\n    {2.5} <music21.chord.Chord F#3 A4 C#5>\n{12.0} <music21.stream.Measure 4 offset=12.0>\n    {0.0} <music21.chord.Chord F#3 A4 C#5>\n    {2.5} <music21.note.Rest dotted-quarter>\n    {4.0} <music21.bar.Barline type=final>\n\n\n\nChanged in v7: Now makes measures.\nChanged in v8: all but the first attribute are keyword only.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.midi.translate.",
+        "type": "Title"
+    },
+    {
+        "text": "midiTracksToStreams",
+        "type": "Title"
+    },
+    {
+        "text": "midiTracks",
+        "type": "Title"
+    },
+    {
+        "text": "list[midi.MidiTrack]",
+        "type": "Title"
+    },
+    {
+        "text": "ticksPerQuarter",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "10080",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "quantizePost",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "inputM21",
+        "type": "Title"
+    },
+    {
+        "text": "stream.Score | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 stream.Score",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a list of midiTracks, populate either a new stream.Score or inputM21\nwith a Part for each track.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.midi.translate.",
+        "type": "Title"
+    },
+    {
+        "text": "music21ObjectToMidiFile",
+        "type": "Title"
+    },
+    {
+        "text": "music21Object",
+        "type": "Title"
+    },
+    {
+        "text": "addStartDelay",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 midi.MidiFile",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Either calls streamToMidiFile on the music21Object or\nputs a copy of that object into a Stream (so as\nnot to change activeSites, etc.) and calls streamToMidiFile on\nthat object.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.midi.translate.",
+        "type": "Title"
+    },
+    {
+        "text": "noteToMidiEvents",
+        "type": "Title"
+    },
+    {
+        "text": "inputM21",
+        "type": "Title"
+    },
+    {
+        "text": "note.Note | note.Unpitched",
+        "type": "Title"
+    },
+    {
+        "text": "includeDeltaTime",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "channel",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 list[midi.DeltaTime | midi.MidiEvent]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Translate a music21 Note to a list of four MIDI events \u2014\nthe DeltaTime for the start of the note (0), the NOTE_ON event, the\nDeltaTime to the end of the note, and the NOTE_OFF event.\nIf includeDeltaTime is not True then the DeltaTime events\naren't returned, thus only two events are returned.\nThe initial deltaTime object is always 0.  It will be changed when\nprocessing Notes from a Stream.\nThe channel can be specified, otherwise channel 1 is assumed.\n>>> n1 = note.Note('C#4')\n>>> eventList = midi.translate.noteToMidiEvents(n1)\n>>> eventList\n[<music21.midi.DeltaTime (empty) track=None, channel=1>,\n <music21.midi.MidiEvent NOTE_ON, track=None, channel=1, pitch=61, velocity=90>,\n <music21.midi.DeltaTime t=10080, track=None, channel=1>,\n <music21.midi.MidiEvent NOTE_OFF, track=None, channel=1, pitch=61, velocity=0>]\n\n\n>>> n1.duration.quarterLength = 2.5\n>>> eventList = midi.translate.noteToMidiEvents(n1)\n>>> eventList\n[<music21.midi.DeltaTime (empty) track=None, channel=1>,\n <music21.midi.MidiEvent NOTE_ON, track=None, channel=1, pitch=61, velocity=90>,\n <music21.midi.DeltaTime t=25200, track=None, channel=1>,\n <music21.midi.MidiEvent NOTE_OFF, track=None, channel=1, pitch=61, velocity=0>]\n\n\nOmitting DeltaTimes:\n>>> eventList2 = midi.translate.noteToMidiEvents(n1, includeDeltaTime=False, channel=9)\n>>> eventList2\n[<music21.midi.MidiEvent NOTE_ON, track=None, channel=9, pitch=61, velocity=90>,\n <music21.midi.MidiEvent NOTE_OFF, track=None, channel=9, pitch=61, velocity=0>]\n\n\n\nChanged in v7: made keyword-only.\nChanged in v8: added support for Unpitched",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.midi.translate.",
+        "type": "Title"
+    },
+    {
+        "text": "offsetToMidiTicks",
+        "type": "Title"
+    },
+    {
+        "text": "addStartDelay",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Helper function to convert a music21 offset value to MIDI ticks,\ndepends on defaults.ticksPerQuarter and defaults.ticksAtStart.\nReturns an int.\n>>> defaults.ticksPerQuarter\n10080\n>>> defaults.ticksAtStart\n10080\n\n\n>>> midi.translate.offsetToMidiTicks(0)\n0\n>>> midi.translate.offsetToMidiTicks(0, addStartDelay=True)\n10080\n\n\n>>> midi.translate.offsetToMidiTicks(1)\n10080\n\n\n>>> midi.translate.offsetToMidiTicks(20.5)\n206640",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.midi.translate.",
+        "type": "Title"
+    },
+    {
+        "text": "packetStorageFromSubstreamList",
+        "type": "Title"
+    },
+    {
+        "text": "substreamList",
+        "type": "Title"
+    },
+    {
+        "text": "list[music21.stream.base.Part]",
+        "type": "Title"
+    },
+    {
+        "text": "addStartDelay",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 dict[int, dict[str, Any]]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Make a dictionary of raw packets and the initial instrument for each\nsubStream.\nIf the first Part in the list of parts is empty then a new\nConductor object will be given as the instrument.\n>>> s = stream.Score()\n>>> p = stream.Part()\n>>> m = stream.Measure(number=1)\n>>> m.append(tempo.MetronomeMark(100))\n>>> m.append(instrument.Oboe())\n>>> m.append(note.Note('C4', type='whole'))  # MIDI 60\n>>> p.append(m)\n>>> s.append(p)\n>>> sOut = midi.translate.prepareStreamForMidi(s)\n>>> partList = list(sOut.parts)\n>>> packetStorage = midi.translate.packetStorageFromSubstreamList(partList)\n>>> list(sorted(packetStorage.keys()))\n[0, 1]\n>>> list(sorted(packetStorage[0].keys()))\n['initInstrument', 'rawPackets']\n\n\n>>> from pprint import pprint\n>>> pprint(packetStorage)\n{0: {'initInstrument': <music21.instrument.Conductor 'Conductor'>,\n     'rawPackets': [{'centShift': None,\n                     'duration': 0,\n                     'lastInstrument': <music21.instrument.Conductor 'Conductor'>,\n                     'midiEvent': <music21.midi.MidiEvent SET_TEMPO, ... channel=1, ...>,\n                     'obj': <music21.tempo.MetronomeMark Quarter=100>,\n                     'offset': 0,\n                     'trackId': 0},\n                    {'centShift': None,\n                     'duration': 0,\n                     'lastInstrument': <music21.instrument.Conductor 'Conductor'>,\n                     'midiEvent': <music21.midi.MidiEvent TIME_SIGNATURE, ...>,\n                     'obj': <music21.meter.TimeSignature 4/4>,\n                     'offset': 0,\n                     'trackId': 0}]},\n 1: {'initInstrument': <music21.instrument.Oboe 'Oboe'>,\n     'rawPackets': [{'centShift': None,\n                     'duration': 0,\n                     'lastInstrument': <music21.instrument.Oboe 'Oboe'>,\n                     'midiEvent': <music21.midi.MidiEvent PROGRAM_CHANGE,\n                                      track=None, channel=1, data=68>,\n                     'obj': <music21.instrument.Oboe 'Oboe'>,\n                     'offset': 0,\n                     'trackId': 1},\n                    {'centShift': None,\n                     'duration': 40320,\n                     'lastInstrument': <music21.instrument.Oboe 'Oboe'>,\n                     'midiEvent': <music21.midi.MidiEvent NOTE_ON,\n                                      track=None, channel=1, pitch=60, velocity=90>,\n                     'obj': <music21.note.Note C>,\n                     'offset': 0,\n                     'trackId': 1},\n                    {'centShift': None,\n                     'duration': 0,\n                     'lastInstrument': <music21.instrument.Oboe 'Oboe'>,\n                     'midiEvent': <music21.midi.MidiEvent NOTE_OFF,\n                                       track=None, channel=1, pitch=60, velocity=0>,\n                     'obj': <music21.note.Note C>,\n                     'offset': 40320,\n                     'trackId': 1}]}}",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.midi.translate.",
+        "type": "Title"
+    },
+    {
+        "text": "packetsToDeltaSeparatedEvents",
+        "type": "Title"
+    },
+    {
+        "text": "packets",
+        "type": "Title"
+    },
+    {
+        "text": "list",
+        "type": "Title"
+    },
+    {
+        "text": "dict",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "t.Any",
+        "type": "Title"
+    },
+    {
+        "text": "midiTrack",
+        "type": "Title"
+    },
+    {
+        "text": "midi.MidiTrack",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 list[midi.MidiEvent | midi.DeltaTime]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a list of packets (which already contain MidiEvent objects)\nreturn a list of those Events with proper delta times between them.\nAt this stage MIDI event objects have been created.\nThe key process here is finding the adjacent time\nbetween events and adding DeltaTime events before each MIDI event.\nDelta time channel values are derived from the previous midi event.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.midi.translate.",
+        "type": "Title"
+    },
+    {
+        "text": "packetsToMidiTrack",
+        "type": "Title"
+    },
+    {
+        "text": "packets",
+        "type": "Title"
+    },
+    {
+        "text": "trackId",
+        "type": "Title"
+    },
+    {
+        "text": "channel",
+        "type": "Title"
+    },
+    {
+        "text": "instrumentObj",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given packets already allocated with channel\nand/or instrument assignments, place these in a MidiTrack.\nNote that all packets can be sent; only those with\nmatching trackIds will be collected into the resulting track\nThe channel defines the channel that startEvents and endEvents\nwill be assigned to\nUse streamToPackets to convert the Stream to the packets",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.midi.translate.",
+        "type": "Title"
+    },
+    {
+        "text": "prepareStreamForMidi",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 Stream",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a score, prepare it for MIDI processing, and return a new Stream:\n\nExpand repeats.\n\n2. Make changes that will let us later create a conductor (tempo) track\nby placing MetronomeMark, TimeSignature, and KeySignature\nobjects into a new Part, and remove them from other parts.\n\nEnsure that the resulting Stream always has part-like substreams.\n\nNote: will make a deepcopy() of the stream.\n>>> s = stream.Score()\n>>> p = stream.Part()\n>>> m = stream.Measure(number=1)\n>>> m.append(tempo.MetronomeMark(100))\n>>> m.append(note.Note('C4', type='whole'))  # MIDI 60\n>>> p.append(m)\n>>> s.append(p)\n>>> sOut = midi.translate.prepareStreamForMidi(s)\n>>> sOut.show('text')\n{0.0} <music21.stream.Part 0x10b0439a0>\n    {0.0} <music21.tempo.MetronomeMark Quarter=100>\n    {0.0} <music21.meter.TimeSignature 4/4>\n{0.0} <music21.stream.Part 0x10b043c10>\n    {0.0} <music21.stream.Measure 1 offset=0.0>\n        {0.0} <music21.note.Note C>",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.midi.translate.",
+        "type": "Title"
+    },
+    {
+        "text": "streamHierarchyToMidiTracks",
+        "type": "Title"
+    },
+    {
+        "text": "inputM21",
+        "type": "Title"
+    },
+    {
+        "text": "acceptableChannelList",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "addStartDelay",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a Stream, Score, Part, etc., that may have substreams (i.e.,\na hierarchy), return a list of MidiTrack objects.\nacceptableChannelList is a list of MIDI Channel numbers that can be used or None.\nIf None, then 1-9, 11-16 are used (10 being reserved for percussion).\nIn addition, if an Instrument object in the stream\nhas a .midiChannel that is not None, that channel is observed, and\nalso treated as reserved. Only subclasses of UnpitchedPercussion\nhave a default .midiChannel, but users may manipulate this.\nSee channelInstrumentData() for more, and for documentation on acceptableChannelList.\nCalled by streamToMidiFile()\nThe process:\n\nmakes a deepcopy of the Stream (Developer TODO: could this\nbe done with a shallow copy? Not if ties are stripped and volume realized.)\nwe make a list of all instruments that are being used in the piece.\n\n\nChanged in v6: acceptableChannelList is keyword only.  addStartDelay is new.\nChanged in v6.5: Track 0 (tempo/conductor track) always exported.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.midi.translate.",
+        "type": "Title"
+    },
+    {
+        "text": "streamToPackets",
+        "type": "Title"
+    },
+    {
+        "text": "Stream",
+        "type": "Title"
+    },
+    {
+        "text": "trackId",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "addStartDelay",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 list[dict[str, Any]]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Convert a (flattened, sorted) Stream to packets.\nThis assumes that the Stream has already been flattened,\nties have been stripped, and instruments,\nif necessary, have been added.\nIn converting from a Stream to MIDI, this is called first,\nresulting in a collection of packets by offset.\nThen, packets to events is called.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.midi.translate.",
+        "type": "Title"
+    },
+    {
+        "text": "tempoToMidiEvents",
+        "type": "Title"
+    },
+    {
+        "text": "tempoIndication",
+        "type": "Title"
+    },
+    {
+        "text": "tempo.MetronomeMark",
+        "type": "Title"
+    },
+    {
+        "text": "includeDeltaTime",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 list[midi.DeltaTime | midi.MidiEvent] | None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given any TempoIndication, convert it to list of MidiEvent\nobjects that signifies a MIDI tempo indication.\n>>> mm = tempo.MetronomeMark(number=90)\n>>> events = midi.translate.tempoToMidiEvents(mm)\n>>> events\n[<music21.midi.DeltaTime ...>, <music21.midi.MidiEvent SET_TEMPO...>]\n>>> len(events)\n2\n\n\n>>> events[0]\n<music21.midi.DeltaTime (empty) track=None, channel=None>\n\n\n>>> evt1 = events[1]\n>>> evt1\n<music21.midi.MidiEvent SET_TEMPO, track=None, channel=1, data=b'\\n,+'>\n>>> evt1.data\nb'\\n,+'\n>>> microSecondsPerQuarterNote = midi.getNumber(evt1.data, len(evt1.data))[0]\n>>> microSecondsPerQuarterNote\n666667\n\n\n>>> round(60_000_000 / microSecondsPerQuarterNote, 1)\n90.0\n\n\nIf includeDeltaTime is False then the DeltaTime object is omitted:\n>>> midi.translate.tempoToMidiEvents(mm, includeDeltaTime=False)\n[<music21.midi.MidiEvent SET_TEMPO...>]\n\n\nTest round-trip.  Note that for pure tempo numbers, by default\nwe create a text name if there's an appropriate one:\n>>> midi.translate.midiEventsToTempo(events)\n<music21.tempo.MetronomeMark maestoso Quarter=90>\n\n\nNone is returned if the MetronomeMark lacks a number, which can\nhappen with metric modulation marks.\n>>> midi.translate.tempoToMidiEvents(tempo.MetronomeMark(number=None)) is None\nTrue\n\n\nSounding numbers also translate even if number is None\n>>> mm = tempo.MetronomeMark(numberSounding=80)\n>>> midi.translate.tempoToMidiEvents(mm)\n[<music21.midi.DeltaTime ...>, <music21.midi.MidiEvent SET_TEMPO...>]",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.midi.translate.",
+        "type": "Title"
+    },
+    {
+        "text": "ticksToDuration",
+        "type": "Title"
+    },
+    {
+        "text": "ticks",
+        "type": "Title"
+    },
+    {
+        "text": "ticksPerQuarter",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "10080",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "inputM21DurationObject",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Converts a number of MIDI Ticks to a music21 duration.Duration() object.\nOptional parameters include ticksPerQuarter \u2014 in case something other\nthan the default.ticksPerQuarter (10080) is used in this file.  And\nit can take a Duration object to modify, specified\nas inputM21DurationObject\n>>> d = midi.translate.ticksToDuration(10080)\n>>> d\n<music21.duration.Duration 1.0>\n>>> d.type\n'quarter'\n\n\n>>> n = note.Note()\n>>> midi.translate.ticksToDuration(30240, inputM21DurationObject=n.duration)\n<music21.duration.Duration 3.0>\n>>> n.duration.type\n'half'\n>>> n.duration.dots\n1\n\n\nMore complex rhythms can also be set automatically:\n>>> d2 = duration.Duration()\n>>> d2reference = midi.translate.ticksToDuration(23625, inputM21DurationObject=d2)\n>>> d2 is d2reference\nTrue\n>>> d2.quarterLength\n2.34375\n>>> d2.type\n'complex'\n>>> d2.components\n(DurationTuple(type='half', dots=0, quarterLength=2.0),\n DurationTuple(type='16th', dots=0, quarterLength=0.25),\n DurationTuple(type='64th', dots=1, quarterLength=0.09375))\n>>> d2.components[2].type\n'64th'\n>>> d2.components[2].dots\n1",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.midi.translate.",
+        "type": "Title"
+    },
+    {
+        "text": "timeSignatureToMidiEvents",
+        "type": "Title"
+    },
+    {
+        "text": "ts",
+        "type": "Title"
+    },
+    {
+        "text": "includeDeltaTime",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Translate a TimeSignature to a pair of events: a DeltaTime and\na MidiEvent TIME_SIGNATURE.\nReturns a two-element list\n>>> ts = meter.TimeSignature('5/4')\n>>> eventList = midi.translate.timeSignatureToMidiEvents(ts)\n>>> eventList[0]\n<music21.midi.DeltaTime (empty) track=None, channel=None>\n>>> eventList[1]\n<music21.midi.MidiEvent TIME_SIGNATURE, track=None, channel=1, data=b'\\x05\\x02\\x18\\x08'>",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.midi.translate.",
+        "type": "Title"
+    },
+    {
+        "text": "updatePacketStorageWithChannelInfo",
+        "type": "Title"
+    },
+    {
+        "text": "packetStorage",
+        "type": "Title"
+    },
+    {
+        "text": "dict",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "dict",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "Any",
+        "type": "Title"
+    },
+    {
+        "text": "channelByInstrument",
+        "type": "Title"
+    },
+    {
+        "text": "dict",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Take the packetStorage dictionary and using information\nfrom \u0098initInstrument' and channelByInstrument, add an \u0098initChannel' key to each\npacketStorage bundle and to each rawPacket in the bundle[\u0098rawPackets']",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.midi.translate",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

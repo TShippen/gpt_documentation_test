@@ -1,0 +1,430 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.midi.realtime",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.midi.percussion",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.midi.translate",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.midi.realtime\nStreamPlayer\nStreamPlayer\nStreamPlayer.getStringOrBytesIOFile()\nStreamPlayer.play()\nStreamPlayer.playStringIOFile()\nStreamPlayer.stop()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.midi.realtime\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Objects for realtime playback of Music21 Streams as MIDI.",
+        "type": "Title"
+    },
+    {
+        "text": "From an idea of Joe \u009cCodeswell\u009d:",
+        "type": "Title"
+    },
+    {
+        "text": "https://joecodeswell.wordpress.com/2012/06/13/how-to-produce-python-controlled-audio-output-from-music-made-with-music21",
+        "type": "Title"
+    },
+    {
+        "text": "https://stackoverflow.com/questions/10983462/how-can-i-produce-real-time-audio-output-from-music-made-with-music21",
+        "type": "Title"
+    },
+    {
+        "text": "Requires pygame: http://www.pygame.org/download.shtml",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "StreamPlayer\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.midi.realtime.",
+        "type": "Title"
+    },
+    {
+        "text": "StreamPlayer",
+        "type": "Title"
+    },
+    {
+        "text": "streamIn",
+        "type": "Title"
+    },
+    {
+        "text": "Stream",
+        "type": "Title"
+    },
+    {
+        "text": "reinitMixer",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "mixerFreq",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "44100",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "mixerBitSize",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "16",
+        "type": "ListItem"
+    },
+    {
+        "text": "mixerChannels",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "mixerBuffer",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "1024",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Create a player for a stream that plays its midi version in realtime using pygame.\nSet up a detuned piano (where each key has a random but\nconsistent detuning from 30 cents flat to sharp)\nand play a Bach Chorale on it in real time.\n>>> import random\n>>> keyDetune = []\n>>> for i in range(127):\n...    keyDetune.append(random.randint(-30, 30))\n\n\n>>> b = corpus.parse('bwv66.6')\n>>> for n in b.flatten().notes:\n...    n.pitch.microtone = keyDetune[n.pitch.midi]\n>>> sp = midi.realtime.StreamPlayer(b)\n>>> sp.play()\n\n\nThe stream is stored (unaltered) in StreamPlayer.streamIn, and can be changed any time the\nmidi file is not playing.\nA number of mixer controls can be passed in with keywords:\n\nmixerFreq (default 44100 \u2014 CD quality)\n\nmixerBitSize (default -16 (=unsigned 16bit) \u2014really, are you going to do 24bit audio with Python?? :-)  )\n\n\n\nmixerChannels (default 2 = stereo)\nmixerBuffer (default 1024 = number of samples)",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamPlayer methods",
+        "type": "Title"
+    },
+    {
+        "text": "StreamPlayer.",
+        "type": "Title"
+    },
+    {
+        "text": "getStringOrBytesIOFile",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamPlayer.",
+        "type": "Title"
+    },
+    {
+        "text": "play",
+        "type": "Title"
+    },
+    {
+        "text": "busyFunction",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "busyArgs",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "endFunction",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "endArgs",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "busyWaitMilliseconds",
+        "type": "Title"
+    },
+    {
+        "text": "50",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "playForMilliseconds",
+        "type": "Title"
+    },
+    {
+        "text": "inf",
+        "type": "Title"
+    },
+    {
+        "text": "blocked",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "busyFunction is a function that is called with busyArgs when the music is busy every\nbusyWaitMilliseconds.\nendFunction is a function that is called with endArgs when the music finishes playing.\nplayForMilliseconds is the amount of time in milliseconds after which\nthe playback will be automatically stopped.\nIf blocked is False, the method will finish before ending the stream, allowing\nyou to completely control whether to stop it. Ignore every other arguments",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamPlayer.",
+        "type": "Title"
+    },
+    {
+        "text": "playStringIOFile",
+        "type": "Title"
+    },
+    {
+        "text": "stringIOFile",
+        "type": "Title"
+    },
+    {
+        "text": "busyFunction",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "busyArgs",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "endFunction",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "endArgs",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "busyWaitMilliseconds",
+        "type": "Title"
+    },
+    {
+        "text": "50",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "playForMilliseconds",
+        "type": "Title"
+    },
+    {
+        "text": "inf",
+        "type": "Title"
+    },
+    {
+        "text": "blocked",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "busyFunction is a function that is called with busyArgs when the music is busy every\nbusyWaitMilliseconds.\nendFunction is a function that is called with endArgs when the music finishes playing.\nplayForMilliseconds is the amount of time in milliseconds after which the\nplayback will be automatically stopped.\nIf blocked is False, the method will finish before ending the stream, allowing you to\ncompletely control whether to stop it. Ignore every other arguments but for stringIOFile",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamPlayer.",
+        "type": "Title"
+    },
+    {
+        "text": "stop",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.midi.realtime",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

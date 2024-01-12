@@ -1,0 +1,618 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.figuredBass.resolution",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.figuredBass.realizerScale",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.figuredBass.rules",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.figuredBass.resolution\nFunctions\naugmentedSixthToDominant()\naugmentedSixthToMajorTonic()\naugmentedSixthToMinorTonic()\ndominantSeventhToMajorTonic()\ndominantSeventhToMinorTonic()\ndominantSeventhToMajorSubmediant()\ndominantSeventhToMinorSubmediant()\ndominantSeventhToMajorSubdominant()\ndominantSeventhToMinorSubdominant()\ndiminishedSeventhToMajorTonic()\ndiminishedSeventhToMinorTonic()\ndiminishedSeventhToMajorSubdominant()\ndiminishedSeventhToMinorSubdominant()\nshowResolutions()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.figuredBass.resolution\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "The terminology, V43, viio, iv, etc. are explained\nmore fully in The Music Theory Handbook\nby Marjorie Merryman.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "dominant seventh,",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "diminished seventh, and",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "augmented sixth\nchords expressed as possibilities (See",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "possibility).\nAlthough these methods can stand alone, they are speed-enhanced for instances\nof",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Segment, where there are many\npossibilities formed around the same chord. If provided with additional\narguments, the methods only",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "transpose() each",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch in a possibility by the appropriate interval.",
+        "type": "Title"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.figuredBass.resolution.",
+        "type": "Title"
+    },
+    {
+        "text": "augmentedSixthToDominant",
+        "type": "Title"
+    },
+    {
+        "text": "augSixthPossib",
+        "type": "Title"
+    },
+    {
+        "text": "augSixthType",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "augSixthChordInfo",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Resolves French (augSixthType = 1), German (augSixthType = 2), and Swiss (augSixthType = 3)\naugmented sixth chords to the root position dominant triad.\nProper Italian augmented sixth resolutions not supported within this method.\n>>> from music21.figuredBass import resolution\n>>> Bb2 = pitch.Pitch('B-2')\n>>> D4 = pitch.Pitch('D4')\n>>> E4 = pitch.Pitch('E4')\n>>> Es4 = pitch.Pitch('E#4')\n>>> F4 = pitch.Pitch('F4')\n>>> G4 = pitch.Pitch('G4')\n>>> Gs4 = pitch.Pitch('G#4')\n>>> iv6 = (G4, D4, D4, Bb2)\n>>> itAug6 = (Gs4, D4, D4, Bb2)\n>>> frAug6 = (Gs4, E4, D4, Bb2)\n>>> grAug6 = (Gs4, F4, D4, Bb2)\n>>> swAug6 = (Gs4, Es4, D4, Bb2)\n\n\n>>> frRes = resolution.augmentedSixthToDominant(frAug6)\n>>> frRes\n(<music21.pitch.Pitch A4>, <music21.pitch.Pitch E4>,\n <music21.pitch.Pitch C#4>, <music21.pitch.Pitch A2>)\n>>> [str(p) for p in frRes]\n['A4', 'E4', 'C#4', 'A2']\n\n\n>>> grRes = resolution.augmentedSixthToDominant(grAug6)\n>>> [str(p) for p in grRes]\n['A4', 'E4', 'C#4', 'A2']\n\n\n>>> swRes = resolution.augmentedSixthToDominant(swAug6)\n>>> [str(p) for p in swRes]\n['A4', 'E4', 'C#4', 'A2']\n>>> resolution.showResolutions(frAug6, frRes, grAug6, grRes, swAug6, swRes)\n\n\n\n\n\nAbove: French, German, and Swiss resolutions, respectively.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.figuredBass.resolution.",
+        "type": "Title"
+    },
+    {
+        "text": "augmentedSixthToMajorTonic",
+        "type": "Title"
+    },
+    {
+        "text": "augSixthPossib",
+        "type": "Title"
+    },
+    {
+        "text": "augSixthType",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "augSixthChordInfo",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Resolves French (augSixthType = 1), German (augSixthType = 2), and Swiss (augSixthType = 3)\naugmented sixth chords to the major tonic 6,4.\nProper Italian augmented sixth resolutions not supported within this method.\n>>> from music21.figuredBass import resolution\n>>> Bb2 = pitch.Pitch('B-2')\n>>> D4 = pitch.Pitch('D4')\n>>> E4 = pitch.Pitch('E4')\n>>> Es4 = pitch.Pitch('E#4')\n>>> F4 = pitch.Pitch('F4')\n>>> G4 = pitch.Pitch('G4')\n>>> Gs4 = pitch.Pitch('G#4')\n>>> iv6 = (G4, D4, D4, Bb2)\n>>> itAug6 = (Gs4, D4, D4, Bb2)\n>>> frAug6 = (Gs4, E4, D4, Bb2)\n>>> grAug6 = (Gs4, F4, D4, Bb2)\n>>> swAug6 = (Gs4, Es4, D4, Bb2)\n>>> frRes = resolution.augmentedSixthToMajorTonic(frAug6)\n>>> [str(p) for p in frRes]\n['A4', 'F#4', 'D4', 'A2']\n>>> grRes = resolution.augmentedSixthToMajorTonic(grAug6)\n>>> [str(p) for p in grRes]\n['A4', 'F#4', 'D4', 'A2']\n>>> swRes = resolution.augmentedSixthToMajorTonic(swAug6)\n>>> [str(p) for p in swRes]\n['A4', 'F#4', 'D4', 'A2']\n>>> resolution.showResolutions(frAug6, frRes, grAug6, grRes, swAug6, swRes)\n\n\n\n\n\nAbove: French, German, and Swiss resolutions, respectively.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.figuredBass.resolution.",
+        "type": "Title"
+    },
+    {
+        "text": "augmentedSixthToMinorTonic",
+        "type": "Title"
+    },
+    {
+        "text": "augSixthPossib",
+        "type": "Title"
+    },
+    {
+        "text": "augSixthType",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "augSixthChordInfo",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Resolves French (augSixthType = 1), German (augSixthType = 2), and Swiss (augSixthType = 3)\naugmented sixth chords to the minor tonic 6,4.\nProper Italian augmented sixth resolutions not supported within this method.\n>>> from music21.figuredBass import resolution\n>>> Bb2 = pitch.Pitch('B-2')\n>>> D4 = pitch.Pitch('D4')\n>>> E4 = pitch.Pitch('E4')\n>>> Es4 = pitch.Pitch('E#4')\n>>> F4 = pitch.Pitch('F4')\n>>> G4 = pitch.Pitch('G4')\n>>> Gs4 = pitch.Pitch('G#4')\n>>> iv6 = (G4, D4, D4, Bb2)\n>>> itAug6 = (Gs4, D4, D4, Bb2)\n>>> frAug6 = (Gs4, E4, D4, Bb2)\n>>> grAug6 = (Gs4, F4, D4, Bb2)\n>>> swAug6 = (Gs4, Es4, D4, Bb2)\n>>> frRes = resolution.augmentedSixthToMinorTonic(frAug6)\n>>> [str(p) for p in frRes]\n['A4', 'F4', 'D4', 'A2']\n>>> grRes = resolution.augmentedSixthToMinorTonic(grAug6)\n>>> [str(p) for p in grRes]\n['A4', 'F4', 'D4', 'A2']\n>>> swRes = resolution.augmentedSixthToMinorTonic(swAug6)\n>>> [str(p) for p in swRes]\n['A4', 'F4', 'D4', 'A2']\n>>> resolution.showResolutions(frAug6, frRes, grAug6, grRes, swAug6, swRes)\n\n\n\n\n\nAbove: French, German, and Swiss resolutions, respectively.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.figuredBass.resolution.",
+        "type": "Title"
+    },
+    {
+        "text": "dominantSeventhToMajorTonic",
+        "type": "Title"
+    },
+    {
+        "text": "domPossib",
+        "type": "Title"
+    },
+    {
+        "text": "resolveV43toI6",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "domChordInfo",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Resolves a dominant seventh chord in root position or any of its\ninversions to the major tonic, in root position or first inversion.\nThe second inversion (4,3) dominant seventh chord can resolve to\nthe tonic in either inversion. This is controlled by\nresolveV43toI6, and is set to True\nby resolveDominantSeventhSegment()\nonly when the segmentChord\nof a Segment\nspells out a dominant seventh chord in second inversion.\n>>> from music21.figuredBass import resolution\n>>> G2 = pitch.Pitch('G2')\n>>> C3 = pitch.Pitch('C3')\n>>> E3 = pitch.Pitch('E3')\n>>> G3 = pitch.Pitch('G3')\n>>> Bb3 = pitch.Pitch('B-3')\n>>> B3 = pitch.Pitch('B3')\n>>> C4 = pitch.Pitch('C4')\n>>> F4 = pitch.Pitch('F4')\n>>> Bb4 = pitch.Pitch('B-4')\n>>> D5 = pitch.Pitch('D5')\n>>> E5 = pitch.Pitch('E5')\n>>> domPossibA1 = (D5, F4, B3, G2)\n>>> resPossibA1 = resolution.dominantSeventhToMajorTonic(domPossibA1)\n>>> resPossibA1\n(<music21.pitch.Pitch C5>, <music21.pitch.Pitch E4>,\n <music21.pitch.Pitch C4>, <music21.pitch.Pitch C3>)\n>>> resolution.showResolutions(domPossibA1, resPossibA1)\n\n\n\n>>> domPossibA2 = (Bb3, G3, E3, C3)\n>>> resPossibA2 = resolution.dominantSeventhToMajorTonic(domPossibA2)\n>>> [str(p) for p in resPossibA2]\n['A3', 'F3', 'F3', 'F3']\n>>> resolution.showResolutions(domPossibA2, resPossibA2)\n\n\n\n>>> domPossibA3 = (E5, Bb4, C4, G3)\n>>> resPossibA3a = resolution.dominantSeventhToMajorTonic(domPossibA3, False)\n>>> [str(p) for p in resPossibA3a]\n['F5', 'A4', 'C4', 'F3']\n>>> resPossibA3b = resolution.dominantSeventhToMajorTonic(domPossibA3, True)\n>>> [str(p) for p in resPossibA3b]\n['F5', 'C5', 'C4', 'A3']\n>>> resolution.showResolutions(domPossibA3, resPossibA3a, domPossibA3, resPossibA3b)",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.figuredBass.resolution.",
+        "type": "Title"
+    },
+    {
+        "text": "dominantSeventhToMinorTonic",
+        "type": "Title"
+    },
+    {
+        "text": "domPossib",
+        "type": "Title"
+    },
+    {
+        "text": "resolveV43toi6",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "domChordInfo",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Resolves a dominant seventh chord in root position or any of its\ninversions to the minor tonic, in root position or first inversion,\naccordingly.\nThe second inversion (4,3) dominant seventh chord can resolve to\nthe tonic in either inversion. This is controlled by\nresolveV43toi6, and is set to True by\nresolveDominantSeventhSegment()\nonly when the segmentChord\nof a Segment\nspells out a dominant seventh chord in second inversion.\n>>> from music21.figuredBass import resolution\n>>> G2 = pitch.Pitch('G2')\n>>> C3 = pitch.Pitch('C3')\n>>> E3 = pitch.Pitch('E3')\n>>> G3 = pitch.Pitch('G3')\n>>> Bb3 = pitch.Pitch('B-3')\n>>> B3 = pitch.Pitch('B3')\n>>> C4 = pitch.Pitch('C4')\n>>> F4 = pitch.Pitch('F4')\n>>> Bb4 = pitch.Pitch('B-4')\n>>> D5 = pitch.Pitch('D5')\n>>> E5 = pitch.Pitch('E5')\n>>> domPossibA1 = (D5, F4, B3, G2)\n>>> resPossibA1 = resolution.dominantSeventhToMinorTonic(domPossibA1)\n>>> [str(p) for p in resPossibA1]\n['C5', 'E-4', 'C4', 'C3']\n>>> resolution.showResolutions(domPossibA1, resPossibA1)\n\n\n\n>>> domPossibA2 = (Bb3, G3, E3, C3)\n>>> resPossibA2 = resolution.dominantSeventhToMinorTonic(domPossibA2)\n>>> ', '.join([str(p) for p in resPossibA2])\n'A-3, F3, F3, F3'\n>>> resolution.showResolutions(domPossibA2, resPossibA2)\n\n\n\n>>> domPossibA3 = (E5, Bb4, C4, G3)\n>>> resPossibA3a = resolution.dominantSeventhToMinorTonic(domPossibA3, False)\n>>> [str(p) for p in resPossibA3a]\n['F5', 'A-4', 'C4', 'F3']\n>>> resPossibA3b = resolution.dominantSeventhToMinorTonic(domPossibA3, True)\n>>> [str(p) for p in resPossibA3b]\n['F5', 'C5', 'C4', 'A-3']\n>>> resolution.showResolutions(domPossibA3, resPossibA3a, domPossibA3, resPossibA3b)",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.figuredBass.resolution.",
+        "type": "Title"
+    },
+    {
+        "text": "dominantSeventhToMajorSubmediant",
+        "type": "Title"
+    },
+    {
+        "text": "domPossib",
+        "type": "Title"
+    },
+    {
+        "text": "domChordInfo",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Resolves a dominant seventh chord in root position to the\nmajor submediant (VI) in root position.\n>>> from music21.figuredBass import resolution\n>>> G2 = pitch.Pitch('G2')\n>>> B3 = pitch.Pitch('B3')\n>>> F4 = pitch.Pitch('F4')\n>>> D5 = pitch.Pitch('D5')\n>>> domPossibA1 = (D5, F4, B3, G2)\n>>> resPossibA1 = resolution.dominantSeventhToMajorSubmediant(domPossibA1)\n>>> [p.nameWithOctave for p in resPossibA1]\n['C5', 'E-4', 'C4', 'A-2']\n>>> resolution.showResolutions(domPossibA1, resPossibA1)",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.figuredBass.resolution.",
+        "type": "Title"
+    },
+    {
+        "text": "dominantSeventhToMinorSubmediant",
+        "type": "Title"
+    },
+    {
+        "text": "domPossib",
+        "type": "Title"
+    },
+    {
+        "text": "domChordInfo",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Resolves a dominant seventh chord in root position to the\nminor submediant (vi) in root position.\n>>> from music21.figuredBass import resolution\n>>> G2 = pitch.Pitch('G2')\n>>> B3 = pitch.Pitch('B3')\n>>> F4 = pitch.Pitch('F4')\n>>> D5 = pitch.Pitch('D5')\n>>> domPossibA1 = (D5, F4, B3, G2)\n>>> resPossibA1 = resolution.dominantSeventhToMinorSubmediant(domPossibA1)\n>>> [p.nameWithOctave for p in resPossibA1]\n['C5', 'E4', 'C4', 'A2']\n>>> resolution.showResolutions(domPossibA1, resPossibA1)",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.figuredBass.resolution.",
+        "type": "Title"
+    },
+    {
+        "text": "dominantSeventhToMajorSubdominant",
+        "type": "Title"
+    },
+    {
+        "text": "domPossib",
+        "type": "Title"
+    },
+    {
+        "text": "domChordInfo",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Resolves a dominant seventh chord in root position\nto the major subdominant (IV) in first inversion.\n>>> from music21.figuredBass import resolution\n>>> G2 = pitch.Pitch('G2')\n>>> B3 = pitch.Pitch('B3')\n>>> F4 = pitch.Pitch('F4')\n>>> D5 = pitch.Pitch('D5')\n>>> domPossibA1 = (D5, F4, B3, G2)\n>>> resPossibA1 = resolution.dominantSeventhToMajorSubdominant(domPossibA1)\n>>> [p.nameWithOctave for p in resPossibA1]\n['C5', 'F4', 'C4', 'A2']\n>>> resolution.showResolutions(domPossibA1, resPossibA1)",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.figuredBass.resolution.",
+        "type": "Title"
+    },
+    {
+        "text": "dominantSeventhToMinorSubdominant",
+        "type": "Title"
+    },
+    {
+        "text": "domPossib",
+        "type": "Title"
+    },
+    {
+        "text": "domChordInfo",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Resolves a dominant seventh chord in root position\nto the minor subdominant (iv) in first inversion.\n>>> from music21.figuredBass import resolution\n>>> G2 = pitch.Pitch('G2')\n>>> B3 = pitch.Pitch('B3')\n>>> F4 = pitch.Pitch('F4')\n>>> D5 = pitch.Pitch('D5')\n>>> domPossibA1 = (D5, F4, B3, G2)\n>>> resPossibA1 = resolution.dominantSeventhToMinorSubdominant(domPossibA1)\n>>> [p.nameWithOctave for p in resPossibA1]\n['C5', 'F4', 'C4', 'A-2']\n>>> resolution.showResolutions(domPossibA1, resPossibA1)",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.figuredBass.resolution.",
+        "type": "Title"
+    },
+    {
+        "text": "diminishedSeventhToMajorTonic",
+        "type": "Title"
+    },
+    {
+        "text": "dimPossib",
+        "type": "Title"
+    },
+    {
+        "text": "doubledRoot",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "dimChordInfo",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Resolves a fully diminished seventh chord to the major tonic,\nin root position or either inversion.\nThe resolution of the diminished seventh chord can have a\ndoubled third (standard resolution) or a doubled root\n(alternate resolution), because the third of the diminished\nchord can either rise or fall. The desired resolution is\nattained using doubledRoot, and is set by\nresolveDiminishedSeventhSegment().\n>>> from music21.figuredBass import resolution\n>>> Cs3 = pitch.Pitch('C#3')\n>>> G3 = pitch.Pitch('G3')\n>>> E4 = pitch.Pitch('E4')\n>>> Bb4 = pitch.Pitch('B-4')\n>>> dimPossibA = (Bb4, E4, G3, Cs3)\n>>> resPossibAa = resolution.diminishedSeventhToMajorTonic(dimPossibA, False)\n>>> [str(p) for p in resPossibAa]\n['A4', 'F#4', 'F#3', 'D3']\n>>> resPossibAb = resolution.diminishedSeventhToMajorTonic(dimPossibA, True)\n>>> [p.nameWithOctave for p in resPossibAb]\n['A4', 'D4', 'F#3', 'D3']\n>>> resolution.showResolutions(dimPossibA, resPossibAa, dimPossibA, resPossibAb)",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.figuredBass.resolution.",
+        "type": "Title"
+    },
+    {
+        "text": "diminishedSeventhToMinorTonic",
+        "type": "Title"
+    },
+    {
+        "text": "dimPossib",
+        "type": "Title"
+    },
+    {
+        "text": "doubledRoot",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "dimChordInfo",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Resolves a fully diminished seventh chord to the minor tonic,\nin root position or either inversion.\nThe resolution of the diminished seventh chord can have a\ndoubled third (standard resolution) or a doubled root\n(alternate resolution), because the third of the diminished\nchord can either rise or fall. The desired resolution is\nattained using doubledRoot, and is set by\nresolveDiminishedSeventhSegment().\n>>> from music21.figuredBass import resolution\n>>> Cs3 = pitch.Pitch('C#3')\n>>> G3 = pitch.Pitch('G3')\n>>> E4 = pitch.Pitch('E4')\n>>> Bb4 = pitch.Pitch('B-4')\n>>> dimPossibA = (Bb4, E4, G3, Cs3)\n>>> resPossibAa = resolution.diminishedSeventhToMinorTonic(dimPossibA, False)\n>>> [p.nameWithOctave for p in resPossibAa]\n['A4', 'F4', 'F3', 'D3']\n>>> resPossibAb = resolution.diminishedSeventhToMinorTonic(dimPossibA, True)\n>>> [p.nameWithOctave for p in resPossibAb]\n['A4', 'D4', 'F3', 'D3']\n>>> resolution.showResolutions(dimPossibA, resPossibAa, dimPossibA, resPossibAb)",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.figuredBass.resolution.",
+        "type": "Title"
+    },
+    {
+        "text": "diminishedSeventhToMajorSubdominant",
+        "type": "Title"
+    },
+    {
+        "text": "dimPossib",
+        "type": "Title"
+    },
+    {
+        "text": "dimChordInfo",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Resolves a fully diminished seventh chord to the\nmajor subdominant (IV).\n>>> from music21.figuredBass import resolution\n>>> Cs3 = pitch.Pitch('C#3')\n>>> G3 = pitch.Pitch('G3')\n>>> E4 = pitch.Pitch('E4')\n>>> Bb4 = pitch.Pitch('B-4')\n>>> dimPossibA = (Bb4, E4, G3, Cs3)\n>>> resPossibA = resolution.diminishedSeventhToMajorSubdominant(dimPossibA)\n>>> [str(p) for p in resPossibA]\n['B4', 'D4', 'G3', 'D3']\n>>> resolution.showResolutions(dimPossibA, resPossibA)",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.figuredBass.resolution.",
+        "type": "Title"
+    },
+    {
+        "text": "diminishedSeventhToMinorSubdominant",
+        "type": "Title"
+    },
+    {
+        "text": "dimPossib",
+        "type": "Title"
+    },
+    {
+        "text": "dimChordInfo",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Resolves a fully diminished seventh chord to the\nminor subdominant (iv).\n>>> from music21.figuredBass import resolution\n>>> Cs3 = pitch.Pitch('C#3')\n>>> G3 = pitch.Pitch('G3')\n>>> E4 = pitch.Pitch('E4')\n>>> Bb4 = pitch.Pitch('B-4')\n>>> dimPossibA = (Bb4, E4, G3, Cs3)\n>>> resPossibA = resolution.diminishedSeventhToMinorSubdominant(dimPossibA)\n>>> [str(p) for p in resPossibA]\n['B-4', 'D4', 'G3', 'D3']\n>>> resolution.showResolutions(dimPossibA, resPossibA)",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.figuredBass.resolution.",
+        "type": "Title"
+    },
+    {
+        "text": "showResolutions",
+        "type": "Title"
+    },
+    {
+        "text": "allPossib",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Takes in possibilities as arguments and adds them in order\nto a Score which is then displayed\nin external software.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.figuredBass.resolution",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

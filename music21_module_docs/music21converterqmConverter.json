@@ -1,0 +1,330 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.converter.qmConverter",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.converter.museScore",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.converter.subConverters",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.converter.qmConverter\nQMConverter\nQMConverter\nQMConverter.parseData()\nQMConverter.parseFile()\nQMConverter.write()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.converter.qmConverter\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "This is an example of how converter.subConverters.SubConverter\ncan be subclassed in order to parse and write an unsupported format\nin this case, the format, .qm, consists of a line of letters separated\nby spaces:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "C E G D F",
+        "type": "Title"
+    },
+    {
+        "text": "and turns each of them into a quarter note in octave 4 in 4/4.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Consult the code to see how it works.  To use, call\nconverter.registerSubConverter(converter.qmConverter.QMConverter)\nthen myStream = converter.parse(\u0098quarterMusic: C E G D F')",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "QMConverter\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.converter.qmConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "QMConverter",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "QMConverter bases",
+        "type": "Title"
+    },
+    {
+        "text": "SubConverter",
+        "type": "ListItem"
+    },
+    {
+        "text": "QMConverter read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from SubConverter:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "stream",
+        "type": "Table"
+    },
+    {
+        "text": "QMConverter methods",
+        "type": "Title"
+    },
+    {
+        "text": "QMConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "parseData",
+        "type": "Title"
+    },
+    {
+        "text": "strData",
+        "type": "Title"
+    },
+    {
+        "text": "number",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Parse the data.  The number attribute is not used.\n>>> from music21.converter.qmConverter import QMConverter\n>>> qmc = QMConverter()\n>>> qmc.parseData('C D E G C')\n>>> q_stream = qmc.stream\n>>> q_stream.show('text')\n{0.0} <music21.stream.Measure 1 offset=0.0>\n    {0.0} <music21.clef.TrebleClef>\n    {0.0} <music21.meter.TimeSignature 4/4>\n    {0.0} <music21.note.Note C>\n    {1.0} <music21.note.Note D>\n    {2.0} <music21.note.Note E>\n    {3.0} <music21.note.Note G>\n{4.0} <music21.stream.Measure 2 offset=4.0>\n    {0.0} <music21.note.Note C>\n    {1.0} <music21.bar.Barline type=final>",
+        "type": "ListItem"
+    },
+    {
+        "text": "QMConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "parseFile",
+        "type": "Title"
+    },
+    {
+        "text": "filePath",
+        "type": "Title"
+    },
+    {
+        "text": "number",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "parse a file from disk.  If QMConverter is registered, then any\nfile ending in .qm will automatically be parsed.\n>>> import os\n>>> parserPath = common.getSourceFilePath() / 'converter'\n>>> testPath = parserPath / 'quarterMusicTestIn.qm'\n\n\n>>> from music21.converter.qmConverter import QMConverter\n>>> qmc = QMConverter()\n>>> qmc.parseFile(testPath)\n>>> s = qmc.stream\n>>> s.show('text')\n{0.0} <music21.stream.Measure 1 offset=0.0>\n    {0.0} <music21.clef.TrebleClef>\n    {0.0} <music21.meter.TimeSignature 4/4>\n    {0.0} <music21.note.Note C>\n    {1.0} <music21.note.Note E>\n    {2.0} <music21.note.Note G>\n    {3.0} <music21.note.Note F>\n{4.0} <music21.stream.Measure 2 offset=4.0>\n    {0.0} <music21.note.Note E>\n    {1.0} <music21.note.Note D>\n    {2.0} <music21.note.Note C>\n    {3.0} <music21.bar.Barline type=final>",
+        "type": "ListItem"
+    },
+    {
+        "text": "QMConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "write",
+        "type": "Title"
+    },
+    {
+        "text": "obj",
+        "type": "Title"
+    },
+    {
+        "text": "fmt",
+        "type": "Title"
+    },
+    {
+        "text": "fp",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "subformats",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Calls .writeDataStream on the repr of obj, and returns the fp returned by it.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from SubConverter:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "checkShowAbility() getExtensionForSubformats() getTemporaryFile() launch() show() toData() writeDataStream()",
+        "type": "Table"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.converter.qmConverter",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

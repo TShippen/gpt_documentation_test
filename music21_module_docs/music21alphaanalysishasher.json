@@ -1,0 +1,366 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.alpha.analysis.hasher",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.alpha.analysis.fixer",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.alpha.analysis.ornamentRecognizer",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.alpha.analysis.hasher\nHasher\nHasher\nHasher.addHashToFinalHash()\nHasher.addNoteHashToFinalHash()\nHasher.addNoteHashWithReferenceToFinalHash()\nHasher.hashMeasures()\nHasher.hashStream()\nHasher.setupTupleList()\nHasher.setupValidTypesAndStateVars()\n\n\n\n\nNoteHash\nNoteHash\n\n\nNoteHashWithReference\nNoteHashWithReference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.alpha.analysis.hasher\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Hasher\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.alpha.analysis.hasher.",
+        "type": "Title"
+    },
+    {
+        "text": "Hasher",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "This is a modular hashing object that can hash notes, chords, and rests, and some of their\nproperties. Steps to using and calling the hasher:\n\nInitialize a hasher object\nSet the properties that you want to hash. There are 4 main groups of properties/settings:\na) self.validTypes should be some combination of notes, chords, rests\n\nb) general hashing settings include self.includeReference. if\n   self.includeReference is True, a reference to the original note/rest/chord is created\n   and kept track of during the hashing process.\n\nc) note properties are things like pitch, duration, offset, and some slightly fancier\n   properties\n\nd) self.stateVars is a dictionary of things you might want to hash that require some memory\n   e.g. current key signature, interval from the last note\n\n\n\ncall the hashStream() function on the stream you want to hash.\n\nThis is what the Hasher object does the in background once hashStream() is called:\n1) It runs self.setupValidTypesAndStateVars() and sets up properties from (a) and (d) from\nabove based on your settings\n\nIt runs self.preprocessStream() and based on settings from (d)\nIt determines which objects in the passed-in stream should be hashed\n\n4) It runs self.setupTupleList() and sets up self.tupleList, self.hashingFunctions\nand self.tupleClass, all related to each other. self.tupleList is a list of all the\nproperties that are hashed. self.hashingFunctions is a dictionary of which hashing function\nshould be used for each property (there are multiple ways of hashing a note's pitch, for\nexample, by MIDI number, or by a string representation). self.tupleClass is a NamedTuple\nthat is constructed ad hoc based on which properties are to be hashed.\n5) For all the elements from the stream that are to be hashed, the hasher hashes every one of\nits properties that are to be hashed using the hashing function listed in\nself.hashingFunctions. It creates a single NamedTuple called a NoteHash for each element\nfrom the stream. However, if self.includeReference is set to True, a NoteHashWithReference\ntuple is created instead.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Hasher methods",
+        "type": "Title"
+    },
+    {
+        "text": "Hasher.",
+        "type": "Title"
+    },
+    {
+        "text": "addHashToFinalHash",
+        "type": "Title"
+    },
+    {
+        "text": "singleNoteHash",
+        "type": "Title"
+    },
+    {
+        "text": "finalHash",
+        "type": "Title"
+    },
+    {
+        "text": "reference",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "Hasher.",
+        "type": "Title"
+    },
+    {
+        "text": "addNoteHashToFinalHash",
+        "type": "Title"
+    },
+    {
+        "text": "finalHash",
+        "type": "Title"
+    },
+    {
+        "text": "tupleHash",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "creates a NoteHash object from tupleHash and adds the NoteHash\nobject to the end of finalHash\n>>> from collections import namedtuple\n>>> n = note.Note('C4')\n>>> NoteHash = namedtuple('NoteHash', ['Pitch', 'Duration'])\n>>> nh = NoteHash(n.pitch, n.duration)\n>>> finalHash = []\n>>> h = alpha.analysis.hasher.Hasher()\n>>> h.addNoteHashToFinalHash(finalHash, nh)\n>>> finalHash\n[(<music21.pitch.Pitch C4>, <music21.duration.Duration 1.0>)]",
+        "type": "ListItem"
+    },
+    {
+        "text": "Hasher.",
+        "type": "Title"
+    },
+    {
+        "text": "addNoteHashWithReferenceToFinalHash",
+        "type": "Title"
+    },
+    {
+        "text": "finalHash",
+        "type": "Title"
+    },
+    {
+        "text": "tupleHash",
+        "type": "Title"
+    },
+    {
+        "text": "reference",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "creates a NoteHashWithReference object from tupleHash and with the reference pass in\nand adds the NoteHashWithReference object to the end of finalHash\n>>> from collections import namedtuple\n>>> n = note.Note('C4')\n>>> NoteHash = namedtuple('NoteHash', ['Pitch', 'Duration'])\n>>> nh = NoteHash(n.pitch, n.duration)\n>>> finalHash = []\n>>> h = alpha.analysis.hasher.Hasher()\n>>> h.addNoteHashWithReferenceToFinalHash(finalHash, nh, n)\n>>> finalHash\n[NoteHashWithReference(Pitch=C4, Duration=<music21.duration.Duration 1.0>)]\n\n\n>>> finalHash[0].reference.id == n.id\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "Hasher.",
+        "type": "Title"
+    },
+    {
+        "text": "hashMeasures",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "lightweight hasher. only hashes number of notes, first and last pitch",
+        "type": "ListItem"
+    },
+    {
+        "text": "Hasher.",
+        "type": "Title"
+    },
+    {
+        "text": "hashStream",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "This method is the meat of the program. It goes through all the elements that are left\nto be hashed and individually hashes them by looking up which hashing functions ought\nto be used on each element and passing off the element to the method\nself.addSingleNoteHashToFinalHash, which creates the appropriate hash for that element\nand adds it to self.finalHash",
+        "type": "ListItem"
+    },
+    {
+        "text": "Hasher.",
+        "type": "Title"
+    },
+    {
+        "text": "setupTupleList",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Sets up self.hashingFunctions, a dictionary of which properties of self.validTypes should\nbe hashed and which hashing functions should be used for those properties. Creates a\ntupleList of all the properties that are hashed and uses that to create a named tuple\nNoteHash with those properties. This is how we can generate a malleable named tuple\nNoteHash that is different depending upon which properties a particular instance of\nHasher object hashes.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Hasher.",
+        "type": "Title"
+    },
+    {
+        "text": "setupValidTypesAndStateVars",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Sets up the self.stateVars dictionary depending on how the flags for\nself.hashIntervalFromLastNote and self.hashIsAccidental are set.\n>>> h = alpha.analysis.hasher.Hasher()\n>>> h.hashIntervalFromLastNote = True\n>>> h.setupValidTypesAndStateVars()\n>>> h.stateVars\n{'IntervalFromLastNote': None}\n\n\n>>> h2 = alpha.analysis.hasher.Hasher()\n>>> h2.hashIsAccidental = True\n>>> h2.setupValidTypesAndStateVars()\n>>> h2.stateVars\n{'KeySignature': None}\n\n\n>>> key.KeySignature in h2.validTypes\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "NoteHash\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.alpha.analysis.hasher.",
+        "type": "Title"
+    },
+    {
+        "text": "NoteHash",
+        "type": "Title"
+    },
+    {
+        "text": "tupEls",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>> note1 = note.Note('C4')\n>>> nh = alpha.analysis.hasher.NoteHash((1, 2))\n>>> nh\n(1, 2)\n>>> a, b = nh\n>>> a\n1\n>>> b\n2\n>>> nh.__class__\n<... 'music21.alpha.analysis.hasher.NoteHash'>",
+        "type": "ListItem"
+    },
+    {
+        "text": "NoteHashWithReference\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.alpha.analysis.hasher.",
+        "type": "Title"
+    },
+    {
+        "text": "NoteHashWithReference",
+        "type": "Title"
+    },
+    {
+        "text": "hashItemsNT",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "returns tuple with reference to original note or chord or rest\n>>> from collections import namedtuple\n>>> NoteHash = namedtuple('NoteHash', ['Pitch', 'Duration'])\n>>> nh = NoteHash(60, 4)\n>>> nhwr = alpha.analysis.hasher.NoteHashWithReference(nh)\n>>> nhwr.reference = note.Note('C4')\n>>> nhwr\nNoteHashWithReference(Pitch=60, Duration=4)\n\n\n>>> nhwr.Pitch\n60\n>>> nhwr.Duration\n4\n\n\n>>> nhwr.hashItemsKeys\n('Pitch', 'Duration')\n\n\n>>> for val in nhwr:\n...     print(val)\n60\n4\n\n\n>>> nhwr.reference\n<music21.note.Note C>",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.alpha.analysis.hasher",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

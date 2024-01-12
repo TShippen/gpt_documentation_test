@@ -1,0 +1,190 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.analysis.patel",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.analysis.neoRiemannian",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.analysis.pitchAnalysis",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.analysis.patel\nFunctions\nmelodicIntervalVariability()\nnPVI()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.analysis.patel\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.analysis.patel.",
+        "type": "Title"
+    },
+    {
+        "text": "melodicIntervalVariability",
+        "type": "Title"
+    },
+    {
+        "text": "streamForAnalysis",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "skipKeywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Gives the Melodic Interval Variability (MIV) for a Stream,\nas defined by Aniruddh D. Patel in \u009cMusic, Language, and the Brain\u009d\np. 223, as 100 x the coefficient of variation (standard deviation/mean)\nof the interval size (measured in semitones) between consecutive elements.\nThe multiplication by 100x exists to put it in the same range as nPVI.\nKeywords are passed on to\nStream.findConsecutiveNotes() via Stream.melodicIntervals for\ndetermining how to find consecutive intervals.\n>>> s2 = converter.parse('tinynotation: 4/4 C4 D E F# G#')[note.Note].stream()\n>>> analysis.patel.melodicIntervalVariability(s2)\n0.0\n>>> s3 = converter.parse('tinynotation: 4/4 C4 D E F G C')[note.Note].stream()\n>>> analysis.patel.melodicIntervalVariability(s3)\n85.266688...\n>>> s4 = corpus.parse('bwv66.6').parts[0][note.GeneralNote].stream()\n>>> analysis.patel.melodicIntervalVariability(s4)\n65.287...\n\n\nToo short streams raise a ValueError:\n>>> s5 = converter.parse('tinynotation: 4/4 C2 D2')[note.Note].stream()\n>>> analysis.patel.melodicIntervalVariability(s5)\nTraceback (most recent call last):\nValueError: need at least three notes to have a std-deviation of intervals (and thus a MIV)\n\n\n\nChanged in v9: ValueError rather than a Music21Exception raised.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.analysis.patel.",
+        "type": "Title"
+    },
+    {
+        "text": "nPVI",
+        "type": "Title"
+    },
+    {
+        "text": "streamForAnalysis",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Algorithm to give the normalized pairwise variability index\n(Low, Grabe, & Nolan, 2000) of the rhythm of a stream.\nUsed by Aniruddh D. Patel to argue for national differences between musical\nthemes.  First encountered it in a presentation by Patel, Chew, Francois,\nand Child at MIT.\nn.b. \u2014 takes the distance between each element, including clefs, keys, etc.\nuse .notesAndRests etc. to filter out elements that are not useful (though this will skip\nzero length objects)\nn.b.  \u2014 duration is used rather than actual distance \u2014 for gapless\nstreams (the norm) these two measures will be identical.\n>>> s2 = converter.parse('tinynotation: 4/4 C4 D E F G').flatten().notesAndRests.stream()\n>>> analysis.patel.nPVI(s2)\n0.0\n\n\n>>> s3 = converter.parse('tinynotation: 4/4 C4 D8 C4 D8 C4').flatten().notesAndRests.stream()\n>>> analysis.patel.nPVI(s3)\n66.6666...\n\n\n>>> s4 = corpus.parse('bwv66.6').parts[0].flatten().notesAndRests.stream()\n>>> analysis.patel.nPVI(s4)\n12.96296...",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.analysis.patel",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

@@ -1,0 +1,1186 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.meter.core",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.meter.base",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.meter.tools",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.meter.core\nMeterSequence\nMeterSequence\nMeterSequence.denominator\nMeterSequence.depth\nMeterSequence.flat\nMeterSequence.flatWeight\nMeterSequence.numerator\nMeterSequence.partitionDisplay\nMeterSequence.partitionStr\nMeterSequence.weight\nMeterSequence.__getitem__()\nMeterSequence.flatten()\nMeterSequence.getLevel()\nMeterSequence.getLevelList()\nMeterSequence.getLevelSpan()\nMeterSequence.getLevelWeight()\nMeterSequence.getPartitionOptions()\nMeterSequence.isUniformPartition()\nMeterSequence.load()\nMeterSequence.offsetToAddress()\nMeterSequence.offsetToDepth()\nMeterSequence.offsetToIndex()\nMeterSequence.offsetToSpan()\nMeterSequence.offsetToWeight()\nMeterSequence.partition()\nMeterSequence.partitionByCount()\nMeterSequence.partitionByList()\nMeterSequence.partitionByOtherMeterSequence()\nMeterSequence.setLevelWeight()\nMeterSequence.subdivideNestedHierarchy()\nMeterSequence.subdividePartitionsEqual()\n\n\n\n\nMeterTerminal\nMeterTerminal\nMeterTerminal.depth\nMeterTerminal.denominator\nMeterTerminal.duration\nMeterTerminal.numerator\nMeterTerminal.weight\nMeterTerminal.ratioEqual()\nMeterTerminal.subdivide()\nMeterTerminal.subdivideByCount()\nMeterTerminal.subdivideByList()\nMeterTerminal.subdivideByOther()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.meter.core\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "This module defines two component objects for defining nested metrical structures:\nMeterTerminal and MeterSequence.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "MeterSequence\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.meter.core.",
+        "type": "Title"
+    },
+    {
+        "text": "MeterSequence",
+        "type": "Title"
+    },
+    {
+        "text": "value",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "partitionRequest",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A meter sequence is a list of MeterTerminals, or other MeterSequences",
+        "type": "ListItem"
+    },
+    {
+        "text": "MeterSequence bases",
+        "type": "Title"
+    },
+    {
+        "text": "MeterTerminal",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "SlottedObjectMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "MeterSequence read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "MeterSequence.",
+        "type": "Title"
+    },
+    {
+        "text": "denominator",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "MeterSequence.",
+        "type": "Title"
+    },
+    {
+        "text": "depth",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return how many unique levels deep this part is\nThis should be optimized to store values unless the structure has changed.",
+        "type": "ListItem"
+    },
+    {
+        "text": "MeterSequence.",
+        "type": "Title"
+    },
+    {
+        "text": "flat",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "deprecated.  Call .flatten() instead.  To be removed in v11.",
+        "type": "ListItem"
+    },
+    {
+        "text": "MeterSequence.",
+        "type": "Title"
+    },
+    {
+        "text": "flatWeight",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a list of flat weight values",
+        "type": "ListItem"
+    },
+    {
+        "text": "MeterSequence.",
+        "type": "Title"
+    },
+    {
+        "text": "numerator",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "MeterSequence.",
+        "type": "Title"
+    },
+    {
+        "text": "partitionDisplay",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Property \u2014 Display the partition as a str without the surrounding curly brackets.\n>>> a = meter.MeterSequence('4/4')\n>>> a.partitionDisplay\n'4/4'\n>>> a = meter.MeterSequence('2/4+6/8')\n>>> a.partitionDisplay\n'2/4+6/8'\n\n\npartitionDisplay is most useful for non-divided meter sequences. This is less helpful:\n>>> a = meter.MeterSequence('4/4', 4)\n>>> a.partitionDisplay\n'1/4+1/4+1/4+1/4'",
+        "type": "ListItem"
+    },
+    {
+        "text": "MeterSequence.",
+        "type": "Title"
+    },
+    {
+        "text": "partitionStr",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return the number of top-level partitions in this MeterSequence as a string.\n>>> ms = meter.MeterSequence('2/4+2/4')\n>>> ms\n<music21.meter.core.MeterSequence {2/4+2/4}>\n>>> ms.partitionStr\n'Duple'\n\n\n>>> ms = meter.MeterSequence('6/4', 6)\n>>> ms\n<music21.meter.core.MeterSequence {1/4+1/4+1/4+1/4+1/4+1/4}>\n>>> ms.partitionStr\n'Sextuple'\n\n\n>>> ms = meter.MeterSequence('6/4', 2)\n>>> ms.partitionStr\n'Duple'\n\n\n>>> ms = meter.MeterSequence('6/4', 3)\n>>> ms.partitionStr\n'Triple'\n\n\nAnything larger than 8 is simply the number followed by \u0098-uple'\n>>> ms = meter.MeterSequence('13/4', 13)\n>>> ms.partitionStr\n'13-uple'\n\n\nSingle partition:\n>>> ms = meter.MeterSequence('3/4', 1)\n>>> ms.partitionStr\n'Single'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "MeterSequence read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "MeterSequence.",
+        "type": "Title"
+    },
+    {
+        "text": "weight",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get or set the weight for each object in this MeterSequence\n>>> a = meter.MeterSequence('3/4')\n>>> a.partition(3)\n>>> a.weight = 1\n>>> a[0].weight\n0.333...\n>>> b = meter.MeterTerminal('1/4', 0.25)\n>>> c = meter.MeterTerminal('1/4', 0.25)\n>>> d = meter.MeterSequence([b, c])\n>>> d.weight\n0.5\n\n\nAssume this MeterSequence is a whole, not a part of some larger MeterSequence.\nThus, we cannot use numerator/denominator relationship\nas a scalar.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read/write properties inherited from MeterTerminal:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "duration",
+        "type": "Table"
+    },
+    {
+        "text": "MeterSequence methods",
+        "type": "Title"
+    },
+    {
+        "text": "MeterSequence.",
+        "type": "Title"
+    },
+    {
+        "text": "__getitem__",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get an MeterTerminal from _partition\n>>> a = meter.MeterSequence('4/4', 4)\n>>> a[3].numerator\n1",
+        "type": "ListItem"
+    },
+    {
+        "text": "MeterSequence.",
+        "type": "Title"
+    },
+    {
+        "text": "flatten",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 MeterSequence",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a new MeterSequence composed of the flattened representation.\n>>> ms = meter.MeterSequence('3/4', 3)\n>>> b = ms.flatten()\n>>> len(b)\n3\n\n\n>>> ms[1] = ms[1].subdivide(4)\n>>> b = ms.flatten()\n>>> len(b)\n6\n\n\n>>> ms[1][2] = ms[1][2].subdivide(4)\n>>> ms\n<music21.meter.core.MeterSequence {1/4+{1/16+1/16+{1/64+1/64+1/64+1/64}+1/16}+1/4}>\n>>> b = ms.flatten()\n>>> len(b)\n9",
+        "type": "ListItem"
+    },
+    {
+        "text": "MeterSequence.",
+        "type": "Title"
+    },
+    {
+        "text": "getLevel",
+        "type": "Title"
+    },
+    {
+        "text": "level",
+        "type": "Title"
+    },
+    {
+        "text": "flat",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a complete MeterSequence with the same numerator/denominator\nrelationship but that represents any partitions found at the requested\nlevel. A sort of flatness with variable depth.\n>>> b = meter.MeterSequence('4/4', 4)\n>>> b[1] = b[1].subdivide(2)\n>>> b[3] = b[3].subdivide(2)\n>>> b[3][0] = b[3][0].subdivide(2)\n>>> b\n<music21.meter.core.MeterSequence {1/4+{1/8+1/8}+1/4+{{1/16+1/16}+1/8}}>\n>>> b.getLevel(0)\n<music21.meter.core.MeterSequence {1/4+1/4+1/4+1/4}>\n>>> b.getLevel(1)\n<music21.meter.core.MeterSequence {1/4+1/8+1/8+1/4+1/8+1/8}>\n>>> b.getLevel(2)\n<music21.meter.core.MeterSequence {1/4+1/8+1/8+1/4+1/16+1/16+1/8}>",
+        "type": "ListItem"
+    },
+    {
+        "text": "MeterSequence.",
+        "type": "Title"
+    },
+    {
+        "text": "getLevelList",
+        "type": "Title"
+    },
+    {
+        "text": "levelCount",
+        "type": "Title"
+    },
+    {
+        "text": "flat",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Recursive utility function that gets everything at a certain level.\n>>> b = meter.MeterSequence('4/4', 4)\n>>> b[1] = b[1].subdivide(2)\n>>> b[3] = b[3].subdivide(2)\n>>> b[3][0] = b[3][0].subdivide(2)\n>>> b\n<music21.meter.core.MeterSequence {1/4+{1/8+1/8}+1/4+{{1/16+1/16}+1/8}}>\n>>> b.getLevelList(0)\n[<music21.meter.core.MeterTerminal 1/4>,\n <music21.meter.core.MeterTerminal 1/4>,\n <music21.meter.core.MeterTerminal 1/4>,\n <music21.meter.core.MeterTerminal 1/4>]\n>>> meter.MeterSequence(b.getLevelList(0))\n<music21.meter.core.MeterSequence {1/4+1/4+1/4+1/4}>\n>>> meter.MeterSequence(b.getLevelList(1))\n<music21.meter.core.MeterSequence {1/4+1/8+1/8+1/4+1/8+1/8}>\n>>> meter.MeterSequence(b.getLevelList(2))\n<music21.meter.core.MeterSequence {1/4+1/8+1/8+1/4+1/16+1/16+1/8}>\n>>> meter.MeterSequence(b.getLevelList(3))\n<music21.meter.core.MeterSequence {1/4+1/8+1/8+1/4+1/16+1/16+1/8}>",
+        "type": "ListItem"
+    },
+    {
+        "text": "MeterSequence.",
+        "type": "Title"
+    },
+    {
+        "text": "getLevelSpan",
+        "type": "Title"
+    },
+    {
+        "text": "level",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "For a given level, return the time span of each terminal or sequence\n>>> b = meter.MeterSequence('4/4', 4)\n>>> b[1] = b[1].subdivide(2)\n>>> b[3] = b[3].subdivide(2)\n>>> b[3][0] = b[3][0].subdivide(2)\n>>> b\n<music21.meter.core.MeterSequence {1/4+{1/8+1/8}+1/4+{{1/16+1/16}+1/8}}>\n>>> b.getLevelSpan(0)\n[(0.0, 1.0), (1.0, 2.0), (2.0, 3.0), (3.0, 4.0)]\n>>> b.getLevelSpan(1)\n[(0.0, 1.0), (1.0, 1.5), (1.5, 2.0), (2.0, 3.0), (3.0, 3.5), (3.5, 4.0)]\n>>> b.getLevelSpan(2)\n[(0.0, 1.0), (1.0, 1.5), (1.5, 2.0), (2.0, 3.0), (3.0, 3.25), (3.25, 3.5), (3.5, 4.0)]",
+        "type": "ListItem"
+    },
+    {
+        "text": "MeterSequence.",
+        "type": "Title"
+    },
+    {
+        "text": "getLevelWeight",
+        "type": "Title"
+    },
+    {
+        "text": "level",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The weightList is an array of weights found in the components.\nThe MeterSequence has a ._weight attribute, but it is not used here\n>>> a = meter.MeterSequence('4/4', 4)\n>>> a.getLevelWeight()\n[0.25, 0.25, 0.25, 0.25]\n\n\n>>> b = meter.MeterSequence('4/4', 4)\n>>> b.getLevelWeight(0)\n[0.25, 0.25, 0.25, 0.25]\n\n\n>>> b[1] = b[1].subdivide(2)\n>>> b[3] = b[3].subdivide(2)\n>>> b.getLevelWeight(0)\n[0.25, 0.25, 0.25, 0.25]\n\n\n>>> b[3][0] = b[3][0].subdivide(2)\n>>> b\n<music21.meter.core.MeterSequence {1/4+{1/8+1/8}+1/4+{{1/16+1/16}+1/8}}>\n>>> b.getLevelWeight(0)\n[0.25, 0.25, 0.25, 0.25]\n>>> b.getLevelWeight(1)\n[0.25, 0.125, 0.125, 0.25, 0.125, 0.125]\n>>> b.getLevelWeight(2)\n[0.25, 0.125, 0.125, 0.25, 0.0625, 0.0625, 0.125]",
+        "type": "ListItem"
+    },
+    {
+        "text": "MeterSequence.",
+        "type": "Title"
+    },
+    {
+        "text": "getPartitionOptions",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 tuple[tuple[str, ...], ...]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return either a cached or a new set of division/partition options.\nCalls tools.divisionOptionsAlgo and tools.divisionOptionsPreset\n(which will be empty except if the numerator is 5).\nWorks on anything that has a .numerator and .denominator.\n>>> meter.MeterSequence('3/4').getPartitionOptions()\n(('1/4', '1/4', '1/4'),\n ('1/8', '1/8', '1/8', '1/8', '1/8', '1/8'),\n ('1/16', '1/16', '1/16', '1/16', '1/16', '1/16', '1/16',\n  '1/16', '1/16', '1/16', '1/16', '1/16'),\n ('3/4',), ('6/8',), ('12/16',), ('24/32',), ('48/64',), ('96/128',))\n\n\nThe additional 2 + 2 + 1 and 2 + 1 + 2 options for numerator 5 are at the end.\n>>> meter.MeterSequence('5/32').getPartitionOptions()\n(('2/32', '3/32'),\n ('3/32', '2/32'),\n ('1/32', '1/32', '1/32', '1/32', '1/32'),\n ('1/64', '1/64', '1/64', '1/64', '1/64',\n  '1/64', '1/64', '1/64', '1/64', '1/64'),\n ('5/32',), ('10/64',), ('20/128',),\n ('2/32', '2/32', '1/32'), ('2/32', '1/32', '2/32'))",
+        "type": "ListItem"
+    },
+    {
+        "text": "MeterSequence.",
+        "type": "Title"
+    },
+    {
+        "text": "isUniformPartition",
+        "type": "Title"
+    },
+    {
+        "text": "depth",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return True if the top-level partitions (if depth=0)\nor a lower-level section has equal durations\n>>> ms = meter.MeterSequence('3/8+2/8+3/4')\n>>> ms.isUniformPartition()\nFalse\n>>> ms = meter.MeterSequence('4/4')\n>>> ms.isUniformPartition()\nTrue\n>>> ms.partition(4)\n>>> ms.isUniformPartition()\nTrue\n>>> ms[0] = ms[0].subdivideByCount(2)\n>>> ms[1] = ms[1].subdivideByCount(4)\n>>> ms.isUniformPartition()\nTrue\n>>> ms.isUniformPartition(depth=1)\nFalse\n\n\n>>> ms = meter.MeterSequence('2/4+2/4')\n>>> ms.isUniformPartition()\nTrue\n\n\n>>> ms = meter.MeterSequence('5/8', 5)\n>>> ms.isUniformPartition()\nTrue\n>>> ms.partition(2)\n>>> ms.isUniformPartition()\nFalse\n\n\n\nChanged in v7: depth is keyword only",
+        "type": "ListItem"
+    },
+    {
+        "text": "MeterSequence.",
+        "type": "Title"
+    },
+    {
+        "text": "load",
+        "type": "Title"
+    },
+    {
+        "text": "value",
+        "type": "Title"
+    },
+    {
+        "text": "partitionRequest",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "autoWeight",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "targetWeight",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "This method is called when a MeterSequence is created, or if a MeterSequence is re-set.\nUser can enter a list of values or an abbreviated slash notation.\nautoWeight, if True, will attempt to set weights.\ntargetWeight, if given, will be used instead of self.weight\nloading is a destructive operation.\n>>> a = meter.MeterSequence()\n>>> a.load('4/4', 4)\n>>> str(a)\n'{1/4+1/4+1/4+1/4}'\n\n\n>>> a.load('4/4', 2)  # request 2 beats\n>>> str(a)\n'{1/2+1/2}'\n\n\n>>> a.load('5/8', 2)  # request 2 beats\n>>> str(a)\n'{2/8+3/8}'\n\n\n>>> a.load('5/8+4/4')\n>>> str(a)\n'{5/8+4/4}'",
+        "type": "ListItem"
+    },
+    {
+        "text": "MeterSequence.",
+        "type": "Title"
+    },
+    {
+        "text": "offsetToAddress",
+        "type": "Title"
+    },
+    {
+        "text": "qLenPos",
+        "type": "Title"
+    },
+    {
+        "text": "includeCoincidentBoundaries",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Give a list of values that show all indices necessary to access\nthe exact terminal at a given qLenPos.\nThe len of the returned list also provides the depth at the specified qLen.\n>>> a = meter.MeterSequence('3/4', 3)\n>>> a[1] = a[1].subdivide(4)\n>>> a\n<music21.meter.core.MeterSequence {1/4+{1/16+1/16+1/16+1/16}+1/4}>\n>>> len(a)\n3\n>>> a.offsetToAddress(0.5)\n[0]\n>>> a[0]\n<music21.meter.core.MeterTerminal 1/4>\n>>> a.offsetToAddress(1.0)\n[1, 0]\n>>> a.offsetToAddress(1.5)\n[1, 2]\n>>> a[1][2]\n<music21.meter.core.MeterTerminal 1/16>\n>>> a.offsetToAddress(1.99)\n[1, 3]\n>>> a.offsetToAddress(2.5)\n[2]",
+        "type": "ListItem"
+    },
+    {
+        "text": "MeterSequence.",
+        "type": "Title"
+    },
+    {
+        "text": "offsetToDepth",
+        "type": "Title"
+    },
+    {
+        "text": "qLenPos",
+        "type": "Title"
+    },
+    {
+        "text": "align",
+        "type": "Title"
+    },
+    {
+        "text": "'quantize'",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "Title"
+    },
+    {
+        "text": "int | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a qLenPos, return the maximum available depth at this position.\n>>> b = meter.MeterSequence('4/4', 4)\n>>> b[1] = b[1].subdivide(2)\n>>> b[3] = b[3].subdivide(2)\n>>> b[3][0] = b[3][0].subdivide(2)\n>>> b\n<music21.meter.core.MeterSequence {1/4+{1/8+1/8}+1/4+{{1/16+1/16}+1/8}}>\n>>> b.offsetToDepth(0)\n3\n>>> b.offsetToDepth(0.25)  # quantizing active by default\n3\n>>> b.offsetToDepth(1)\n3\n>>> b.offsetToDepth(1.5)\n2\n\n\n>>> b.offsetToDepth(-1)\nTraceback (most recent call last):\nmusic21.exceptions21.MeterException: cannot access from qLenPos -1.0\n\n\n\nChanged in v7: index can be provided, if known, for a long\nMeterSequence to improve performance.",
+        "type": "ListItem"
+    },
+    {
+        "text": "MeterSequence.",
+        "type": "Title"
+    },
+    {
+        "text": "offsetToIndex",
+        "type": "Title"
+    },
+    {
+        "text": "qLenPos",
+        "type": "Title"
+    },
+    {
+        "text": "includeCoincidentBoundaries",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 int",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given an offset in quarterLengths (0.0 through self.duration.quarterLength), return\nthe index of the active MeterTerminal or MeterSequence\n>>> a = meter.MeterSequence('4/4')\n>>> a.offsetToIndex(0.5)\n0\n>>> a.offsetToIndex(3.5)\n0\n>>> a.partition(4)\n>>> a.offsetToIndex(0.5)\n0\n>>> a.offsetToIndex(3.5)\n3\n\n\n>>> a.partition([1, 2, 1])\n>>> len(a)\n3\n>>> a.offsetToIndex(2.9)\n1\n>>> a[a.offsetToIndex(2.9)]\n<music21.meter.core.MeterTerminal 2/4>\n\n\n>>> a = meter.MeterSequence('4/4')\n>>> a.offsetToIndex(5.0)\nTraceback (most recent call last):\nmusic21.exceptions21.MeterException: cannot access from qLenPos 5.0\n    where total duration is 4.0\n\n\nNegative numbers also raise an exception:\n>>> a.offsetToIndex(-0.5)\nTraceback (most recent call last):\nmusic21.exceptions21.MeterException: cannot access from qLenPos -0.5\n    where total duration is 4.0",
+        "type": "ListItem"
+    },
+    {
+        "text": "MeterSequence.",
+        "type": "Title"
+    },
+    {
+        "text": "offsetToSpan",
+        "type": "Title"
+    },
+    {
+        "text": "qLenPos",
+        "type": "Title"
+    },
+    {
+        "text": "permitMeterModulus",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a qLenPos, return the span of the active region.\nOnly applies to the top most level of partitions\nIf permitMeterModulus is True, quarter length positions\ngreater than the duration of the Meter will be accepted\nas the modulus of the total meter duration.\n>>> a = meter.MeterSequence('3/4', 3)\n>>> a.offsetToSpan(0.5)\n(0, 1.0)\n>>> a.offsetToSpan(1.5)\n(1.0, 2.0)\n\n\nThis is the same as 1.5:\n>>> a.offsetToSpan(4.5, permitMeterModulus=True)\n(1.0, 2.0)\n\n\nMake sure it works for tuplets even with so-so rounding:\n>>> a.offsetToSpan(4.33333336, permitMeterModulus=True)\n(1.0, 2.0)",
+        "type": "ListItem"
+    },
+    {
+        "text": "MeterSequence.",
+        "type": "Title"
+    },
+    {
+        "text": "offsetToWeight",
+        "type": "Title"
+    },
+    {
+        "text": "qLenPos",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a lenPos, return the weight of the active region.\nOnly applies to the top-most level of partitions\n>>> a = meter.MeterSequence('3/4', 3)\n>>> a.offsetToWeight(0.0)\nFraction(1, 3)\n>>> a.offsetToWeight(1.5)\nFraction(1, 3)\n\n\n??? Not sure what this does\u2026",
+        "type": "ListItem"
+    },
+    {
+        "text": "MeterSequence.",
+        "type": "Title"
+    },
+    {
+        "text": "partition",
+        "type": "Title"
+    },
+    {
+        "text": "value",
+        "type": "Title"
+    },
+    {
+        "text": "loadDefault",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Partitioning creates and sets a number of MeterTerminals\nthat make up this MeterSequence.\nA simple way to partition based on argument time. Single integers\nare treated as beat counts; lists are treated as numerator lists;\nMeterSequence objects are partitioned by calling partitionByOtherMeterSequence().\n>>> a = meter.MeterSequence('5/4+3/8')\n>>> len(a)\n2\n>>> str(a)\n'{5/4+3/8}'\n\n\n>>> b = meter.MeterSequence('13/8')\n>>> len(b)\n1\n>>> str(b)\n'{13/8}'\n>>> b.partition(13)\n>>> len(b)\n13\n>>> str(b)\n'{1/8+1/8+1/8+...+1/8}'\n\n\n>>> a.partition(b)\n>>> len(a)\n13\n>>> str(a)\n'{1/8+1/8+1/8+...+1/8}'\n\n\nDemo of loadDefault: if impossible, then do it another way\u2026\n>>> c = meter.MeterSequence('3/128')\n>>> c.partition(2)\nTraceback (most recent call last):\nmusic21.exceptions21.MeterException: Cannot set partition by 2 (3/128)\n\n\n>>> c = meter.MeterSequence('3/128')\n>>> c.partition(2, loadDefault=True)\n>>> len(c)\n3\n>>> str(c)\n'{1/128+1/128+1/128}'",
+        "type": "ListItem"
+    },
+    {
+        "text": "MeterSequence.",
+        "type": "Title"
+    },
+    {
+        "text": "partitionByCount",
+        "type": "Title"
+    },
+    {
+        "text": "countRequest",
+        "type": "Title"
+    },
+    {
+        "text": "loadDefault",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Divide the current MeterSequence into the requested number of parts.\nIf it is not possible to divide it into the requested number, and\nloadDefault is True, then give the default partition:\nThis will destroy any established structure in the stored partition.\n>>> a = meter.MeterSequence('4/4')\n>>> a\n<music21.meter.core.MeterSequence {4/4}>\n>>> a.partitionByCount(2)\n>>> a\n<music21.meter.core.MeterSequence {1/2+1/2}>\n>>> str(a)\n'{1/2+1/2}'\n>>> a.partitionByCount(4)\n>>> a\n<music21.meter.core.MeterSequence {1/4+1/4+1/4+1/4}>\n>>> str(a)\n'{1/4+1/4+1/4+1/4}'\n\n\nThe partitions are not guaranteed to be the same length if the\nmeter is irregular:\n>>> b = meter.MeterSequence('5/8')\n>>> b.partitionByCount(2)\n>>> b\n <music21.meter.core.MeterSequence {2/8+3/8}>\n\n\nThis relies on a pre-defined exemption for partitioning 5 by 3:\n>>> b.partitionByCount(3)\n>>> str(b)\n'{2/8+2/8+1/8}'\n\n\nHere we use loadDefault=True to get the default partition in case\nthere is no known way to do this:\n>>> a = meter.MeterSequence('5/8')\n>>> a.partitionByCount(11)\n>>> str(a)\n'{2/8+3/8}'\n\n\nIf loadDefault is False then an error is raised:\n>>> a.partitionByCount(11, loadDefault=False)\nTraceback (most recent call last):\nmusic21.exceptions21.MeterException: Cannot set partition by 11 (5/8)",
+        "type": "ListItem"
+    },
+    {
+        "text": "MeterSequence.",
+        "type": "Title"
+    },
+    {
+        "text": "partitionByList",
+        "type": "Title"
+    },
+    {
+        "text": "numeratorList",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a numerator list, partition MeterSequence into a new list\nof MeterTerminals\n>>> a = meter.MeterSequence('4/4')\n>>> a.partitionByList([1, 1, 1, 1])\n>>> str(a)\n'{1/4+1/4+1/4+1/4}'\n\n\nThis divides it into two equal parts:\n>>> a.partitionByList([1, 1])\n>>> str(a)\n'{1/2+1/2}'\n\n\nAnd now into one big part:\n>>> a.partitionByList([1])\n>>> str(a)\n'{1/1}'\n\n\nHere we divide 4/4 very unconventionally:\n>>> a.partitionByList(['3/4', '1/8', '1/8'])\n>>> a\n<music21.meter.core.MeterSequence {3/4+1/8+1/8}>\n\n\nBut the basics of the MeterSequence must be observed:\n>>> a.partitionByList(['3/4', '1/8', '5/8'])\nTraceback (most recent call last):\nmusic21.exceptions21.MeterException: Cannot set partition by ['3/4', '1/8', '5/8']",
+        "type": "ListItem"
+    },
+    {
+        "text": "MeterSequence.",
+        "type": "Title"
+    },
+    {
+        "text": "partitionByOtherMeterSequence",
+        "type": "Title"
+    },
+    {
+        "text": "other",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Set partition to that found in another\nMeterSequence\n>>> a = meter.MeterSequence('4/4', 4)\n>>> str(a)\n'{1/4+1/4+1/4+1/4}'\n\n\n>>> b = meter.MeterSequence('4/4', 2)\n>>> a.partitionByOtherMeterSequence(b)\n>>> len(a)\n2\n>>> str(a)\n'{1/2+1/2}'",
+        "type": "ListItem"
+    },
+    {
+        "text": "MeterSequence.",
+        "type": "Title"
+    },
+    {
+        "text": "setLevelWeight",
+        "type": "Title"
+    },
+    {
+        "text": "weightList",
+        "type": "Title"
+    },
+    {
+        "text": "level",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The weightList is an array of weights to be applied to a\nsingle level of the MeterSequence.\n>>> a = meter.MeterSequence('4/4', 4)\n>>> a.setLevelWeight([1, 2, 3, 4])\n>>> a.getLevelWeight()\n[1, 2, 3, 4]\n\n\n>>> b = meter.MeterSequence('4/4', 4)\n>>> b.setLevelWeight([2, 3])\n>>> b.getLevelWeight(0)\n[2, 3, 2, 3]\n\n\n>>> b[1] = b[1].subdivide(2)\n>>> b[3] = b[3].subdivide(2)\n>>> b.getLevelWeight(0)\n[2, 3.0, 2, 3.0]\n\n\n>>> b[3][0] = b[3][0].subdivide(2)\n>>> b\n<music21.meter.core.MeterSequence {1/4+{1/8+1/8}+1/4+{{1/16+1/16}+1/8}}>\n>>> b.getLevelWeight(0)\n[2, 3.0, 2, 3.0]\n>>> b.getLevelWeight(1)\n[2, 1.5, 1.5, 2, 1.5, 1.5]\n>>> b.getLevelWeight(2)\n[2, 1.5, 1.5, 2, 0.75, 0.75, 1.5]",
+        "type": "ListItem"
+    },
+    {
+        "text": "MeterSequence.",
+        "type": "Title"
+    },
+    {
+        "text": "subdivideNestedHierarchy",
+        "type": "Title"
+    },
+    {
+        "text": "depth",
+        "type": "Title"
+    },
+    {
+        "text": "firstPartitionForm",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "normalizeDenominators",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Create nested structure down to a specified depth;\nthe first division is set to one; the second division\nmay be by 2 or 3; remaining divisions are always by 2.\nThis a destructive procedure that will remove\nany existing partition structures.\nnormalizeDenominators, if True, will reduce all denominators to the same minimum level.\n>>> ms = meter.MeterSequence('4/4')\n>>> ms.subdivideNestedHierarchy(1)\n>>> ms\n<music21.meter.core.MeterSequence {{1/2+1/2}}>\n>>> ms.subdivideNestedHierarchy(2)\n>>> ms\n<music21.meter.core.MeterSequence {{{1/4+1/4}+{1/4+1/4}}}>\n>>> ms.subdivideNestedHierarchy(3)\n>>> ms\n<music21.meter.core.MeterSequence {{{{1/8+1/8}+{1/8+1/8}}+{{1/8+1/8}+{1/8+1/8}}}}>\n\n\nI think you get the picture\u2026\nThe effects above are not cumulative.  Users can skip directly to\nwhatever level of hierarchy they want.\n>>> ms2 = meter.MeterSequence('4/4')\n>>> ms2.subdivideNestedHierarchy(3)\n>>> ms2\n<music21.meter.core.MeterSequence {{{{1/8+1/8}+{1/8+1/8}}+{{1/8+1/8}+{1/8+1/8}}}}>",
+        "type": "ListItem"
+    },
+    {
+        "text": "MeterSequence.",
+        "type": "Title"
+    },
+    {
+        "text": "subdividePartitionsEqual",
+        "type": "Title"
+    },
+    {
+        "text": "divisions",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Subdivide all partitions by equally-spaced divisions,\ngiven a divisions value. Manipulates this MeterSequence in place.\nDivisions value may optionally be a MeterSequence,\nfrom which a top-level partitioning structure is derived.\n>>> ms = meter.MeterSequence('2/4')\n>>> ms.partition(2)\n>>> ms\n<music21.meter.core.MeterSequence {1/4+1/4}>\n>>> ms.subdividePartitionsEqual(2)\n>>> ms\n<music21.meter.core.MeterSequence {{1/8+1/8}+{1/8+1/8}}>\n>>> ms[0].subdividePartitionsEqual(2)\n>>> ms\n<music21.meter.core.MeterSequence {{{1/16+1/16}+{1/16+1/16}}+{1/8+1/8}}>\n>>> ms[1].subdividePartitionsEqual(2)\n>>> ms\n<music21.meter.core.MeterSequence {{{1/16+1/16}+{1/16+1/16}}+{{1/16+1/16}+{1/16+1/16}}}>\n\n\n>>> ms = meter.MeterSequence('2/4+3/4')\n>>> ms.subdividePartitionsEqual(None)\n>>> ms\n<music21.meter.core.MeterSequence {{1/4+1/4}+{1/4+1/4+1/4}}>",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from MeterTerminal:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "ratioEqual() subdivide() subdivideByCount() subdivideByList() subdivideByOther()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "MeterTerminal\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.meter.core.",
+        "type": "Title"
+    },
+    {
+        "text": "MeterTerminal",
+        "type": "Title"
+    },
+    {
+        "text": "slashNotation",
+        "type": "Title"
+    },
+    {
+        "text": "str | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "weight",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A MeterTerminal is a nestable primitive of rhythmic division.\n>>> a = meter.MeterTerminal('2/4')\n>>> a.duration.quarterLength\n2.0\n>>> a = meter.MeterTerminal('3/8')\n>>> a.duration.quarterLength\n1.5\n>>> a = meter.MeterTerminal('5/2')\n>>> a.duration.quarterLength\n10.0",
+        "type": "ListItem"
+    },
+    {
+        "text": "MeterTerminal bases",
+        "type": "Title"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "SlottedObjectMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "MeterTerminal read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "MeterTerminal.",
+        "type": "Title"
+    },
+    {
+        "text": "depth",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return how many levels deep this part is \u2014 the depth of a terminal is always 1",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "MeterTerminal read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "MeterTerminal.",
+        "type": "Title"
+    },
+    {
+        "text": "denominator",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "MeterTerminal.",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "duration gets or sets a duration value that\nis equal in length of the terminal.\n>>> a = meter.MeterTerminal()\n>>> a.numerator = 3\n>>> a.denominator = 8\n>>> d = a.duration\n>>> d.type\n'quarter'\n>>> d.dots\n1\n>>> d.quarterLength\n1.5",
+        "type": "ListItem"
+    },
+    {
+        "text": "MeterTerminal.",
+        "type": "Title"
+    },
+    {
+        "text": "numerator",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "MeterTerminal.",
+        "type": "Title"
+    },
+    {
+        "text": "weight",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return or set the weight of a MeterTerminal\n>>> a = meter.MeterTerminal('2/4')\n>>> a.weight = 0.5\n>>> a.weight\n0.5",
+        "type": "ListItem"
+    },
+    {
+        "text": "MeterTerminal methods",
+        "type": "Title"
+    },
+    {
+        "text": "MeterTerminal.",
+        "type": "Title"
+    },
+    {
+        "text": "ratioEqual",
+        "type": "Title"
+    },
+    {
+        "text": "other",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Compare the numerator and denominator of another object.\nNote that these have to be exact matches; 3/4 is not the same as 6/8\n>>> a = meter.MeterTerminal('3/4')\n>>> b = meter.MeterTerminal('6/4')\n>>> c = meter.MeterTerminal('2/4')\n>>> d = meter.MeterTerminal('3/4')\n>>> a.ratioEqual(b)\nFalse\n>>> a.ratioEqual(c)\nFalse\n>>> a.ratioEqual(d)\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "MeterTerminal.",
+        "type": "Title"
+    },
+    {
+        "text": "subdivide",
+        "type": "Title"
+    },
+    {
+        "text": "value",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Subdivision takes a MeterTerminal and, making it into a collection of MeterTerminals,\nReturns a MeterSequence.\nThis is different from partitioning a MeterSequence. subdivide does not happen\nin place and instead returns a new object.\nIf an integer is provided, assume it is a partition count.",
+        "type": "ListItem"
+    },
+    {
+        "text": "MeterTerminal.",
+        "type": "Title"
+    },
+    {
+        "text": "subdivideByCount",
+        "type": "Title"
+    },
+    {
+        "text": "countRequest",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "returns a MeterSequence made up of taking this MeterTerminal and\nsubdividing it into the given number of parts.  Each of those parts\nis a MeterTerminal\n>>> a = meter.MeterTerminal('3/4')\n>>> b = a.subdivideByCount(3)\n>>> b\n<music21.meter.core.MeterSequence {1/4+1/4+1/4}>\n>>> len(b)\n3\n>>> b[0]\n<music21.meter.core.MeterTerminal 1/4>\n\n\nWhat happens if we do this?\n>>> a = meter.MeterTerminal('5/8')\n>>> b = a.subdivideByCount(2)\n>>> b\n<music21.meter.core.MeterSequence {2/8+3/8}>\n>>> len(b)\n2\n>>> b[0]\n<music21.meter.core.MeterTerminal 2/8>\n>>> b[1]\n<music21.meter.core.MeterTerminal 3/8>\n\n\nBut what if you want to divide into 3/8+2/8 or something else?\nfor that, see the load() method\nof MeterSequence.",
+        "type": "ListItem"
+    },
+    {
+        "text": "MeterTerminal.",
+        "type": "Title"
+    },
+    {
+        "text": "subdivideByList",
+        "type": "Title"
+    },
+    {
+        "text": "numeratorList",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a MeterSequence dividing this\nMeterTerminal according to the numeratorList\n>>> a = meter.MeterTerminal('3/4')\n>>> b = a.subdivideByList([1, 1, 1])\n>>> b\n<music21.meter.core.MeterSequence {1/4+1/4+1/4}>\n>>> len(b)\n3\n>>> b[0]\n<music21.meter.core.MeterTerminal 1/4>\n\n\nUnequal subdivisions work:\n>>> c = a.subdivideByList([1, 2])\n>>> c\n<music21.meter.core.MeterSequence {1/4+2/4}>\n>>> len(c)\n2\n>>> (c[0], c[1])\n(<music21.meter.core.MeterTerminal 1/4>, <music21.meter.core.MeterTerminal 2/4>)\n\n\nSo does subdividing by strings\n>>> c = a.subdivideByList(['2/4', '1/4'])\n>>> len(c)\n2\n>>> (c[0], c[1])\n(<music21.meter.core.MeterTerminal 2/4>, <music21.meter.core.MeterTerminal 1/4>)\n\n\nSee partitionByList() method\nof MeterSequence for more details.",
+        "type": "ListItem"
+    },
+    {
+        "text": "MeterTerminal.",
+        "type": "Title"
+    },
+    {
+        "text": "subdivideByOther",
+        "type": "Title"
+    },
+    {
+        "text": "other",
+        "type": "Title"
+    },
+    {
+        "text": "music21.meter.MeterSequence",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a MeterSequence based on another MeterSequence\n>>> a = meter.MeterSequence('1/4+1/4+1/4')\n>>> a\n<music21.meter.core.MeterSequence {1/4+1/4+1/4}>\n>>> b = meter.MeterSequence('3/8+3/8')\n>>> a.subdivideByOther(b)\n<music21.meter.core.MeterSequence {{3/8+3/8}}>\n\n\n>>> terminal = meter.MeterTerminal('1/4')\n>>> divider = meter.MeterSequence('1/8+1/8')\n>>> terminal.subdivideByOther(divider)\n<music21.meter.core.MeterSequence {{1/8+1/8}}>",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.meter.core",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

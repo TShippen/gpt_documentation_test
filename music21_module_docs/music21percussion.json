@@ -1,0 +1,446 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.percussion",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.omr.evaluators",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.percussion\nPercussionChord\nPercussionChord\nPercussionChord.notes\nPercussionChord.pitches\nPercussionChord.__eq__()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.percussion\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "PercussionChord\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.percussion.",
+        "type": "Title"
+    },
+    {
+        "text": "PercussionChord",
+        "type": "Title"
+    },
+    {
+        "text": "notes",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "Sequence",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "Sequence",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Sequence",
+        "type": "Title"
+    },
+    {
+        "text": "ChordBase",
+        "type": "Title"
+    },
+    {
+        "text": "Sequence",
+        "type": "Title"
+    },
+    {
+        "text": "NotRest",
+        "type": "Title"
+    },
+    {
+        "text": "Sequence",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "ChordBase and :class:`~music21.note.NotRest subclass that is NOT\na Chord because one or more notes is an Unpitched\nobject.\n>>> pChord = percussion.PercussionChord([note.Unpitched(displayName='D4'), note.Note('E5')])\n>>> pChord.isChord\nFalse\n\n\nHas notes, just like any ChordBase:\n>>> pChord.notes\n(<music21.note.Unpitched object at 0x...>, <music21.note.Note E>)\n\n\nAssign them to another PercussionChord:\n>>> pChord2 = percussion.PercussionChord()\n>>> pChord2.notes = pChord.notes\n>>> pChord2.notes\n(<music21.note.Unpitched object at 0x...>, <music21.note.Note E>)\n\n\nDon't attempt setting anything but Note or Unpitched objects as notes:\n>>> pChord2.notes = [note.Rest()]\nTraceback (most recent call last):\nTypeError: every element of notes must be a note.Note or note.Unpitched object\n\n\nEquality\nTwo PercussionChord objects are equal if their notes are equal and in the same\norder (this is different from Chord, but necessary because we cannot compare\nbased just on pitch equality)\n>>> pChord == pChord2\nTrue\n>>> pChord3 = percussion.PercussionChord([note.Unpitched('D4')])\n>>> pChord == pChord3\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "PercussionChord bases",
+        "type": "Title"
+    },
+    {
+        "text": "ChordBase",
+        "type": "ListItem"
+    },
+    {
+        "text": "NotRest",
+        "type": "ListItem"
+    },
+    {
+        "text": "GeneralNote",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "PercussionChord read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from GeneralNote:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "fullName",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "PercussionChord read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "PercussionChord.",
+        "type": "Title"
+    },
+    {
+        "text": "notes",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "PercussionChord.",
+        "type": "Title"
+    },
+    {
+        "text": "pitches",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get or set a list or tuple of all Pitch objects in this PercussionChord.\nUnpitched members (that at most have only display pitches) are ignored.\n>>> pChord = percussion.PercussionChord([note.Unpitched(displayName='D4'), note.Note('E5')])\n>>> pChord.pitches\n(<music21.pitch.Pitch E5>,)\n\n\n>>> pChord.pitches = [60]\n>>> pChord.pitches\n(<music21.pitch.Pitch C4>,)\n\n\nNotice that setting pitches has now just cleared any existing notes, pitched or unpitched:\n>>> pChord.notes\n(<music21.note.Note C>,)",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read/write properties inherited from ChordBase:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "tie volume",
+        "type": "Table"
+    },
+    {
+        "text": "Read/write properties inherited from NotRest:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "notehead noteheadFill noteheadParenthesis stemDirection storedInstrument",
+        "type": "Table"
+    },
+    {
+        "text": "Read/write properties inherited from GeneralNote:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "lyric",
+        "type": "Table"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "PercussionChord methods",
+        "type": "Title"
+    },
+    {
+        "text": "PercussionChord.",
+        "type": "Title"
+    },
+    {
+        "text": "__eq__",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "other",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if all the notes are equal and in the same order.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from ChordBase:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "add() hasComponentVolumes() remove() setVolumes()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from NotRest:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "getInstrument() hasVolumeInformation()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from GeneralNote:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "addLyric() augmentOrDiminish() getGrace() insertLyric()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "PercussionChord instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from ChordBase:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beams isNote isRest",
+        "type": "Table"
+    },
+    {
+        "text": "Instance variables inherited from NotRest:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beams",
+        "type": "Table"
+    },
+    {
+        "text": "Instance variables inherited from GeneralNote:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "articulations expressions isChord lyrics",
+        "type": "Table"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.percussion",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

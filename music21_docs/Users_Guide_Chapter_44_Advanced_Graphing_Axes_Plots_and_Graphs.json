@@ -1,0 +1,4698 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 44: Advanced Graphing (Axes, Plots, and Graphs)",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide, Chapter 32: Articulations",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide, Chapter 53: Advanced Corpus and Metadata Searching",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide, Chapter 44: Advanced Graphing (Axes, Plots, and Graphs)\nCustomizing Plots\nAxis (and allies)\nCustomizing Data Points\nGraph Primitives\nEmbedding in Apps: Selecting the matplotlib Backend",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide\nUser's Guide: Table of Contents\nUser's Guide, Chapter 1: Installing and Getting Started with music21\nUser's Guide, Chapter 2: Notes\nUser's Guide, Chapter 3: Pitches, Durations, and Notes again\nUser's Guide, Chapter 4: Lists, Streams (I) and Output\nUser's Guide, Chapter 5: Lists of Lists, Functions, and Recursion\nUser's Guide, Chapter 6: Streams (II): Hierarchies, Recursion, and Flattening\nUser's Guide, Chapter 7: Chords\nUser's Guide, Chapter 8: Installing MusicXML Readers and File Formats (1)\nUser's Guide, Chapter 9: Chordify\nUser's Guide, Chapter 10: Examples 1\nUser's Guide, Chapter 11: Corpus Searching\nUser's Guide, Chapter 12: Getting Back to Basics: The Music21Object\nUser's Guide, Chapter 13: More Music21Object Attributes and Properties\nUser's Guide: Chapter 14: Time Signatures and Beats\nUser's Guide, Chapter 15: Keys and KeySignatures\nUser's Guide, Chapter 16: TinyNotation\nUser's Guide: Chapter 17: Derivations\nUser's Guide: Chapter 18: Intervals\nUser's Guide, Chapter 19: Advanced Durations (Complex and Tuplets)\nUser's Guide, Chapter 20: Examples 2\nUser's Guide, Chapter 21: Ordering and Sorting of Stream Elements\nUser's Guide, Chapter 22: Graphing and plotting\nUser's Guide, Chapter 23: Roman Numeral Analysis\nUser's Guide, Chapter 24: Configuring Environment Settings\nUser's Guide, Chapter 25: Post-Tonal Tools (1)\nUser's Guide, Chapter 26: Stream Iteration and Filtering\nUser's Guide, Chapter 27: Grace Notes\nUser's Guide, Chapter 28: Lyric Searching\nUser's Guide, Chapter 29: Spanners 1 (Slurs)\nUser's Guide, Chapter 30: Examples 3\nUser's Guide, Chapter 31: Clefs, Ties, and Beams\nUser's Guide, Chapter 32: Articulations\nUser's Guide, Chapter 44: Advanced Graphing (Axes, Plots, and Graphs)\nUser's Guide, Chapter 53: Advanced Corpus and Metadata Searching\nUser's Guide, Chapter 54: Extending Converter with New Formats\nUser's Guide, Chapter 55: Advanced Meter Topics\nUser's Guide, Chapter 58: Understanding Sites and Contexts\nUser's Guide, Chapter 61: TimespanTrees and Verticalities",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 44: Advanced Graphing (Axes, Plots, and Graphs)\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Previously, in Chapter 22, we learned\nhow to make plots of streams using the .plot() method on any stream,\nand to specify the type of graph in the first argument, the x axis in\nthe second argument, and the y axis in the third (and the z in the\nfourth, for 3d graphs). Let's review a simple graph:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "from",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "import",
+        "type": "Title"
+    },
+    {
+        "text": "bach",
+        "type": "Title"
+    },
+    {
+        "text": "corpus",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "'bwv66.6'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "bach",
+        "type": "Title"
+    },
+    {
+        "text": "id",
+        "type": "Title"
+    },
+    {
+        "text": "'bwv66'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "bach",
+        "type": "Title"
+    },
+    {
+        "text": "plot",
+        "type": "Title"
+    },
+    {
+        "text": "'scatter'",
+        "type": "Title"
+    },
+    {
+        "text": "'offset'",
+        "type": "Title"
+    },
+    {
+        "text": "'pitchClass'",
+        "type": "Title"
+    },
+    {
+        "text": "When we call s.plot() we are actually just calling a function in\nmusic21.graph called plotStream().",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "graph",
+        "type": "Title"
+    },
+    {
+        "text": "plotStream",
+        "type": "Title"
+    },
+    {
+        "text": "bach",
+        "type": "Title"
+    },
+    {
+        "text": "'scatter'",
+        "type": "Title"
+    },
+    {
+        "text": "'offset'",
+        "type": "Title"
+    },
+    {
+        "text": "'pitchClass'",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "graph",
+        "type": "Title"
+    },
+    {
+        "text": "plot",
+        "type": "Title"
+    },
+    {
+        "text": "ScatterPitchClassOffset",
+        "type": "Title"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Score",
+        "type": "Title"
+    },
+    {
+        "text": "bwv66",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "plotStream uses a helper function called\nmusic21.graph.findPlot.getPlotsToMake() to get a list of classes\nthat can successfully plot this relationship:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "graph",
+        "type": "Title"
+    },
+    {
+        "text": "findPlot",
+        "type": "Title"
+    },
+    {
+        "text": "getPlotsToMake",
+        "type": "Title"
+    },
+    {
+        "text": "'scatter'",
+        "type": "Title"
+    },
+    {
+        "text": "'offset'",
+        "type": "Title"
+    },
+    {
+        "text": "'pitchClass'",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "graph",
+        "type": "Title"
+    },
+    {
+        "text": "plot",
+        "type": "Title"
+    },
+    {
+        "text": "ScatterPitchClassOffset",
+        "type": "Title"
+    },
+    {
+        "text": "A Plot is a class that can take in a stream and when .run() is\ncalled, will extract all the data from the stream and show it:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "scatter",
+        "type": "Title"
+    },
+    {
+        "text": "graph",
+        "type": "Title"
+    },
+    {
+        "text": "plot",
+        "type": "Title"
+    },
+    {
+        "text": "ScatterPitchClassOffset",
+        "type": "Title"
+    },
+    {
+        "text": "bach",
+        "type": "Title"
+    },
+    {
+        "text": "scatter",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "graph",
+        "type": "Title"
+    },
+    {
+        "text": "plot",
+        "type": "Title"
+    },
+    {
+        "text": "ScatterPitchClassOffset",
+        "type": "Title"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Score",
+        "type": "Title"
+    },
+    {
+        "text": "bwv66",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "scatter",
+        "type": "Title"
+    },
+    {
+        "text": "run",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Customizing Plots\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Well, so far we haven't done much that we couldn't do with .plot(),\nbut we can change some things around.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Let's change the title:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "scatter",
+        "type": "Title"
+    },
+    {
+        "text": "title",
+        "type": "Title"
+    },
+    {
+        "text": "'Bach uses a lot of pitches'",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "scatter",
+        "type": "Title"
+    },
+    {
+        "text": "run",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "We can change the figure size:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "scatter",
+        "type": "Title"
+    },
+    {
+        "text": "figureSize",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "10",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "scatter",
+        "type": "Title"
+    },
+    {
+        "text": "run",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "We can change any of the following:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "and a bunch more. See .keywordConfigurables",
+        "type": "ListItem"
+    },
+    {
+        "text": "alpha",
+        "type": "Title"
+    },
+    {
+        "text": "which",
+        "type": "Title"
+    },
+    {
+        "text": "describes",
+        "type": "Title"
+    },
+    {
+        "text": "how",
+        "type": "Title"
+    },
+    {
+        "text": "transparent",
+        "type": "Title"
+    },
+    {
+        "text": "elements",
+        "type": "Title"
+    },
+    {
+        "text": "of",
+        "type": "Title"
+    },
+    {
+        "text": "the",
+        "type": "Title"
+    },
+    {
+        "text": "graph",
+        "type": "Title"
+    },
+    {
+        "text": "are",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "colorBackgroundData",
+        "type": "Title"
+    },
+    {
+        "text": "colorBackgroundFigure",
+        "type": "Title"
+    },
+    {
+        "text": "colorGrid",
+        "type": "Title"
+    },
+    {
+        "text": "colors",
+        "type": "Title"
+    },
+    {
+        "text": "list",
+        "type": "Title"
+    },
+    {
+        "text": "of",
+        "type": "Title"
+    },
+    {
+        "text": "colors",
+        "type": "Title"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "cycle",
+        "type": "Title"
+    },
+    {
+        "text": "through",
+        "type": "Title"
+    },
+    {
+        "text": "tickFontSize",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "titleFontSize",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "labelFontSize",
+        "type": "Title"
+    },
+    {
+        "text": "fontFamily",
+        "type": "Title"
+    },
+    {
+        "text": "marker",
+        "type": "Title"
+    },
+    {
+        "text": "markersize",
+        "type": "Title"
+    },
+    {
+        "text": "and a bunch more. See .keywordConfigurables",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "scatter",
+        "type": "Title"
+    },
+    {
+        "text": "keywordConfigurables",
+        "type": "Title"
+    },
+    {
+        "text": "'alpha'",
+        "type": "Title"
+    },
+    {
+        "text": "'colorBackgroundData'",
+        "type": "Title"
+    },
+    {
+        "text": "'colorBackgroundFigure'",
+        "type": "Title"
+    },
+    {
+        "text": "'colorGrid'",
+        "type": "Title"
+    },
+    {
+        "text": "'colors'",
+        "type": "Title"
+    },
+    {
+        "text": "'doneAction'",
+        "type": "Title"
+    },
+    {
+        "text": "'dpi'",
+        "type": "Title"
+    },
+    {
+        "text": "'figureSize'",
+        "type": "Title"
+    },
+    {
+        "text": "'fontFamily'",
+        "type": "Title"
+    },
+    {
+        "text": "'hideXGrid'",
+        "type": "Title"
+    },
+    {
+        "text": "'hideYGrid'",
+        "type": "Title"
+    },
+    {
+        "text": "'labelFontSize'",
+        "type": "Title"
+    },
+    {
+        "text": "'marker'",
+        "type": "Title"
+    },
+    {
+        "text": "'markersize'",
+        "type": "Title"
+    },
+    {
+        "text": "'tickColors'",
+        "type": "Title"
+    },
+    {
+        "text": "'tickFontSize'",
+        "type": "Title"
+    },
+    {
+        "text": "'title'",
+        "type": "Title"
+    },
+    {
+        "text": "'titleFontSize'",
+        "type": "Title"
+    },
+    {
+        "text": "'xTickLabelHorizontalAlignment'",
+        "type": "Title"
+    },
+    {
+        "text": "'xTickLabelRotation'",
+        "type": "Title"
+    },
+    {
+        "text": "'xTickLabelVerticalAlignment'",
+        "type": "Title"
+    },
+    {
+        "text": "scatter",
+        "type": "Title"
+    },
+    {
+        "text": "fontFamily",
+        "type": "Title"
+    },
+    {
+        "text": "'sans-serif'",
+        "type": "Title"
+    },
+    {
+        "text": "scatter",
+        "type": "Title"
+    },
+    {
+        "text": "markersize",
+        "type": "Title"
+    },
+    {
+        "text": "12",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "scatter",
+        "type": "Title"
+    },
+    {
+        "text": "colors",
+        "type": "Title"
+    },
+    {
+        "text": "'red'",
+        "type": "Title"
+    },
+    {
+        "text": "'green'",
+        "type": "Title"
+    },
+    {
+        "text": "'blue'",
+        "type": "Title"
+    },
+    {
+        "text": "# will cycle among these",
+        "type": "Title"
+    },
+    {
+        "text": "scatter",
+        "type": "Title"
+    },
+    {
+        "text": "alpha",
+        "type": "Title"
+    },
+    {
+        "text": "0.9",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "scatter",
+        "type": "Title"
+    },
+    {
+        "text": "colorBackgroundFigure",
+        "type": "Title"
+    },
+    {
+        "text": "'#ffddff'",
+        "type": "Title"
+    },
+    {
+        "text": "# a light purple",
+        "type": "Title"
+    },
+    {
+        "text": "scatter",
+        "type": "Title"
+    },
+    {
+        "text": "colorBackgroundData",
+        "type": "Title"
+    },
+    {
+        "text": "'yellow'",
+        "type": "Title"
+    },
+    {
+        "text": "scatter",
+        "type": "Title"
+    },
+    {
+        "text": "titleFontSize",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "20",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "scatter",
+        "type": "Title"
+    },
+    {
+        "text": "run",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "That's too garish for me. Let's go back to our original graph:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "scatter",
+        "type": "Title"
+    },
+    {
+        "text": "graph",
+        "type": "Title"
+    },
+    {
+        "text": "plot",
+        "type": "Title"
+    },
+    {
+        "text": "ScatterPitchClassOffset",
+        "type": "Title"
+    },
+    {
+        "text": "bach",
+        "type": "Title"
+    },
+    {
+        "text": "scatter",
+        "type": "Title"
+    },
+    {
+        "text": "title",
+        "type": "Title"
+    },
+    {
+        "text": "'Bach and his notes'",
+        "type": "Title"
+    },
+    {
+        "text": "scatter",
+        "type": "Title"
+    },
+    {
+        "text": "figureSize",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "10",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "scatter",
+        "type": "Title"
+    },
+    {
+        "text": "run",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Different graph types have other configurable data. For instance,\nHistograms can configure their barSpace and margin. See the\ndocumentation for music21.graph.plot and\nmusic21.graph.primitives for more information.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "We can look at the individual data points:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "data",
+        "type": "Title"
+    },
+    {
+        "text": "scatter",
+        "type": "Title"
+    },
+    {
+        "text": "data",
+        "type": "Title"
+    },
+    {
+        "text": "len",
+        "type": "Title"
+    },
+    {
+        "text": "data",
+        "type": "Title"
+    },
+    {
+        "text": "165",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "data",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "{})",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Here we see that at X = 0.0, there is a Y value of 1. Since pitchClass 1\nis C#, this makes perfect sense. Let's move it to D# (pitch class 3).\nSince it is a tuple, this won't work:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "data",
+        "type": "Title"
+    },
+    {
+        "text": "][",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "---------------------------------------------------------------------------",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "TypeError",
+        "type": "Title"
+    },
+    {
+        "text": "Traceback",
+        "type": "Title"
+    },
+    {
+        "text": "most",
+        "type": "Title"
+    },
+    {
+        "text": "recent",
+        "type": "Title"
+    },
+    {
+        "text": "call",
+        "type": "Title"
+    },
+    {
+        "text": "last",
+        "type": "Title"
+    },
+    {
+        "text": "Cell",
+        "type": "Title"
+    },
+    {
+        "text": "In",
+        "type": "Title"
+    },
+    {
+        "text": "13",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "],",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "line",
+        "type": "Title"
+    },
+    {
+        "text": "---->",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "data",
+        "type": "Title"
+    },
+    {
+        "text": "][",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "TypeError",
+        "type": "Title"
+    },
+    {
+        "text": "'tuple'",
+        "type": "Title"
+    },
+    {
+        "text": "object",
+        "type": "Title"
+    },
+    {
+        "text": "does",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "not",
+        "type": "Title"
+    },
+    {
+        "text": "support",
+        "type": "Title"
+    },
+    {
+        "text": "item",
+        "type": "Title"
+    },
+    {
+        "text": "assignment",
+        "type": "Title"
+    },
+    {
+        "text": "Tuples are immutable (unchangeable) objects. But we can make a new tuple\nand put it back into data:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "data",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "{})",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "If we call .run() again, however, the stream will be extracted again\nand this data point will be lost. Instead we can call .process()\nwhich just regenerates the graph:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "scatter",
+        "type": "Title"
+    },
+    {
+        "text": "process",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Do you see that the first point has moved from C# to D#? Very nice.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "In case it's not clear, we can add an annotation to the plot. After\ngenerating the plot once, it is stored in a variable called\n.subplot:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "scatter",
+        "type": "Title"
+    },
+    {
+        "text": "subplot",
+        "type": "Title"
+    },
+    {
+        "text": "Axes",
+        "type": "Title"
+    },
+    {
+        "text": "title",
+        "type": "Title"
+    },
+    {
+        "text": "'center'",
+        "type": "Title"
+    },
+    {
+        "text": "'Bach and his notes'",
+        "type": "Title"
+    },
+    {
+        "text": "},",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "xlabel",
+        "type": "Title"
+    },
+    {
+        "text": "'Measure Number'",
+        "type": "Title"
+    },
+    {
+        "text": "ylabel",
+        "type": "Title"
+    },
+    {
+        "text": "'Pitch Class'",
+        "type": "Title"
+    },
+    {
+        "text": "On that subplot we can use any of the Artist tools found in the\nmatplotlib toolkit. For more info click\nhere. For instance,\nwe can add a circle around that dot to make it clearer:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "# it is customary to rename matplotlib.pyplot as plt",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "from",
+        "type": "Title"
+    },
+    {
+        "text": "matplotlib",
+        "type": "Title"
+    },
+    {
+        "text": "import",
+        "type": "Title"
+    },
+    {
+        "text": "pyplot",
+        "type": "Title"
+    },
+    {
+        "text": "as",
+        "type": "Title"
+    },
+    {
+        "text": "plt",
+        "type": "Title"
+    },
+    {
+        "text": "center",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "# right on the dot",
+        "type": "Title"
+    },
+    {
+        "text": "radius",
+        "type": "Title"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "circleDsharp",
+        "type": "Title"
+    },
+    {
+        "text": "plt",
+        "type": "Title"
+    },
+    {
+        "text": "Circle",
+        "type": "Title"
+    },
+    {
+        "text": "center",
+        "type": "Title"
+    },
+    {
+        "text": "radius",
+        "type": "Title"
+    },
+    {
+        "text": "color",
+        "type": "Title"
+    },
+    {
+        "text": "'red'",
+        "type": "Title"
+    },
+    {
+        "text": "alpha",
+        "type": "Title"
+    },
+    {
+        "text": "0.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "scatter",
+        "type": "Title"
+    },
+    {
+        "text": "subplot",
+        "type": "Title"
+    },
+    {
+        "text": "add_artist",
+        "type": "Title"
+    },
+    {
+        "text": "circleDsharp",
+        "type": "Title"
+    },
+    {
+        "text": "matplotlib",
+        "type": "Title"
+    },
+    {
+        "text": "patches",
+        "type": "Title"
+    },
+    {
+        "text": "Circle",
+        "type": "Title"
+    },
+    {
+        "text": "at",
+        "type": "Title"
+    },
+    {
+        "text": "0x1160d3850",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Of course we can't call .run() any more since that recreates the\ndata from the stream. But we also can't call process, since that\nrecreates the subplot. Instead to reuse the existing .subplot we\nshould call .write()",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "scatter",
+        "type": "Title"
+    },
+    {
+        "text": "write",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Because we've skewed our figureSize, it might be more of an ellipse than\na circle, but you get the idea. So to review:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": ".run() the first time, to process the stream and get the data.",
+        "type": "ListItem"
+    },
+    {
+        "text": ".process() when the data has been changed and the figure needs to\nbe regenerated from data.",
+        "type": "ListItem"
+    },
+    {
+        "text": ".write() when the figure has been created once, annotated, and\nneeds to be seen again.",
+        "type": "ListItem"
+    },
+    {
+        "text": "If you want to do the whole process without showing the figures in the\nmeantime, then set .doneAction = None before calling run the first\ntime.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "..note:",
+        "type": "Title"
+    },
+    {
+        "text": "Unfortunately",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "the",
+        "type": "Title"
+    },
+    {
+        "text": "Jupyter",
+        "type": "Title"
+    },
+    {
+        "text": "notebook",
+        "type": "Title"
+    },
+    {
+        "text": "that",
+        "type": "Title"
+    },
+    {
+        "text": "use",
+        "type": "Title"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "write",
+        "type": "Title"
+    },
+    {
+        "text": "documentation",
+        "type": "Title"
+    },
+    {
+        "text": "it",
+        "type": "Title"
+    },
+    {
+        "text": "'ll generate the images still, but maybe it'",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "ll",
+        "type": "Title"
+    },
+    {
+        "text": "be",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "fixed",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "the",
+        "type": "Title"
+    },
+    {
+        "text": "future",
+        "type": "Title"
+    },
+    {
+        "text": "but",
+        "type": "Title"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "you",
+        "type": "Title"
+    },
+    {
+        "text": "do",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "this",
+        "type": "Title"
+    },
+    {
+        "text": "outside",
+        "type": "Title"
+    },
+    {
+        "text": "of",
+        "type": "Title"
+    },
+    {
+        "text": "notebook",
+        "type": "Title"
+    },
+    {
+        "text": "it",
+        "type": "Title"
+    },
+    {
+        "text": "'ll work)",
+        "type": "Title"
+    },
+    {
+        "text": "scatter2",
+        "type": "Title"
+    },
+    {
+        "text": "graph",
+        "type": "Title"
+    },
+    {
+        "text": "plot",
+        "type": "Title"
+    },
+    {
+        "text": "ScatterPitchClassOffset",
+        "type": "Title"
+    },
+    {
+        "text": "bach",
+        "type": "Title"
+    },
+    {
+        "text": "scatter2",
+        "type": "Title"
+    },
+    {
+        "text": "doneAction",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "scatter2",
+        "type": "Title"
+    },
+    {
+        "text": "run",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "callProcess",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "# nothing is generated because of doneAction=None",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "# and (for Jupyter notebook) callProcess=False",
+        "type": "Title"
+    },
+    {
+        "text": "scatterData",
+        "type": "Title"
+    },
+    {
+        "text": "scatter2",
+        "type": "Title"
+    },
+    {
+        "text": "data",
+        "type": "Title"
+    },
+    {
+        "text": "newData",
+        "type": "Title"
+    },
+    {
+        "text": "[]",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "dataPoint",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "scatterData",
+        "type": "Title"
+    },
+    {
+        "text": "somethingElseIWillDiscussSoon",
+        "type": "Title"
+    },
+    {
+        "text": "dataPoint",
+        "type": "Title"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "==",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "# F#",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "continue",
+        "type": "Title"
+    },
+    {
+        "text": "# F sharp is evil! :-)",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "newData",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "dataPoint",
+        "type": "Title"
+    },
+    {
+        "text": "scatter2",
+        "type": "Title"
+    },
+    {
+        "text": "data",
+        "type": "Title"
+    },
+    {
+        "text": "newData",
+        "type": "Title"
+    },
+    {
+        "text": "scatter2",
+        "type": "Title"
+    },
+    {
+        "text": "process",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "# rewrite the data",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "xyLowerLeft",
+        "type": "Title"
+    },
+    {
+        "text": "5.75",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "boxWidth",
+        "type": "Title"
+    },
+    {
+        "text": "bach",
+        "type": "Title"
+    },
+    {
+        "text": "highestTime",
+        "type": "Title"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "boxHeight",
+        "type": "Title"
+    },
+    {
+        "text": "0.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "fSharpBox",
+        "type": "Title"
+    },
+    {
+        "text": "plt",
+        "type": "Title"
+    },
+    {
+        "text": "Rectangle",
+        "type": "Title"
+    },
+    {
+        "text": "xyLowerLeft",
+        "type": "Title"
+    },
+    {
+        "text": "boxWidth",
+        "type": "Title"
+    },
+    {
+        "text": "boxHeight",
+        "type": "Title"
+    },
+    {
+        "text": "color",
+        "type": "Title"
+    },
+    {
+        "text": "'green'",
+        "type": "Title"
+    },
+    {
+        "text": "alpha",
+        "type": "Title"
+    },
+    {
+        "text": "0.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "scatter2",
+        "type": "Title"
+    },
+    {
+        "text": "subplot",
+        "type": "Title"
+    },
+    {
+        "text": "add_artist",
+        "type": "Title"
+    },
+    {
+        "text": "fSharpBox",
+        "type": "Title"
+    },
+    {
+        "text": "textAnnotation",
+        "type": "Title"
+    },
+    {
+        "text": "plt",
+        "type": "Title"
+    },
+    {
+        "text": "Text",
+        "type": "Title"
+    },
+    {
+        "text": "bach",
+        "type": "Title"
+    },
+    {
+        "text": "highestTime",
+        "type": "Title"
+    },
+    {
+        "text": "'F# is gone!'",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "scatter2",
+        "type": "Title"
+    },
+    {
+        "text": "subplot",
+        "type": "Title"
+    },
+    {
+        "text": "add_artist",
+        "type": "Title"
+    },
+    {
+        "text": "textAnnotation",
+        "type": "Title"
+    },
+    {
+        "text": "unused",
+        "type": "Title"
+    },
+    {
+        "text": "scatter2",
+        "type": "Title"
+    },
+    {
+        "text": "write",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Axis (and allies)\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Stream.plot()",
+        "type": "Title"
+    },
+    {
+        "text": "plotStream(stream)",
+        "type": "Title"
+    },
+    {
+        "text": "getPlotsToMake()",
+        "type": "Title"
+    },
+    {
+        "text": "Axis object that\ngenerates it. Let's look more closely at a simple set of axes, the",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "PitchClassAxis and the",
+        "type": "Title"
+    },
+    {
+        "text": "QuarterLengthAxis. The others are\nsimilar.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "First we'll create a Plot object that uses these axes, such as\nScatterPitchClassQuarterLength:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "scatter3",
+        "type": "Title"
+    },
+    {
+        "text": "graph",
+        "type": "Title"
+    },
+    {
+        "text": "plot",
+        "type": "Title"
+    },
+    {
+        "text": "ScatterPitchClassQuarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "bach",
+        "type": "Title"
+    },
+    {
+        "text": "scatter3",
+        "type": "Title"
+    },
+    {
+        "text": "run",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Now let's look inside it for the axes:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "scatter3",
+        "type": "Title"
+    },
+    {
+        "text": "axisX",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "graph",
+        "type": "Title"
+    },
+    {
+        "text": "axis",
+        "type": "Title"
+    },
+    {
+        "text": "QuarterLengthAxis",
+        "type": "Title"
+    },
+    {
+        "text": "axis",
+        "type": "Title"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "ScatterPitchClassQuarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "scatter3",
+        "type": "Title"
+    },
+    {
+        "text": "axisY",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "graph",
+        "type": "Title"
+    },
+    {
+        "text": "axis",
+        "type": "Title"
+    },
+    {
+        "text": "PitchClassAxis",
+        "type": "Title"
+    },
+    {
+        "text": "axis",
+        "type": "Title"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "ScatterPitchClassQuarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "Each axis defines its own label name:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "scatter3",
+        "type": "Title"
+    },
+    {
+        "text": "axisX",
+        "type": "Title"
+    },
+    {
+        "text": "label",
+        "type": "Title"
+    },
+    {
+        "text": "scatter3",
+        "type": "Title"
+    },
+    {
+        "text": "axisY",
+        "type": "Title"
+    },
+    {
+        "text": "label",
+        "type": "Title"
+    },
+    {
+        "text": "'Quarter Length ($log_2$)'",
+        "type": "Title"
+    },
+    {
+        "text": "'Pitch Class'",
+        "type": "Title"
+    },
+    {
+        "text": "(The use of \u0098$log_2$' shows how TeX formatting can be used in labels \u2014\ntoo advanced a subject to discuss here, but something to consider)",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Axes also know their axis name, their client (the Plot object), and\nthe stream they are operating on:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "scatter3",
+        "type": "Title"
+    },
+    {
+        "text": "axisY",
+        "type": "Title"
+    },
+    {
+        "text": "axisName",
+        "type": "Title"
+    },
+    {
+        "text": "scatter3",
+        "type": "Title"
+    },
+    {
+        "text": "axisY",
+        "type": "Title"
+    },
+    {
+        "text": "client",
+        "type": "Title"
+    },
+    {
+        "text": "scatter3",
+        "type": "Title"
+    },
+    {
+        "text": "axisY",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "'y'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "graph",
+        "type": "Title"
+    },
+    {
+        "text": "plot",
+        "type": "Title"
+    },
+    {
+        "text": "ScatterPitchClassQuarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Score",
+        "type": "Title"
+    },
+    {
+        "text": "bwv66",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Score",
+        "type": "Title"
+    },
+    {
+        "text": "bwv66",
+        "type": "Title"
+    },
+    {
+        "text": "There are three important things that any axis must do:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Take in each element and return values",
+        "type": "ListItem"
+    },
+    {
+        "text": "Define the extent of the axis (minimum and maximum)",
+        "type": "ListItem"
+    },
+    {
+        "text": "Show where \u009cticks\u009d, that is, the axis value labels and grid lines\nwill be.",
+        "type": "ListItem"
+    },
+    {
+        "text": "If the second or third aren't given then some default values will be\nused. The first is the only one that absolutely needs to be defined to\ndo anything useful, so we'll look at it first. Axes work on individual\nelements through the \u009cextractOneElement\u009d method. A typical\nextractOneElement, such as for PitchClassAxis looks something like\nthis:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "def",
+        "type": "Title"
+    },
+    {
+        "text": "extractOneElement",
+        "type": "Title"
+    },
+    {
+        "text": "self",
+        "type": "Title"
+    },
+    {
+        "text": "formatDict_ignore_for_now",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "hasattr",
+        "type": "Title"
+    },
+    {
+        "text": "'pitch'",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "return",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "pitchClass",
+        "type": "Title"
+    },
+    {
+        "text": "If the element is something that the axis cannot handle (say a Rest)\nfeel free to return None or just don't set a return value.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "for instance, if there were a \u0098Cardinality Axis' which reported the\nnumber of pitches at that moment, it would look something like this:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "CardinalityAxis",
+        "type": "Title"
+    },
+    {
+        "text": "graph",
+        "type": "Title"
+    },
+    {
+        "text": "axis",
+        "type": "Title"
+    },
+    {
+        "text": "Axis",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "labelDefault",
+        "type": "Title"
+    },
+    {
+        "text": "'Number of Pitches'",
+        "type": "Title"
+    },
+    {
+        "text": "def",
+        "type": "Title"
+    },
+    {
+        "text": "extractOneElement",
+        "type": "Title"
+    },
+    {
+        "text": "self",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "formatDict",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "hasattr",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "'pitches'",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "return",
+        "type": "Title"
+    },
+    {
+        "text": "len",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "pitches",
+        "type": "Title"
+    },
+    {
+        "text": "else",
+        "type": "Title"
+    },
+    {
+        "text": "return",
+        "type": "Title"
+    },
+    {
+        "text": "Testing is always important:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "ca",
+        "type": "Title"
+    },
+    {
+        "text": "CardinalityAxis",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "ca",
+        "type": "Title"
+    },
+    {
+        "text": "extractOneElement",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "'C E G'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "ca",
+        "type": "Title"
+    },
+    {
+        "text": "extractOneElement",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'D#'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "ca",
+        "type": "Title"
+    },
+    {
+        "text": "extractOneElement",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Rest",
+        "type": "Title"
+    },
+    {
+        "text": "(),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "Here we can rely on the default values for the\nsetBoundariesFromData() and\nticks() methods since they will get the\nminimum and maximum value from the data and give numeric ticks which\nseems fine to me. Let's try this on a Schoenberg piece with a lot of\nchords.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "schoenberg6",
+        "type": "Title"
+    },
+    {
+        "text": "corpus",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "'schoenberg/opus19'",
+        "type": "Title"
+    },
+    {
+        "text": "schoenberg6",
+        "type": "Title"
+    },
+    {
+        "text": "measures",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "We'll chordify the piece so that each chord has all the notes from each\nhand:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "schChords",
+        "type": "Title"
+    },
+    {
+        "text": "schoenberg6",
+        "type": "Title"
+    },
+    {
+        "text": "chordify",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "schChords",
+        "type": "Title"
+    },
+    {
+        "text": "measures",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Now we'll create a generic Scatter object to handle it:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "plotS",
+        "type": "Title"
+    },
+    {
+        "text": "graph",
+        "type": "Title"
+    },
+    {
+        "text": "plot",
+        "type": "Title"
+    },
+    {
+        "text": "Scatter",
+        "type": "Title"
+    },
+    {
+        "text": "schChords",
+        "type": "Title"
+    },
+    {
+        "text": "And add a title and two axes, one being our new Cardinality axis:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "plotS",
+        "type": "Title"
+    },
+    {
+        "text": "title",
+        "type": "Title"
+    },
+    {
+        "text": "'Offset vs Cardinality'",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "plotS",
+        "type": "Title"
+    },
+    {
+        "text": "axisX",
+        "type": "Title"
+    },
+    {
+        "text": "graph",
+        "type": "Title"
+    },
+    {
+        "text": "axis",
+        "type": "Title"
+    },
+    {
+        "text": "OffsetAxis",
+        "type": "Title"
+    },
+    {
+        "text": "plotS",
+        "type": "Title"
+    },
+    {
+        "text": "'x'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "plotS",
+        "type": "Title"
+    },
+    {
+        "text": "axisY",
+        "type": "Title"
+    },
+    {
+        "text": "CardinalityAxis",
+        "type": "Title"
+    },
+    {
+        "text": "plotS",
+        "type": "Title"
+    },
+    {
+        "text": "'y'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Notice that in instantiating an axis, we pass in the plot name and the\naxis label. Both are important.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Now let's run it!",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "plotS",
+        "type": "Title"
+    },
+    {
+        "text": "run",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Pretty cool, eh? Maybe we should customize the tick values:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "def",
+        "type": "Title"
+    },
+    {
+        "text": "cardinalityTicks",
+        "type": "Title"
+    },
+    {
+        "text": "self",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "names",
+        "type": "Title"
+    },
+    {
+        "text": "'rest'",
+        "type": "Title"
+    },
+    {
+        "text": "'single'",
+        "type": "Title"
+    },
+    {
+        "text": "'dyad'",
+        "type": "Title"
+    },
+    {
+        "text": "'triad'",
+        "type": "Title"
+    },
+    {
+        "text": "'tetrachord'",
+        "type": "Title"
+    },
+    {
+        "text": "'pentachord'",
+        "type": "Title"
+    },
+    {
+        "text": "'hexachord'",
+        "type": "Title"
+    },
+    {
+        "text": "'septachord'",
+        "type": "Title"
+    },
+    {
+        "text": "'octochord'",
+        "type": "Title"
+    },
+    {
+        "text": "ticks",
+        "type": "Title"
+    },
+    {
+        "text": "[]",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "range",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "self",
+        "type": "Title"
+    },
+    {
+        "text": "minValue",
+        "type": "Title"
+    },
+    {
+        "text": "),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "self",
+        "type": "Title"
+    },
+    {
+        "text": "maxValue",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "tickLocation",
+        "type": "Title"
+    },
+    {
+        "text": "cardinalityName",
+        "type": "Title"
+    },
+    {
+        "text": "names",
+        "type": "Title"
+    },
+    {
+        "text": "# ideally, check that names[i] exists",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "tickTuple",
+        "type": "Title"
+    },
+    {
+        "text": "tickLocation",
+        "type": "Title"
+    },
+    {
+        "text": "cardinalityName",
+        "type": "Title"
+    },
+    {
+        "text": "ticks",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "tickTuple",
+        "type": "Title"
+    },
+    {
+        "text": "return",
+        "type": "Title"
+    },
+    {
+        "text": "ticks",
+        "type": "Title"
+    },
+    {
+        "text": "CardinalityAxis",
+        "type": "Title"
+    },
+    {
+        "text": "ticks",
+        "type": "Title"
+    },
+    {
+        "text": "cardinalityTicks",
+        "type": "Title"
+    },
+    {
+        "text": "We will set up our Scatter plot so that it gets rests also, reset the\naxis minimum to None (so it learns from the data) and we'll be set to\nrun.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "plotS",
+        "type": "Title"
+    },
+    {
+        "text": "classFilterList",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "'Rest'",
+        "type": "Title"
+    },
+    {
+        "text": "plotS",
+        "type": "Title"
+    },
+    {
+        "text": "axisY",
+        "type": "Title"
+    },
+    {
+        "text": "minValue",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "plotS",
+        "type": "Title"
+    },
+    {
+        "text": "run",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Ideally, we'd set a slightly different minValue in\n.setBoundariesFromData so that the bottom of the rest dots wasn't\ncut off, etc. but this is pretty good to start.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "After all the data has been extracted, each axis gets a chance to\nmanipulate all the data however it sees fit in the .postProcessData\nmethod; the only axis that currently manipulates data is the\nCountingAxis in its\npostProcessData() routine,\nwhich consolidates duplicate entries and gets a count of them. But for\nthe most part, setting .ticks and .extractOneElement will be\nenough to make a great new axis.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Customizing Data Points\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Instead of adding things like circles directly to the graph, it's\npossible to manipulate the display attributes of individual data points\ndirectly. To do this, we can manipulate the last element of each piece\nof data, called the formatDict, which is just a dictionary of\nformatting values to pass to matplotlib. Some of the common ones are:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "\u0098alpha' sets transparency, from 0 (transparent) to 1 (opaque).",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u0098color' gives a color to the data point \u2014 specified like \u009cred\u009d or\n\u009cgreen\u009d or an HTML color like \u009c#ff0044\u009d",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u0098marker' on a scatter plot will choose a shape for a marker as in\nthis diagram",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u0098markersize' gives the size of the marker \u2014 notice that we're using\nmatplotlib names, so the \u009cs\u009d of size is lowercased (in music21\nalmost everything is camelCase)",
+        "type": "ListItem"
+    },
+    {
+        "text": "Let's make a new axis class which returns the frequency of each pitch\nbut also changes its marker according to whether it's in a certain key\nor not:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "FrequencyScaleAxis",
+        "type": "Title"
+    },
+    {
+        "text": "graph",
+        "type": "Title"
+    },
+    {
+        "text": "axis",
+        "type": "Title"
+    },
+    {
+        "text": "Axis",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "labelDefault",
+        "type": "Title"
+    },
+    {
+        "text": "'Frequency'",
+        "type": "Title"
+    },
+    {
+        "text": "def",
+        "type": "Title"
+    },
+    {
+        "text": "__init__",
+        "type": "Title"
+    },
+    {
+        "text": "self",
+        "type": "Title"
+    },
+    {
+        "text": "client",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "axisName",
+        "type": "Title"
+    },
+    {
+        "text": "'y'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "super",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "__init__",
+        "type": "Title"
+    },
+    {
+        "text": "client",
+        "type": "Title"
+    },
+    {
+        "text": "axisName",
+        "type": "Title"
+    },
+    {
+        "text": "self",
+        "type": "Title"
+    },
+    {
+        "text": "scale",
+        "type": "Title"
+    },
+    {
+        "text": "scale",
+        "type": "Title"
+    },
+    {
+        "text": "MajorScale",
+        "type": "Title"
+    },
+    {
+        "text": "'C'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "def",
+        "type": "Title"
+    },
+    {
+        "text": "ticks",
+        "type": "Title"
+    },
+    {
+        "text": "self",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'''",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Only get multiples of 400 as ticks",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "'''",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "ticks",
+        "type": "Title"
+    },
+    {
+        "text": "super",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "ticks",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "newTicks",
+        "type": "Title"
+    },
+    {
+        "text": "tick",
+        "type": "Title"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "tick",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "ticks",
+        "type": "Title"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "tick",
+        "type": "Title"
+    },
+    {
+        "text": "400",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "==",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "return",
+        "type": "Title"
+    },
+    {
+        "text": "newTicks",
+        "type": "Title"
+    },
+    {
+        "text": "def",
+        "type": "Title"
+    },
+    {
+        "text": "extractOneElement",
+        "type": "Title"
+    },
+    {
+        "text": "self",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "formatDict",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "not",
+        "type": "Title"
+    },
+    {
+        "text": "hasattr",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "'pitch'",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "# perhaps a chord?",
+        "type": "Title"
+    },
+    {
+        "text": "# in which case the individual notes",
+        "type": "Title"
+    },
+    {
+        "text": "# will come here later",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "return",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "scalePitches",
+        "type": "Title"
+    },
+    {
+        "text": "self",
+        "type": "Title"
+    },
+    {
+        "text": "scale",
+        "type": "Title"
+    },
+    {
+        "text": "pitches",
+        "type": "Title"
+    },
+    {
+        "text": "pitchNames",
+        "type": "Title"
+    },
+    {
+        "text": "name",
+        "type": "Title"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "scalePitches",
+        "type": "Title"
+    },
+    {
+        "text": "# modify formatDict in place",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "name",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "pitchNames",
+        "type": "Title"
+    },
+    {
+        "text": "formatDict",
+        "type": "Title"
+    },
+    {
+        "text": "'marker'",
+        "type": "Title"
+    },
+    {
+        "text": "'o'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "formatDict",
+        "type": "Title"
+    },
+    {
+        "text": "'color'",
+        "type": "Title"
+    },
+    {
+        "text": "'red'",
+        "type": "Title"
+    },
+    {
+        "text": "formatDict",
+        "type": "Title"
+    },
+    {
+        "text": "'markersize'",
+        "type": "Title"
+    },
+    {
+        "text": "10",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "else",
+        "type": "Title"
+    },
+    {
+        "text": "formatDict",
+        "type": "Title"
+    },
+    {
+        "text": "'marker'",
+        "type": "Title"
+    },
+    {
+        "text": "'d'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "formatDict",
+        "type": "Title"
+    },
+    {
+        "text": "'color'",
+        "type": "Title"
+    },
+    {
+        "text": "'black'",
+        "type": "Title"
+    },
+    {
+        "text": "formatDict",
+        "type": "Title"
+    },
+    {
+        "text": "'markersize'",
+        "type": "Title"
+    },
+    {
+        "text": "return",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "frequency",
+        "type": "Title"
+    },
+    {
+        "text": "Check to see that it works:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "fsa",
+        "type": "Title"
+    },
+    {
+        "text": "FrequencyScaleAxis",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "formatDict",
+        "type": "Title"
+    },
+    {
+        "text": "{}",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'A4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "fsa",
+        "type": "Title"
+    },
+    {
+        "text": "extractOneElement",
+        "type": "Title"
+    },
+    {
+        "text": "formatDict",
+        "type": "Title"
+    },
+    {
+        "text": "440",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "formatDict",
+        "type": "Title"
+    },
+    {
+        "text": "'marker'",
+        "type": "Title"
+    },
+    {
+        "text": "'o'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'color'",
+        "type": "Title"
+    },
+    {
+        "text": "'red'",
+        "type": "Title"
+    },
+    {
+        "text": "'markersize'",
+        "type": "Title"
+    },
+    {
+        "text": "10",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "formatDict",
+        "type": "Title"
+    },
+    {
+        "text": "{}",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'B-4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "fsa",
+        "type": "Title"
+    },
+    {
+        "text": "extractOneElement",
+        "type": "Title"
+    },
+    {
+        "text": "formatDict",
+        "type": "Title"
+    },
+    {
+        "text": "466",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "formatDict",
+        "type": "Title"
+    },
+    {
+        "text": "'marker'",
+        "type": "Title"
+    },
+    {
+        "text": "'d'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'color'",
+        "type": "Title"
+    },
+    {
+        "text": "'black'",
+        "type": "Title"
+    },
+    {
+        "text": "'markersize'",
+        "type": "Title"
+    },
+    {
+        "text": "Let's make a stream with some data:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Stream",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "ps",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "range",
+        "type": "Title"
+    },
+    {
+        "text": "48",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "96",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "ps",
+        "type": "Title"
+    },
+    {
+        "text": "ps",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "Okay, let's create a Scatter plot and make it happen:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "scatterFreq",
+        "type": "Title"
+    },
+    {
+        "text": "graph",
+        "type": "Title"
+    },
+    {
+        "text": "plot",
+        "type": "Title"
+    },
+    {
+        "text": "Scatter",
+        "type": "Title"
+    },
+    {
+        "text": "title",
+        "type": "Title"
+    },
+    {
+        "text": "'frequency in C major'",
+        "type": "Title"
+    },
+    {
+        "text": "scatterFreq",
+        "type": "Title"
+    },
+    {
+        "text": "figureSize",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "10",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "scatterFreq",
+        "type": "Title"
+    },
+    {
+        "text": "alpha",
+        "type": "Title"
+    },
+    {
+        "text": "scatterFreq",
+        "type": "Title"
+    },
+    {
+        "text": "axisX",
+        "type": "Title"
+    },
+    {
+        "text": "graph",
+        "type": "Title"
+    },
+    {
+        "text": "axis",
+        "type": "Title"
+    },
+    {
+        "text": "OffsetAxis",
+        "type": "Title"
+    },
+    {
+        "text": "scatterFreq",
+        "type": "Title"
+    },
+    {
+        "text": "'x'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "scatterFreq",
+        "type": "Title"
+    },
+    {
+        "text": "axisY",
+        "type": "Title"
+    },
+    {
+        "text": "FrequencyScaleAxis",
+        "type": "Title"
+    },
+    {
+        "text": "scatterFreq",
+        "type": "Title"
+    },
+    {
+        "text": "'y'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "scatterFreq",
+        "type": "Title"
+    },
+    {
+        "text": "run",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Graph Primitives\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Untill now, all our our examples have used Plot classes taken from\nmusic21.graph.plot because they were acting on streams to get\ntheir data. If you wanted to make graphs of data not coming from a\nStream you could use matplotlib directly \u2014 they have a great tutorial on\nusing their ``pyplot`\ninterface <https://matplotlib.org/users/pyplot_tutorial.html>`__, for\ninstance. Or if you want to get some of the advantages of the\nmusic21 Plot types without going all the way into matplotlib, there\nare Graph primitives in the music21.graph.primitives module. Here\nare some examples of how those work:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Here is a way of plotting the life and death dates of composers. We will\nput both Schumanns on the same line to show how that can be done.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "data",
+        "type": "Title"
+    },
+    {
+        "text": "[(",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'Chopin'",
+        "type": "Title"
+    },
+    {
+        "text": "[(",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "1810",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "1849",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "1810",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ")]),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'Schumanns'",
+        "type": "Title"
+    },
+    {
+        "text": "[(",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "1810",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "1856",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "1810",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "1819",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "1896",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "1819",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ")]),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'Brahms'",
+        "type": "Title"
+    },
+    {
+        "text": "[(",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "1833",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "1897",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "1833",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ")])]",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "data",
+        "type": "Title"
+    },
+    {
+        "text": "[(",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'Chopin'",
+        "type": "Title"
+    },
+    {
+        "text": "[(",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "1810",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "39",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ")]),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'Schumanns'",
+        "type": "Title"
+    },
+    {
+        "text": "[(",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "1810",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "46",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "1819",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "77",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ")]),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'Brahms'",
+        "type": "Title"
+    },
+    {
+        "text": "[(",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "1833",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "64",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ")])]",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Each box has a starting point (birth date) and length. For the length we\nneeded to calculate lengths of lives for each composer, and I didn't\nhave that information, so I just subtracted the death year from the\nbirth year.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Because we are creating graphs on our own, we will need to define our\nown tick values.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "xTicks",
+        "type": "Title"
+    },
+    {
+        "text": "[(",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "1810",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'1810'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "1848",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'1848'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "1897",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'1897'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ")]",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Music history/European history Pop Quiz! Why a tick at 1848? \u00f0\u009f\u0098\u008a Okay,\nback to not being a musicologist\u2026",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Now we can create a GraphHorizontalBar and process (not run) it:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "ghb",
+        "type": "Title"
+    },
+    {
+        "text": "graph",
+        "type": "Title"
+    },
+    {
+        "text": "primitives",
+        "type": "Title"
+    },
+    {
+        "text": "GraphHorizontalBar",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "ghb",
+        "type": "Title"
+    },
+    {
+        "text": "title",
+        "type": "Title"
+    },
+    {
+        "text": "'Romantics live long and not so long'",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "ghb",
+        "type": "Title"
+    },
+    {
+        "text": "data",
+        "type": "Title"
+    },
+    {
+        "text": "data",
+        "type": "Title"
+    },
+    {
+        "text": "ghb",
+        "type": "Title"
+    },
+    {
+        "text": "setTicks",
+        "type": "Title"
+    },
+    {
+        "text": "'x'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "xTicks",
+        "type": "Title"
+    },
+    {
+        "text": "ghb",
+        "type": "Title"
+    },
+    {
+        "text": "process",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Here is an example that graphs seven major scales next to each other in\nterms of frequency showing which notes are present and which notes are\nnot:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "colors",
+        "type": "Title"
+    },
+    {
+        "text": "'red'",
+        "type": "Title"
+    },
+    {
+        "text": "'orange'",
+        "type": "Title"
+    },
+    {
+        "text": "'yellow'",
+        "type": "Title"
+    },
+    {
+        "text": "'green'",
+        "type": "Title"
+    },
+    {
+        "text": "'blue'",
+        "type": "Title"
+    },
+    {
+        "text": "'indigo'",
+        "type": "Title"
+    },
+    {
+        "text": "'violet'",
+        "type": "Title"
+    },
+    {
+        "text": "data",
+        "type": "Title"
+    },
+    {
+        "text": "[]",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "numSharps",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "range",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keySig",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "KeySignature",
+        "type": "Title"
+    },
+    {
+        "text": "numSharps",
+        "type": "Title"
+    },
+    {
+        "text": "majScale",
+        "type": "Title"
+    },
+    {
+        "text": "keySig",
+        "type": "Title"
+    },
+    {
+        "text": "getScale",
+        "type": "Title"
+    },
+    {
+        "text": "'major'",
+        "type": "Title"
+    },
+    {
+        "text": "tonicPitch",
+        "type": "Title"
+    },
+    {
+        "text": "majScale",
+        "type": "Title"
+    },
+    {
+        "text": "tonic",
+        "type": "Title"
+    },
+    {
+        "text": "scaleDict",
+        "type": "Title"
+    },
+    {
+        "text": "'color'",
+        "type": "Title"
+    },
+    {
+        "text": "colors",
+        "type": "Title"
+    },
+    {
+        "text": "numSharps",
+        "type": "Title"
+    },
+    {
+        "text": "]}",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "deg",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "range",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "thisPitch",
+        "type": "Title"
+    },
+    {
+        "text": "majScale",
+        "type": "Title"
+    },
+    {
+        "text": "pitchFromDegree",
+        "type": "Title"
+    },
+    {
+        "text": "deg",
+        "type": "Title"
+    },
+    {
+        "text": "thisPitch",
+        "type": "Title"
+    },
+    {
+        "text": "transposeAboveTarget",
+        "type": "Title"
+    },
+    {
+        "text": "tonicPitch",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "data",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "((",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "tonicPitch",
+        "type": "Title"
+    },
+    {
+        "text": "pitchClass",
+        "type": "Title"
+    },
+    {
+        "text": "thisPitch",
+        "type": "Title"
+    },
+    {
+        "text": "pitchClass",
+        "type": "Title"
+    },
+    {
+        "text": "thisPitch",
+        "type": "Title"
+    },
+    {
+        "text": "frequency",
+        "type": "Title"
+    },
+    {
+        "text": "scaleDict",
+        "type": "Title"
+    },
+    {
+        "text": "))",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "data",
+        "type": "Title"
+    },
+    {
+        "text": "10",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "[(",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "261.6255653005985",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'color'",
+        "type": "Title"
+    },
+    {
+        "text": "'red'",
+        "type": "Title"
+    },
+    {
+        "text": "}),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "293.66476791740746",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'color'",
+        "type": "Title"
+    },
+    {
+        "text": "'red'",
+        "type": "Title"
+    },
+    {
+        "text": "}),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "329.62755691286986",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'color'",
+        "type": "Title"
+    },
+    {
+        "text": "'red'",
+        "type": "Title"
+    },
+    {
+        "text": "}),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "349.2282314330038",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'color'",
+        "type": "Title"
+    },
+    {
+        "text": "'red'",
+        "type": "Title"
+    },
+    {
+        "text": "}),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "391.99543598174927",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'color'",
+        "type": "Title"
+    },
+    {
+        "text": "'red'",
+        "type": "Title"
+    },
+    {
+        "text": "}),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "440.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'color'",
+        "type": "Title"
+    },
+    {
+        "text": "'red'",
+        "type": "Title"
+    },
+    {
+        "text": "}),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "11",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "493.8833012561241",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'color'",
+        "type": "Title"
+    },
+    {
+        "text": "'red'",
+        "type": "Title"
+    },
+    {
+        "text": "}),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "391.99543598174927",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'color'",
+        "type": "Title"
+    },
+    {
+        "text": "'orange'",
+        "type": "Title"
+    },
+    {
+        "text": "}),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "440.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'color'",
+        "type": "Title"
+    },
+    {
+        "text": "'orange'",
+        "type": "Title"
+    },
+    {
+        "text": "}),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "11",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "493.8833012561241",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'color'",
+        "type": "Title"
+    },
+    {
+        "text": "'orange'",
+        "type": "Title"
+    },
+    {
+        "text": "})]",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "graph",
+        "type": "Title"
+    },
+    {
+        "text": "primitives",
+        "type": "Title"
+    },
+    {
+        "text": "Graph3DBars",
+        "type": "Title"
+    },
+    {
+        "text": "title",
+        "type": "Title"
+    },
+    {
+        "text": "'Seven Major Scales'",
+        "type": "Title"
+    },
+    {
+        "text": "alpha",
+        "type": "Title"
+    },
+    {
+        "text": "0.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "barWidth",
+        "type": "Title"
+    },
+    {
+        "text": "0.2",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "useKeyValues",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "figureSize",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "10",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "10",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "data",
+        "type": "Title"
+    },
+    {
+        "text": "data",
+        "type": "Title"
+    },
+    {
+        "text": "axis",
+        "type": "Title"
+    },
+    {
+        "text": "'x'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "][",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'ticks'",
+        "type": "Title"
+    },
+    {
+        "text": "range",
+        "type": "Title"
+    },
+    {
+        "text": "12",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'c c# d d# e f f# g g# a a# b'",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "split",
+        "type": "Title"
+    },
+    {
+        "text": "())",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "axis",
+        "type": "Title"
+    },
+    {
+        "text": "'y'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "][",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'ticks'",
+        "type": "Title"
+    },
+    {
+        "text": "range",
+        "type": "Title"
+    },
+    {
+        "text": "12",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'c c# d d# e f f# g g# a a# b'",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "split",
+        "type": "Title"
+    },
+    {
+        "text": "())",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "axis",
+        "type": "Title"
+    },
+    {
+        "text": "'z'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "][",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'range'",
+        "type": "Title"
+    },
+    {
+        "text": "1000",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "setAxisLabel",
+        "type": "Title"
+    },
+    {
+        "text": "'x'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'Root Notes'",
+        "type": "Title"
+    },
+    {
+        "text": "setAxisLabel",
+        "type": "Title"
+    },
+    {
+        "text": "'y'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'Scale Degrees'",
+        "type": "Title"
+    },
+    {
+        "text": "setAxisLabel",
+        "type": "Title"
+    },
+    {
+        "text": "'z'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'Frequency in Hz'",
+        "type": "Title"
+    },
+    {
+        "text": "process",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "But sometimes you need to go all the way back to Matplotlib to get the\ngraph that you want, such as this graph showing the motion of individual\nparts in a Bach Chorale. (You'll need scipy to be installed for this\nto work)",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "import",
+        "type": "Title"
+    },
+    {
+        "text": "numpy",
+        "type": "Title"
+    },
+    {
+        "text": "as",
+        "type": "Title"
+    },
+    {
+        "text": "np",
+        "type": "Title"
+    },
+    {
+        "text": "import",
+        "type": "Title"
+    },
+    {
+        "text": "matplotlib.pyplot",
+        "type": "Title"
+    },
+    {
+        "text": "as",
+        "type": "Title"
+    },
+    {
+        "text": "plt",
+        "type": "Title"
+    },
+    {
+        "text": "from",
+        "type": "Title"
+    },
+    {
+        "text": "scipy",
+        "type": "Title"
+    },
+    {
+        "text": "import",
+        "type": "Title"
+    },
+    {
+        "text": "interpolate",
+        "type": "Title"
+    },
+    {
+        "text": "from",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "import",
+        "type": "Title"
+    },
+    {
+        "text": "corpus",
+        "type": "Title"
+    },
+    {
+        "text": "bach",
+        "type": "Title"
+    },
+    {
+        "text": "corpus",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "'bwv66.6'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "fig",
+        "type": "Title"
+    },
+    {
+        "text": "plt",
+        "type": "Title"
+    },
+    {
+        "text": "figure",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "subplot",
+        "type": "Title"
+    },
+    {
+        "text": "fig",
+        "type": "Title"
+    },
+    {
+        "text": "add_subplot",
+        "type": "Title"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "range",
+        "type": "Title"
+    },
+    {
+        "text": "len",
+        "type": "Title"
+    },
+    {
+        "text": "bach",
+        "type": "Title"
+    },
+    {
+        "text": "parts",
+        "type": "Title"
+    },
+    {
+        "text": ")):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "top",
+        "type": "Title"
+    },
+    {
+        "text": "bach",
+        "type": "Title"
+    },
+    {
+        "text": "parts",
+        "type": "Title"
+    },
+    {
+        "text": "flatten",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "notes",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "ps",
+        "type": "Title"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "top",
+        "type": "Title"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "quarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "top",
+        "type": "Title"
+    },
+    {
+        "text": "tick",
+        "type": "Title"
+    },
+    {
+        "text": "interpolate",
+        "type": "Title"
+    },
+    {
+        "text": "splrep",
+        "type": "Title"
+    },
+    {
+        "text": "xnew",
+        "type": "Title"
+    },
+    {
+        "text": "np",
+        "type": "Title"
+    },
+    {
+        "text": "arange",
+        "type": "Title"
+    },
+    {
+        "text": "max",
+        "type": "Title"
+    },
+    {
+        "text": "),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "0.01",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "ynew",
+        "type": "Title"
+    },
+    {
+        "text": "interpolate",
+        "type": "Title"
+    },
+    {
+        "text": "splev",
+        "type": "Title"
+    },
+    {
+        "text": "xnew",
+        "type": "Title"
+    },
+    {
+        "text": "tick",
+        "type": "Title"
+    },
+    {
+        "text": "der",
+        "type": "Title"
+    },
+    {
+        "text": "subplot",
+        "type": "Title"
+    },
+    {
+        "text": "plot",
+        "type": "Title"
+    },
+    {
+        "text": "xnew",
+        "type": "Title"
+    },
+    {
+        "text": "ynew",
+        "type": "Title"
+    },
+    {
+        "text": "subplot",
+        "type": "Title"
+    },
+    {
+        "text": "spines",
+        "type": "Title"
+    },
+    {
+        "text": "'top'",
+        "type": "Title"
+    },
+    {
+        "text": "set_color",
+        "type": "Title"
+    },
+    {
+        "text": "'none'",
+        "type": "Title"
+    },
+    {
+        "text": "subplot",
+        "type": "Title"
+    },
+    {
+        "text": "spines",
+        "type": "Title"
+    },
+    {
+        "text": "'right'",
+        "type": "Title"
+    },
+    {
+        "text": "set_color",
+        "type": "Title"
+    },
+    {
+        "text": "'none'",
+        "type": "Title"
+    },
+    {
+        "text": "plt",
+        "type": "Title"
+    },
+    {
+        "text": "title",
+        "type": "Title"
+    },
+    {
+        "text": "'Bach motion'",
+        "type": "Title"
+    },
+    {
+        "text": "plt",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Well, that's enough for getting down to details. If it's all a bit of a\nblur, remember that calling .plot() with a few parameters on any\nstream will usually be enough to be able to visualize a score in\ninteresting ways.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Embedding in Apps: Selecting the matplotlib Backend\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Most people will graph music21 data using matplotlib's default system\nfor rendering and displaying images (called the backend). That default\nsystem is the TkAgg backend or the backend for Jupyter/IPython. But for\nembedding music21 in other graphical user interfaces you may want to\nchoose another backend.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "For instance if you wanted to use music21 in a Qt application, or Kivy,\nor a web application, you would probably need a different backend.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "See the following discussion at What is a\nbackend?\nfor more information.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Enough with graphs!",
+        "type": "Title"
+    },
+    {
+        "text": "The next completed chapter is\nChapter 53, Advanced Corpus and Metadata Searching",
+        "type": "Title"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 44: Advanced Graphing (Axes, Plots, and Graphs)",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

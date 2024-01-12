@@ -1,0 +1,2810 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.scale.intervalNetwork",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.scale",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.scale.scala",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.scale.intervalNetwork\nIntervalNetwork\nIntervalNetwork\nIntervalNetwork.degreeMax\nIntervalNetwork.degreeMaxUnique\nIntervalNetwork.degreeMin\nIntervalNetwork.terminusHighNodes\nIntervalNetwork.terminusLowNodes\nIntervalNetwork.__eq__()\nIntervalNetwork.clear()\nIntervalNetwork.degreeModulus()\nIntervalNetwork.fillArbitrary()\nIntervalNetwork.fillBiDirectedEdges()\nIntervalNetwork.fillDirectedEdges()\nIntervalNetwork.fillMelodicMinor()\nIntervalNetwork.filterPitchList()\nIntervalNetwork.find()\nIntervalNetwork.findMissing()\nIntervalNetwork.getNeighborNodeIds()\nIntervalNetwork.getNetworkxGraph()\nIntervalNetwork.getNext()\nIntervalNetwork.getNodeDegreeDictionary()\nIntervalNetwork.getPitchFromNodeDegree()\nIntervalNetwork.getRelativeNodeDegree()\nIntervalNetwork.getRelativeNodeId()\nIntervalNetwork.getUnalteredPitch()\nIntervalNetwork.match()\nIntervalNetwork.nextPitch()\nIntervalNetwork.nodeIdToDegree()\nIntervalNetwork.nodeIdToEdgeDirections()\nIntervalNetwork.nodeNameToNodes()\nIntervalNetwork.plot()\nIntervalNetwork.processAlteredNodes()\nIntervalNetwork.realize()\nIntervalNetwork.realizeAscending()\nIntervalNetwork.realizeDescending()\nIntervalNetwork.realizeIntervals()\nIntervalNetwork.realizeMinMax()\nIntervalNetwork.realizePitch()\nIntervalNetwork.realizePitchByDegree()\nIntervalNetwork.realizeTermini()\nIntervalNetwork.transposePitchAndApplySimplification()\nIntervalNetwork.weightedSelection()\n\n\n\n\nNode\nNode\nNode.__eq__()\n\n\n\n\nEdge\nEdge\nEdge.connections\nEdge.__eq__()\nEdge.addBiDirectedConnections()\nEdge.addDirectedConnection()\nEdge.getConnections()\n\n\n\n\nBoundIntervalNetwork\nBoundIntervalNetwork\n\n\nDirection\nDirection\n\n\nTerminus\nTerminus",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.scale.intervalNetwork\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "An IntervalNetwork defines a scale or harmonic unit as a (weighted)\ndigraph, or directed graph, where pitches are nodes and intervals are\nedges. Nodes, however, are not stored; instead, an ordered list of edges\n(Intervals) is provided as an archetype of adjacent nodes.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "IntervalNetworks are unlike conventional graphs in that each graph must\ndefine a low and high terminus. These points are used to create a cyclic\ngraph and are treated as point of cyclical overlap.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "IntervalNetwork permits the definition of conventional octave repeating\nscales or harmonies (abstract chords), non-octave repeating scales and\nchords, and ordered interval sequences that might move in multiple\ndirections.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "A scale or harmony may be composed of one or more IntervalNetwork objects.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Both nodes and edges can be weighted to suggest tonics, dominants,\nfinals, or other attributes of the network.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Changed in v8: nodeId and nodeName standardized.  TERMINUS and DIRECTION\nare now Enums.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "IntervalNetwork\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.scale.intervalNetwork.",
+        "type": "Title"
+    },
+    {
+        "text": "IntervalNetwork",
+        "type": "Title"
+    },
+    {
+        "text": "edgeList",
+        "type": "Title"
+    },
+    {
+        "text": "Sequence",
+        "type": "Title"
+    },
+    {
+        "text": "Interval",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "octaveDuplicating",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "deterministic",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "pitchSimplification",
+        "type": "Title"
+    },
+    {
+        "text": "'maxAccidental'",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A graph of undefined Pitch nodes connected by a defined,\nordered list of Interval objects as edges.\nAn octaveDuplicating boolean, if defined, can be used\nto optimize pitch realization routines.\nThe deterministic boolean, if defined, can be used to declare that there\nis no probabilistic or multi-pathway segments of this network.\nThe pitchSimplification method specifies how to simplify the pitches\nif they spiral out into double and triple sharps, etc.  The default is\n\u0098maxAccidental' which specifies that each note can have at most one\naccidental; double-flats and sharps are not allowed.  The other choices\nare \u0098simplifyEnharmonic' (which also converts C-, F-, B#, and E# to\nB, E, C, and F respectively, see simplifyEnharmonic()),\n\u0098mostCommon' (which adds to simplifyEnharmonic the requirement that the\nmost common accidental forms be used, so A# becomes B-, G- becomes\nF#, etc. the only ambiguity allowed is that both G# and A- are acceptable),\nand None (or \u0098none') which does not do any simplification.",
+        "type": "ListItem"
+    },
+    {
+        "text": "IntervalNetwork read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "IntervalNetwork.",
+        "type": "Title"
+    },
+    {
+        "text": "degreeMax",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return the largest degree value.\n>>> edgeList = ['M2', 'M2', 'm2', 'M2', 'M2', 'M2', 'm2']\n>>> net = scale.intervalNetwork.IntervalNetwork()\n>>> net.fillBiDirectedEdges(edgeList)\n>>> net.degreeMax    # returns eight, as this is the last node\n8",
+        "type": "ListItem"
+    },
+    {
+        "text": "IntervalNetwork.",
+        "type": "Title"
+    },
+    {
+        "text": "degreeMaxUnique",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return the largest degree value that represents a pitch level\nthat is not a terminus of the scale.\n>>> edgeList = ['M2', 'M2', 'm2', 'M2', 'M2', 'M2', 'm2']\n>>> net = scale.intervalNetwork.IntervalNetwork()\n>>> net.fillBiDirectedEdges(edgeList)\n>>> net.degreeMaxUnique\n7",
+        "type": "ListItem"
+    },
+    {
+        "text": "IntervalNetwork.",
+        "type": "Title"
+    },
+    {
+        "text": "degreeMin",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return the lowest degree value.\n>>> edgeList = ['M2', 'M2', 'm2', 'M2', 'M2', 'M2', 'm2']\n>>> net = scale.intervalNetwork.IntervalNetwork()\n>>> net.fillBiDirectedEdges(edgeList)\n>>> net.degreeMin\n1",
+        "type": "ListItem"
+    },
+    {
+        "text": "IntervalNetwork.",
+        "type": "Title"
+    },
+    {
+        "text": "terminusHighNodes",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a list of last Nodes, or Nodes that contain Terminus.HIGH.\n>>> edgeList = ['M2', 'M2', 'm2', 'M2', 'M2', 'M2', 'm2']\n>>> net = scale.intervalNetwork.IntervalNetwork()\n>>> net.fillBiDirectedEdges(edgeList)\n>>> net.terminusHighNodes\n[<music21.scale.intervalNetwork.Node id=Terminus.HIGH>]",
+        "type": "ListItem"
+    },
+    {
+        "text": "IntervalNetwork.",
+        "type": "Title"
+    },
+    {
+        "text": "terminusLowNodes",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a list of first Nodes, or Nodes that contain Terminus.LOW.\n>>> edgeList = ['M2', 'M2', 'm2', 'M2', 'M2', 'M2', 'm2']\n>>> net = scale.intervalNetwork.IntervalNetwork()\n>>> net.fillBiDirectedEdges(edgeList)\n>>> net.terminusLowNodes\n[<music21.scale.intervalNetwork.Node id=Terminus.LOW>]\n\n\nNote that this list currently always has one element.",
+        "type": "ListItem"
+    },
+    {
+        "text": "IntervalNetwork methods",
+        "type": "Title"
+    },
+    {
+        "text": "IntervalNetwork.",
+        "type": "Title"
+    },
+    {
+        "text": "__eq__",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "other",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>> edgeList1 = ['M2', 'M2', 'm2', 'M2', 'M2', 'M2', 'm2']\n>>> edgeList2 = ['M2', 'M2', 'm2', 'M2', 'A3', 'm2']\n\n\n>>> net1 = scale.intervalNetwork.IntervalNetwork()\n>>> net1.fillBiDirectedEdges(edgeList1)\n\n\n>>> net2 = scale.intervalNetwork.IntervalNetwork()\n>>> net2.fillBiDirectedEdges(edgeList1)\n\n\n>>> net3 = scale.intervalNetwork.IntervalNetwork()\n>>> net3.fillBiDirectedEdges(edgeList2)\n\n\n>>> net1 == net2\nTrue\n>>> net1 == net3\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "IntervalNetwork.",
+        "type": "Title"
+    },
+    {
+        "text": "clear",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Remove and reset all Nodes and Edges.",
+        "type": "ListItem"
+    },
+    {
+        "text": "IntervalNetwork.",
+        "type": "Title"
+    },
+    {
+        "text": "degreeModulus",
+        "type": "Title"
+    },
+    {
+        "text": "degree",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 int",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return the degree modulus degreeMax - degreeMin.\n>>> edgeList = ['M2', 'M2', 'm2', 'M2', 'M2', 'M2', 'm2']\n>>> net = scale.intervalNetwork.IntervalNetwork()\n>>> net.fillBiDirectedEdges(edgeList)\n>>> net.degreeModulus(3)\n3\n>>> net.degreeModulus(8)\n1\n>>> net.degreeModulus(9)\n2\n>>> net.degreeModulus(0)\n7",
+        "type": "ListItem"
+    },
+    {
+        "text": "IntervalNetwork.",
+        "type": "Title"
+    },
+    {
+        "text": "fillArbitrary",
+        "type": "Title"
+    },
+    {
+        "text": "nodes",
+        "type": "Title"
+    },
+    {
+        "text": "edges",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Fill any arbitrary network given node and edge definitions.\nNodes must be defined by a dictionary of id and degree values.\nThere must be a terminusLow and terminusHigh id as string:\nnodes = ({'id': Terminus.LOW, 'degree': 1},\n         {'id': 0, 'degree': 2},\n         {'id': Terminus.HIGH, 'degree': 3},\n        )\n\n\nEdges must be defined by a dictionary of Interval\nstrings and connections. Values for id will be automatically assigned.\nEach connection must define direction and pairs of valid node ids:\nedges = ({'interval': 'm2',\n          'connections': ([Terminus.LOW, 0, Direction.BI],)\n          },\n         {'interval': 'M3',\n          'connections': ([0, Terminus.HIGH, Direction.BI],)\n          },\n        )\n\n\n>>> nodes = ({'id': scale.Terminus.LOW, 'degree': 1},\n...          {'id': 0, 'degree': 2},\n...          {'id': scale.Terminus.HIGH, 'degree': 3})\n>>> edges = ({'interval': 'm2',\n...           'connections': ([scale.Terminus.LOW, 0, scale.Direction.BI],)},\n...          {'interval': 'M3',\n...           'connections': ([0, scale.Terminus.HIGH, scale.Direction.BI],)},)\n\n\n>>> net = scale.intervalNetwork.IntervalNetwork()\n>>> net.fillArbitrary(nodes, edges)\n>>> net.realizePitch('c4', 1)\n[<music21.pitch.Pitch C4>, <music21.pitch.Pitch D-4>, <music21.pitch.Pitch F4>]",
+        "type": "ListItem"
+    },
+    {
+        "text": "IntervalNetwork.",
+        "type": "Title"
+    },
+    {
+        "text": "fillBiDirectedEdges",
+        "type": "Title"
+    },
+    {
+        "text": "edgeList",
+        "type": "Title"
+    },
+    {
+        "text": "Sequence",
+        "type": "Title"
+    },
+    {
+        "text": "Interval",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given an ordered list of bi-directed edges given as Interval\nspecifications, create and define appropriate Nodes. This\nassumes that all edges are bi-directed and all edges are in order.\n>>> edgeList = ['M2', 'M2', 'm2', 'M2', 'M2', 'M2', 'm2']\n>>> net = scale.intervalNetwork.IntervalNetwork()\n>>> net.nodes\nOrderedDict()\n>>> net.edges\nOrderedDict()\n\n\n>>> net.fillBiDirectedEdges(edgeList)\n>>> net.nodes\nOrderedDict([(Terminus.LOW, <music21.scale.intervalNetwork.Node id=Terminus.LOW>),\n             (0, <music21.scale.intervalNetwork.Node id=0>),\n             (1, <music21.scale.intervalNetwork.Node id=1>),\n             ...\n             (5, <music21.scale.intervalNetwork.Node id=5>),\n             (Terminus.HIGH, <music21.scale.intervalNetwork.Node id=Terminus.HIGH>)])\n>>> net.edges\nOrderedDict([(0, <music21.scale.intervalNetwork.Edge Direction.BI M2\n                    [(Terminus.LOW, 0), (0, Terminus.LOW)]>),\n             (1, <music21.scale.intervalNetwork.Edge Direction.BI M2 [(0, 1), (1, 0)]>),\n             (2, <music21.scale.intervalNetwork.Edge Direction.BI m2 [(1, 2), (2, 1)]>),\n             ...\n             (5, <music21.scale.intervalNetwork.Edge Direction.BI M2 [(4, 5), (5, 4)]>),\n             (6, <music21.scale.intervalNetwork.Edge Direction.BI m2\n                    [(5, Terminus.HIGH), (Terminus.HIGH, 5)]>)])\n\n\n>>> [str(p) for p in net.realizePitch('g4')]\n['G4', 'A4', 'B4', 'C5', 'D5', 'E5', 'F#5', 'G5']\n>>> net.degreeMin, net.degreeMax\n(1, 8)\n\n\nUsing another fill method creates a new network\n>>> net.fillBiDirectedEdges(['M3', 'M3', 'M3'])\n>>> [str(p) for p in net.realizePitch('g4')]\n['G4', 'B4', 'D#5', 'G5']\n>>> net.degreeMin, net.degreeMax\n(1, 4)\n\n\n>>> net.fillBiDirectedEdges([interval.Interval('M3'),\n...                          interval.Interval('M3'),\n...                          interval.Interval('M3')])\n>>> [str(p) for p in net.realizePitch('c2')]\n['C2', 'E2', 'G#2', 'B#2']",
+        "type": "ListItem"
+    },
+    {
+        "text": "IntervalNetwork.",
+        "type": "Title"
+    },
+    {
+        "text": "fillDirectedEdges",
+        "type": "Title"
+    },
+    {
+        "text": "ascendingEdgeList",
+        "type": "Title"
+    },
+    {
+        "text": "descendingEdgeList",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given two lists of edges, one for ascending Interval\nobjects and\nanother for  descending, construct appropriate Nodes and Edges.\nNote that the descending Interval objects\nshould be given in ascending form.",
+        "type": "ListItem"
+    },
+    {
+        "text": "IntervalNetwork.",
+        "type": "Title"
+    },
+    {
+        "text": "fillMelodicMinor",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A convenience routine for testing a complex, bi-directional scale.\n>>> net = scale.intervalNetwork.IntervalNetwork()\n>>> net.fillMelodicMinor()\n>>> [str(p) for p in net.realizePitch('c4')]\n['C4', 'D4', 'E-4', 'F4', 'G4', 'A4', 'B4', 'C5']",
+        "type": "ListItem"
+    },
+    {
+        "text": "static",
+        "type": "Title"
+    },
+    {
+        "text": "IntervalNetwork.",
+        "type": "Title"
+    },
+    {
+        "text": "filterPitchList",
+        "type": "Title"
+    },
+    {
+        "text": "pitchTarget",
+        "type": "Title"
+    },
+    {
+        "text": "list",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "list",
+        "type": "Title"
+    },
+    {
+        "text": "music21.pitch.Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 tuple[list[music21.pitch.Pitch], music21.pitch.Pitch, music21.pitch.Pitch]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a list or one pitch, check if all are pitch objects; convert if necessary.\nReturn a 3-tuple: a list of all pitches, the min value and the max value.\n>>> Net = scale.intervalNetwork.IntervalNetwork\n>>> Net.filterPitchList(['c#4', 'f5', 'd3'])\n([<music21.pitch.Pitch C#4>, <music21.pitch.Pitch F5>, <music21.pitch.Pitch D3>],\n <music21.pitch.Pitch D3>,\n <music21.pitch.Pitch F5>)\n\n\nA single string or pitch can be given.\n>>> Net.filterPitchList('c#')\n([<music21.pitch.Pitch C#>],\n <music21.pitch.Pitch C#>,\n <music21.pitch.Pitch C#>)\n\n\nEmpty lists raise value errors:\n>>> Net.filterPitchList([])\nTraceback (most recent call last):\nValueError: There must be at least one pitch given.\n\n\n\nChanged in v8: staticmethod.  Raise value error on empty",
+        "type": "ListItem"
+    },
+    {
+        "text": "IntervalNetwork.",
+        "type": "Title"
+    },
+    {
+        "text": "find",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "pitchTarget",
+        "type": "Title"
+    },
+    {
+        "text": "resultsReturned",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "comparisonAttribute",
+        "type": "Title"
+    },
+    {
+        "text": "'pitchClass'",
+        "type": "Title"
+    },
+    {
+        "text": "alteredDegrees",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a collection of pitches, test all transpositions of a realized\nversion of this network, and return the number of matches in each for\neach pitch assigned to the first node.\n>>> edgeList = ['M2', 'M2', 'm2', 'M2', 'M2', 'M2', 'm2']\n>>> net = scale.intervalNetwork.IntervalNetwork(edgeList)\n\n\na network built on G or D as\n>>> net.find(['g', 'a', 'b', 'd', 'f#'])\n[(5, <music21.pitch.Pitch G>), (5, <music21.pitch.Pitch D>),\n (4, <music21.pitch.Pitch A>), (4, <music21.pitch.Pitch C>)]\n\n\n>>> net.find(['g', 'a', 'b', 'c', 'd', 'e', 'f#'])\n[(7, <music21.pitch.Pitch G>), (6, <music21.pitch.Pitch D>),\n (6, <music21.pitch.Pitch C>), (5, <music21.pitch.Pitch A>)]\n\n\nIf resultsReturned is None then return every such scale.",
+        "type": "ListItem"
+    },
+    {
+        "text": "IntervalNetwork.",
+        "type": "Title"
+    },
+    {
+        "text": "findMissing",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "pitchReference",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch | str",
+        "type": "Title"
+    },
+    {
+        "text": "nodeId",
+        "type": "Title"
+    },
+    {
+        "text": "pitchTarget",
+        "type": "Title"
+    },
+    {
+        "text": "comparisonAttribute",
+        "type": "Title"
+    },
+    {
+        "text": "'pitchClass'",
+        "type": "Title"
+    },
+    {
+        "text": "minPitch",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "maxPitch",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "direction",
+        "type": "Title"
+    },
+    {
+        "text": "Direction",
+        "type": "Title"
+    },
+    {
+        "text": "Direction.ASCENDING",
+        "type": "Title"
+    },
+    {
+        "text": "alteredDegrees",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Find all pitches in the realized scale that are not in the\npitch target network based on the comparison attribute.\n>>> edgeList = ['M2', 'M2', 'm2', 'M2', 'M2', 'M2', 'm2']\n>>> net = scale.intervalNetwork.IntervalNetwork(edgeList)\n>>> [str(p) for p in net.realizePitch('G3')]\n['G3', 'A3', 'B3', 'C4', 'D4', 'E4', 'F#4', 'G4']\n>>> net.findMissing('g', 1, ['g', 'a', 'b', 'd', 'f#'])\n[<music21.pitch.Pitch C5>, <music21.pitch.Pitch E5>]",
+        "type": "ListItem"
+    },
+    {
+        "text": "IntervalNetwork.",
+        "type": "Title"
+    },
+    {
+        "text": "getNeighborNodeIds",
+        "type": "Title"
+    },
+    {
+        "text": "pitchReference",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch | str",
+        "type": "Title"
+    },
+    {
+        "text": "nodeName",
+        "type": "Title"
+    },
+    {
+        "text": "Node",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "Terminus",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "pitchTarget",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch | str",
+        "type": "Title"
+    },
+    {
+        "text": "direction",
+        "type": "Title"
+    },
+    {
+        "text": "Direction",
+        "type": "Title"
+    },
+    {
+        "text": "Direction.ASCENDING",
+        "type": "Title"
+    },
+    {
+        "text": "alteredDegrees",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a reference pitch assigned to a node id, determine the node ids\nthat neighbor this pitch.\nReturns None if an exact match.\n>>> edgeList = ['M2', 'M2', 'm2', 'M2', 'M2', 'M2', 'm2']\n>>> net = scale.intervalNetwork.IntervalNetwork(edgeList)\n>>> net.getNeighborNodeIds('c4', 1, 'b-')\n(4, 5)\n>>> net.getNeighborNodeIds('c4', 1, 'b')\n(5, Terminus.HIGH)",
+        "type": "ListItem"
+    },
+    {
+        "text": "IntervalNetwork.",
+        "type": "Title"
+    },
+    {
+        "text": "getNetworkxGraph",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Create a networkx graph from the raw Node representation.\nReturn a networks Graph object representing a realized version\nof this IntervalNetwork if networkx is installed",
+        "type": "ListItem"
+    },
+    {
+        "text": "IntervalNetwork.",
+        "type": "Title"
+    },
+    {
+        "text": "getNext",
+        "type": "Title"
+    },
+    {
+        "text": "nodeStart",
+        "type": "Title"
+    },
+    {
+        "text": "direction",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a Node, get two lists, one of next Edges, and one of next Nodes,\nsearching all Edges to find all matches.\nThere may be more than one possibility. If so, the caller must look\nat the Edges and determine which to use\n>>> edgeList = ['M2', 'M2', 'm2', 'M2', 'M2', 'M2', 'm2']\n>>> net = scale.intervalNetwork.IntervalNetwork()\n>>> net.fillBiDirectedEdges(edgeList)\n>>> net.nodeNameToNodes(1)[0]\n<music21.scale.intervalNetwork.Node id=Terminus.LOW>",
+        "type": "ListItem"
+    },
+    {
+        "text": "IntervalNetwork.",
+        "type": "Title"
+    },
+    {
+        "text": "getNodeDegreeDictionary",
+        "type": "Title"
+    },
+    {
+        "text": "equateTermini",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a dictionary of node-id, node-degree pairs.\nThe same degree may be given for each node\nThere may not be an unambiguous way to determine the degree.\nOr, a degree may have different meanings when ascending or descending.\nIf equateTermini is True, the terminals will be given the same degree.",
+        "type": "ListItem"
+    },
+    {
+        "text": "IntervalNetwork.",
+        "type": "Title"
+    },
+    {
+        "text": "getPitchFromNodeDegree",
+        "type": "Title"
+    },
+    {
+        "text": "pitchReference",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch | str",
+        "type": "Title"
+    },
+    {
+        "text": "nodeName",
+        "type": "Title"
+    },
+    {
+        "text": "Node",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "Terminus",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "nodeDegreeTarget",
+        "type": "Title"
+    },
+    {
+        "text": "direction",
+        "type": "Title"
+    },
+    {
+        "text": "Direction",
+        "type": "Title"
+    },
+    {
+        "text": "Direction.ASCENDING",
+        "type": "Title"
+    },
+    {
+        "text": "minPitch",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "maxPitch",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "alteredDegrees",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "equateTermini",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a reference pitch assigned to node id,\ndetermine the pitch for the target node degree.\n>>> edgeList = ['M2', 'M2', 'm2', 'M2', 'M2', 'M2', 'm2']\n>>> net = scale.intervalNetwork.IntervalNetwork(edgeList)\n>>> [str(p) for p in net.realizePitch(pitch.Pitch('e-2')) ]\n['E-2', 'F2', 'G2', 'A-2', 'B-2', 'C3', 'D3', 'E-3']\n>>> net.getPitchFromNodeDegree('e4', 1, 1)\n<music21.pitch.Pitch E4>\n>>> net.getPitchFromNodeDegree('e4', 1, 7)  # seventh scale degree\n<music21.pitch.Pitch D#5>\n>>> net.getPitchFromNodeDegree('e4', 1, 8)\n<music21.pitch.Pitch E4>\n>>> net.getPitchFromNodeDegree('e4', 1, 9)\n<music21.pitch.Pitch F#4>\n>>> net.getPitchFromNodeDegree('e4', 1, 3, minPitch='c2', maxPitch='c3')\n<music21.pitch.Pitch G#2>\n\n\nThis will always get the lowest pitch:\n>>> net.getPitchFromNodeDegree('e4', 1, 3, minPitch='c2', maxPitch='c10')\n<music21.pitch.Pitch G#2>\n\n\n>>> net.fillMelodicMinor()\n>>> net.getPitchFromNodeDegree('c', 1, 5)\n<music21.pitch.Pitch G4>\n>>> net.getPitchFromNodeDegree('c', 1, 6, scale.Direction.ASCENDING)\n<music21.pitch.Pitch A4>\n>>> net.getPitchFromNodeDegree('c', 1, 6, scale.Direction.DESCENDING)\n<music21.pitch.Pitch A-4>",
+        "type": "ListItem"
+    },
+    {
+        "text": "IntervalNetwork.",
+        "type": "Title"
+    },
+    {
+        "text": "getRelativeNodeDegree",
+        "type": "Title"
+    },
+    {
+        "text": "pitchReference",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch | str",
+        "type": "Title"
+    },
+    {
+        "text": "nodeId",
+        "type": "Title"
+    },
+    {
+        "text": "pitchTarget",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch | str",
+        "type": "Title"
+    },
+    {
+        "text": "comparisonAttribute",
+        "type": "Title"
+    },
+    {
+        "text": "'ps'",
+        "type": "Title"
+    },
+    {
+        "text": "direction",
+        "type": "Title"
+    },
+    {
+        "text": "Direction",
+        "type": "Title"
+    },
+    {
+        "text": "Direction.ASCENDING",
+        "type": "Title"
+    },
+    {
+        "text": "alteredDegrees",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a reference pitch assigned to node id,\ndetermine the relative node degree of pitchTarget,\neven if displaced over multiple octaves\nComparison Attribute determines what will be used to determine\nequality.  Use ps (default) for post-tonal uses.  name for\ntonal, and step for diatonic.\n>>> edgeList = ['M2', 'M2', 'm2', 'M2', 'M2', 'M2', 'm2']\n>>> net = scale.intervalNetwork.IntervalNetwork(edgeList)\n>>> [str(p) for p in net.realizePitch(pitch.Pitch('e-2')) ]\n['E-2', 'F2', 'G2', 'A-2', 'B-2', 'C3', 'D3', 'E-3']\n\n\n>>> net.getRelativeNodeDegree('e-2', 1, 'd3')  # if e- is tonic, what is d3\n7\n\n\nFor an octave repeating network, the neither pitch's octave matters:\n>>> net.getRelativeNodeDegree('e-', 1, 'd5')  # if e- is tonic, what is d3\n7\n>>> net.getRelativeNodeDegree('e-2', 1, 'd')  # if e- is tonic, what is d3\n7\n\n\n>>> net.getRelativeNodeDegree('e3', 1, 'd5') is None\nTrue\n>>> net.getRelativeNodeDegree('e3', 1, 'd5', comparisonAttribute='step')\n7\n>>> net.getRelativeNodeDegree('e3', 1, 'd', comparisonAttribute='step')\n7\n\n\n>>> net.getRelativeNodeDegree('e-3', 1, 'b-3')\n5\n\n\n>>> net.getRelativeNodeDegree('e-3', 1, 'e-5')\n1\n>>> net.getRelativeNodeDegree('e-2', 1, 'f3')\n2\n>>> net.getRelativeNodeDegree('e-3', 1, 'b6') is None\nTrue\n\n\n>>> net.getRelativeNodeDegree('e-3', 1, 'e-2')\n1\n>>> net.getRelativeNodeDegree('e-3', 1, 'd3')\n7\n>>> net.getRelativeNodeDegree('e-3', 1, 'e-3')\n1\n>>> net.getRelativeNodeDegree('e-3', 1, 'b-1')\n5\n\n\n>>> edgeList = ['p4', 'p4', 'p4']  # a non octave-repeating scale\n>>> net = scale.intervalNetwork.IntervalNetwork(edgeList)\n>>> [str(p) for p in net.realizePitch('f2')]\n['F2', 'B-2', 'E-3', 'A-3']\n>>> [str(p) for p in net.realizePitch('f2', 1, 'f2', 'f6')]\n['F2', 'B-2', 'E-3', 'A-3', 'D-4', 'G-4', 'C-5', 'F-5', 'A5', 'D6']\n\n\n>>> net.getRelativeNodeDegree('f2', 1, 'a-3')  # could be 4 or 1\n1\n>>> net.getRelativeNodeDegree('f2', 1, 'd-4')  # 2 is correct\n2\n>>> net.getRelativeNodeDegree('f2', 1, 'g-4')  # 3 is correct\n3\n>>> net.getRelativeNodeDegree('f2', 1, 'c-5')  # could be 4 or 1\n1\n>>> net.getRelativeNodeDegree('f2', 1, 'e--6')  # could be 4 or 1\n1\n\n\n>>> [str(p) for p in net.realizePitch('f6', 1, 'f2', 'f6')]\n['G#2', 'C#3', 'F#3', 'B3', 'E4', 'A4', 'D5', 'G5', 'C6', 'F6']\n\n\n>>> net.getRelativeNodeDegree('f6', 1, 'd5')\n1\n>>> net.getRelativeNodeDegree('f6', 1, 'g5')\n2\n>>> net.getRelativeNodeDegree('f6', 1, 'a4')\n3\n>>> net.getRelativeNodeDegree('f6', 1, 'e4')\n2\n>>> net.getRelativeNodeDegree('f6', 1, 'b3')\n1",
+        "type": "ListItem"
+    },
+    {
+        "text": "IntervalNetwork.",
+        "type": "Title"
+    },
+    {
+        "text": "getRelativeNodeId",
+        "type": "Title"
+    },
+    {
+        "text": "pitchReference",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch | str",
+        "type": "Title"
+    },
+    {
+        "text": "nodeId",
+        "type": "Title"
+    },
+    {
+        "text": "Node",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "Terminus",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "pitchTarget",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "comparisonAttribute",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "'ps'",
+        "type": "Title"
+    },
+    {
+        "text": "direction",
+        "type": "Title"
+    },
+    {
+        "text": "Direction",
+        "type": "Title"
+    },
+    {
+        "text": "Direction.ASCENDING",
+        "type": "Title"
+    },
+    {
+        "text": "alteredDegrees",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a reference pitch assigned to node id, determine the\nrelative node id of pitchTarget, even if displaced over multiple octaves\nThe nodeId parameter may be\na Node object, a node degree,\na terminus string, or a None (indicating Terminus.LOW).\nReturns None if no match.\nIf getNeighbor is True, or direction, the nearest node will be returned.\nIf more than one node defines the same pitch, Node weights are used\nto select a single node.\n>>> edgeList = ['M2', 'M2', 'm2', 'M2', 'M2', 'M2', 'm2']\n>>> net = scale.intervalNetwork.IntervalNetwork(edgeList)\n>>> net.getRelativeNodeId('a', 1, 'a4')\nTerminus.LOW\n>>> net.getRelativeNodeId('a', 1, 'b4')\n0\n>>> net.getRelativeNodeId('a', 1, 'c#4')\n1\n>>> net.getRelativeNodeId('a', 1, 'c4', comparisonAttribute='step')\n1\n>>> net.getRelativeNodeId('a', 1, 'c', comparisonAttribute='step')\n1\n>>> net.getRelativeNodeId('a', 1, 'b-4') is None\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "IntervalNetwork.",
+        "type": "Title"
+    },
+    {
+        "text": "getUnalteredPitch",
+        "type": "Title"
+    },
+    {
+        "text": "pitchObj",
+        "type": "Title"
+    },
+    {
+        "text": "nodeObj",
+        "type": "Title"
+    },
+    {
+        "text": "direction",
+        "type": "Title"
+    },
+    {
+        "text": "Direction.BI",
+        "type": "Title"
+    },
+    {
+        "text": "alteredDegrees",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a node and alteredDegrees get the unaltered pitch, or return the current object",
+        "type": "ListItem"
+    },
+    {
+        "text": "IntervalNetwork.",
+        "type": "Title"
+    },
+    {
+        "text": "match",
+        "type": "Title"
+    },
+    {
+        "text": "pitchReference",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch | str",
+        "type": "Title"
+    },
+    {
+        "text": "nodeId",
+        "type": "Title"
+    },
+    {
+        "text": "pitchTarget",
+        "type": "Title"
+    },
+    {
+        "text": "comparisonAttribute",
+        "type": "Title"
+    },
+    {
+        "text": "'pitchClass'",
+        "type": "Title"
+    },
+    {
+        "text": "alteredDegrees",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given one or more pitches in pitchTarget, return a\ntuple of a list of matched pitches, and a list of unmatched pitches.\n>>> edgeList = ['M2', 'M2', 'm2', 'M2', 'M2', 'M2', 'm2']\n>>> net = scale.intervalNetwork.IntervalNetwork(edgeList)\n>>> [str(p) for p in net.realizePitch('e-2')]\n['E-2', 'F2', 'G2', 'A-2', 'B-2', 'C3', 'D3', 'E-3']\n\n\n>>> net.match('e-2', 1, 'c3')  # if e- is tonic, is 'c3' in the scale?\n([<music21.pitch.Pitch C3>], [])\n\n\n>>> net.match('e-2', 1, 'd3')\n([<music21.pitch.Pitch D3>], [])\n\n\n>>> net.match('e-2', 1, 'd#3')\n([<music21.pitch.Pitch D#3>], [])\n\n\n>>> net.match('e-2', 1, 'e3')\n([], [<music21.pitch.Pitch E3>])\n\n\n>>> pitchTarget = [pitch.Pitch('b-2'), pitch.Pitch('b2'), pitch.Pitch('c3')]\n>>> net.match('e-2', 1, pitchTarget)\n([<music21.pitch.Pitch B-2>, <music21.pitch.Pitch C3>], [<music21.pitch.Pitch B2>])\n\n\n>>> pitchTarget = ['b-2', 'b2', 'c3', 'e-3', 'e#3', 'f2', 'e--2']\n>>> (matched, unmatched) = net.match('e-2', 1, pitchTarget)\n>>> [str(p) for p in matched]\n['B-2', 'C3', 'E-3', 'E#3', 'F2', 'E--2']\n>>> unmatched\n[<music21.pitch.Pitch B2>]",
+        "type": "ListItem"
+    },
+    {
+        "text": "IntervalNetwork.",
+        "type": "Title"
+    },
+    {
+        "text": "nextPitch",
+        "type": "Title"
+    },
+    {
+        "text": "pitchReference",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch | str",
+        "type": "Title"
+    },
+    {
+        "text": "nodeName",
+        "type": "Title"
+    },
+    {
+        "text": "Node",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "Terminus",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "pitchOrigin",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch | str",
+        "type": "Title"
+    },
+    {
+        "text": "direction",
+        "type": "Title"
+    },
+    {
+        "text": "Direction",
+        "type": "Title"
+    },
+    {
+        "text": "Direction.ASCENDING",
+        "type": "Title"
+    },
+    {
+        "text": "stepSize",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "alteredDegrees",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "getNeighbor",
+        "type": "Title"
+    },
+    {
+        "text": "bool | Direction",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a pitchReference, nodeName, and a pitch origin, return the next pitch.\nThe nodeName parameter may be a Node object,\na node degree, a Terminus Enum, or a None (indicating Terminus.LOW).\n>>> edgeList = ['M2', 'M2', 'm2', 'M2', 'M2', 'M2', 'm2']\n>>> net = scale.intervalNetwork.IntervalNetwork()\n>>> net.fillBiDirectedEdges(edgeList)\n>>> net.nextPitch('g', 1, 'f#5', direction=scale.Direction.ASCENDING)\n<music21.pitch.Pitch G5>\n>>> net.nextPitch('g', 1, 'f#5', direction=scale.Direction.DESCENDING)\n<music21.pitch.Pitch E5>\n\n\nThe stepSize parameter can be configured to permit different sized steps\nin the specified direction.\n>>> net.nextPitch('g', 1, 'f#5',\n...               direction=scale.Direction.ASCENDING,\n...               stepSize=2)\n<music21.pitch.Pitch A5>\n\n\nAltered degrees can be given to temporarily change the pitches returned\nwithout affecting the network as a whole.\n>>> alteredDegrees = {2: {'direction': scale.Direction.BI,\n...                       'interval': interval.Interval('-a1')}}\n>>> net.nextPitch('g', 1, 'g2',\n...               direction=scale.Direction.ASCENDING,\n...               alteredDegrees=alteredDegrees)\n<music21.pitch.Pitch A-2>\n>>> net.nextPitch('g', 1, 'a-2',\n...               direction=scale.Direction.ASCENDING,\n...               alteredDegrees=alteredDegrees)\n<music21.pitch.Pitch B2>",
+        "type": "ListItem"
+    },
+    {
+        "text": "IntervalNetwork.",
+        "type": "Title"
+    },
+    {
+        "text": "nodeIdToDegree",
+        "type": "Title"
+    },
+    {
+        "text": "nId",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a strict node id (the .id attribute of the Node), return the degree.\nThere may not be an unambiguous way to determine the degree.\nOr, a degree may have different meanings when ascending or descending.",
+        "type": "ListItem"
+    },
+    {
+        "text": "IntervalNetwork.",
+        "type": "Title"
+    },
+    {
+        "text": "nodeIdToEdgeDirections",
+        "type": "Title"
+    },
+    {
+        "text": "nId",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a Node id, find all edges associated\nwith this node and report on their directions\n>>> net = scale.intervalNetwork.IntervalNetwork()\n>>> net.fillMelodicMinor()\n>>> net.nodeIdToEdgeDirections(scale.Terminus.LOW)\n[Direction.BI]\n>>> net.nodeIdToEdgeDirections(0)\n[Direction.BI, Direction.BI]\n>>> net.nodeIdToEdgeDirections(6)\n[Direction.ASCENDING, Direction.ASCENDING]\n>>> net.nodeIdToEdgeDirections(5)\n[Direction.DESCENDING, Direction.DESCENDING]\n\n\nThis node has bi-directional (from below),\nascending (to above), and descending (from above)\nedge connections connections\n>>> net.nodeIdToEdgeDirections(3)\n[Direction.BI, Direction.ASCENDING, Direction.DESCENDING]",
+        "type": "ListItem"
+    },
+    {
+        "text": "IntervalNetwork.",
+        "type": "Title"
+    },
+    {
+        "text": "nodeNameToNodes",
+        "type": "Title"
+    },
+    {
+        "text": "nodeId",
+        "type": "Title"
+    },
+    {
+        "text": "Node",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "Terminus",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "equateTermini",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "permitDegreeModuli",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The nodeId parameter may be a Node object,\na node degree (as a number), a terminus string, or a None (indicating Terminus.LOW).\nReturn a list of Node objects that match this identification.\nIf equateTermini is True, and the name given is a degree number,\nthen the first terminal will return both the first and last.\n>>> edgeList = ['M2', 'M2', 'm2', 'M2', 'M2', 'M2', 'm2']\n>>> net = scale.intervalNetwork.IntervalNetwork()\n>>> net.fillBiDirectedEdges(edgeList)\n>>> net.nodeNameToNodes(1)[0]\n<music21.scale.intervalNetwork.Node id=Terminus.LOW>\n>>> net.nodeNameToNodes(scale.Terminus.HIGH)\n[<music21.scale.intervalNetwork.Node id=Terminus.HIGH>]\n>>> net.nodeNameToNodes(scale.Terminus.LOW)\n[<music21.scale.intervalNetwork.Node id=Terminus.LOW>]\n\n\nTest using a nodeStep, or an integer nodeName\n>>> net.nodeNameToNodes(1)\n[<music21.scale.intervalNetwork.Node id=Terminus.LOW>,\n <music21.scale.intervalNetwork.Node id=Terminus.HIGH>]\n>>> net.nodeNameToNodes(1, equateTermini=False)\n[<music21.scale.intervalNetwork.Node id=Terminus.LOW>]\n>>> net.nodeNameToNodes(2)\n[<music21.scale.intervalNetwork.Node id=0>]\n\n\nWith degree moduli, degree zero is the top-most non-terminal\n(since terminals are redundant)\n>>> net.nodeNameToNodes(0)\n[<music21.scale.intervalNetwork.Node id=5>]\n>>> net.nodeNameToNodes(-1)\n[<music21.scale.intervalNetwork.Node id=4>]\n>>> net.nodeNameToNodes(8)\n[<music21.scale.intervalNetwork.Node id=Terminus.LOW>,\n <music21.scale.intervalNetwork.Node id=Terminus.HIGH>]",
+        "type": "ListItem"
+    },
+    {
+        "text": "IntervalNetwork.",
+        "type": "Title"
+    },
+    {
+        "text": "plot",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a method and keyword configuration arguments, create and display a plot.\nRequires networkx to be installed.\n\nChanged in v8: other parameters were unused and removed.",
+        "type": "ListItem"
+    },
+    {
+        "text": "IntervalNetwork.",
+        "type": "Title"
+    },
+    {
+        "text": "processAlteredNodes",
+        "type": "Title"
+    },
+    {
+        "text": "alteredDegrees",
+        "type": "Title"
+    },
+    {
+        "text": "direction",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return an altered pitch for given node, if an alteration is specified\nin the alteredDegrees dictionary",
+        "type": "ListItem"
+    },
+    {
+        "text": "IntervalNetwork.",
+        "type": "Title"
+    },
+    {
+        "text": "realize",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "pitchReference",
+        "type": "Title"
+    },
+    {
+        "text": "str | Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "nodeId",
+        "type": "Title"
+    },
+    {
+        "text": "Node",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "Terminus",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "minPitch",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "maxPitch",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "direction",
+        "type": "Title"
+    },
+    {
+        "text": "Direction",
+        "type": "Title"
+    },
+    {
+        "text": "Direction.ASCENDING",
+        "type": "Title"
+    },
+    {
+        "text": "alteredDegrees",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "reverse",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Realize the nodes of this network based on a pitch assigned to a\nvalid nodeId, where nodeId can be specified by integer\n(starting from 1) or key (a tuple of origin, destination keys).\nWithout a min or max pitch, the given pitch reference is assigned\nto the designated node, and then both ascends to the terminus and\ndescends to the terminus.\nThe alteredDegrees dictionary permits creating mappings between\nnode degree and direction and Interval\nbased transpositions.\nReturns two lists, a list of pitches, and a list of Node keys.\n>>> edgeList = ['M2', 'M2', 'm2', 'M2', 'M2', 'M2', 'm2']\n>>> net = scale.intervalNetwork.IntervalNetwork()\n>>> net.fillBiDirectedEdges(edgeList)\n>>> (pitches, nodeKeys) = net.realize('c2', 1, 'c2', 'c3')\n>>> [str(p) for p in pitches]\n['C2', 'D2', 'E2', 'F2', 'G2', 'A2', 'B2', 'C3']\n>>> nodeKeys\n[Terminus.LOW, 0, 1, 2, 3, 4, 5, Terminus.HIGH]\n\n\n>>> alteredDegrees = {7: {'direction': scale.Direction.BI,\n...                       'interval': interval.Interval('-a1')}}\n>>> (pitches, nodeKeys) = net.realize('c2', 1, 'c2', 'c4', alteredDegrees=alteredDegrees)\n>>> [str(p) for p in pitches]\n['C2', 'D2', 'E2', 'F2', 'G2', 'A2', 'B-2', 'C3',\n 'D3', 'E3', 'F3', 'G3', 'A3', 'B-3', 'C4']\n>>> nodeKeys\n[Terminus.LOW, 0, 1, 2, 3, 4, 5, Terminus.HIGH, 0, 1, 2, 3, 4, 5, Terminus.HIGH]",
+        "type": "ListItem"
+    },
+    {
+        "text": "IntervalNetwork.",
+        "type": "Title"
+    },
+    {
+        "text": "realizeAscending",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "pitchReference",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch | str",
+        "type": "Title"
+    },
+    {
+        "text": "nodeId",
+        "type": "Title"
+    },
+    {
+        "text": "Node",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "Terminus",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "minPitch",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "maxPitch",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "alteredDegrees",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "fillMinMaxIfNone",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 tuple[list[music21.pitch.Pitch], list[music21.scale.intervalNetwork.Terminus | int]]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a reference pitch, realize upwards to a maximum pitch.\n>>> edgeList = ['M2', 'M2', 'm2', 'M2', 'M2', 'M2', 'm2']\n\n\n>>> net = scale.intervalNetwork.IntervalNetwork()\n>>> net.fillBiDirectedEdges(edgeList)\n>>> (pitches, nodeKeys) = net.realizeAscending('c2', 1, 'c5', 'c6')\n>>> [str(p) for p in pitches]\n['C5', 'D5', 'E5', 'F5', 'G5', 'A5', 'B5', 'C6']\n>>> nodeKeys\n[Terminus.HIGH, 0, 1, 2, 3, 4, 5, Terminus.HIGH]\n\n\n>>> net = scale.intervalNetwork.IntervalNetwork(octaveDuplicating=True)\n>>> net.fillBiDirectedEdges(edgeList)\n>>> (pitches, nodeKeys) = net.realizeAscending('c2', 1, 'c5', 'c6')\n>>> [str(p) for p in pitches]\n['C5', 'D5', 'E5', 'F5', 'G5', 'A5', 'B5', 'C6']\n>>> nodeKeys\n[Terminus.LOW, 0, 1, 2, 3, 4, 5, Terminus.HIGH]",
+        "type": "ListItem"
+    },
+    {
+        "text": "IntervalNetwork.",
+        "type": "Title"
+    },
+    {
+        "text": "realizeDescending",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "pitchReference",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch | str",
+        "type": "Title"
+    },
+    {
+        "text": "nodeId",
+        "type": "Title"
+    },
+    {
+        "text": "Node",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "Terminus",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "minPitch",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "maxPitch",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "alteredDegrees",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "includeFirst",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "fillMinMaxIfNone",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "reverse",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a reference pitch, realize downward to a minimum.\nIf no minimum is given, the terminus is used.\nIf includeFirst is False, the starting (highest) pitch will not be included.\nIf fillMinMaxIfNone is True, a min and max will be artificially\nderived from an ascending scale and used as min and max values.\n>>> edgeList = ['M2', 'M2', 'm2', 'M2', 'M2', 'M2', 'm2']\n>>> net = scale.intervalNetwork.IntervalNetwork()\n>>> net.fillBiDirectedEdges(edgeList)\n>>> net.realizeDescending('c2', 1, 'c3')  # minimum is above ref\n([], [])\n>>> (pitches, nodeKeys) = net.realizeDescending('c3', 1, 'c2')\n>>> [str(p) for p in pitches]\n['C2', 'D2', 'E2', 'F2', 'G2', 'A2', 'B2']\n>>> nodeKeys\n[Terminus.LOW, 0, 1, 2, 3, 4, 5]\n>>> (pitches, nodeKeys) = net.realizeDescending('c3', 1, 'c2', includeFirst=True)\n>>> [str(p) for p in pitches]\n['C2', 'D2', 'E2', 'F2', 'G2', 'A2', 'B2', 'C3']\n>>> nodeKeys\n[Terminus.LOW, 0, 1, 2, 3, 4, 5, Terminus.LOW]\n\n\n>>> (pitches, nodeKeys) = net.realizeDescending('a6', scale.Terminus.HIGH)\n>>> [str(p) for p in pitches]\n['A5', 'B5', 'C#6', 'D6', 'E6', 'F#6', 'G#6']\n>>> nodeKeys\n[Terminus.LOW, 0, 1, 2, 3, 4, 5]\n\n\n>>> (pitches, nodeKeys) = net.realizeDescending('a6', scale.Terminus.HIGH,\n...                                             includeFirst=True)\n>>> [str(p) for p in pitches]\n['A5', 'B5', 'C#6', 'D6', 'E6', 'F#6', 'G#6', 'A6']\n>>> nodeKeys\n[Terminus.LOW, 0, 1, 2, 3, 4, 5, Terminus.HIGH]\n\n\n>>> net = scale.intervalNetwork.IntervalNetwork(octaveDuplicating=True)\n>>> net.fillBiDirectedEdges(edgeList)\n>>> (pitches, nodeKeys) = net.realizeDescending('c2', 1, 'c0', 'c1')\n>>> [str(p) for p in pitches]\n['C0', 'D0', 'E0', 'F0', 'G0', 'A0', 'B0']\n>>> nodeKeys\n[Terminus.LOW, 0, 1, 2, 3, 4, 5]",
+        "type": "ListItem"
+    },
+    {
+        "text": "IntervalNetwork.",
+        "type": "Title"
+    },
+    {
+        "text": "realizeIntervals",
+        "type": "Title"
+    },
+    {
+        "text": "nodeId",
+        "type": "Title"
+    },
+    {
+        "text": "Node",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "Terminus",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "minPitch",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "maxPitch",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "direction",
+        "type": "Title"
+    },
+    {
+        "text": "Direction",
+        "type": "Title"
+    },
+    {
+        "text": "Direction.ASCENDING",
+        "type": "Title"
+    },
+    {
+        "text": "alteredDegrees",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "reverse",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 list[music21.interval.Interval]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Realize the sequence of intervals between the specified pitches, or the termini.\n>>> edgeList = ['M2', 'M2', 'm2', 'M2', 'M2', 'M2', 'm2']\n>>> net = scale.intervalNetwork.IntervalNetwork()\n>>> net.fillBiDirectedEdges(edgeList)\n>>> net.realizeIntervals()\n[<music21.interval.Interval M2>, <music21.interval.Interval M2>,\n <music21.interval.Interval m2>, <music21.interval.Interval M2>,\n <music21.interval.Interval M2>, <music21.interval.Interval M2>,\n <music21.interval.Interval m2>]",
+        "type": "ListItem"
+    },
+    {
+        "text": "IntervalNetwork.",
+        "type": "Title"
+    },
+    {
+        "text": "realizeMinMax",
+        "type": "Title"
+    },
+    {
+        "text": "pitchReference",
+        "type": "Title"
+    },
+    {
+        "text": "str | Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "nodeId",
+        "type": "Title"
+    },
+    {
+        "text": "Node",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "Terminus",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "alteredDegrees",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 tuple[music21.pitch.Pitch, music21.pitch.Pitch]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Realize the min and max pitches of the scale, or the min and max values\nfound between two termini.\nThis suggests that min and max might be beyond the terminus.\n>>> edgeList = ['M2', 'M2', 'm2', 'M2', 'M2', 'M2', 'm2']\n>>> net = scale.intervalNetwork.IntervalNetwork()\n>>> net.fillBiDirectedEdges(edgeList)\n\n\n>>> net.realizeMinMax(pitch.Pitch('C4'))\n(<music21.pitch.Pitch C4>, <music21.pitch.Pitch C6>)\n>>> net.realizeMinMax(pitch.Pitch('B-5'))\n(<music21.pitch.Pitch B-5>, <music21.pitch.Pitch B-7>)\n\n\nNote that it might not always be two octaves apart\n#  s = scale.AbstractDiatonicScale(\u0098major')\n#  s._net.realizeMinMax(pitch.Pitch(\u0098D2'))\n#  (<music21.pitch.Pitch D2>, <music21.pitch.Pitch D3>)",
+        "type": "ListItem"
+    },
+    {
+        "text": "IntervalNetwork.",
+        "type": "Title"
+    },
+    {
+        "text": "realizePitch",
+        "type": "Title"
+    },
+    {
+        "text": "pitchReference",
+        "type": "Title"
+    },
+    {
+        "text": "str | Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "nodeId",
+        "type": "Title"
+    },
+    {
+        "text": "Node",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "Terminus",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "minPitch",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "maxPitch",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "direction",
+        "type": "Title"
+    },
+    {
+        "text": "Direction",
+        "type": "Title"
+    },
+    {
+        "text": "Direction.ASCENDING",
+        "type": "Title"
+    },
+    {
+        "text": "alteredDegrees",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "reverse",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 list[music21.pitch.Pitch]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Realize the native nodes of this network based on a pitch\nassigned to a valid nodeId, where nodeId can be specified by integer\n(starting from 1) or key (a tuple of origin, destination keys).\nThe nodeId, when a simple, linear network, can be used as a scale degree\nvalue starting from one.\n>>> edgeList = ['M2', 'M2', 'm2', 'M2', 'M2', 'M2', 'm2']\n>>> net = scale.intervalNetwork.IntervalNetwork()\n>>> net.fillBiDirectedEdges(edgeList)\n>>> [str(p) for p in net.realizePitch(pitch.Pitch('G3'))]\n['G3', 'A3', 'B3', 'C4', 'D4', 'E4', 'F#4', 'G4']\n\n\nG3 is the fifth (scale) degree\n>>> [str(p) for p in net.realizePitch(pitch.Pitch('G3'), 5)]\n['C3', 'D3', 'E3', 'F3', 'G3', 'A3', 'B3', 'C4']\n\n\nG3 is the seventh (scale) degree\n>>> [str(p) for p in net.realizePitch(pitch.Pitch('G3'), 7) ]\n['A-2', 'B-2', 'C3', 'D-3', 'E-3', 'F3', 'G3', 'A-3']\n\n\n>>> [str(p) for p in net.realizePitch(pitch.Pitch('f#3'), 1, 'f2', 'f3') ]\n['E#2', 'F#2', 'G#2', 'A#2', 'B2', 'C#3', 'D#3', 'E#3']\n\n\n>>> [str(p) for p in net.realizePitch(pitch.Pitch('a#2'), 7, 'c6', 'c7')]\n['C#6', 'D#6', 'E6', 'F#6', 'G#6', 'A#6', 'B6']\n\n\nCircle of fifths\n>>> edgeList = ['P5'] * 6 + ['d6'] + ['P5'] * 5\n>>> net5ths = scale.intervalNetwork.IntervalNetwork()\n>>> net5ths.fillBiDirectedEdges(edgeList)\n>>> [str(p) for p in net5ths.realizePitch(pitch.Pitch('C1'))]\n['C1', 'G1', 'D2', 'A2', 'E3', 'B3', 'F#4', 'D-5', 'A-5', 'E-6', 'B-6', 'F7', 'C8']\n>>> [str(p) for p in net5ths.realizePitch(pitch.Pitch('C2'))]\n['C2', 'G2', 'D3', 'A3', 'E4', 'B4', 'F#5', 'D-6', 'A-6', 'E-7', 'B-7', 'F8', 'C9']",
+        "type": "ListItem"
+    },
+    {
+        "text": "IntervalNetwork.",
+        "type": "Title"
+    },
+    {
+        "text": "realizePitchByDegree",
+        "type": "Title"
+    },
+    {
+        "text": "pitchReference",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch | str",
+        "type": "Title"
+    },
+    {
+        "text": "nodeId",
+        "type": "Title"
+    },
+    {
+        "text": "Node",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "Terminus",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "nodeDegreeTargets",
+        "type": "Title"
+    },
+    {
+        "text": "(1,)",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "minPitch",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "maxPitch",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "direction",
+        "type": "Title"
+    },
+    {
+        "text": "Direction",
+        "type": "Title"
+    },
+    {
+        "text": "Direction.ASCENDING",
+        "type": "Title"
+    },
+    {
+        "text": "alteredDegrees",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Realize the native nodes of this network based on\na pitch assigned to a valid nodeId, where nodeId can\nbe specified by integer (starting from 1) or key\n(a tuple of origin, destination keys).\nThe nodeDegreeTargets specifies the degrees to be\nincluded within the specified range.\nExample: build a network of the Major scale:\n>>> edgeList = ['M2', 'M2', 'm2', 'M2', 'M2', 'M2', 'm2']\n>>> net = scale.intervalNetwork.IntervalNetwork()\n>>> net.fillBiDirectedEdges(edgeList)\n\n\nNow for every \u009cscale\u009d where G is the 3rd degree, give me the\ntonic if that note is between C2 and C3.\n(There's only one such note: E-2).\n>>> net.realizePitchByDegree('G', 3, [1], 'c2', 'c3')\n[<music21.pitch.Pitch E-2>]\n\n\nBut between c2 and f3 there are two, E-2 and E-3 (it doesn't matter that the G\nwhich is scale degree 3 for E-3 is above F3):\n>>> net.realizePitchByDegree('G', 3, [1], 'c2', 'f3')\n[<music21.pitch.Pitch E-2>, <music21.pitch.Pitch E-3>]\n\n\nGive us nodes 1, 2, and 5 for scales where G is node 5 (e.g., C major's dominant)\nwhere any pitch is between C2 and F4\n>>> pitchList = net.realizePitchByDegree('G', 5, [1, 2, 5], 'c2', 'f4')\n>>> print(' '.join([str(p) for p in pitchList]))\nC2 D2 G2 C3 D3 G3 C4 D4\n\n\nThere are no networks based on the major scale's edge-list where\nwith node 1 (i.e. \u009ctonic\u009d) between C2 and F2 where\nG is scale degree 7\n>>> net.realizePitchByDegree('G', 7, [1], 'c2', 'f2')\n[]",
+        "type": "ListItem"
+    },
+    {
+        "text": "IntervalNetwork.",
+        "type": "Title"
+    },
+    {
+        "text": "realizeTermini",
+        "type": "Title"
+    },
+    {
+        "text": "pitchReference",
+        "type": "Title"
+    },
+    {
+        "text": "str | Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "nodeId",
+        "type": "Title"
+    },
+    {
+        "text": "Node",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "Terminus",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "alteredDegrees",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 tuple[music21.pitch.Pitch, music21.pitch.Pitch]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Realize the pitches of the \u0098natural' terminus of a network. This (presently)\nmust be done by ascending, and assumes only one valid terminus for both extremes.\nThis suggests that in practice termini should not be affected by directionality.\n>>> edgeList = ['M2', 'M2', 'm2', 'M2', 'M2', 'M2', 'm2']\n>>> net = scale.intervalNetwork.IntervalNetwork()\n>>> net.fillBiDirectedEdges(edgeList)\n>>> net.realizeTermini(pitch.Pitch('G3'))\n(<music21.pitch.Pitch G3>, <music21.pitch.Pitch G4>)\n>>> net.realizeTermini(pitch.Pitch('a6'))\n(<music21.pitch.Pitch A6>, <music21.pitch.Pitch A7>)",
+        "type": "ListItem"
+    },
+    {
+        "text": "IntervalNetwork.",
+        "type": "Title"
+    },
+    {
+        "text": "transposePitchAndApplySimplification",
+        "type": "Title"
+    },
+    {
+        "text": "intervalObj",
+        "type": "Title"
+    },
+    {
+        "text": "Interval",
+        "type": "Title"
+    },
+    {
+        "text": "pitchObj",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "transposes the pitch according to the given interval object and\nuses the simplification of the pitchSimplification property\nto simplify it afterwards.\n>>> b = scale.intervalNetwork.IntervalNetwork()\n>>> b.pitchSimplification  # default\n'maxAccidental'\n>>> i = interval.Interval('m2')\n>>> p = pitch.Pitch('C4')\n>>> allPitches = []\n>>> for j in range(15):\n...    p = b.transposePitchAndApplySimplification(i, p)\n...    allPitches.append(p.nameWithOctave)\n>>> allPitches\n['D-4', 'D4', 'E-4', 'F-4', 'F4', 'G-4', 'G4', 'A-4', 'A4',\n 'B-4', 'C-5', 'C5', 'D-5', 'D5', 'E-5']\n\n\n>>> b.pitchSimplification = 'mostCommon'\n>>> p = pitch.Pitch('C4')\n>>> allPitches = []\n>>> for j in range(15):\n...    p = b.transposePitchAndApplySimplification(i, p)\n...    allPitches.append(p.nameWithOctave)\n>>> allPitches\n['C#4', 'D4', 'E-4', 'E4', 'F4', 'F#4', 'G4', 'A-4', 'A4', 'B-4',\n 'B4', 'C5', 'C#5', 'D5', 'E-5']\n\n\nPitchSimplification can also be specified in the creation of the IntervalNetwork object\n>>> b = scale.intervalNetwork.IntervalNetwork(pitchSimplification=None)\n>>> p = pitch.Pitch('C4')\n>>> allPitches = []\n>>> for j in range(5):\n...    p = b.transposePitchAndApplySimplification(i, p)\n...    allPitches.append(p.nameWithOctave)\n>>> allPitches\n['D-4', 'E--4', 'F--4', 'G---4', 'A----4']\n\n\nNote that beyond quadruple flats or sharps, pitchSimplification is automatic:\n>>> p\n<music21.pitch.Pitch A----4>\n>>> b.transposePitchAndApplySimplification(i, p)\n<music21.pitch.Pitch F#4>",
+        "type": "ListItem"
+    },
+    {
+        "text": "IntervalNetwork.",
+        "type": "Title"
+    },
+    {
+        "text": "weightedSelection",
+        "type": "Title"
+    },
+    {
+        "text": "edges",
+        "type": "Title"
+    },
+    {
+        "text": "nodes",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Perform weighted random selection on a parallel list of\nedges and corresponding nodes.\n>>> n1 = scale.intervalNetwork.Node(id=1, degree=1, weight=1000000)\n>>> n2 = scale.intervalNetwork.Node(id=2, degree=1, weight=1)\n>>> e1 = scale.intervalNetwork.Edge(interval.Interval('m3'), id=1)\n>>> e2 = scale.intervalNetwork.Edge(interval.Interval('m3'), id=2)\n>>> net = scale.intervalNetwork.IntervalNetwork()\n>>> e, n = net.weightedSelection([e1, e2], [n1, n2])\n\n\nNote: this may fail as there is a slight chance to get 2\n>>> e.id\n1\n>>> n.id\n1",
+        "type": "ListItem"
+    },
+    {
+        "text": "Node\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.scale.intervalNetwork.",
+        "type": "Title"
+    },
+    {
+        "text": "Node",
+        "type": "Title"
+    },
+    {
+        "text": "id",
+        "type": "Title"
+    },
+    {
+        "text": "Terminus | int",
+        "type": "Title"
+    },
+    {
+        "text": "degree",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "weight",
+        "type": "Title"
+    },
+    {
+        "text": "float",
+        "type": "Title"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Abstraction of an unrealized Pitch Node.\nThe Node id is used to store connections in Edges and has no real meaning.\nTerminal Nodes have special ids: Terminus.LOW, Terminus.HIGH\nThe Node degree is translated to scale degrees in various applications,\nand is used to request a pitch from the network.\nThe weight attribute is used to probabilistically select between\nmultiple nodes when multiple nodes satisfy either a branching option in a pathway\nor a request for a degree.\nTODO: replace w/ NamedTuple; eliminate id, and have a terminus: low, high, None",
+        "type": "ListItem"
+    },
+    {
+        "text": "Node bases",
+        "type": "Title"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "SlottedObjectMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "Node read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "Node methods",
+        "type": "Title"
+    },
+    {
+        "text": "Node.",
+        "type": "Title"
+    },
+    {
+        "text": "__eq__",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "other",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Nodes are equal if everything in the object.__slots__ is equal.\n>>> n1 = scale.intervalNetwork.Node(id=3, degree=1)\n>>> n2 = scale.intervalNetwork.Node(id=3, degree=1)\n>>> n3 = scale.intervalNetwork.Node(id=2, degree=1)\n>>> n1 == n2\nTrue\n>>> n1 == n3\nFalse\n>>> n2.weight = 2.0\n>>> n1 == n2\nFalse\n\n\n>>> n4 = scale.intervalNetwork.Node(id=scale.Terminus.LOW, degree=1)\n>>> n5 = scale.intervalNetwork.Node(id=scale.Terminus.LOW, degree=1)\n>>> n4 == n5\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Edge\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.scale.intervalNetwork.",
+        "type": "Title"
+    },
+    {
+        "text": "Edge",
+        "type": "Title"
+    },
+    {
+        "text": "intervalData",
+        "type": "Title"
+    },
+    {
+        "text": "Interval | str",
+        "type": "Title"
+    },
+    {
+        "text": "id",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "direction",
+        "type": "Title"
+    },
+    {
+        "text": "Direction.BI",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Abstraction of an Interval as an Edge.\nEdges store an Interval object as well as a pathway direction specification.\nThe pathway is the route through the network from terminus to terminus,\nand can either by ascending or descending.\nFor directed Edges, the direction of the Interval may be used to\nsuggest non-pitch ascending movements (even if the pathway direction is ascending).\nWeight values, as well as other attributes, can be stored.\n>>> i = interval.Interval('M3')\n>>> e = scale.intervalNetwork.Edge(i)\n>>> e.interval is i\nTrue\n>>> e.direction\nDirection.BI\n\n\nReturn the stored Interval object\n>>> i = interval.Interval('M3')\n>>> e1 = scale.intervalNetwork.Edge(i, id=0)\n>>> n1 = scale.intervalNetwork.Node(id=0, degree=0)\n>>> n2 = scale.intervalNetwork.Node(id=1, degree=1)\n>>> e1.addDirectedConnection(n1, n2, scale.Direction.ASCENDING)\n>>> e1.interval\n<music21.interval.Interval M3>\n\n\nReturn the direction of the Edge.\n>>> i = interval.Interval('M3')\n>>> e1 = scale.intervalNetwork.Edge(i, id=0)\n>>> n1 = scale.intervalNetwork.Node(id=0, degree=0)\n>>> n2 = scale.intervalNetwork.Node(id=1, degree=1)\n>>> e1.addDirectedConnection(n1, n2, scale.Direction.ASCENDING)\n>>> e1.direction\nDirection.ASCENDING",
+        "type": "ListItem"
+    },
+    {
+        "text": "Edge bases",
+        "type": "Title"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "Edge read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Edge.",
+        "type": "Title"
+    },
+    {
+        "text": "connections",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "Edge methods",
+        "type": "Title"
+    },
+    {
+        "text": "Edge.",
+        "type": "Title"
+    },
+    {
+        "text": "__eq__",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "other",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>> i1 = interval.Interval('M3')\n>>> i2 = interval.Interval('M3')\n>>> i3 = interval.Interval('m3')\n>>> e1 = scale.intervalNetwork.Edge(i1)\n>>> e2 = scale.intervalNetwork.Edge(i2)\n>>> e3 = scale.intervalNetwork.Edge(i3)\n>>> e1 == e2\nTrue\n>>> e1 == e3\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "Edge.",
+        "type": "Title"
+    },
+    {
+        "text": "addBiDirectedConnections",
+        "type": "Title"
+    },
+    {
+        "text": "node1",
+        "type": "Title"
+    },
+    {
+        "text": "node2",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Provide two Edge objects that pass through\nthis Node, in the direction from the first to the second.\n>>> i = interval.Interval('M3')\n>>> e1 = scale.intervalNetwork.Edge(i, id=0)\n>>> n1 = scale.intervalNetwork.Node(id=scale.Terminus.LOW, degree=0)\n>>> n2 = scale.intervalNetwork.Node(id=1, degree=1)\n\n\n>>> e1.addBiDirectedConnections(n1, n2)\n>>> e1.connections\n[(Terminus.LOW, 1), (1, Terminus.LOW)]\n>>> e1\n<music21.scale.intervalNetwork.Edge Direction.BI M3\n    [(Terminus.LOW, 1), (1, Terminus.LOW)]>",
+        "type": "ListItem"
+    },
+    {
+        "text": "Edge.",
+        "type": "Title"
+    },
+    {
+        "text": "addDirectedConnection",
+        "type": "Title"
+    },
+    {
+        "text": "node1",
+        "type": "Title"
+    },
+    {
+        "text": "Node",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "Terminus",
+        "type": "Title"
+    },
+    {
+        "text": "node2",
+        "type": "Title"
+    },
+    {
+        "text": "Node",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "Terminus",
+        "type": "Title"
+    },
+    {
+        "text": "direction",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Provide two Node objects that are connected by this Edge,\nin the direction from the first to the second.\nWhen calling directly, a direction, either\nascending or descending, should be set here;\nthis will override whatever the interval is.\nIf None, this will not be set.\n>>> i = interval.Interval('M3')\n>>> e1 = scale.intervalNetwork.Edge(i, id=0)\n\n\n>>> n1 = scale.intervalNetwork.Node(id=0, degree=0)\n>>> n2 = scale.intervalNetwork.Node(id=1, degree=1)\n\n\n>>> e1.addDirectedConnection(n1, n2, scale.Direction.ASCENDING)\n>>> e1.connections\n[(0, 1)]\n>>> e1\n<music21.scale.intervalNetwork.Edge Direction.ASCENDING M3 [(0, 1)]>",
+        "type": "ListItem"
+    },
+    {
+        "text": "Edge.",
+        "type": "Title"
+    },
+    {
+        "text": "getConnections",
+        "type": "Title"
+    },
+    {
+        "text": "direction",
+        "type": "Title"
+    },
+    {
+        "text": "None | Direction",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 list[tuple[int | music21.scale.intervalNetwork.Terminus, int | music21.scale.intervalNetwork.Terminus]]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Callable as a property (.connections) or as a method\n(.getConnections(direction)):\nReturn a list of connections between Nodes, represented as pairs\nof Node ids. If a direction is specified, and if the Edge is\ndirectional, only the desired directed values will be returned.\n>>> i = interval.Interval('M3')\n>>> e1 = scale.intervalNetwork.Edge(i, id=0)\n>>> n1 = scale.intervalNetwork.Node(id=scale.Terminus.LOW, degree=1)\n>>> n2 = scale.intervalNetwork.Node(id=1, degree=2)\n\n\n>>> e1.addBiDirectedConnections(n1, n2)\n>>> e1.connections\n[(Terminus.LOW, 1), (1, Terminus.LOW)]\n>>> e1.getConnections(scale.Direction.ASCENDING)\n[(Terminus.LOW, 1)]\n>>> e1.getConnections(scale.Direction.DESCENDING)\n[(1, Terminus.LOW)]",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "BoundIntervalNetwork\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.scale.intervalNetwork.",
+        "type": "Title"
+    },
+    {
+        "text": "BoundIntervalNetwork",
+        "type": "Title"
+    },
+    {
+        "text": "edgeList",
+        "type": "Title"
+    },
+    {
+        "text": "Sequence",
+        "type": "Title"
+    },
+    {
+        "text": "Interval",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "octaveDuplicating",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "deterministic",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "pitchSimplification",
+        "type": "Title"
+    },
+    {
+        "text": "'maxAccidental'",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "This class is kept only because of the ICMC Paper.  Just use IntervalNetwork instead.",
+        "type": "ListItem"
+    },
+    {
+        "text": "BoundIntervalNetwork bases",
+        "type": "Title"
+    },
+    {
+        "text": "IntervalNetwork",
+        "type": "ListItem"
+    },
+    {
+        "text": "BoundIntervalNetwork read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from IntervalNetwork:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "degreeMax degreeMaxUnique degreeMin terminusHighNodes terminusLowNodes",
+        "type": "Table"
+    },
+    {
+        "text": "BoundIntervalNetwork methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from IntervalNetwork:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clear() degreeModulus() fillArbitrary() fillBiDirectedEdges() fillDirectedEdges() fillMelodicMinor() filterPitchList() find() findMissing() getNeighborNodeIds() getNetworkxGraph() getNext() getNodeDegreeDictionary() getPitchFromNodeDegree() getRelativeNodeDegree() getRelativeNodeId() getUnalteredPitch() match() nextPitch() nodeIdToDegree() nodeIdToEdgeDirections() nodeNameToNodes() plot() processAlteredNodes() realize() realizeAscending() realizeDescending() realizeIntervals() realizeMinMax() realizePitch() realizePitchByDegree() realizeTermini() transposePitchAndApplySimplification() weightedSelection()",
+        "type": "Table"
+    },
+    {
+        "text": "Direction\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.scale.intervalNetwork.",
+        "type": "Title"
+    },
+    {
+        "text": "Direction",
+        "type": "Title"
+    },
+    {
+        "text": "value",
+        "type": "Title"
+    },
+    {
+        "text": "names",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "module",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "qualname",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "start",
+        "type": "Title"
+    },
+    {
+        "text": "boundary",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "An enumerated Direction for a scale, either Direction.ASCENDING,\nDirection.DESCENDING, or Direction.BI (bidirectional)",
+        "type": "ListItem"
+    },
+    {
+        "text": "Terminus\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.scale.intervalNetwork.",
+        "type": "Title"
+    },
+    {
+        "text": "Terminus",
+        "type": "Title"
+    },
+    {
+        "text": "value",
+        "type": "Title"
+    },
+    {
+        "text": "names",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "module",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "qualname",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "start",
+        "type": "Title"
+    },
+    {
+        "text": "boundary",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "One of the two Termini of a scale, either Terminus.LOW or\nTerminus.HIGH",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.scale.intervalNetwork",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

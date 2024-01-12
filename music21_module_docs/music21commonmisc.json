@@ -1,0 +1,442 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.misc",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.common.formats",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.common.numberTools",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.common.misc\nFunctions\ncleanedFlatNotation()\ndefaultDeepcopy()\nflattenList()\ngetMissingImportStr()\ngetPlatform()\nmacOSVersion()\npitchList()\nrunningInNotebook()\nrunningUnderIPython()\nsortModules()\nunique()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.misc\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "If it doesn't fit anywhere else in the common directory, you'll find it here\u2026",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.common.misc.",
+        "type": "Title"
+    },
+    {
+        "text": "cleanedFlatNotation",
+        "type": "Title"
+    },
+    {
+        "text": "music_str",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 str",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns a copy of the given string where each occurrence of a flat note\nspecified with a \u0098b' is replaced by a \u0098-\u0098.\nmusic_str is a string containing a note specified (for example in a chord)\nReturns a new string with flats only specified with \u0098-\u0098.\n>>> common.cleanedFlatNotation('Cb')\n'C-'",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.misc.",
+        "type": "Title"
+    },
+    {
+        "text": "defaultDeepcopy",
+        "type": "Title"
+    },
+    {
+        "text": "obj",
+        "type": "Title"
+    },
+    {
+        "text": "Any",
+        "type": "Title"
+    },
+    {
+        "text": "memo",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "ignoreAttributes",
+        "type": "Title"
+    },
+    {
+        "text": "Iterable[str]",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Unfortunately, it is not possible to do something like:\ndef __deepcopy__(self, memo):\n    if self._noDeepcopy:\n        return self.__class__()\n    else:\n        copy.deepcopy(self, memo, ignore__deepcopy__=True)\n\n\nOr, else: return NotImplemented\nso that's what this is for:\ndef __deepcopy__(self, memo):\n    if self._noDeepcopy:\n        return self.__class__()\n    else:\n        return common.defaultDeepcopy(self, memo)\n\n\nDoes a deepcopy of the state returned by __reduce_ex__ for protocol 4.\n\nChanged in v9: callInit is removed, replaced with ignoreAttributes.\nuses __reduce_ex__ internally.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.misc.",
+        "type": "Title"
+    },
+    {
+        "text": "flattenList",
+        "type": "Title"
+    },
+    {
+        "text": "originalList",
+        "type": "Title"
+    },
+    {
+        "text": "Iterable",
+        "type": "Title"
+    },
+    {
+        "text": "Iterable",
+        "type": "Title"
+    },
+    {
+        "text": "_T",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 list[_T]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Flatten a list of lists into a flat list\nbut not a list of lists of lists\u2026\n>>> l = [[1, 2, 3], [4, 5], [6]]\n>>> common.flattenList(l)\n[1, 2, 3, 4, 5, 6]",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.misc.",
+        "type": "Title"
+    },
+    {
+        "text": "getMissingImportStr",
+        "type": "Title"
+    },
+    {
+        "text": "modNameList",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a list of missing module names, returns a nicely-formatted message to the user\nthat gives instructions on how to expand music21 with optional packages.\n>>> print(common.getMissingImportStr(['matplotlib']))\nCertain music21 functions might need the optional package matplotlib;\nif you run into errors, install it by following the instructions at\nhttp://mit.edu/music21/doc/installing/installAdditional.html\n\n\n>>> print(common.getMissingImportStr(['matplotlib', 'numpy']))\nCertain music21 functions might need these optional packages: matplotlib, numpy;\nif you run into errors, install them by following the instructions at\nhttp://mit.edu/music21/doc/installing/installAdditional.html",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.misc.",
+        "type": "Title"
+    },
+    {
+        "text": "getPlatform",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 str",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return the name of the platform, where platforms are divided\nbetween \u0098win' (for Windows), \u0098darwin' (for MacOS X), and \u0098nix' for\n(GNU/Linux and other variants).\nDoes not discern between Linux/FreeBSD, etc.\nLowercase names are for backwards compatibility \u2014 this existed before\nthe platform module.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.misc.",
+        "type": "Title"
+    },
+    {
+        "text": "macOSVersion",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 tuple[int, int, int]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "On a Mac returns the current version as a tuple of (currently 3) ints,\nsuch as: (10, 5, 6) for 10.5.6.\nOn other systems, returns (0, 0, 0)",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.misc.",
+        "type": "Title"
+    },
+    {
+        "text": "pitchList",
+        "type": "Title"
+    },
+    {
+        "text": "pitchL",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "utility method that replicates the previous behavior of\nlists of pitches.\nMay be moved in v8 or later to a common.testing or test.X module.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.misc.",
+        "type": "Title"
+    },
+    {
+        "text": "runningInNotebook",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "return bool if we are running under Jupyter Notebook (not IPython terminal)\nor Google Colabatory (colab).\nMethods based on:\nhttps://stackoverflow.com/questions/15411967/how-can-i-check-if-code-is-executed-in-the-ipython-notebook\n(No tests provided here, since results will differ depending on environment)",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.misc.",
+        "type": "Title"
+    },
+    {
+        "text": "runningUnderIPython",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "DEPRECATED in v9: use runningInNotebook() instead",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.misc.",
+        "type": "Title"
+    },
+    {
+        "text": "sortModules",
+        "type": "Title"
+    },
+    {
+        "text": "moduleList",
+        "type": "Title"
+    },
+    {
+        "text": "Iterable[Any]",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 list[object]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Sort a list of imported module names such that most recently modified is\nfirst.  In ties, last access time is used then module name\nWill return a different order each time depending on the last mod time",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.misc.",
+        "type": "Title"
+    },
+    {
+        "text": "unique",
+        "type": "Title"
+    },
+    {
+        "text": "originalList",
+        "type": "Title"
+    },
+    {
+        "text": "Iterable",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "Callable | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 list",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a List of unique items from an iterable, preserving order.\n(unlike casting to a set and back)\n(And why is this not already in Python?)\n>>> common.misc.unique([3, 2, 4, 3, 2, 5])\n[3, 2, 4, 5]\n\n\nWorks on any iterable, but order might not be preserved for sets, etc.\n>>> common.misc.unique(range(5))\n[0, 1, 2, 3, 4]\n\n\nIf key is a function then use that to get the value:\n>>> s = converter.parse('tinyNotation: c4 E d C f# e a')\n>>> common.misc.unique(s.recurse().notes, key=lambda n: n.name)\n [<music21.note.Note C>,\n  <music21.note.Note E>,\n  <music21.note.Note D>,\n  <music21.note.Note F#>,\n  <music21.note.Note A>]",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.misc",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

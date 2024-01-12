@@ -1,0 +1,2478 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.spanner",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.sorting",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.stream.base",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.spanner\nSpanner\nSpanner\nSpanner.__getitem__()\nSpanner.addSpannedElements()\nSpanner.fill()\nSpanner.getFirst()\nSpanner.getLast()\nSpanner.getSpannedElementIds()\nSpanner.getSpannedElements()\nSpanner.getSpannedElementsByClass()\nSpanner.hasSpannedElement()\nSpanner.isFirst()\nSpanner.isLast()\nSpanner.purgeLocations()\nSpanner.purgeOrphans()\nSpanner.replaceSpannedElement()\n\n\n\n\nGlissando\nGlissando\nGlissando.lineType\nGlissando.slideType\n\n\n\n\nLine\nLine\nLine.endHeight\nLine.endTick\nLine.lineType\nLine.startHeight\nLine.startTick\nLine.tick\n\n\n\n\nMultiMeasureRest\nMultiMeasureRest\nMultiMeasureRest.numRests\nMultiMeasureRest.maxSymbols\nMultiMeasureRest.useSymbols\n\n\n\n\nOttava\nOttava\nOttava.type\nOttava.interval()\nOttava.performTransposition()\nOttava.shiftDirection()\nOttava.shiftMagnitude()\nOttava.undoTransposition()\n\n\n\n\nRepeatBracket\nRepeatBracket\nRepeatBracket.number\nRepeatBracket.getNumberList()\nRepeatBracket.numberRange\nRepeatBracket.overrideDisplay\n\n\n\n\nSlur\nSlur\n\n\nSpannerAnchor\nSpannerAnchor\n\n\nSpannerBundle\nSpannerBundle\nSpannerBundle.__getitem__()\nSpannerBundle.append()\nSpannerBundle.freePendingSpannedElementAssignment()\nSpannerBundle.getByClass()\nSpannerBundle.getByClassIdLocalComplete()\nSpannerBundle.getByCompleteStatus()\nSpannerBundle.getByIdLocal()\nSpannerBundle.getBySpannedElement()\nSpannerBundle.getSpannerStorageIds()\nSpannerBundle.remove()\nSpannerBundle.replaceSpannedElement()\nSpannerBundle.setIdLocalByClass()\nSpannerBundle.setIdLocals()\nSpannerBundle.setPendingSpannedElementAssignment()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.spanner\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "A spanner is a music21 object that represents a connection usually between\ntwo or more music21 objects that might live in different streams but need\nsome sort of connection between them.  A slur is one type of spanner \u2014 it might\nconnect notes in different Measure objects or even between different parts.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "This package defines some of the most common spanners.  Other spanners\ncan be found in modules such as music21.dynamics (for things such as crescendos).",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Spanner\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.spanner.",
+        "type": "Title"
+    },
+    {
+        "text": "Spanner",
+        "type": "Title"
+    },
+    {
+        "text": "spannedElements",
+        "type": "Title"
+    },
+    {
+        "text": "Music21Object",
+        "type": "Title"
+    },
+    {
+        "text": "Sequence",
+        "type": "Title"
+    },
+    {
+        "text": "Music21Object",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Spanner objects live on Streams in the same manner as other Music21Objects,\nbut represent and store connections between one or more other Music21Objects.\nCommonly used Spanner subclasses include the Slur,\nRepeatBracket, Crescendo,\nand Diminuendo\nobjects.\nIn some cases you will want to subclass Spanner\nfor specific purposes.\nIn the first demo, we create\na spanner to represent a written-out accelerando, such\nas Elliott Carter uses in his second string quartet (he marks them\nwith an arrow).\n>>> class CarterAccelerandoSign(spanner.Spanner):\n...    pass\n>>> n1 = note.Note('C4')\n>>> n2 = note.Note('D4')\n>>> n3 = note.Note('E4')\n>>> sp1 = CarterAccelerandoSign(n1, n2, n3)  # or as a list: [n1, n2, n3]\n>>> sp1.getSpannedElements()\n[<music21.note.Note C>, <music21.note.Note D>, <music21.note.Note E>]\n\n\nWe can iterate over a spanner to get the contexts:\n>>> print(' '.join([repr(n) for n in sp1]))\n<music21.note.Note C> <music21.note.Note D> <music21.note.Note E>\n\n\nNow we put the notes and the spanner into a Stream object.  Note that\nthe convention is to put the spanner at the beginning of the innermost\nStream that contains all the Spanners:\n>>> s = stream.Stream()\n>>> s.append([n1, n2, n3])\n>>> s.insert(0, sp1)\n\n\nNow we can get at the spanner in one of three ways.\n\nit is just a normal element in the stream:\n\n>>> for e in s:\n...    print(e)\n<music21.note.Note C>\n<music21.CarterAccelerandoSign <music21.note.Note C><music21.note.Note D><music21.note.Note E>>\n<music21.note.Note D>\n<music21.note.Note E>\n\n\n\nwe can get a stream of spanners (equiv. to getElementsByClass(spanner.Spanner))\nby calling the .spanner property on the stream.\n\n>>> spannerCollection = s.spanners  # a stream object\n>>> for thisSpanner in spannerCollection:\n...     print(thisSpanner)\n<music21.CarterAccelerandoSign <music21.note.Note C><music21.note.Note D><music21.note.Note E>>\n\n\n(3) we can get the spanner by looking at the list getSpannerSites() on\nany object that has a spanner:\n>>> n2.getSpannerSites()\n[<music21.CarterAccelerandoSign\n        <music21.note.Note C><music21.note.Note D><music21.note.Note E>>]\n\n\nIn this example we will slur a few notes and then iterate over the stream to\nsee which are slurred:\n>>> n1 = note.Note('C4')\n>>> n2 = note.Note('D4')\n>>> n3 = note.Note('E4')\n>>> n4 = note.Note('F4')\n>>> n5 = note.Note('G4')\n>>> n6 = note.Note('A4')\n\n\nCreate a slur over the second and third notes at instantiation:\n>>> slur1 = spanner.Slur([n2, n3])\n\n\nSlur the fifth and the sixth notes by adding them to an existing slur:\n>>> slur2 = spanner.Slur()\n>>> slur2.addSpannedElements([n5, n6])\n\n\nNow add them all to a stream:\n>>> part1 = stream.Part()\n>>> part1.append([n1, n2, n3, n4, n5, n6])\n>>> part1.insert(0, slur1)\n>>> part1.insert(0, slur2)\n\n\nSay we wanted to know which notes in a piece started a\nslur, here's how we could do it:\n>>> for n in part1.notes:\n...    ss = n.getSpannerSites()\n...    for thisSpanner in ss:\n...       if 'Slur' in thisSpanner.classes:\n...            if thisSpanner.isFirst(n):\n...                print(n.nameWithOctave)\nD4\nG4\n\n\nAlternatively, you could iterate over the spanners\nof part1 and get their first elements:\n>>> for thisSpanner in part1.spanners:\n...     firstNote = thisSpanner.getSpannedElements()[0]\n...     print(firstNote.nameWithOctave)\nD4\nG4\n\n\nThe second method is shorter, but the first is likely to\nbe useful in cases where you are doing other things to\neach note object along the way.\nOh, and of course, slurs do print properly in musicxml:\n>>> part1.show()\n\n\n\n(the Carter example would not print an arrow since that\nelement has no corresponding musicxml representation).\nImplementation notes:\nThe elements that are included in a spanner are stored in a\nStream subclass called SpannerStorage\nfound as the .spannerStorage attribute.  That Stream has an\nattribute called client which links to the original spanner.\nThus, spannerStorage is smart enough to know where it's stored, but\nit makes deleting/garbage-collecting a spanner a tricky operation:\nEx. Prove that the spannedElement Stream is linked to container via\nclient:\n>>> sp1.spannerStorage.client is sp1\nTrue\n\n\nSpanners have a .completeStatus attribute which can be used to find out if\nall spanned elements have been added yet. It's up to the processing agent to\nset this, but it could be useful in deciding where to append a spanner.\n>>> sp1.completeStatus\nFalse\n\n\nWhen we're done adding elements:\n>>> sp1.completeStatus = True",
+        "type": "ListItem"
+    },
+    {
+        "text": "Spanner bases",
+        "type": "Title"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "Spanner read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "Spanner read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "Spanner methods",
+        "type": "Title"
+    },
+    {
+        "text": "Spanner.",
+        "type": "Title"
+    },
+    {
+        "text": "__getitem__",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>> n1 = note.Note('g')\n>>> n2 = note.Note('f#')\n>>> c1 = clef.BassClef()\n>>> sl = spanner.Spanner(n1, n2, c1)\n>>> sl[0] == n1\nTrue\n>>> sl[-1] == c1\nTrue\n>>> sl[clef.BassClef][0] == c1\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "Spanner.",
+        "type": "Title"
+    },
+    {
+        "text": "addSpannedElements",
+        "type": "Title"
+    },
+    {
+        "text": "spannedElements",
+        "type": "Title"
+    },
+    {
+        "text": "Sequence",
+        "type": "Title"
+    },
+    {
+        "text": "Music21Object",
+        "type": "Title"
+    },
+    {
+        "text": "Music21Object",
+        "type": "Title"
+    },
+    {
+        "text": "otherElements",
+        "type": "Title"
+    },
+    {
+        "text": "Music21Object",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Associate one or more elements with this Spanner.\nThe order in which elements are added is retained and\nmay or may not be significant to the spanner.\n>>> n1 = note.Note('g')\n>>> n2 = note.Note('f#')\n>>> n3 = note.Note('e')\n>>> n4 = note.Note('d-')\n>>> n5 = note.Note('c')\n\n\n>>> sl = spanner.Spanner()\n>>> sl.addSpannedElements(n1)\n>>> sl.addSpannedElements(n2, n3)\n>>> sl.addSpannedElements([n4, n5])\n>>> sl.getSpannedElementIds() == [id(n) for n in [n1, n2, n3, n4, n5]]\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "Spanner.",
+        "type": "Title"
+    },
+    {
+        "text": "fill",
+        "type": "Title"
+    },
+    {
+        "text": "searchStream",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "includeEndBoundary",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "mustFinishInSpan",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "mustBeginInSpan",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "includeElementsThatEndAtStart",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Fills in the intermediate elements of a spanner, that are found in searchStream between\nthe first element's offset and the last element's offset+duration.  If searchStream\nis None, the first element's activeSite is used.  If the first element's activeSite\nis None, a SpannerException is raised.\nOttava is an example of a Spanner that can be filled. The Ottava does not need\nto be inserted into the stream in order to be filled.\n>>> m = stream.Measure([note.Note('A'), note.Note('B'), note.Note('C')])\n>>> ott1 = spanner.Ottava(m.notes[0], m.notes[2])\n>>> ott1.fill(m)\n>>> ott1\n<music21.spanner.Ottava 8va transposing<...Note A><...Note B><...Note C>>\n\n\nIf the searchStream is not passed in, fill still happens in this case, because\nthe first note's activeSite is used instead.\n>>> ott2 = spanner.Ottava(m.notes[0], m.notes[2])\n>>> ott2.fill()\n>>> ott2\n<music21.spanner.Ottava 8va transposing<...Note A><...Note B><...Note C>>\n\n\nIf the searchStream is not passed, and the spanner's first element doesn't have\nan activeSite, a SpannerException is raised.\n>>> ott3 = spanner.Ottava(note.Note('D'), note.Note('E'))\n>>> ott3.fill()\nTraceback (most recent call last):\nmusic21.spanner.SpannerException: ...requires a searchStream or getFirst().activeSite",
+        "type": "ListItem"
+    },
+    {
+        "text": "Spanner.",
+        "type": "Title"
+    },
+    {
+        "text": "getFirst",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get the object of the first spannedElement (or None if it's an empty spanner)\n>>> n1 = note.Note('g')\n>>> n2 = note.Note('f#')\n>>> n3 = note.Note('e')\n>>> n4 = note.Note('c')\n>>> n5 = note.Note('d-')\n\n\n>>> sl = spanner.Spanner()\n>>> sl.addSpannedElements(n1, n2, n3, n4, n5)\n>>> sl.getFirst() is n1\nTrue\n\n\n>>> spanner.Slur().getFirst() is None\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "Spanner.",
+        "type": "Title"
+    },
+    {
+        "text": "getLast",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get the object of the last spannedElement (or None if it's an empty spanner)\n>>> n1 = note.Note('g')\n>>> n2 = note.Note('f#')\n>>> n3 = note.Note('e')\n>>> n4 = note.Note('c')\n>>> n5 = note.Note('d-')\n\n\n>>> sl = spanner.Spanner()\n>>> sl.addSpannedElements(n1, n2, n3, n4, n5)\n>>> sl.getLast() is n5\nTrue\n\n\n>>> spanner.Slur().getLast() is None\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "Spanner.",
+        "type": "Title"
+    },
+    {
+        "text": "getSpannedElementIds",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return all id() for all stored objects.\nWas performance critical, until most uses removed in v7.\nUsed only as a testing tool now.\nSpanner.__contains__() was optimized in 839c7e5.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Spanner.",
+        "type": "Title"
+    },
+    {
+        "text": "getSpannedElements",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return all the elements of .spannerStorage for this Spanner\nas a list of Music21Objects.\n>>> n1 = note.Note('g')\n>>> n2 = note.Note('f#')\n>>> sl = spanner.Spanner()\n>>> sl.addSpannedElements(n1)\n>>> sl.getSpannedElements() == [n1]\nTrue\n>>> sl.addSpannedElements(n2)\n>>> sl.getSpannedElements() == [n1, n2]\nTrue\n>>> sl.getSpannedElementIds() == [id(n1), id(n2)]\nTrue\n>>> c1 = clef.TrebleClef()\n>>> sl.addSpannedElements(c1)\n>>> sl.getSpannedElements() == [n1, n2, c1]  # make sure that not sorting\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "Spanner.",
+        "type": "Title"
+    },
+    {
+        "text": "getSpannedElementsByClass",
+        "type": "Title"
+    },
+    {
+        "text": "classFilterList",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>> n1 = note.Note('g')\n>>> n2 = note.Note('f#')\n>>> c1 = clef.AltoClef()\n>>> sl = spanner.Spanner()\n>>> sl.addSpannedElements([n1, n2, c1])\n>>> sl.getSpannedElementsByClass('Note') == [n1, n2]\nTrue\n>>> sl.getSpannedElementsByClass(clef.Clef) == [c1]\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "Spanner.",
+        "type": "Title"
+    },
+    {
+        "text": "hasSpannedElement",
+        "type": "Title"
+    },
+    {
+        "text": "spannedElement",
+        "type": "Title"
+    },
+    {
+        "text": "Music21Object",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return True if this Spanner has the spannedElement.\n>>> n1 = note.Note('g')\n>>> n2 = note.Note('f#')\n>>> span = spanner.Spanner()\n>>> span.addSpannedElements(n1)\n>>> span.hasSpannedElement(n1)\nTrue\n>>> span.hasSpannedElement(n2)\nFalse\n\n\nNote that a simple in does the same thing:\n>>> n1 in span\nTrue\n>>> n2 in span\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "Spanner.",
+        "type": "Title"
+    },
+    {
+        "text": "isFirst",
+        "type": "Title"
+    },
+    {
+        "text": "spannedElement",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a spannedElement, is it first?\n>>> n1 = note.Note('g')\n>>> n2 = note.Note('f#')\n>>> n3 = note.Note('e')\n>>> n4 = note.Note('c')\n>>> n5 = note.Note('d-')\n\n\n>>> sl = spanner.Spanner()\n>>> sl.addSpannedElements(n1, n2, n3, n4, n5)\n>>> sl.isFirst(n2)\nFalse\n>>> sl.isFirst(n1)\nTrue\n>>> sl.isLast(n1)\nFalse\n>>> sl.isLast(n5)\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "Spanner.",
+        "type": "Title"
+    },
+    {
+        "text": "isLast",
+        "type": "Title"
+    },
+    {
+        "text": "spannedElement",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a spannedElement, is it last?  Returns True or False",
+        "type": "ListItem"
+    },
+    {
+        "text": "Spanner.",
+        "type": "Title"
+    },
+    {
+        "text": "purgeLocations",
+        "type": "Title"
+    },
+    {
+        "text": "rescanIsDead",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Remove references to all locations in objects that no longer exist.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Spanner.",
+        "type": "Title"
+    },
+    {
+        "text": "purgeOrphans",
+        "type": "Title"
+    },
+    {
+        "text": "excludeStorageStreams",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A Music21Object may, due to deep copying or other reasons,\nhave a site (with an offset) which\nno longer contains the Music21Object. These lingering sites\nare called orphans. This method gets rid of them.\nThe excludeStorageStreams are SpannerStorage and VariantStorage.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Spanner.",
+        "type": "Title"
+    },
+    {
+        "text": "replaceSpannedElement",
+        "type": "Title"
+    },
+    {
+        "text": "old",
+        "type": "Title"
+    },
+    {
+        "text": "new",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "When copying a Spanner, we need to update the\nspanner with new references for copied  (if the Notes of a\nSlur have been copied, that Slur's Note references need\nreferences to the new Notes). Given the old spanned element,\nthis method will replace the old with the new.\nThe old parameter can be either an object or object id.\n>>> n1 = note.Note('g')\n>>> n2 = note.Note('f#')\n>>> c1 = clef.AltoClef()\n>>> c2 = clef.BassClef()\n>>> sl = spanner.Spanner(n1, n2, c1)\n>>> sl.replaceSpannedElement(c1, c2)\n>>> sl[-1] == c2\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Spanner instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "Glissando\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.spanner.",
+        "type": "Title"
+    },
+    {
+        "text": "Glissando",
+        "type": "Title"
+    },
+    {
+        "text": "spannedElements",
+        "type": "Title"
+    },
+    {
+        "text": "lineType",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "'wavy'",
+        "type": "Title"
+    },
+    {
+        "text": "label",
+        "type": "Title"
+    },
+    {
+        "text": "str | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A between two Notes specifying a glissando or similar alteration.\nDifferent line types can be specified.\nGlissandos can have a label and a lineType.  Label is a string or None.\nlineType defaults to \u0098wavy'\n>>> gl = spanner.Glissando()\n>>> gl.lineType\n'wavy'\n>>> print(gl.label)\nNone\n\n\n>>> gl.label = 'gliss.'\n\n\nNote \u2014 not a Line subclass for now, but that might change.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Glissando bases",
+        "type": "Title"
+    },
+    {
+        "text": "Spanner",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "Glissando read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "Glissando read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Glissando.",
+        "type": "Title"
+    },
+    {
+        "text": "lineType",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get or set the lineType property. See Line for valid line types.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Glissando.",
+        "type": "Title"
+    },
+    {
+        "text": "slideType",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get or set the slideType which determines how\nthe glissando or slide is to be played.  Values\nare \u0098chromatic' (default), \u0098continuous' (like a slide or smear),\n\u0098diatonic' (like a harp gliss), \u0098white' (meaning a white-key gliss\nas on a marimba), or \u0098black' (black-key gliss).\n\u0098continuous' slides export to MusicXML as a <slide> object.\nAll others export as <glissando>.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "Glissando methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from Spanner:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__getitem__() addSpannedElements() fill() getFirst() getLast() getSpannedElementIds() getSpannedElements() getSpannedElementsByClass() hasSpannedElement() isFirst() isLast() purgeLocations() purgeOrphans() replaceSpannedElement()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Glissando instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "Line\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.spanner.",
+        "type": "Title"
+    },
+    {
+        "text": "Line",
+        "type": "Title"
+    },
+    {
+        "text": "spannedElements",
+        "type": "Title"
+    },
+    {
+        "text": "lineType",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "'solid'",
+        "type": "Title"
+    },
+    {
+        "text": "tick",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "'down'",
+        "type": "Title"
+    },
+    {
+        "text": "startTick",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "'down'",
+        "type": "Title"
+    },
+    {
+        "text": "endTick",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "'down'",
+        "type": "Title"
+    },
+    {
+        "text": "startHeight",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "float",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "endHeight",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "float",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A line or bracket represented as a spanner above two Notes.\nBrackets can take many line types.\n>>> b = spanner.Line()\n>>> b.lineType = 'dotted'\n>>> b.lineType\n'dotted'\n>>> b = spanner.Line(endHeight=20)\n>>> b.endHeight\n20",
+        "type": "ListItem"
+    },
+    {
+        "text": "Line bases",
+        "type": "Title"
+    },
+    {
+        "text": "Spanner",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "Line read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "Line read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Line.",
+        "type": "Title"
+    },
+    {
+        "text": "endHeight",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get or set the endHeight property.\n>>> b = spanner.Line()\n>>> b.endHeight = -20\nTraceback (most recent call last):\nmusic21.spanner.SpannerException: not a valid value: -20",
+        "type": "ListItem"
+    },
+    {
+        "text": "Line.",
+        "type": "Title"
+    },
+    {
+        "text": "endTick",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get or set the endTick property.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Line.",
+        "type": "Title"
+    },
+    {
+        "text": "lineType",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get or set the lineType property. Valid line types are listed in .validLineTypes.\n>>> b = spanner.Line()\n>>> b.lineType = 'dotted'\n>>> b.lineType = 'navyblue'\nTraceback (most recent call last):\nmusic21.spanner.SpannerException: not a valid value: navyblue\n\n\n>>> b.validLineTypes\n('solid', 'dashed', 'dotted', 'wavy')",
+        "type": "ListItem"
+    },
+    {
+        "text": "Line.",
+        "type": "Title"
+    },
+    {
+        "text": "startHeight",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get or set the startHeight property.\n>>> b = spanner.Line()\n>>> b.startHeight = None\nTraceback (most recent call last):\nmusic21.spanner.SpannerException: not a valid value: None",
+        "type": "ListItem"
+    },
+    {
+        "text": "Line.",
+        "type": "Title"
+    },
+    {
+        "text": "startTick",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get or set the startTick property.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Line.",
+        "type": "Title"
+    },
+    {
+        "text": "tick",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Set the start and end tick to the same value\n>>> b = spanner.Line()\n>>> b.tick = 'arrow'\n>>> b.startTick\n'arrow'\n>>> b.endTick\n'arrow'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "Line methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from Spanner:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__getitem__() addSpannedElements() fill() getFirst() getLast() getSpannedElementIds() getSpannedElements() getSpannedElementsByClass() hasSpannedElement() isFirst() isLast() purgeLocations() purgeOrphans() replaceSpannedElement()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Line instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "MultiMeasureRest\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.spanner.",
+        "type": "Title"
+    },
+    {
+        "text": "MultiMeasureRest",
+        "type": "Title"
+    },
+    {
+        "text": "spannedElements",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A grouping symbol that indicates that a collection of rests lasts\nmultiple measures.",
+        "type": "ListItem"
+    },
+    {
+        "text": "MultiMeasureRest bases",
+        "type": "Title"
+    },
+    {
+        "text": "Spanner",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "MultiMeasureRest read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "MultiMeasureRest read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "MultiMeasureRest.",
+        "type": "Title"
+    },
+    {
+        "text": "numRests",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns the number of measures involved in the\nmulti-measure rest.\nCalculated automatically from the number of rests in\nthe spanner.  Or can be set manually to override the number.\n>>> mmr = spanner.MultiMeasureRest()\n>>> for i in range(6):\n...     mmr.addSpannedElements([note.Rest(type='whole')])\n>>> mmr.numRests\n6\n>>> mmr.numRests = 10\n>>> mmr.numRests\n10",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "MultiMeasureRest methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from Spanner:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__getitem__() addSpannedElements() fill() getFirst() getLast() getSpannedElementIds() getSpannedElements() getSpannedElementsByClass() hasSpannedElement() isFirst() isLast() purgeLocations() purgeOrphans() replaceSpannedElement()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "MultiMeasureRest instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "MultiMeasureRest.",
+        "type": "Title"
+    },
+    {
+        "text": "maxSymbols",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "An int, specifying the maximum number of rests\nto display as symbols.  Default is 11.\nIf useSymbols is False then this setting\ndoes nothing.\nChange defaults.multiMeasureRestMaxSymbols to\nchange globally.",
+        "type": "ListItem"
+    },
+    {
+        "text": "MultiMeasureRest.",
+        "type": "Title"
+    },
+    {
+        "text": "useSymbols",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Boolean to indicate whether rest symbols\n(breve, longa, etc.) should be used when\ndisplaying the rest. Your music21 inventor\nis a medievalist, so this defaults to True.\nChange defaults.multiMeasureRestUseSymbols to\nchange globally.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "Ottava\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.spanner.",
+        "type": "Title"
+    },
+    {
+        "text": "Ottava",
+        "type": "Title"
+    },
+    {
+        "text": "spannedElements",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "'8va'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "transposing",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "placement",
+        "type": "Title"
+    },
+    {
+        "text": "Literal",
+        "type": "Title"
+    },
+    {
+        "text": "'above'",
+        "type": "Title"
+    },
+    {
+        "text": "'below'",
+        "type": "Title"
+    },
+    {
+        "text": "'above'",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "An octave shift line:\n>>> ottava = spanner.Ottava(type='8va')\n>>> ottava.type\n'8va'\n>>> ottava.type = 15\n>>> ottava.type\n'15ma'\n>>> ottava.type = (8, 'down')\n>>> ottava.type\n'8vb'\n>>> print(ottava)\n<music21.spanner.Ottava 8vb transposing>\n\n\nAn Ottava spanner can either be transposing or non-transposing.\nIn a transposing Ottava spanner, the notes in the stream should be\nin their written octave (as if the spanner were not there) and all the\nnotes in the spanner will be transposed on Stream.toSoundingPitch().\nA non-transposing spanner has notes that are at the pitch that\nthey would sound (therefore the Ottava spanner is a decorative\nline).\n>>> ottava.transposing\nTrue\n>>> n1 = note.Note('D4')\n>>> n2 = note.Note('E4')\n>>> n2.offset = 2.0\n>>> ottava.addSpannedElements([n1, n2])\n\n\n>>> s = stream.Stream([ottava, n1, n2])\n>>> s.atSoundingPitch = False\n>>> s2 = s.toSoundingPitch()\n>>> s2.show('text')\n{0.0} <music21.spanner.Ottava 8vb non-transposing<music21.note.Note D><music21.note.Note E>>\n{0.0} <music21.note.Note D>\n{2.0} <music21.note.Note E>\n\n\n>>> for n in s2.notes:\n...     print(n.nameWithOctave)\nD3\nE3\n\n\nAll valid types are given below:\n>>> ottava.validOttavaTypes\n('8va', '8vb', '15ma', '15mb', '22da', '22db')",
+        "type": "ListItem"
+    },
+    {
+        "text": "Ottava bases",
+        "type": "Title"
+    },
+    {
+        "text": "Spanner",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "Ottava read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "Ottava read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Ottava.",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get or set Ottava type. This can be set by as complete string\n(such as 8va or 15mb) or with a pair specifying size and direction.\n>>> os = spanner.Ottava()\n>>> os.type = '8vb'\n>>> os.type\n'8vb'\n>>> os.type = 15, 'down'\n>>> os.type\n'15mb'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "Ottava methods",
+        "type": "Title"
+    },
+    {
+        "text": "Ottava.",
+        "type": "Title"
+    },
+    {
+        "text": "interval",
+        "type": "Title"
+    },
+    {
+        "text": "reverse",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "return an interval.Interval() object representing this ottava\n>>> ottava = spanner.Ottava(type='15mb')\n>>> i = ottava.interval()\n>>> i\n<music21.interval.Interval P-15>",
+        "type": "ListItem"
+    },
+    {
+        "text": "Ottava.",
+        "type": "Title"
+    },
+    {
+        "text": "performTransposition",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "On a transposing spanner, switch to non-transposing,\nand transpose all notes and chords in the spanner.\nThe note/chords will all be transposed to their sounding\npitch (at least as far as the ottava is concerned;\ntransposing instruments are handled separately).\n>>> ottava = spanner.Ottava(type='8va')\n>>> n1 = note.Note('D#4')\n>>> n2 = note.Note('E#4')\n>>> ottava.addSpannedElements([n1, n2])\n>>> ottava.transposing\nTrue\n\n\n>>> ottava.performTransposition()\n\n\n>>> ottava.transposing\nFalse\n>>> n1.nameWithOctave\n'D#5'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Ottava.",
+        "type": "Title"
+    },
+    {
+        "text": "shiftDirection",
+        "type": "Title"
+    },
+    {
+        "text": "reverse",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns up or down depending on the type of shift:",
+        "type": "ListItem"
+    },
+    {
+        "text": "Ottava.",
+        "type": "Title"
+    },
+    {
+        "text": "shiftMagnitude",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get basic parameters of shift.\nReturns either 8, 15, or 22 depending on the amount of shift",
+        "type": "ListItem"
+    },
+    {
+        "text": "Ottava.",
+        "type": "Title"
+    },
+    {
+        "text": "undoTransposition",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Change a non-transposing spanner to a transposing spanner,\nand transpose back all the notes and chords in the spanner.\nThe notes/chords will all be transposed to their written\npitch (at least as far as the ottava is concerned;\ntransposing instruments are handled separately).\n>>> ottava = spanner.Ottava(type='8va')\n>>> n1 = note.Note('D#4')\n>>> n2 = note.Note('E#4')\n>>> ottava.addSpannedElements([n1, n2])\n>>> ottava.transposing = False\n\n\n>>> ottava.undoTransposition()\n\n\n>>> ottava.transposing\nTrue\n>>> n1.nameWithOctave\n'D#3'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from Spanner:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__getitem__() addSpannedElements() fill() getFirst() getLast() getSpannedElementIds() getSpannedElements() getSpannedElementsByClass() hasSpannedElement() isFirst() isLast() purgeLocations() purgeOrphans() replaceSpannedElement()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Ottava instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "RepeatBracket\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.spanner.",
+        "type": "Title"
+    },
+    {
+        "text": "RepeatBracket",
+        "type": "Title"
+    },
+    {
+        "text": "spannedElements",
+        "type": "Title"
+    },
+    {
+        "text": "number",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "Iterable",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "overrideDisplay",
+        "type": "Title"
+    },
+    {
+        "text": "str | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A grouping of one or more measures, presumably in sequence, that mark an alternate repeat.\nThese gather what are sometimes called first-time bars and second-time bars.\nIt is assumed that numbering starts from 1. Numberings above 2 are permitted.\nThe number keyword argument can be used to pass in the desired number.\noverrideDisplay if set will display something other than the number.  For instance\nouvert and clos for medieval music.  However, if you use it for something like \u00981-3'\nbe sure to set number properly too.\n>>> m = stream.Measure()\n>>> sp = spanner.RepeatBracket(m, number=1)\n>>> sp  # can be one or more measures\n<music21.spanner.RepeatBracket 1 <music21.stream.Measure 0 offset=0.0>>\n\n\n>>> sp.number = 3\n>>> sp\n<music21.spanner.RepeatBracket 3 <music21.stream.Measure 0 offset=0.0>>\n>>> sp.numberRange  # the list of repeat numbers\n[3]\n>>> sp.number\n'3'\n\n\nRange of repeats as string:\n>>> sp.number = '1-3'\n>>> sp.numberRange\n[1, 2, 3]\n>>> sp.number\n'1-3'\n\n\nRange of repeats as list:\n>>> sp.number = [2, 3]\n>>> sp.numberRange\n[2, 3]\n>>> sp.number\n'2, 3'\n\n\nComma separated numbers:\n>>> sp.number = '1, 2, 3'\n>>> sp.numberRange\n[1, 2, 3]\n>>> sp.number\n'1-3'\n\n\nDisjunct numbers:\n>>> sp.number = '1, 2, 3, 7'\n>>> sp.numberRange\n[1, 2, 3, 7]\n>>> sp.number\n'1, 2, 3, 7'\n\n\nOverride the display.\n>>> sp.overrideDisplay = '1-3, 7'\n>>> sp\n<music21.spanner.RepeatBracket 1-3, 7\n     <music21.stream.Measure 0 offset=0.0>>\n\n\nnumber is not affected by display overrides:\n>>> sp.number\n'1, 2, 3, 7'",
+        "type": "ListItem"
+    },
+    {
+        "text": "RepeatBracket bases",
+        "type": "Title"
+    },
+    {
+        "text": "Spanner",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "RepeatBracket read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "RepeatBracket read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "RepeatBracket.",
+        "type": "Title"
+    },
+    {
+        "text": "number",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get or set the number \u2014 returning a string always.\n>>> rb = spanner.RepeatBracket()\n>>> rb.number\n''\n>>> rb.number = '5-7'\n>>> rb.number\n'5-7'\n>>> rb.numberRange\n[5, 6, 7]\n>>> rb.number = 1",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "RepeatBracket methods",
+        "type": "Title"
+    },
+    {
+        "text": "RepeatBracket.",
+        "type": "Title"
+    },
+    {
+        "text": "getNumberList",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Deprecated \u2014 just look at .numberRange",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from Spanner:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__getitem__() addSpannedElements() fill() getFirst() getLast() getSpannedElementIds() getSpannedElements() getSpannedElementsByClass() hasSpannedElement() isFirst() isLast() purgeLocations() purgeOrphans() replaceSpannedElement()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "RepeatBracket instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "RepeatBracket.",
+        "type": "Title"
+    },
+    {
+        "text": "numberRange",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get a contiguous list of repeat numbers that are applicable for this instance.\nWill always have at least one element, but [0] means undefined\n>>> rb = spanner.RepeatBracket()\n>>> rb.numberRange\n[0]\n\n\n>>> rb.number = '1,2'\n>>> rb.numberRange\n[1, 2]",
+        "type": "ListItem"
+    },
+    {
+        "text": "RepeatBracket.",
+        "type": "Title"
+    },
+    {
+        "text": "overrideDisplay",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Override the string representation of this bracket, or use\nNone to not override.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "Slur\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.spanner.",
+        "type": "Title"
+    },
+    {
+        "text": "Slur",
+        "type": "Title"
+    },
+    {
+        "text": "spannedElements",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A slur represented as a spanner between two Notes.\nSlurs have .placement options (\u0098above' or \u0098below') and .lineType (\u0098dashed' or None)",
+        "type": "ListItem"
+    },
+    {
+        "text": "Slur bases",
+        "type": "Title"
+    },
+    {
+        "text": "Spanner",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "Slur read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "Slur read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "Slur methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from Spanner:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__getitem__() addSpannedElements() fill() getFirst() getLast() getSpannedElementIds() getSpannedElements() getSpannedElementsByClass() hasSpannedElement() isFirst() isLast() purgeLocations() purgeOrphans() replaceSpannedElement()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Slur instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "SpannerAnchor\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.spanner.",
+        "type": "Title"
+    },
+    {
+        "text": "SpannerAnchor",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A simple Music21Object that can be used to define the beginning or end\nof a Spanner, in the place of a GeneralNote.\nThis is useful for (e.g.) a Crescendo that ends partway through a\nnote (e.g. in a violin part).  Exporters (like MusicXML) are configured\nto remove the SpannerAnchor itself on output, exporting only the Spanner\nstart and stop locations.\nHere's an example of a whole note that has a Crescendo for the first\nhalf of the note, and a Diminuendo for the second half of the note.\n>>> n = note.Note('C4', quarterLength=4)\n>>> measure = stream.Measure([n], number=1)\n>>> part = stream.Part([measure], id='violin')\n>>> score = stream.Score([part])\n\n\nAdd a crescendo from the note's start to the first anchor, place in the\nmiddle of the note, and then a diminuendo from that first anchor to the\nsecond, placed at the end of the note.\n>>> anchor1 = spanner.SpannerAnchor()\n>>> anchor2 = spanner.SpannerAnchor()\n>>> measure.insert(2.0, anchor1)\n>>> measure.insert(4.0, anchor2)\n>>> cresc = dynamics.Crescendo(n, anchor1)\n>>> dim = dynamics.Diminuendo(anchor1, anchor2)\n>>> score.append((cresc, dim))\n>>> score.show('text')\n{0.0} <music21.stream.Part violin>\n    {0.0} <music21.stream.Measure 1 offset=0.0>\n        {0.0} <music21.note.Note C>\n        {2.0} <music21.spanner.SpannerAnchor at 2.0>\n        {4.0} <music21.spanner.SpannerAnchor at 4.0>\n{4.0} <music21.dynamics.Crescendo <music21.note.Note C><...SpannerAnchor at 2.0>>\n{4.0} <music21.dynamics.Diminuendo <...SpannerAnchor at 2.0><...SpannerAnchor at 4.0>>",
+        "type": "ListItem"
+    },
+    {
+        "text": "SpannerAnchor bases",
+        "type": "Title"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "SpannerAnchor read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "SpannerAnchor read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "SpannerAnchor methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "SpannerAnchor instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "SpannerBundle\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.spanner.",
+        "type": "Title"
+    },
+    {
+        "text": "SpannerBundle",
+        "type": "Title"
+    },
+    {
+        "text": "spanners",
+        "type": "Title"
+    },
+    {
+        "text": "list",
+        "type": "Title"
+    },
+    {
+        "text": "music21.spanner.Spanner",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "An advanced utility object for collecting and processing\ncollections of Spanner objects. This is necessary because\noften processing routines that happen at many\nlevels still need access to the same collection of spanners.\nBecause SpannerBundles are so commonly used with\nStream objects, the Stream has a\nspannerBundle property that stores\nand caches a SpannerBundle of the Stream.\nIf a Stream or Stream subclass is provided as an argument,\nall Spanners on this Stream will be accumulated herein.\nNot to be confused with SpannerStorage (which is a Stream class inside\na spanner that stores Elements that are spanned)\n\nChanged in v7: only argument must be a List of spanners.\nCreators of SpannerBundles are required to check that this constraint is True",
+        "type": "ListItem"
+    },
+    {
+        "text": "SpannerBundle bases",
+        "type": "Title"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "SpannerBundle read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "SpannerBundle methods",
+        "type": "Title"
+    },
+    {
+        "text": "SpannerBundle.",
+        "type": "Title"
+    },
+    {
+        "text": "__getitem__",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 Spanner",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "SpannerBundle.",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "other",
+        "type": "Title"
+    },
+    {
+        "text": "Spanner",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "adds a Spanner to the bundle. Will be done automatically when adding a Spanner\nto a Stream.",
+        "type": "ListItem"
+    },
+    {
+        "text": "SpannerBundle.",
+        "type": "Title"
+    },
+    {
+        "text": "freePendingSpannedElementAssignment",
+        "type": "Title"
+    },
+    {
+        "text": "spannedElementCandidate",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Assigns and frees up a pendingSpannedElementAssignment if one is\nactive and the candidate matches the class.  See\nsetPendingSpannedElementAssignment for documentation and tests.\nIt is set up via a first-in, first-out priority.",
+        "type": "ListItem"
+    },
+    {
+        "text": "SpannerBundle.",
+        "type": "Title"
+    },
+    {
+        "text": "getByClass",
+        "type": "Title"
+    },
+    {
+        "text": "searchClass",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "tuple",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u2192 SpannerBundle",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a spanner class, return a new SpannerBundle of all Spanners of the desired class.\n>>> su1 = spanner.Slur()\n>>> su2 = layout.StaffGroup()\n>>> su3 = layout.StaffGroup()\n>>> sb = spanner.SpannerBundle()\n>>> sb.append(su1)\n>>> sb.append(su2)\n>>> sb.append(su3)\n\n\nsearchClass should be a Class.\n>>> slurs = sb.getByClass(spanner.Slur)\n>>> slurs\n<music21.spanner.SpannerBundle of size 1>\n>>> list(slurs) == [su1]\nTrue\n>>> list(sb.getByClass(spanner.Slur)) == [su1]\nTrue\n>>> list(sb.getByClass(layout.StaffGroup)) == [su2, su3]\nTrue\n\n\nA tuple of classes can also be given:\n>>> len(sb.getByClass((spanner.Slur, layout.StaffGroup)))\n3\n\n\nNote that the ability to search via a string will be removed in\nversion 10.",
+        "type": "ListItem"
+    },
+    {
+        "text": "SpannerBundle.",
+        "type": "Title"
+    },
+    {
+        "text": "getByClassIdLocalComplete",
+        "type": "Title"
+    },
+    {
+        "text": "className",
+        "type": "Title"
+    },
+    {
+        "text": "idLocal",
+        "type": "Title"
+    },
+    {
+        "text": "completeStatus",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get all spanners of a specified class className, an id idLocal, and a completeStatus.\nThis is a convenience routine for multiple filtering when searching for relevant Spanners\nto pair with.\n>>> su1 = spanner.Slur()\n>>> su2 = layout.StaffGroup()\n>>> su2.idLocal = 3\n>>> sb = spanner.SpannerBundle()\n>>> sb.append(su1)\n>>> sb.append(su2)\n>>> list(sb.getByClassIdLocalComplete(layout.StaffGroup, 3, False)) == [su2]\nTrue\n>>> su2.completeStatus = True\n>>> list(sb.getByClassIdLocalComplete(layout.StaffGroup, 3, False)) == []\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "SpannerBundle.",
+        "type": "Title"
+    },
+    {
+        "text": "getByCompleteStatus",
+        "type": "Title"
+    },
+    {
+        "text": "completeStatus",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 SpannerBundle",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get spanners by matching status of completeStatus to the same attribute\n>>> su1 = spanner.Slur()\n>>> su1.idLocal = 1\n>>> su1.completeStatus = True\n>>> su2 = spanner.Slur()\n>>> su2.idLocal = 2\n>>> sb = spanner.SpannerBundle()\n>>> sb.append(su1)\n>>> sb.append(su2)\n>>> sb2 = sb.getByCompleteStatus(True)\n>>> len(sb2)\n1\n>>> sb2 = sb.getByIdLocal(1).getByCompleteStatus(True)\n>>> sb2[0] == su1\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "SpannerBundle.",
+        "type": "Title"
+    },
+    {
+        "text": "getByIdLocal",
+        "type": "Title"
+    },
+    {
+        "text": "idLocal",
+        "type": "Title"
+    },
+    {
+        "text": "int | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 SpannerBundle",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get spanners by idLocal.\nReturns a new SpannerBundle object\n>>> su = spanner.Slur()\n>>> su.idLocal = 1\n>>> rb = spanner.RepeatBracket()\n>>> rb.idLocal = 2\n>>> sb = spanner.SpannerBundle()\n>>> sb.append(su)\n>>> sb.append(rb)\n>>> len(sb)\n2\n\n\n>>> sb.getByIdLocal(2)\n<music21.spanner.SpannerBundle of size 1>\n>>> sb.getByIdLocal(2)[0]\n<music21.spanner.RepeatBracket >\n\n\n>>> len(sb.getByIdLocal(1))\n1\n\n\n>>> sb.getByIdLocal(3)\n<music21.spanner.SpannerBundle of size 0>",
+        "type": "ListItem"
+    },
+    {
+        "text": "SpannerBundle.",
+        "type": "Title"
+    },
+    {
+        "text": "getBySpannedElement",
+        "type": "Title"
+    },
+    {
+        "text": "spannedElement",
+        "type": "Title"
+    },
+    {
+        "text": "Spanner",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 SpannerBundle",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a spanner spannedElement (an object),\nreturn a new SpannerBundle of all Spanner objects that\nhave this object as a spannedElement.\n>>> n1 = note.Note()\n>>> n2 = note.Note()\n>>> n3 = note.Note()\n>>> su1 = spanner.Slur(n1, n2)\n>>> su2 = spanner.Slur(n2, n3)\n>>> sb = spanner.SpannerBundle()\n>>> sb.append(su1)\n>>> sb.append(su2)\n>>> list(sb.getBySpannedElement(n1)) == [su1]\nTrue\n>>> list(sb.getBySpannedElement(n2)) == [su1, su2]\nTrue\n>>> list(sb.getBySpannedElement(n3)) == [su2]\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "SpannerBundle.",
+        "type": "Title"
+    },
+    {
+        "text": "getSpannerStorageIds",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 list[int]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return all SpannerStorage ids from all contained Spanners",
+        "type": "ListItem"
+    },
+    {
+        "text": "SpannerBundle.",
+        "type": "Title"
+    },
+    {
+        "text": "remove",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "item",
+        "type": "Title"
+    },
+    {
+        "text": "Spanner",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Remove a stored Spanner from the bundle with an instance.\nEach reference must have a matching id() value.\n>>> su1 = spanner.Slur()\n>>> su1.idLocal = 1\n>>> su2 = spanner.Slur()\n>>> su2.idLocal = 2\n>>> sb = spanner.SpannerBundle()\n>>> sb.append(su1)\n>>> sb.append(su2)\n>>> len(sb)\n2\n>>> sb\n<music21.spanner.SpannerBundle of size 2>\n\n\n>>> sb.remove(su2)\n>>> len(sb)\n1",
+        "type": "ListItem"
+    },
+    {
+        "text": "SpannerBundle.",
+        "type": "Title"
+    },
+    {
+        "text": "replaceSpannedElement",
+        "type": "Title"
+    },
+    {
+        "text": "old",
+        "type": "Title"
+    },
+    {
+        "text": "Music21Object",
+        "type": "Title"
+    },
+    {
+        "text": "new",
+        "type": "Title"
+    },
+    {
+        "text": "Music21Object",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 list[music21.spanner.Spanner]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a spanner spannedElement (an object), replace all old spannedElements\nwith new spannedElements\nfor all Spanner objects contained in this bundle.\nThe old parameter must be an object, not an object id.\nIf no replacements are found, no errors are raised.\nReturns a list of spanners that had elements replaced.\n>>> n1 = note.Note('C')\n>>> n2 = note.Note('D')\n>>> su1 = spanner.Line(n1, n2)\n>>> su2 = spanner.Glissando(n2, n1)\n>>> sb = spanner.SpannerBundle()\n>>> sb.append(su1)\n>>> sb.append(su2)\n\n\n>>> su1\n<music21.spanner.Line <music21.note.Note C><music21.note.Note D>>\n>>> su2\n<music21.spanner.Glissando <music21.note.Note D><music21.note.Note C>>\n\n\n>>> n3 = note.Note('E')\n>>> replacedSpanners = sb.replaceSpannedElement(n2, n3)\n>>> replacedSpanners == [su1, su2]\nTrue\n\n\n>>> su1\n<music21.spanner.Line <music21.note.Note C><music21.note.Note E>>\n>>> su2\n<music21.spanner.Glissando <music21.note.Note E><music21.note.Note C>>\n\n\n\nChanged in v7: id() is no longer allowed for old.\n\n>>> sb.replaceSpannedElement(id(n1), n2)\nTraceback (most recent call last):\nTypeError: send elements to replaceSpannedElement(), not ids.",
+        "type": "ListItem"
+    },
+    {
+        "text": "SpannerBundle.",
+        "type": "Title"
+    },
+    {
+        "text": "setIdLocalByClass",
+        "type": "Title"
+    },
+    {
+        "text": "className",
+        "type": "Title"
+    },
+    {
+        "text": "maxId",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "(See setIdLocals() for an explanation of what an idLocal is.)\nAutomatically set idLocal values for all members of the provided class.\nThis is necessary in cases where spanners are newly created in\npotentially overlapping boundaries and need to be tagged for MusicXML\nor other output. Note that, if some Spanners already have idLocals,\nthey will be overwritten.\nThe maxId parameter sets the largest number that is available for this\nclass.  In MusicXML it is 6.\nCurrently, this method just iterates over the spanners of this class\nand counts the number from 1-6 and then recycles numbers.  It does\nnot check whether more than 6 overlapping spanners of the same type\nexist, nor does it reset the count to 1 after all spanners of that\nclass have been closed.  The example below demonstrates that the\nposition of the contents of the spanner have no bearing on\nits idLocal (since we don't even put anything into the spanners).\n>>> su1 = spanner.Slur()\n>>> su2 = layout.StaffGroup()\n>>> su3 = spanner.Slur()\n>>> sb = spanner.SpannerBundle()\n>>> sb.append(su1)\n>>> sb.append(su2)\n>>> sb.append(su3)\n>>> [sp.idLocal for sp in sb.getByClass(spanner.Slur)]\n[None, None]\n>>> sb.setIdLocalByClass('Slur')\n>>> [sp.idLocal for sp in sb.getByClass(spanner.Slur)]\n[1, 2]",
+        "type": "ListItem"
+    },
+    {
+        "text": "SpannerBundle.",
+        "type": "Title"
+    },
+    {
+        "text": "setIdLocals",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Utility method for outputting MusicXML (and potentially\nother formats) for spanners.\nEach Spanner type (slur, line, glissando, etc.) in MusicXML\nhas a number assigned to it.\nWe call this number, idLocal.  idLocal is a number from 1 to 6.\nThis does not mean that your piece can only have six slurs total!\nBut it does mean that within a single\npart, only up to 6 slurs can happen simultaneously.\nBut as soon as a slur stops, its idLocal can be reused.\nThis method sets all idLocals for all classes in this SpannerBundle.\nThis will assure that each class has a unique idLocal number.\nCalling this method is destructive: existing idLocal values will be lost.\n>>> su1 = spanner.Slur()\n>>> su2 = layout.StaffGroup()\n>>> su3 = spanner.Slur()\n>>> sb = spanner.SpannerBundle()\n>>> sb.append(su1)\n>>> sb.append(su2)\n>>> sb.append(su3)\n>>> [sp.idLocal for sp in sb.getByClass('Slur')]\n[None, None]\n>>> sb.setIdLocals()\n>>> [(sp, sp.idLocal) for sp in sb]\n[(<music21.spanner.Slur>, 1),\n (<music21.layout.StaffGroup>, 1),\n (<music21.spanner.Slur>, 2)]\n\n\nDynamicWedge objects are commingled. That is,\nCrescendo and\nDiminuendo\nare not numbered separately:\n>>> sb2 = spanner.SpannerBundle()\n>>> c = dynamics.Crescendo()\n>>> d = dynamics.Diminuendo()\n>>> sb2.append(c)\n>>> sb2.append(d)\n>>> sb2.setIdLocals()\n>>> [(sp, sp.idLocal) for sp in sb2]\n[(<music21.dynamics.Crescendo>, 1),\n (<music21.dynamics.Diminuendo>, 2)]",
+        "type": "ListItem"
+    },
+    {
+        "text": "SpannerBundle.",
+        "type": "Title"
+    },
+    {
+        "text": "setPendingSpannedElementAssignment",
+        "type": "Title"
+    },
+    {
+        "text": "sp",
+        "type": "Title"
+    },
+    {
+        "text": "Spanner",
+        "type": "Title"
+    },
+    {
+        "text": "className",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A SpannerBundle can be set up so that a particular spanner (sp)\nis looking for an element of class (className) to complete it. Any future\nelement that matches the className which is passed to the SpannerBundle\nvia freePendingSpannedElementAssignment() will get it.\n>>> n1 = note.Note('C')\n>>> r1 = note.Rest()\n>>> n2 = note.Note('D')\n>>> n3 = note.Note('E')\n>>> su1 = spanner.Slur([n1])\n>>> sb = spanner.SpannerBundle()\n>>> sb.append(su1)\n>>> su1.getSpannedElements()\n[<music21.note.Note C>]\n\n\n>>> n1.getSpannerSites()\n[<music21.spanner.Slur <music21.note.Note C>>]\n\n\nNow set up su1 to get the next note assigned to it.\n>>> sb.setPendingSpannedElementAssignment(su1, 'Note')\n\n\nCall freePendingSpannedElementAssignment to attach.\nShould not get a rest, because it is not a \u0098Note'\n>>> sb.freePendingSpannedElementAssignment(r1)\n>>> su1.getSpannedElements()\n[<music21.note.Note C>]\n\n\nBut will get the next note:\n>>> sb.freePendingSpannedElementAssignment(n2)\n>>> su1.getSpannedElements()\n[<music21.note.Note C>, <music21.note.Note D>]\n\n\n>>> n2.getSpannerSites()\n[<music21.spanner.Slur <music21.note.Note C><music21.note.Note D>>]\n\n\nAnd now that the assignment has been made, the pending assignment\nhas been cleared, so n3 will not get assigned to the slur:\n>>> sb.freePendingSpannedElementAssignment(n3)\n>>> su1.getSpannedElements()\n[<music21.note.Note C>, <music21.note.Note D>]\n\n\n>>> n3.getSpannerSites()\n[]",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.spanner",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

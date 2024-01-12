@@ -1,0 +1,1742 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 2: Notes",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide, Chapter 1: Installing and Getting Started with music21",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide, Chapter 3: Pitches, Durations, and Notes again",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide, Chapter 2: Notes\nCreating and working with Notes\n(Advanced digression):",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide\nUser's Guide: Table of Contents\nUser's Guide, Chapter 1: Installing and Getting Started with music21\nUser's Guide, Chapter 2: Notes\nUser's Guide, Chapter 3: Pitches, Durations, and Notes again\nUser's Guide, Chapter 4: Lists, Streams (I) and Output\nUser's Guide, Chapter 5: Lists of Lists, Functions, and Recursion\nUser's Guide, Chapter 6: Streams (II): Hierarchies, Recursion, and Flattening\nUser's Guide, Chapter 7: Chords\nUser's Guide, Chapter 8: Installing MusicXML Readers and File Formats (1)\nUser's Guide, Chapter 9: Chordify\nUser's Guide, Chapter 10: Examples 1\nUser's Guide, Chapter 11: Corpus Searching\nUser's Guide, Chapter 12: Getting Back to Basics: The Music21Object\nUser's Guide, Chapter 13: More Music21Object Attributes and Properties\nUser's Guide: Chapter 14: Time Signatures and Beats\nUser's Guide, Chapter 15: Keys and KeySignatures\nUser's Guide, Chapter 16: TinyNotation\nUser's Guide: Chapter 17: Derivations\nUser's Guide: Chapter 18: Intervals\nUser's Guide, Chapter 19: Advanced Durations (Complex and Tuplets)\nUser's Guide, Chapter 20: Examples 2\nUser's Guide, Chapter 21: Ordering and Sorting of Stream Elements\nUser's Guide, Chapter 22: Graphing and plotting\nUser's Guide, Chapter 23: Roman Numeral Analysis\nUser's Guide, Chapter 24: Configuring Environment Settings\nUser's Guide, Chapter 25: Post-Tonal Tools (1)\nUser's Guide, Chapter 26: Stream Iteration and Filtering\nUser's Guide, Chapter 27: Grace Notes\nUser's Guide, Chapter 28: Lyric Searching\nUser's Guide, Chapter 29: Spanners 1 (Slurs)\nUser's Guide, Chapter 30: Examples 3\nUser's Guide, Chapter 31: Clefs, Ties, and Beams\nUser's Guide, Chapter 32: Articulations\nUser's Guide, Chapter 44: Advanced Graphing (Axes, Plots, and Graphs)\nUser's Guide, Chapter 53: Advanced Corpus and Metadata Searching\nUser's Guide, Chapter 54: Extending Converter with New Formats\nUser's Guide, Chapter 55: Advanced Meter Topics\nUser's Guide, Chapter 58: Understanding Sites and Contexts\nUser's Guide, Chapter 61: TimespanTrees and Verticalities",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 2: Notes\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Notated music, by its very name, consists of a bunch of notes that are\nput one after another or simultaneously on a staff. There are other\nthings, clefs, key signatures, slurs, etc. but the heart of music is the\nnotes; so to get anywhere in music21 you'll need to know what the\ntoolkit thinks about notes and how to work with them.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Go ahead and start IDLE or type \u009cpython\u009d at the command line (Terminal\non the Mac or \u009crun: cmd\u009d on Windows) and let's get started.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Creating and working with Notes\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "The music21 concept of a standard note is contained in the\nNote object, which is found in the note\nmodule.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Read this if you're new to Python (others can skip ahead): Notice\nthe difference between object names and module names. Modules, which can\ncontain one, many, or even zero objects, always begin with a lowercase\nletter. Music21's objects always begin with a captial letter. So the\nNote object is found in the note module. The distinction between\nuppercase and lowercase is crucial to Python: if you type the name of an\nobject with the wrong case it won't know what to do and won't give you\nany help in distinguishing between them.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "In the note module, there are other classes besides note.Note.\nThe most important one is note.Rest, which as you imagine represents\na rest. If we load music21 with the command:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "from",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "import",
+        "type": "Title"
+    },
+    {
+        "text": "then you'll now be able to access the note module just by typing\nnote at any command line.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "<module 'music21.note' from 'D:\\music21files\\music21\\note.pyc'>",
+        "type": "Title"
+    },
+    {
+        "text": "If you get something like this you\u00e2\u0080\u0099ll have access to the music21\n",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "\"note\"",
+        "type": "Title"
+    },
+    {
+        "text": "As long as it ends in ",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "note.pyc",
+        "type": "Title"
+    },
+    {
+        "text": "note.py",
+        "type": "Title"
+    },
+    {
+        "text": "If you want to know what else the note module contains besides the\nNote and Rest objects you can type \u009cdir(note)\u009d to find out:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "dir",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "'GeneralNote'",
+        "type": "Title"
+    },
+    {
+        "text": "'Lyric'",
+        "type": "Title"
+    },
+    {
+        "text": "'LyricException'",
+        "type": "Title"
+    },
+    {
+        "text": "'NotRest'",
+        "type": "Title"
+    },
+    {
+        "text": "'NotRestException'",
+        "type": "Title"
+    },
+    {
+        "text": "'Note'",
+        "type": "Title"
+    },
+    {
+        "text": "'NoteException'",
+        "type": "Title"
+    },
+    {
+        "text": "'Rest'",
+        "type": "Title"
+    },
+    {
+        "text": "'SYLLABIC_CHOICES'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'Unpitched'",
+        "type": "Title"
+    },
+    {
+        "text": "'noteheadTypeNames'",
+        "type": "Title"
+    },
+    {
+        "text": "'stemDirectionNames'",
+        "type": "Title"
+    },
+    {
+        "text": "Some of the things in this list are classes of notes \u2014 they are\ncapitalized. Other classes are things that we'll get to later, like\nLyric objects.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "(By the way: I'm highlighting the names of most objects so they become\nlinks to the full documentation for the object. You can read it later\nwhen you're curious, frustrated, or Netflix is down; you certainly don't\nneed to click them now).",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "(Advanced digression):\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "If you're more of a Python guru and you're afraid of \u009cpolluting your\nnamespace,\u009d instead of typing \u009cfrom music21 import *\u009d you can type:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "import",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "in which case instead of using the word note, you'll need to call it\nmusic21.note",
+        "type": "NarrativeText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "<module 'music21.note' from 'D:\\music21files\\music21\\note.pyc'>",
+        "type": "Title"
+    },
+    {
+        "text": "If you are a Python guru, you already knew that. Probably if you didn't\nalready know that, but you've heard about \u009cpolluting your namespace,\u009d\nyou have a Python guru friend who has screamed, \u009cNever use\nimport *!\u009d Trust me for now that this tutorial will be easier if you\nignore your friend for a bit; by the end of it you'll know enough to be\nable to follow whatever advice seems most natural to you.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "(Back from the Python digression and especially the digression of the\ndigression):",
+        "type": "Title"
+    },
+    {
+        "text": "Okay, so now you now enough about modules and objects. Let's create a\nnote.Note object. How about the F at the top of the treble clef\nstaff:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "\"F5\"",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "We use the convention where middle-C is C4, the octave above it is C5,\netc.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Now you have a Note. Where is it? It's stored in the variable f. You\ncan verify this just by typing f:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "And you can see that it's actually an F and actually in octave 5 by\nrequesting the .name and .octave attributes on the Note\nobject, f:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "name",
+        "type": "Title"
+    },
+    {
+        "text": "'F'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "octave",
+        "type": "Title"
+    },
+    {
+        "text": "And there's an attribute called .pitch which returns another object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "F5",
+        "type": "Title"
+    },
+    {
+        "text": "Well, that didn't tell you anything you didn't know already! Let's look\nat some other attributes that might tell you something you didn't know.\nSome of them are sub-attributes, meaning they take two dots. Here's a\nsub-attribute on pitch, which we just said was itself an object,\ncalled .frequency:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "frequency",
+        "type": "Title"
+    },
+    {
+        "text": "698.456462866008",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "And another sub-attribute called pitch.pitchClassString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "pitchClassString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "'5'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "That's a bit better! So an f is about 698hz (if A4 = 440hz), and it is\npitch class 5 (where C = 0, C# and Db = 1, etc.).",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "A couple of things that you'll notice:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Your frequency probably has a bunch more numbers instead of\nending with \u009c\u2026\u009d. Mine gives me \u009c698.456462866008\u009d. In the docs, we'll\nsometimes write \u009c\u2026\u009d instead of putting in all those numbers (or long\nstrings); it's partly a way of saving space, and also because the\nlength of a long number and even the last few digits will differ from\ncomputer to computer depending on whether it's 32-bit or 64-bit, Mac\nor PC, number of sunspots last Autumn, etc. Since I don't know what\ncomputer you're using, don't worry if you get slightly different\nresults.",
+        "type": "ListItem"
+    },
+    {
+        "text": "There are single quotes around some of the output (like the 'F'\nin f.name) and none around others (like the 5 in\nf.octave). The quotes mean that that attribute is returning a\nString (a bunch of letters or numbers or simple symbols). The lack of\nquotes means that it's returning a number (either an integer or if\nthere's a decimal point, a sneakingly decimal-like thingy called a\nfloat (or \u009cfloating-point number\u009d) which looks and acts just like\na decimal, except when it doesn't, which is never when you'd expect.",
+        "type": "ListItem"
+    },
+    {
+        "text": "(The history and theory behind floats will be explained to you at\nlength by any computer scientist, usually when he or she is the only\nthing standing between you and the bar at a party. Really, we shouldn't\nbe using them anymore, except for the fact that for our computers\nthey're so much faster to work with than decimals.)",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "The difference between the string '5' and the number 5 is\nessential to keep in mind. In Python (like most modern programming\nlanguages) we use two equal signs (==) to ask if two things are\nequal. So:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "octave",
+        "type": "Title"
+    },
+    {
+        "text": "==",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "That's what we'd expect. But try:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "pitchClassString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "==",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "==",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'5'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "f.pitchClassString",
+        "type": "Title"
+    },
+    {
+        "text": "'5'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'5'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "pitchClassString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "==",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\"5\"",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "In Python it doesn't matter if you put the 5 in single or double\nquotes:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "pitchClassString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "==",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'5'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "pitchClassString tells you that you should expect a string, because\nwe've put it in the name. There's also a .pitch.pitchClass which\nreturns a number:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "pitchClass",
+        "type": "Title"
+    },
+    {
+        "text": "These two ways of getting a pitch class are basically the same for the\nnote \u009cF\u009d (except that one's a string and the other is an integer) but\nfor a B-flat, which is .pitchClass 10 and .pitchClassString \u009cA\u009d,\nit makes a difference.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Let's go ahead and make that B-flat note. In music21, sharps are \u009c#\u009d\nas you might expect, but flats are \u009c-\u009d. That's because it's otherwise\nhard to tell the difference between the Note \u009cb\u009d (in this instance,\nyou can write it in upper or lower case) and the symbol \u009cflat\u009d. So let's\nmake that B-flat note:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "bflat",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "\"B-2\"",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "I've called the variable \u009cbflat\u009d here. You could call it \u009cBb\u009d if\nyou want or \u009cb_flat\u009d, but not \u009cb-flat\u009d because dashes aren't\nallowed in variable names:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "flat",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "\"B-2\"",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "File",
+        "type": "Title"
+    },
+    {
+        "text": "\"<ipython-input-17-dff15d6dca04>\"",
+        "type": "Title"
+    },
+    {
+        "text": "line",
+        "type": "Title"
+    },
+    {
+        "text": "flat",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "\"B-2\"",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "SyntaxError",
+        "type": "Title"
+    },
+    {
+        "text": "cannot",
+        "type": "Title"
+    },
+    {
+        "text": "assign",
+        "type": "Title"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "operator",
+        "type": "Title"
+    },
+    {
+        "text": "Since this note has an accidental you can get it by using the\n.pitch.accidental subproperty:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "bflat",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "accidental",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Accidental",
+        "type": "Title"
+    },
+    {
+        "text": "flat",
+        "type": "Title"
+    },
+    {
+        "text": "Here we have something that isn't a number and doesn't have quotes\naround it. That usually means that what .accidental returns is\nanother object \u2014 in this case an Accidental\nobject. As we saw above, objects have attributes (and other goodies\nwe'll get to in a second) and the Accidental object is no exception.\nSo let's make a new variable that will store bflat's accidental:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "acc",
+        "type": "Title"
+    },
+    {
+        "text": "bflat",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "accidental",
+        "type": "Title"
+    },
+    {
+        "text": "We'll get to all the attributes of Accidental objects in a bit, but\nhere are two of them: .alter and .displayLocation. You'll use\nthe first one quite a bit: it shows how many semitones this\nAccidental changes the Note:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "acc",
+        "type": "Title"
+    },
+    {
+        "text": "alter",
+        "type": "Title"
+    },
+    {
+        "text": "Since this Accidental is a flat, its .alter is a negative\nnumber. Notice that it's also not an integer, but a float. That might\nindicate that music21 supports things like quarter-tones, and in this\ncase you'd be right.",
+        "type": "ListItem"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Since this Accidental is a flat, its .alter is a negative\nnumber. Notice that it's also not an integer, but a float. That might\nindicate that music21 supports things like quarter-tones, and in this\ncase you'd be right.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "acc",
+        "type": "Title"
+    },
+    {
+        "text": "bflat.pitch.accidental",
+        "type": "Title"
+    },
+    {
+        "text": "acc.alter",
+        "type": "Title"
+    },
+    {
+        "text": "acc",
+        "type": "Title"
+    },
+    {
+        "text": "bflat.pitch",
+        "type": "Title"
+    },
+    {
+        "text": ".accidental",
+        "type": "Title"
+    },
+    {
+        "text": ".alter",
+        "type": "Title"
+    },
+    {
+        "text": "bflat",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "accidental",
+        "type": "Title"
+    },
+    {
+        "text": "alter",
+        "type": "Title"
+    },
+    {
+        "text": "acc.displayLocation",
+        "type": "ListItem"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "acc",
+        "type": "Title"
+    },
+    {
+        "text": "displayLocation",
+        "type": "Title"
+    },
+    {
+        "text": "'normal'",
+        "type": "Title"
+    },
+    {
+        "text": "Good to know that we've set a sensible default. If you want to have the\naccidental display above the note, you'll have to set that yourself:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "acc",
+        "type": "Title"
+    },
+    {
+        "text": "displayLocation",
+        "type": "Title"
+    },
+    {
+        "text": "'above'",
+        "type": "Title"
+    },
+    {
+        "text": "acc",
+        "type": "Title"
+    },
+    {
+        "text": "displayLocation",
+        "type": "Title"
+    },
+    {
+        "text": "'above'",
+        "type": "Title"
+    },
+    {
+        "text": "\"acc\"",
+        "type": "Title"
+    },
+    {
+        "text": "bflat",
+        "type": "Title"
+    },
+    {
+        "text": "acc",
+        "type": "Title"
+    },
+    {
+        "text": ".accidental",
+        "type": "Title"
+    },
+    {
+        "text": ".displayLocation",
+        "type": "Title"
+    },
+    {
+        "text": "bflat.pitch.accidental",
+        "type": "Title"
+    },
+    {
+        "text": "bflat",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "accidental",
+        "type": "Title"
+    },
+    {
+        "text": "displayLocation",
+        "type": "Title"
+    },
+    {
+        "text": "'above'",
+        "type": "Title"
+    },
+    {
+        "text": "Python is one of those cool computer languages where if an object\ndoesn't have a particular attribute but you think it should, you can add\nit to the object (some people find that this makes objects messy, but I\ndon't mind it). For what I hope are obvious reasons, the Note object\ndoes not have an attribute called \u009cwasWrittenByStockhausen\u009d. So if\nyou try to access it, you'll get an error:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "bflat",
+        "type": "Title"
+    },
+    {
+        "text": "wasWrittenByStockhausen",
+        "type": "Title"
+    },
+    {
+        "text": "---------------------------------------------------------------------------",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "AttributeError",
+        "type": "Title"
+    },
+    {
+        "text": "Traceback",
+        "type": "Title"
+    },
+    {
+        "text": "most",
+        "type": "Title"
+    },
+    {
+        "text": "recent",
+        "type": "Title"
+    },
+    {
+        "text": "call",
+        "type": "Title"
+    },
+    {
+        "text": "last",
+        "type": "Title"
+    },
+    {
+        "text": "ipython",
+        "type": "Title"
+    },
+    {
+        "text": "input",
+        "type": "Title"
+    },
+    {
+        "text": "25",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "fbb7070911f6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "module",
+        "type": "Title"
+    },
+    {
+        "text": "---->",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "bflat",
+        "type": "Title"
+    },
+    {
+        "text": "wasWrittenByStockhausen",
+        "type": "Title"
+    },
+    {
+        "text": "AttributeError",
+        "type": "Title"
+    },
+    {
+        "text": "'Note'",
+        "type": "Title"
+    },
+    {
+        "text": "object",
+        "type": "Title"
+    },
+    {
+        "text": "has",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "no",
+        "type": "Title"
+    },
+    {
+        "text": "attribute",
+        "type": "Title"
+    },
+    {
+        "text": "'wasWrittenByStockhausen'",
+        "type": "Title"
+    },
+    {
+        "text": "But if you set the value of that weird attribute, you can use it later:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "bflat",
+        "type": "Title"
+    },
+    {
+        "text": "wasWrittenByStockhausen",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "wasWrittenByStockhausen",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "Then you can write an \u009cif\u009d statement to see if this is True or not:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "bflat",
+        "type": "Title"
+    },
+    {
+        "text": "wasWrittenByStockhausen",
+        "type": "Title"
+    },
+    {
+        "text": "==",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "\"Hope you're enjoying Sirius!\"",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Hope",
+        "type": "Title"
+    },
+    {
+        "text": "you",
+        "type": "Title"
+    },
+    {
+        "text": "'re enjoying Sirius!",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Note that in the last line above you will need to put the spaces before\nthe \u009cprint\u009d command; Python uses spaces to keep track of what is inside\nof an if statement (or lots of other things) and what isn't.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "(If you don't get the Stockhausen joke, see: wikipedia . )",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Nothing will print for the note f since we set .wasWrittenByStockhausen\nto False:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "wasWrittenByStockhausen",
+        "type": "Title"
+    },
+    {
+        "text": "==",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "\"I love Helicopters!\"",
+        "type": "Title"
+    },
+    {
+        "text": "At this point you might be tired of all this programming and just want\nto see or play your damn note! If you've installed a MusicXML reader\nsuch as MuseScore, Finale, Sibelius, or Dorico, you can type:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "and see it. We make the default note length a quarter-note. We'll get to\nother note lengths in a minute. Notice that we put in a sensible clef\nalso, since otherwise you won't know that this note really is F5.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "If you want to hear it instead (and you're on Windows or Unix or an\nolder-Mac (10.5 or older)) type:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "'midi'",
+        "type": "Title"
+    },
+    {
+        "text": "You may need to wait a few seconds when hitting play if you're reading\nthese docs online since the \u009cgrand piano\u009d sound has to load and that's\nabout a megabyte long.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Maddeningly, Apple removed MIDI support in the version of QuickTime\n(QuickTime X) included in OS X 10.6 (Snow Leopard) and above (including\nMountain Lion), so you'll need to get the older QuickTime 7 from\nappleQuicktime to make that work. But as of OS X Catalina, even this no\nlonger works.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "When we typed f.octave we didn't put any parentheses after it, but\nwhen we call f.show() we always need to put parentheses after it,\neven if there's nothing in them (in which case, we'll use the default\n.show format, which is usually musicxml).",
+        "type": "NarrativeText"
+    },
+    {
+        "text": ".show() is what's called a method on the Note object, while\n.octave is an attribute. Think of methods as like verbs (\u009cO Note:\nshow thyself!\u009d) while attributes are like adjectives that describe the\nobject. All methods need to have parentheses after them and inside the\nparentheses you can usually put other things (\u009cparameters\u009d) that control\nhow to perform the action. For instance, let's create a new note, D\nby transposing our B-flat up a major-third (\u009cM3\u009d):",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "bflat",
+        "type": "Title"
+    },
+    {
+        "text": "transpose",
+        "type": "Title"
+    },
+    {
+        "text": "\"M3\"",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "bflat",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">",
+        "type": "ListItem"
+    },
+    {
+        "text": "Instead of changing the original note, the transpose() method\n\u009creturns\u009d (that is, spits out) a new note.Note object that\nrepresents the operation of transposing it up (or down if you want to\ntry \u009c-M3\u009d) a certain interval.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "If you want to change bflat itself, you can add \u009cinPlace = True\u009d to\nthe parameters of .transpose() separating it from the interval by a\ncomma. Let's take it up a perfect fourth:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "bflat",
+        "type": "Title"
+    },
+    {
+        "text": "transpose",
+        "type": "Title"
+    },
+    {
+        "text": "\"P4\"",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "bflat",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">",
+        "type": "ListItem"
+    },
+    {
+        "text": "Of course now bflat is a terrible name for our variable! You could\ntype \u009ceflat = bflat\u009d and now you can call the note eflat. But\nyou'll probably not need to do this too often. By the way, music21\nhandles some pretty wacky intervals, so if we go back to our variable\nd (which is still a d \u2014 transposing bflat in place didn't change\nit; they're not connected anymore, barely on speaking terms even), let's\ntranspose it up a doubly-diminished sixth:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "whatNoteIsThis",
+        "type": "Title"
+    },
+    {
+        "text": "transpose",
+        "type": "Title"
+    },
+    {
+        "text": "'dd6'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "whatNoteIsThis",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "--->",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "B-triple-flat! Haven't seen one of those in a while! Let's check that\nnote's .pitch.accidental.alter and its .pitch.accidental.name.\nThese are sub-sub-properties, meaning that they have three dots in them:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "whatNoteIsThis",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "accidental",
+        "type": "Title"
+    },
+    {
+        "text": "alter",
+        "type": "Title"
+    },
+    {
+        "text": "whatNoteIsThis.pitch.accidental.name",
+        "type": "ListItem"
+    },
+    {
+        "text": "3.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "whatNoteIsThis",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "accidental",
+        "type": "Title"
+    },
+    {
+        "text": "name",
+        "type": "Title"
+    },
+    {
+        "text": "'triple-flat'",
+        "type": "Title"
+    },
+    {
+        "text": "One last thing: not every note has an accidental. The d for instance\ndoesn't have one, so it returns None, which is a special value that\nputs nothing on the output.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "accidental",
+        "type": "Title"
+    },
+    {
+        "text": "If you want to be sure that it is None, you can print the value:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "accidental",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "Since d.accidental is None does this mean that\nd.accidental.name is None too?",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "accidental",
+        "type": "Title"
+    },
+    {
+        "text": "name",
+        "type": "Title"
+    },
+    {
+        "text": "---------------------------------------------------------------------------",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "AttributeError",
+        "type": "Title"
+    },
+    {
+        "text": "Traceback",
+        "type": "Title"
+    },
+    {
+        "text": "most",
+        "type": "Title"
+    },
+    {
+        "text": "recent",
+        "type": "Title"
+    },
+    {
+        "text": "call",
+        "type": "Title"
+    },
+    {
+        "text": "last",
+        "type": "Title"
+    },
+    {
+        "text": "ipython",
+        "type": "Title"
+    },
+    {
+        "text": "input",
+        "type": "Title"
+    },
+    {
+        "text": "39",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "f58fa9c100b",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "module",
+        "type": "Title"
+    },
+    {
+        "text": "---->",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "accidental",
+        "type": "Title"
+    },
+    {
+        "text": "name",
+        "type": "Title"
+    },
+    {
+        "text": "AttributeError",
+        "type": "Title"
+    },
+    {
+        "text": "'NoneType'",
+        "type": "Title"
+    },
+    {
+        "text": "object",
+        "type": "Title"
+    },
+    {
+        "text": "has",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "no",
+        "type": "Title"
+    },
+    {
+        "text": "attribute",
+        "type": "Title"
+    },
+    {
+        "text": "'name'",
+        "type": "Title"
+    },
+    {
+        "text": "Accidental",
+        "type": "Title"
+    },
+    {
+        "text": ".accidental",
+        "type": "Title"
+    },
+    {
+        "text": "NoneType",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "Accidental",
+        "type": "Title"
+    },
+    {
+        "text": "name",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": ".wasWrittenByStockhausen",
+        "type": "Title"
+    },
+    {
+        "text": "When you're just typing in IDLE or the command line, raising an\nException is no big deal, but when you're running a program, Exceptions\nwill usually cause the program to crash (i.e., stop working). So we try\nto make sure that our Notes actually have Accidentals before we\nprint the .accidental's name, and we do that by using another\nif statement:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "accidental",
+        "type": "Title"
+    },
+    {
+        "text": "is",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "not",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "accidental",
+        "type": "Title"
+    },
+    {
+        "text": "name",
+        "type": "Title"
+    },
+    {
+        "text": "This way is safer because we will only try to print\nd.pitch.accidental.name if d.pitch.accidental is not None.\nSince it is None in this case, Python will never try the second\nline (which would otherwise cause it to crash).",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "If for some reason d did not have .pitch, we would need to test\nto see if that was None before checking the subproperty to see if it\nhad an .pitch.accidental.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "This might be a good place to take a rest for a second. So make a\nRest:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Rest",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Be sure to put the \u009c()\u009d (double parentheses) signs after note.Rest\notherwise strange things will happen (technically you get a reference to\nthe class note.Rest, which will come in handy in about 10 chapters,\nbut not right now).",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "You can .show() it as a \u0098musicxml' file of course\u2026",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u2026but if you try to hear it as a \u0098midi' file, don't expect to be\noverwhelmed.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "A Rest is an object type that does not have .pitch on it, so\nnaturally it doesn't have .pitch.accidental either:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "---------------------------------------------------------------------------",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "AttributeError",
+        "type": "Title"
+    },
+    {
+        "text": "Traceback",
+        "type": "Title"
+    },
+    {
+        "text": "most",
+        "type": "Title"
+    },
+    {
+        "text": "recent",
+        "type": "Title"
+    },
+    {
+        "text": "call",
+        "type": "Title"
+    },
+    {
+        "text": "last",
+        "type": "Title"
+    },
+    {
+        "text": "ipython",
+        "type": "Title"
+    },
+    {
+        "text": "input",
+        "type": "Title"
+    },
+    {
+        "text": "43",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "38156",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "eec5526",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "module",
+        "type": "Title"
+    },
+    {
+        "text": "---->",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "AttributeError",
+        "type": "Title"
+    },
+    {
+        "text": "'Rest'",
+        "type": "Title"
+    },
+    {
+        "text": "object",
+        "type": "Title"
+    },
+    {
+        "text": "has",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "no",
+        "type": "Title"
+    },
+    {
+        "text": "attribute",
+        "type": "Title"
+    },
+    {
+        "text": "'pitch'",
+        "type": "Title"
+    },
+    {
+        "text": "One last thing: notice that we never used a variable name called\n\u009cnote\u009d to store a note.Note object. Don't do this. If you\ntype something like this (don't type this if you want to continue typing\nalong with the user guide):",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "\"C#3\"",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "note.Note",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "scale",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "clef",
+        "type": "Title"
+    },
+    {
+        "text": "myNote",
+        "type": "Title"
+    },
+    {
+        "text": "myClef",
+        "type": "Title"
+    },
+    {
+        "text": "Okay, now you have the basics of Note objects down, let's go on to\nChapter 3: Pitches and Durations.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 2: Notes",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

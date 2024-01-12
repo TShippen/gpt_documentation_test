@@ -1,0 +1,2990 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 19: Advanced Durations (Complex and Tuplets)",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide: Chapter 18: Intervals",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide, Chapter 20: Examples 2",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide, Chapter 19: Advanced Durations (Complex and Tuplets)\nTuplets\nUnlinking Durations\nDotGroups \u2014 a small digression from the Middle Ages\u2026\nDurations that take no time at all.\nComplex Durations\nSplitting and Tied objects:\nConclusion",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide\nUser's Guide: Table of Contents\nUser's Guide, Chapter 1: Installing and Getting Started with music21\nUser's Guide, Chapter 2: Notes\nUser's Guide, Chapter 3: Pitches, Durations, and Notes again\nUser's Guide, Chapter 4: Lists, Streams (I) and Output\nUser's Guide, Chapter 5: Lists of Lists, Functions, and Recursion\nUser's Guide, Chapter 6: Streams (II): Hierarchies, Recursion, and Flattening\nUser's Guide, Chapter 7: Chords\nUser's Guide, Chapter 8: Installing MusicXML Readers and File Formats (1)\nUser's Guide, Chapter 9: Chordify\nUser's Guide, Chapter 10: Examples 1\nUser's Guide, Chapter 11: Corpus Searching\nUser's Guide, Chapter 12: Getting Back to Basics: The Music21Object\nUser's Guide, Chapter 13: More Music21Object Attributes and Properties\nUser's Guide: Chapter 14: Time Signatures and Beats\nUser's Guide, Chapter 15: Keys and KeySignatures\nUser's Guide, Chapter 16: TinyNotation\nUser's Guide: Chapter 17: Derivations\nUser's Guide: Chapter 18: Intervals\nUser's Guide, Chapter 19: Advanced Durations (Complex and Tuplets)\nUser's Guide, Chapter 20: Examples 2\nUser's Guide, Chapter 21: Ordering and Sorting of Stream Elements\nUser's Guide, Chapter 22: Graphing and plotting\nUser's Guide, Chapter 23: Roman Numeral Analysis\nUser's Guide, Chapter 24: Configuring Environment Settings\nUser's Guide, Chapter 25: Post-Tonal Tools (1)\nUser's Guide, Chapter 26: Stream Iteration and Filtering\nUser's Guide, Chapter 27: Grace Notes\nUser's Guide, Chapter 28: Lyric Searching\nUser's Guide, Chapter 29: Spanners 1 (Slurs)\nUser's Guide, Chapter 30: Examples 3\nUser's Guide, Chapter 31: Clefs, Ties, and Beams\nUser's Guide, Chapter 32: Articulations\nUser's Guide, Chapter 44: Advanced Graphing (Axes, Plots, and Graphs)\nUser's Guide, Chapter 53: Advanced Corpus and Metadata Searching\nUser's Guide, Chapter 54: Extending Converter with New Formats\nUser's Guide, Chapter 55: Advanced Meter Topics\nUser's Guide, Chapter 58: Understanding Sites and Contexts\nUser's Guide, Chapter 61: TimespanTrees and Verticalities",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 19: Advanced Durations (Complex and Tuplets)\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "When last we encountered the Duration\nobject, it was Chapter 3, and we didn't know about Streams or any of a\nthousand other cool things that are now under our belts, so it seems a\ngood idea to get back to Duration objects and look in a bit more depth\nat how they work.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "We'll recall that one thing that all Music21Objects have a\nDuration object stored on their .duration attributes:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "from",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "import",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'C#4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "Duration",
+        "type": "Title"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u2026and that durations can be created directly:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "Duration",
+        "type": "Title"
+    },
+    {
+        "text": "4.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "Duration",
+        "type": "Title"
+    },
+    {
+        "text": "4.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u2026and that all durations have .type, .dots, and\n.quarterLength.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "Duration",
+        "type": "Title"
+    },
+    {
+        "text": "1.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "dots",
+        "type": "Title"
+    },
+    {
+        "text": "quarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "'quarter'",
+        "type": "Title"
+    },
+    {
+        "text": "1.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The standard type values range from tiny 2048th notes up through the\nimmense duplex-maxima:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "startType",
+        "type": "Title"
+    },
+    {
+        "text": "'2048th'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "try",
+        "type": "Title"
+    },
+    {
+        "text": "while",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "startType",
+        "type": "Title"
+    },
+    {
+        "text": "end",
+        "type": "Title"
+    },
+    {
+        "text": "\", \"",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "startType",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "nextLargerType",
+        "type": "Title"
+    },
+    {
+        "text": "startType",
+        "type": "Title"
+    },
+    {
+        "text": "except",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "DurationException",
+        "type": "Title"
+    },
+    {
+        "text": "pass",
+        "type": "Title"
+    },
+    {
+        "text": "2048",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "th",
+        "type": "Title"
+    },
+    {
+        "text": "1024",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "th",
+        "type": "Title"
+    },
+    {
+        "text": "512",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "th",
+        "type": "Title"
+    },
+    {
+        "text": "256",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "th",
+        "type": "Title"
+    },
+    {
+        "text": "128",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "th",
+        "type": "Title"
+    },
+    {
+        "text": "64",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "th",
+        "type": "Title"
+    },
+    {
+        "text": "32",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "nd",
+        "type": "Title"
+    },
+    {
+        "text": "16",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "th",
+        "type": "Title"
+    },
+    {
+        "text": "eighth",
+        "type": "Title"
+    },
+    {
+        "text": "quarter",
+        "type": "Title"
+    },
+    {
+        "text": "half",
+        "type": "Title"
+    },
+    {
+        "text": "whole",
+        "type": "Title"
+    },
+    {
+        "text": "breve",
+        "type": "Title"
+    },
+    {
+        "text": "longa",
+        "type": "Title"
+    },
+    {
+        "text": "maxima",
+        "type": "Title"
+    },
+    {
+        "text": "duplex",
+        "type": "Title"
+    },
+    {
+        "text": "maxima",
+        "type": "Title"
+    },
+    {
+        "text": "The number of dots is limited only by your own imagination (or the limit\nof expressibility of your computer):",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "dots",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "range",
+        "type": "Title"
+    },
+    {
+        "text": "12",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "dots",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "Duration",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "'quarter'",
+        "type": "Title"
+    },
+    {
+        "text": "dots",
+        "type": "Title"
+    },
+    {
+        "text": "dots",
+        "type": "Title"
+    },
+    {
+        "text": "))",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "Duration",
+        "type": "Title"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "Duration",
+        "type": "Title"
+    },
+    {
+        "text": "1.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "Duration",
+        "type": "Title"
+    },
+    {
+        "text": "1.75",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "Duration",
+        "type": "Title"
+    },
+    {
+        "text": "1.875",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "Duration",
+        "type": "Title"
+    },
+    {
+        "text": "1.9375",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "Duration",
+        "type": "Title"
+    },
+    {
+        "text": "1.96875",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "Duration",
+        "type": "Title"
+    },
+    {
+        "text": "1.984375",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "Duration",
+        "type": "Title"
+    },
+    {
+        "text": "1.9921875",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "Duration",
+        "type": "Title"
+    },
+    {
+        "text": "1.99609375",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "Duration",
+        "type": "Title"
+    },
+    {
+        "text": "1.998046875",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "10",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "Duration",
+        "type": "Title"
+    },
+    {
+        "text": "1.9990234375",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "11",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "Duration",
+        "type": "Title"
+    },
+    {
+        "text": "1.99951171875",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "For the very curious, try setting the number of dots to float('inf')\nand seeing what happens to type, dots, and quarterLength. (A\nlittle Easter egg\u2026)",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "A lot of Duration values can be expressed with all these types and dots,\nbut not all of them. We can get some more by moving on to Tuplets.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Tuplets\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Tuplets, such as triplets, can be set by giving a fraction or close\napproximation to a fraction as a quarter length:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "Duration",
+        "type": "Title"
+    },
+    {
+        "text": "0.3333333333333",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "Duration",
+        "type": "Title"
+    },
+    {
+        "text": "The quarterLength of a duration such as this will be expresssed as a\nfractions.Fraction class:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "quarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "Fraction",
+        "type": "Title"
+    },
+    {
+        "text": "This can be converted to a floating point approximate representation by\nwrapping it in the float() function:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "float",
+        "type": "Title"
+    },
+    {
+        "text": "quarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "0.3333333333333333",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "We can check that this duration represents a triplet by looking at the\n.fullName property of the duration:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "fullName",
+        "type": "Title"
+    },
+    {
+        "text": "'Eighth Triplet (1/3 QL)'",
+        "type": "Title"
+    },
+    {
+        "text": "But where is the information about the triplet stored? It's not in the\ntype or dots:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "dots",
+        "type": "Title"
+    },
+    {
+        "text": "'eighth'",
+        "type": "Title"
+    },
+    {
+        "text": "Instead it's to be found in the .tuplets property:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "tuplets",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "Tuplet",
+        "type": "Title"
+    },
+    {
+        "text": "eighth",
+        "type": "Title"
+    },
+    {
+        "text": ",)",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "One thing that we learn from the property is that there's a separate\nclass that defines tuplets, the duration.Tuplet class. Let's look at\nwhat it can do. We can create a simple Tuplet by passing in the number\nof notes to be played in the place of another note. For instance, a\n5-in-the-place-of-4 Tuplet is created like this:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "fiveInFour",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "Tuplet",
+        "type": "Title"
+    },
+    {
+        "text": "fiveInFour",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "Tuplet",
+        "type": "Title"
+    },
+    {
+        "text": "Each Duration that has a 5:4 tuplet applied to it will be 4/5ths as long\nas it would be without it. I know this by querying the\n.tupletMultiplier() method",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "fiveInFour",
+        "type": "Title"
+    },
+    {
+        "text": "tupletMultiplier",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Fraction",
+        "type": "Title"
+    },
+    {
+        "text": "At this point, the tuplet represents any 5:4 tuplet \u2014 whether 5 quarters\nin the place of 4 quarters, or 5 16ths in the place of 4 16ths. If it's\nimportant to know that this represents 5 eighths in the place of 4\neighths, we can call setDurationType():",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "fiveInFour",
+        "type": "Title"
+    },
+    {
+        "text": "setDurationType",
+        "type": "Title"
+    },
+    {
+        "text": "'eighth'",
+        "type": "Title"
+    },
+    {
+        "text": "Now we can ask how many quarter notes (i.e., what quarterLength) will be\nnecessary to fulfill the promise of the tuplet:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "fiveInFour",
+        "type": "Title"
+    },
+    {
+        "text": "totalTupletLength",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "This changes if we change the durationType. Let's say that it's five\ndotted quarters in the place of four dotted quarters:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "fiveInFour",
+        "type": "Title"
+    },
+    {
+        "text": "setDurationType",
+        "type": "Title"
+    },
+    {
+        "text": "'quarter'",
+        "type": "Title"
+    },
+    {
+        "text": "dots",
+        "type": "Title"
+    },
+    {
+        "text": "fiveInFour",
+        "type": "Title"
+    },
+    {
+        "text": "totalTupletLength",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "6.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "We can also create tuplets that represent unusual cases, such as 11\nsixteenth-notes in the place of one doubly-dotted quarter note:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "oddTuplet",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "Tuplet",
+        "type": "Title"
+    },
+    {
+        "text": "11",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "oddTuplet",
+        "type": "Title"
+    },
+    {
+        "text": "durationActual",
+        "type": "Title"
+    },
+    {
+        "text": "'16th'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "oddTuplet",
+        "type": "Title"
+    },
+    {
+        "text": "durationNormal",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "Duration",
+        "type": "Title"
+    },
+    {
+        "text": "'quarter'",
+        "type": "Title"
+    },
+    {
+        "text": "dots",
+        "type": "Title"
+    },
+    {
+        "text": "oddTuplet",
+        "type": "Title"
+    },
+    {
+        "text": "totalTupletLength",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "1.75",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "oddTuplet",
+        "type": "Title"
+    },
+    {
+        "text": "tupletMultiplier",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Fraction",
+        "type": "Title"
+    },
+    {
+        "text": "11",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Okay, let's get back to simpler tuplets. Like our 3:2 triplet.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Tuplets have a .type which is usually None:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "trip",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "Tuplet",
+        "type": "Title"
+    },
+    {
+        "text": "trip",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "is",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "the .type will be \u009cstart\u009d if music21 or a user of it has\ndetermined that this tuplet begins a tuplet bracket or grouping. It will\nbe \u009cstop\u009d if it ends a grouping, and it'll be startStop if it's an\nisolated tuplet that both begins and ends a grouping. None means that no\ndetermination has been made about whether this is the beginning, middle,\nor end of a bracket. (Eventually we will support False to mean do\nnot end a bracket here in any case).",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Of course a bracket will only be drawn if you want one, which means that\n.bracket needs to be True.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "trip",
+        "type": "Title"
+    },
+    {
+        "text": "bracket",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "And we'll need to know what should go in the bracket. Usually, we just\nwant the number \u009c3\u009d to go in the bracket:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "trip",
+        "type": "Title"
+    },
+    {
+        "text": "tupletActualShow",
+        "type": "Title"
+    },
+    {
+        "text": "trip",
+        "type": "Title"
+    },
+    {
+        "text": "tupletNormalShow",
+        "type": "Title"
+    },
+    {
+        "text": "'number'",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "If we wanted \u009c3:2\u009d then we'd set \u009ctrip.tupletNormalShow\u009d to \u009cnumber\u009d.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "Duration",
+        "type": "Title"
+    },
+    {
+        "text": "2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "3.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "tuplets",
+        "type": "Title"
+    },
+    {
+        "text": "tupletNormalShow",
+        "type": "Title"
+    },
+    {
+        "text": "'number'",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Stream",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "repeatAppend",
+        "type": "Title"
+    },
+    {
+        "text": "insert",
+        "type": "Title"
+    },
+    {
+        "text": "meter",
+        "type": "Title"
+    },
+    {
+        "text": "TimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "'2/4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "))",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "We can also set it to \u009ctype\u009d or \u009cboth\u009d to add the note shape to the\nbracket, but unfortunately, no MusicXML client yet supports this display\non input or output.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Now we're ready to return to the Duration class. Since the\n.tuplets property returns a tuple (appropriately enough), it's not\nsomething that can be manipulated directly. To add a tuplet to an\nexisting duration, use the .appendTuplet(t) method:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "Tuplet",
+        "type": "Title"
+    },
+    {
+        "text": "setDurationType",
+        "type": "Title"
+    },
+    {
+        "text": "'16th'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "Duration",
+        "type": "Title"
+    },
+    {
+        "text": "'16th'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "appendTuplet",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'E-4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Stream",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "repeatAppend",
+        "type": "Title"
+    },
+    {
+        "text": "20",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Once a Tuplet is appended to a Duration, it becomes \u009cfrozen\u009d and\nno further changes to its duration can be set (though its .type and\ndisplay styles can still be changed). This is to prevent changes to the\nduration that won't be reflected in the Duration object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "frozen",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "Nested tuplets can be created by adding more than one tuplet to the\nduration:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "import",
+        "type": "Title"
+    },
+    {
+        "text": "copy",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Stream",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "repeatAppend",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "(),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "t32h",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "Tuplet",
+        "type": "Title"
+    },
+    {
+        "text": "'half'",
+        "type": "Title"
+    },
+    {
+        "text": "t54q",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "Tuplet",
+        "type": "Title"
+    },
+    {
+        "text": "'quarter'",
+        "type": "Title"
+    },
+    {
+        "text": "n1",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "n1",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "'half'",
+        "type": "Title"
+    },
+    {
+        "text": "n1",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "appendTuplet",
+        "type": "Title"
+    },
+    {
+        "text": "copy",
+        "type": "Title"
+    },
+    {
+        "text": "deepcopy",
+        "type": "Title"
+    },
+    {
+        "text": "t32h",
+        "type": "Title"
+    },
+    {
+        "text": "))",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "n1",
+        "type": "Title"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "range",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "61",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "'quarter'",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "appendTuplet",
+        "type": "Title"
+    },
+    {
+        "text": "copy",
+        "type": "Title"
+    },
+    {
+        "text": "deepcopy",
+        "type": "Title"
+    },
+    {
+        "text": "t32h",
+        "type": "Title"
+    },
+    {
+        "text": "))",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "appendTuplet",
+        "type": "Title"
+    },
+    {
+        "text": "copy",
+        "type": "Title"
+    },
+    {
+        "text": "deepcopy",
+        "type": "Title"
+    },
+    {
+        "text": "t54q",
+        "type": "Title"
+    },
+    {
+        "text": "))",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "notes",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "tuplets",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "'start'",
+        "type": "Title"
+    },
+    {
+        "text": "notes",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "tuplets",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "'start'",
+        "type": "Title"
+    },
+    {
+        "text": "notes",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "tuplets",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "'stop'",
+        "type": "Title"
+    },
+    {
+        "text": "notes",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "tuplets",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "'stop'",
+        "type": "Title"
+    },
+    {
+        "text": "repeatAppend",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'G4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "For nested tuplets, it's important to explicitly state where tuplet\nbrackets start and stop. As you can see from the output, MusicXML\nrendering of Nested tuplets is still hard for our partners at MuseScore\nwhich generated the image above (Finale renders a \u20145\u2014 bracket around the\nfive quarter notes. However, MIDI rendering is correct:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "'midi'",
+        "type": "Title"
+    },
+    {
+        "text": "The effect of any set of tuplets on the overall duration of a note can\nbe found through the .aggregateTupletMultiplier() method:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "Duration",
+        "type": "Title"
+    },
+    {
+        "text": "'half'",
+        "type": "Title"
+    },
+    {
+        "text": "appendTuplet",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "Tuplet",
+        "type": "Title"
+    },
+    {
+        "text": "))",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "appendTuplet",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "Tuplet",
+        "type": "Title"
+    },
+    {
+        "text": "))",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "aggregateTupletMultiplier",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Fraction",
+        "type": "Title"
+    },
+    {
+        "text": "10",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "21",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Unlinking Durations\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Each Duration object has four essential pieces of information, the\ntype (whole, 16th, breve, etc.), the number of dots (or\ndotGroups, discussed below), a list of zero or more tuplets, and the\noverall length of the duration (.quarterLength). Generally speaking,\nchanging one of these pieces of information changes the one or more of\nthe others:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "Duration",
+        "type": "Title"
+    },
+    {
+        "text": "3.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "dots",
+        "type": "Title"
+    },
+    {
+        "text": "tuplets",
+        "type": "Title"
+    },
+    {
+        "text": "quarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "'half'",
+        "type": "Title"
+    },
+    {
+        "text": "(),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "3.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "quarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "=",
+        "type": "ListItem"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "dots",
+        "type": "Title"
+    },
+    {
+        "text": "tuplets",
+        "type": "Title"
+    },
+    {
+        "text": "quarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "'half'",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "Tuplet",
+        "type": "Title"
+    },
+    {
+        "text": "half",
+        "type": "Title"
+    },
+    {
+        "text": ",),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Fraction",
+        "type": "Title"
+    },
+    {
+        "text": "12",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "))",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "Versions of music21 prior to v.6 would have called this a\n5-in-the-place-of-3 whole note without a dot, which\na bit of scratching the head math will confirm is also valid.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "'16th'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "dots",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "dots",
+        "type": "Title"
+    },
+    {
+        "text": "tuplets",
+        "type": "Title"
+    },
+    {
+        "text": "quarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "'16th'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "Tuplet",
+        "type": "Title"
+    },
+    {
+        "text": "half",
+        "type": "Title"
+    },
+    {
+        "text": ",),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Fraction",
+        "type": "Title"
+    },
+    {
+        "text": "20",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "))",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "However, there are times when we might want to separate one piece of\ninformation separate from another. For instance, in some\npieces,\nBrahms uses a dotted half note to mean a note that is eleven\nsixteenth-notes long, rather than twelve. We can represent this in\nmusic21 by setting up the type and dots and then setting\nDuration.linked to False.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "Duration",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "'half'",
+        "type": "Title"
+    },
+    {
+        "text": "dots",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "dots",
+        "type": "Title"
+    },
+    {
+        "text": "quarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "'half'",
+        "type": "Title"
+    },
+    {
+        "text": "3.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "linked",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "linked",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "quarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "11",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "dots",
+        "type": "Title"
+    },
+    {
+        "text": "quarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "'half'",
+        "type": "Title"
+    },
+    {
+        "text": "2.75",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "In theory, the musicXML spec allows us to preserve such note lengths in\nnotation, but in practice no notation software will support this,\ncorrecting the error in the difference between .quarterLength (in\nMusicXML divisions) and type:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Rest",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "'16th'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Stream",
+        "type": "Title"
+    },
+    {
+        "text": "([",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "meter",
+        "type": "Title"
+    },
+    {
+        "text": "TimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "'3/4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "])",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "(but the output looks good for a single note.)",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Unlinked durations come in handy if, for instance, we're parsing in\nnotes from MIDI or an audio file and we want to retain the exact\nquarterLength duration (or set qtr=60 and just store the number of\nseconds) but have type that represents the closest notateable type.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "DotGroups \u2014 a small digression from the Middle Ages\u2026\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "There's actually one more thing that durations store, and it's a little\nbit silly for most uses, but reflects music21's commitment to\nbeing able to represent all the music that's been notated over time. In\nthe Middle Ages, it was common to have notes that were worth 9 or 27\ntimes smaller note values. In modern transcriptions, a note worth 9\neighth notes is often notated as a dotted-dotted half note, that is to\nsay, a dotted half note which is itself dotted (or 1.5x the length of a\ndotted half note). See the second example from my blog post about\ndots.\nThese dotted-dotted notes are represented by \u009cdotGroups\u009d in music21,\nwhich is a list of the number of dots at each level of dotting. For\ninstance:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'C5'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "'half'",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "dotGroups",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Since no current MusicXML readers support dot groups, they are\nrepresented by the closest acceptable notation unit, respecting the fact\nthat they are essentially dotted-dotted notes.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Durations that take no time at all.\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Among the duration types, such as \u0098half', \u0098whole', etc. there's one\nstrange type called \u009czero\u009d. Durations with type \u009czero\u009d measure\nobjects that don't have any length at all. It's used for measuring the\nconceptual length of grace notes, spaceless objects like Clefs, Liz\nTaylor's marriages, etc.:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "KeySignature",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "Duration",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "'zero'",
+        "type": "Title"
+    },
+    {
+        "text": "We will talk more about zero-duration objects when we get to Grace Notes\nin Chapter 27.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Complex Durations\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Counting notes isn't as easy as we might think. For instance, listen to\nthis little \u009cpiece\u009d:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Stream",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "meter",
+        "type": "Title"
+    },
+    {
+        "text": "TimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "'5/4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "))",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'C4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "quarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "2.25",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "))",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'C#4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "quarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "2.75",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "))",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "'midi'",
+        "type": "Title"
+    },
+    {
+        "text": "That sounds like it has two notes in it to me! But look at the best\nrepresentation of it on a page:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Now it looks like it has four notes in it! Which number is right? It\ndepends on what is most important to you. Sometimes you will want to\nwork with the specific graphical symbols on the page. Sometimes you only\ncare about the number of distinct sounds. And quite often you'll want to\nchange from one representation to another within the same analysis task.\nMusic21 makes moving between these two representations possible and\nafter a while quite simple using the concepts of ties and complex\ndurations.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Complex Durations are those that can't be expressed easily as a\nsingle written Note on a page. For instance, a Note lasting a\nhalf-note plus a sixteenth-note can't be written as a single Note\ngraphic, but it's perfectly fine to use as a quarterLength.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "oddDuration",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "Duration",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "oddDuration",
+        "type": "Title"
+    },
+    {
+        "text": "quarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "2.25",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The type for these odd values is called \u009ccomplex\u009d:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "oddDuration",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "'complex'",
+        "type": "Title"
+    },
+    {
+        "text": "Complex types have multiple \u009cDurationTuple\u009d objects in .components\nthat represent the smaller, simple durations that make up the entire\nDuration:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "oddDuration",
+        "type": "Title"
+    },
+    {
+        "text": "components",
+        "type": "Title"
+    },
+    {
+        "text": "DurationTuple",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "'half'",
+        "type": "Title"
+    },
+    {
+        "text": "dots",
+        "type": "Title"
+    },
+    {
+        "text": "quarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "DurationTuple",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "'16th'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "dots",
+        "type": "Title"
+    },
+    {
+        "text": "quarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "0.25",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "))",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Some durations have multiple components even though they might not need\nthem:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "Duration",
+        "type": "Title"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "addDurationTuple",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "DurationTuple",
+        "type": "Title"
+    },
+    {
+        "text": "'eighth'",
+        "type": "Title"
+    },
+    {
+        "text": "0.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "))",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "components",
+        "type": "Title"
+    },
+    {
+        "text": "DurationTuple",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "'quarter'",
+        "type": "Title"
+    },
+    {
+        "text": "dots",
+        "type": "Title"
+    },
+    {
+        "text": "quarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "DurationTuple",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "'eighth'",
+        "type": "Title"
+    },
+    {
+        "text": "dots",
+        "type": "Title"
+    },
+    {
+        "text": "quarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "0.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "))",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "'complex'",
+        "type": "Title"
+    },
+    {
+        "text": "For these durations, there's a method called .consolidate() that\nwill put both of these components together into one component. In this\ncase, it's a nice dotted quarter note:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "consolidate",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "dots",
+        "type": "Title"
+    },
+    {
+        "text": "quarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "'quarter'",
+        "type": "Title"
+    },
+    {
+        "text": "1.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "components",
+        "type": "Title"
+    },
+    {
+        "text": "DurationTuple",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "'quarter'",
+        "type": "Title"
+    },
+    {
+        "text": "dots",
+        "type": "Title"
+    },
+    {
+        "text": "quarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "1.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "),)",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "However, forcing something that really should have multiple components\ninto one creates an \u009cinexpressible\u009d type that can't be outputted to most\nformats:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "Duration",
+        "type": "Title"
+    },
+    {
+        "text": "5.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "consolidate",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "'inexpressible'",
+        "type": "Title"
+    },
+    {
+        "text": "components",
+        "type": "Title"
+    },
+    {
+        "text": "DurationTuple",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "'inexpressible'",
+        "type": "Title"
+    },
+    {
+        "text": "dots",
+        "type": "Title"
+    },
+    {
+        "text": "quarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "5.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "),)",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "To fix this situation, the easiest thing to do is just to assign the\nduration its own quarterLength.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "quarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "quarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "components",
+        "type": "Title"
+    },
+    {
+        "text": "DurationTuple",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "'whole'",
+        "type": "Title"
+    },
+    {
+        "text": "dots",
+        "type": "Title"
+    },
+    {
+        "text": "quarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "4.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "DurationTuple",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "'quarter'",
+        "type": "Title"
+    },
+    {
+        "text": "dots",
+        "type": "Title"
+    },
+    {
+        "text": "quarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "))",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Splitting and Tied objects:\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "In the last section we ended up with a Duration object with two\ncomponents, a whole-note's duration and a quarter-note's duration. We\ncan conceive of either one note having this duration, or two notes with\nthis duration that are tied together. Let's look at how to move from one\nview to another, first by attaching the duration to a note.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'F#4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Now let's split this Note according to its component durations using the\nsplitAtDurations() method found on\nevery Music21Object.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "split",
+        "type": "Title"
+    },
+    {
+        "text": "splitAtDurations",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "split",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#>, <music21.note.Note F#>)",
+        "type": "Title"
+    },
+    {
+        "text": "subNote",
+        "type": "Title"
+    },
+    {
+        "text": "quarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "subNote",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "split",
+        "type": "Title"
+    },
+    {
+        "text": "4.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "So now instead of one note with the duration of 5.0 quarter notes, we\nhave two notes, one which is a whole note and the other which is a\nquarter note. If we put both of them into a stream, we can see how they\nlook:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Stream",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "split",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Notice the one subtle difference between the two representations. In the\nsecond case, since there were two notes (and not explicit time\nsignatures), the Stream was allowed to split the notes into two measures\nin order to use the more common time signature of 4/4.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "But how does the Stream know that the two notes should have a tie\nconnecting them? The answer is that splitAtDurations sets the\n.tie attribute on each of the notes:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "split",
+        "type": "Title"
+    },
+    {
+        "text": "tie",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "tie",
+        "type": "Title"
+    },
+    {
+        "text": "Tie",
+        "type": "Title"
+    },
+    {
+        "text": "start",
+        "type": "Title"
+    },
+    {
+        "text": "split",
+        "type": "Title"
+    },
+    {
+        "text": "tie",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "tie",
+        "type": "Title"
+    },
+    {
+        "text": "Tie",
+        "type": "Title"
+    },
+    {
+        "text": "stop",
+        "type": "Title"
+    },
+    {
+        "text": "We will learn more about Ties in\nChapter 31, Clefs, Ties, and Beams.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "When splitting an object such as a Rest that\ndoesn't use ties, music21 is smart enough not to add ties:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Rest",
+        "type": "Title"
+    },
+    {
+        "text": "quarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "2.25",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Stream",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "splitAtDurations",
+        "type": "Title"
+    },
+    {
+        "text": "())",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Conclusion\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "In this chapter we learned many of the advanced features of durations,\nsuch as how they can be composed of multiple components called\nDurationTuples, how triplets and other tuplets work, how durations\ncan be linked or unlinked, and how splitting a Note or other object\nworks.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "It's been a while since we've put all our knowledge to work, so in\nChapter 20, Examples 2 we'll\nconsolidate our knowledge in the service of analysis.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 19: Advanced Durations (Complex and Tuplets)",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

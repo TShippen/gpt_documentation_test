@@ -1,0 +1,338 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.analysis.enharmonics",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.analysis.elements",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.analysis.floatingKey",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.analysis.enharmonics\nChordEnharmonicScoreRules\nChordEnharmonicScoreRules\n\n\nEnharmonicScoreRules\nEnharmonicScoreRules\n\n\nEnharmonicSimplifier\nEnharmonicSimplifier\nEnharmonicSimplifier.bestPitches()\nEnharmonicSimplifier.getAlterationScore()\nEnharmonicSimplifier.getAugDimScore()\nEnharmonicSimplifier.getMixSharpFlatsScore()\nEnharmonicSimplifier.getProduct()\nEnharmonicSimplifier.getRepresentations()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.analysis.enharmonics\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "ChordEnharmonicScoreRules\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.analysis.enharmonics.",
+        "type": "Title"
+    },
+    {
+        "text": "ChordEnharmonicScoreRules",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "ChordEnharmonicScoreRules bases",
+        "type": "Title"
+    },
+    {
+        "text": "EnharmonicScoreRules",
+        "type": "ListItem"
+    },
+    {
+        "text": "EnharmonicScoreRules\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.analysis.enharmonics.",
+        "type": "Title"
+    },
+    {
+        "text": "EnharmonicScoreRules",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "EnharmonicSimplifier\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.analysis.enharmonics.",
+        "type": "Title"
+    },
+    {
+        "text": "EnharmonicSimplifier",
+        "type": "Title"
+    },
+    {
+        "text": "pitchList",
+        "type": "Title"
+    },
+    {
+        "text": "ruleClass=<class 'music21.analysis.enharmonics.EnharmonicScoreRules'>",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Takes any pitch list input and returns the best enharmonic respelling according to the input\ncriteria and rule weightings.\nThose criteria and rule weightings are currently fixed, but in future the user should be able\nto select their own combination and weighting of rules according to preferences,\nwith predefined defaults for melodic and harmonic norms.\nNote: EnharmonicSimplifier itself returns nothing.",
+        "type": "ListItem"
+    },
+    {
+        "text": "EnharmonicSimplifier methods",
+        "type": "Title"
+    },
+    {
+        "text": "EnharmonicSimplifier.",
+        "type": "Title"
+    },
+    {
+        "text": "bestPitches",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns a list of pitches in the best enharmonic\nspelling according to the input criteria.\n>>> pList1 = [pitch.Pitch('C'), pitch.Pitch('D'), pitch.Pitch('E')]\n>>> es = analysis.enharmonics.EnharmonicSimplifier(pList1)\n>>> es.bestPitches()\n(<music21.pitch.Pitch C>, <music21.pitch.Pitch D>, <music21.pitch.Pitch E>)\n>>> pList2 = ['D--', 'E', 'F##']\n>>> es = analysis.enharmonics.EnharmonicSimplifier(pList2)\n>>> es.bestPitches()\n(<music21.pitch.Pitch C>, <music21.pitch.Pitch E>, <music21.pitch.Pitch G>)",
+        "type": "ListItem"
+    },
+    {
+        "text": "EnharmonicSimplifier.",
+        "type": "Title"
+    },
+    {
+        "text": "getAlterationScore",
+        "type": "Title"
+    },
+    {
+        "text": "possibility",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns a score according to the number of sharps and flats in a possible spelling.\nThe score is the sum of the flats and sharps + 1, multiplied by the alterationPenalty.",
+        "type": "ListItem"
+    },
+    {
+        "text": "EnharmonicSimplifier.",
+        "type": "Title"
+    },
+    {
+        "text": "getAugDimScore",
+        "type": "Title"
+    },
+    {
+        "text": "possibility",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns a score based on the number of augmented and diminished intervals between\nsuccessive pitches in the given spelling.",
+        "type": "ListItem"
+    },
+    {
+        "text": "EnharmonicSimplifier.",
+        "type": "Title"
+    },
+    {
+        "text": "getMixSharpFlatsScore",
+        "type": "Title"
+    },
+    {
+        "text": "possibility",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns a score based on the mixture of sharps and flats in a possible spelling:\nthe score is given by the number of the lesser used accidental (sharps or flats)\nmultiplied by the mixSharpsFlatsPenalty.",
+        "type": "ListItem"
+    },
+    {
+        "text": "EnharmonicSimplifier.",
+        "type": "Title"
+    },
+    {
+        "text": "getProduct",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "EnharmonicSimplifier.",
+        "type": "Title"
+    },
+    {
+        "text": "getRepresentations",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Takes a list of pitches or pitch names and retrieves all enharmonic spellings.\nNote: getRepresentations itself returns nothing.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.analysis.enharmonics",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

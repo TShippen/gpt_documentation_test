@@ -1,0 +1,1002 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.variant",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.tree.verticality",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.vexflow.toMusic21j",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.variant\nVariant\nVariant\nVariant.containedHighestOffset\nVariant.containedHighestTime\nVariant.containedSite\nVariant.highestOffset\nVariant.highestTime\nVariant.lengthType\nVariant.replacementDuration\nVariant.__getitem__()\nVariant.getElementIds()\nVariant.purgeLocations()\nVariant.purgeOrphans()\nVariant.removeReplacedElementsFromStream()\nVariant.replaceElement()\nVariant.replacedElements()\nVariant.show()\n\n\n\n\nFunctions\naddVariant()\ngetMeasureHashes()\nmakeAllVariantsReplacements()\nmakeVariantBlocks()\nmergePartAsOssia()\nmergeVariantMeasureStreams()\nmergeVariantScores()\nmergeVariants()\nmergeVariantsEqualDuration()\nrefineVariant()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.variant\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Contains Variant and its subclasses, as well as functions for merging\nand showing different variant streams. These functions and the variant class should only be\nused when variants of a score are the same length and contain the same measure structure at\nthis time.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Variant\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.variant.",
+        "type": "Title"
+    },
+    {
+        "text": "Variant",
+        "type": "Title"
+    },
+    {
+        "text": "givenElements",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "Music21Object",
+        "type": "Title"
+    },
+    {
+        "text": "Sequence",
+        "type": "Title"
+    },
+    {
+        "text": "Music21Object",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "name",
+        "type": "Title"
+    },
+    {
+        "text": "str | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "givenElementsBehavior",
+        "type": "Title"
+    },
+    {
+        "text": "GivenElementsBehavior",
+        "type": "Title"
+    },
+    {
+        "text": "GivenElementsBehavior.OFFSETS",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21ObjectKeywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A Music21Object that stores elements like a Stream, but does not\nrepresent itself externally to a Stream; i.e., the contents of a Variant are not flattened.\nThis is accomplished not by subclassing, but by object composition: similar to the Spanner,\nthe Variant contains a Stream as a private attribute. Calls to this Stream, for the Variant,\nare automatically delegated by use of the __getattr__ method. Special cases are overridden\nor managed as necessary: e.g., the Duration of a Variant is generally always zero.\nTo use Variants from a Stream, see the activateVariants() method.\n>>> v = variant.Variant()\n>>> v.repeatAppend(note.Note(), 8)\n>>> len(v.notes)\n8\n>>> v.highestTime\n0.0\n>>> v.containedHighestTime\n8.0\n\n\n>>> v.duration  # handled by Music21Object\n<music21.duration.Duration 0.0>\n>>> v.isStream\nFalse\n\n\n>>> s = stream.Stream()\n>>> s.append(v)\n>>> s.append(note.Note())\n>>> s.highestTime\n1.0\n>>> s.show('t')\n{0.0} <music21.variant.Variant object of length 8.0>\n{0.0} <music21.note.Note C>\n>>> s.flatten().show('t')\n{0.0} <music21.variant.Variant object of length 8.0>\n{0.0} <music21.note.Note C>",
+        "type": "ListItem"
+    },
+    {
+        "text": "Variant bases",
+        "type": "Title"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "Variant read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Variant.",
+        "type": "Title"
+    },
+    {
+        "text": "containedHighestOffset",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "This property calls the contained Stream.highestOffset.\n>>> v = variant.Variant()\n>>> v.append(note.Note(quarterLength=4))\n>>> v.append(note.Note())\n>>> v.containedHighestOffset\n4.0",
+        "type": "ListItem"
+    },
+    {
+        "text": "Variant.",
+        "type": "Title"
+    },
+    {
+        "text": "containedHighestTime",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "This property calls the contained Stream.highestTime.\n>>> v = variant.Variant()\n>>> v.append(note.Note(quarterLength=4))\n>>> v.containedHighestTime\n4.0",
+        "type": "ListItem"
+    },
+    {
+        "text": "Variant.",
+        "type": "Title"
+    },
+    {
+        "text": "containedSite",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return the Stream contained in this Variant.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Variant.",
+        "type": "Title"
+    },
+    {
+        "text": "highestOffset",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "This property masks calls to Stream.highestOffset. Assuming exposeTime\nis False, this always returns zero, making the Variant always take zero time.\n>>> v = variant.Variant()\n>>> v.append(note.Note(quarterLength=4))\n>>> v.highestOffset\n0.0",
+        "type": "ListItem"
+    },
+    {
+        "text": "Variant.",
+        "type": "Title"
+    },
+    {
+        "text": "highestTime",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "This property masks calls to Stream.highestTime. Assuming exposeTime\nis False, this always returns zero, making the Variant always take zero time.\n>>> v = variant.Variant()\n>>> v.append(note.Note(quarterLength=4))\n>>> v.highestTime\n0.0",
+        "type": "ListItem"
+    },
+    {
+        "text": "Variant.",
+        "type": "Title"
+    },
+    {
+        "text": "lengthType",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns \u0098deletion' if variant is shorter than the region it replaces, \u0098elongation'\nif the variant is longer than the region it replaces, and \u0098replacement' if it is\nthe same length.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "Variant read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Variant.",
+        "type": "Title"
+    },
+    {
+        "text": "replacementDuration",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Set or Return the quarterLength duration in the main stream which this variant\nobject replaces in the variant version of the stream. If replacementDuration is\nnot set, it is assumed to be the same length as the variant. If, it is set to 0,\nthe variant should be interpreted as an insertion. Setting replacementDuration\nto None will return the value to the default which is the duration of the variant\nitself.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "Variant methods",
+        "type": "Title"
+    },
+    {
+        "text": "Variant.",
+        "type": "Title"
+    },
+    {
+        "text": "__getitem__",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "Variant.",
+        "type": "Title"
+    },
+    {
+        "text": "getElementIds",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "Variant.",
+        "type": "Title"
+    },
+    {
+        "text": "purgeLocations",
+        "type": "Title"
+    },
+    {
+        "text": "rescanIsDead",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Remove references to all locations in objects that no longer exist.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Variant.",
+        "type": "Title"
+    },
+    {
+        "text": "purgeOrphans",
+        "type": "Title"
+    },
+    {
+        "text": "excludeStorageStreams",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A Music21Object may, due to deep copying or other reasons,\nhave a site (with an offset) which\nno longer contains the Music21Object. These lingering sites\nare called orphans. This method gets rid of them.\nThe excludeStorageStreams are SpannerStorage and VariantStorage.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Variant.",
+        "type": "Title"
+    },
+    {
+        "text": "removeReplacedElementsFromStream",
+        "type": "Title"
+    },
+    {
+        "text": "referenceStream",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "classList",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "remove replaced elements from a referenceStream or activeSite\n>>> v = variant.Variant()\n>>> variantDataM1 = [('b', 'eighth'), ('c', 'eighth'), ('a', 'quarter'),\n...                  ('a', 'quarter'),('b', 'quarter')]\n>>> variantDataM2 = [('c', 'quarter'), ('d', 'quarter'), ('e', 'quarter'), ('e', 'quarter')]\n>>> variantData = [variantDataM1, variantDataM2]\n>>> for d in variantData:\n...    m = stream.Measure()\n...    for pitchName, durType in d:\n...        n = note.Note(pitchName)\n...        n.duration.type = durType\n...        m.append(n)\n...    v.append(m)\n>>> v.groups = ['paris']\n>>> v.replacementDuration = 4.0\n\n\n>>> s = stream.Stream()\n>>> streamDataM1 = [('a', 'quarter'), ('b', 'quarter'), ('a', 'quarter'), ('g', 'quarter')]\n>>> streamDataM2 = [('b', 'eighth'), ('c', 'quarter'), ('a', 'eighth'),\n...                 ('a', 'quarter'), ('b', 'quarter')]\n>>> streamDataM3 = [('c', 'quarter'), ('b', 'quarter'), ('a', 'quarter'), ('a', 'quarter')]\n>>> streamDataM4 = [('c', 'quarter'), ('b', 'quarter'), ('a', 'quarter'), ('a', 'quarter')]\n>>> streamData = [streamDataM1, streamDataM2, streamDataM3, streamDataM4]\n>>> for d in streamData:\n...    m = stream.Measure()\n...    for pitchName, durType in d:\n...        n = note.Note(pitchName)\n...        n.duration.type = durType\n...        m.append(n)\n...    s.append(m)\n>>> s.insert(4.0, v)\n\n\n>>> v.removeReplacedElementsFromStream(s)\n>>> s.show('t')\n{0.0} <music21.stream.Measure 0 offset=0.0>\n    {0.0} <music21.note.Note A>\n    {1.0} <music21.note.Note B>\n    {2.0} <music21.note.Note A>\n    {3.0} <music21.note.Note G>\n{4.0} <music21.variant.Variant object of length 8.0>\n{8.0} <music21.stream.Measure 0 offset=8.0>\n    {0.0} <music21.note.Note C>\n    {1.0} <music21.note.Note B>\n    {2.0} <music21.note.Note A>\n    {3.0} <music21.note.Note A>\n{12.0} <music21.stream.Measure 0 offset=12.0>\n    {0.0} <music21.note.Note C>\n    {1.0} <music21.note.Note B>\n    {2.0} <music21.note.Note A>\n    {3.0} <music21.note.Note A>",
+        "type": "ListItem"
+    },
+    {
+        "text": "Variant.",
+        "type": "Title"
+    },
+    {
+        "text": "replaceElement",
+        "type": "Title"
+    },
+    {
+        "text": "old",
+        "type": "Title"
+    },
+    {
+        "text": "new",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "When copying a Variant, we need to update the Variant with new\nreferences for copied elements. Given the old element,\nthis method will replace the old with the new.\nThe old parameter can be either an object or object id.\nThis method is very similar to the replaceSpannedElement method on Spanner.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Variant.",
+        "type": "Title"
+    },
+    {
+        "text": "replacedElements",
+        "type": "Title"
+    },
+    {
+        "text": "contextStream",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "classList",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "keepOriginalOffsets",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "includeSpacers",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns a Stream containing the elements which this variant replaces in a\ngiven context stream.\nThis Stream will have length self.replacementDuration.\nIn regions that are strictly replaced, only elements that share a class with\nan element in the variant\nare captured. Elsewhere, all elements are captured.\n>>> s = converter.parse(\"tinynotation: 4/4 d4 e4 f4 g4   a2 b-4 a4    g4 a8 g8 f4 e4    d2 a2                  d4 e4 f4 g4    a2 b-4 a4    g4 a8 b-8 c'4 c4    f1\", makeNotation=False)\n>>> s.makeMeasures(inPlace=True)\n>>> v1stream = converter.parse(\"tinynotation: 4/4        a2. b-8 a8\", makeNotation=False)\n>>> v2stream1 = converter.parse(\"tinynotation: 4/4                                       d4 f4 a2\", makeNotation=False)\n>>> v2stream2 = converter.parse(\"tinynotation: 4/4                                                  d4 f4 AA2\", makeNotation=False)\n\n\n>>> v1 = variant.Variant()\n>>> v1measure = stream.Measure()\n>>> v1.insert(0.0, v1measure)\n>>> for e in v1stream.notesAndRests:\n...    v1measure.insert(e.offset, e)\n\n\n>>> v2 = variant.Variant()\n>>> v2measure1 = stream.Measure()\n>>> v2measure2 = stream.Measure()\n>>> v2.insert(0.0, v2measure1)\n>>> v2.insert(4.0, v2measure2)\n>>> for e in v2stream1.notesAndRests:\n...    v2measure1.insert(e.offset, e)\n>>> for e in v2stream2.notesAndRests:\n...    v2measure2.insert(e.offset, e)\n\n\n>>> v3 = variant.Variant()\n>>> v2.replacementDuration = 4.0\n>>> v3.replacementDuration = 4.0\n\n\n>>> s.insert(4.0, v1)    # replacement variant\n>>> s.insert(12.0, v2)  # insertion variant (2 bars replace 1 bar)\n>>> s.insert(20.0, v3)  # deletion variant (0 bars replace 1 bar)\n\n\n>>> v1.replacedElements(s).show('text')\n{0.0} <music21.stream.Measure 2 offset=0.0>\n    {0.0} <music21.note.Note A>\n    {2.0} <music21.note.Note B->\n    {3.0} <music21.note.Note A>\n\n\n>>> v2.replacedElements(s).show('text')\n{0.0} <music21.stream.Measure 4 offset=0.0>\n    {0.0} <music21.note.Note D>\n    {2.0} <music21.note.Note A>\n\n\n>>> v3.replacedElements(s).show('text')\n{0.0} <music21.stream.Measure 6 offset=0.0>\n    {0.0} <music21.note.Note A>\n    {2.0} <music21.note.Note B->\n    {3.0} <music21.note.Note A>\n\n\n>>> v3.replacedElements(s, keepOriginalOffsets=True).show('text')\n{20.0} <music21.stream.Measure 6 offset=20.0>\n    {0.0} <music21.note.Note A>\n    {2.0} <music21.note.Note B->\n    {3.0} <music21.note.Note A>\n\n\nA second example:\n>>> v = variant.Variant()\n>>> variantDataM1 = [('b', 'eighth'), ('c', 'eighth'), ('a', 'quarter'),\n...                  ('a', 'quarter'),('b', 'quarter')]\n>>> variantDataM2 = [('c', 'quarter'), ('d', 'quarter'),\n...                  ('e', 'quarter'), ('e', 'quarter')]\n>>> variantData = [variantDataM1, variantDataM2]\n>>> for d in variantData:\n...    m = stream.Measure()\n...    for pitchName, durType in d:\n...        n = note.Note(pitchName)\n...        n.duration.type = durType\n...        m.append(n)\n...    v.append(m)\n>>> v.groups = ['paris']\n>>> v.replacementDuration = 4.0\n\n\n>>> s = stream.Stream()\n>>> streamDataM1 = [('a', 'quarter'), ('b', 'quarter'), ('a', 'quarter'), ('g', 'quarter')]\n>>> streamDataM2 = [('b', 'eighth'), ('c', 'quarter'),\n...                 ('a', 'eighth'), ('a', 'quarter'), ('b', 'quarter')]\n>>> streamDataM3 = [('c', 'quarter'), ('b', 'quarter'), ('a', 'quarter'), ('a', 'quarter')]\n>>> streamDataM4 = [('c', 'quarter'), ('b', 'quarter'), ('a', 'quarter'), ('a', 'quarter')]\n>>> streamData = [streamDataM1, streamDataM2, streamDataM3, streamDataM4]\n>>> for d in streamData:\n...    m = stream.Measure()\n...    for pitchName, durType in d:\n...        n = note.Note(pitchName)\n...        n.duration.type = durType\n...        m.append(n)\n...    s.append(m)\n>>> s.insert(4.0, v)\n\n\n>>> v.replacedElements(s).show('t')\n{0.0} <music21.stream.Measure 0 offset=0.0>\n    {0.0} <music21.note.Note B>\n    {0.5} <music21.note.Note C>\n    {1.5} <music21.note.Note A>\n    {2.0} <music21.note.Note A>\n    {3.0} <music21.note.Note B>",
+        "type": "ListItem"
+    },
+    {
+        "text": "Variant.",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "fmt",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "app",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Call show() on the Stream contained by this Variant.\nThis method must be overridden, otherwise Music21Object.show() is called.\n>>> v = variant.Variant()\n>>> v.repeatAppend(note.Note(quarterLength=0.25), 8)\n>>> v.show('t')\n{0.0} <music21.note.Note C>\n{0.25} <music21.note.Note C>\n{0.5} <music21.note.Note C>\n{0.75} <music21.note.Note C>\n{1.0} <music21.note.Note C>\n{1.25} <music21.note.Note C>\n{1.5} <music21.note.Note C>\n{1.75} <music21.note.Note C>",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() setOffsetBySite() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Variant instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.variant.",
+        "type": "Title"
+    },
+    {
+        "text": "addVariant",
+        "type": "Title"
+    },
+    {
+        "text": "Stream",
+        "type": "Title"
+    },
+    {
+        "text": "startOffset",
+        "type": "Title"
+    },
+    {
+        "text": "int | float",
+        "type": "Title"
+    },
+    {
+        "text": "sVariant",
+        "type": "Title"
+    },
+    {
+        "text": "Stream | Variant",
+        "type": "Title"
+    },
+    {
+        "text": "variantName",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "variantGroups",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "replacementDuration",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Takes a stream, the location of the variant to be added to\nthat stream (startOffset), the content of the\nvariant to be added (sVariant), and the duration of the section of the stream which the variant\nreplaces (replacementDuration).\nIf replacementDuration is 0,\nthis is an insertion. If sVariant is\nNone, this is a deletion.\n>>> data1M1 = [('a', 'quarter'), ('b', 'eighth'), ('c', 'eighth'),\n...            ('a', 'quarter'), ('a', 'quarter')]\n>>> data1M3 = [('c', 'quarter'), ('d', 'quarter'), ('e', 'quarter'), ('e', 'quarter')]\n>>> data1M2 = [('b', 'eighth'), ('c', 'eighth'), ('a', 'quarter'),\n...            ('a', 'quarter'),('b', 'quarter')]\n>>> data1 = [data1M1, data1M2, data1M3]\n>>> tempPart = stream.Part()\n>>> stream1 = stream.Stream()\n>>> for d in data1:\n...    m = stream.Measure()\n...    for pitchName, durType in d:\n...        n = note.Note(pitchName)\n...        n.duration.type = durType\n...        m.append(n)\n...    stream1.append(m)\n\n\n>>> data2M2 = [('b', 'eighth'), ('c', 'quarter'), ('a', 'eighth'),\n...            ('a', 'quarter'), ('b', 'quarter')]\n>>> stream2 = stream.Stream()\n>>> m = stream.Measure()\n>>> for pitchName, durType in data2M2:\n...    n = note.Note(pitchName)\n...    n.duration.type = durType\n...    m.append(n)\n>>> stream2.append(m)\n>>> variant.addVariant(stream1, 4.0, stream2,\n...                    variantName='rhythmic_switch', replacementDuration=4.0)\n>>> stream1.show('text')\n{0.0} <music21.stream.Measure 0 offset=0.0>\n    {0.0} <music21.note.Note A>\n    {1.0} <music21.note.Note B>\n    {1.5} <music21.note.Note C>\n    {2.0} <music21.note.Note A>\n    {3.0} <music21.note.Note A>\n{4.0} <music21.variant.Variant object of length 4.0>\n{4.0} <music21.stream.Measure 0 offset=4.0>\n    {0.0} <music21.note.Note B>\n    {0.5} <music21.note.Note C>\n    {1.0} <music21.note.Note A>\n    {2.0} <music21.note.Note A>\n    {3.0} <music21.note.Note B>\n{8.0} <music21.stream.Measure 0 offset=8.0>\n    {0.0} <music21.note.Note C>\n    {1.0} <music21.note.Note D>\n    {2.0} <music21.note.Note E>\n    {3.0} <music21.note.Note E>\n\n\n>>> stream1 = stream.Stream()\n>>> stream1.repeatAppend(note.Note('e'), 6)\n>>> variant1 = variant.Variant()\n>>> variant1.repeatAppend(note.Note('f'), 3)\n>>> startOffset = 3.0\n>>> variant.addVariant(stream1, startOffset, variant1,\n...                    variantName='paris', replacementDuration=3.0)\n>>> stream1.show('text')\n{0.0} <music21.note.Note E>\n{1.0} <music21.note.Note E>\n{2.0} <music21.note.Note E>\n{3.0} <music21.variant.Variant object of length 6.0>\n{3.0} <music21.note.Note E>\n{4.0} <music21.note.Note E>\n{5.0} <music21.note.Note E>",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.variant.",
+        "type": "Title"
+    },
+    {
+        "text": "getMeasureHashes",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Takes in a stream containing measures and returns a list of hashes,\none for each measure. This is currently implemented\nwith search.translateStreamToString()\n>>> s = converter.parse(\"tinynotation: 2/4 c4 d8. e16 FF4 a'4 b-2\")\n>>> sm = s.makeMeasures()\n>>> hashes = variant.getMeasureHashes(sm)\n>>> hashes\n['<P>K@<', ')PQP', 'FZ']",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.variant.",
+        "type": "Title"
+    },
+    {
+        "text": "makeAllVariantsReplacements",
+        "type": "Title"
+    },
+    {
+        "text": "streamWithVariants",
+        "type": "Title"
+    },
+    {
+        "text": "variantNames",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "recurse",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "This function takes a stream and a list of variantNames\n(default works on all variants), and changes all insertion\n(elongations with replacementDuration 0)\nand deletion variants (with containedHighestTime 0) into variants with non-zero\nreplacementDuration and non-null elements\nby adding measures on the front of insertions and measures on the end\nof deletions. This is designed to make it possible to format all variants in a\nreadable way as a graphical ossia (via lilypond). If inPlace is True\nit will perform this action on the stream itself; otherwise it will return a\nmodified copy. If recurse is True, this\nmethod will work on variants within container objects within the stream (like parts).\n>>> #                                                          *                                            *                                *\n>>> s = converter.parse(\"tinynotation: 4/4       d4 e4 f4 g4   a2 b-4 a4    g4 a8 g8 f4 e4    d2 a2                        d4 e4 f4 g4    a2 b-4 a4    g4 a8 b-8 c'4 c4    f1\")\n>>> s2 = converter.parse(\"tinynotation: 4/4      d4 e4 f4 g4   a2. b-8 a8   g4 a8 g8 f4 e4    d2 a2   d4 f4 a2  d4 f4 AA2  d4 e4 f4 g4                 g4 a8 b-8 c'4 c4    f1\")\n>>> #                                                          replacement                            insertion                            deletion\n>>> s.makeMeasures(inPlace=True)\n>>> s2.makeMeasures(inPlace=True)\n>>> variant.mergeVariants(s, s2, variantName='london', inPlace=True)\n\n\n>>> newStream = stream.Score(s)\n\n\n>>> returnStream = variant.makeAllVariantsReplacements(newStream, recurse=False)\n>>> for v in returnStream.parts[0][variant.Variant]:\n...     (v.offset, v.lengthType, v.replacementDuration)\n(4.0, 'replacement', 4.0)\n(16.0, 'elongation', 0.0)\n(20.0, 'deletion', 4.0)\n\n\n>>> returnStream = variant.makeAllVariantsReplacements(\n...                            newStream, variantNames=['france'], recurse=True)\n>>> for v in returnStream.parts[0][variant.Variant]:\n...     (v.offset, v.lengthType, v.replacementDuration)\n(4.0, 'replacement', 4.0)\n(16.0, 'elongation', 0.0)\n(20.0, 'deletion', 4.0)\n\n\n>>> variant.makeAllVariantsReplacements(newStream, recurse=True, inPlace=True)\n>>> for v in newStream.parts[0][variant.Variant]:\n...     (v.offset, v.lengthType, v.replacementDuration, v.containedHighestTime)\n(4.0, 'replacement', 4.0, 4.0)\n(12.0, 'elongation', 4.0, 12.0)\n(20.0, 'deletion', 8.0, 4.0)",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.variant.",
+        "type": "Title"
+    },
+    {
+        "text": "makeVariantBlocks",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Unknown and undocumented.  Used only in lily/translate \u2014 for musicdiff.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.variant.",
+        "type": "Title"
+    },
+    {
+        "text": "mergePartAsOssia",
+        "type": "Title"
+    },
+    {
+        "text": "mainPart",
+        "type": "Title"
+    },
+    {
+        "text": "ossiaPart",
+        "type": "Title"
+    },
+    {
+        "text": "ossiaName",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "compareByMeasureNumber",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "recurseInMeasures",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Some MusicXML files are generated with full parts that have only a few non-rest measures\ninstead of ossia parts, such as those\ncreated by Sibelius 7. This function\ntakes two streams (mainPart and ossiaPart), the second interpreted as an ossia.\nIt outputs a stream with the ossia part merged into the stream as a\ngroup of variants.\nIf compareByMeasureNumber is True, then the ossia measures will be paired with the\nmeasures in the mainPart that have the\nsame measure.number. Otherwise, they will be paired by offset. In most cases\nthese should have the same result.\nNote that this method has no way of knowing if a variant is supposed to be a\ndifferent duration than the segment of stream which it replaces\nbecause that information is not contained in the format of score this method is\ndesigned to deal with.\n>>> mainStream = converter.parse('tinynotation: 4/4   A4 B4 C4 D4   E1    F2 E2     E8 F8 F4 G2   G2 G4 F4   F4 F4 F4 F4   G1      ')\n>>> ossiaStream = converter.parse('tinynotation: 4/4  r1            r1    r1        E4 E4 F4 G4   r1         F2    F2      r1      ')\n>>> mainStream.makeMeasures(inPlace=True)\n>>> ossiaStream.makeMeasures(inPlace=True)\n\n\n>>> mainPart = stream.Part()\n>>> for m in mainStream:\n...    mainPart.insert(m.offset, m)\n>>> ossiaPart = stream.Part()\n>>> for m in ossiaStream:\n...    ossiaPart.insert(m.offset, m)\n\n\n>>> s = stream.Stream()\n>>> s.insert(0.0, ossiaPart)\n>>> s.insert(0.0, mainPart)\n>>> s.show()\n\n\n>>> mainPartWithOssiaVariantsFT = variant.mergePartAsOssia(mainPart, ossiaPart,\n...                                                            ossiaName='Parisian_Variant',\n...                                                            inPlace=False,\n...                                                            compareByMeasureNumber=False,\n...                                                            recurseInMeasures=True)\n>>> mainPartWithOssiaVariantsTT = variant.mergePartAsOssia(mainPart, ossiaPart,\n...                                                            ossiaName='Parisian_Variant',\n...                                                            inPlace=False,\n...                                                            compareByMeasureNumber=True,\n...                                                            recurseInMeasures=True)\n>>> mainPartWithOssiaVariantsFF = variant.mergePartAsOssia(mainPart, ossiaPart,\n...                                                            ossiaName='Parisian_Variant',\n...                                                            inPlace=False,\n...                                                            compareByMeasureNumber=False,\n...                                                            recurseInMeasures=False)\n>>> mainPartWithOssiaVariantsTF = variant.mergePartAsOssia(mainPart, ossiaPart,\n...                                                            ossiaName='Parisian_Variant',\n...                                                            inPlace=False,\n...                                                            compareByMeasureNumber=True,\n...                                                            recurseInMeasures=False)\n\n\n>>> mainPartWithOssiaVariantsFT.show('text') == mainPartWithOssiaVariantsTT.show('text')\n{0.0} <music21.stream.Measure ...\nTrue\n\n\n>>> mainPartWithOssiaVariantsFF.show('text') == mainPartWithOssiaVariantsFT.show('text')\n{0.0} <music21.stream.Measure ...\nTrue\n\n\n>>> mainPartWithOssiaVariantsFT.show('text')\n{0.0} <music21.stream.Measure 1 offset=0.0>\n...\n{12.0} <music21.stream.Measure 4 offset=12.0>\n    {0.0} <music21.variant.Variant object of length 3.0>\n    {0.0} <music21.note.Note E>\n    {0.5} <music21.note.Note F>\n    {1.0} <music21.note.Note F>\n    {2.0} <music21.note.Note G>\n{16.0} <music21.stream.Measure 5 offset=16.0>\n...\n{20.0} <music21.stream.Measure 6 offset=20.0>\n    {0.0} <music21.variant.Variant object of length 4.0>\n    {0.0} <music21.note.Note F>\n    {1.0} <music21.note.Note F>\n    {2.0} <music21.note.Note F>\n    {3.0} <music21.note.Note F>\n...\n\n\n>>> mainPartWithOssiaVariantsFF.activateVariants('Parisian_Variant').show('text')\n{0.0} <music21.stream.Measure 1 offset=0.0>\n...\n{12.0} <music21.variant.Variant object of length 4.0>\n{12.0} <music21.stream.Measure 4 offset=12.0>\n    {0.0} <music21.note.Note E>\n    {1.0} <music21.note.Note E>\n    {2.0} <music21.note.Note F>\n    {3.0} <music21.note.Note G>\n{16.0} <music21.stream.Measure 5 offset=16.0>\n...\n{20.0} <music21.variant.Variant object of length 4.0>\n{20.0} <music21.stream.Measure 6 offset=20.0>\n    {0.0} <music21.note.Note F>\n    {2.0} <music21.note.Note F>\n...",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.variant.",
+        "type": "Title"
+    },
+    {
+        "text": "mergeVariantMeasureStreams",
+        "type": "Title"
+    },
+    {
+        "text": "streamX",
+        "type": "Title"
+    },
+    {
+        "text": "streamY",
+        "type": "Title"
+    },
+    {
+        "text": "variantName",
+        "type": "Title"
+    },
+    {
+        "text": "'variant'",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Takes two streams of measures and returns a stream (new if inPlace is False) with the second\nmerged with the first as variants. This function differs from mergeVariantsEqualDuration by\ndealing with streams that are of different length. This function matches measures that are\nexactly equal and creates variant objects for regions of measures that differ at all. If more\nrefined variants are sought (with variation within the bar considered and related but different\nbars associated with each other), use variant.refineVariant().\nIn this example, the second bar has been deleted in the second version,\na new bar has been inserted between the\noriginal third and fourth bars, and two bars have been added at the end.\n>>> data1M1 = [('a', 'quarter'), ('b', 'eighth'), ('c', 'eighth'),\n...            ('a', 'quarter'), ('a', 'quarter')]\n>>> data1M2 = [('b', 'eighth'), ('c', 'eighth'), ('a', 'quarter'),\n...            ('a', 'quarter'),('b', 'quarter')]\n>>> data1M3 = [('c', 'quarter'), ('d', 'quarter'),\n...            ('e', 'quarter'), ('e', 'quarter')]\n>>> data1M4 = [('d', 'quarter'), ('g', 'eighth'), ('g', 'eighth'),\n...            ('a', 'quarter'), ('b', 'quarter')]\n\n\n>>> data2M1 = [('a', 'quarter'), ('b', 'eighth'), ('c', 'eighth'),\n...            ('a', 'quarter'), ('a', 'quarter')]\n>>> data2M2 = [('c', 'quarter'), ('d', 'quarter'), ('e', 'quarter'), ('e', 'quarter')]\n>>> data2M3 = [('e', 'quarter'), ('g', 'eighth'), ('g', 'eighth'),\n...            ('a', 'quarter'), ('b', 'quarter')]\n>>> data2M4 = [('d', 'quarter'), ('g', 'eighth'), ('g', 'eighth'),\n...            ('a', 'quarter'), ('b', 'quarter')]\n>>> data2M5 = [('f', 'eighth'), ('c', 'quarter'), ('a', 'eighth'),\n...            ('a', 'quarter'), ('b', 'quarter')]\n>>> data2M6 = [('g', 'quarter'), ('d', 'quarter'), ('e', 'quarter'), ('e', 'quarter')]\n\n\n>>> data1 = [data1M1, data1M2, data1M3, data1M4]\n>>> data2 = [data2M1, data2M2, data2M3, data2M4, data2M5, data2M6]\n>>> stream1 = stream.Stream()\n>>> stream2 = stream.Stream()\n>>> mNumber = 1\n>>> for d in data1:\n...    m = stream.Measure()\n...    m.number = mNumber\n...    mNumber += 1\n...    for pitchName, durType in d:\n...        n = note.Note(pitchName)\n...        n.duration.type = durType\n...        m.append(n)\n...    stream1.append(m)\n>>> mNumber = 1\n>>> for d in data2:\n...    m = stream.Measure()\n...    m.number = mNumber\n...    mNumber += 1\n...    for pitchName, durType in d:\n...        n = note.Note(pitchName)\n...        n.duration.type = durType\n...        m.append(n)\n...    stream2.append(m)\n>>> stream1.show()\n\n\n\n>>> stream2.show()\n\n\n\n>>> mergedStream = variant.mergeVariantMeasureStreams(stream1, stream2, 'paris', inPlace=False)\n>>> mergedStream.show('text')\n{0.0} <music21.stream.Measure 1 offset=0.0>\n    {0.0} <music21.note.Note A>\n    {1.0} <music21.note.Note B>\n    {1.5} <music21.note.Note C>\n    {2.0} <music21.note.Note A>\n    {3.0} <music21.note.Note A>\n{4.0} <music21.variant.Variant object of length 0.0>\n{4.0} <music21.stream.Measure 2 offset=4.0>\n    {0.0} <music21.note.Note B>\n    {0.5} <music21.note.Note C>\n    {1.0} <music21.note.Note A>\n    {2.0} <music21.note.Note A>\n    {3.0} <music21.note.Note B>\n{8.0} <music21.stream.Measure 3 offset=8.0>\n    {0.0} <music21.note.Note C>\n    {1.0} <music21.note.Note D>\n    {2.0} <music21.note.Note E>\n    {3.0} <music21.note.Note E>\n{12.0} <music21.variant.Variant object of length 4.0>\n{12.0} <music21.stream.Measure 4 offset=12.0>\n    {0.0} <music21.note.Note D>\n    {1.0} <music21.note.Note G>\n    {1.5} <music21.note.Note G>\n    {2.0} <music21.note.Note A>\n    {3.0} <music21.note.Note B>\n{16.0} <music21.variant.Variant object of length 8.0>\n\n\n>>> mergedStream[variant.Variant][0].replacementDuration\n4.0\n>>> mergedStream[variant.Variant][1].replacementDuration\n0.0\n\n\n>>> parisStream = mergedStream.activateVariants('paris', inPlace=False)\n>>> parisStream.show('text')\n{0.0} <music21.stream.Measure 1 offset=0.0>\n    {0.0} <music21.note.Note A>\n    {1.0} <music21.note.Note B>\n    {1.5} <music21.note.Note C>\n    {2.0} <music21.note.Note A>\n    {3.0} <music21.note.Note A>\n{4.0} <music21.variant.Variant object of length 4.0>\n{4.0} <music21.stream.Measure 2 offset=4.0>\n    {0.0} <music21.note.Note C>\n    {1.0} <music21.note.Note D>\n    {2.0} <music21.note.Note E>\n    {3.0} <music21.note.Note E>\n{8.0} <music21.variant.Variant object of length 0.0>\n{8.0} <music21.stream.Measure 3 offset=8.0>\n    {0.0} <music21.note.Note E>\n    {1.0} <music21.note.Note G>\n    {1.5} <music21.note.Note G>\n    {2.0} <music21.note.Note A>\n    {3.0} <music21.note.Note B>\n{12.0} <music21.stream.Measure 4 offset=12.0>\n    {0.0} <music21.note.Note D>\n    {1.0} <music21.note.Note G>\n    {1.5} <music21.note.Note G>\n    {2.0} <music21.note.Note A>\n    {3.0} <music21.note.Note B>\n{16.0} <music21.variant.Variant object of length 0.0>\n{16.0} <music21.stream.Measure 5 offset=16.0>\n    {0.0} <music21.note.Note F>\n    {0.5} <music21.note.Note C>\n    {1.5} <music21.note.Note A>\n    {2.0} <music21.note.Note A>\n    {3.0} <music21.note.Note B>\n{20.0} <music21.stream.Measure 6 offset=20.0>\n    {0.0} <music21.note.Note G>\n    {1.0} <music21.note.Note D>\n    {2.0} <music21.note.Note E>\n    {3.0} <music21.note.Note E>\n\n\n>>> parisStream[variant.Variant][0].replacementDuration\n0.0\n>>> parisStream[variant.Variant][1].replacementDuration\n4.0\n>>> parisStream[variant.Variant][2].replacementDuration\n8.0",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.variant.",
+        "type": "Title"
+    },
+    {
+        "text": "mergeVariantScores",
+        "type": "Title"
+    },
+    {
+        "text": "aScore",
+        "type": "Title"
+    },
+    {
+        "text": "vScore",
+        "type": "Title"
+    },
+    {
+        "text": "variantName",
+        "type": "Title"
+    },
+    {
+        "text": "'variant'",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Takes two scores and merges them with mergeVariantMeasureStreams, part-by-part.\n>>> aScore, vScore = stream.Score(), stream.Score()\n\n\n>>> ap1 = converter.parse('tinynotation: 4/4   a4 b c d    e2 f2   g2 f4 g4 ')\n>>> vp1 = converter.parse('tinynotation: 4/4   a4 b c e    e2 f2   g2 f4 a4 ')\n\n\n>>> ap2 = converter.parse('tinynotation: 4/4   a4 g f e    f2 e2   d2 g4 f4 ')\n>>> vp2 = converter.parse('tinynotation: 4/4   a4 g f e    f2 g2   f2 g4 d4 ')\n\n\n>>> aScore.insert(0.0, ap1)\n>>> aScore.insert(0.0, ap2)\n>>> vScore.insert(0.0, vp1)\n>>> vScore.insert(0.0, vp2)\n\n\n>>> mergedScores = variant.mergeVariantScores(aScore, vScore,\n...                                           variantName='docVariant', inPlace=False)\n>>> mergedScores.show('text')\n{0.0} <music21.stream.Part ...>\n    {0.0} <music21.variant.Variant object of length 4.0>\n    {0.0} <music21.stream.Measure 1 offset=0.0>\n        {0.0} <music21.clef.TrebleClef>\n        {0.0} <music21.meter.TimeSignature 4/4>\n        {0.0} <music21.note.Note A>\n        {1.0} <music21.note.Note B>\n        {2.0} <music21.note.Note C>\n        {3.0} <music21.note.Note D>\n    {4.0} <music21.stream.Measure 2 offset=4.0>\n        {0.0} <music21.note.Note E>\n        {2.0} <music21.note.Note F>\n    {8.0} <music21.variant.Variant object of length 4.0>\n    {8.0} <music21.stream.Measure 3 offset=8.0>\n        {0.0} <music21.note.Note G>\n        {2.0} <music21.note.Note F>\n        {3.0} <music21.note.Note G>\n        {4.0} <music21.bar.Barline type=final>\n{0.0} <music21.stream.Part ...>\n    {0.0} <music21.stream.Measure 1 offset=0.0>\n        {0.0} <music21.clef.TrebleClef>\n        {0.0} <music21.meter.TimeSignature 4/4>\n        {0.0} <music21.note.Note A>\n        {1.0} <music21.note.Note G>\n        {2.0} <music21.note.Note F>\n        {3.0} <music21.note.Note E>\n    {4.0} <music21.variant.Variant object of length 8.0>\n    {4.0} <music21.stream.Measure 2 offset=4.0>\n        {0.0} <music21.note.Note F>\n        {2.0} <music21.note.Note E>\n    {8.0} <music21.stream.Measure 3 offset=8.0>\n        {0.0} <music21.note.Note D>\n        {2.0} <music21.note.Note G>\n        {3.0} <music21.note.Note F>\n        {4.0} <music21.bar.Barline type=final>",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.variant.",
+        "type": "Title"
+    },
+    {
+        "text": "mergeVariants",
+        "type": "Title"
+    },
+    {
+        "text": "streamX",
+        "type": "Title"
+    },
+    {
+        "text": "streamY",
+        "type": "Title"
+    },
+    {
+        "text": "variantName",
+        "type": "Title"
+    },
+    {
+        "text": "'variant'",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Takes two streams objects or their derivatives (Score, Part, Measure, etc.) which\nshould be variant versions of the same stream,\nand merges them (determines differences and stores those differences as variant objects\nin streamX) via the appropriate merge\nfunction for their type. This will not know how to deal with scores meant for\nmergePartAsOssia(). If this is the intention, use\nthat function instead.\n>>> streamX = converter.parse('tinynotation: 4/4 a4 b  c d', makeNotation=False)\n>>> streamY = converter.parse('tinynotation: 4/4 a4 b- c e', makeNotation=False)\n\n\n>>> mergedStream = variant.mergeVariants(streamX, streamY,\n...                                      variantName='docVariant', inPlace=False)\n>>> mergedStream.show('text')\n{0.0} <music21.meter.TimeSignature 4/4>\n{0.0} <music21.note.Note A>\n{1.0} <music21.variant.Variant object of length 1.0>\n{1.0} <music21.note.Note B>\n{2.0} <music21.note.Note C>\n{3.0} <music21.variant.Variant object of length 1.0>\n{3.0} <music21.note.Note D>\n\n\n>>> v0 = mergedStream.getElementsByClass(variant.Variant).first()\n>>> v0\n<music21.variant.Variant object of length 1.0>\n>>> v0.first()\n<music21.note.Note B->\n\n\n>>> streamZ = converter.parse('tinynotation: 4/4 a4 b c d e f g a', makeNotation=False)\n>>> variant.mergeVariants(streamX, streamZ, variantName='docVariant', inPlace=False)\nTraceback (most recent call last):\nmusic21.variant.VariantException: Could not determine what merging method to use.\n        Try using a more specific merging function.\n\n\nExample: Create a main score (aScore) and a variant score (vScore), each with\ntwo parts (ap1/vp1\nand ap2/vp2) and some small variants between ap1/vp1 and ap2/vp2, marked with * below.\n>>> aScore = stream.Score()\n>>> vScore = stream.Score()\n\n\n>>> #                                                 *\n>>> ap1 = converter.parse('tinynotation: 4/4   a4 b c d    e2 f   g2 f4 g ')\n>>> vp1 = converter.parse('tinynotation: 4/4   a4 b c e    e2 f   g2 f4 a ')\n\n\n>>> #                                                         *    *    *\n>>> ap2 = converter.parse('tinynotation: 4/4   a4 g f e    f2 e   d2 g4 f ')\n>>> vp2 = converter.parse('tinynotation: 4/4   a4 g f e    f2 g   f2 g4 d ')\n\n\n>>> ap1.id = 'aPart1'\n>>> ap2.id = 'aPart2'\n\n\n>>> aScore.insert(0.0, ap1)\n>>> aScore.insert(0.0, ap2)\n>>> vScore.insert(0.0, vp1)\n>>> vScore.insert(0.0, vp2)\n\n\nCreate one merged score where everything different in vScore from aScore is called a variant.\n>>> mergedScore = variant.mergeVariants(aScore, vScore, variantName='docVariant', inPlace=False)\n>>> mergedScore.show('text')\n{0.0} <music21.stream.Part aPart1>\n    {0.0} <music21.variant.Variant object of length 4.0>\n    {0.0} <music21.stream.Measure 1 offset=0.0>\n        {0.0} <music21.clef.TrebleClef>\n        {0.0} <music21.meter.TimeSignature 4/4>\n        {0.0} <music21.note.Note A>\n        {1.0} <music21.note.Note B>\n        {2.0} <music21.note.Note C>\n        {3.0} <music21.note.Note D>\n    {4.0} <music21.stream.Measure 2 offset=4.0>\n        {0.0} <music21.note.Note E>\n        {2.0} <music21.note.Note F>\n    {8.0} <music21.variant.Variant object of length 4.0>\n    {8.0} <music21.stream.Measure 3 offset=8.0>\n        {0.0} <music21.note.Note G>\n        {2.0} <music21.note.Note F>\n        {3.0} <music21.note.Note G>\n        {4.0} <music21.bar.Barline type=final>\n{0.0} <music21.stream.Part aPart2>\n    {0.0} <music21.stream.Measure 1 offset=0.0>\n        {0.0} <music21.clef.TrebleClef>\n        {0.0} <music21.meter.TimeSignature 4/4>\n        {0.0} <music21.note.Note A>\n        {1.0} <music21.note.Note G>\n        {2.0} <music21.note.Note F>\n        {3.0} <music21.note.Note E>\n    {4.0} <music21.variant.Variant object of length 8.0>\n    {4.0} <music21.stream.Measure 2 offset=4.0>\n        {0.0} <music21.note.Note F>\n        {2.0} <music21.note.Note E>\n    {8.0} <music21.stream.Measure 3 offset=8.0>\n        {0.0} <music21.note.Note D>\n        {2.0} <music21.note.Note G>\n        {3.0} <music21.note.Note F>\n        {4.0} <music21.bar.Barline type=final>\n\n\n>>> mergedPart = variant.mergeVariants(ap2, vp2, variantName='docVariant', inPlace=False)\n>>> mergedPart.show('text')\n{0.0} <music21.stream.Measure 1 offset=0.0>\n...\n{4.0} <music21.variant.Variant object of length 8.0>\n{4.0} <music21.stream.Measure 2 offset=4.0>\n...\n    {4.0} <music21.bar.Barline type=final>",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.variant.",
+        "type": "Title"
+    },
+    {
+        "text": "mergeVariantsEqualDuration",
+        "type": "Title"
+    },
+    {
+        "text": "streams",
+        "type": "Title"
+    },
+    {
+        "text": "variantNames",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Pass this function a list of streams (they must be of the same\nlength or a VariantException will be raised).\nIt will return a stream which merges the differences between the\nstreams into variant objects keeping the\nfirst stream in the list as the default. If inPlace is True, the\nfirst stream in the list will be modified,\notherwise a new stream will be returned. Pass a list of names to\nassociate variants with their sources, if this list\ndoes not contain an entry for each non-default variant,\nnaming may not behave properly. Variants that have the\nsame differences from the default will be saved as separate\nvariant objects (i.e. more than once under different names).\nAlso, note that a streams with bars of differing lengths will not behave properly.\n>>> stream1 = stream.Stream()\n>>> stream2paris = stream.Stream()\n>>> stream3london = stream.Stream()\n>>> data1 = [('a', 'quarter'), ('b', 'eighth'),\n...    ('c', 'eighth'), ('a', 'quarter'), ('a', 'quarter'),\n...    ('b', 'eighth'), ('c', 'eighth'), ('a', 'quarter'), ('a', 'quarter'),\n...    ('b', 'quarter'), ('c', 'quarter'), ('d', 'quarter'), ('e', 'quarter')]\n>>> data2 = [('a', 'quarter'), ('b', 'quarter'), ('a', 'quarter'), ('g', 'quarter'),\n...    ('b', 'eighth'), ('c', 'quarter'), ('a', 'eighth'), ('a', 'quarter'),\n...    ('b', 'quarter'), ('c', 'quarter'), ('b', 'quarter'), ('a', 'quarter')]\n>>> data3 = [('a', 'quarter'), ('b', 'eighth'), ('c', 'eighth'),\n...    ('a', 'quarter'), ('a', 'quarter'),\n...    ('b', 'eighth'), ('c', 'eighth'), ('a', 'quarter'), ('a', 'quarter'),\n...    ('c', 'quarter'), ('c', 'quarter'), ('d', 'quarter'), ('e', 'quarter')]\n>>> for pitchName, durType in data1:\n...    n = note.Note(pitchName)\n...    n.duration.type = durType\n...    stream1.append(n)\n>>> for pitchName, durType in data2:\n...    n = note.Note(pitchName)\n...    n.duration.type = durType\n...    stream2paris.append(n)\n>>> for pitchName, durType in data3:\n...    n = note.Note(pitchName)\n...    n.duration.type = durType\n...    stream3london.append(n)\n>>> mergedStreams = variant.mergeVariantsEqualDuration(\n...       [stream1, stream2paris, stream3london], ['paris', 'london'])\n>>> mergedStreams.show('t')\n{0.0} <music21.note.Note A>\n{1.0} <music21.variant.Variant object of length 1.0>\n{1.0} <music21.note.Note B>\n{1.5} <music21.note.Note C>\n{2.0} <music21.note.Note A>\n{3.0} <music21.variant.Variant object of length 1.0>\n{3.0} <music21.note.Note A>\n{4.0} <music21.note.Note B>\n{4.5} <music21.variant.Variant object of length 1.5>\n{4.5} <music21.note.Note C>\n{5.0} <music21.note.Note A>\n{6.0} <music21.note.Note A>\n{7.0} <music21.variant.Variant object of length 1.0>\n{7.0} <music21.note.Note B>\n{8.0} <music21.note.Note C>\n{9.0} <music21.variant.Variant object of length 2.0>\n{9.0} <music21.note.Note D>\n{10.0} <music21.note.Note E>\n\n\n>>> mergedStreams.activateVariants('london').show('t')\n{0.0} <music21.note.Note A>\n{1.0} <music21.variant.Variant object of length 1.0>\n{1.0} <music21.note.Note B>\n{1.5} <music21.note.Note C>\n{2.0} <music21.note.Note A>\n{3.0} <music21.variant.Variant object of length 1.0>\n{3.0} <music21.note.Note A>\n{4.0} <music21.note.Note B>\n{4.5} <music21.variant.Variant object of length 1.5>\n{4.5} <music21.note.Note C>\n{5.0} <music21.note.Note A>\n{6.0} <music21.note.Note A>\n{7.0} <music21.variant.Variant object of length 1.0>\n{7.0} <music21.note.Note C>\n{8.0} <music21.note.Note C>\n{9.0} <music21.variant.Variant object of length 2.0>\n{9.0} <music21.note.Note D>\n{10.0} <music21.note.Note E>\n\n\nIf the streams contain parts and measures, the merge function will iterate\nthrough them and determine\nand store variant differences within each measure/part.\n>>> stream1 = stream.Stream()\n>>> stream2 = stream.Stream()\n>>> data1M1 = [('a', 'quarter'), ('b', 'eighth'), ('c', 'eighth'),\n...            ('a', 'quarter'), ('a', 'quarter')]\n>>> data1M2 = [('b', 'eighth'), ('c', 'eighth'), ('a', 'quarter'),\n...            ('a', 'quarter'),('b', 'quarter')]\n>>> data1M3 = [('c', 'quarter'), ('d', 'quarter'), ('e', 'quarter'), ('e', 'quarter')]\n>>> data2M1 = [('a', 'quarter'), ('b', 'quarter'), ('a', 'quarter'), ('g', 'quarter')]\n>>> data2M2 = [('b', 'eighth'), ('c', 'quarter'), ('a', 'eighth'),\n...            ('a', 'quarter'), ('b', 'quarter')]\n>>> data2M3 = [('c', 'quarter'), ('b', 'quarter'), ('a', 'quarter'), ('a', 'quarter')]\n>>> data1 = [data1M1, data1M2, data1M3]\n>>> data2 = [data2M1, data2M2, data2M3]\n>>> tempPart = stream.Part()\n>>> for d in data1:\n...    m = stream.Measure()\n...    for pitchName, durType in d:\n...        n = note.Note(pitchName)\n...        n.duration.type = durType\n...        m.append(n)\n...    tempPart.append(m)\n>>> stream1.append(tempPart)\n>>> tempPart = stream.Part()\n>>> for d in data2:\n...    m = stream.Measure()\n...    for pitchName, durType in d:\n...        n = note.Note(pitchName)\n...        n.duration.type = durType\n...        m.append(n)\n...    tempPart.append(m)\n>>> stream2.append(tempPart)\n>>> mergedStreams = variant.mergeVariantsEqualDuration([stream1, stream2], ['paris'])\n>>> mergedStreams.show('t')\n{0.0} <music21.stream.Part ...>\n    {0.0} <music21.stream.Measure 0 offset=0.0>\n        {0.0} <music21.note.Note A>\n        {1.0} <music21.variant.Variant object of length 1.0>\n        {1.0} <music21.note.Note B>\n        {1.5} <music21.note.Note C>\n        {2.0} <music21.note.Note A>\n        {3.0} <music21.variant.Variant object of length 1.0>\n        {3.0} <music21.note.Note A>\n    {4.0} <music21.stream.Measure 0 offset=4.0>\n        {0.0} <music21.note.Note B>\n        {0.5} <music21.variant.Variant object of length 1.5>\n        {0.5} <music21.note.Note C>\n        {1.0} <music21.note.Note A>\n        {2.0} <music21.note.Note A>\n        {3.0} <music21.note.Note B>\n    {8.0} <music21.stream.Measure 0 offset=8.0>\n        {0.0} <music21.note.Note C>\n        {1.0} <music21.variant.Variant object of length 3.0>\n        {1.0} <music21.note.Note D>\n        {2.0} <music21.note.Note E>\n        {3.0} <music21.note.Note E>\n>>> mergedStreams.show()\n\n\n\n>>> for p in mergedStreams.getElementsByClass(stream.Part):\n...    for m in p.getElementsByClass(stream.Measure):\n...        m.activateVariants('paris', inPlace=True)\n>>> mergedStreams.show('t')\n{0.0} <music21.stream.Part ...>\n    {0.0} <music21.stream.Measure 0 offset=0.0>\n        {0.0} <music21.note.Note A>\n        {1.0} <music21.variant.Variant object of length 1.0>\n        {1.0} <music21.note.Note B>\n        {2.0} <music21.note.Note A>\n        {3.0} <music21.variant.Variant object of length 1.0>\n        {3.0} <music21.note.Note G>\n    {4.0} <music21.stream.Measure 0 offset=4.0>\n        {0.0} <music21.note.Note B>\n        {0.5} <music21.variant.Variant object of length 1.5>\n        {0.5} <music21.note.Note C>\n        {1.5} <music21.note.Note A>\n        {2.0} <music21.note.Note A>\n        {3.0} <music21.note.Note B>\n    {8.0} <music21.stream.Measure 0 offset=8.0>\n        {0.0} <music21.note.Note C>\n        {1.0} <music21.variant.Variant object of length 3.0>\n        {1.0} <music21.note.Note B>\n        {2.0} <music21.note.Note A>\n        {3.0} <music21.note.Note A>\n>>> mergedStreams.show()\n\n\n\nIf barlines do not match up, an exception will be thrown. Here two streams that are identical\nare merged, except one is in 3/4, the other in 4/4. This throws an exception.\n>>> streamDifferentMeasures = stream.Stream()\n>>> dataDiffM1 = [('a', 'quarter'), ('b', 'eighth'), ('c', 'eighth'), ('a', 'quarter')]\n>>> dataDiffM2 = [ ('a', 'quarter'), ('b', 'eighth'), ('c', 'eighth'), ('a', 'quarter')]\n>>> dataDiffM3 = [('a', 'quarter'), ('b', 'quarter'), ('c', 'quarter')]\n>>> dataDiffM4 = [('d', 'quarter'), ('e', 'quarter'), ('e', 'quarter')]\n>>> dataDiff = [dataDiffM1, dataDiffM2, dataDiffM3, dataDiffM4]\n>>> streamDifferentMeasures.insert(0.0, meter.TimeSignature('3/4'))\n>>> tempPart = stream.Part()\n>>> for d in dataDiff:\n...    m = stream.Measure()\n...    for pitchName, durType in d:\n...        n = note.Note(pitchName)\n...        n.duration.type = durType\n...        m.append(n)\n...    tempPart.append(m)\n>>> streamDifferentMeasures.append(tempPart)\n>>> mergedStreams = variant.mergeVariantsEqualDuration(\n...                 [stream1, streamDifferentMeasures], ['paris'])\nTraceback (most recent call last):\nmusic21.variant.VariantException: _mergeVariants cannot merge streams\n    which are of different lengths",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.variant.",
+        "type": "Title"
+    },
+    {
+        "text": "refineVariant",
+        "type": "Title"
+    },
+    {
+        "text": "sVariant",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a stream and variant contained in that stream, returns a\nstream with that variant \u0098refined.'\nIt is refined in the sense that, (with the best estimates) measures which have been determined\nto be related are merged within the measure.\nSuppose a four-bar phrase in a piece is a slightly\ndifferent five-bar phrase in a variant. In the variant, every F# has been replaced by an F,\nand the last bar is repeated. Given these streams, mergeVariantMeasureStreams would return\nthe first stream with a single variant object containing the entire 5 bars of the variant.\nCalling refineVariant on this stream and that variant object would result in a variant object\nin the measures for each F#/F pair, and a variant object containing the added bar at the end.\nFor a more detailed explanation of how similar measures are properly associated with each other\nlook at the documentation for _getBestListAndScore\nNote that this code does not work properly yet.\n>>> v = variant.Variant()\n>>> variantDataM1 = [('b', 'eighth'), ('c', 'eighth'), ('a', 'quarter'),\n...                  ('a', 'quarter'),('b', 'quarter')]\n>>> variantDataM2 = [('c', 'quarter'), ('d', 'quarter'), ('e', 'quarter'), ('e', 'quarter')]\n>>> variantData = [variantDataM1, variantDataM2]\n>>> for d in variantData:\n...    m = stream.Measure()\n...    for pitchName, durType in d:\n...        n = note.Note(pitchName)\n...        n.duration.type = durType\n...        m.append(n)\n...    v.append(m)\n>>> v.groups = ['paris']\n>>> v.replacementDuration = 8.0\n\n\n>>> s = stream.Stream()\n>>> streamDataM1 = [('a', 'quarter'), ('b', 'quarter'), ('a', 'quarter'), ('g', 'quarter')]\n>>> streamDataM2 = [('b', 'eighth'), ('c', 'quarter'),\n...                 ('a', 'eighth'), ('a', 'quarter'), ('b', 'quarter')]\n>>> streamDataM3 = [('c', 'quarter'), ('b', 'quarter'), ('a', 'quarter'), ('a', 'quarter')]\n>>> streamDataM4 = [('c', 'quarter'), ('b', 'quarter'), ('a', 'quarter'), ('a', 'quarter')]\n>>> streamData = [streamDataM1, streamDataM2, streamDataM3, streamDataM4]\n>>> for d in streamData:\n...    m = stream.Measure()\n...    for pitchName, durType in d:\n...        n = note.Note(pitchName)\n...        n.duration.type = durType\n...        m.append(n)\n...    s.append(m)\n>>> s.insert(4.0, v)\n\n\n>>> variant.refineVariant(s, v, inPlace=True)\n>>> s.show('text')\n{0.0} <music21.stream.Measure 0 offset=0.0>\n    {0.0} <music21.note.Note A>\n    {1.0} <music21.note.Note B>\n    {2.0} <music21.note.Note A>\n    {3.0} <music21.note.Note G>\n{4.0} <music21.stream.Measure 0 offset=4.0>\n    {0.0} <music21.note.Note B>\n    {0.5} <music21.variant.Variant object of length 1.5>\n    {0.5} <music21.note.Note C>\n    {1.5} <music21.note.Note A>\n    {2.0} <music21.note.Note A>\n    {3.0} <music21.note.Note B>\n{8.0} <music21.stream.Measure 0 offset=8.0>\n    {0.0} <music21.note.Note C>\n    {1.0} <music21.variant.Variant object of length 3.0>\n    {1.0} <music21.note.Note B>\n    {2.0} <music21.note.Note A>\n    {3.0} <music21.note.Note A>\n{12.0} <music21.stream.Measure 0 offset=12.0>\n    {0.0} <music21.note.Note C>\n    {1.0} <music21.note.Note B>\n    {2.0} <music21.note.Note A>\n    {3.0} <music21.note.Note A>",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.variant",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

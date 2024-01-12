@@ -1,0 +1,4138 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.clef",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.chord.tools",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.common.classTools",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.clef\nClef\nClef\nClef.name\nClef.octaveChange\nClef.getStemDirectionForPitches()\nClef.line\nClef.sign\n\n\n\n\nTrebleClef\nTrebleClef\n\n\nBassClef\nBassClef\n\n\nAltoClef\nAltoClef\n\n\nBass8vaClef\nBass8vaClef\n\n\nBass8vbClef\nBass8vbClef\n\n\nCBaritoneClef\nCBaritoneClef\n\n\nCClef\nCClef\n\n\nFBaritoneClef\nFBaritoneClef\n\n\nFClef\nFClef\n\n\nFrenchViolinClef\nFrenchViolinClef\n\n\nGClef\nGClef\n\n\nGSopranoClef\nGSopranoClef\n\n\nJianpuClef\nJianpuClef\n\n\nMezzoSopranoClef\nMezzoSopranoClef\n\n\nNoClef\nNoClef\n\n\nPercussionClef\nPercussionClef\n\n\nPitchClef\nPitchClef\nPitchClef.octaveChange\nPitchClef.lowestLine\n\n\n\n\nSopranoClef\nSopranoClef\n\n\nSubBassClef\nSubBassClef\n\n\nTabClef\nTabClef\nTabClef.getStemDirectionForPitches()\n\n\n\n\nTenorClef\nTenorClef\n\n\nTreble8vaClef\nTreble8vaClef\n\n\nTreble8vbClef\nTreble8vbClef\n\n\nFunctions\nbestClef()\nclefFromString()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.clef\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "This module defines numerous subclasses of\nClef, providing object representations for all\ncommonly used clefs. Clef objects are often found\nwithin Measure objects.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Clef\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.clef.",
+        "type": "Title"
+    },
+    {
+        "text": "Clef",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A Clef is a basic music21 object for representing musical clefs\n(Treble, Bass, etc.)\nSome clefs only represent the graphical element of the clef,\nsuch as G clef, which is subclassed by TrebleClef() and FrenchViolinClef().\n>>> tc = clef.TrebleClef()\n>>> tc\n<music21.clef.TrebleClef>\n>>> tc.sign\n'G'\n>>> tc.line\n2\n\n\nMost clefs also have a \u009clowestLine\u009d function which represents the\ndiatonicNoteNum of the note that would fall on the\nlowest line if the Clef were put on a five-line staff. (Where C4,C#4,C##4,C-4\netc. = 29, all types of D4 = 30, etc.)\n>>> tc.lowestLine\n31\n\n\nEquality\nTwo Clefs are equal if their class is the same, their sign is the same,\ntheir line is the same and their octaveChange is the same.\n>>> c1 = clef.PercussionClef()\n>>> c2 = clef.NoClef()\n>>> c1 == c2\nFalse\n>>> c3 = clef.TrebleClef()\n>>> c4 = clef.TrebleClef()\n>>> c3 == c4\nTrue\n>>> c4.octaveChange = -1\n>>> c3 == c4\nFalse\n\n\nNote that these are not equal:\n>>> clef.TrebleClef() == clef.GClef(line=2)\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "Clef bases",
+        "type": "Title"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "Clef read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Clef.",
+        "type": "Title"
+    },
+    {
+        "text": "name",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns the \u009cname\u009d of the clef, from the class name\n>>> tc = clef.TrebleClef()\n>>> tc.name\n'treble'\n\n\n>>> tc = clef.Treble8vbClef()\n>>> tc.name\n'treble8vb'\n\n\n>>> tc = clef.MezzoSopranoClef()\n>>> tc.name\n'mezzoSoprano'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "Clef read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Clef.",
+        "type": "Title"
+    },
+    {
+        "text": "octaveChange",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The number of octaves that the clef \u009ctransposes\u009d, generally 0.\n>>> tc = clef.TrebleClef()\n>>> tc.octaveChange\n0\n>>> clef.Treble8vbClef().octaveChange\n-1",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "Clef methods",
+        "type": "Title"
+    },
+    {
+        "text": "Clef.",
+        "type": "Title"
+    },
+    {
+        "text": "getStemDirectionForPitches",
+        "type": "Title"
+    },
+    {
+        "text": "pitches",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Sequence",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "firstLastOnly",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "extremePitchOnly",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 str",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a string representing the stem direction for a single\nPitch object or a list/tuple/Stream of pitches.\n>>> P = pitch.Pitch\n>>> bc = clef.BassClef()\n>>> bc.getStemDirectionForPitches(P('C3'))\n'up'\n\n\nFor two pitches, the most extreme pitch determines the direction:\n>>> pitchList = [P('C3'), P('B3')]\n>>> bc.getStemDirectionForPitches(pitchList)\n'down'\n\n\nIf firstLastOnly is True (as by default) then only the first and last pitches are\nexamined, as in a beam group.  Here we have C3, B3, C3, so despite the B in bass\nclef being much farther from the center line than either of the Cs, it is stem up:\n>>> pitchList.append(P('C3'))\n>>> bc.getStemDirectionForPitches(pitchList)\n'up'\n\n\nIf firstLastOnly is False, then each of the pitches has a weight on the process\n>>> bc.getStemDirectionForPitches(pitchList, firstLastOnly=False)\n'down'\n\n\nIf extremePitchOnly is True, then whatever pitch is farthest from the center line\ndetermines the direction, regardless of order.  (default False).\n>>> bc.getStemDirectionForPitches(pitchList, extremePitchOnly=True)\n'down'\n>>> pitchList.insert(1, P('C2'))\n>>> bc.getStemDirectionForPitches(pitchList, extremePitchOnly=True)\n'up'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Clef instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Clef.",
+        "type": "Title"
+    },
+    {
+        "text": "line",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The line, counting from the bottom up, that the clef resides on.\n>>> clef.AltoClef().line\n3\n>>> clef.TenorClef().line\n4\n\n\nMay be None:\n>>> print(clef.NoClef().line)\nNone",
+        "type": "ListItem"
+    },
+    {
+        "text": "Clef.",
+        "type": "Title"
+    },
+    {
+        "text": "sign",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The sign of the clef, generally, \u0098C', \u0098G', \u0098F', \u0098percussion', \u0098none' or None.\n>>> alto = clef.AltoClef()\n>>> alto.sign\n'C'\n>>> percussion = clef.PercussionClef()\n>>> percussion.sign\n'percussion'\n\n\nNote the difference here:\n>>> clef.Clef().sign is None\nTrue\n>>> clef.NoClef().sign\n'none'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "TrebleClef\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.clef.",
+        "type": "Title"
+    },
+    {
+        "text": "TrebleClef",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The most common clef of all, a treble clef.\n>>> a = clef.TrebleClef()\n>>> a.sign\n'G'\n>>> a.line\n2\n>>> a.lowestLine\n31\n>>> note.Note('E4').pitch.diatonicNoteNum\n31",
+        "type": "ListItem"
+    },
+    {
+        "text": "TrebleClef bases",
+        "type": "Title"
+    },
+    {
+        "text": "GClef",
+        "type": "ListItem"
+    },
+    {
+        "text": "PitchClef",
+        "type": "ListItem"
+    },
+    {
+        "text": "Clef",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "TrebleClef read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Clef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "name",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "TrebleClef read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from PitchClef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "octaveChange",
+        "type": "Table"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "TrebleClef methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from Clef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "getStemDirectionForPitches()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "TrebleClef instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from PitchClef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "lowestLine",
+        "type": "Table"
+    },
+    {
+        "text": "Instance variables inherited from Clef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "line sign",
+        "type": "Table"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "BassClef\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.clef.",
+        "type": "Title"
+    },
+    {
+        "text": "BassClef",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A standard Bass Clef\n>>> a = clef.BassClef()\n>>> a.sign\n'F'",
+        "type": "ListItem"
+    },
+    {
+        "text": "BassClef bases",
+        "type": "Title"
+    },
+    {
+        "text": "FClef",
+        "type": "ListItem"
+    },
+    {
+        "text": "PitchClef",
+        "type": "ListItem"
+    },
+    {
+        "text": "Clef",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "BassClef read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Clef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "name",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "BassClef read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from PitchClef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "octaveChange",
+        "type": "Table"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "BassClef methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from Clef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "getStemDirectionForPitches()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "BassClef instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from PitchClef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "lowestLine",
+        "type": "Table"
+    },
+    {
+        "text": "Instance variables inherited from Clef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "line sign",
+        "type": "Table"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "AltoClef\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.clef.",
+        "type": "Title"
+    },
+    {
+        "text": "AltoClef",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A C AltoClef, common for violas.\n>>> a = clef.AltoClef()\n>>> a.sign\n'C'\n>>> a.line\n3",
+        "type": "ListItem"
+    },
+    {
+        "text": "AltoClef bases",
+        "type": "Title"
+    },
+    {
+        "text": "CClef",
+        "type": "ListItem"
+    },
+    {
+        "text": "PitchClef",
+        "type": "ListItem"
+    },
+    {
+        "text": "Clef",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "AltoClef read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Clef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "name",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "AltoClef read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from PitchClef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "octaveChange",
+        "type": "Table"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "AltoClef methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from Clef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "getStemDirectionForPitches()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "AltoClef instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from PitchClef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "lowestLine",
+        "type": "Table"
+    },
+    {
+        "text": "Instance variables inherited from Clef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "line sign",
+        "type": "Table"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "Bass8vaClef\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.clef.",
+        "type": "Title"
+    },
+    {
+        "text": "Bass8vaClef",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A rarely used Bass Clef an octave higher.\n>>> a = clef.Bass8vaClef()\n>>> a.sign\n'F'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Bass8vaClef bases",
+        "type": "Title"
+    },
+    {
+        "text": "FClef",
+        "type": "ListItem"
+    },
+    {
+        "text": "PitchClef",
+        "type": "ListItem"
+    },
+    {
+        "text": "Clef",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "Bass8vaClef read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Clef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "name",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "Bass8vaClef read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from PitchClef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "octaveChange",
+        "type": "Table"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "Bass8vaClef methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from Clef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "getStemDirectionForPitches()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Bass8vaClef instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from PitchClef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "lowestLine",
+        "type": "Table"
+    },
+    {
+        "text": "Instance variables inherited from Clef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "line sign",
+        "type": "Table"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "Bass8vbClef\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.clef.",
+        "type": "Title"
+    },
+    {
+        "text": "Bass8vbClef",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A bass clef configured to be an octave lower.\n>>> a = clef.Bass8vbClef()\n>>> a.sign\n'F'\n>>> a.octaveChange\n-1",
+        "type": "ListItem"
+    },
+    {
+        "text": "Bass8vbClef bases",
+        "type": "Title"
+    },
+    {
+        "text": "FClef",
+        "type": "ListItem"
+    },
+    {
+        "text": "PitchClef",
+        "type": "ListItem"
+    },
+    {
+        "text": "Clef",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "Bass8vbClef read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Clef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "name",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "Bass8vbClef read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from PitchClef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "octaveChange",
+        "type": "Table"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "Bass8vbClef methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from Clef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "getStemDirectionForPitches()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Bass8vbClef instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from PitchClef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "lowestLine",
+        "type": "Table"
+    },
+    {
+        "text": "Instance variables inherited from Clef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "line sign",
+        "type": "Table"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "CBaritoneClef\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.clef.",
+        "type": "Title"
+    },
+    {
+        "text": "CBaritoneClef",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A Baritone C clef (as opposed to an F Baritone Clef)\n>>> a = clef.CBaritoneClef()\n>>> a.sign\n'C'\n>>> a.line\n5",
+        "type": "ListItem"
+    },
+    {
+        "text": "CBaritoneClef bases",
+        "type": "Title"
+    },
+    {
+        "text": "CClef",
+        "type": "ListItem"
+    },
+    {
+        "text": "PitchClef",
+        "type": "ListItem"
+    },
+    {
+        "text": "Clef",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "CBaritoneClef read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Clef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "name",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "CBaritoneClef read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from PitchClef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "octaveChange",
+        "type": "Table"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "CBaritoneClef methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from Clef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "getStemDirectionForPitches()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "CBaritoneClef instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from PitchClef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "lowestLine",
+        "type": "Table"
+    },
+    {
+        "text": "Instance variables inherited from Clef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "line sign",
+        "type": "Table"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "CClef\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.clef.",
+        "type": "Title"
+    },
+    {
+        "text": "CClef",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A generic C Clef, with no line set\n>>> a = clef.CClef()\n>>> a.sign\n'C'",
+        "type": "ListItem"
+    },
+    {
+        "text": "CClef bases",
+        "type": "Title"
+    },
+    {
+        "text": "PitchClef",
+        "type": "ListItem"
+    },
+    {
+        "text": "Clef",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "CClef read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Clef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "name",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "CClef read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from PitchClef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "octaveChange",
+        "type": "Table"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "CClef methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from Clef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "getStemDirectionForPitches()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "CClef instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from PitchClef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "lowestLine",
+        "type": "Table"
+    },
+    {
+        "text": "Instance variables inherited from Clef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "line sign",
+        "type": "Table"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "FBaritoneClef\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.clef.",
+        "type": "Title"
+    },
+    {
+        "text": "FBaritoneClef",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "an F Baritone Clef\n>>> a = clef.FBaritoneClef()\n>>> a.sign\n'F'\n>>> a.line\n3\n>>> b = clef.CBaritoneClef()\n>>> a.lowestLine == b.lowestLine\nTrue\n>>> a.sign == b.sign\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "FBaritoneClef bases",
+        "type": "Title"
+    },
+    {
+        "text": "FClef",
+        "type": "ListItem"
+    },
+    {
+        "text": "PitchClef",
+        "type": "ListItem"
+    },
+    {
+        "text": "Clef",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "FBaritoneClef read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Clef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "name",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "FBaritoneClef read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from PitchClef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "octaveChange",
+        "type": "Table"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "FBaritoneClef methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from Clef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "getStemDirectionForPitches()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "FBaritoneClef instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from PitchClef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "lowestLine",
+        "type": "Table"
+    },
+    {
+        "text": "Instance variables inherited from Clef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "line sign",
+        "type": "Table"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "FClef\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.clef.",
+        "type": "Title"
+    },
+    {
+        "text": "FClef",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A generic F-Clef, like a Bass clef\n>>> a = clef.FClef()\n>>> a.sign\n'F'",
+        "type": "ListItem"
+    },
+    {
+        "text": "FClef bases",
+        "type": "Title"
+    },
+    {
+        "text": "PitchClef",
+        "type": "ListItem"
+    },
+    {
+        "text": "Clef",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "FClef read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Clef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "name",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "FClef read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from PitchClef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "octaveChange",
+        "type": "Table"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "FClef methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from Clef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "getStemDirectionForPitches()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "FClef instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from PitchClef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "lowestLine",
+        "type": "Table"
+    },
+    {
+        "text": "Instance variables inherited from Clef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "line sign",
+        "type": "Table"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "FrenchViolinClef\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.clef.",
+        "type": "Title"
+    },
+    {
+        "text": "FrenchViolinClef",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A G Clef that appears in many old French Violin scores,\nappearing on the lowest line, and thus higher than\na treble clef.\n>>> a = clef.FrenchViolinClef()\n>>> a.sign\n'G'\n>>> a.line\n1",
+        "type": "ListItem"
+    },
+    {
+        "text": "FrenchViolinClef bases",
+        "type": "Title"
+    },
+    {
+        "text": "GClef",
+        "type": "ListItem"
+    },
+    {
+        "text": "PitchClef",
+        "type": "ListItem"
+    },
+    {
+        "text": "Clef",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "FrenchViolinClef read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Clef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "name",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "FrenchViolinClef read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from PitchClef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "octaveChange",
+        "type": "Table"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "FrenchViolinClef methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from Clef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "getStemDirectionForPitches()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "FrenchViolinClef instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from PitchClef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "lowestLine",
+        "type": "Table"
+    },
+    {
+        "text": "Instance variables inherited from Clef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "line sign",
+        "type": "Table"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "GClef\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.clef.",
+        "type": "Title"
+    },
+    {
+        "text": "GClef",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A generic G Clef\n>>> a = clef.GClef()\n>>> a.sign\n'G'\n\n\nIf not defined, the lowestLine is set as a Treble Clef (E4 = 31)\n>>> a.lowestLine\n31",
+        "type": "ListItem"
+    },
+    {
+        "text": "GClef bases",
+        "type": "Title"
+    },
+    {
+        "text": "PitchClef",
+        "type": "ListItem"
+    },
+    {
+        "text": "Clef",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "GClef read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Clef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "name",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "GClef read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from PitchClef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "octaveChange",
+        "type": "Table"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "GClef methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from Clef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "getStemDirectionForPitches()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "GClef instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from PitchClef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "lowestLine",
+        "type": "Table"
+    },
+    {
+        "text": "Instance variables inherited from Clef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "line sign",
+        "type": "Table"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "GSopranoClef\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.clef.",
+        "type": "Title"
+    },
+    {
+        "text": "GSopranoClef",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A G clef on the middle line, formerly occasionally used\nfor soprano parts.\n>>> a = clef.GSopranoClef()\n>>> a.sign\n'G'\n>>> a.line\n3",
+        "type": "ListItem"
+    },
+    {
+        "text": "GSopranoClef bases",
+        "type": "Title"
+    },
+    {
+        "text": "GClef",
+        "type": "ListItem"
+    },
+    {
+        "text": "PitchClef",
+        "type": "ListItem"
+    },
+    {
+        "text": "Clef",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "GSopranoClef read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Clef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "name",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "GSopranoClef read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from PitchClef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "octaveChange",
+        "type": "Table"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "GSopranoClef methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from Clef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "getStemDirectionForPitches()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "GSopranoClef instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from PitchClef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "lowestLine",
+        "type": "Table"
+    },
+    {
+        "text": "Instance variables inherited from Clef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "line sign",
+        "type": "Table"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "JianpuClef\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.clef.",
+        "type": "Title"
+    },
+    {
+        "text": "JianpuClef",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Jianpu notation does not use a clef, but musicxml marks it\nwith a specialized \u009cjianpu\u009d sign.\n>>> jc = clef.JianpuClef()\n>>> jc.sign\n'jianpu'",
+        "type": "ListItem"
+    },
+    {
+        "text": "JianpuClef bases",
+        "type": "Title"
+    },
+    {
+        "text": "NoClef",
+        "type": "ListItem"
+    },
+    {
+        "text": "Clef",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "JianpuClef read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Clef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "name",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "JianpuClef read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Clef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "octaveChange",
+        "type": "Table"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "JianpuClef methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from Clef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "getStemDirectionForPitches()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "JianpuClef instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from Clef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "line sign",
+        "type": "Table"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "MezzoSopranoClef\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.clef.",
+        "type": "Title"
+    },
+    {
+        "text": "MezzoSopranoClef",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A C clef with C on the second line.  Perhaps\nthe rarest of the C clefs\n>>> a = clef.MezzoSopranoClef()\n>>> a.sign\n'C'\n>>> a.line\n2",
+        "type": "ListItem"
+    },
+    {
+        "text": "MezzoSopranoClef bases",
+        "type": "Title"
+    },
+    {
+        "text": "CClef",
+        "type": "ListItem"
+    },
+    {
+        "text": "PitchClef",
+        "type": "ListItem"
+    },
+    {
+        "text": "Clef",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "MezzoSopranoClef read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Clef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "name",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "MezzoSopranoClef read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from PitchClef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "octaveChange",
+        "type": "Table"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "MezzoSopranoClef methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from Clef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "getStemDirectionForPitches()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "MezzoSopranoClef instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from PitchClef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "lowestLine",
+        "type": "Table"
+    },
+    {
+        "text": "Instance variables inherited from Clef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "line sign",
+        "type": "Table"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "NoClef\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.clef.",
+        "type": "Title"
+    },
+    {
+        "text": "NoClef",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "represents the absence of a Clef.\n>>> nc = clef.NoClef()\n>>> nc.sign\n'none'\n\n\nNote that the sign is the string \u0098none' not the None object\n>>> nc.sign is None\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "NoClef bases",
+        "type": "Title"
+    },
+    {
+        "text": "Clef",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "NoClef read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Clef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "name",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "NoClef read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Clef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "octaveChange",
+        "type": "Table"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "NoClef methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from Clef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "getStemDirectionForPitches()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "NoClef instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from Clef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "line sign",
+        "type": "Table"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "PercussionClef\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.clef.",
+        "type": "Title"
+    },
+    {
+        "text": "PercussionClef",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "represents a Percussion clef.\n>>> pc = clef.PercussionClef()\n>>> pc.sign\n'percussion'\n>>> pc.line is None\nTrue\n\n\nPercussion clefs should not, technically have a\n\u009clowestLine,\u009d but it is a common usage to assume that\nin pitch-centric contexts to use the pitch numbers\nfrom treble clef for percussion clefs.  Thus:\n>>> pc.lowestLine == clef.TrebleClef().lowestLine\nTrue\n\n\n\nChanged in v7.3: setting octaveChange no longer affects\nlowestLine",
+        "type": "ListItem"
+    },
+    {
+        "text": "PercussionClef bases",
+        "type": "Title"
+    },
+    {
+        "text": "Clef",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "PercussionClef read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Clef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "name",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "PercussionClef read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Clef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "octaveChange",
+        "type": "Table"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "PercussionClef methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from Clef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "getStemDirectionForPitches()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "PercussionClef instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from Clef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "line sign",
+        "type": "Table"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "PitchClef\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.clef.",
+        "type": "Title"
+    },
+    {
+        "text": "PitchClef",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "superclass for all other clef subclasses that use pitches\u2026",
+        "type": "ListItem"
+    },
+    {
+        "text": "PitchClef bases",
+        "type": "Title"
+    },
+    {
+        "text": "Clef",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "PitchClef read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Clef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "name",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "PitchClef read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "PitchClef.",
+        "type": "Title"
+    },
+    {
+        "text": "octaveChange",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The number of octaves that the clef \u009ctransposes\u009d, generally 0.\n>>> tc = clef.TrebleClef()\n>>> tc.octaveChange\n0\n>>> clef.Treble8vbClef().octaveChange\n-1\n\n\nChanging octaveChange changes lowestLine (but not vice-versa)\n>>> tc.lowestLine\n31\n>>> tc.octaveChange = 1\n>>> tc.lowestLine\n38\n>>> tc.octaveChange = -1\n>>> tc.lowestLine\n24",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "PitchClef methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from Clef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "getStemDirectionForPitches()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "PitchClef instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "PitchClef.",
+        "type": "Title"
+    },
+    {
+        "text": "lowestLine",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The diatonicNoteNumber of the lowest line of the clef.\n(Can be none\u2026)\n>>> clef.TrebleClef().lowestLine\n31",
+        "type": "ListItem"
+    },
+    {
+        "text": "Instance variables inherited from Clef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "line sign",
+        "type": "Table"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "SopranoClef\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.clef.",
+        "type": "Title"
+    },
+    {
+        "text": "SopranoClef",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A soprano clef, with C on the lowest line\n(found in Bach often)\n>>> a = clef.SopranoClef()\n>>> a.sign\n'C'\n>>> a.line\n1",
+        "type": "ListItem"
+    },
+    {
+        "text": "SopranoClef bases",
+        "type": "Title"
+    },
+    {
+        "text": "CClef",
+        "type": "ListItem"
+    },
+    {
+        "text": "PitchClef",
+        "type": "ListItem"
+    },
+    {
+        "text": "Clef",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "SopranoClef read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Clef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "name",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "SopranoClef read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from PitchClef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "octaveChange",
+        "type": "Table"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "SopranoClef methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from Clef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "getStemDirectionForPitches()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "SopranoClef instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from PitchClef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "lowestLine",
+        "type": "Table"
+    },
+    {
+        "text": "Instance variables inherited from Clef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "line sign",
+        "type": "Table"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "SubBassClef\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.clef.",
+        "type": "Title"
+    },
+    {
+        "text": "SubBassClef",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "An F clef on the top line.\n>>> a = clef.SubBassClef()\n>>> a.sign\n'F'",
+        "type": "ListItem"
+    },
+    {
+        "text": "SubBassClef bases",
+        "type": "Title"
+    },
+    {
+        "text": "FClef",
+        "type": "ListItem"
+    },
+    {
+        "text": "PitchClef",
+        "type": "ListItem"
+    },
+    {
+        "text": "Clef",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "SubBassClef read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Clef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "name",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "SubBassClef read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from PitchClef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "octaveChange",
+        "type": "Table"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "SubBassClef methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from Clef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "getStemDirectionForPitches()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "SubBassClef instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from PitchClef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "lowestLine",
+        "type": "Table"
+    },
+    {
+        "text": "Instance variables inherited from Clef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "line sign",
+        "type": "Table"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "TabClef\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.clef.",
+        "type": "Title"
+    },
+    {
+        "text": "TabClef",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "represents a Tablature clef.\n>>> a = clef.TabClef()\n>>> a.sign\n'TAB'",
+        "type": "ListItem"
+    },
+    {
+        "text": "TabClef bases",
+        "type": "Title"
+    },
+    {
+        "text": "PitchClef",
+        "type": "ListItem"
+    },
+    {
+        "text": "Clef",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "TabClef read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Clef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "name",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "TabClef read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from PitchClef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "octaveChange",
+        "type": "Table"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "TabClef methods",
+        "type": "Title"
+    },
+    {
+        "text": "TabClef.",
+        "type": "Title"
+    },
+    {
+        "text": "getStemDirectionForPitches",
+        "type": "Title"
+    },
+    {
+        "text": "pitchList",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Iterable",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "firstLastOnly",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "extremePitchOnly",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 str",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Overridden to simply return \u0098down' for guitar tabs.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "TabClef instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from PitchClef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "lowestLine",
+        "type": "Table"
+    },
+    {
+        "text": "Instance variables inherited from Clef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "line sign",
+        "type": "Table"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "TenorClef\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.clef.",
+        "type": "Title"
+    },
+    {
+        "text": "TenorClef",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A C Tenor Clef, often used in bassoon and cello parts\nand orchestral trombone parts.\n>>> a = clef.TenorClef()\n>>> a.sign\n'C'\n>>> a.line\n4",
+        "type": "ListItem"
+    },
+    {
+        "text": "TenorClef bases",
+        "type": "Title"
+    },
+    {
+        "text": "CClef",
+        "type": "ListItem"
+    },
+    {
+        "text": "PitchClef",
+        "type": "ListItem"
+    },
+    {
+        "text": "Clef",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "TenorClef read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Clef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "name",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "TenorClef read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from PitchClef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "octaveChange",
+        "type": "Table"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "TenorClef methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from Clef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "getStemDirectionForPitches()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "TenorClef instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from PitchClef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "lowestLine",
+        "type": "Table"
+    },
+    {
+        "text": "Instance variables inherited from Clef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "line sign",
+        "type": "Table"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "Treble8vaClef\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.clef.",
+        "type": "Title"
+    },
+    {
+        "text": "Treble8vaClef",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A treble clef an octave up (such as for piccolos)\n>>> a = clef.Treble8vaClef()\n>>> a.sign\n'G'\n>>> a.octaveChange\n1",
+        "type": "ListItem"
+    },
+    {
+        "text": "Treble8vaClef bases",
+        "type": "Title"
+    },
+    {
+        "text": "TrebleClef",
+        "type": "ListItem"
+    },
+    {
+        "text": "GClef",
+        "type": "ListItem"
+    },
+    {
+        "text": "PitchClef",
+        "type": "ListItem"
+    },
+    {
+        "text": "Clef",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "Treble8vaClef read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Clef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "name",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "Treble8vaClef read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from PitchClef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "octaveChange",
+        "type": "Table"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "Treble8vaClef methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from Clef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "getStemDirectionForPitches()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Treble8vaClef instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from PitchClef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "lowestLine",
+        "type": "Table"
+    },
+    {
+        "text": "Instance variables inherited from Clef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "line sign",
+        "type": "Table"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "Treble8vbClef\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.clef.",
+        "type": "Title"
+    },
+    {
+        "text": "Treble8vbClef",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A vocal tenor treble clef. Also for guitars.\n>>> a = clef.Treble8vbClef()\n>>> a.sign\n'G'\n>>> a.octaveChange\n-1",
+        "type": "ListItem"
+    },
+    {
+        "text": "Treble8vbClef bases",
+        "type": "Title"
+    },
+    {
+        "text": "TrebleClef",
+        "type": "ListItem"
+    },
+    {
+        "text": "GClef",
+        "type": "ListItem"
+    },
+    {
+        "text": "PitchClef",
+        "type": "ListItem"
+    },
+    {
+        "text": "Clef",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "Treble8vbClef read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Clef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "name",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "Treble8vbClef read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from PitchClef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "octaveChange",
+        "type": "Table"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "Treble8vbClef methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from Clef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "getStemDirectionForPitches()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Treble8vbClef instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from PitchClef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "lowestLine",
+        "type": "Table"
+    },
+    {
+        "text": "Instance variables inherited from Clef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "line sign",
+        "type": "Table"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.clef.",
+        "type": "Title"
+    },
+    {
+        "text": "bestClef",
+        "type": "Title"
+    },
+    {
+        "text": "streamObj",
+        "type": "Title"
+    },
+    {
+        "text": "stream.Stream",
+        "type": "Title"
+    },
+    {
+        "text": "allowTreble8vb",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "recurse",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 PitchClef",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns the clef that is the best fit for notes and chords found in this Stream.\n>>> import random\n>>> a = stream.Stream()\n>>> for x in range(30):\n...    n = note.Note()\n...    n.pitch.midi = random.randint(70, 81)\n...    a.insert(n)\n>>> b = clef.bestClef(a)\n>>> b\n<music21.clef.TrebleClef>\n>>> b.line\n2\n>>> b.sign\n'G'\n\n\n>>> c = stream.Stream()\n>>> for x in range(10):\n...    n = note.Note()\n...    n.pitch.midi = random.randint(45, 54)\n...    c.insert(n)\n>>> d = clef.bestClef(c)\n>>> d\n<music21.clef.BassClef>\n>>> d.line\n4\n>>> d.sign\n'F'\n\n\nThis does not automatically get a flat representation of the Stream.\nThere are a lot more high notes in a (30) than low notes in c (10),\nbut it will not matter here, because the pitches in a will not be found:\n>>> c.insert(0, a)\n>>> clef.bestClef(c)\n<music21.clef.BassClef>\n\n\nBut with recursion, it will matter:\n>>> clef.bestClef(c, recurse=True)\n<music21.clef.TrebleClef>\n\n\nNotes around middle C can get Treble8vb if the setting is allowed:\n>>> clef.bestClef(stream.Stream([note.Note('D4')]))\n<music21.clef.TrebleClef>\n>>> clef.bestClef(stream.Stream([note.Note('D4')]), allowTreble8vb=True)\n<music21.clef.Treble8vbClef>\n\n\nStreams of extremely high notes or extremely low notes can get\nTreble8va or Bass8vb clefs:\n>>> clef.bestClef(stream.Stream([note.Note('D7')]))\n<music21.clef.Treble8vaClef>\n>>> clef.bestClef(stream.Stream([note.Note('C0')]))\n<music21.clef.Bass8vbClef>",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.clef.",
+        "type": "Title"
+    },
+    {
+        "text": "clefFromString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "clefString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "octaveShift",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 Clef",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns a Clef object given a string like \u009cG2\u009d or \u009cF4\u009d etc.\nDoes not refer to a violin/guitar string.\n>>> tc = clef.clefFromString('G2')\n>>> tc\n<music21.clef.TrebleClef>\n>>> nonStandard1 = clef.clefFromString('F1')\n>>> nonStandard1\n<music21.clef.FClef>\n>>> nonStandard1.line\n1\n>>> nonStandard2 = clef.clefFromString('D4')\n>>> nonStandard2\n<music21.clef.PitchClef>\n>>> nonStandard2.sign\n'D'\n>>> nonStandard2.line\n4\n\n\n>>> tc8vb = clef.clefFromString('G2', -1)\n>>> tc8vb\n<music21.clef.Treble8vbClef>\n\n\nThree special clefs, Tab, Percussion, and None are also supported.\n>>> tabClef = clef.clefFromString('TAB')\n>>> tabClef\n<music21.clef.TabClef>\n\n\nCase does not matter.\n>>> tc8vb = clef.clefFromString('g2', -1)\n>>> tc8vb\n<music21.clef.Treble8vbClef>\n\n\n>>> percussionClef = clef.clefFromString('Percussion')\n>>> percussionClef\n<music21.clef.PercussionClef>\n\n\n>>> noClef = clef.clefFromString('None')\n>>> noClef\n<music21.clef.NoClef>\n\n\nInvalid line numbers raise an exception:\n>>> invalidClef = clef.clefFromString('F6')\nTraceback (most recent call last):\nmusic21.clef.ClefException: line number (second character) must be 1-5;\n            do not use this function for clefs on special staves such as 'F6'\n\n\nCan find any clef in the module\n>>> clef.clefFromString('Treble')\n<music21.clef.TrebleClef>\n>>> clef.clefFromString('trebleclef')\n<music21.clef.TrebleClef>\n>>> clef.clefFromString('treble8vb')\n<music21.clef.Treble8vbClef>",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.clef",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

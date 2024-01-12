@@ -1,0 +1,814 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.numberTools",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.common.misc",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.common.objects",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.common.numberTools\nFunctions\nfromRoman()\ntoRoman()\naddFloatPrecision()\napproximateGCD()\ncontiguousList()\ndecimalToTuplet()\ndotMultiplier()\ngroupContiguousIntegers()\nlcm()\nmixedNumeral()\nnearestMultiple()\nnumToIntOrFloat()\nopFrac()\nordinalAbbreviation()\nroundToHalfInteger()\nstrTrimFloat()\nunitBoundaryProportion()\nunitNormalizeProportion()\nweightedSelection()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.numberTools\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.common.numberTools.",
+        "type": "Title"
+    },
+    {
+        "text": "fromRoman",
+        "type": "Title"
+    },
+    {
+        "text": "num",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "strictModern",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 int",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Convert a Roman numeral (upper or lower) to an int\nhttps://code.activestate.com/recipes/81611-roman-numerals/\n>>> common.fromRoman('ii')\n2\n>>> common.fromRoman('vii')\n7\n\n\nWorks with both IIII and IV forms:\n>>> common.fromRoman('MCCCCLXXXIX')\n1489\n>>> common.fromRoman('MCDLXXXIX')\n1489\n\n\nSome people consider this an error, but you see it in medieval and ancient roman documents:\n>>> common.fromRoman('ic')\n99\n\n\nunless strictModern is True\n>>> common.fromRoman('ic', strictModern=True)\nTraceback (most recent call last):\nValueError: input contains an invalid subtraction element (modern interpretation): ic\n\n\nBut things like this are never seen, and thus cause an error:\n>>> common.fromRoman('vx')\nTraceback (most recent call last):\nValueError: input contains an invalid subtraction element: vx",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.numberTools.",
+        "type": "Title"
+    },
+    {
+        "text": "toRoman",
+        "type": "Title"
+    },
+    {
+        "text": "num",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 str",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Convert a number from 1 to 3999 to a roman numeral\n>>> common.toRoman(2)\n'II'\n>>> common.toRoman(7)\n'VII'\n>>> common.toRoman(1999)\n'MCMXCIX'\n\n\n>>> common.toRoman('hi')\nTraceback (most recent call last):\nTypeError: expected integer, got <... 'str'>\n\n\n>>> common.toRoman(0)\nTraceback (most recent call last):\nValueError: Argument must be between 1 and 3999",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.numberTools.",
+        "type": "Title"
+    },
+    {
+        "text": "addFloatPrecision",
+        "type": "Title"
+    },
+    {
+        "text": "grain",
+        "type": "Title"
+    },
+    {
+        "text": "0.01",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u2192 float | Fraction",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a value that suggests a floating point fraction, like 0.33,\nreturn a Fraction or float that provides greater specification, such as Fraction(1, 3)\n>>> import fractions\n>>> common.addFloatPrecision(0.333)\nFraction(1, 3)\n>>> common.addFloatPrecision(0.33)\nFraction(1, 3)\n>>> common.addFloatPrecision(0.35) == fractions.Fraction(1, 3)\nFalse\n>>> common.addFloatPrecision(0.2) == 0.2\nTrue\n>>> common.addFloatPrecision(0.125)\n0.125\n>>> common.addFloatPrecision(1/7) == 1/7\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.numberTools.",
+        "type": "Title"
+    },
+    {
+        "text": "approximateGCD",
+        "type": "Title"
+    },
+    {
+        "text": "values",
+        "type": "Title"
+    },
+    {
+        "text": "Collection",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "float",
+        "type": "Title"
+    },
+    {
+        "text": "Fraction",
+        "type": "Title"
+    },
+    {
+        "text": "grain",
+        "type": "Title"
+    },
+    {
+        "text": "float",
+        "type": "Title"
+    },
+    {
+        "text": "0.0001",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u2192 float",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a list of values, find the lowest common divisor of floating point values.\n>>> common.approximateGCD([2.5, 10, 0.25])\n0.25\n>>> common.approximateGCD([2.5, 10])\n2.5\n>>> common.approximateGCD([2, 10])\n2.0\n>>> common.approximateGCD([1.5, 5, 2, 7])\n0.5\n>>> common.approximateGCD([2, 5, 10])\n1.0\n>>> common.approximateGCD([2, 5, 10, 0.25])\n0.25\n>>> common.strTrimFloat(common.approximateGCD([1/3, 2/3]))\n'0.3333'\n>>> common.strTrimFloat(common.approximateGCD([5/3, 2/3, 4]))\n'0.3333'\n>>> common.strTrimFloat(common.approximateGCD([5/3, 2/3, 5]))\n'0.3333'\n>>> common.strTrimFloat(common.approximateGCD([5/3, 2/3, 5/6, 3/6]))\n'0.1667'",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.numberTools.",
+        "type": "Title"
+    },
+    {
+        "text": "contiguousList",
+        "type": "Title"
+    },
+    {
+        "text": "inputListOrTuple",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "returns bool True or False if a list containing ints\ncontains only contiguous (increasing) values\nrequires the list to be sorted first\n>>> l = [3, 4, 5, 6]\n>>> common.contiguousList(l)\nTrue\n>>> l.append(8)\n>>> common.contiguousList(l)\nFalse\n\n\nSorting matters\n>>> l.append(7)\n>>> common.contiguousList(l)\nFalse\n>>> common.contiguousList(sorted(l))\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.numberTools.",
+        "type": "Title"
+    },
+    {
+        "text": "decimalToTuplet",
+        "type": "Title"
+    },
+    {
+        "text": "decNum",
+        "type": "Title"
+    },
+    {
+        "text": "float",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 tuple[int, int]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "For simple decimals (usually > 1), a quick way to figure out the\nfraction in lowest terms that gives a valid tuplet.\nNo it does not work really fast.  No it does not return tuplets with\ndenominators over 100.  Too bad, math geeks.  This is real life.  :-)\nreturns (numerator, denominator)\n>>> common.decimalToTuplet(1.5)\n(3, 2)\n>>> common.decimalToTuplet(1.25)\n(5, 4)\n\n\nIf decNum is < 1, the denominator will be greater than the numerator:\n>>> common.decimalToTuplet(0.8)\n(4, 5)\n\n\nIf decNum is <= 0, returns a ZeroDivisionError:\n>>> common.decimalToTuplet(-.02)\nTraceback (most recent call last):\nZeroDivisionError: number must be greater than zero",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.numberTools.",
+        "type": "Title"
+    },
+    {
+        "text": "dotMultiplier",
+        "type": "Title"
+    },
+    {
+        "text": "dots",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 float",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "dotMultiplier(dots) returns how long to multiply the note\nlength of a note in order to get the note length with n dots\nSince dotMultiplier always returns a power of two in the denominator,\nthe float will be exact.\n>>> from fractions import Fraction\n>>> Fraction(common.dotMultiplier(1))\nFraction(3, 2)\n>>> Fraction(common.dotMultiplier(2))\nFraction(7, 4)\n>>> Fraction(common.dotMultiplier(3))\nFraction(15, 8)\n\n\n>>> common.dotMultiplier(0)\n1.0",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.numberTools.",
+        "type": "Title"
+    },
+    {
+        "text": "groupContiguousIntegers",
+        "type": "Title"
+    },
+    {
+        "text": "src",
+        "type": "Title"
+    },
+    {
+        "text": "list[int]",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "\u2192 list[list[int]]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a list of integers, group contiguous values into sub lists\n>>> common.groupContiguousIntegers([3, 5, 6])\n[[3], [5, 6]]\n>>> common.groupContiguousIntegers([3, 4, 6])\n[[3, 4], [6]]\n>>> common.groupContiguousIntegers([3, 4, 6, 7])\n[[3, 4], [6, 7]]\n>>> common.groupContiguousIntegers([3, 4, 6, 7, 20])\n[[3, 4], [6, 7], [20]]\n>>> common.groupContiguousIntegers([3, 4, 5, 6, 7])\n[[3, 4, 5, 6, 7]]\n>>> common.groupContiguousIntegers([3])\n[[3]]\n>>> common.groupContiguousIntegers([3, 200])\n[[3], [200]]",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.numberTools.",
+        "type": "Title"
+    },
+    {
+        "text": "lcm",
+        "type": "Title"
+    },
+    {
+        "text": "filterList",
+        "type": "Title"
+    },
+    {
+        "text": "Iterable[int]",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 int",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Find the least common multiple of a list of values\ncommon.lcm([3, 4, 5])\n60\ncommon.lcm([3, 4])\n12\ncommon.lcm([1, 2])\n2\ncommon.lcm([3, 6])\n6\nWorks with any iterable, like this set\ncommon.lcm({3, 5, 6})\n30\nDeprecated in v9 since Python 3.10 is the minimum version\nand math.lcm works in C and is faster",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.numberTools.",
+        "type": "Title"
+    },
+    {
+        "text": "mixedNumeral",
+        "type": "Title"
+    },
+    {
+        "text": "expr",
+        "type": "Title"
+    },
+    {
+        "text": "Real",
+        "type": "Title"
+    },
+    {
+        "text": "limitDenominator",
+        "type": "Title"
+    },
+    {
+        "text": "65535",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns a string representing a mixedNumeral form of a number\n>>> common.mixedNumeral(1.333333)\n'1 1/3'\n>>> common.mixedNumeral(0.333333)\n'1/3'\n>>> common.mixedNumeral(-1.333333)\n'-1 1/3'\n>>> common.mixedNumeral(-0.333333)\n'-1/3'\n\n\n>>> common.mixedNumeral(0)\n'0'\n>>> common.mixedNumeral(-0)\n'0'\n\n\nWorks with Fraction objects too\n>>> from fractions import Fraction\n>>> common.mixedNumeral(Fraction(31, 7))\n'4 3/7'\n>>> common.mixedNumeral(Fraction(1, 5))\n'1/5'\n>>> common.mixedNumeral(Fraction(-1, 5))\n'-1/5'\n>>> common.mixedNumeral(Fraction(-4, 5))\n'-4/5'\n>>> common.mixedNumeral(Fraction(-31, 7))\n'-4 3/7'\n\n\nDenominator is limited by default but can be changed.\n>>> common.mixedNumeral(2.0000001)\n'2'\n>>> common.mixedNumeral(2.0000001, limitDenominator=10000000)\n'2 1/10000000'",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.numberTools.",
+        "type": "Title"
+    },
+    {
+        "text": "nearestMultiple",
+        "type": "Title"
+    },
+    {
+        "text": "float",
+        "type": "Title"
+    },
+    {
+        "text": "unit",
+        "type": "Title"
+    },
+    {
+        "text": "float",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 tuple[float, float, float]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a positive value n, return the nearest multiple of the supplied unit as well as\nthe absolute difference (error) to seven significant digits and the signed difference.\n>>> print(common.nearestMultiple(0.25, 0.25))\n(0.25, 0.0, 0.0)\n>>> print(common.nearestMultiple(0.35, 0.25))\n(0.25, 0.1..., 0.1...)\n>>> print(common.nearestMultiple(0.20, 0.25))\n(0.25, 0.05..., -0.05...)\n\n\nNote that this one also has an error of 0.1, but it's a positive error off of 0.5\n>>> print(common.nearestMultiple(0.4, 0.25))\n(0.5, 0.1..., -0.1...)\n\n\n>>> common.nearestMultiple(0.4, 0.25)[0]\n0.5\n>>> common.nearestMultiple(23404.001, 0.125)[0]\n23404.0\n>>> common.nearestMultiple(23404.134, 0.125)[0]\n23404.125\n\n\nError is always positive, but signed difference can be negative.\n>>> common.nearestMultiple(23404 - 0.0625, 0.125)\n(23403.875, 0.0625, 0.0625)\n\n\n>>> common.nearestMultiple(0.001, 0.125)[0]\n0.0\n\n\n>>> from math import isclose\n>>> isclose(common.nearestMultiple(0.25, 1 / 3)[0], 0.33333333, abs_tol=1e-7)\nTrue\n>>> isclose(common.nearestMultiple(0.55, 1 / 3)[0], 0.66666666, abs_tol=1e-7)\nTrue\n>>> isclose(common.nearestMultiple(234.69, 1 / 3)[0], 234.6666666, abs_tol=1e-7)\nTrue\n>>> isclose(common.nearestMultiple(18.123, 1 / 6)[0], 18.16666666, abs_tol=1e-7)\nTrue\n\n\n>>> common.nearestMultiple(-0.5, 0.125)\nTraceback (most recent call last):\nValueError: n (-0.5) is less than zero. Thus, cannot find the nearest\n    multiple for a value less than the unit, 0.125",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.numberTools.",
+        "type": "Title"
+    },
+    {
+        "text": "numToIntOrFloat",
+        "type": "Title"
+    },
+    {
+        "text": "value",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "float",
+        "type": "Title"
+    },
+    {
+        "text": "Fraction",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 int | float",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a number, return an integer if it is very close to an integer,\notherwise, return a float.\nThis routine is very important for conversion of\nAccidental objects' .alter  attribute\nin musicXML must be 1 (not 1.0) for sharp and -1 (not -1.0) for flat,\nbut allows for 0.5 for half-sharp.\n>>> common.numToIntOrFloat(1.0)\n1\n>>> common.numToIntOrFloat(1.00003)\n1.00003\n>>> common.numToIntOrFloat(1.5)\n1.5\n>>> common.numToIntOrFloat(2)\n2\n>>> common.numToIntOrFloat(-5)\n-5\n>>> common.numToIntOrFloat(1.0000000005)\n1\n>>> common.numToIntOrFloat(0.999999999)\n1\n\n\n>>> sharp = pitch.Accidental('sharp')\n>>> common.numToIntOrFloat(sharp.alter)\n1\n>>> halfFlat = pitch.Accidental('half-flat')\n>>> common.numToIntOrFloat(halfFlat.alter)\n-0.5\n\n\nCan also take in a string representing an int or float\n>>> common.numToIntOrFloat('1.0')\n1\n>>> common.numToIntOrFloat('1')\n1\n>>> common.numToIntOrFloat('1.25')\n1.25\n\n\nOthers raise a ValueError\n>>> common.numToIntOrFloat('one')\nTraceback (most recent call last):\nValueError: could not convert string to float: 'one'\n\n\nFractions also become ints or floats\n>>> from fractions import Fraction\n>>> common.numToIntOrFloat(Fraction(1, 2))\n0.5\n>>> common.numToIntOrFloat(Fraction(4, 3))\n1.333333333...\n\n\nNote: Decimal objects are not supported.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.numberTools.",
+        "type": "Title"
+    },
+    {
+        "text": "opFrac",
+        "type": "Title"
+    },
+    {
+        "text": "num",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21.common.numberTools.",
+        "type": "Title"
+    },
+    {
+        "text": "opFrac",
+        "type": "Title"
+    },
+    {
+        "text": "num",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 float",
+        "type": "Title"
+    },
+    {
+        "text": "music21.common.numberTools.",
+        "type": "Title"
+    },
+    {
+        "text": "opFrac",
+        "type": "Title"
+    },
+    {
+        "text": "num",
+        "type": "Title"
+    },
+    {
+        "text": "float | Fraction",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 float | Fraction",
+        "type": "Title"
+    },
+    {
+        "text": "opFrac -> optionally convert a number to a fraction or back.\nImportant music21 function for working with offsets and quarterLengths\nTakes in a number (or None) and converts it to a Fraction with denominator\nless than limitDenominator if it is not binary expressible; otherwise return a float.\nOr if the Fraction can be converted back to a binary expressible\nfloat then do so.\nThis function should be called often to ensure that values being passed around are floats\nand ints wherever possible and fractions where needed.\nThe naming of this method violates music21's general rule of no abbreviations, but it\nis important to make it short enough so that no one will be afraid of calling it often.\nIt also doesn't have a setting for maxDenominator so that it will expand in\nCode Completion easily. That is to say, this function has been set up to be used, so please\nuse it.\nThis is a performance-critical operation. Do not alter it in any way without running\nmany timing tests.\n>>> from fractions import Fraction\n>>> defaults.limitOffsetDenominator\n65535\n>>> common.opFrac(3)\n3.0\n>>> common.opFrac(1/3)\nFraction(1, 3)\n>>> common.opFrac(1/4)\n0.25\n>>> f = Fraction(1, 3)\n>>> common.opFrac(f + f + f)\n1.0\n>>> common.opFrac(0.99999999842)\n1.0\n>>> common.opFrac(0.123456789)\nFraction(10, 81)\n>>> common.opFrac(0.000001)\n0.0\n>>> common.opFrac(None) is None\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.numberTools.",
+        "type": "Title"
+    },
+    {
+        "text": "ordinalAbbreviation",
+        "type": "Title"
+    },
+    {
+        "text": "value",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "plural",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 str",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return the ordinal abbreviations for integers\n>>> common.ordinalAbbreviation(3)\n'rd'\n>>> common.ordinalAbbreviation(255)\n'th'\n>>> common.ordinalAbbreviation(255, plural=True)\n'ths'",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.numberTools.",
+        "type": "Title"
+    },
+    {
+        "text": "roundToHalfInteger",
+        "type": "Title"
+    },
+    {
+        "text": "num",
+        "type": "Title"
+    },
+    {
+        "text": "float | int",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 float | int",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a floating-point number, round to the nearest half-integer. Returns int or float\n>>> common.roundToHalfInteger(1.2)\n1\n>>> common.roundToHalfInteger(1.35)\n1.5\n>>> common.roundToHalfInteger(1.8)\n2\n>>> common.roundToHalfInteger(1.6234)\n1.5\n\n\n0.25 rounds up:\n>>> common.roundToHalfInteger(0.25)\n0.5\n\n\nas does 0.75\n>>> common.roundToHalfInteger(0.75)\n1\n\n\nunlike python round function, does the same for 1.25 and 1.75\n>>> common.roundToHalfInteger(1.25)\n1.5\n>>> common.roundToHalfInteger(1.75)\n2\n\n\nnegative numbers however, round up on the boundaries\n>>> common.roundToHalfInteger(-0.26)\n-0.5\n>>> common.roundToHalfInteger(-0.25)\n0",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.numberTools.",
+        "type": "Title"
+    },
+    {
+        "text": "strTrimFloat",
+        "type": "Title"
+    },
+    {
+        "text": "floatNum",
+        "type": "Title"
+    },
+    {
+        "text": "float",
+        "type": "Title"
+    },
+    {
+        "text": "maxNum",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 str",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "returns a string from a float that is at most maxNum of\ndecimal digits long, but never less than 1.\n>>> common.strTrimFloat(42.3333333333)\n'42.3333'\n>>> common.strTrimFloat(42.3333333333, 2)\n'42.33'\n>>> common.strTrimFloat(6.66666666666666, 2)\n'6.67'\n>>> common.strTrimFloat(2.0)\n'2.0'\n>>> common.strTrimFloat(-5)\n'-5.0'",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.numberTools.",
+        "type": "Title"
+    },
+    {
+        "text": "unitBoundaryProportion",
+        "type": "Title"
+    },
+    {
+        "text": "series",
+        "type": "Title"
+    },
+    {
+        "text": "Sequence",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "float",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 list[tuple[int | float, float]]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Take a series of parts with an implied sum, and create\nunit-interval boundaries proportional to the series components.\n>>> common.unitBoundaryProportion([1, 1, 2])\n[(0.0, 0.25), (0.25, 0.5), (0.5, 1.0)]\n>>> common.unitBoundaryProportion([9, 1, 1])\n[(0.0, 0.8...), (0.8..., 0.9...), (0.9..., 1.0)]",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.numberTools.",
+        "type": "Title"
+    },
+    {
+        "text": "unitNormalizeProportion",
+        "type": "Title"
+    },
+    {
+        "text": "values",
+        "type": "Title"
+    },
+    {
+        "text": "Sequence",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "float",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 list[float]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Normalize values within the unit interval, where max is determined by the sum of the series.\n>>> common.unitNormalizeProportion([0, 3, 4])\n[0.0, 0.42857142857142855, 0.5714285714285714]\n>>> common.unitNormalizeProportion([1, 1, 1])\n[0.3333333..., 0.333333..., 0.333333...]\n\n\nWorks fine with a mix of ints and floats:\n>>> common.unitNormalizeProportion([1.0, 1, 1.0])\n[0.3333333..., 0.333333..., 0.333333...]\n\n\nOn 32-bit computers this number may be inexact even for small floats.\nOn 64-bit it works fine.  This is the 32-bit output for this result.\n\ncommon.unitNormalizeProportion([0.2, 0.6, 0.2])\n[0.20000000000000001, 0.59999999999999998, 0.20000000000000001]\n\nNegative values should be shifted to positive region first:\n>>> common.unitNormalizeProportion([0, -2, -8])\nTraceback (most recent call last):\nValueError: value members must be positive",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.numberTools.",
+        "type": "Title"
+    },
+    {
+        "text": "weightedSelection",
+        "type": "Title"
+    },
+    {
+        "text": "values",
+        "type": "Title"
+    },
+    {
+        "text": "list[int]",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "weights",
+        "type": "Title"
+    },
+    {
+        "text": "list",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "float",
+        "type": "Title"
+    },
+    {
+        "text": "randomGenerator",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 int",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a list of values and an equal-sized list of weights,\nreturn a randomly selected value using the weight.\nExample: sum -1 and 1 for 100 values; should be\naround 0 or at least between -50 and 50 (99.99999% of the time)\n>>> -50 < sum([common.weightedSelection([-1, 1], [1, 1]) for x in range(100)]) < 50\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.numberTools",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

@@ -1,0 +1,870 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.tree.trees",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.tree.toStream",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.tree.verticality",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.tree.trees\nElementTree\nElementTree\nElementTree.endTime\nElementTree.source\nElementTree.__eq__()\nElementTree.__getitem__()\nElementTree.getNodeByIndex()\nElementTree.getPositionFromElementUnsafe()\nElementTree.highestPosition()\nElementTree.index()\nElementTree.insert()\nElementTree.iterNodes()\nElementTree.lowestPosition()\nElementTree.populateFromSortedList()\n\n\n\n\nOffsetTree\nOffsetTree\nOffsetTree.__getitem__()\nOffsetTree.allOffsets()\nOffsetTree.allTimePoints()\nOffsetTree.append()\nOffsetTree.copy()\nOffsetTree.elementEndTime()\nOffsetTree.elementsOverlappingOffset()\nOffsetTree.elementsStartingAt()\nOffsetTree.elementsStoppingAt()\nOffsetTree.getPositionFromElementUnsafe()\nOffsetTree.getVerticalityAt()\nOffsetTree.overlapTimePoints()\nOffsetTree.removeElements()\nOffsetTree.simultaneityDict()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.tree.trees\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Tools for grouping elements, timespans, and especially\npitched elements into kinds of searchable tree organized by start and stop offsets\nand other positions.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "ElementTree\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.tree.trees.",
+        "type": "Title"
+    },
+    {
+        "text": "ElementTree",
+        "type": "Title"
+    },
+    {
+        "text": "elements",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "source",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A data structure for efficiently storing a score: flat or recursed or normal.\nThis data structure has no connection to the XML ElementTree.\nThis data structure stores ElementNodes: objects which implement both a\nposition and endTime property. It provides fast lookups of such\nobjects.\n>>> et = tree.trees.ElementTree()\n>>> et\n<ElementTree {0} (-inf to inf)>\n\n\n>>> s = stream.Stream()\n>>> for i in range(100):\n...     n = note.Note()\n...     n.duration.quarterLength = 2.0\n...     s.insert(i * 2, n)\n\n\n>>> for n in s:\n...     et.insert(n)\n>>> et\n<ElementTree {100} (0.0 <0.20...> to 200.0)>\n>>> et.rootNode\n<ElementNode: Start:126.0 <0.20...> Indices:(l:0 *63* r:100) Payload:<music21.note.Note C>>\n\n\n>>> n2 = s[-1]\n\n\nThese operations are very fast\u2026\n>>> et.index(n2, n2.sortTuple())\n99\n\n\nGet a position after a certain position:\n>>> st = s[40].sortTuple()\n>>> st\nSortTuple(atEnd=0, offset=80.0, priority=0, classSortOrder=20, isNotGrace=1, insertIndex=...)\n>>> st2 = et.getPositionAfter(st)\n>>> st2.shortRepr()\n'82.0 <0.20...>'\n>>> st2.offset\n82.0\n\n\n>>> st3 = et.getPositionAfter(5.0)\n>>> st3.offset\n6.0\n>>> et.getPositionAfter(4.0).offset\n6.0",
+        "type": "ListItem"
+    },
+    {
+        "text": "ElementTree bases",
+        "type": "Title"
+    },
+    {
+        "text": "AVLTree",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ElementTree read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "ElementTree.",
+        "type": "Title"
+    },
+    {
+        "text": "endTime",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Gets the latest stop position in this element-tree.\nThis is cast as a property so that it can be used like a TimeSpan in a TimeSpanTree\n>>> score = corpus.parse('bwv66.6')\n>>> tsTree = score.asTree()\n>>> tsTree.endTime\n36.0\n\n\nReturns infinity if no elements exist:\n>>> et = tree.trees.ElementTree()\n>>> et.endTime\ninf",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "ElementTree read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "ElementTree.",
+        "type": "Title"
+    },
+    {
+        "text": "source",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "the original stream. (stored as a weakref but returned unwrapped)\n>>> example = tree.makeExampleScore()\n>>> eTree = example.asTree()\n>>> eTree.source is example\nTrue\n\n\n>>> s = stream.Stream()\n>>> eTree.source = s\n>>> eTree.source is s\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "ElementTree methods",
+        "type": "Title"
+    },
+    {
+        "text": "ElementTree.",
+        "type": "Title"
+    },
+    {
+        "text": "__eq__",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "expr",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Two ElementTrees are equal only if they are the same object.\n>>> et1 = tree.trees.ElementTree()\n>>> et2 = tree.trees.ElementTree()\n>>> et3 = et1\n>>> et1 == et2\nFalse\n>>> et1 == et3\nTrue\n\n\n>>> et2 != et1\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "ElementTree.",
+        "type": "Title"
+    },
+    {
+        "text": "__getitem__",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Gets elements by integer index or slice.  This is pretty fast in computational time\n(O(log n)), but it's O(log n) in Python while normal list slicing is O(1) in C, so\ndon't use trees for __getitem__ searching if you don't have to.\n>>> score = tree.makeExampleScore()\n>>> scoreTree = score.asTree(flatten=True)\n>>> scoreTree\n<ElementTree {20} (0.0 <0.-25...> to 8.0) <music21.stream.Score exampleScore>>\n\n\n>>> scoreTree[0]\n<music21.instrument.Instrument 'PartA: : '>\n\n\n>>> scoreTree[-1]\n<music21.bar.Barline type=final>\n\n\n>>> scoreTree[2000] is None\nTrue\n\n\nSlices\u2026\n>>> scoreTree[2:5]\n[<music21.clef.BassClef>, <music21.clef.BassClef>, <music21.meter.TimeSignature 2/4>]\n\n\n>>> scoreTree[-6:-3]\n[<music21.note.Note A>, <music21.note.Note B>, <music21.note.Note D#>]\n\n\n>>> scoreTree[-100:-200]\n[]\n\n\n>>> for x in scoreTree[:]:\n...     x\n<music21.instrument.Instrument 'PartA: : '>\n        ...\n<music21.bar.Barline type=final>\n\n\nThese should all be the same as the flat version:\n>>> scoreFlat = score.flatten()\n>>> for i in (0, -1, 10):\n...     if scoreFlat[i] is not scoreTree[i]:\n...          print('false!')\n\n\n>>> for i, j in ((2, 5), (-6, -3)):\n...     sfSlice = scoreFlat[i:j]\n...     for n in range(i, j):\n...         sliceOffset = n - i\n...         if sfSlice[sliceOffset] is not scoreFlat[n]:\n...             print('false!')",
+        "type": "ListItem"
+    },
+    {
+        "text": "ElementTree.",
+        "type": "Title"
+    },
+    {
+        "text": "getNodeByIndex",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get a node whose element is at a particular index (not position).  Works with slices too\nSee __getitem__ for caveats about speed\u2026\n>>> score = tree.makeExampleScore()\n>>> scoreTree = score.asTree(flatten=True)\n>>> scoreTree\n<ElementTree {20} (0.0 <0.-25...> to 8.0) <music21.stream.Score exampleScore>>\n\n\n>>> scoreTree.getNodeByIndex(0)\n<ElementNode: Start:0.0 <0.-25...> Indices:(l:0 *0* r:2)\n    Payload:<music21.instrument.Instrument 'PartA: : '>>\n\n\n>>> scoreTree.getNodeByIndex(-1)\n<ElementNode: Start:End <0.-5...> Indices:(l:19 *19* r:20)\n    Payload:<music21.bar.Barline type=final>>\n\n\n>>> scoreTree.getNodeByIndex(slice(2, 5))\n[<ElementNode: Start:0.0 <0.0...> Indices:(l:0 *2* r:4) Payload:<music21.clef.BassClef>>,\n <ElementNode: Start:0.0 <0.0...> Indices:(l:3 *3* r:4) Payload:<music21.clef.BassClef>>,\n <ElementNode: Start:0.0 <0.4...> Indices:(l:0 *4* r:8)\n     Payload:<music21.meter.TimeSignature 2/4>>]\n\n\n>>> scoreTree.getNodeByIndex(slice(-6, -3))\n[<ElementNode: Start:5.0 <0.20...> Indices:(l:9 *14* r:20) Payload:<music21.note.Note A>>,\n <ElementNode: Start:6.0 <0.20...> Indices:(l:15 *15* r:17) Payload:<music21.note.Note B>>,\n <ElementNode: Start:6.0 <0.20...> Indices:(l:16 *16* r:17) Payload:<music21.note.Note D#>>]\n\n\n>>> scoreTree.getNodeByIndex(slice(-100, -200))\n[]",
+        "type": "ListItem"
+    },
+    {
+        "text": "ElementTree.",
+        "type": "Title"
+    },
+    {
+        "text": "getPositionFromElementUnsafe",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A quick but dirty method for getting the likely position (or offset) of an element\nwithin the elementTree from the element itself.  Such as calling\nel.getOffsetBySite(tree.source) or something like that.\nPulled out for subclassing",
+        "type": "ListItem"
+    },
+    {
+        "text": "ElementTree.",
+        "type": "Title"
+    },
+    {
+        "text": "highestPosition",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Gets the latest position in this tree.\nKeep as a property, because a similar property exists on streams.\n>>> score = corpus.parse('bwv66.6')\n>>> tsTree = score.asTimespans(classList=(note.Note,))\n>>> tsTree.highestPosition()\n35.0",
+        "type": "ListItem"
+    },
+    {
+        "text": "ElementTree.",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "Title"
+    },
+    {
+        "text": "element",
+        "type": "Title"
+    },
+    {
+        "text": "position",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Gets index of element in tree. position could be none.\nIf the element is in the original score, then it should be very fast (O(log n))\n>>> score = tree.makeExampleScore()\n>>> scoreFlat = score.flatten()\n>>> n = scoreFlat.notes[-1]\n\n\n>>> flatTree = scoreFlat.asTree()\n>>> flatTree.index(n)\n17\n\n\nIf it's not in the original stream, then it should be slower than doing\nit on a stream (O (n log n)).\n>>> scoreTree = score.asTree(flatten=True)\n>>> n = score.flatten().notes[-1]\n>>> scoreTree.index(n)\n17\n\n\nAnd if it's nowhere at all, you get a ValueError!\n>>> scoreTree.index(note.Note('F-'))\nTraceback (most recent call last):\nValueError: <music21.note.Note F-> not in Tree at position\n    SortTuple(atEnd=0, offset=0.0, priority=0, ...).",
+        "type": "ListItem"
+    },
+    {
+        "text": "ElementTree.",
+        "type": "Title"
+    },
+    {
+        "text": "insert",
+        "type": "Title"
+    },
+    {
+        "text": "positionsOrElements",
+        "type": "Title"
+    },
+    {
+        "text": "elements",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Inserts elements or Timespans into this tree.\n>>> n = note.Note()\n>>> ot = tree.trees.OffsetTree()\n>>> ot\n<OffsetTree {0} (-inf to inf)>\n>>> ot.insert(10.0, n)\n>>> ot\n<OffsetTree {1} (10.0 to 11.0)>\n\n\n>>> n2 = note.Note('D')\n>>> n2.offset = 20\n>>> n3 = note.Note('E')\n>>> n3.offset = 5\n>>> ot.insert([n2, n3])\n>>> ot\n<OffsetTree {3} (5.0 to 21.0)>",
+        "type": "ListItem"
+    },
+    {
+        "text": "ElementTree.",
+        "type": "Title"
+    },
+    {
+        "text": "iterNodes",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Identical to the iterating on a core.AVLTree \u2014 yields each node in order\nSlow: O(n log n) time so don't make this your main thing.\n>>> score = tree.makeExampleScore()\n>>> scoreTree = score.asTree(flatten=True)\n>>> scoreTree\n<ElementTree {20} (0.0 <0.-25...> to 8.0) <music21.stream.Score exampleScore>>\n\n\n>>> for node in scoreTree.iterNodes():\n...     print(node)\n<ElementNode: Start:0.0 <0.-25...> Indices:(l:0 *0* r:2)\n        Payload:<music21.instrument.Instrument 'PartA: : '>>\n<ElementNode: Start:0.0 <0.-25...> Indices:(l:1 *1* r:2)\n        Payload:<music21.instrument.Instrument 'PartB: : '>>\n<ElementNode: Start:0.0 <0.0...> Indices:(l:0 *2* r:4) Payload:<music21.clef.BassClef>>\n<ElementNode: Start:0.0 <0.0...> Indices:(l:3 *3* r:4) Payload:<music21.clef.BassClef>>\n<ElementNode: Start:0.0 <0.4...> Indices:(l:0 *4* r:8)\n        Payload:<music21.meter.TimeSignature 2/4>>\n<ElementNode: Start:0.0 <0.4...> Indices:(l:5 *5* r:6)\n        Payload:<music21.meter.TimeSignature 2/4>>\n<ElementNode: Start:0.0 <0.20...> Indices:(l:5 *6* r:8) Payload:<music21.note.Note C>>\n<ElementNode: Start:0.0 <0.20...> Indices:(l:7 *7* r:8) Payload:<music21.note.Note C#>>\n<ElementNode: Start:1.0 <0.20...> Indices:(l:0 *8* r:20) Payload:<music21.note.Note D>>\n<ElementNode: Start:2.0 <0.20...> Indices:(l:9 *9* r:11) Payload:<music21.note.Note E>>\n    ...\n<ElementNode: Start:7.0 <0.20...> Indices:(l:15 *17* r:20)\n        Payload:<music21.note.Note C>>\n<ElementNode: Start:End <0.-5...> Indices:(l:18 *18* r:20)\n        Payload:<music21.bar.Barline type=final>>\n<ElementNode: Start:End <0.-5...> Indices:(l:19 *19* r:20)\n        Payload:<music21.bar.Barline type=final>>",
+        "type": "ListItem"
+    },
+    {
+        "text": "ElementTree.",
+        "type": "Title"
+    },
+    {
+        "text": "lowestPosition",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Gets the earliest position in this tree.\n>>> score = tree.makeExampleScore()\n>>> elTree = score.asTree()\n>>> elTree.lowestPosition().shortRepr()\n'0.0 <0.-20...>'\n\n\n>>> tsTree = score.asTimespans()\n>>> tsTree.lowestPosition()\n0.0",
+        "type": "ListItem"
+    },
+    {
+        "text": "ElementTree.",
+        "type": "Title"
+    },
+    {
+        "text": "populateFromSortedList",
+        "type": "Title"
+    },
+    {
+        "text": "listOfTuples",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "This method assumes that the current tree is empty (or will be wiped) and\nthat listOfTuples is a non-empty\nlist where the first element is a unique position to insert,\nand the second is the complete payload for that node, and\nthat the positions are strictly increasing in order.\nThis is about an order of magnitude faster (3ms vs 21ms for 1000 items; 31 vs. 30ms for\n10,000 items) than running createNodeAtPosition() for each element in a list if it is\nalready sorted.  Thus, it should be used when converting a\nStream where .isSorted is True into a tree.\nIf any of the conditions is not true, expect to get a dangerously\nbadly sorted tree that will be useless.\n>>> bFlat = corpus.parse('bwv66.6').flatten()\n>>> bFlat.isSorted\nTrue\n\n\n>>> listOfTuples = [(e.sortTuple(bFlat), e) for e in bFlat]\n>>> listOfTuples[14]\n(SortTuple(atEnd=0, offset=0.0, priority=0, ...),\n <music21.key.Key of f# minor>)\n\n\n>>> et = tree.trees.ElementTree()\n>>> et.rootNode is None\nTrue\n>>> et.populateFromSortedList(listOfTuples)\n>>> et.rootNode\n<ElementNode: Start:14.5 <0.20...> Indices:(l:0 *99* r:199)\n    Payload:<music21.note.Note A>>\n\n\n>>> n = et.rootNode\n>>> while n is not None:\n...    print(n)\n...    n = n.leftChild\n<ElementNode: Start:14.5 <0.20...> Indices:(l:0 *99* r:199) Payload:<music21.note.Note A>>\n<ElementNode: Start:5.5 <0.20...>  Indices:(l:0 *49* r:99) Payload:<music21.note.Note A>>\n<ElementNode: Start:0.0 <0.20...>  Indices:(l:0 *24* r:49) Payload:<music21.note.Note A>>\n<ElementNode: Start:0.0 <0.1...>   Indices:(l:0 *12* r:24)\n    Payload:<music21.tempo.MetronomeMark Quarter=96 (playback only)>>\n<ElementNode: Start:0.0 <0.0...>   Indices:(l:0 *6* r:12) Payload:<music21.clef.TrebleClef>>\n<ElementNode: Start:0.0 <0.-25...> Indices:(l:0 *3* r:6)\n    Payload:<music21.instrument.Instrument 'P3: Tenor: Instrument 3'>>\n<ElementNode: Start:0.0 <0.-25...> Indices:(l:0 *1* r:3)\n    Payload:<music21.instrument.Instrument 'P1: Soprano: Instrument 1'>>\n<ElementNode: Start:0.0 <0.-30...> Indices:(l:0 *0* r:1)\n    Payload:<music21.metadata.Metadata object at 0x104adbdd8>>\n\n\n>>> n = et.rootNode\n>>> while n is not None:\n...    print(n)\n...    n = n.rightChild\n<ElementNode: Start:14.5 <0.20...> Indices:(l:0 *99* r:199)\n    Payload:<music21.note.Note A>>\n<ElementNode: Start:25.0 <0.20...> Indices:(l:100 *149* r:199)\n    Payload:<music21.note.Note G#>>\n<ElementNode: Start:31.0 <0.20...> Indices:(l:150 *174* r:199)\n    Payload:<music21.note.Note B>>\n<ElementNode: Start:34.0 <0.20...> Indices:(l:175 *187* r:199)\n    Payload:<music21.note.Note D>>\n<ElementNode: Start:35.0 <0.20...> Indices:(l:188 *193* r:199)\n    Payload:<music21.note.Note A#>>\n<ElementNode: Start:36.0 <0.-5...> Indices:(l:194 *196* r:199)\n    Payload:<music21.bar.Barline type=final>>\n<ElementNode: Start:36.0 <0.-5...> Indices:(l:197 *198* r:199)\n    Payload:<music21.bar.Barline type=final>>",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from AVLTree:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "createNodeAtPosition() debug() getNodeAfter() getNodeBefore() getNodeByPosition() getPositionAfter() getPositionBefore() removeNode()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "OffsetTree\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.tree.trees.",
+        "type": "Title"
+    },
+    {
+        "text": "OffsetTree",
+        "type": "Title"
+    },
+    {
+        "text": "elements",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "source",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A tree representation where positions are offsets in the score\nand each node has a payload which is a list of elements at\nthat offset (unsorted by sort order).",
+        "type": "ListItem"
+    },
+    {
+        "text": "OffsetTree bases",
+        "type": "Title"
+    },
+    {
+        "text": "ElementTree",
+        "type": "ListItem"
+    },
+    {
+        "text": "AVLTree",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "OffsetTree read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from ElementTree:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "endTime",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "OffsetTree read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from ElementTree:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "source",
+        "type": "Table"
+    },
+    {
+        "text": "OffsetTree methods",
+        "type": "Title"
+    },
+    {
+        "text": "OffsetTree.",
+        "type": "Title"
+    },
+    {
+        "text": "__getitem__",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Gets elements by integer index or slice.\n>>> score = tree.makeExampleScore()\n>>> scoreTree = score.asTree(flatten=True, groupOffsets=True)\n\n\n>>> scoreTree[0]\n<music21.instrument.Instrument 'PartA: : '>\n\n\n>>> scoreTree[-1]\n<music21.bar.Barline type=final>\n\n\n>>> scoreTree[2:5]\n[<music21.clef.BassClef>, <music21.clef.BassClef>, <music21.meter.TimeSignature 2/4>]\n\n\n>>> scoreTree[-6:-3]\n[<music21.note.Note A>, <music21.note.Note B>, <music21.note.Note D#>]\n\n\n>>> scoreTree[-100:-200]\n[]",
+        "type": "ListItem"
+    },
+    {
+        "text": "OffsetTree.",
+        "type": "Title"
+    },
+    {
+        "text": "allOffsets",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Gets all unique offsets of all timespans in this offset-tree.\n>>> score = corpus.parse('bwv66.6')\n>>> tsTree = score.asTimespans()\n>>> for offset in tsTree.allOffsets()[:10]:\n...     offset\n...\n0.0\n0.5\n1.0\n2.0\n3.0\n4.0\n5.0\n5.5\n6.0\n6.5",
+        "type": "ListItem"
+    },
+    {
+        "text": "OffsetTree.",
+        "type": "Title"
+    },
+    {
+        "text": "allTimePoints",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Gets all unique offsets (both starting and stopping) of all elements/timespans\nin this offset-tree.\n>>> score = corpus.parse('bwv66.6')\n>>> scoreTree = score.asTimespans()\n>>> for offset in scoreTree.allTimePoints()[:10]:\n...     offset\n...\n0.0\n0.5\n1.0\n2.0\n3.0\n4.0\n5.0\n5.5\n6.0\n6.5",
+        "type": "ListItem"
+    },
+    {
+        "text": "OffsetTree.",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Add an element to the end, making certain speed savings.",
+        "type": "ListItem"
+    },
+    {
+        "text": "OffsetTree.",
+        "type": "Title"
+    },
+    {
+        "text": "copy",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Creates a new tree with the same payload as this tree.\nThis is analogous to dict.copy().\nMuch, much faster than creating a new tree; creating one\nwith 3600 items took 500ms.  Creating the tree the first time\nwas 40 seconds, so about an 80x speedup.\n>>> score = tree.makeExampleScore()\n>>> scoreTree = score.asTimespans()\n>>> newTree = scoreTree.copy()\n>>> newTree\n<TimespanTree {20} (0.0 to 8.0) <music21.stream.Score exampleScore>>\n\n\n>>> scoreTree[16]\n<PitchedTimespan (6.0 to 8.0) <music21.note.Note D#>>\n>>> newTree[16]\n<PitchedTimespan (6.0 to 8.0) <music21.note.Note D#>>\n\n\n>>> scoreTree[16] is newTree[16]\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "static",
+        "type": "Title"
+    },
+    {
+        "text": "OffsetTree.",
+        "type": "Title"
+    },
+    {
+        "text": "elementEndTime",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "node",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Use so that both OffsetTrees, which have elements which do not have a .endTime, and\nTimespanTrees, which have element that have an .endTime but not a duration, can\nuse most of the same code.",
+        "type": "ListItem"
+    },
+    {
+        "text": "OffsetTree.",
+        "type": "Title"
+    },
+    {
+        "text": "elementsOverlappingOffset",
+        "type": "Title"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Finds elements in this ElementTree which overlap offset.\n>>> score = corpus.parse('bwv66.6')\n>>> scoreTree = score.asTree(flatten=True, groupOffsets=True)\n>>> for el in scoreTree.elementsOverlappingOffset(0.5):\n...     el\n...\n<music21.note.Note E>\n\n\nWorks with Timespans in TimespanTrees as well.\n>>> scoreTree = score.asTimespans()\n>>> for el in scoreTree.elementsOverlappingOffset(0.5):\n...     el\n...\n<PitchedTimespan (0.0 to 1.0) <music21.note.Note E>>",
+        "type": "ListItem"
+    },
+    {
+        "text": "OffsetTree.",
+        "type": "Title"
+    },
+    {
+        "text": "elementsStartingAt",
+        "type": "Title"
+    },
+    {
+        "text": "position",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Finds elements or timespans in this tree which start at position.\n>>> score = corpus.parse('bwv66.6')\n>>> scoreTree = score.asTimespans()\n>>> for timespan in scoreTree.elementsStartingAt(0.5):\n...     timespan\n...\n<PitchedTimespan (0.5 to 1.0) <music21.note.Note B>>\n<PitchedTimespan (0.5 to 1.0) <music21.note.Note B>>\n<PitchedTimespan (0.5 to 1.0) <music21.note.Note G#>>",
+        "type": "ListItem"
+    },
+    {
+        "text": "OffsetTree.",
+        "type": "Title"
+    },
+    {
+        "text": "elementsStoppingAt",
+        "type": "Title"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Finds elements in this OffsetTree which stop at offset.  Elements are ordered\naccording to (start) offset.\n>>> score = corpus.parse('bwv66.6')\n>>> scoreTree = score.asTree(flatten=True, groupOffsets=True)\n>>> for el in scoreTree.elementsStoppingAt(0.5):\n...     el\n<music21.note.Note C#>\n<music21.note.Note A>\n<music21.note.Note A>\n\n\nWorks also on timespans for TimespanTrees:\n>>> scoreTree = score.asTimespans()\n>>> for el in scoreTree.elementsStoppingAt(0.5):\n...     el\n<PitchedTimespan (0.0 to 0.5) <music21.note.Note C#>>\n<PitchedTimespan (0.0 to 0.5) <music21.note.Note A>>\n<PitchedTimespan (0.0 to 0.5) <music21.note.Note A>>",
+        "type": "ListItem"
+    },
+    {
+        "text": "OffsetTree.",
+        "type": "Title"
+    },
+    {
+        "text": "getPositionFromElementUnsafe",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A quick but dirty method for getting the likely position (or offset) of an element\nwithin the elementTree from the element itself.  Such as calling\nel.getOffsetBySite(tree.source) or something like that.\nPulled out for subclassing",
+        "type": "ListItem"
+    },
+    {
+        "text": "OffsetTree.",
+        "type": "Title"
+    },
+    {
+        "text": "getVerticalityAt",
+        "type": "Title"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Gets the verticality in this offset-tree which starts at offset.\n>>> bach = corpus.parse('bwv66.6')\n>>> scoreTree = bach.asTimespans()\n>>> scoreTree.getVerticalityAt(2.5)\n<music21.tree.verticality.Verticality 2.5 {G#3 B3 E4 B4}>\n\n\nVerticalities outside the range still return a Verticality, but it might be empty\u2026\n>>> scoreTree.getVerticalityAt(2000)\n<music21.tree.verticality.Verticality 2000 {}>\n\n\nTest that it still works if the tree is empty\u2026\n>>> scoreTree = bach.asTimespans(classList=(instrument.Tuba,))\n>>> scoreTree\n<TimespanTree {0} (-inf to inf) <music21.stream.Score ...>>\n>>> scoreTree.getVerticalityAt(5.0)\n<music21.tree.verticality.Verticality 5.0 {}>\n\n\nReturns a verticality.Verticality object.",
+        "type": "ListItem"
+    },
+    {
+        "text": "OffsetTree.",
+        "type": "Title"
+    },
+    {
+        "text": "overlapTimePoints",
+        "type": "Title"
+    },
+    {
+        "text": "includeStopPoints",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "returnVerticality",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Gets all time-points where some element is starting\n(or if includeStopPoints is True, where some element is starting or stopping)\nwhile some other element is still continuing onward.\n>>> score = corpus.parse('bwv66.6')\n>>> scoreOffsetTree = score.asTree(flatten=True, groupOffsets=True)\n>>> scoreOffsetTree.overlapTimePoints()\n[0.5, 5.5, 6.5, 10.5, 13.5, 14.5, 15.5...]\n\n\nif returnVerticality is True, then a mapping of time point to elements is returned.\nHow cool is that?\n>>> otp = scoreOffsetTree.overlapTimePoints(returnVerticality=True)\n>>> otp[0]\n{0.5: <music21.tree.verticality.Verticality 0.5 {G#3 B3 E4 B4}>}",
+        "type": "ListItem"
+    },
+    {
+        "text": "OffsetTree.",
+        "type": "Title"
+    },
+    {
+        "text": "removeElements",
+        "type": "Title"
+    },
+    {
+        "text": "elements",
+        "type": "Title"
+    },
+    {
+        "text": "offsets",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "runUpdate",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Removes elements which can be Music21Objects or Timespans\n(a single one or a list) from this Tree.\nMuch safer (for non-timespans) if a list of offsets is used, but it is optional.\nIf runUpdate is False then the tree will be left with incorrect indices and\nendTimes; but it can speed up operations where an element is going to be removed\nand then immediately replaced: i.e., where the position of an element has changed.",
+        "type": "ListItem"
+    },
+    {
+        "text": "OffsetTree.",
+        "type": "Title"
+    },
+    {
+        "text": "simultaneityDict",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Creates a dictionary of offsets that have more than one element starting at that time,\nwhere the keys are offset times and the values are lists of elements at that moment.\n>>> score = tree.makeExampleScore()\n>>> scoreTree = score.asTree(flatten=True, groupOffsets=True)\n>>> scoreTree\n<OffsetTree {20} (0.0 to 8.0) <music21.stream.Score exampleScore>>\n\n\n>>> sd = scoreTree.simultaneityDict()\n>>> len(sd)\n5\n>>> list(sorted(sd.keys()))\n[0.0, 2.0, 4.0, 6.0, 8.0]\n>>> sd[0.0]\n[<music21.instrument.Instrument 'PartA: : '>,\n <music21.instrument.Instrument 'PartB: : '>,\n <music21.clef.BassClef>,\n <music21.clef.BassClef>,\n <music21.meter.TimeSignature 2/4>,\n <music21.meter.TimeSignature 2/4>,\n <music21.note.Note C>,\n <music21.note.Note C#>]\n>>> sd[2.0]\n[<music21.note.Note E>, <music21.note.Note G#>]",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from ElementTree:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() getNodeByIndex() highestPosition() index() insert() iterNodes() lowestPosition() populateFromSortedList()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from AVLTree:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "createNodeAtPosition() debug() getNodeAfter() getNodeBefore() getNodeByPosition() getPositionAfter() getPositionBefore() removeNode()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.tree.trees",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

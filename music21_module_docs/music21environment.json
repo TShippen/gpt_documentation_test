@@ -1,0 +1,858 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.environment",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.editorial",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.expressions",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.environment\nUserSettings\nUserSettings\nUserSettings.__getitem__()\nUserSettings.create()\nUserSettings.delete()\nUserSettings.getSettingsPath()\nUserSettings.keys()\nUserSettings.restoreDefaults()\n\n\n\n\nEnvironment\nEnvironment\nEnvironment.__getitem__()\nEnvironment.formatToApp()\nEnvironment.formatToKey()\nEnvironment.getDefaultRootTempDir()\nEnvironment.getKeysToPaths()\nEnvironment.getRefKeys()\nEnvironment.getRootTempDir()\nEnvironment.getSettingsPath()\nEnvironment.getTempFile()\nEnvironment.keys()\nEnvironment.printDebug()\nEnvironment.read()\nEnvironment.restoreDefaults()\nEnvironment.warn()\nEnvironment.write()\nEnvironment.xmlReaderType()\nEnvironment.modNameParent\n\n\n\n\nLocalCorpusSettings\nLocalCorpusSettings\n\n\nFunctions\nenvSingleton()\netIndent()\nget()\nkeys()\nset()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.environment\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "The environment module describes an object for accessing and setting\nvariables related to the user's music21 environment. Such variables include\nthe location of external applications such as MusicXML readers (e.g. MuseScore),\nwhether music21 is allowed to download files directly (via the virtual corpus),\nand other settings.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Additional documentation for and examples of using this module are found in\nUser's Guide, Chapter 24, Environment.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "# TODO: Update to user's guide \u2014 showing each function",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "UserSettings\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.environment.",
+        "type": "Title"
+    },
+    {
+        "text": "UserSettings",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The UserSettings object provides a simple interface for configuring the\nuser preferences in the Environment object.\nIt automatically writes all changes to disk.\nFirst, create an instance of UserSettings:\n>>> us = environment.UserSettings()\n\n\nSecond, view the available settings keys.\n>>> for key in sorted(us.keys()):\n...     key\n'autoDownload'\n'braillePath'\n'debug'\n'directoryScratch'\n'graphicsPath'\n'ipythonShowFormat'\n'lilypondBackend'\n'lilypondFormat'\n'lilypondPath'\n'lilypondVersion'\n'localCorporaSettings'\n'localCorpusPath'\n'localCorpusSettings'\n'manualCoreCorpusPath'\n'midiPath'\n'musescoreDirectPNGPath'\n'musicxmlPath'\n'pdfPath'\n'showFormat'\n'vectorPath'\n'warnings'\n'writeFormat'\n\n\nThird, after finding the desired setting, supply the new value as a Python\ndictionary key value pair. Setting this value updates the user's settings\nfile. For example, to set the file path to the Application that will be\nused to open MusicXML files, use the \u0098musicxmlPath' key.\n>>> us['musicxmlPath'] = '/Applications/Finale Reader.app'\n>>> us['musicxmlPath']\n'/Applications/Finale Reader.app'\n\n\nNote that the \u0098localCorpusPath' setting operates in a slightly different\nmanner than other settings. Each time the \u0098localCorpusPath' setting is set,\nan additional local corpus file path is added to the list of local corpus\npaths (unless that path is already defined in the list of local corpus\npaths). To view all local corpus paths, access the \u0098localCorpusSettings'\nsettings. This setting can also be used to set a complete list of file\npaths.\n>>> us['localCorpusPath'] = '~/Documents'\n>>> list(us['localCorpusSettings'])\n['~/Documents']\n\n\nAlternatively, the environment.py module provides convenience functions for\nsetting these settings: keys(),\nget(), and set().",
+        "type": "ListItem"
+    },
+    {
+        "text": "UserSettings methods",
+        "type": "Title"
+    },
+    {
+        "text": "UserSettings.",
+        "type": "Title"
+    },
+    {
+        "text": "__getitem__",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "UserSettings.",
+        "type": "Title"
+    },
+    {
+        "text": "create",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "If an environment configuration file does not exist, create one based on\nthe default settings.",
+        "type": "ListItem"
+    },
+    {
+        "text": "UserSettings.",
+        "type": "Title"
+    },
+    {
+        "text": "delete",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Permanently remove the user configuration file.",
+        "type": "ListItem"
+    },
+    {
+        "text": "UserSettings.",
+        "type": "Title"
+    },
+    {
+        "text": "getSettingsPath",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return the path to the platform specific settings file.",
+        "type": "ListItem"
+    },
+    {
+        "text": "UserSettings.",
+        "type": "Title"
+    },
+    {
+        "text": "keys",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return the keys found in the user's\nEnvironment object.",
+        "type": "ListItem"
+    },
+    {
+        "text": "UserSettings.",
+        "type": "Title"
+    },
+    {
+        "text": "restoreDefaults",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Restore platform specific defaults.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Environment\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.environment.",
+        "type": "Title"
+    },
+    {
+        "text": "Environment",
+        "type": "Title"
+    },
+    {
+        "text": "modName",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "forcePlatform",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The environment.Environment object stores user preferences as a\ndictionary-like object.  Additionally, the Environment object provides\nconvenience methods to music21 modules for getting temporary files,\nlaunching files with external applications, and printing debug and warning\nmessages.\nGenerally, each module creates a single, module-level instance of\nEnvironment, passing the module's name during creation. (This is an\nefficient operation since the Environment module caches most information\nfrom module to module)\nFor a more user-friendly interface for creating and editing settings, see\nthe UserSettings object.\n>>> env = environment.Environment(forcePlatform='darwin')\n>>> env['musicxmlPath'] = '/Applications/Finale Reader.app'\n>>> env['musicxmlPath']\nPosixPath('/Applications/Finale Reader.app')",
+        "type": "ListItem"
+    },
+    {
+        "text": "Environment methods",
+        "type": "Title"
+    },
+    {
+        "text": "Environment.",
+        "type": "Title"
+    },
+    {
+        "text": "__getitem__",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "Environment.",
+        "type": "Title"
+    },
+    {
+        "text": "formatToApp",
+        "type": "Title"
+    },
+    {
+        "text": "m21Format",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "Environment.",
+        "type": "Title"
+    },
+    {
+        "text": "formatToKey",
+        "type": "Title"
+    },
+    {
+        "text": "m21Format",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "Environment.",
+        "type": "Title"
+    },
+    {
+        "text": "getDefaultRootTempDir",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Use the Python tempfile.gettempdir() to get the system specified\ntemporary directory, and try to add a new \u0098music21' directory, and then\nreturn this directory.\nThis method is only called if the no scratch directory preference has\nbeen set.\nIf not able to create a \u0098music21' directory, the standard default is\nreturned.\nReturns a pathlib.Path",
+        "type": "ListItem"
+    },
+    {
+        "text": "Environment.",
+        "type": "Title"
+    },
+    {
+        "text": "getKeysToPaths",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get the keys that refer to file paths.\n>>> a = environment.Environment()\n>>> for x in sorted(a.getKeysToPaths()):\n...     x\n...\n'braillePath'\n'graphicsPath'\n'lilypondPath'\n'localCorpusPath'\n'manualCoreCorpusPath'\n'midiPath'\n'musescoreDirectPNGPath'\n'musicxmlPath'\n'pdfPath'\n'vectorPath'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Environment.",
+        "type": "Title"
+    },
+    {
+        "text": "getRefKeys",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get the raw keys stored in the internal reference dictionary.\nThese are different from the keys() method in that the\n\u0098localCorpusPath' entry is not included.\n>>> a = environment.Environment()\n>>> for x in sorted(a.getRefKeys()):\n...     x\n...\n'autoDownload'\n'braillePath'\n'debug'\n'directoryScratch'\n'graphicsPath'\n'ipythonShowFormat'\n'lilypondBackend'\n'lilypondFormat'\n'lilypondPath'\n'lilypondVersion'\n'localCorporaSettings'\n'localCorpusSettings'\n'manualCoreCorpusPath'\n'midiPath'\n'musescoreDirectPNGPath'\n'musicxmlPath'\n'pdfPath'\n'showFormat'\n'vectorPath'\n'warnings'\n'writeFormat'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Environment.",
+        "type": "Title"
+    },
+    {
+        "text": "getRootTempDir",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a directory for writing temporary files. This does not create a\nnew directory for each use, but either uses the user-set preference or\ngets the system-provided directory (with a music21 subdirectory, if\npossible).",
+        "type": "ListItem"
+    },
+    {
+        "text": "Environment.",
+        "type": "Title"
+    },
+    {
+        "text": "getSettingsPath",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return the path to the platform specific settings file.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Environment.",
+        "type": "Title"
+    },
+    {
+        "text": "getTempFile",
+        "type": "Title"
+    },
+    {
+        "text": "suffix",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "returnPathlib",
+        "type": "Title"
+    },
+    {
+        "text": "Literal[False]",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 str",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Environment.",
+        "type": "Title"
+    },
+    {
+        "text": "getTempFile",
+        "type": "Title"
+    },
+    {
+        "text": "suffix",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "''",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "returnPathlib",
+        "type": "Title"
+    },
+    {
+        "text": "Literal[True]",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 Path",
+        "type": "Title"
+    },
+    {
+        "text": "Return a file path to a temporary file with the specified suffix (file\nextension).\nv5 \u2014 added returnPathlib.\nv6 \u2014 returnPathlib defaults to True.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Environment.",
+        "type": "Title"
+    },
+    {
+        "text": "keys",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return valid keys to get and set values for the Environment instance.\n>>> e = environment.Environment()\n>>> for x in sorted(list(e.keys())):\n...     x\n...\n'autoDownload'\n'braillePath'\n'debug'\n'directoryScratch'\n'graphicsPath'\n'ipythonShowFormat'\n'lilypondBackend'\n'lilypondFormat'\n'lilypondPath'\n'lilypondVersion'\n'localCorporaSettings'\n'localCorpusPath'\n'localCorpusSettings'\n'manualCoreCorpusPath'\n'midiPath'\n'musescoreDirectPNGPath'\n'musicxmlPath'\n'pdfPath'\n'showFormat'\n'vectorPath'\n'warnings'\n'writeFormat'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Environment.",
+        "type": "Title"
+    },
+    {
+        "text": "printDebug",
+        "type": "Title"
+    },
+    {
+        "text": "msg",
+        "type": "Title"
+    },
+    {
+        "text": "statusLevel",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Format one or more data elements into string, and print it to stderr.\nThe first arg can be a list of strings or a string; lists are\nconcatenated with common.formatStr().",
+        "type": "ListItem"
+    },
+    {
+        "text": "Environment.",
+        "type": "Title"
+    },
+    {
+        "text": "read",
+        "type": "Title"
+    },
+    {
+        "text": "filePath",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Load an XML preference file if and only if the file is available\nand has been written in the past. This means that no preference file\nwill ever be written unless manually done so. If no preference file\nexists, the method returns None.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Environment.",
+        "type": "Title"
+    },
+    {
+        "text": "restoreDefaults",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Restore only defaults for all parameters. Useful for testing.\n>>> a = environment.Environment()\n>>> a['debug'] = 1\n>>> a.restoreDefaults()\n>>> a['debug']\n0\n\n\nAnd we can read() the environment settings back from our\nconfiguration file to restore our normal working environment.\n>>> a = environment.Environment().read()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Environment.",
+        "type": "Title"
+    },
+    {
+        "text": "warn",
+        "type": "Title"
+    },
+    {
+        "text": "msg",
+        "type": "Title"
+    },
+    {
+        "text": "header",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "To print a warning to the user, send a list of strings to this method.\nSimilar to printDebug but even if debug is off.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Environment.",
+        "type": "Title"
+    },
+    {
+        "text": "write",
+        "type": "Title"
+    },
+    {
+        "text": "filePath",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Write an XML preference file. This must be manually called to store\nany changes made to the object and access preferences later.\nIf filePath is None, the default storage location will be used.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Environment.",
+        "type": "Title"
+    },
+    {
+        "text": "xmlReaderType",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns an xmlReaderType depending on the \u0098musicxmlPath'\n>>> a = environment.Environment()\n>>> a['musicxmlPath'] = '/Applications/Musescore.app'\n>>> a.xmlReaderType()\n'Musescore'\n>>> a['musicxmlPath'] = '/Applications/Sibelius 7.app'\n>>> a.xmlReaderType()\n'Sibelius'\n>>> a['musicxmlPath'] = r'C:\\Program Files\\Finale\\Finale 2014.exe'\n>>> a.xmlReaderType()\n'Finale'\n\n\nNostalgia is unknown\u2026\n>>> a['musicxmlPath'] = r'C:\\Program Files\\Deluxe Music Construction Set.exe'\n>>> a.xmlReaderType()\n'unknown'\n\n\n>>> a['musicxmlPath'] = None\n>>> a.xmlReaderType() is None\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "Environment instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Environment.",
+        "type": "Title"
+    },
+    {
+        "text": "modNameParent",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A string representation of the module that contains this\nEnvironment instance.",
+        "type": "ListItem"
+    },
+    {
+        "text": "LocalCorpusSettings\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.environment.",
+        "type": "Title"
+    },
+    {
+        "text": "LocalCorpusSettings",
+        "type": "Title"
+    },
+    {
+        "text": "paths",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "name",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "cacheFilePath",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A lightweight object for storing the \u0098LocalCorpusSettings' tag in the\n.music21rc\nIt is a subclass of list and has two additional attributes, name (which\nshould be None for the unnamed localCorpus) and cacheFilePath\nfor a full filepath (ending in .json) as a location\nto store the .metadataBundle (.json) cache for the\nLocalCorpus.  This can be None, in which case the (volatile) temp\ndirectory is used.\n>>> lcs = environment.LocalCorpusSettings(['/tmp', '/home'])\n>>> lcs\nLocalCorpusSettings(['/tmp', '/home'])\n\n\n>>> lcs.name = 'theWholeEnchilada'\n>>> lcs\nLocalCorpusSettings(['/tmp', '/home'], name='theWholeEnchilada')\n\n\n>>> lcs.cacheFilePath = '/home/enchilada.json'\n>>> lcs\nLocalCorpusSettings(['/tmp', '/home'],\n                    name='theWholeEnchilada',\n                    cacheFilePath='/home/enchilada.json')\n\n\n>>> list(lcs)\n['/tmp', '/home']\n>>> lcs.name\n'theWholeEnchilada'\n>>> lcs.cacheFilePath\n'/home/enchilada.json'\n>>> '/home' in lcs\nTrue\n>>> '/root' in lcs\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.environment.",
+        "type": "Title"
+    },
+    {
+        "text": "envSingleton",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "returns the _environStorage[\u0098instance'], _EnvironmentCore singleton\nobject",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.environment.",
+        "type": "Title"
+    },
+    {
+        "text": "etIndent",
+        "type": "Title"
+    },
+    {
+        "text": "elem",
+        "type": "Title"
+    },
+    {
+        "text": "level",
+        "type": "Title"
+    },
+    {
+        "text": "spaces",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "indent an elementTree element for printing",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.environment.",
+        "type": "Title"
+    },
+    {
+        "text": "get",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return the current setting of a UserSettings key.\nThis will create a user settings file if necessary:\n>>> environment.get('musicxmlPath')\n'/Applications/Finale Reader.app'",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.environment.",
+        "type": "Title"
+    },
+    {
+        "text": "keys",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return all valid UserSettings keys.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.environment.",
+        "type": "Title"
+    },
+    {
+        "text": "set",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "value",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Directly set a single UserSettings key, by providing a key and the\nappropriate value. This will create a user settings file if necessary.\n>>> environment.set('wer', 'asdf')\nTraceback (most recent call last):\nmusic21.environment.EnvironmentException: no preference: wer\n\n\n>>> environment.set('musicxmlPath', '/Applications/Finale Reader.app')",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.environment",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

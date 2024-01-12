@@ -1,0 +1,310 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.figuredBass.realizerScale",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.figuredBass.realizer",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.figuredBass.resolution",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.figuredBass.realizerScale\nFiguredBassScale\nFiguredBassScale\nFiguredBassScale.getPitchNames()\nFiguredBassScale.getPitches()\nFiguredBassScale.getSamplePitches()\nFiguredBassScale.keySig\nFiguredBassScale.realizerScale",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.figuredBass.realizerScale\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "FiguredBassScale\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.figuredBass.realizerScale.",
+        "type": "Title"
+    },
+    {
+        "text": "FiguredBassScale",
+        "type": "Title"
+    },
+    {
+        "text": "scaleValue",
+        "type": "Title"
+    },
+    {
+        "text": "'C'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "scaleMode",
+        "type": "Title"
+    },
+    {
+        "text": "'major'",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Acts as a wrapper for Scale. Used to represent the\nconcept of a figured bass scale, with a scale value and mode.\nAccepted scale types: major, minor, dorian, phrygian, and hypophrygian.\nA FiguredBassScaleException is raised if an invalid scale type is provided.\n>>> from music21.figuredBass import realizerScale\n>>> fbScale = realizerScale.FiguredBassScale()\n>>> fbScale.realizerScale\n<music21.scale.MajorScale C major>\n>>> fbScale.keySig\n<music21.key.KeySignature of no sharps or flats>\n\n\n>>> fbScale = realizerScale.FiguredBassScale('d', 'minor')\n>>> fbScale.realizerScale\n<music21.scale.MinorScale D minor>\n>>> fbScale.keySig\n<music21.key.KeySignature of 1 flat>",
+        "type": "ListItem"
+    },
+    {
+        "text": "FiguredBassScale methods",
+        "type": "Title"
+    },
+    {
+        "text": "FiguredBassScale.",
+        "type": "Title"
+    },
+    {
+        "text": "getPitchNames",
+        "type": "Title"
+    },
+    {
+        "text": "bassPitch",
+        "type": "Title"
+    },
+    {
+        "text": "notationString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Takes a bassPitch and notationString and returns a list of corresponding\npitch names based on the scale value and mode above and inclusive of the\nbassPitch name.\n>>> from music21.figuredBass import realizerScale\n>>> fbScale = realizerScale.FiguredBassScale()\n>>> fbScale.getPitchNames('D3', '6')\n['D', 'F', 'B']\n>>> fbScale.getPitchNames('G3')\n['G', 'B', 'D']\n>>> fbScale.getPitchNames('B3', '6,#5')\n['B', 'D', 'F#', 'G']\n>>> fbScale.getPitchNames('C#3', '-7')  # Fully diminished seventh chord\n['C#', 'E', 'G', 'B-']",
+        "type": "ListItem"
+    },
+    {
+        "text": "FiguredBassScale.",
+        "type": "Title"
+    },
+    {
+        "text": "getPitches",
+        "type": "Title"
+    },
+    {
+        "text": "bassPitch",
+        "type": "Title"
+    },
+    {
+        "text": "notationString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "maxPitch",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Takes in a bassPitch, a notationString, and a maxPitch representing the highest\npossible pitch that can be returned. Returns a sorted list of pitches which\ncorrespond to the pitches of each specific pitch name found through getPitchNames\nthat fall between the bassPitch and the maxPitch, inclusive of both.\nif maxPitch is None, then B5 s used instead.\n>>> from music21.figuredBass import realizerScale\n>>> fbScale = realizerScale.FiguredBassScale()\n\n\nRoot position triad\n>>> [str(p) for p in fbScale.getPitches('C3') ]\n['C3', 'E3', 'G3', 'C4', 'E4', 'G4', 'C5', 'E5', 'G5']\n\n\nFirst inversion triad\n>>> [str(p) for p in fbScale.getPitches('D3', '6') ]\n['D3', 'F3', 'B3', 'D4', 'F4', 'B4', 'D5', 'F5', 'B5']\n\n\nRoot position seventh chord, showing MaxPitch\n>>> fbScale.getPitches(pitch.Pitch('G3'), '7', 'F4')\n[<music21.pitch.Pitch G3>, <music21.pitch.Pitch B3>,\n <music21.pitch.Pitch D4>, <music21.pitch.Pitch F4>]",
+        "type": "ListItem"
+    },
+    {
+        "text": "FiguredBassScale.",
+        "type": "Title"
+    },
+    {
+        "text": "getSamplePitches",
+        "type": "Title"
+    },
+    {
+        "text": "bassPitch",
+        "type": "Title"
+    },
+    {
+        "text": "notationString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns all pitches for a bassPitch and notationString within\nan octave of the bassPitch, inclusive of the bassPitch but\nexclusive at the upper bound. In other words, this method\nreturns the most compact complete chord implied by the bassPitch\nand its figures.\n>>> from music21.figuredBass import realizerScale\n>>> fbScale = realizerScale.FiguredBassScale()\n\n\n>>> fbScale.getSamplePitches('D3', '6')  # First inversion triad\n[<music21.pitch.Pitch D3>, <music21.pitch.Pitch F3>, <music21.pitch.Pitch B3>]\n\n\nRoot position triad\n>>> [str(p) for p in fbScale.getSamplePitches('G3') ]\n['G3', 'B3', 'D4']\n\n\nFirst inversion seventh chord\n>>> [str(p) for p in fbScale.getSamplePitches('B3', '6,5') ]\n['B3', 'D4', 'F4', 'G4']\n\n\nNeapolitan chord\n>>> [str(p) for p in fbScale.getSamplePitches('F3', '-6,-') ]\n['F3', 'A-3', 'D-4']\n\n\nSecond inversion seventh chord\n>>> [str(p) for p in fbScale.getSamplePitches('C5', '4,3') ]\n['C5', 'E5', 'F5', 'A5']\n\n\nFully diminished seventh chord\n>>> [str(p) for p in fbScale.getSamplePitches('C#3', '-7') ]\n['C#3', 'E3', 'G3', 'B-3']",
+        "type": "ListItem"
+    },
+    {
+        "text": "FiguredBassScale instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "FiguredBassScale.",
+        "type": "Title"
+    },
+    {
+        "text": "keySig",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A KeySignature corresponding to\nthe scale value and mode.",
+        "type": "ListItem"
+    },
+    {
+        "text": "FiguredBassScale.",
+        "type": "Title"
+    },
+    {
+        "text": "realizerScale",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A Scale based on the\ndesired value and mode.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.figuredBass.realizerScale",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

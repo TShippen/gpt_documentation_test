@@ -1,0 +1,1014 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.stream.filters",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.stream.enums",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.stream.iterator",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.stream.filters\nClassFilter\nClassFilter\nClassFilter.__eq__()\n\n\n\n\nClassNotFilter\nClassNotFilter\n\n\nGroupFilter\nGroupFilter\n\n\nIdFilter\nIdFilter\n\n\nIsFilter\nIsFilter\nIsFilter.reset()\n\n\n\n\nIsNotFilter\nIsNotFilter\nIsNotFilter.reset()\n\n\n\n\nOffsetFilter\nOffsetFilter\nOffsetFilter.isElementOffsetInRange()\n\n\n\n\nOffsetHierarchyFilter\nOffsetHierarchyFilter\n\n\nStreamFilter\nStreamFilter\nStreamFilter.reset()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.stream.filters\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "The filter module contains StreamFilter objects\nwhich are used by StreamIterator objects to\ndecide whether a given element matches the list of elements that are being\nfiltered.  Filters are used by methods on streams such as\ngetElementsByClass() to filter elements by classes.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "ClassFilter\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.stream.filters.",
+        "type": "Title"
+    },
+    {
+        "text": "ClassFilter",
+        "type": "Title"
+    },
+    {
+        "text": "classList",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "ClassFilter is used by .getElementsByClass() to\nfind elements belonging to a class or a list of classes.\n>>> s = stream.Stream()\n>>> s.append(note.Note('C'))\n>>> s.append(note.Rest())\n>>> s.append(note.Note('D'))\n>>> sI = iter(s)\n>>> sI\n<music21.stream.iterator.StreamIterator for Stream:0x104843828 @:0>\n>>> for x in sI:\n...     print(x)\n<music21.note.Note C>\n<music21.note.Rest quarter>\n<music21.note.Note D>\n\n\n>>> sI.filters.append(stream.filters.ClassFilter('Note'))\n>>> sI.filters\n[<music21.stream.filters.ClassFilter Note>]\n\n\n>>> for x in sI:\n...     print(x)\n<music21.note.Note C>\n<music21.note.Note D>",
+        "type": "ListItem"
+    },
+    {
+        "text": "ClassFilter bases",
+        "type": "Title"
+    },
+    {
+        "text": "StreamFilter",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ClassFilter read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "ClassFilter methods",
+        "type": "Title"
+    },
+    {
+        "text": "ClassFilter.",
+        "type": "Title"
+    },
+    {
+        "text": "__eq__",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "other",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return self==value.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from StreamFilter:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "reset()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "ClassNotFilter\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.stream.filters.",
+        "type": "Title"
+    },
+    {
+        "text": "ClassNotFilter",
+        "type": "Title"
+    },
+    {
+        "text": "classList",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns elements not of the class.\n>>> s = stream.Stream()\n>>> s.append(note.Note('C'))\n>>> s.append(note.Rest())\n>>> s.append(note.Note('D'))\n>>> sI = iter(s)\n\n\n>>> sI.filters.append(stream.filters.ClassNotFilter('Note'))\n>>> sI.filters\n[<music21.stream.filters.ClassNotFilter Note>]\n\n\n>>> for x in sI:\n...     print(x)\n<music21.note.Rest quarter>",
+        "type": "ListItem"
+    },
+    {
+        "text": "ClassNotFilter bases",
+        "type": "Title"
+    },
+    {
+        "text": "ClassFilter",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamFilter",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ClassNotFilter read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "ClassNotFilter methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from ClassFilter:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from StreamFilter:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "reset()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "GroupFilter\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.stream.filters.",
+        "type": "Title"
+    },
+    {
+        "text": "GroupFilter",
+        "type": "Title"
+    },
+    {
+        "text": "groupFilterList",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns elements with a certain group.\n>>> n1 = note.Note('C')\n>>> n1.groups.append('trombone')\n>>> n2 = note.Note('D')\n>>> n2.groups.append('trombone')\n>>> n2.groups.append('tuba')\n>>> n3 = note.Note('E')\n>>> n3.groups.append('tuba')\n>>> s1 = stream.Stream()\n>>> s1.append(n1)\n>>> s1.append(n2)\n>>> s1.append(n3)\n>>> GF = stream.filters.GroupFilter\n\n\n>>> for thisNote in iter(s1).addFilter(GF('trombone')):\n...     print(thisNote.name)\nC\nD\n>>> for thisNote in iter(s1).addFilter(GF('tuba')):\n...     print(thisNote.name)\nD\nE",
+        "type": "ListItem"
+    },
+    {
+        "text": "GroupFilter bases",
+        "type": "Title"
+    },
+    {
+        "text": "StreamFilter",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "GroupFilter read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "GroupFilter methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from StreamFilter:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "reset()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "IdFilter\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.stream.filters.",
+        "type": "Title"
+    },
+    {
+        "text": "IdFilter",
+        "type": "Title"
+    },
+    {
+        "text": "searchId",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "filters on ids. used by stream.getElementById.\nNo corresponding iterator call.\nOnly a single ID can be passed in.  Always returns a single item.",
+        "type": "ListItem"
+    },
+    {
+        "text": "IdFilter bases",
+        "type": "Title"
+    },
+    {
+        "text": "StreamFilter",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "IdFilter read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "IdFilter methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from StreamFilter:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "reset()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "IsFilter\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.stream.filters.",
+        "type": "Title"
+    },
+    {
+        "text": "IsFilter",
+        "type": "Title"
+    },
+    {
+        "text": "target",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "filter on items where x IS y\n>>> s = stream.Stream()\n>>> s.insert(0, key.KeySignature(-3))\n>>> n = note.Note('C#')\n>>> s.append(n)\n>>> s.append(note.Rest())\n>>> isFilter = stream.filters.IsFilter(n)\n>>> isFilter.derivationStr\n'is'\n>>> isFilter.target\n(<music21.note.Note C#>,)\n>>> isFilter.numToFind\n1\n\n\n.numToFind is used so that once all elements are found, the iterator can short circuit.\n>>> for el in s.iter().addFilter(isFilter):\n...     print(el is n)\nTrue\n\n\nMultiple elements can also be passed into the isFilter:\n>>> s = stream.Stream()\n>>> s.insert(0, key.KeySignature(-3))\n>>> n = note.Note('C#')\n>>> s.append(n)\n>>> r = note.Rest()\n>>> s.append(r)\n>>> isFilter2 = stream.filters.IsFilter([n, r])\n>>> isFilter2.numToFind\n2\n\n\n>>> for el in s.iter().addFilter(isFilter2):\n...     print(el)\n<music21.note.Note C#>\n<music21.note.Rest quarter>",
+        "type": "ListItem"
+    },
+    {
+        "text": "IsFilter bases",
+        "type": "Title"
+    },
+    {
+        "text": "StreamFilter",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "IsFilter read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "IsFilter methods",
+        "type": "Title"
+    },
+    {
+        "text": "IsFilter.",
+        "type": "Title"
+    },
+    {
+        "text": "reset",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "IsNotFilter\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.stream.filters.",
+        "type": "Title"
+    },
+    {
+        "text": "IsNotFilter",
+        "type": "Title"
+    },
+    {
+        "text": "target",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Filter out everything but an item or list of items:\n>>> s = stream.Stream()\n>>> s.insert(0, key.KeySignature(-3))\n>>> n = note.Note('C#')\n>>> s.append(n)\n>>> s.append(note.Rest())\n>>> for el in s.iter().addFilter(stream.filters.IsNotFilter(n)):\n...     el\n<music21.key.KeySignature of 3 flats>\n<music21.note.Rest quarter>\n\n\ntest that resetting works\u2026\n>>> for el in s.iter().addFilter(stream.filters.IsNotFilter(n)):\n...     el\n<music21.key.KeySignature of 3 flats>\n<music21.note.Rest quarter>\n\n\nmultiple\u2026\n>>> s = stream.Stream()\n>>> s.insert(0, key.KeySignature(-3))\n>>> n = note.Note('C#')\n>>> s.append(n)\n>>> r = note.Rest()\n>>> s.append(r)\n>>> for el in s.iter().addFilter(stream.filters.IsNotFilter([n, r])):\n...     print(el)\n<music21.key.KeySignature of 3 flats>",
+        "type": "ListItem"
+    },
+    {
+        "text": "IsNotFilter bases",
+        "type": "Title"
+    },
+    {
+        "text": "IsFilter",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamFilter",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "IsNotFilter read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "IsNotFilter methods",
+        "type": "Title"
+    },
+    {
+        "text": "IsNotFilter.",
+        "type": "Title"
+    },
+    {
+        "text": "reset",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "OffsetFilter\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.stream.filters.",
+        "type": "Title"
+    },
+    {
+        "text": "OffsetFilter",
+        "type": "Title"
+    },
+    {
+        "text": "offsetStart",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "offsetEnd",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "includeEndBoundary",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "mustFinishInSpan",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "mustBeginInSpan",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "includeElementsThatEndAtStart",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "stopAfterEnd",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "see getElementsByOffset()\nfor docs on this filter.\nFinds elements that match a given offset range.\n\nChanged in v5.5: all arguments except offsetStart and offsetEnd are keyword only.\nChanged in v6.5: stopAfterEnd can be set globally.",
+        "type": "ListItem"
+    },
+    {
+        "text": "OffsetFilter bases",
+        "type": "Title"
+    },
+    {
+        "text": "StreamFilter",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "OffsetFilter read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "OffsetFilter methods",
+        "type": "Title"
+    },
+    {
+        "text": "OffsetFilter.",
+        "type": "Title"
+    },
+    {
+        "text": "isElementOffsetInRange",
+        "type": "Title"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "stopAfterEnd",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given an element, offset, and stream, return\nTrue, False, or raise StopIteration if the\nelement is in the range, not in the range, or (if stopAfterEnd is True) is not\nand no future elements will be in the range.\nFactored out from __call__ to be used by OffsetHierarchyFilter, and it's just\na beast.  :-)",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from StreamFilter:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "reset()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "OffsetHierarchyFilter\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.stream.filters.",
+        "type": "Title"
+    },
+    {
+        "text": "OffsetHierarchyFilter",
+        "type": "Title"
+    },
+    {
+        "text": "offsetStart",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "offsetEnd",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "includeEndBoundary",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "mustFinishInSpan",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "mustBeginInSpan",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "includeElementsThatEndAtStart",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "stopAfterEnd",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "see getElementsByOffsetInHierarchy()\nfor docs on this filter.\nFinds elements that match a given offset range in the hierarchy.\nDo not call .stream() afterwards or unstable results can occur.",
+        "type": "ListItem"
+    },
+    {
+        "text": "OffsetHierarchyFilter bases",
+        "type": "Title"
+    },
+    {
+        "text": "OffsetFilter",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamFilter",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "OffsetHierarchyFilter read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "OffsetHierarchyFilter methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from OffsetFilter:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isElementOffsetInRange()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from StreamFilter:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "reset()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "StreamFilter\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.stream.filters.",
+        "type": "Title"
+    },
+    {
+        "text": "StreamFilter",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A filter is an object that when called returns True or False\nabout whether an element in the stream matches the filter.\nA lambda expression: lambda el, iterator: True if EXP else False can also be\nused as a very simple filter.\nFilters can also raise StopIteration if no other elements in this Stream\ncan possibly fit.\nThe StreamFilter object does nothing in itself but subclasses are crucial\nin filtering out elements according to different properties.\nEach subclass of StreamFilter should set its .derivationStr which is\na string that determines which a derived Stream based on this filter should be called\n>>> sf = stream.filters.StreamFilter()\n>>> sf\n<music21.stream.filters.StreamFilter object at 0x1051de828>\n>>> sf.derivationStr\n'streamFilter'\n\n\nStreamFilters also have these two properties, inherited from\nProtoM21Object which help in certain debug operations\n>>> 'StreamFilter' in sf.classSet\nTrue\n>>> sf.classes\n('StreamFilter', 'ProtoM21Object', 'object')",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamFilter bases",
+        "type": "Title"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamFilter read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "StreamFilter methods",
+        "type": "Title"
+    },
+    {
+        "text": "StreamFilter.",
+        "type": "Title"
+    },
+    {
+        "text": "reset",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.stream.filters",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

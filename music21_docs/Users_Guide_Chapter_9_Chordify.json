@@ -1,0 +1,1938 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 9: Chordify",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide, Chapter 8: Installing MusicXML Readers and File Formats (1)",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide, Chapter 10: Examples 1",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide, Chapter 9: Chordify\nUsing Chordify to Annotate Intervals\nChordify and advanced scores",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide\nUser's Guide: Table of Contents\nUser's Guide, Chapter 1: Installing and Getting Started with music21\nUser's Guide, Chapter 2: Notes\nUser's Guide, Chapter 3: Pitches, Durations, and Notes again\nUser's Guide, Chapter 4: Lists, Streams (I) and Output\nUser's Guide, Chapter 5: Lists of Lists, Functions, and Recursion\nUser's Guide, Chapter 6: Streams (II): Hierarchies, Recursion, and Flattening\nUser's Guide, Chapter 7: Chords\nUser's Guide, Chapter 8: Installing MusicXML Readers and File Formats (1)\nUser's Guide, Chapter 9: Chordify\nUser's Guide, Chapter 10: Examples 1\nUser's Guide, Chapter 11: Corpus Searching\nUser's Guide, Chapter 12: Getting Back to Basics: The Music21Object\nUser's Guide, Chapter 13: More Music21Object Attributes and Properties\nUser's Guide: Chapter 14: Time Signatures and Beats\nUser's Guide, Chapter 15: Keys and KeySignatures\nUser's Guide, Chapter 16: TinyNotation\nUser's Guide: Chapter 17: Derivations\nUser's Guide: Chapter 18: Intervals\nUser's Guide, Chapter 19: Advanced Durations (Complex and Tuplets)\nUser's Guide, Chapter 20: Examples 2\nUser's Guide, Chapter 21: Ordering and Sorting of Stream Elements\nUser's Guide, Chapter 22: Graphing and plotting\nUser's Guide, Chapter 23: Roman Numeral Analysis\nUser's Guide, Chapter 24: Configuring Environment Settings\nUser's Guide, Chapter 25: Post-Tonal Tools (1)\nUser's Guide, Chapter 26: Stream Iteration and Filtering\nUser's Guide, Chapter 27: Grace Notes\nUser's Guide, Chapter 28: Lyric Searching\nUser's Guide, Chapter 29: Spanners 1 (Slurs)\nUser's Guide, Chapter 30: Examples 3\nUser's Guide, Chapter 31: Clefs, Ties, and Beams\nUser's Guide, Chapter 32: Articulations\nUser's Guide, Chapter 44: Advanced Graphing (Axes, Plots, and Graphs)\nUser's Guide, Chapter 53: Advanced Corpus and Metadata Searching\nUser's Guide, Chapter 54: Extending Converter with New Formats\nUser's Guide, Chapter 55: Advanced Meter Topics\nUser's Guide, Chapter 58: Understanding Sites and Contexts\nUser's Guide, Chapter 61: TimespanTrees and Verticalities",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 9: Chordify\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Chordify is a madeup word that we created in music21 for the\nprocess of making chords out of non-chords. Chordify powerful tool for\nreducing a complex score with multiple parts to a succession of chords\nin one part that represent everything that is happening in the score.\nTake this short chorale by Bach:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "from",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "import",
+        "type": "Title"
+    },
+    {
+        "text": "corpus",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "'bwv66.6'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Let's take it and chordify it using the\nchordify() method.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "bChords",
+        "type": "Title"
+    },
+    {
+        "text": "chordify",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "bChords",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "TA-DA! Every note in the score is now represented in a single chord and\nevery moment where some element moves is also represented. Sometimes\nthis process of chordifying is called \u009csalami slicing,\u009d that is, cutting\nthe score so thinly that every moment where something happens is fully\nrepresented.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Now we can see if there are any (fully-notated) dominant seventh chords\nin the piece. The new chordified part still has measures, so we'll\nrecurse into the chordified part first to get to the chords. It might\nalso have time signatures, etc., so we will filter them out so we only\nhave chords.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "thisChord",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "bChords",
+        "type": "Title"
+    },
+    {
+        "text": "recurse",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "getElementsByClass",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "thisChord",
+        "type": "Title"
+    },
+    {
+        "text": "isDominantSeventh",
+        "type": "Title"
+    },
+    {
+        "text": "():",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "thisChord",
+        "type": "Title"
+    },
+    {
+        "text": "measureNumber",
+        "type": "Title"
+    },
+    {
+        "text": "thisChord",
+        "type": "Title"
+    },
+    {
+        "text": "beatStr",
+        "type": "Title"
+    },
+    {
+        "text": "thisChord",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "E3",
+        "type": "Title"
+    },
+    {
+        "text": "D4",
+        "type": "Title"
+    },
+    {
+        "text": "#4 B4>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "#3 B3 E#4 G#4>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "B2",
+        "type": "Title"
+    },
+    {
+        "text": "A3",
+        "type": "Title"
+    },
+    {
+        "text": "#4 F#4>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "#2 C#4 E4 F#4>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Sure enough we can check the score above and see that there are four of\nthem: three of them on the offbeat (m.2 beat 2.5, m. 3 beat 2.5, and m.\n4 beat 3.5) which are made from passing motion, and one of them in m. 8\nbeat 2 also in a metrically weak position.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "We can see the chordified version by callling \u009c.show()\u009d on bChords\nitself, but it's probably better to see it in the context of the whole\nscore. Let's put it in the score at the beginning (all Part objects\nshould go at the beginning) and then show just measures 0 (pickup) to 4:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "insert",
+        "type": "Title"
+    },
+    {
+        "text": "bChords",
+        "type": "Title"
+    },
+    {
+        "text": "measures",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "That's a bit messy to read, so let's put all these chords in\nclosedPosition (see\nUser's Guide, Chapter 7: Chords for more\ninformation).",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "bChords",
+        "type": "Title"
+    },
+    {
+        "text": "recurse",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "getElementsByClass",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "closedPosition",
+        "type": "Title"
+    },
+    {
+        "text": "forceOctave",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "measures",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Note that when we move a chord to closed position, unfortunately it\nloses its tie information, since the pitch that starts a tie can't\ntell whether or not the next pitch will end up in a different octave\n(for instance, the Cs in the first two notes of the second full\nmeasure). Maybe it's something we can do someday\u2026",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "We can use the function roman.romanNumeralFromChord to label each of\nthe chordified Chords:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "bChords",
+        "type": "Title"
+    },
+    {
+        "text": "recurse",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "getElementsByClass",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "rn",
+        "type": "Title"
+    },
+    {
+        "text": "roman",
+        "type": "Title"
+    },
+    {
+        "text": "romanNumeralFromChord",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "Key",
+        "type": "Title"
+    },
+    {
+        "text": "'A'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "))",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "addLyric",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "rn",
+        "type": "Title"
+    },
+    {
+        "text": "figure",
+        "type": "Title"
+    },
+    {
+        "text": "))",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "measures",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "We can also see everything directly if we look at the .show('text')\noutput:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "bChords",
+        "type": "Title"
+    },
+    {
+        "text": "measures",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "'text'",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "instrument",
+        "type": "Title"
+    },
+    {
+        "text": "Instrument",
+        "type": "Title"
+    },
+    {
+        "text": "'P1: Soprano: Instrument 1'",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Measure",
+        "type": "Title"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "clef",
+        "type": "Title"
+    },
+    {
+        "text": "TrebleClef",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "tempo",
+        "type": "Title"
+    },
+    {
+        "text": "MetronomeMark",
+        "type": "Title"
+    },
+    {
+        "text": "Quarter",
+        "type": "Title"
+    },
+    {
+        "text": "96",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "playback",
+        "type": "Title"
+    },
+    {
+        "text": "only",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "Key",
+        "type": "Title"
+    },
+    {
+        "text": "of",
+        "type": "Title"
+    },
+    {
+        "text": "# minor>",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "meter",
+        "type": "Title"
+    },
+    {
+        "text": "TimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "A4",
+        "type": "Title"
+    },
+    {
+        "text": "#5 E5>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "0.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "#4 B4 E5>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Measure",
+        "type": "Title"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "#4 A4 C#5>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "#4 B4 E5>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "A4",
+        "type": "Title"
+    },
+    {
+        "text": "#5 E5>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "3.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "#4 B4 E5>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "5.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Measure",
+        "type": "Title"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "5.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "A4",
+        "type": "Title"
+    },
+    {
+        "text": "#5 E5>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "0.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "#4 E4 A4>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "E4",
+        "type": "Title"
+    },
+    {
+        "text": "#4 B4>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "1.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "E4",
+        "type": "Title"
+    },
+    {
+        "text": "#4 B4 D5>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "A4",
+        "type": "Title"
+    },
+    {
+        "text": "#5 E5>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "3.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "#4 G#4 C#5>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "We can also just extract the lyrics, where we stored the RomanNumeral\ninformation:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "bChords",
+        "type": "Title"
+    },
+    {
+        "text": "measures",
+        "type": "Title"
+    },
+    {
+        "text": "recurse",
+        "type": "Title"
+    },
+    {
+        "text": "():",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "'Chord'",
+        "type": "Title"
+    },
+    {
+        "text": "not",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "classes",
+        "type": "Title"
+    },
+    {
+        "text": "continue",
+        "type": "Title"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "lyric",
+        "type": "Title"
+    },
+    {
+        "text": "end",
+        "type": "Title"
+    },
+    {
+        "text": "' '",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "V6",
+        "type": "Title"
+    },
+    {
+        "text": "vi",
+        "type": "Title"
+    },
+    {
+        "text": "V6",
+        "type": "Title"
+    },
+    {
+        "text": "V6",
+        "type": "Title"
+    },
+    {
+        "text": "I6",
+        "type": "Title"
+    },
+    {
+        "text": "V7",
+        "type": "Title"
+    },
+    {
+        "text": "III6",
+        "type": "Title"
+    },
+    {
+        "text": "Using Chordify to Annotate Intervals\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "One great way to quickly make a reduction of a score is with\nchordify and the annotateIntervals method on Chords. We can use\none of the multipart-opus ABC files described in the last chapter to\ndemonstrate.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Let us load up one of the most beautiful memorial pieces of all time,\nthe motet on the death of Johannes Ockeghem by Josquin des Prez\n(d.\u00c2\u00a01521):",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "corpus",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "'josquin/laDeplorationDeLaMorteDeJohannesOckeghem'",
+        "type": "Title"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "metadata",
+        "type": "Title"
+    },
+    {
+        "text": "Metadata",
+        "type": "Title"
+    },
+    {
+        "text": "object",
+        "type": "Title"
+    },
+    {
+        "text": "at",
+        "type": "Title"
+    },
+    {
+        "text": "0x1143834d0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Score",
+        "type": "Title"
+    },
+    {
+        "text": "0x114380c10",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Score",
+        "type": "Title"
+    },
+    {
+        "text": "0x113ba1590",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Score",
+        "type": "Title"
+    },
+    {
+        "text": "0x11449bf50",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Score",
+        "type": "Title"
+    },
+    {
+        "text": "0x11e5c7550",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Score",
+        "type": "Title"
+    },
+    {
+        "text": "0x11e6311d0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Okay so we have a collection of scores to merge into parts \u2014 this is an\nunusual but not totally rare phenomenon, so we merge them:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "mergedScores",
+        "type": "Title"
+    },
+    {
+        "text": "mergeScores",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "scoreExcerpt",
+        "type": "Title"
+    },
+    {
+        "text": "mergedScores",
+        "type": "Title"
+    },
+    {
+        "text": "measures",
+        "type": "Title"
+    },
+    {
+        "text": "127",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "133",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "scoreExcerpt",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Let's chordify it:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "reduction",
+        "type": "Title"
+    },
+    {
+        "text": "scoreExcerpt",
+        "type": "Title"
+    },
+    {
+        "text": "chordify",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "reduction",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "We'll iterate over the chords and put them in closed position in octave\n4 and run the annotateIntervals command:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "reduction",
+        "type": "Title"
+    },
+    {
+        "text": "recurse",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "getElementsByClass",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "closedPosition",
+        "type": "Title"
+    },
+    {
+        "text": "forceOctave",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "annotateIntervals",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "We will put the reduction back into the score and show it. We insert\nit at the zero point of the score, rather than using append because\nit begins at the same time point as the other parts. Let's also get rid\nof the fourth part, since it's blank.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "scoreExcerpt",
+        "type": "Title"
+    },
+    {
+        "text": "insert",
+        "type": "Title"
+    },
+    {
+        "text": "reduction",
+        "type": "Title"
+    },
+    {
+        "text": "emptyPart",
+        "type": "Title"
+    },
+    {
+        "text": "scoreExcerpt",
+        "type": "Title"
+    },
+    {
+        "text": "parts",
+        "type": "Title"
+    },
+    {
+        "text": "scoreExcerpt",
+        "type": "Title"
+    },
+    {
+        "text": "remove",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "emptyPart",
+        "type": "Title"
+    },
+    {
+        "text": "scoreExcerpt",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The intervals have been added as lyrics on the chord:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "reduction",
+        "type": "Title"
+    },
+    {
+        "text": "recurse",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "getElementsByClass",
+        "type": "Title"
+    },
+    {
+        "text": "'Chord'",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "end",
+        "type": "Title"
+    },
+    {
+        "text": "\" \"",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "lyrics",
+        "type": "Title"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "text",
+        "type": "Title"
+    },
+    {
+        "text": "end",
+        "type": "Title"
+    },
+    {
+        "text": "\" \"",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "E4",
+        "type": "Title"
+    },
+    {
+        "text": "G4",
+        "type": "Title"
+    },
+    {
+        "text": "B4",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "E4",
+        "type": "Title"
+    },
+    {
+        "text": "G4",
+        "type": "Title"
+    },
+    {
+        "text": "B4",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "E4",
+        "type": "Title"
+    },
+    {
+        "text": "G4",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "D4",
+        "type": "Title"
+    },
+    {
+        "text": "F4",
+        "type": "Title"
+    },
+    {
+        "text": "A4",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "D4",
+        "type": "Title"
+    },
+    {
+        "text": "F4",
+        "type": "Title"
+    },
+    {
+        "text": "A4",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "D4",
+        "type": "Title"
+    },
+    {
+        "text": "F4",
+        "type": "Title"
+    },
+    {
+        "text": "A4",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "A4",
+        "type": "Title"
+    },
+    {
+        "text": "C5",
+        "type": "Title"
+    },
+    {
+        "text": "E5",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "A4",
+        "type": "Title"
+    },
+    {
+        "text": "C5",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "G4",
+        "type": "Title"
+    },
+    {
+        "text": "A4",
+        "type": "Title"
+    },
+    {
+        "text": "B4",
+        "type": "Title"
+    },
+    {
+        "text": "C5",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "F4",
+        "type": "Title"
+    },
+    {
+        "text": "A4",
+        "type": "Title"
+    },
+    {
+        "text": "D5",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "F4",
+        "type": "Title"
+    },
+    {
+        "text": "G4",
+        "type": "Title"
+    },
+    {
+        "text": "A4",
+        "type": "Title"
+    },
+    {
+        "text": "D5",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "F4",
+        "type": "Title"
+    },
+    {
+        "text": "A4",
+        "type": "Title"
+    },
+    {
+        "text": "D5",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "E4",
+        "type": "Title"
+    },
+    {
+        "text": "G4",
+        "type": "Title"
+    },
+    {
+        "text": "B4",
+        "type": "Title"
+    },
+    {
+        "text": "From here it is easy to find interesting places like that \u009c4321\u009d chord\nat the end of the fifth measure of the excerpt, somthing I didn't know\nwould be found in high Renaissance polyphony even as a collection of\npassing tones!",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Chordify and advanced scores\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "More complex scores can also be chordified. If there are lots of\ntuplets, you might get odd results. Such as with Opus 19, no. 6, by\nArnold Schoenberg.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "schoenberg",
+        "type": "Title"
+    },
+    {
+        "text": "corpus",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "'schoenberg/opus19'",
+        "type": "Title"
+    },
+    {
+        "text": "schoenberg",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "chorded",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "schoenberg",
+        "type": "Title"
+    },
+    {
+        "text": "chordify",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "chorded",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "There are more specialized commands for .chordify, so if you want to\nlearn more, look at the chordify()\ndocumentation. We will get to the option, addPartIdAsGroup later,\nwhich will let you know exactly where each pitch in the chordified Chord\ncomes from. But for now, let's jump to our first example,\nChapter 10: Example 1",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 9: Chordify",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

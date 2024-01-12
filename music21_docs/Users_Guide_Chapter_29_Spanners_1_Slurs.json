@@ -1,0 +1,2038 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 29: Spanners 1 (Slurs)",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide, Chapter 28: Lyric Searching",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide, Chapter 30: Examples 3",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide, Chapter 29: Spanners 1 (Slurs)\nSlurs\nSpanners in Streams\nQuerying spanners\nGetting spanners from Music21Objects\nManipulating spanners\nChanging the look of spanners",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide\nUser's Guide: Table of Contents\nUser's Guide, Chapter 1: Installing and Getting Started with music21\nUser's Guide, Chapter 2: Notes\nUser's Guide, Chapter 3: Pitches, Durations, and Notes again\nUser's Guide, Chapter 4: Lists, Streams (I) and Output\nUser's Guide, Chapter 5: Lists of Lists, Functions, and Recursion\nUser's Guide, Chapter 6: Streams (II): Hierarchies, Recursion, and Flattening\nUser's Guide, Chapter 7: Chords\nUser's Guide, Chapter 8: Installing MusicXML Readers and File Formats (1)\nUser's Guide, Chapter 9: Chordify\nUser's Guide, Chapter 10: Examples 1\nUser's Guide, Chapter 11: Corpus Searching\nUser's Guide, Chapter 12: Getting Back to Basics: The Music21Object\nUser's Guide, Chapter 13: More Music21Object Attributes and Properties\nUser's Guide: Chapter 14: Time Signatures and Beats\nUser's Guide, Chapter 15: Keys and KeySignatures\nUser's Guide, Chapter 16: TinyNotation\nUser's Guide: Chapter 17: Derivations\nUser's Guide: Chapter 18: Intervals\nUser's Guide, Chapter 19: Advanced Durations (Complex and Tuplets)\nUser's Guide, Chapter 20: Examples 2\nUser's Guide, Chapter 21: Ordering and Sorting of Stream Elements\nUser's Guide, Chapter 22: Graphing and plotting\nUser's Guide, Chapter 23: Roman Numeral Analysis\nUser's Guide, Chapter 24: Configuring Environment Settings\nUser's Guide, Chapter 25: Post-Tonal Tools (1)\nUser's Guide, Chapter 26: Stream Iteration and Filtering\nUser's Guide, Chapter 27: Grace Notes\nUser's Guide, Chapter 28: Lyric Searching\nUser's Guide, Chapter 29: Spanners 1 (Slurs)\nUser's Guide, Chapter 30: Examples 3\nUser's Guide, Chapter 31: Clefs, Ties, and Beams\nUser's Guide, Chapter 32: Articulations\nUser's Guide, Chapter 44: Advanced Graphing (Axes, Plots, and Graphs)\nUser's Guide, Chapter 53: Advanced Corpus and Metadata Searching\nUser's Guide, Chapter 54: Extending Converter with New Formats\nUser's Guide, Chapter 55: Advanced Meter Topics\nUser's Guide, Chapter 58: Understanding Sites and Contexts\nUser's Guide, Chapter 61: TimespanTrees and Verticalities",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 29: Spanners 1 (Slurs)\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "In music21, a \u009cSpanner\u009d is a\nMusic21Object that denotes a relationship among\nother elements, such as Notes, Chords, or even Streams, which may or may\nnot be separated in a hierarchy, such as Note objects in different\nmeasures. They are used to encode things such as Slurs or lines or\nOttava (8va) marks and even things like staff groupings. Music would be\ndull if we could not cross the barline, and Spanners are the key to\ndoing so successfully.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Slurs\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Let's create our first spanner, a simple slur between two notes in a\nmeasure. We will use TinyNotation to quickly get a short part:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "from",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "import",
+        "type": "Title"
+    },
+    {
+        "text": "converter",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "\"tinynotation: 4/4 c4 d e f g a b c' b a g2\"",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Let's put a slur over the first two notes:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "recurse",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "notes",
+        "type": "Title"
+    },
+    {
+        "text": "recurse",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "notes",
+        "type": "Title"
+    },
+    {
+        "text": "sl1",
+        "type": "Title"
+    },
+    {
+        "text": "spanner",
+        "type": "Title"
+    },
+    {
+        "text": "Slur",
+        "type": "Title"
+    },
+    {
+        "text": "([",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "])",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "sl1",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "spanner",
+        "type": "Title"
+    },
+    {
+        "text": "Slur",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "><",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Note a couple of things: the notes of the spanner should be enclosed in\na grouping container such as a list or tuple and then passed into the\nSlur, usually when it is created.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "If we look at the part, nothing has changed:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Why not? Well, we have a slur, but it's not part of the part yet. So\nlet's put it into the first measure. By convention we put spanners at\nthe beginning of a Stream, at offset 0.0.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "m1",
+        "type": "Title"
+    },
+    {
+        "text": "getElementsByClass",
+        "type": "Title"
+    },
+    {
+        "text": "'Measure'",
+        "type": "Title"
+    },
+    {
+        "text": ")[",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "m1",
+        "type": "Title"
+    },
+    {
+        "text": "insert",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "sl1",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Ta-da! The slur is present and connects the first two notes.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "But the power of the slur is that it can cross barlines. So let's create\nanother one from the F to the A.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "m2",
+        "type": "Title"
+    },
+    {
+        "text": "getElementsByClass",
+        "type": "Title"
+    },
+    {
+        "text": "'Measure'",
+        "type": "Title"
+    },
+    {
+        "text": ")[",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "m1",
+        "type": "Title"
+    },
+    {
+        "text": "notes",
+        "type": "Title"
+    },
+    {
+        "text": "m2",
+        "type": "Title"
+    },
+    {
+        "text": "notes",
+        "type": "Title"
+    },
+    {
+        "text": "m2",
+        "type": "Title"
+    },
+    {
+        "text": "notes",
+        "type": "Title"
+    },
+    {
+        "text": "sl2",
+        "type": "Title"
+    },
+    {
+        "text": "spanner",
+        "type": "Title"
+    },
+    {
+        "text": "Slur",
+        "type": "Title"
+    },
+    {
+        "text": "([",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "])",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Now we have a bit of a dilemma \u2014 where to put this second slur? Does it\ngo in the measure of the first note? The measure of the last note? The\npart? The answer is actually that it can go in any of these! It's just a\nquestion of where you want to find it later. We'll put it in the Part:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "insert",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "sl2",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Depending on what you want to use the spanner for, you might not need to\ninclude all the intermediary notes in a spanner. For instance, let's\nslur the last four notes on the piece, specifying only the high C and\nthe final G. We'll put in the last measure.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "m3",
+        "type": "Title"
+    },
+    {
+        "text": "getElementsByClass",
+        "type": "Title"
+    },
+    {
+        "text": "'Measure'",
+        "type": "Title"
+    },
+    {
+        "text": ")[",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "c2",
+        "type": "Title"
+    },
+    {
+        "text": "m2",
+        "type": "Title"
+    },
+    {
+        "text": "notes",
+        "type": "Title"
+    },
+    {
+        "text": "g2",
+        "type": "Title"
+    },
+    {
+        "text": "m3",
+        "type": "Title"
+    },
+    {
+        "text": "notes",
+        "type": "Title"
+    },
+    {
+        "text": "sl3",
+        "type": "Title"
+    },
+    {
+        "text": "spanner",
+        "type": "Title"
+    },
+    {
+        "text": "Slur",
+        "type": "Title"
+    },
+    {
+        "text": "([",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "c2",
+        "type": "Title"
+    },
+    {
+        "text": "g2",
+        "type": "Title"
+    },
+    {
+        "text": "])",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "m2",
+        "type": "Title"
+    },
+    {
+        "text": "insert",
+        "type": "Title"
+    },
+    {
+        "text": "sl3",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "For any spanner, such as a slur, we can see which elements are contained\nin it with .getSpannedElements",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "sl1",
+        "type": "Title"
+    },
+    {
+        "text": "getSpannedElements",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "sl2",
+        "type": "Title"
+    },
+    {
+        "text": "getSpannedElements",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "Note that since the last slur only had the start and end notes\nspecified, it doesn't report the B or A as \u009cin\u009d the slur:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "sl3",
+        "type": "Title"
+    },
+    {
+        "text": "getSpannedElements",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "This could be thought of as a feature in some ways:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "g2",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "'quarter'",
+        "type": "Title"
+    },
+    {
+        "text": "g2",
+        "type": "Title"
+    },
+    {
+        "text": "setOffsetBySite",
+        "type": "Title"
+    },
+    {
+        "text": "m3",
+        "type": "Title"
+    },
+    {
+        "text": "4.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "# move to last quarter note",
+        "type": "Title"
+    },
+    {
+        "text": "aflat",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'A-4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "m3",
+        "type": "Title"
+    },
+    {
+        "text": "insert",
+        "type": "Title"
+    },
+    {
+        "text": "3.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "aflat",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Spanners in Streams\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "As far as a Stream is concerned, a spanner is just another element. So\nwhen iterating through a stream, it will appear:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "m1",
+        "type": "Title"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "clef",
+        "type": "Title"
+    },
+    {
+        "text": "TrebleClef",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "meter",
+        "type": "Title"
+    },
+    {
+        "text": "TimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "spanner",
+        "type": "Title"
+    },
+    {
+        "text": "Slur",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "><",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "Remember that we chose to put the second slur in the part, so only the\nfirst slur appeared.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "There's also a shortcut for getting all the spanners in a stream, the\n.spanners property:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "list",
+        "type": "Title"
+    },
+    {
+        "text": "m1",
+        "type": "Title"
+    },
+    {
+        "text": "spanners",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "spanner",
+        "type": "Title"
+    },
+    {
+        "text": "Slur",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "><",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "sp",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "recurse",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "spanners",
+        "type": "Title"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "sp",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "spanner",
+        "type": "Title"
+    },
+    {
+        "text": "Slur",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "><",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "spanner",
+        "type": "Title"
+    },
+    {
+        "text": "Slur",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "><",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "><",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "spanner",
+        "type": "Title"
+    },
+    {
+        "text": "Slur",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "><",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Querying spanners\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Spanners can tell us a lot of information about their contents. For\ninstance, the number of elements spanned:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "len",
+        "type": "Title"
+    },
+    {
+        "text": "sl1",
+        "type": "Title"
+    },
+    {
+        "text": "len",
+        "type": "Title"
+    },
+    {
+        "text": "sl2",
+        "type": "Title"
+    },
+    {
+        "text": "They can find the first and last element:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "sl2",
+        "type": "Title"
+    },
+    {
+        "text": "getFirst",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "sl2",
+        "type": "Title"
+    },
+    {
+        "text": "getLast",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "And they can tell if something .isFirst() or .isLast()",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "recurse",
+        "type": "Title"
+    },
+    {
+        "text": "():",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "sp",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "sl1",
+        "type": "Title"
+    },
+    {
+        "text": "sl2",
+        "type": "Title"
+    },
+    {
+        "text": "sl3",
+        "type": "Title"
+    },
+    {
+        "text": "]:",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "sp",
+        "type": "Title"
+    },
+    {
+        "text": "isFirst",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "lyric",
+        "type": "Title"
+    },
+    {
+        "text": "'First!'",
+        "type": "Title"
+    },
+    {
+        "text": "elif",
+        "type": "Title"
+    },
+    {
+        "text": "sp",
+        "type": "Title"
+    },
+    {
+        "text": "isLast",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "lyric",
+        "type": "Title"
+    },
+    {
+        "text": "'Last!'",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "We can also tell if any element is in a particular spanner:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "sl2",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "sl2",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "sl1",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "Getting spanners from Music21Objects\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Each element in a stream can also report what spanners are attached to\nit:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "getSpannerSites",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "spanner",
+        "type": "Title"
+    },
+    {
+        "text": "Slur",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "><",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "recurse",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "notes",
+        "type": "Title"
+    },
+    {
+        "text": "getSpannerSites",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "[]",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "This method returns a list because it is possible for an object to be a\npart of more than one spanner. For instance:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "gliss",
+        "type": "Title"
+    },
+    {
+        "text": "spanner",
+        "type": "Title"
+    },
+    {
+        "text": "Glissando",
+        "type": "Title"
+    },
+    {
+        "text": "([",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "])",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "insert",
+        "type": "Title"
+    },
+    {
+        "text": "gliss",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "getSpannerSites",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "spanner",
+        "type": "Title"
+    },
+    {
+        "text": "Slur",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "><",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "><",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "spanner",
+        "type": "Title"
+    },
+    {
+        "text": "Glissando",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "><",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Manipulating spanners\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Spanners can add elements such as notes to them. Let's put the e into\nthe first slur:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "sl1",
+        "type": "Title"
+    },
+    {
+        "text": "addSpannedElements",
+        "type": "Title"
+    },
+    {
+        "text": "sl1",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "spanner",
+        "type": "Title"
+    },
+    {
+        "text": "Slur",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "><",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "><",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "However, note that if we wanted to add the elements in the last slur, we\ncan't just use .addSpannedElements, because it's important that G\nremains last. But we can take advantage of the fact that Spanners store\na Stream and just manipulate that Stream directly. It is called\n.spannerStorage:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "b2",
+        "type": "Title"
+    },
+    {
+        "text": "recurse",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "notes",
+        "type": "Title"
+    },
+    {
+        "text": "a2",
+        "type": "Title"
+    },
+    {
+        "text": "recurse",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "notes",
+        "type": "Title"
+    },
+    {
+        "text": "sl3",
+        "type": "Title"
+    },
+    {
+        "text": "spannerStorage",
+        "type": "Title"
+    },
+    {
+        "text": "elements",
+        "type": "Title"
+    },
+    {
+        "text": "c2",
+        "type": "Title"
+    },
+    {
+        "text": "b2",
+        "type": "Title"
+    },
+    {
+        "text": "a2",
+        "type": "Title"
+    },
+    {
+        "text": "aflat",
+        "type": "Title"
+    },
+    {
+        "text": "g2",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Looks the same, but now sl3 contains the notes:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "sl3",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "Changing the look of spanners\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "There are many types of spanners, each with its own properties. (As\nAudrey Hepburn in Roman Holiday might say, \u009cEach is unforgettable in\nits own way\u2026\u009d) It's worth looking at music21.spanner to see what\neach type can configure, but here are some ideas.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Slurs can be placed above or below:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "sl1",
+        "type": "Title"
+    },
+    {
+        "text": "placement",
+        "type": "Title"
+    },
+    {
+        "text": "'above'",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Slurs also can configure whether they are solid or dashed, though this\ndoes not currently render in MuseScore.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Glissandos have labels:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "gliss",
+        "type": "Title"
+    },
+    {
+        "text": "label",
+        "type": "Title"
+    },
+    {
+        "text": "'gliss.'",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Crescendo and Diminuendo wedges are also spanners, though they live in\nthe music21.dynamics module, and have a .spread property:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "measure",
+        "type": "Title"
+    },
+    {
+        "text": "notes",
+        "type": "Title"
+    },
+    {
+        "text": "cresc",
+        "type": "Title"
+    },
+    {
+        "text": "dynamics",
+        "type": "Title"
+    },
+    {
+        "text": "Crescendo",
+        "type": "Title"
+    },
+    {
+        "text": "([",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "c2",
+        "type": "Title"
+    },
+    {
+        "text": "])",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "cresc",
+        "type": "Title"
+    },
+    {
+        "text": "spread",
+        "type": "Title"
+    },
+    {
+        "text": "20",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "dim",
+        "type": "Title"
+    },
+    {
+        "text": "dynamics",
+        "type": "Title"
+    },
+    {
+        "text": "Diminuendo",
+        "type": "Title"
+    },
+    {
+        "text": "([",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "b2",
+        "type": "Title"
+    },
+    {
+        "text": "a2",
+        "type": "Title"
+    },
+    {
+        "text": "aflat",
+        "type": "Title"
+    },
+    {
+        "text": "])",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "dim",
+        "type": "Title"
+    },
+    {
+        "text": "spread",
+        "type": "Title"
+    },
+    {
+        "text": "10",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "insert",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "cresc",
+        "type": "Title"
+    },
+    {
+        "text": "insert",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "dim",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "MuseScore does not import the spread value, but Finale does, so look for\nit there. It is measured in tenths of a staff line. Music21 also\nsupports a .niente value for fading to nothingness, but the MusicXML\nrenderers we know of don't support it.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "dim",
+        "type": "Title"
+    },
+    {
+        "text": "niente",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "Well, I'm fading to nothingness myself, so it's time to move on. We've\ndone nine more chapters, so it's time to work through examples again, in\nChapter 30: Examples 3.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 29: Spanners 1 (Slurs)",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

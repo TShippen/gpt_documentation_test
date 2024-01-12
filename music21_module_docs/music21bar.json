@@ -1,0 +1,562 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.bar",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.audioSearch.transcriber",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.base",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.bar\nBarline\nBarline\nBarline.type\nBarline.musicXMLBarStyle()\n\n\n\n\nRepeat\nRepeat\nRepeat.direction\nRepeat.times\nRepeat.getTextExpression()\n\n\n\n\nFunctions\nstandardizeBarType()\ntypeToMusicXMLBarStyle()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.bar\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Object models of barlines, including repeat barlines.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Barline\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.bar.",
+        "type": "Title"
+    },
+    {
+        "text": "Barline",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "location",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A representation of a barline.\nBarlines are conventionally assigned to Measure objects\nusing the leftBarline and rightBarline attributes.\n>>> bl = bar.Barline('double')\n>>> bl\n<music21.bar.Barline type=double>\n\n\nThe type can also just be set via a keyword of \u009ctype\u009d.  Or if no type is specified,\na regular barline is returned.  Location can also be explicitly stored, but it's not\nneeded except for musicxml translation:\n>>> bl2 = bar.Barline(type='dashed')\n>>> bl2\n<music21.bar.Barline type=dashed>\n>>> bl3 = bar.Barline()\n>>> bl3\n<music21.bar.Barline type=regular>\n>>> bl4 = bar.Barline(type='final', location='right')\n>>> bl4\n<music21.bar.Barline type=final>\n>>> bl4.type\n'final'\n\n\nNote that the barline type \u0098ticked' only is displayed correctly in Finale and Finale Notepad.\nN.B. for backwards compatibility reasons, currently\nBar objects do not use the style.Style class since\nthe phrase \u009cstyle\u009d was already used.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Barline bases",
+        "type": "Title"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "Barline read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "Barline read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Barline.",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get and set the Barline type property.\n>>> b = bar.Barline()\n>>> b.type = 'tick'\n>>> b.type\n'tick'\n\n\nSynonyms are given for some types, based on\nmusicxml styles:\n>>> b.type = 'light-light'\n>>> b.type\n'double'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "Barline methods",
+        "type": "Title"
+    },
+    {
+        "text": "Barline.",
+        "type": "Title"
+    },
+    {
+        "text": "musicXMLBarStyle",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "returns the musicxml style for the bar.  most are the same as\n.type but \u009cdouble\u009d and \u009cfinal\u009d are different.\n>>> b = bar.Barline('tick')\n>>> b.musicXMLBarStyle()\n'tick'\n\n\n>>> b.type = 'double'\n>>> b.musicXMLBarStyle()\n'light-light'\n\n\n>>> b.type = 'final'\n>>> b.musicXMLBarStyle()\n'light-heavy'\n\n\n\nChanged in v5.7: was a property before.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Barline instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "Repeat\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.bar.",
+        "type": "Title"
+    },
+    {
+        "text": "Repeat",
+        "type": "Title"
+    },
+    {
+        "text": "direction",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "'start'",
+        "type": "Title"
+    },
+    {
+        "text": "times",
+        "type": "Title"
+    },
+    {
+        "text": "int | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A Repeat barline.\nThe direction parameter can be one of start or end.\nAn end followed by a start\nshould be encoded as two bar.Repeat signs.\n>>> rep = bar.Repeat(direction='end', times=3)\n>>> rep\n<music21.bar.Repeat direction=end times=3>\n\n\nTo apply a repeat barline assign it to either the .leftBarline or\n.rightBarline attribute\nof a measure.\n>>> m = stream.Measure()\n>>> m.leftBarline = bar.Repeat(direction='start')\n>>> m.rightBarline = bar.Repeat(direction='end')\n>>> m.insert(0.0, meter.TimeSignature('4/4'))\n>>> m.repeatAppend(note.Note('D--5'), 4)\n>>> p = stream.Part()\n>>> p.insert(0.0, m)\n>>> p.show('text')\n{0.0} <music21.stream.Measure 0 offset=0.0>\n    {0.0} <music21.bar.Repeat direction=start>\n    {0.0} <music21.meter.TimeSignature 4/4>\n    {0.0} <music21.note.Note D-->\n    {1.0} <music21.note.Note D-->\n    {2.0} <music21.note.Note D-->\n    {3.0} <music21.note.Note D-->\n    {4.0} <music21.bar.Repeat direction=end>\n\n\nThe method expandRepeats() on a\nPart object expands the repeats, but\ndoes not update measure numbers\n>>> q = p.expandRepeats()\n>>> q.show('text')\n{0.0} <music21.stream.Measure 0 offset=0.0>\n    {0.0} <music21.bar.Barline type=double>\n    {0.0} <music21.meter.TimeSignature 4/4>\n    {0.0} <music21.note.Note D-->\n    {1.0} <music21.note.Note D-->\n    {2.0} <music21.note.Note D-->\n    {3.0} <music21.note.Note D-->\n    {4.0} <music21.bar.Barline type=double>\n{4.0} <music21.stream.Measure 0a offset=4.0>\n    {0.0} <music21.bar.Barline type=double>\n    {0.0} <music21.meter.TimeSignature 4/4>\n    {0.0} <music21.note.Note D-->\n    {1.0} <music21.note.Note D-->\n    {2.0} <music21.note.Note D-->\n    {3.0} <music21.note.Note D-->\n    {4.0} <music21.bar.Barline type=double>",
+        "type": "ListItem"
+    },
+    {
+        "text": "Repeat bases",
+        "type": "Title"
+    },
+    {
+        "text": "RepeatMark",
+        "type": "ListItem"
+    },
+    {
+        "text": "Barline",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "Repeat read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "Repeat read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Repeat.",
+        "type": "Title"
+    },
+    {
+        "text": "direction",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get or set the direction of this Repeat barline. Can be start or end.\nTODO: show how changing direction changes type.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Repeat.",
+        "type": "Title"
+    },
+    {
+        "text": "times",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get or set the \u009ctimes\u009d property of this barline. This\ndefines how many times the repeat happens. A standard repeat\nrepeats 2 times; values equal to or greater than 0 are permitted.\nA repeat of 0 skips the repeated passage.\n>>> lb = bar.Repeat(direction='start')\n>>> rb = bar.Repeat(direction='end')\n\n\nOnly end expressions can have times:\n>>> lb.times = 3\nTraceback (most recent call last):\nmusic21.bar.BarException: cannot set repeat times on a start Repeat\n\n\n>>> rb.times = 3\n>>> rb.times = -3\nTraceback (most recent call last):\nmusic21.bar.BarException: cannot set repeat times to a value less than zero: -3",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read/write properties inherited from Barline:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "type",
+        "type": "Table"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "Repeat methods",
+        "type": "Title"
+    },
+    {
+        "text": "Repeat.",
+        "type": "Title"
+    },
+    {
+        "text": "getTextExpression",
+        "type": "Title"
+    },
+    {
+        "text": "prefix",
+        "type": "Title"
+    },
+    {
+        "text": "''",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "postfix",
+        "type": "Title"
+    },
+    {
+        "text": "'x'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a configured TextExpressions\nobject describing the repeat times. Append this to the stream\nfor annotation of repeat times.\n>>> rb = bar.Repeat(direction='end')\n>>> rb.times = 3\n>>> rb.getTextExpression()\n<music21.expressions.TextExpression '3x'>\n\n\n>>> rb.getTextExpression(prefix='repeat ', postfix=' times')\n<music21.expressions.TextExpression 'repeat 3 t...'>",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from Barline:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "musicXMLBarStyle()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Repeat instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.bar.",
+        "type": "Title"
+    },
+    {
+        "text": "standardizeBarType",
+        "type": "Title"
+    },
+    {
+        "text": "value",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Standardizes bar type names.\nconverts all names to lower case, None to \u0098regular',\nand \u0098light-light' to \u0098double' and \u0098light-heavy' to \u0098final',\nraises an error for unknown styles.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.bar.",
+        "type": "Title"
+    },
+    {
+        "text": "typeToMusicXMLBarStyle",
+        "type": "Title"
+    },
+    {
+        "text": "value",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Convert a music21 barline name into the musicxml name \u2014\nessentially just changes the names of \u0098double' and \u0098final'\nto \u0098light-light' and \u0098light-heavy'\nDoes not do error checking to make sure it's a valid name,\nsince setting the style on a Barline object already does that.\n>>> bar.typeToMusicXMLBarStyle('final')\n'light-heavy'\n>>> bar.typeToMusicXMLBarStyle('regular')\n'regular'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.bar",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

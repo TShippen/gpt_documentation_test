@@ -1,0 +1,1866 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.mei.base",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.lily.translate",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.metadata",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.mei.base\nMeiToM21Converter\nMeiToM21Converter\nMeiToM21Converter.run()\n\n\n\n\nFunctions\naccidFromElement()\narticFromElement()\nbeamFromElement()\nchordFromElement()\nclefFromElement()\ndotFromElement()\ninstrDefFromElement()\nlayerFromElement()\nmeasureFromElement()\nnoteFromElement()\nspaceFromElement()\nmSpaceFromElement()\nrestFromElement()\nmRestFromElement()\nscoreFromElement()\nsectionFromElement()\nscoreDefFromElement()\nstaffFromElement()\nstaffDefFromElement()\nstaffGrpFromElement()\ntupletFromElement()\naddSlurs()\nallPartsPresent()\nbarLineFromElement()\nbeamTogether()\ngetVoiceId()\nmakeDuration()\nmakeMetadata()\nmetaSetComposer()\nmetaSetDate()\nmetaSetTitle()\nremoveOctothorpe()\nsafePitch()\nscaleToTuplet()\nsectionScoreCore()\nsylFromElement()\nverseFromElement()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.mei.base\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "These are the public interfaces for the MEI module by Christopher Antila",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "To convert a string with MEI markup into music21 objects,\nuse convertFromString().",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "In the future, most of the functions in this module should be moved to a separate, import-only\nmodule, so that functions for writing music21-to-MEI will fit nicely.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Simple \u009cHow-To\u009d",
+        "type": "Title"
+    },
+    {
+        "text": "Use MeiToM21Converter to convert a string to a set of music21 objects. In the future, the\nM21ToMeiConverter class will convert a set of music21 objects into a string with an MEI\ndocument.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "meiString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "\"\"\"<?xml version=\"1.0\" encoding=\"UTF-8\"?>",
+        "type": "Title"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "<mei xmlns=\"http://www.music-encoding.org/ns/mei\" meiversion=\"2013\">",
+        "type": "Title"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "<music>",
+        "type": "Title"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "<score>",
+        "type": "Title"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "<scoreDef meter.count=\"6\" meter.unit=\"8\">",
+        "type": "Title"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "<staffGrp>",
+        "type": "Title"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "<staffDef n=\"1\" clef.shape=\"F\" clef.line=\"4\"/>",
+        "type": "Title"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "</staffGrp>",
+        "type": "Title"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "</scoreDef>",
+        "type": "Title"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "<section>",
+        "type": "Title"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "<scoreDef key.sig=\"1f\" key.mode=\"major\"/>",
+        "type": "Title"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "<measure n=\"1\">",
+        "type": "Title"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "<staff n=\"1\">",
+        "type": "Title"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "<layer n=\"1\">",
+        "type": "Title"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "<beam>",
+        "type": "Title"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "<note pname=\"E\" oct=\"3\" dur=\"8\" artic=\"stacc\"/>",
+        "type": "Title"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "<note pname=\"E\" oct=\"3\" dur=\"8\"/>",
+        "type": "Title"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "<note pname=\"E\" oct=\"3\" dur=\"8\"/>",
+        "type": "Title"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "</beam>",
+        "type": "Title"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "<chord dur=\"4\" dots=\"1\">",
+        "type": "Title"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "<note pname=\"F\" oct=\"2\"/>",
+        "type": "Title"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "<note pname=\"A\" oct=\"2\" accid=\"f\"/>",
+        "type": "Title"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "</chord>",
+        "type": "Title"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "</layer>",
+        "type": "Title"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "</staff>",
+        "type": "Title"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "</measure>",
+        "type": "Title"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "</section>",
+        "type": "Title"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "</score>",
+        "type": "Title"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "</music>",
+        "type": "Title"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "</mei>",
+        "type": "Title"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\"\"\"",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "conv",
+        "type": "Title"
+    },
+    {
+        "text": "mei",
+        "type": "Title"
+    },
+    {
+        "text": "MeiToM21Converter",
+        "type": "Title"
+    },
+    {
+        "text": "meiString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "result",
+        "type": "Title"
+    },
+    {
+        "text": "conv",
+        "type": "Title"
+    },
+    {
+        "text": "run",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "result",
+        "type": "Title"
+    },
+    {
+        "text": "<music21.stream.Score 0x10ee474f0>",
+        "type": "Title"
+    },
+    {
+        "text": "Terminology",
+        "type": "Title"
+    },
+    {
+        "text": "This module's documentation adheres to the following terminology regarding XML documents, using\nthis snippet, <note pname=\"C\"/> as an example:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "the entire snippet is an element.",
+        "type": "ListItem"
+    },
+    {
+        "text": "the word note is the tag.",
+        "type": "ListItem"
+    },
+    {
+        "text": "the word pname is an attribute.",
+        "type": "ListItem"
+    },
+    {
+        "text": "the letter C is a value.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Because Python also uses \u009cattributes,\u009d an XML attribute is always preceded by an \u009cat sign,\u009d as in\n@pname, whereas a Python attribute is set as pname.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Ignored Elements",
+        "type": "Title"
+    },
+    {
+        "text": "The following elements are not yet imported, though you might expect they would be:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "<sb>: a system break, since this is not usually semantically significant",
+        "type": "ListItem"
+    },
+    {
+        "text": "<lb>: a line break, since this is not usually semantically significant",
+        "type": "ListItem"
+    },
+    {
+        "text": "<pb>: a page break, since this is not usually semantically significant",
+        "type": "ListItem"
+    },
+    {
+        "text": "Where Elements Are Processed",
+        "type": "Title"
+    },
+    {
+        "text": "Most elements are processed in functions called tagFromElement(), where \u009ctag\u009d is replaced by\nthe element's tag name (e.g., staffDefFromElement() for <staffDef> elements). These functions\nconvert from a Python xml.etree.ElementTree.Element\nobject to the appropriate music21 object.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "However, certain elements are processed primarily in\nanother way, by \u009cprivate\u009d functions that are not\ndocumented in this API. Rather than converting an Element object into a music21 object,\nthese functions modify the MEI document tree by adding instructions for the tagFromElement()\nfunctions. The elements processed by private functions include:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "<slur>",
+        "type": "ListItem"
+    },
+    {
+        "text": "<tie>",
+        "type": "ListItem"
+    },
+    {
+        "text": "<beamSpan>",
+        "type": "ListItem"
+    },
+    {
+        "text": "<tupletSpan>",
+        "type": "ListItem"
+    },
+    {
+        "text": "Whereas you can expect functions like clefFromElement()\nto convert a <clef> into a Clef\nwith no loss of information. Because we cannot provide a simple one-to-one conversion for  slurs,\nties, and tuplets, we have kept their conversion functions \u009cprivate,\u009d\nto emphasize the fact that you\nmust use the MeiToM21Converter to process them properly.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Guidelines for Encoders",
+        "type": "Title"
+    },
+    {
+        "text": "While we aim for the best possible compatibility, the MEI\nspecification is very large. The following\nguidelines will help you produce a file that this MEI-to-music21 module will import correctly and\nin the most efficient way. These should not necessarily be considered recommendations when using\nMEI in any other context.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Tuplets indicated only in a @tuplet attribute do not work.",
+        "type": "ListItem"
+    },
+    {
+        "text": "For elements that allow @startid, @endid, and @plist attributes,\nuse all three for faster importing.",
+        "type": "ListItem"
+    },
+    {
+        "text": "For a <tupletSpan> that does not specify a @plist attribute, a tuplet spanning more than two\nmeasures will always and unavoidably be imported incorrectly.",
+        "type": "ListItem"
+    },
+    {
+        "text": "For any tuplet, specify at least @num and @numbase. The module refuses to import a tuplet that\ndoes not have the @numbase attribute.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Retain consistent @n values for the same layer, staff, and instrument throughout the score.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Always indicate the duration of <mRest> and <mSpace> elements.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Avoid using the <barLine> element if you require well-formatted output from music21, since (as of\nJanuary 2015) the music21-to-something converters will only output a Barline that is\npart of a Measure.",
+        "type": "ListItem"
+    },
+    {
+        "text": "List of Supported Elements",
+        "type": "Title"
+    },
+    {
+        "text": "Alphabetical list of the elements currently supported by this module:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "accidFromElement()",
+        "type": "ListItem"
+    },
+    {
+        "text": "articFromElement()",
+        "type": "ListItem"
+    },
+    {
+        "text": "barLineFromElement()",
+        "type": "ListItem"
+    },
+    {
+        "text": "beamFromElement()",
+        "type": "ListItem"
+    },
+    {
+        "text": "chordFromElement()",
+        "type": "ListItem"
+    },
+    {
+        "text": "clefFromElement()",
+        "type": "ListItem"
+    },
+    {
+        "text": "dotFromElement()",
+        "type": "ListItem"
+    },
+    {
+        "text": "instrDefFromElement()",
+        "type": "ListItem"
+    },
+    {
+        "text": "layerFromElement()",
+        "type": "ListItem"
+    },
+    {
+        "text": "measureFromElement()",
+        "type": "ListItem"
+    },
+    {
+        "text": "noteFromElement()",
+        "type": "ListItem"
+    },
+    {
+        "text": "restFromElement()",
+        "type": "ListItem"
+    },
+    {
+        "text": "mRestFromElement()",
+        "type": "ListItem"
+    },
+    {
+        "text": "spaceFromElement()",
+        "type": "ListItem"
+    },
+    {
+        "text": "mSpaceFromElement()",
+        "type": "ListItem"
+    },
+    {
+        "text": "scoreFromElement()",
+        "type": "ListItem"
+    },
+    {
+        "text": "scoreDefFromElement()",
+        "type": "ListItem"
+    },
+    {
+        "text": "sectionFromElement()",
+        "type": "ListItem"
+    },
+    {
+        "text": "staffFromElement()",
+        "type": "ListItem"
+    },
+    {
+        "text": "staffDefFromElement()",
+        "type": "ListItem"
+    },
+    {
+        "text": "staffGrpFromElement()",
+        "type": "ListItem"
+    },
+    {
+        "text": "sylFromElement()",
+        "type": "ListItem"
+    },
+    {
+        "text": "tupletFromElement()",
+        "type": "ListItem"
+    },
+    {
+        "text": "verseFromElement()",
+        "type": "ListItem"
+    },
+    {
+        "text": "To know which MEI attributes are known to import correctly, read the documentation for the relevant\nelement. For example, to know whether the @color attribute on a <note> element is supported, read\nthe \u009cAttributes/Elements Implemented\u009d section of the noteFromElement() documentation.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "List of Ignored Elements",
+        "type": "Title"
+    },
+    {
+        "text": "The following elements are (silently) ignored by the MEI-to-music21 converter because they primarily\naffect the layout and typesetting of a musical score. We may choose to implement these elements in\nthe future, but they are a lower priority because music21 is not primarily a layout or typesetting\ntool.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "<multiRest>: a multi-measure rest (these will be \u009cconverted\u009d to single-measure rests)",
+        "type": "ListItem"
+    },
+    {
+        "text": "<pb>: a page break",
+        "type": "ListItem"
+    },
+    {
+        "text": "<lb>: a line break",
+        "type": "ListItem"
+    },
+    {
+        "text": "<sb>: a system break",
+        "type": "ListItem"
+    },
+    {
+        "text": "MeiToM21Converter\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.mei.base.",
+        "type": "Title"
+    },
+    {
+        "text": "MeiToM21Converter",
+        "type": "Title"
+    },
+    {
+        "text": "theDocument",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A MeiToM21Converter instance manages the conversion of an MEI document into music21\nobjects.\nIf theDocument does not have <mei> as the root element, the class raises an\nMeiElementError. If theDocument is not a valid XML file, the class raises an\nMeiValidityError.\n\nParameters:\ntheDocument (str) \u2014 A string containing an MEI document.\n\nRaises:\nMeiElementError when the root element is not <mei>\n\nRaises:\nMeiValidityError when the MEI file is not valid XML.",
+        "type": "ListItem"
+    },
+    {
+        "text": "MeiToM21Converter methods",
+        "type": "Title"
+    },
+    {
+        "text": "MeiToM21Converter.",
+        "type": "Title"
+    },
+    {
+        "text": "run",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "\u2192 Stream",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Run conversion of the internal MEI document to produce a music21 object.\nReturns a Stream subclass, depending on the MEI document.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.mei.base.",
+        "type": "Title"
+    },
+    {
+        "text": "accidFromElement",
+        "type": "Title"
+    },
+    {
+        "text": "elem",
+        "type": "Title"
+    },
+    {
+        "text": "slurBundle",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "<accid> Records a temporary alteration to the pitch of a note.\nIn MEI 2013: pg.248 (262 in PDF) (MEI.shared module)\n\nReturns:\nA string indicating the music21 representation of this accidental.\n\n\nExamples\nUnlike most of the ___FromElement() functions, this does not return any music21 object\u2013just\na string. Accidentals up to triple-sharp and triple-flat are supported.\n>>> from xml.etree import ElementTree as ET\n>>> meiSnippet = '<accid accid=\"s\" xmlns=\"http://www.music-encoding.org/ns/mei\"/>'\n>>> meiSnippet = ET.fromstring(meiSnippet)\n>>> mei.base.accidFromElement(meiSnippet)\n'#'\n>>> meiSnippet = '<accid accid=\"tf\" xmlns=\"http://www.music-encoding.org/ns/mei\"/>'\n>>> meiSnippet = ET.fromstring(meiSnippet)\n>>> mei.base.accidFromElement(meiSnippet)\n'---'\n\n\nAttributes/Elements Implemented:\n\n@accid (from att.accid.log)\n@accid.ges (from att.accid.ges)\n\n\nNote\nIf set, the @accid.ges attribute is always imported as the music21 Accidental\nfor this note. We assume it corresponds to the accidental implied by a key signature.\n\nAttributes/Elements in Testing: none\nAttributes not Implemented:\n\natt.common (@label, @n, @xml:base) (att.id (@xml:id))\natt.facsimile (@facs)\natt.typography (@fontfam, @fontname, @fontsize, @fontstyle, @fontweight)\natt.accid.log (@func)\n\n\n(att.controlevent\n\n\n(att.plist (@plist, @evaluate))\n(att.timestamp.musical (@tstamp))\n(att.timestamp.performed (@tstamp.ges, @tstamp.real))\n(att.staffident (@staff)) (att.layerident (@layer)))\n\n\n\n\n\n\natt.accid.vis (all)\natt.accid.anl (all)\n\nContained Elements not Implemented: none",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.mei.base.",
+        "type": "Title"
+    },
+    {
+        "text": "articFromElement",
+        "type": "Title"
+    },
+    {
+        "text": "elem",
+        "type": "Title"
+    },
+    {
+        "text": "slurBundle",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "<artic> An indication of how to play a note or chord.\nIn MEI 2013: pg.259 (273 in PDF) (MEI.shared module)\n\nReturns:\nA list of Articulation objects.\n\n\nExamples\nThis function is normally called by, for example, noteFromElement(), to determine the\nArticulation objects that will be assigned to the\narticulations attribute.\n>>> from xml.etree import ElementTree as ET\n>>> meiSnippet = '<artic artic=\"acc\" xmlns=\"http://www.music-encoding.org/ns/mei\"/>'\n>>> meiSnippet = ET.fromstring(meiSnippet)\n>>> mei.base.articFromElement(meiSnippet)\n[<music21.articulations.Accent>]\n\n\nA single <artic> element may indicate many Articulation objects.\n>>> meiSnippet = '<artic artic=\"acc ten\" xmlns=\"http://www.music-encoding.org/ns/mei\"/>'\n>>> meiSnippet = ET.fromstring(meiSnippet)\n>>> mei.base.articFromElement(meiSnippet)\n[<music21.articulations.Accent>, <music21.articulations.Tenuto>]\n\n\nAttributes Implemented:\n\n@artic\n\nAttributes/Elements in Testing: none\nAttributes not Implemented:\n\natt.common (@label, @n, @xml:base) (att.id (@xml:id))\natt.facsimile (@facs)\natt.typography (@fontfam, @fontname, @fontsize, @fontstyle, @fontweight)\natt.artic.log\n\n\n(att.controlevent\n\n\n(att.plist (@plist, @evaluate))\n(att.timestamp.musical (@tstamp))\n(att.timestamp.performed (@tstamp.ges, @tstamp.real))\n(att.staffident (@staff))\n(att.layerident (@layer)))\n\n\n\n\n\n\natt.artic.vis (all)\natt.artic.gesatt.artic.anl (all)\n\nContained Elements not Implemented: none",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.mei.base.",
+        "type": "Title"
+    },
+    {
+        "text": "beamFromElement",
+        "type": "Title"
+    },
+    {
+        "text": "elem",
+        "type": "Title"
+    },
+    {
+        "text": "slurBundle",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "<beam> A container for a series of explicitly beamed events that begins and ends entirelywithin a measure.\n\n\nIn MEI 2013: pg.264 (278 in PDF) (MEI.cmn module)\n\nParameters:\nelem (Element) \u2014 The <beam> element to process.\n\nReturns:\nAn iterable of all the objects contained within the <beam> container.\n\nReturn type:\nlist of Music21Object\n\n\nExample\nHere, three Note objects are beamed together. Take note that the function returns\na list of three objects, none of which is a Beam or similar.\n>>> from xml.etree import ElementTree as ET\n>>> meiSnippet = \"\"\"<beam xmlns=\"http://www.music-encoding.org/ns/mei\">\n...     <note pname='A' oct='7' dur='8'/>\n...     <note pname='B' oct='7' dur='8'/>\n...     <note pname='C' oct='6' dur='8'/>\n... </beam>\"\"\"\n>>> meiSnippet = ET.fromstring(meiSnippet)\n>>> result = mei.base.beamFromElement(meiSnippet)\n>>> isinstance(result, list)\nTrue\n>>> len(result)\n3\n>>> result[0].pitch.nameWithOctave\n'A7'\n>>> result[0].beams\n<music21.beam.Beams <music21.beam.Beam 1/start>>\n>>> result[1].pitch.nameWithOctave\n'B7'\n>>> result[1].beams\n<music21.beam.Beams <music21.beam.Beam 1/continue>>\n>>> result[2].pitch.nameWithOctave\n'C6'\n>>> result[2].beams\n<music21.beam.Beams <music21.beam.Beam 1/stop>>\n\n\nAttributes/Elements Implemented:\n\n<clef>, <chord>, <note>, <rest>, <space>, <tuplet>, <beam>, <barLine>\n\nAttributes/Elements Ignored:\n\n@xml:id\n\nAttributes/Elements in Testing: none\nAttributes not Implemented:\n\natt.common (@label, @n, @xml:base)\natt.facsimile (@facs)\natt.beam.log\n\n\n(att.event\n\n\n(att.timestamp.musical (@tstamp))\n(att.timestamp.performed (@tstamp.ges, @tstamp.real))\n(att.staffident (@staff))\n(att.layerident (@layer)))\n\n\n\n(att.beamedwith (@beam.with))\n\n\n\natt.beam.vis (all)\natt.beam.gesatt.beam.anl (all)\n\nContained Elements not Implemented:\n\nMEI.cmn: bTrem beatRpt fTrem halfmRpt meterSig meterSigGrp\nMEI.critapp: app\nMEI.edittrans: (all)\nMEI.mensural: ligature mensur proport\nMEI.shared: clefGrp custos keySig pad",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.mei.base.",
+        "type": "Title"
+    },
+    {
+        "text": "chordFromElement",
+        "type": "Title"
+    },
+    {
+        "text": "elem",
+        "type": "Title"
+    },
+    {
+        "text": "slurBundle",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "<chord> is a simultaneous sounding of two or\nmore notes in the same layer with the same duration.\nIn MEI 2013: pg.280 (294 in PDF) (MEI.shared module)\nAttributes/Elements Implemented:\n\n@xml:id (or id), an XML id (submitted as the Music21Object \u009cid\u009d)\n<note> contained within\n@dur, from att.duration.musical: (via _qlDurationFromAttr())\n@dots, from att.augmentdots: [0..4]\n@artic and <artic>\n@tie, (many of \u009c[i|m|t]\u009d)\n@slur, (many of \u009c[i|m|t][1-6]\u009d)\n\n@grace, from att.note.ges.cmn: partial implementation (notes marked as grace, but theduration is 0 because we ignore the question of which neighbouring note to borrow time from)\n\n\n\n\nAttributes/Elements in Testing: none\nAttributes not Implemented:\n\natt.common (@label, @n, @xml:base)\natt.facsimile (@facs)\natt.chord.log\n\n\n(att.event\n\n\n(att.timestamp.musical (@tstamp))\n(att.timestamp.performed (@tstamp.ges, @tstamp.real))\n(att.staffident (@staff))\n(att.layerident (@layer)))\n\n\n\n(att.fermatapresent (@fermata))\n(att.syltext (@syl))\n(att.chord.log.cmn\n\n\n(att.tupletpresent (@tuplet))\n(att.beamed (@beam))\n(att.lvpresent (@lv))\n(att.ornam (@ornam)))\n\n\n\n\n\n\natt.chord.vis (all)\natt.chord.ges\n\n\n(att.articulation.performed (@artic.ges))\n(att.duration.performed (@dur.ges))\n(att.instrumentident (@instr))\n(att.chord.ges.cmn (att.graced (@grace, @grace.time)))  <\u2014 partially implemented\n\n\n\natt.chord.anl (all)\n\nContained Elements not Implemented:\n\nMEI.edittrans: (all)",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.mei.base.",
+        "type": "Title"
+    },
+    {
+        "text": "clefFromElement",
+        "type": "Title"
+    },
+    {
+        "text": "elem",
+        "type": "Title"
+    },
+    {
+        "text": "slurBundle",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "<clef> Indication of the exact location of a particular note on the staff and, therefore,\nthe other notes as well.\nIn MEI 2013: pg.284 (298 in PDF) (MEI.shared module)\nAttributes/Elements Implemented:\n\n@xml:id (or id), an XML id (submitted as the Music21Object \u009cid\u009d)\n@shape, from att.clef.gesatt.clef.log\n@line, from att.clef.gesatt.clef.log\n@dis, from att.clef.gesatt.clef.log\n@dis.place, from att.clef.gesatt.clef.log\n\nAttributes/Elements Ignored:\n\n@cautionary, since this has no obvious implication for a music21 Clef\n@octave, since this is likely obscure\n\nAttributes/Elements in Testing: none\nAttributes not Implemented:\n\natt.common (@label, @n, @xml:base)\natt.event\n\n\n(att.timestamp.musical (@tstamp))\n(att.timestamp.performed (@tstamp.ges, @tstamp.real))\n(att.staffident (@staff))\n(att.layerident (@layer))\n\n\n\natt.facsimile (@facs)\natt.clef.anl (all)\natt.clef.vis (all)\n\nContained Elements not Implemented: none",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.mei.base.",
+        "type": "Title"
+    },
+    {
+        "text": "dotFromElement",
+        "type": "Title"
+    },
+    {
+        "text": "elem",
+        "type": "Title"
+    },
+    {
+        "text": "slurBundle",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns 1 no matter what is passed in.\n<dot> Dot of augmentation or division.\nIn MEI 2013: pg.304 (318 in PDF) (MEI.shared module)\n\nReturns:\n1\n\nReturn type:\nint\n\n\nAttributes/Elements Implemented: none\nAttributes/Elements in Testing: none\nAttributes not Implemented:\n\natt.common (@label, @n, @xml:base) (att.id (@xml:id))\natt.facsimile (@facs)\natt.dot.log (all)\natt.dot.vis (all)\natt.dot.gesatt.dot.anl (all)\n\nElements not Implemented: none",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.mei.base.",
+        "type": "Title"
+    },
+    {
+        "text": "instrDefFromElement",
+        "type": "Title"
+    },
+    {
+        "text": "elem",
+        "type": "Title"
+    },
+    {
+        "text": "slurBundle",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "<instrDef> (instrument definition)\u2013MIDI instrument declaration.\nIn MEI 2013: pg.344 (358 in PDF) (MEI.midi module)\n\nReturns:\nAn Instrument\n\n\nAttributes/Elements Implemented:\n\n@midi.instrname (att.midiinstrument)\n@midi.instrnum (att.midiinstrument)\n\nAttributes/Elements in Testing: none\nAttributes/Elements Ignored:\n\n@xml:id\n\nAttributes not Implemented:\n\natt.common (@label, @n, @xml:base)\natt.channelized (@midi.channel, @midi.duty, @midi.port, @midi.track)\natt.midiinstrument (@midi.pan, @midi.volume)\n\nContained Elements not Implemented: none",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.mei.base.",
+        "type": "Title"
+    },
+    {
+        "text": "layerFromElement",
+        "type": "Title"
+    },
+    {
+        "text": "elem",
+        "type": "Title"
+    },
+    {
+        "text": "overrideN",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "slurBundle",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "<layer> An independent stream of events on a staff.\nIn MEI 2013: pg.353 (367 in PDF) (MEI.shared module)\n\nNote\nThe Voice object's id attribute must be set\nproperly in order to ensure continuity of voices between measures. If the elem does not\nhave an @n attribute, you can set one with the overrideN parameter in this function. If\nyou provide a value for overrideN, it will be used instead of the elemn object's\n@n attribute.\nBecause improperly-set id attributes nearly guarantees errors\nin the imported Score, either overrideN or @n must be specified.\n\n\nParameters:\n\nelem (Element) \u2014 The <layer> element to process.\noverrideN (str) \u2014 The value to be set as the id\nattribute in the outputted Voice.\n\n\nReturns:\nA Voice with the objects found in the provided Element.\n\nReturn type:\nmusic21.stream.Voice\n\nRaises:\nMeiAttributeError if neither overrideN nor @n are specified.\n\n\nAttributes/Elements Implemented:\n\n<clef>, <chord>, <note>, <rest>, <mRest>, <beam>, <tuplet>, <space>, <mSpace> , and\n<barLine> contained within\n@n, from att.common\n\nAttributes Ignored:\n\n@xml:id\n\nAttributes/Elements in Testing: none\nAttributes not Implemented:\n\natt.common (@label, @xml:base)\natt.declaring (@decls)\natt.facsimile (@facs)\natt.layer.log (@def) and (att.meterconformance (@metcon))\natt.layer.vis (att.visibility (@visible))\natt.layer.gesatt.layer.anl (all)\n\nContained Elements not Implemented:\n\n\nMEI.cmn: arpeg bTrem beamSpan beatRpt bend breath fTrem fermata gliss hairpin halfmRptharpPedal mRpt mRpt2 meterSig meterSigGrp multiRest multiRpt octave pedal\nreh slur tie tuplet tupletSpan\n\n\n\nMEI.cmnOrnaments: mordent trill turn\nMEI.critapp: app\nMEI.edittrans: (all)\nMEI.harmony: harm\nMEI.lyrics: lyrics\nMEI.mensural: ligature mensur proport\nMEI.midi: midi\nMEI.neumes: ineume syllable uneume\n\nMEI.shared: accid annot artic barLine clefGrp custos dir dot dynam keySig pad pb phrase sbscoreDef staffDef tempo\n\n\n\nMEI.text: div\nMEI.usersymbols: anchoredText curve line symbol",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.mei.base.",
+        "type": "Title"
+    },
+    {
+        "text": "measureFromElement",
+        "type": "Title"
+    },
+    {
+        "text": "elem",
+        "type": "Title"
+    },
+    {
+        "text": "backupNum",
+        "type": "Title"
+    },
+    {
+        "text": "expectedNs",
+        "type": "Title"
+    },
+    {
+        "text": "slurBundle",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "activeMeter",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "<measure> Unit of musical time consisting of a fixed number of note-values of a given type, as\ndetermined by the prevailing meter, and delimited in musical notation by two bar lines.\nIn MEI 2013: pg.365 (379 in PDF) (MEI.cmn module)\n\nParameters:\n\nelem (Element) \u2014 The <measure> element to process.\nbackupNum (int) \u2014 A fallback value for the resulting\nMeasure objects' number attribute.\nexpectedNs (iterable of str) \u2014 A list of the expected @n attributes for the <staff> tags in this <measure>.\nIf an expected <staff> isn't in the <measure>, it will be created with a full-measure rest.\nactiveMeter \u2014 The TimeSignature active in this <measure>. This is\nused to adjust the duration of an <mRest> that was given without a @dur attribute.\n\n\nReturns:\nA dictionary where keys are the @n attributes for <staff> tags found in this\n<measure>, and values are Measure objects that should be appended\nto the Part instance with the value's @n attributes.\n\nReturn type:\ndict of Measure\n\n\n\nNote\nWhen the right barline is set to 'rptboth' in MEI, it requires adjusting the left\nbarline of the following <measure>. If this happens, the Repeat object is assigned\nto the 'next @left' key in the returned dictionary.\n\nAttributes/Elements Implemented:\n\ncontained elements: <staff> and <staffDef>\n@right and @left (att.measure.log)\n@n (att.common)\n\nAttributes Ignored:\n\n@xml:id (att.id)\n<slur> and <tie> contained within. These spanners will usually be attached to their starting\nand ending notes with @xml:id attributes, so it's not necessary to process them when\nencountered in a <measure>. Furthermore, because the possibility exists for cross-measure\nslurs and ties, we can't guarantee we'll be able to process all spanners until all\nspanner-attachable objects are processed. So we manage these tags at a higher level.\n\nAttributes/Elements in Testing: none\nAttributes not Implemented:\n\natt.common (@label, @xml:base)\natt.declaring (@decls)\natt.facsimile (@facs)\natt.typed (@type, @subtype)\natt.pointing (@xlink:actuate, @xlink:role, @xlink:show, @target, @targettype, @xlink:title)\natt.measure.log (att.meterconformance.bar (@metcon, @control))\natt.measure.vis (all)\natt.measure.ges (att.timestamp.performed (@tstamp.ges, @tstamp.real))\natt.measure.anl (all)\n\nContained Elements not Implemented:\n\n\nMEI.cmn: arpeg beamSpan bend breath fermata gliss hairpin harpPedal octave ossia pedal rehtupletSpan\n\n\n\nMEI.cmnOrnaments: mordent trill turn\nMEI.critapp: app\n\nMEI.edittrans: add choice corr damage del gap handShift orig reg restore sic subst suppliedunclear\n\n\n\nMEI.harmony: harm\nMEI.lyrics: lyrics\nMEI.midi: midi\nMEI.shared: annot dir dynam pb phrase sb tempo\nMEI.text: div\nMEI.usersymbols: anchoredText curve line symbol",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.mei.base.",
+        "type": "Title"
+    },
+    {
+        "text": "noteFromElement",
+        "type": "Title"
+    },
+    {
+        "text": "elem",
+        "type": "Title"
+    },
+    {
+        "text": "slurBundle",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "<note> is a single pitched event.\nIn MEI 2013: pg.382 (396 in PDF) (MEI.shared module)\n\nNote\nIf set, the @accid.ges attribute is always imported as the music21 Accidental\nfor this note. We assume it corresponds to the accidental implied by a key signature.\n\n\nNote\nIf elem contains both <syl> and <verse> elements as immediate children, the lyrics\nindicated with <verse> element(s) will always obliterate those given indicated with <syl>\nelements.\n\nAttributes/Elements Implemented:\n\n@accid and <accid>\n@accid.ges for key signatures\n@pname, from att.pitch: [a\u2014g]\n@oct, from att.octave: [0..9]\n@dur, from att.duration.musical: (via _qlDurationFromAttr())\n@dots: [0..4], and <dot> contained within\n@xml:id (or id), an XML id (submitted as the Music21Object \u009cid\u009d)\n@artic and <artic>\n@tie, (many of \u009c[i|m|t]\u009d)\n@slur, (many of \u009c[i|m|t][1-6]\u009d)\n\n@grace, from att.note.ges.cmn: partial implementation (notes marked as grace, but theduration is 0 because we ignore the question of which neighbouring note to borrow time from)\n\n\n\n<syl> and <verse>\n\nAttributes/Elements in Testing: none\nAttributes not Implemented:\n\natt.common (@label, @n, @xml:base)\natt.facsimile (@facs)\natt.note.log\n\n\n(att.event\n\n\n(att.timestamp.musical (@tstamp))\n(att.timestamp.performed (@tstamp.ges, @tstamp.real))\n(att.staffident (@staff))\n(att.layerident (@layer)))\n\n\n\n(att.fermatapresent (@fermata))\n(att.syltext (@syl))\n(att.note.log.cmn\n\n\n(att.tupletpresent (@tuplet))\n(att.beamed (@beam))\n(att.lvpresent (@lv))\n(att.ornam (@ornam)))\n\n\n\n(att.note.log.mensural (@lig))\n\n\n\natt.note.vis (all)\natt.note.ges\n\n\n(@oct.ges, @pname.ges, @pnum)\natt.articulation.performed (@artic.ges))\n(att.duration.performed (@dur.ges))\n(att.instrumentident (@instr))\n(att.note.ges.cmn (@gliss)\n\n\n(att.graced (@grace, @grace.time)))  <\u2014 partially implemented\n\n\n\n(att.note.ges.mensural (att.duration.ratio (@num, @numbase)))\n(att.note.ges.tablature (@tab.fret, @tab.string))\n\n\n\natt.note.anl (all)\n\nContained Elements not Implemented:\n\nMEI.critapp: app\nMEI.edittrans: (all)",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.mei.base.",
+        "type": "Title"
+    },
+    {
+        "text": "spaceFromElement",
+        "type": "Title"
+    },
+    {
+        "text": "elem",
+        "type": "Title"
+    },
+    {
+        "text": "slurBundle",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "<space>  A placeholder used to fill an incomplete measure, layer, etc. most often so that the\ncombined duration of the events equals the number of beats in the measure.\nReturns a Rest element with hideObjectOnPrint = True\nIn MEI 2013: pg.440 (455 in PDF) (MEI.shared module)",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.mei.base.",
+        "type": "Title"
+    },
+    {
+        "text": "mSpaceFromElement",
+        "type": "Title"
+    },
+    {
+        "text": "elem",
+        "type": "Title"
+    },
+    {
+        "text": "slurBundle",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "<mSpace/> A measure containing only empty space in any meter.\nIn MEI 2013: pg.377 (391 in PDF) (MEI.cmn module)\nThis is a function wrapper for spaceFromElement().\n\nNote\nIf the <mSpace> element does not have a @dur attribute, it will have the default\nduration of 1.0. This must be fixed later, so the Space object returned from this\nmethod is given the m21wasMRest attribute, set to True.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.mei.base.",
+        "type": "Title"
+    },
+    {
+        "text": "restFromElement",
+        "type": "Title"
+    },
+    {
+        "text": "elem",
+        "type": "Title"
+    },
+    {
+        "text": "slurBundle",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "<rest/> is a non-sounding event found in the source being transcribed\nIn MEI 2013: pg.424 (438 in PDF) (MEI.shared module)\nAttributes/Elements Implemented:\n\nxml:id (or id), an XML id (submitted as the Music21Object \u009cid\u009d)\ndur, from att.duration.musical: (via _qlDurationFromAttr())\ndots, from att.augmentdots: [0..4]\n\nAttributes/Elements in Testing: none\nAttributes not Implemented:\n\natt.common (@label, @n, @xml:base)\natt.facsimile (@facs)\natt.rest.log\n\n\n(att.event\n\n\n(att.timestamp.musical (@tstamp))\n(att.timestamp.performed (@tstamp.ges, @tstamp.real))\n(att.staffident (@staff))\n(att.layerident (@layer)))\n\n\n\n(att.fermatapresent (@fermata))\n\n\n(att.tupletpresent (@tuplet))\n(att.rest.log.cmn (att.beamed (@beam)))\n\n\n\n\n\n\natt.rest.vis (all)\natt.rest.ges (all)\natt.rest.anl (all)\n\nContained Elements not Implemented: none",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.mei.base.",
+        "type": "Title"
+    },
+    {
+        "text": "mRestFromElement",
+        "type": "Title"
+    },
+    {
+        "text": "elem",
+        "type": "Title"
+    },
+    {
+        "text": "slurBundle",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "<mRest/> Complete measure rest in any meter.\nIn MEI 2013: pg.375 (389 in PDF) (MEI.cmn module)\nThis is a function wrapper for restFromElement().\n\nNote\nIf the <mRest> element does not have a @dur attribute, it will have the default\nduration of 1.0. This must be fixed later, so the Rest object returned from this\nmethod is given the m21wasMRest attribute, set to True.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.mei.base.",
+        "type": "Title"
+    },
+    {
+        "text": "scoreFromElement",
+        "type": "Title"
+    },
+    {
+        "text": "elem",
+        "type": "Title"
+    },
+    {
+        "text": "slurBundle",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "<score> Full score view of the musical content.\nIn MEI 2013: pg.430 (444 in PDF) (MEI.shared module)\n\nParameters:\n\nelem (Element) \u2014 The <score> element to process.\nslurBundle (music21.spanner.SpannerBundle) \u2014 This SpannerBundle holds the Slur objects\ncreated during pre-processing. The slurs are attached to their respective Note and\nChord objects as they are processed.\n\n\nReturns:\nA completed Score object.\n\n\nAttributes/Elements Implemented:\nAttributes Ignored:\nAttributes/Elements in Testing:\n\ncontained <section>, <scoreDef>, and <staffDef>\n\nAttributes not Implemented:\n\natt.common (@label, @n, @xml:base) (att.id (@xml:id))\natt.declaring (@decls)\natt.typed (@type, @subtype)\n\natt.score.anl (att.common.anl (@copyof, @corresp, @next, @prev, @sameas, @synch)(att.alignment (@when)))\n\n\n\n\nContained Elements not Implemented:\n\nMEI.critapp: app\n\nMEI.edittrans: add choice corr damage del gap handShift origreg restore sic subst supplied unclear\n\n\n\nMEI.shared: annot ending pb sb\nMEI.text: div\nMEI.usersymbols: anchoredText curve line symbol",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.mei.base.",
+        "type": "Title"
+    },
+    {
+        "text": "sectionFromElement",
+        "type": "Title"
+    },
+    {
+        "text": "elem",
+        "type": "Title"
+    },
+    {
+        "text": "allPartNs",
+        "type": "Title"
+    },
+    {
+        "text": "activeMeter",
+        "type": "Title"
+    },
+    {
+        "text": "nextMeasureLeft",
+        "type": "Title"
+    },
+    {
+        "text": "backupMeasureNum",
+        "type": "Title"
+    },
+    {
+        "text": "slurBundle",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "<section> Segment of music data.\nIn MEI 2013: pg.432 (446 in PDF) (MEI.shared module)\n\nNote\nThe parameters and return values are exactly the same for sectionFromElement()\nand sectionScoreCore(), so refer to the latter function's documentation for more\ninformation.\n\nAttributes/Elements Implemented:\nAttributes Ignored:\nAttributes/Elements in Testing:\n\n@label\ncontained <measure>, <scoreDef>, <staffDef>, <section>\n\nAttributes not Implemented:\n\natt.common (@n, @xml:base) (att.id (@xml:id))\natt.declaring (@decls)\natt.facsimile (@facs)\natt.typed (@type, @subtype)\natt.pointing (@xlink:actuate, @xlink:role, @xlink:show, @target, @targettype, @xlink:title)\natt.section.vis (@restart)\n\natt.section.anl (att.common.anl (@copyof, @corresp, @next, @prev, @sameas, @synch)(att.alignment (@when)))\n\n\n\n\nContained Elements not Implemented:\n\nMEI.critapp: app\n\nMEI.edittrans: add choice corr damage del gap handShift orig regrestore sic subst supplied unclear\n\n\n\nMEI.shared: annot ending expansion pb sb section staff\nMEI.text: div\nMEI.usersymbols: anchoredText curve line symbol",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.mei.base.",
+        "type": "Title"
+    },
+    {
+        "text": "scoreDefFromElement",
+        "type": "Title"
+    },
+    {
+        "text": "elem",
+        "type": "Title"
+    },
+    {
+        "text": "slurBundle",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "<scoreDef> Container for score meta-information.\nIn MEI 2013: pg.431 (445 in PDF) (MEI.shared module)\nThis function returns a dictionary with objects that may relate to the entire score, to all\nparts at a particular moment, or only to a specific part at a particular moment. The dictionary\nkeys determine the object's scope. If the key is\u2026\n\n'whole-score objects', it applies to the entire score (e.g., page size);\n'all-part objects', it applies to all parts at the moment this <scoreDef> appears;\nthe @n attribute of a part, it applies only to\nthat part at the moment this <scoreDef> appears.\n\nWhile the multi-part objects will be held in a list, the single-part objects will be in a dict\nlike that returned by staffDefFromElement().\nNote that it is the caller's responsibility to determine the right action if there are\nconflicting objects in the returned dictionary.\nFor example:\n>>> meiDoc = \"\"\"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n... <scoreDef meter.count=\"3\" meter.unit=\"4\" xmlns=\"http://www.music-encoding.org/ns/mei\">\n...     <staffGrp>\n...         <staffDef n=\"1\" label=\"Clarinet\"/>\n...         <staffGrp>\n...             <staffDef n=\"2\" label=\"Flute\"/>\n...             <staffDef n=\"3\" label=\"Violin\"/>\n...         </staffGrp>\n...     </staffGrp>\n... </scoreDef>\n... \"\"\"\n>>> from xml.etree import ElementTree as ET\n>>> scoreDef = ET.fromstring(meiDoc)\n>>> result = mei.base.scoreDefFromElement(scoreDef)\n>>> len(result)\n5\n>>> result['1']\n{'instrument': <music21.instrument.Clarinet '1: Clarinet: Clarinet'>}\n>>> result['3']\n{'instrument': <music21.instrument.Violin '3: Violin: Violin'>}\n>>> result['all-part objects']\n[<music21.meter.TimeSignature 3/4>]\n>>> result['whole-score objects']\n[]\n\n\n\nParameters:\nelem (Element) \u2014 The <scoreDef> element to process.\n\nReturns:\nObjects from the <scoreDef>, as described above.\n\nReturn type:\ndict\n\n\nAttributes/Elements Implemented:\n\n(att.meterSigDefault.log (@meter.count, @meter.unit))\n(att.keySigDefault.log (@key.accid, @key.mode, @key.pname, @key.sig))\ncontained <staffGrp>\n\nAttributes/Elements in Testing: None\nAttributes not Implemented:\n\natt.common (@label, @n, @xml:base) (att.id (@xml:id))\natt.scoreDef.log\n\n\n(att.cleffing.log (@clef.shape, @clef.line, @clef.dis, @clef.dis.place))\n(att.duration.default (@dur.default, @num.default, @numbase.default))\n(att.keySigDefault.log (@key.sig.mixed))\n(att.octavedefault (@octave.default))\n(att.transposition (@trans.diat, @trans.semi))\n(att.scoreDef.log.cmn (att.beaming.log (@beam.group, @beam.rests)))\n(att.scoreDef.log.mensural\n\n\n\n(att.mensural.log (@mensur.dot, @mensur.sign,@mensur.slash, @proport.num, @proport.numbase)\n\n\n\n(att.mensural.shared (@modusmaior, @modusminor, @prolatio, @tempus))))\n\n\n\n\n\n\natt.scoreDef.vis (all)\natt.scoreDef.ges (all)\natt.scoreDef.anl (none exist)\n\nContained Elements not Implemented:\n\nMEI.cmn: meterSig meterSigGrp\nMEI.harmony: chordTable\nMEI.linkalign: timeline\nMEI.midi: instrGrp\nMEI.shared: keySig pgFoot pgFoot2 pgHead pgHead2\nMEI.usersymbols: symbolTable",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.mei.base.",
+        "type": "Title"
+    },
+    {
+        "text": "staffFromElement",
+        "type": "Title"
+    },
+    {
+        "text": "elem",
+        "type": "Title"
+    },
+    {
+        "text": "slurBundle",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "<staff> A group of equidistant horizontal lines on which notes are placed in order to\nrepresent pitch or a grouping element for individual \u0098strands' of notes, rests, etc. that may\nor may not actually be rendered on staff lines; that is, both diastematic and non-diastematic\nsigns.\nIn MEI 2013: pg.444 (458 in PDF) (MEI.shared module)\n\nParameters:\nelem (Element) \u2014 The <staff> element to process.\n\nReturns:\nThe Voice classes corresponding to the <layer> tags in elem.\n\nReturn type:\nlist of music21.stream.Voice\n\n\nAttributes/Elements Implemented:\n\n<layer> contained within\n\nAttributes Ignored:\n\n@xml:id\n\nAttributes/Elements in Testing: none\nAttributes not Implemented:\n\natt.common (@label, @n, @xml:base)\natt.declaring (@decls)\natt.facsimile (@facs)\natt.staff.log (@def) (att.meterconformance (@metcon))\natt.staff.vis (att.visibility (@visible))\natt.staff.gesatt.staff.anl (all)\n\nContained Elements not Implemented:\n\nMEI.cmn: ossia\nMEI.critapp: app\nMEI.edittrans: (all)\nMEI.shared: annot pb sb scoreDef staffDef\nMEI.text: div\nMEI.usersymbols: anchoredText curve line symbol",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.mei.base.",
+        "type": "Title"
+    },
+    {
+        "text": "staffDefFromElement",
+        "type": "Title"
+    },
+    {
+        "text": "elem",
+        "type": "Title"
+    },
+    {
+        "text": "slurBundle",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "<staffDef> Container for staff meta-information.\nIn MEI 2013: pg.445 (459 in PDF) (MEI.shared module)\n\nReturns:\nA dict with various types of metadata information, depending on what is specified in\nthis <staffDef> element. Read below for more information.\n\nReturn type:\ndict\n\n\nPossible Return Values\nThe contents of the returned dictionary depend on the contents of the <staffDef> element. The\ndictionary keys correspond to types of information. Possible keys include:\n\n'instrument': for a music21.instrument.Instrument subclass\n'clef': for a music21.clef.Clef subclass\n'key': for a music21.key.Key or KeySignature subclass\n'meter': for a music21.meter.TimeSignature\n\nExamples\nThis <staffDef> only returns a single item.\n>>> meiDoc = \"\"\"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n... <staffDef n=\"1\" label=\"Clarinet\" xmlns=\"http://www.music-encoding.org/ns/mei\"/>\n... \"\"\"\n>>> from xml.etree import ElementTree as ET\n>>> staffDef = ET.fromstring(meiDoc)\n>>> result = mei.base.staffDefFromElement(staffDef)\n>>> len(result)\n1\n>>> result\n{'instrument': <music21.instrument.Clarinet '1: Clarinet: Clarinet'>}\n>>> result['instrument'].partId\n'1'\n>>> result['instrument'].partName\n'Clarinet'\n\n\nThis <staffDef> returns many objects.\n>>> meiDoc = \"\"\"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n... <staffDef n=\"2\" label=\"Tuba\" key.pname=\"B\" key.accid=\"f\" key.mode=\"major\"\n...  xmlns=\"http://www.music-encoding.org/ns/mei\">\n...     <clef shape=\"F\" line=\"4\"/>\n... </staffDef>\n... \"\"\"\n>>> from xml.etree import ElementTree as ET\n>>> staffDef = ET.fromstring(meiDoc)\n>>> result = mei.base.staffDefFromElement(staffDef)\n>>> len(result)\n3\n>>> result['instrument']\n<music21.instrument.Tuba '2: Tuba: Tuba'>\n>>> result['clef']\n<music21.clef.BassClef>\n>>> result['key']\n<music21.key.Key of B- major>\n\n\nAttributes/Elements Implemented:\n\n@label (att.common) as Instrument.partName\n@label.abbr (att.labels.addl) as Instrument.partAbbreviation\n@n (att.common) as Instrument.partId\n(att.keySigDefault.log (@key.accid, @key.mode, @key.pname, @key.sig))\n(att.meterSigDefault.log (@meter.count, @meter.unit))\n(att.cleffing.log (@clef.shape, @clef.line, @clef.dis, @clef.dis.place))\n(via clefFromElement())\n@trans.diat and @trans.demi (att.transposition)\n<instrDef> held within\n<clef> held within\n\nAttributes/Elements Ignored:\n\n@key.sig.mixed (from att.keySigDefault.log)\n\nAttributes/Elements in Testing: none\nAttributes not Implemented:\n\natt.common (@n, @xml:base) (att.id (@xml:id))\natt.declaring (@decls)\natt.staffDef.log\n\n\n(att.duration.default (@dur.default, @num.default, @numbase.default))\n(att.octavedefault (@octave.default))\n(att.staffDef.log.cmn (att.beaming.log (@beam.group, @beam.rests)))\n(att.staffDef.log.mensural\n\n\n\n(att.mensural.log (@mensur.dot, @mensur.sign, @mensur.slash,@proport.num, @proport.numbase)\n\n\n\n(att.mensural.shared (@modusmaior, @modusminor, @prolatio, @tempus))))\n\n\n\n\n\n\natt.staffDef.vis (all)\natt.staffDef.ges (all)\natt.staffDef.anl (none exist)\n\nContained Elements not Implemented:\n\nMEI.cmn: meterSig meterSigGrp\nMEI.mensural: mensural support\nMEI.shared: clefGrp keySig label layerDef",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.mei.base.",
+        "type": "Title"
+    },
+    {
+        "text": "staffGrpFromElement",
+        "type": "Title"
+    },
+    {
+        "text": "elem",
+        "type": "Title"
+    },
+    {
+        "text": "slurBundle",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "staffDefDict",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "<staffGrp> A group of bracketed or braced staves.\nIn MEI 2013: pg.448 (462 in PDF) (MEI.shared module)\nFor now, this function is merely a container-processor  for <staffDef> elements contained\nin this <staffGrp> element given as the \u009celem\u009d argument. That is, the function does not yet\ncreate the brackets/braces and labels expected of a staff group.\nNote however that all <staffDef>\nelements will be processed, even if they're contained within several layers of <staffGrp>.\n\nParameters:\nelem (Element) \u2014 The <staffGrp> element to process.\n\nReturns:\nDictionary where keys are the @n attribute on a contained <staffDef>, and values are\nthe result of calling staffDefFromElement() with that <staffDef>.\n\n\nAttributes/Elements Implemented:\n\ncontained <staffDef>\ncontained <staffGrp>\n\nAttributes/Elements in Testing: none\nAttributes not Implemented:\n\natt.common (@label, @n, @xml:base) (att.id (@xml:id))\natt.declaring (@decls)\natt.facsimile (@facs)\natt.staffGrp.vis (@barthru)\n\n\n(att.labels.addl (@label.abbr))\n(att.staffgroupingsym (@symbol))\n(att.visibility (@visible))\n\n\n\natt.staffGrp.ges (att.instrumentident (@instr))\n\nContained Elements not Implemented:\n\nMEI.midi: instrDef\nMEI.shared: grpSym label",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.mei.base.",
+        "type": "Title"
+    },
+    {
+        "text": "tupletFromElement",
+        "type": "Title"
+    },
+    {
+        "text": "elem",
+        "type": "Title"
+    },
+    {
+        "text": "slurBundle",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "<tuplet> A group of notes with \u009cirregular\u009d (sometimes called \u009cirrational\u009d) rhythmic values,\nfor example, three notes in the time normally occupied by two or nine in the time of five.\nIn MEI 2013: pg.473 (487 in PDF) (MEI.cmn module)\n\nParameters:\nelem (Element) \u2014 The <tuplet> element to process.\n\nReturns:\nAn iterable of all the objects contained within the <tuplet> container.\n\nReturn type:\ntuple of Music21Object\n\n\nAttributes/Elements Implemented:\n\n<tuplet>, <beam>, <note>, <rest>, <chord>, <clef>, <space>, <barLine>\n@num and @numbase\n\nAttributes/Elements in Testing: none\nAttributes not Implemented:\n\natt.common (@label, @n, @xml:base) (att.id (@xml:id))\natt.facsimile (@facs)\natt.tuplet.log\n\n\n(att.event\n\n\n(att.timestamp.musical (@tstamp))\n(att.timestamp.performed (@tstamp.ges, @tstamp.real))\n(att.staffident (@staff))\n(att.layerident (@layer)))\n\n\n\n(att.beamedwith (@beam.with))\n(att.augmentdots (@dots))\n(att.duration.additive (@dur))\n(att.startendid (@endid) (att.startid (@startid)))\n\n\n\natt.tuplet.vis (all)\natt.tuplet.ges (att.duration.performed (@dur.ges))\natt.tuplet.anl (all)\n\nContained Elements not Implemented:\n\nMEI.cmn: bTrem beatRpt fTrem halfmRpt meterSig meterSigGrp\nMEI.critapp: app\nMEI.edittrans: (all)\nMEI.mensural: ligature mensur proport\nMEI.shared: clefGrp custos keySig pad",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.mei.base.",
+        "type": "Title"
+    },
+    {
+        "text": "addSlurs",
+        "type": "Title"
+    },
+    {
+        "text": "elem",
+        "type": "Title"
+    },
+    {
+        "text": "obj",
+        "type": "Title"
+    },
+    {
+        "text": "slurBundle",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "If relevant, add a slur to an obj (object) that was created from an elem (element).\n\nParameters:\n\nelem (xml.etree.ElementTree.Element) \u2014 The Element that caused creation of the obj.\nobj (music21.base.Music21Object) \u2014 The musical object (Note, Chord, etc.) created from elem, to\nwhich a slur might be attached.\nslurBundle (music21.spanner.SpannerBundle) \u2014 The Slur-holding SpannerBundle associated with the\nStream that holds obj.\n\n\nReturns:\nWhether at least one slur was added.\n\nReturn type:\nbool\n\n\nA Note about Importing Slurs\nBecause of how the MEI format specifies slurs, the strategy required for proper import to\nmusic21 is not obvious. There are two ways to specify a slur:\n\nWith a @slur attribute, in which case addSlurs() reads the attribute and manages\ncreating a Slur object, adding the affected objects to it, and storing the\nSlur in the slurBundle.\nWith a <slur> element, which requires pre-processing. In this case, Slur objects\nmust already exist in the slurBundle, and special attributes must be added to the\naffected elements (@m21SlurStart to the element at the start of the slur and\n@m21SlurEnd to the element at the end). These attributes hold the id of a\nSlur in the slurBundle, allowing addSlurs() to find the slur and add\nobj to it.\n\n\nCaution\nIf an elem has an @m21SlurStart or @m21SlurEnd attribute that refer to an\nobject not found in the slurBundle, the slur is silently dropped.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.mei.base.",
+        "type": "Title"
+    },
+    {
+        "text": "allPartsPresent",
+        "type": "Title"
+    },
+    {
+        "text": "scoreElem",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 tuple[str, ...]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Find the @n values for all <staffDef> elements in a <score> element. This assumes that every\nMEI <staff> corresponds to a music21 Part.\nscoreElem is the <score> Element in which to find the part names.\nReturns all the unique @n values associated with a part in the <score>.\nExample\n>>> meiDoc = \"\"\"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n... <score xmlns=\"http://www.music-encoding.org/ns/mei\">\n...     <scoreDef>\n...         <staffGrp>\n...             <staffDef n=\"1\" clef.shape=\"G\" clef.line=\"2\"/>\n...             <staffDef n=\"2\" clef.shape=\"F\" clef.line=\"4\"/>\n...         </staffGrp>\n...     </scoreDef>\n...     <section>\n...         <!-- ... some music ... -->\n...         <staffDef n=\"2\" clef.shape=\"C\" clef.line=\"4\"/>\n...         <!-- ... some music ... -->\n...     </section>\n... </score>\"\"\"\n>>> import xml.etree.ElementTree as ETree\n>>> meiDoc = ETree.fromstring(meiDoc)\n>>> mei.base.allPartsPresent(meiDoc)\n('1', '2')\n\n\nEven though there are three <staffDef> elements in the document, there are only two unique @n\nattributes. The second appearance of <staffDef> with @n=\u009d2\u009d signals a change of clef on that\nsame staff\u2013not that there is a new staff.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.mei.base.",
+        "type": "Title"
+    },
+    {
+        "text": "barLineFromElement",
+        "type": "Title"
+    },
+    {
+        "text": "elem",
+        "type": "Title"
+    },
+    {
+        "text": "slurBundle",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "<barLine> Vertical line drawn through one or more staves that divides musical notation into\nmetrical units.\nIn MEI 2013: pg.262 (276 in PDF) (MEI.shared module)\n\nReturns:\nA music21.bar.Barline or Repeat, depending on the\nvalue of @rend. If @rend is 'rptboth', a 2-tuplet of Repeat objects will be\nreturned, represented an \u009cend\u009d and \u009cstart\u009d barline, as specified in the music21.bar\ndocumentation.\n\n\n\nNote\nThe music21-to-other converters expect that a Barline will be attached to a\nMeasure, which it will not be when imported from MEI as a <barLine> element.\nHowever, this function does import correctly to a Barline that you can access from\nPython in the Stream object as expected.\n\nAttributes/Elements Implemented:\n\n@rend from att.barLine.log\n\nAttributes/Elements in Testing: none\nAttributes not Implemented:\n\natt.common (@label, @n, @xml:base) (att.id (@xml:id))\natt.facsimile (@facs)\natt.pointing (@xlink:actuate, @xlink:role, @xlink:show, @target, @targettype, @xlink:title)\natt.barLine.log\n\n\n(att.meterconformance.bar (@metcon, @control))\n\n\n\natt.barLine.vis\n\n\n(att.barplacement (@barplace, @taktplace))\n(att.color (@color))\n(att.measurement (@unit))\n(att.width (@width))\n\n\n\natt.barLine.ges (att.timestamp.musical (@tstamp))\natt.barLine.anl\n\n\n(att.common.anl\n\n\n(@copyof, @corresp, @next, @prev, @sameas, @synch)\n(att.alignment (@when)))\n\n\n\n\n\n\n\nContained Elements not Implemented: none",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.mei.base.",
+        "type": "Title"
+    },
+    {
+        "text": "beamTogether",
+        "type": "Title"
+    },
+    {
+        "text": "someThings",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Beam some things together. The function beams every object that has a beams attribute,\nleaving the other objects unmodified.\n\nParameters:\nsomeThings (iterable of Music21Object) \u2014 An iterable of things to beam together.\n\nReturns:\nsomeThings with relevant objects beamed together.\n\nReturn type:\nsame as someThings",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.mei.base.",
+        "type": "Title"
+    },
+    {
+        "text": "getVoiceId",
+        "type": "Title"
+    },
+    {
+        "text": "fromThese",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "From a list of objects with mixed type, find the \u009cid\u009d of the music21.stream.Voice\ninstance.\n\nParameters:\nfromThese (list) \u2014 A list of objects of any type, at least one of which must be a\nVoice instance.\n\nReturns:\nThe id of the Voice instance.\n\nRaises:\nRuntimeError if zero or many Voice objects are found.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.mei.base.",
+        "type": "Title"
+    },
+    {
+        "text": "makeDuration",
+        "type": "Title"
+    },
+    {
+        "text": "base",
+        "type": "Title"
+    },
+    {
+        "text": "float",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "Fraction",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "dots",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 duration.Duration",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a base duration and a number of dots, create a Duration\ninstance with the\nappropriate quarterLength value.\nReturns a Duration corresponding to the fully-augmented value.\nExamples\n>>> from fractions import Fraction\n>>> mei.base.makeDuration(base=2.0, dots=0).quarterLength  # half note, no dots\n2.0\n>>> mei.base.makeDuration(base=2.0, dots=1).quarterLength  # half note, one dot\n3.0\n>>> mei.base.makeDuration(base=2, dots=2).quarterLength  # 'base' can be an int or float\n3.5\n>>> mei.base.makeDuration(2.0, 10).quarterLength  # you want ridiculous dots? Sure...\n3.998046875\n>>> mei.base.makeDuration(0.33333333333333333333, 0).quarterLength  # works with fractions too\nFraction(1, 3)\n>>> mei.base.makeDuration(Fraction(1, 3), 1).quarterLength\n0.5",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.mei.base.",
+        "type": "Title"
+    },
+    {
+        "text": "makeMetadata",
+        "type": "Title"
+    },
+    {
+        "text": "documentRoot",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Produce metadata objects for all the metadata stored in the MEI header.\n\nParameters:\ndocumentRoot (Element) \u2014 The MEI document's root element.\n\nReturns:\nA Metadata object with some of the metadata stored in the MEI document.\n\nReturn type:\nmusic21.metadata.Metadata",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.mei.base.",
+        "type": "Title"
+    },
+    {
+        "text": "metaSetComposer",
+        "type": "Title"
+    },
+    {
+        "text": "work",
+        "type": "Title"
+    },
+    {
+        "text": "meta",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "From a <work> element, find the composer(s) and store the values in a Metadata object.\n\nParameters:\n\nwork \u2014 A <work> Element with metadata you want to find.\nmeta \u2014 The Metadata object in which to store the metadata.\n\n\nReturns:\nThe meta argument, having relevant metadata added.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.mei.base.",
+        "type": "Title"
+    },
+    {
+        "text": "metaSetDate",
+        "type": "Title"
+    },
+    {
+        "text": "work",
+        "type": "Title"
+    },
+    {
+        "text": "meta",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "From a <work> element, find the date (range) of composition and store the values in a\nMetadata object.\n\nParameters:\n\nwork \u2014 A <work> Element with metadata you want to find.\nmeta \u2014 The Metadata object in which to store the metadata.\n\n\nReturns:\nThe meta argument, having relevant metadata added.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.mei.base.",
+        "type": "Title"
+    },
+    {
+        "text": "metaSetTitle",
+        "type": "Title"
+    },
+    {
+        "text": "work",
+        "type": "Title"
+    },
+    {
+        "text": "meta",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "From a <work> element, find the title, subtitle, and movement name (<tempo> element) and store\nthe values in a Metadata object.\n\nParameters:\n\nwork \u2014 A <work> Element with metadata you want to find.\nmeta \u2014 The Metadata object in which to store the metadata.\n\n\nReturns:\nThe meta argument, having relevant metadata added.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.mei.base.",
+        "type": "Title"
+    },
+    {
+        "text": "removeOctothorpe",
+        "type": "Title"
+    },
+    {
+        "text": "xmlid",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a string with an @xml:id to search for, remove a leading octothorpe, if present.\n>>> from music21.mei.base import removeOctothorpe\n>>> removeOctothorpe('110a923d-a13a-4a2e-b85c-e1d438e4c5d6')\n'110a923d-a13a-4a2e-b85c-e1d438e4c5d6'\n>>> removeOctothorpe('#e46cbe82-95fc-4522-9f7a-700e41a40c8e')\n'e46cbe82-95fc-4522-9f7a-700e41a40c8e'",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.mei.base.",
+        "type": "Title"
+    },
+    {
+        "text": "safePitch",
+        "type": "Title"
+    },
+    {
+        "text": "name",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "accidental",
+        "type": "Title"
+    },
+    {
+        "text": "str | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "octave",
+        "type": "Title"
+    },
+    {
+        "text": "str | int",
+        "type": "Title"
+    },
+    {
+        "text": "''",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u2192 Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Safely build a Pitch from a string.\nWhen __init__() is given an empty string,\nit raises a PitchException. This\nfunction instead returns a default Pitch instance.\nname: Desired name of the Pitch.\naccidental: (Optional) Symbol for the accidental.\noctave: (Optional) Octave number.\nReturns A Pitch with the appropriate properties.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.mei.base.",
+        "type": "Title"
+    },
+    {
+        "text": "scaleToTuplet",
+        "type": "Title"
+    },
+    {
+        "text": "objs",
+        "type": "Title"
+    },
+    {
+        "text": "elem",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Scale the duration of some objects by a ratio indicated by a tuplet. The elem must have the\n@m21TupletNum and @m21TupletNumbase attributes set, and optionally the @m21TupletSearch or\n@m21TupletType attributes.\nThe @m21TupletNum and @m21TupletNumbase attributes should be equal to the @num and @numbase\nvalues of the <tuplet> or <tupletSpan> that indicates this tuplet.\nThe @m21TupletSearch attribute, whose value must either be 'start' or 'end', is required\nwhen a <tupletSpan> does not include a @plist attribute. It indicates that the importer must\n\u009csearch\u009d for a tuplet near the end of the import process, which involves scaling the durations\nof all objects discovered between those with the \u009cstart\u009d and \u009cend\u009d search values.\nThe @m21TupletType attribute is set directly as the type attribute of the music21\nobject's Tuplet object. If @m21TupletType is not set, the @tuplet attribute will be\nconsulted. Note that this attribute is ignored if the @m21TupletSearch attribute is present,\nsince the type will be set later by the tuplet-finding algorithm.\n\nNote\nObjects without a duration attribute will be skipped silently, unless they\nwill be given the @m21TupletSearch attribute.\n\n\nParameters:\n\nobjs ((list of) Music21Object) \u2014 The object(s) whose durations will be scaled.\nYou may provide either a single object\nor an iterable; the return type corresponds to the input type.\nelem (xml.etree.ElementTree.Element) \u2014 An Element with the appropriate attributes (as specified above).\n\n\nReturns:\nobjs with scaled durations.\n\nReturn type:\n(list of) Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.mei.base.",
+        "type": "Title"
+    },
+    {
+        "text": "sectionScoreCore",
+        "type": "Title"
+    },
+    {
+        "text": "elem",
+        "type": "Title"
+    },
+    {
+        "text": "allPartNs",
+        "type": "Title"
+    },
+    {
+        "text": "slurBundle",
+        "type": "Title"
+    },
+    {
+        "text": "activeMeter",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "nextMeasureLeft",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "backupMeasureNum",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "This function is the \u009ccore\u009d of both sectionFromElement() and scoreFromElement(),\nsince both elements are treated quite similarly (though not identically). It's a separate and\nshared function to reduce code duplication and\nincrease ease of testing. It's a \u009cpublic\u009d function\nto help spread the burden of API documentation complexity: while the parameters and return\nvalues are described in this function, the compliance with the MEI Guidelines is described in\nboth sectionFromElement() and scoreFromElement(), as expected.\nRequired Parameters\n\nParameters:\n\nelem (xml.etree.ElementTree.Element) \u2014 The <section> or <score> element to process.\nallPartNs (iterable of str) \u2014 A list or tuple of the expected @n attributes for the <staff> tags in this\n<section>. This tells the function how many parts there are and what @n values they use.\nslurBundle (music21.spanner.SpannerBundle) \u2014 This SpannerBundle holds the Slur objects\ncreated during pre-processing. The slurs are attached to their respective Note and\nChord objects as they are processed.\n\n\n\nOptional Keyword Parameters\nThe following parameters are all optional, and must be specified as a keyword argument (i.e.,\nyou specify the parameter name before its value).\n\nParameters:\n\nactiveMeter (music21.meter.TimeSignature) \u2014 The TimeSignature active at the start of this\n<section> or <score>. This is updated automatically as the music is processed, and the\nTimeSignature active at the end of the element is returned.\nnextMeasureLeft (music21.bar.Barline or music21.bar.Repeat) \u2014 The @left attribute to use for the next <measure> element encountered.\nThis is used for situations where one <measure> element specified a @right attribute that\nmust be imported by music21 as both the right barline of one measure and the left barline\nof the following; at the moment this is only @rptboth, which requires a Repeat in\nboth cases.\nbackupMeasureNum (int) \u2014 In case a <measure> element is missing its @n attribute,\nmeasureFromElement() will use this automatically-incremented number instead. The\nbackupMeasureNum corresponding to the final <measure> in this <score> or <section> is\nreturned from this function.\n\n\nReturns:\nFour-tuple with a dictionary of results, the new value of activeMeter, the new\nvalue of nextMeasureLeft, and the new value of backupMeasureNum.\n\nReturn type:\n(dict, TimeSignature, Barline, int)\n\n\nReturn Value\nIn short, it's parsed, activeMeter, nextMeasureLeft, backupMeasureNum.\n\n\n'parsed' is a dictionary where the keys are the values in allPartNs and the values area list of all the Measure objects in that part, as found in this <section> or\n<score>.\n\n\n\n\n'activeMeter' is the TimeSignature in effect at the end of this<section> or <score>.\n\n\n\n\n'nextMeasureLeft' is the value that should beassigned to the leftBarline attribute\nof the first Measure found in the next <section>. This will almost always be None.\n\n\n\n\n'backupMeasureNum' is equal to the backupMeasureNum argument plus the number of<measure> elements found in this <score> or <section>.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.mei.base.",
+        "type": "Title"
+    },
+    {
+        "text": "sylFromElement",
+        "type": "Title"
+    },
+    {
+        "text": "elem",
+        "type": "Title"
+    },
+    {
+        "text": "slurBundle",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "<syl> Individual lyric syllable.\nIn MEI 2013: pg.454 (468 in PDF) (MEI.shared module)\n\nReturns:\nAn appropriately-configured music21.note.Lyric.\n\n\nAttributes/Elements Implemented:\n\n@con and @wordpos (from att.syl.log)\n\nAttributes/Elements in Testing: none\nAttributes not Implemented:\n\natt.common (@label, @n, @xml:base) (att.id (@xml:id))\natt.facsimile (@facs)\natt.syl.vis (att.typography (@fontfam, @fontname, @fontsize, @fontstyle, @fontweight))\n\n\n(att.visualoffset (att.visualoffset.ho (@ho))\n\n\n(att.visualoffset.to (@to))\n(att.visualoffset.vo (@vo)))\n\n\n\n(att.xy (@x, @y))\n(att.horizontalalign (@halign))\n\n\n\natt.syl.anl (att.common.anl (@copyof, @corresp, @next, @prev, @sameas, @synch)\n\n\n(att.alignment (@when)))\n\n\n\n\nContained Elements not Implemented:\n\nMEI.edittrans: (all)\nMEI.figtable: fig\nMEI.namesdates: corpName geogName periodName persName styleName\nMEI.ptrref: ptr ref\nMEI.shared: address bibl date identifier lb name num rend repository stack title",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.mei.base.",
+        "type": "Title"
+    },
+    {
+        "text": "verseFromElement",
+        "type": "Title"
+    },
+    {
+        "text": "elem",
+        "type": "Title"
+    },
+    {
+        "text": "backupN",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "slurBundle",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "<verse> Lyric verse.\nIn MEI 2013: pg.480 (494 in PDF) (MEI.lyrics module)\n\nParameters:\nbackupN (int) \u2014 The backup verse number to use if no @n attribute exists on elem.\n\nReturns:\nThe appropriately-configured Lyric objects.\n\nReturn type:\nlist of music21.note.Lyric\n\n\nAttributes/Elements Implemented:\n\n@n and <syl>\n\nAttributes/Elements in Testing: none\nAttributes not Implemented:\n\natt.common (@label, @n, @xml:base) (att.id (@xml:id))\natt.facsimile (@facs)\natt.lang (@xml:lang)\natt.verse.log (@refrain, @rhythm)\natt.verse.vis (att.typography (@fontfam, @fontname, @fontsize, @fontstyle, @fontweight))\n\n\n(att.visualoffset.to (@to))\n((att.visualoffset.vo (@vo))\n\n\n(att.xy (@x, @y))\n\n\n\n\n\n\natt.verse.anl (att.common.anl (@copyof, @corresp, @next, @prev, @sameas, @synch)\n\n\n(att.alignment (@when)))\n\n\n\n\nContained Elements not Implemented:\n\nMEI.shared: dir dynam lb space tempo",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.mei.base",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

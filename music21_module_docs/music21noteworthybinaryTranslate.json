@@ -1,0 +1,1214 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.noteworthy.binaryTranslate",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.note",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.noteworthy.translate",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.noteworthy.binaryTranslate\nNWCConverter\nNWCConverter\nNWCConverter.advanceToNotNUL()\nNWCConverter.byteToInt()\nNWCConverter.byteToSignedInt()\nNWCConverter.dumpToNWCText()\nNWCConverter.fileVersion()\nNWCConverter.isValidNWCFile()\nNWCConverter.parse()\nNWCConverter.parseFile()\nNWCConverter.parseHeader()\nNWCConverter.parseString()\nNWCConverter.readBytes()\nNWCConverter.readLEShort()\nNWCConverter.readToNUL()\nNWCConverter.skipBytes()\nNWCConverter.toStream()\n\n\n\n\nNWCObject\nNWCObject\nNWCObject.barline()\nNWCObject.clef()\nNWCObject.dynamic()\nNWCObject.dynamicVariation()\nNWCObject.ending()\nNWCObject.flowDir()\nNWCObject.instrument()\nNWCObject.keySig()\nNWCObject.mpc()\nNWCObject.note()\nNWCObject.noteChordMember()\nNWCObject.parse()\nNWCObject.pedal()\nNWCObject.performance()\nNWCObject.rest()\nNWCObject.restChordMember()\nNWCObject.setDurationForObject()\nNWCObject.tempo()\nNWCObject.tempoVariation()\nNWCObject.textObj()\nNWCObject.timeSig()\n\n\n\n\nNWCStaff\nNWCStaff\nNWCStaff.dump()\nNWCStaff.parse()\nNWCStaff.parseHeader()\nNWCStaff.parseLyrics()\nNWCStaff.parseObjects()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.noteworthy.binaryTranslate\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Attempts at reading pure .nwc files in music21",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "First will solve uncompressed .nwc then compressed .nwc",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Thanks to Juria90 and the nwc2xml project for solving so many of the documentation problems.\nNo part of this code is taken from that project, but this project would have been impossible\nwithout his work.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Translates .nwc into .nwctxt and then uses Jordi Guillen's .nwctxt translator to go from\nthere to music21.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "BETA \u2014 does not work for many file elements and is untested.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Demo, showing the extent of problems.  The measure numbers are not set.  Lyrics are missing\nand the triplet in the AltoClef part is omitted.  This is very beta.  Much better would be to\nconvert the file into .xml or .nwctxt first.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "converter",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "'/Users/cuthbert/desktop/cuthbert_test1.nwc'",
+        "type": "Title"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "'text'",
+        "type": "Title"
+    },
+    {
+        "text": "{0.0} <music21.metadata.Metadata object at ...>",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "{0.0} <music21.stream.Part ...>",
+        "type": "Title"
+    },
+    {
+        "text": "{0.0} <music21.stream.Measure 0 offset=0.0>",
+        "type": "Title"
+    },
+    {
+        "text": "{0.0} <music21.clef.TrebleClef>",
+        "type": "Title"
+    },
+    {
+        "text": "{0.0} <music21.meter.TimeSignature 4/4>",
+        "type": "Title"
+    },
+    {
+        "text": "{0.0} <music21.note.Note G>",
+        "type": "Title"
+    },
+    {
+        "text": "{1.0} <music21.note.Note C>",
+        "type": "Title"
+    },
+    {
+        "text": "{2.0} <music21.note.Note C>",
+        "type": "Title"
+    },
+    {
+        "text": "{3.0} <music21.note.Note B>",
+        "type": "Title"
+    },
+    {
+        "text": "{4.0} <music21.stream.Measure 0 offset=4.0>",
+        "type": "Title"
+    },
+    {
+        "text": "{0.0} <music21.note.Note C>",
+        "type": "Title"
+    },
+    {
+        "text": "{0.0} <music21.stream.Part ...>",
+        "type": "Title"
+    },
+    {
+        "text": "{0.0} <music21.stream.Measure 0 offset=0.0>",
+        "type": "Title"
+    },
+    {
+        "text": "{0.0} <music21.clef.TrebleClef>",
+        "type": "Title"
+    },
+    {
+        "text": "{0.0} <music21.meter.TimeSignature 4/4>",
+        "type": "Title"
+    },
+    {
+        "text": "{0.0} <music21.note.Note G>",
+        "type": "Title"
+    },
+    {
+        "text": "{1.0} <music21.note.Note A>",
+        "type": "Title"
+    },
+    {
+        "text": "{2.0} <music21.note.Note A>",
+        "type": "Title"
+    },
+    {
+        "text": "{3.5} <music21.note.Note G>",
+        "type": "Title"
+    },
+    {
+        "text": "{4.0} <music21.stream.Measure 0 offset=4.0>",
+        "type": "Title"
+    },
+    {
+        "text": "{0.0} <music21.note.Note G>",
+        "type": "Title"
+    },
+    {
+        "text": "{0.0} <music21.stream.Part ...>",
+        "type": "Title"
+    },
+    {
+        "text": "{0.0} <music21.stream.Measure 0 offset=0.0>",
+        "type": "Title"
+    },
+    {
+        "text": "{0.0} <music21.clef.AltoClef>",
+        "type": "Title"
+    },
+    {
+        "text": "{0.0} <music21.meter.TimeSignature 4/4>",
+        "type": "Title"
+    },
+    {
+        "text": "{0.0} <music21.note.Note D>",
+        "type": "Title"
+    },
+    {
+        "text": "{2.0} <music21.note.Note C#>",
+        "type": "Title"
+    },
+    {
+        "text": "{3.0} <music21.note.Note D>",
+        "type": "Title"
+    },
+    {
+        "text": "{4.0} <music21.note.Note E>",
+        "type": "Title"
+    },
+    {
+        "text": "{5.0} <music21.stream.Measure 0 offset=5.0>",
+        "type": "Title"
+    },
+    {
+        "text": "{0.0} <music21.note.Note E>",
+        "type": "Title"
+    },
+    {
+        "text": "{0.0} <music21.stream.Part ...>",
+        "type": "Title"
+    },
+    {
+        "text": "{0.0} <music21.stream.Measure 0 offset=0.0>",
+        "type": "Title"
+    },
+    {
+        "text": "{0.0} <music21.clef.BassClef>",
+        "type": "Title"
+    },
+    {
+        "text": "{0.0} <music21.meter.TimeSignature 4/4>",
+        "type": "Title"
+    },
+    {
+        "text": "{0.0} <music21.note.Note G>",
+        "type": "Title"
+    },
+    {
+        "text": "{1.0} <music21.note.Note F>",
+        "type": "Title"
+    },
+    {
+        "text": "{2.0} <music21.note.Note E>",
+        "type": "Title"
+    },
+    {
+        "text": "{3.0} <music21.note.Note G>",
+        "type": "Title"
+    },
+    {
+        "text": "{4.0} <music21.stream.Measure 0 offset=4.0>",
+        "type": "Title"
+    },
+    {
+        "text": "{0.0} <music21.note.Note C>",
+        "type": "Title"
+    },
+    {
+        "text": "NWCConverter\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.noteworthy.binaryTranslate.",
+        "type": "Title"
+    },
+    {
+        "text": "NWCConverter",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A converter object for binary .nwc files.  Do not normally use directly; use converter.parse.\n>>> nwcc = noteworthy.binaryTranslate.NWCConverter()\n>>> nwcc\n<music21.noteworthy.binaryTranslate.NWCConverter object at 0x...>\n>>> nwcc.fileContents is None\nTrue\n>>> nwcc.parsePosition\n0\n>>> nwcc.version  # version of nwc file to be parsed\n200\n>>> nwcc.numberOfStaves\n0\n>>> nwcc.staves\n[]",
+        "type": "ListItem"
+    },
+    {
+        "text": "NWCConverter methods",
+        "type": "Title"
+    },
+    {
+        "text": "NWCConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "advanceToNotNUL",
+        "type": "Title"
+    },
+    {
+        "text": "nul",
+        "type": "Title"
+    },
+    {
+        "text": "b'\\x00'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "NWCConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "byteToInt",
+        "type": "Title"
+    },
+    {
+        "text": "updateParsePosition",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "changes a byte into an unsigned int\n(i.e., if the byte is > 127 then it's subtracted from 256)",
+        "type": "ListItem"
+    },
+    {
+        "text": "NWCConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "byteToSignedInt",
+        "type": "Title"
+    },
+    {
+        "text": "updateParsePosition",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "changes a byte into a signed int\n(i.e., if the byte is > 127 then it's subtracted from 256)",
+        "type": "ListItem"
+    },
+    {
+        "text": "NWCConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "dumpToNWCText",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "NWCConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "fileVersion",
+        "type": "Title"
+    },
+    {
+        "text": "updateParsePosition",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "NWCConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "isValidNWCFile",
+        "type": "Title"
+    },
+    {
+        "text": "updateParsePosition",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "NWCConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "the main parse routine called by parseFile() or parseString()",
+        "type": "ListItem"
+    },
+    {
+        "text": "NWCConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "parseFile",
+        "type": "Title"
+    },
+    {
+        "text": "fp",
+        "type": "Title"
+    },
+    {
+        "text": "Path | str",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Parse a file (calls .toStream)\n>>> fp = '/Users/cuthbert/desktop/cuthbert_test1.nwc'\n>>> nwcc = noteworthy.binaryTranslate.NWCConverter()\n>>> nwcc.fileContents is None\nTrue\n>>> streamObj = nwcc.parseFile(fp)\n>>> len(nwcc.fileContents)  # binary\n1139\n>>> nwcc.fileContents[0:80]\nb'[NoteWorthy ArtWare]\\x00\\x00\\x00[NoteWorthy\n         Composer]\\x00\\x01\\x02\\x02\\x00\\x00\\x00N/A\\x000_JldRQMSKq6M5a3FQqK_g\\x00\\x00\\x00'\n>>> streamObj\n<music21.stream.Score ...>",
+        "type": "ListItem"
+    },
+    {
+        "text": "NWCConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "parseHeader",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Sets a ton of information from the header, and advances the parse position.",
+        "type": "ListItem"
+    },
+    {
+        "text": "NWCConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "parseString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "bytesIn",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "same as parseFile but takes a string (in Py3, bytes) of binary data instead.",
+        "type": "ListItem"
+    },
+    {
+        "text": "NWCConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "readBytes",
+        "type": "Title"
+    },
+    {
+        "text": "bytesToRead",
+        "type": "Title"
+    },
+    {
+        "text": "updateParsePosition",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "reads the next bytesToRead bytes and then (optionally) updates self.parsePosition",
+        "type": "ListItem"
+    },
+    {
+        "text": "NWCConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "readLEShort",
+        "type": "Title"
+    },
+    {
+        "text": "updateParsePosition",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Helper module: read a little-endian short value to an integer\n>>> nwcc = noteworthy.binaryTranslate.NWCConverter()\n>>> nwcc.fileContents = b''\n>>> nwcc.parsePosition\n0\n>>> nwcc.readLEShort()\n258\n>>> nwcc.parsePosition\n2\n>>> nwcc.readLEShort()\n259\n>>> nwcc.parsePosition\n4\n\n\nOr to not update the parsePosition, send False:\n>>> nwcc.parsePosition = 0\n>>> nwcc.readLEShort(False)\n258\n>>> nwcc.readLEShort(False)\n258\n>>> nwcc.parsePosition\n0",
+        "type": "ListItem"
+    },
+    {
+        "text": "NWCConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "readToNUL",
+        "type": "Title"
+    },
+    {
+        "text": "updateParsePosition",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "reads self.fileContents up to, but not including, the next position of x00.\nupdates the parsePosition unless updateParsePosition is False",
+        "type": "ListItem"
+    },
+    {
+        "text": "NWCConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "skipBytes",
+        "type": "Title"
+    },
+    {
+        "text": "numBytes",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "NWCConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "toStream",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "NWCObject\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.noteworthy.binaryTranslate.",
+        "type": "Title"
+    },
+    {
+        "text": "NWCObject",
+        "type": "Title"
+    },
+    {
+        "text": "staffParent",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "parserParent",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "NWCObject methods",
+        "type": "Title"
+    },
+    {
+        "text": "NWCObject.",
+        "type": "Title"
+    },
+    {
+        "text": "barline",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "NWCObject.",
+        "type": "Title"
+    },
+    {
+        "text": "clef",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "NWCObject.",
+        "type": "Title"
+    },
+    {
+        "text": "dynamic",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "NWCObject.",
+        "type": "Title"
+    },
+    {
+        "text": "dynamicVariation",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "NWCObject.",
+        "type": "Title"
+    },
+    {
+        "text": "ending",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "NWCObject.",
+        "type": "Title"
+    },
+    {
+        "text": "flowDir",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "NWCObject.",
+        "type": "Title"
+    },
+    {
+        "text": "instrument",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "NWCObject.",
+        "type": "Title"
+    },
+    {
+        "text": "keySig",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "NWCObject.",
+        "type": "Title"
+    },
+    {
+        "text": "mpc",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "what is this?",
+        "type": "ListItem"
+    },
+    {
+        "text": "NWCObject.",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "NWCObject.",
+        "type": "Title"
+    },
+    {
+        "text": "noteChordMember",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "NWCObject.",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "determine what type of object I am, and set things accordingly",
+        "type": "ListItem"
+    },
+    {
+        "text": "NWCObject.",
+        "type": "Title"
+    },
+    {
+        "text": "pedal",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "NWCObject.",
+        "type": "Title"
+    },
+    {
+        "text": "performance",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "NWCObject.",
+        "type": "Title"
+    },
+    {
+        "text": "rest",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "NWCObject.",
+        "type": "Title"
+    },
+    {
+        "text": "restChordMember",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "NWCObject.",
+        "type": "Title"
+    },
+    {
+        "text": "setDurationForObject",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "get duration string for note or rest",
+        "type": "ListItem"
+    },
+    {
+        "text": "NWCObject.",
+        "type": "Title"
+    },
+    {
+        "text": "tempo",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "NWCObject.",
+        "type": "Title"
+    },
+    {
+        "text": "tempoVariation",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "NWCObject.",
+        "type": "Title"
+    },
+    {
+        "text": "textObj",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "NWCObject.",
+        "type": "Title"
+    },
+    {
+        "text": "timeSig",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "NWCStaff\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.noteworthy.binaryTranslate.",
+        "type": "Title"
+    },
+    {
+        "text": "NWCStaff",
+        "type": "Title"
+    },
+    {
+        "text": "parent",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "NWCStaff methods",
+        "type": "Title"
+    },
+    {
+        "text": "NWCStaff.",
+        "type": "Title"
+    },
+    {
+        "text": "dump",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "NWCStaff.",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "NWCStaff.",
+        "type": "Title"
+    },
+    {
+        "text": "parseHeader",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "NWCStaff.",
+        "type": "Title"
+    },
+    {
+        "text": "parseLyrics",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "NWCStaff.",
+        "type": "Title"
+    },
+    {
+        "text": "parseObjects",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.noteworthy.binaryTranslate",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

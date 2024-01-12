@@ -1,0 +1,922 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.romanText.tsvConverter",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.romanText.translate",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.romanText.writeRoman",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.romanText.tsvConverter\nM21toTSV\nM21toTSV\nM21toTSV.m21ToTsv()\nM21toTSV.write()\n\n\n\n\nTabChord\nTabChord\n\n\nTabChordBase\nTabChordBase\nTabChordBase.combinedChord\nTabChordBase.populateFromRow()\nTabChordBase.tabToM21()\n\n\n\n\nTabChordV2\nTabChordV2\nTabChordV2.beat\nTabChordV2.global_key\nTabChordV2.local_key\nTabChordV2.measure\n\n\n\n\nTsvHandler\nTsvHandler\nTsvHandler.prepStream()\nTsvHandler.toM21Stream()\nTsvHandler.tsvToChords()\n\n\n\n\nFunctions\ncharacterSwaps()\ngetForm()\ngetLocalKey()\ngetSecondaryKey()\nhandleAddedTones()\nisMinor()\nlocalKeyAsRn()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.romanText.tsvConverter\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Converter for parsing the tabular representations of harmonic analysis such as the\nDCMLab's Annotated Beethoven Corpus (Neuwirth et al. 2018).",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "M21toTSV\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.romanText.tsvConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "M21toTSV",
+        "type": "Title"
+    },
+    {
+        "text": "m21Stream",
+        "type": "Title"
+    },
+    {
+        "text": "Score",
+        "type": "Title"
+    },
+    {
+        "text": "dcml_version",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Conversion starting with a music21 stream.\nExports to tabular data format and (optionally) writes the file.\n>>> bachHarmony = corpus.parse('bach/choraleAnalyses/riemenschneider001.rntxt')\n>>> bachHarmony.parts[0].measure(1)[0].figure\n'I'\n\n\nThe initialization includes the preparation of a list of lists, so\n>>> initial = romanText.tsvConverter.M21toTSV(bachHarmony, dcml_version=2)\n>>> tsvData = initial.tsvData\n>>> from music21.romanText.tsvConverter import DCML_V2_HEADERS\n>>> tsvData[1][DCML_V2_HEADERS.index('chord')]\n'I'",
+        "type": "ListItem"
+    },
+    {
+        "text": "M21toTSV methods",
+        "type": "Title"
+    },
+    {
+        "text": "M21toTSV.",
+        "type": "Title"
+    },
+    {
+        "text": "m21ToTsv",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 list[list[str]]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Converts a list of music21 chords to a list of lists\nwhich can then be written to a tsv file with toTsv(), or processed another way.",
+        "type": "ListItem"
+    },
+    {
+        "text": "M21toTSV.",
+        "type": "Title"
+    },
+    {
+        "text": "write",
+        "type": "Title"
+    },
+    {
+        "text": "filePathAndName",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Writes a list of lists (e.g. from m21ToTsv()) to a tsv file.",
+        "type": "ListItem"
+    },
+    {
+        "text": "TabChord\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.romanText.tsvConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "TabChord",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "An intermediate representation format for moving between tabular data in\nDCML v1 and music21 chords.",
+        "type": "ListItem"
+    },
+    {
+        "text": "TabChord bases",
+        "type": "Title"
+    },
+    {
+        "text": "TabChordBase",
+        "type": "ListItem"
+    },
+    {
+        "text": "TabChord read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from TabChordBase:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "combinedChord",
+        "type": "Table"
+    },
+    {
+        "text": "TabChord methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from TabChordBase:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "populateFromRow() tabToM21()",
+        "type": "Table"
+    },
+    {
+        "text": "TabChordBase\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.romanText.tsvConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "TabChordBase",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Abstract base class for intermediate representation format for moving\nbetween tabular data and music21 chords.",
+        "type": "ListItem"
+    },
+    {
+        "text": "TabChordBase read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "TabChordBase.",
+        "type": "Title"
+    },
+    {
+        "text": "combinedChord",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "For easier interoperability with the DCML standards, we now use the\ncolumn name \u0098chord' from the DCML file. But to preserve backwards-\ncompatibility, we add this property, which is an alias for \u0098chord'.\n>>> tabCd = romanText.tsvConverter.TabChord()\n>>> tabCd.chord = 'viio7'\n>>> tabCd.combinedChord\n'viio7'\n>>> tabCd.combinedChord = 'IV+'\n>>> tabCd.chord\n'IV+'",
+        "type": "ListItem"
+    },
+    {
+        "text": "TabChordBase methods",
+        "type": "Title"
+    },
+    {
+        "text": "TabChordBase.",
+        "type": "Title"
+    },
+    {
+        "text": "populateFromRow",
+        "type": "Title"
+    },
+    {
+        "text": "row",
+        "type": "Title"
+    },
+    {
+        "text": "list[str]",
+        "type": "Title"
+    },
+    {
+        "text": "headIndices",
+        "type": "Title"
+    },
+    {
+        "text": "dict",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "tuple",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "extraIndices",
+        "type": "Title"
+    },
+    {
+        "text": "dict",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "TabChordBase.",
+        "type": "Title"
+    },
+    {
+        "text": "tabToM21",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 Harmony",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Creates and returns a music21.roman.RomanNumeral() object\nfrom a TabChord with all shared attributes.\nNB: call changeRepresentation() first if .representationType is not \u0098m21'\nbut you plan to process it with m21 (e.g. moving it into a stream).\n>>> tabCd = romanText.tsvConverter.TabChord()\n>>> tabCd.numeral = 'vii'\n>>> tabCd.global_key = 'F'\n>>> tabCd.local_key = 'V'\n>>> tabCd.representationType = 'm21'\n>>> m21Ch = tabCd.tabToM21()\n\n\nNow we can check it's a music21 RomanNumeral():\n>>> m21Ch.figure\n'vii'",
+        "type": "ListItem"
+    },
+    {
+        "text": "TabChordV2\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.romanText.tsvConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "TabChordV2",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "An intermediate representation format for moving between tabular data in\nDCML v2 and music21 chords.",
+        "type": "ListItem"
+    },
+    {
+        "text": "TabChordV2 bases",
+        "type": "Title"
+    },
+    {
+        "text": "TabChordBase",
+        "type": "ListItem"
+    },
+    {
+        "text": "TabChordV2 read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "TabChordV2.",
+        "type": "Title"
+    },
+    {
+        "text": "beat",
+        "type": "Title"
+    },
+    {
+        "text": "float",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u0098beat' has been removed from DCML v2 in favor of \u0098mn_onset' and\n\u0098mc_onset'. \u0098mn_onset' is equivalent to \u0098beat', except that \u0098mn_onset'\nis zero-indexed where \u0098beat' was 1-indexed, and \u0098mn_onset' is in\nfractions of a whole-note rather than in quarter notes.\n>>> tabCd = romanText.tsvConverter.TabChordV2()\n>>> tabCd.mn_onset = 0.0\n>>> tabCd.beat\n1.0\n\n\n>>> tabCd.mn_onset = 0.5\n>>> tabCd.beat\n3.0\n\n\n>>> tabCd.beat = 1.5\n>>> tabCd.beat\n1.5",
+        "type": "ListItem"
+    },
+    {
+        "text": "TabChordV2.",
+        "type": "Title"
+    },
+    {
+        "text": "global_key",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u0098global_key' has been renamed \u0098globalkey' in DCML v2. This property is\nprovided as an alias for \u0098globalkey' so that TabChord and TabChordV2 can\nbe used in the same way.",
+        "type": "ListItem"
+    },
+    {
+        "text": "TabChordV2.",
+        "type": "Title"
+    },
+    {
+        "text": "local_key",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u0098local_key' has been renamed \u0098localkey' in DCML v2. This property is\nprovided as an alias for \u0098localkey' so that TabChord and TabChordV2 can\nbe used in the same way.",
+        "type": "ListItem"
+    },
+    {
+        "text": "TabChordV2.",
+        "type": "Title"
+    },
+    {
+        "text": "measure",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u0098measure' has been removed from DCML v2 in favor of \u0098mn' and \u0098mc'. \u0098mn'\nis equivalent to \u0098measure', so this property is provided as an alias.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read/write properties inherited from TabChordBase:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "combinedChord",
+        "type": "Table"
+    },
+    {
+        "text": "TabChordV2 methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from TabChordBase:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "populateFromRow() tabToM21()",
+        "type": "Table"
+    },
+    {
+        "text": "TsvHandler\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.romanText.tsvConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "TsvHandler",
+        "type": "Title"
+    },
+    {
+        "text": "tsvFile",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "dcml_version",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Conversion starting with a TSV file.\nFirst we need to get a score. (Don't worry about this bit.)\n>>> name = 'tsvEg_v1.tsv'\n>>> path = common.getSourceFilePath() / 'romanText' / name\n>>> handler = romanText.tsvConverter.TsvHandler(path)\n>>> handler.tsvToChords()\n\n\nThese should be TabChords now.\n>>> testTabChord1 = handler.chordList[0]\n>>> testTabChord1.combinedChord\n'.C.I6'\n\n\nGood. We can make them into music21 Roman-numerals.\n>>> m21Chord1 = testTabChord1.tabToM21()\n>>> m21Chord1.figure\n'I'\n\n\nAnd for our last trick, we can put the whole collection in a music21 stream.\n>>> out_stream = handler.toM21Stream()\n>>> out_stream.parts[0].measure(1)[roman.RomanNumeral][0].figure\n'I'",
+        "type": "ListItem"
+    },
+    {
+        "text": "TsvHandler methods",
+        "type": "Title"
+    },
+    {
+        "text": "TsvHandler.",
+        "type": "Title"
+    },
+    {
+        "text": "prepStream",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 Score",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Prepares a music21 stream for the harmonic analysis to go into.\nSpecifically: creates the score, part, and measure streams,\nas well as some (the available) metadata based on the original TSV data.\nWorks like the .template() method,\nexcept that we don't have a score to base the template on as such.",
+        "type": "ListItem"
+    },
+    {
+        "text": "TsvHandler.",
+        "type": "Title"
+    },
+    {
+        "text": "toM21Stream",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 Score",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Takes a list of TabChords (self.chordList, prepared by .tsvToChords()),\nconverts those TabChords in RomanNumerals\n(converting to the music21 representation format as necessary),\ncreates a suitable music21 stream (by running .prepStream() using data from the TabChords),\nand populates that stream with the new RomanNumerals.",
+        "type": "ListItem"
+    },
+    {
+        "text": "TsvHandler.",
+        "type": "Title"
+    },
+    {
+        "text": "tsvToChords",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Converts a list of lists (of the type imported by importTsv)\ninto TabChords (i.e. a list of TabChords).",
+        "type": "ListItem"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.romanText.tsvConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "characterSwaps",
+        "type": "Title"
+    },
+    {
+        "text": "preString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "minor",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "direction",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "'m21-DCML'",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 str",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Character swap function to coordinate between the two notational versions, for instance\nswapping between \u0098%' and \u0098/o' for the notation of half diminished (for example).\n>>> testStr = 'ii%'\n>>> romanText.tsvConverter.characterSwaps(testStr, minor=False, direction='DCML-m21')\n'ii\u00c3\u00b8'",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.romanText.tsvConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "getForm",
+        "type": "Title"
+    },
+    {
+        "text": "rn",
+        "type": "Title"
+    },
+    {
+        "text": "RomanNumeral",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 str",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Takes a music21.roman.RomanNumeral object and returns the string indicating\n\u0098form' expected by the DCML standard.\n>>> romanText.tsvConverter.getForm(roman.RomanNumeral('V'))\n''\n>>> romanText.tsvConverter.getForm(roman.RomanNumeral('viio7'))\n'o'\n>>> romanText.tsvConverter.getForm(roman.RomanNumeral('IVM7'))\n'M'\n>>> romanText.tsvConverter.getForm(roman.RomanNumeral('III+'))\n'+'\n>>> romanText.tsvConverter.getForm(roman.RomanNumeral('IV+M7'))\n'+M'\n>>> romanText.tsvConverter.getForm(roman.RomanNumeral('vii\u00c3\u00b87'))\n'%'",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.romanText.tsvConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "getLocalKey",
+        "type": "Title"
+    },
+    {
+        "text": "local_key",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "global_key",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "convertDCMLToM21",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 str",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Re-casts comparative local key (e.g. \u0098V of G major') in its own terms (\u0098D').\n>>> romanText.tsvConverter.getLocalKey('V', 'G')\n'D'\n\n\n>>> romanText.tsvConverter.getLocalKey('ii', 'C')\n'd'\n\n\n>>> romanText.tsvConverter.getLocalKey('i', 'C')\n'c'\n\n\nBy default, assumes an m21 input, and operates as such:\n>>> romanText.tsvConverter.getLocalKey('#vii', 'a')\n'g#'\n\n\nSet convert=True to convert from DCML to m21 formats. Hence;\n>>> romanText.tsvConverter.getLocalKey('vii', 'a', convertDCMLToM21=True)\n'g'",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.romanText.tsvConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "getSecondaryKey",
+        "type": "Title"
+    },
+    {
+        "text": "rn",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "local_key",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 str",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Separates comparative Roman-numeral for tonicizations like \u0098V/vi' into the component parts of\na Roman-numeral (V) and\na (very) local key (vi)\nand expresses that very local key in relation to the local key also called (DCML column 11).\nWhile .getLocalKey() work on the figure and key pair:\n>>> romanText.tsvConverter.getLocalKey('vi', 'C')\n'a'\n\n\nWith .getSecondaryKey(), we're interested in the relative root of a secondaryRomanNumeral:\n>>> romanText.tsvConverter.getSecondaryKey('V/vi', 'C')\n'a'",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.romanText.tsvConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "handleAddedTones",
+        "type": "Title"
+    },
+    {
+        "text": "dcmlChord",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 str",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Converts DCML added-tone syntax to music21.\n>>> romanText.tsvConverter.handleAddedTones('V(64)')\n'Cad64'\n\n\n>>> romanText.tsvConverter.handleAddedTones('i(4+2)')\n'i[no3][add4][add2]'\n\n\n>>> romanText.tsvConverter.handleAddedTones('Viio7(b4-5)/V')\n'Viio7[no3][no5][addb4]/V'\n\n\nWhen in root position, 7 does not replace 8:\n>>> romanText.tsvConverter.handleAddedTones(\u0098vi(#74)')\n\u0098vi[no3][add#7][add4]'\nWhen not in root position, 7 does replace 8:\n>>> romanText.tsvConverter.handleAddedTones(\u0098ii6(11#7b6)')\n\u0098ii6[no8][no5][add11][add#7][addb6]'\n\u00980' can be used to indicate root-replacement by 7 in a root-position chord.\nWe need to change \u00980' to \u00987' because music21 changes the 0 to \u0098o' (i.e.,\na diminished chord).\n>>> romanText.tsvConverter.handleAddedTones(\u0098i(#0)')\n\u0098i[no1][add#7]'",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.romanText.tsvConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "isMinor",
+        "type": "Title"
+    },
+    {
+        "text": "test_key",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Checks whether a key is minor or not simply by upper vs lower case.\n>>> romanText.tsvConverter.isMinor('F')\nFalse\n\n\n>>> romanText.tsvConverter.isMinor('f')\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.romanText.tsvConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "localKeyAsRn",
+        "type": "Title"
+    },
+    {
+        "text": "local_key",
+        "type": "Title"
+    },
+    {
+        "text": "Key",
+        "type": "Title"
+    },
+    {
+        "text": "global_key",
+        "type": "Title"
+    },
+    {
+        "text": "Key",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 str",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Takes two music21.key.Key objects and returns the roman numeral for\nlocal_key relative to global_key.\n>>> k1 = key.Key('C')\n>>> k2 = key.Key('e')\n>>> romanText.tsvConverter.localKeyAsRn(k1, k2)\n'VI'\n>>> k3 = key.Key('C#')\n>>> romanText.tsvConverter.localKeyAsRn(k3, k2)\n'#VI'\n>>> romanText.tsvConverter.localKeyAsRn(k2, k1)\n'iii'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.romanText.tsvConverter",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

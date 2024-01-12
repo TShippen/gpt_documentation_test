@@ -1,0 +1,1470 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 5: Lists of Lists, Functions, and Recursion",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide, Chapter 4: Lists, Streams (I) and Output",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide, Chapter 6: Streams (II): Hierarchies, Recursion, and Flattening",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide, Chapter 5: Lists of Lists, Functions, and Recursion\nLists of Lists\nFunctions and Recursion\nWrapup",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide\nUser's Guide: Table of Contents\nUser's Guide, Chapter 1: Installing and Getting Started with music21\nUser's Guide, Chapter 2: Notes\nUser's Guide, Chapter 3: Pitches, Durations, and Notes again\nUser's Guide, Chapter 4: Lists, Streams (I) and Output\nUser's Guide, Chapter 5: Lists of Lists, Functions, and Recursion\nUser's Guide, Chapter 6: Streams (II): Hierarchies, Recursion, and Flattening\nUser's Guide, Chapter 7: Chords\nUser's Guide, Chapter 8: Installing MusicXML Readers and File Formats (1)\nUser's Guide, Chapter 9: Chordify\nUser's Guide, Chapter 10: Examples 1\nUser's Guide, Chapter 11: Corpus Searching\nUser's Guide, Chapter 12: Getting Back to Basics: The Music21Object\nUser's Guide, Chapter 13: More Music21Object Attributes and Properties\nUser's Guide: Chapter 14: Time Signatures and Beats\nUser's Guide, Chapter 15: Keys and KeySignatures\nUser's Guide, Chapter 16: TinyNotation\nUser's Guide: Chapter 17: Derivations\nUser's Guide: Chapter 18: Intervals\nUser's Guide, Chapter 19: Advanced Durations (Complex and Tuplets)\nUser's Guide, Chapter 20: Examples 2\nUser's Guide, Chapter 21: Ordering and Sorting of Stream Elements\nUser's Guide, Chapter 22: Graphing and plotting\nUser's Guide, Chapter 23: Roman Numeral Analysis\nUser's Guide, Chapter 24: Configuring Environment Settings\nUser's Guide, Chapter 25: Post-Tonal Tools (1)\nUser's Guide, Chapter 26: Stream Iteration and Filtering\nUser's Guide, Chapter 27: Grace Notes\nUser's Guide, Chapter 28: Lyric Searching\nUser's Guide, Chapter 29: Spanners 1 (Slurs)\nUser's Guide, Chapter 30: Examples 3\nUser's Guide, Chapter 31: Clefs, Ties, and Beams\nUser's Guide, Chapter 32: Articulations\nUser's Guide, Chapter 44: Advanced Graphing (Axes, Plots, and Graphs)\nUser's Guide, Chapter 53: Advanced Corpus and Metadata Searching\nUser's Guide, Chapter 54: Extending Converter with New Formats\nUser's Guide, Chapter 55: Advanced Meter Topics\nUser's Guide, Chapter 58: Understanding Sites and Contexts\nUser's Guide, Chapter 61: TimespanTrees and Verticalities",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 5: Lists of Lists, Functions, and Recursion\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Stream",
+        "type": "Title"
+    },
+    {
+        "text": "Note objects into a",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Stream",
+        "type": "Title"
+    },
+    {
+        "text": ".show()",
+        "type": "Title"
+    },
+    {
+        "text": "Stream",
+        "type": "Title"
+    },
+    {
+        "text": "Stream",
+        "type": "Title"
+    },
+    {
+        "text": "Stream",
+        "type": "Title"
+    },
+    {
+        "text": "Stream",
+        "type": "Title"
+    },
+    {
+        "text": "In this chapter we will work on how to exploit the power of nested\nStreams. We'll begin with a discussion of recursive lists (since\nStreams work a lot like lists). Those with some programming will\nprobably want to skip to the following section.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Lists of Lists\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Lists (similar to Arrays in other languages) can hold all sorts of other\nthings inside them including other lists. So let's begin by creating two\nlists:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "listA",
+        "type": "Title"
+    },
+    {
+        "text": "10",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "20",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "30",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "listB",
+        "type": "Title"
+    },
+    {
+        "text": "listA",
+        "type": "Title"
+    },
+    {
+        "text": "Now when we look at listB, we'll see that listA is inside it:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "listB",
+        "type": "Title"
+    },
+    {
+        "text": "10",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "20",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "30",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "]]",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Notice that when we look at the length (len()) of listB it shows\nthat there are 4 elements, not 6:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "len",
+        "type": "Title"
+    },
+    {
+        "text": "listB",
+        "type": "Title"
+    },
+    {
+        "text": "That's because the fourth element of listB (which, you'll recall, is\ncalled listB[3] not listB[4]) is itself a list, listA:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "listB",
+        "type": "Title"
+    },
+    {
+        "text": "10",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "20",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "30",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "listB",
+        "type": "Title"
+    },
+    {
+        "text": "is",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "listA",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "So if we want to get the third element of listA, there is an easy way to\ndo it:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "listA",
+        "type": "Title"
+    },
+    {
+        "text": "30",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "But we can also think that 30 is also the third element of the\nfourth element of listB. So we can write this instead:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "listB",
+        "type": "Title"
+    },
+    {
+        "text": "][",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "30",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Oh, and since each of these is the last elements of their respective\nlists, we could instead write:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "listB",
+        "type": "Title"
+    },
+    {
+        "text": "][",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "30",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "which means \u009cget the last element of the last element of listB\u009d",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "But what if we just wanted to know every number stored anywhere in\nlistB, even if that number is inside a list itself? This won't work:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "number",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "listB",
+        "type": "Title"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "number",
+        "type": "Title"
+    },
+    {
+        "text": "10",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "20",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "30",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Instead, we have to test to see if each \u009cnumber\u009d in listB is\nactually a number or a list. And if it's a list, we should find each\nnumber in that and print it instead. Here's a slightly more complicated\nset of commands to do that:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "thing",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "listB",
+        "type": "Title"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "isinstance",
+        "type": "Title"
+    },
+    {
+        "text": "thing",
+        "type": "Title"
+    },
+    {
+        "text": "list",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "number",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "thing",
+        "type": "Title"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "number",
+        "type": "Title"
+    },
+    {
+        "text": "else",
+        "type": "Title"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "thing",
+        "type": "Title"
+    },
+    {
+        "text": "10",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "20",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "30",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "That did it! How does it work? Well we look at each \u00e2\u0080\u009cthing\u00e2\u0080\u009d in\n",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "listB",
+        "type": "Title"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "isinstance(thing,",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "list):",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "listA",
+        "type": "Title"
+    },
+    {
+        "text": "else",
+        "type": "Title"
+    },
+    {
+        "text": "(We\u00e2\u0080\u0099re assuming in this case that there are only two types of things\nin ",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "listB",
+        "type": "Title"
+    },
+    {
+        "text": "Functions and Recursion\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "But what if we did this:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "listC",
+        "type": "Title"
+    },
+    {
+        "text": "100",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "200",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "300",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "listB",
+        "type": "Title"
+    },
+    {
+        "text": "Now since listB contains listA, we end up with a list within a list\nwithin a list:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "listC",
+        "type": "Title"
+    },
+    {
+        "text": "100",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "200",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "300",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "10",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "20",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "30",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "]]]",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "If we wanted to print all the numbers in listC, we could write an ugly\nset of commands like this one (I'll understand if you don't actually\nwant to type this and just want to trust me that this works):",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "thing",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "listC",
+        "type": "Title"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "isinstance",
+        "type": "Title"
+    },
+    {
+        "text": "thing",
+        "type": "Title"
+    },
+    {
+        "text": "list",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "innerThing",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "thing",
+        "type": "Title"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "isinstance",
+        "type": "Title"
+    },
+    {
+        "text": "innerThing",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "list",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "number",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "innerThing",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "number",
+        "type": "Title"
+    },
+    {
+        "text": "else",
+        "type": "Title"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "innerThing",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "else",
+        "type": "Title"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "thing",
+        "type": "Title"
+    },
+    {
+        "text": "100",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "200",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "300",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "10",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "20",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "30",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Whew! If this were the only way to do it, I wouldn't blame you if you\ndecided that programming just wasn't worth the headache. Especially\nsince you've probably already guessed that we could make:\nlistD = [4, 5, listC, 6, 7] and get another layer of lists.\nFortunately, there's a little bit of programming magic called\n\u009crecursion\u009d that we can use to get to the heart of the matter. Notice\nthat in the code I just wrote, there are a few lines that are basically\nthe same (with a few words changed) as other parts of the code. With\nrecursive coding, we'll find a way to save those lines to reuse them.\nType these six lines:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "def",
+        "type": "Title"
+    },
+    {
+        "text": "flatPrint",
+        "type": "Title"
+    },
+    {
+        "text": "myList",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "thing",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "myList",
+        "type": "Title"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "isinstance",
+        "type": "Title"
+    },
+    {
+        "text": "thing",
+        "type": "Title"
+    },
+    {
+        "text": "list",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "flatPrint",
+        "type": "Title"
+    },
+    {
+        "text": "thing",
+        "type": "Title"
+    },
+    {
+        "text": "else",
+        "type": "Title"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "thing",
+        "type": "Title"
+    },
+    {
+        "text": "What we've done is created a new function called \u0098'flatPrint'' which\nreaches into lists of lists and prints anything that is in them.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Now try:",
+        "type": "Title"
+    },
+    {
+        "text": "flatPrint",
+        "type": "Title"
+    },
+    {
+        "text": "listC",
+        "type": "Title"
+    },
+    {
+        "text": "100",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "200",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "300",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "10",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "20",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "30",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "It works! But how? Here's how functions work in general (skip this, if\nyou know all about functions):",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "def",
+        "type": "Title"
+    },
+    {
+        "text": "def",
+        "type": "Title"
+    },
+    {
+        "text": "flatPrint",
+        "type": "Title"
+    },
+    {
+        "text": "flatPrint",
+        "type": "Title"
+    },
+    {
+        "text": "flatprint",
+        "type": "Title"
+    },
+    {
+        "text": "Flatprint",
+        "type": "Title"
+    },
+    {
+        "text": "FlAtPrInT",
+        "type": "Title"
+    },
+    {
+        "text": "myList",
+        "type": "Title"
+    },
+    {
+        "text": "myList",
+        "type": "Title"
+    },
+    {
+        "text": "myList",
+        "type": "Title"
+    },
+    {
+        "text": "flatPrint",
+        "type": "Title"
+    },
+    {
+        "text": "flatPrint",
+        "type": "Title"
+    },
+    {
+        "text": "myList",
+        "type": "Title"
+    },
+    {
+        "text": "flatPrint(listC)",
+        "type": "Title"
+    },
+    {
+        "text": "flatPrint",
+        "type": "Title"
+    },
+    {
+        "text": "listC",
+        "type": "Title"
+    },
+    {
+        "text": "myList",
+        "type": "Title"
+    },
+    {
+        "text": "Here's a simpler function that will explain that better. squareMe\ntakes in a number and prints its square:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "def",
+        "type": "Title"
+    },
+    {
+        "text": "squareMe",
+        "type": "Title"
+    },
+    {
+        "text": "number",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "number",
+        "type": "Title"
+    },
+    {
+        "text": "number",
+        "type": "Title"
+    },
+    {
+        "text": "Now we can try:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "squareMe",
+        "type": "Title"
+    },
+    {
+        "text": "10",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "100",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "squareMe",
+        "type": "Title"
+    },
+    {
+        "text": "2.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "6.25",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "pi",
+        "type": "Title"
+    },
+    {
+        "text": "3.14",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "squareMe",
+        "type": "Title"
+    },
+    {
+        "text": "pi",
+        "type": "Title"
+    },
+    {
+        "text": "9.8596",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "pi",
+        "type": "Title"
+    },
+    {
+        "text": "squareMe",
+        "type": "Title"
+    },
+    {
+        "text": "squareMe",
+        "type": "Title"
+    },
+    {
+        "text": "print(pi",
+        "type": "Title"
+    },
+    {
+        "text": "pi)",
+        "type": "Title"
+    },
+    {
+        "text": "pi",
+        "type": "Title"
+    },
+    {
+        "text": "number",
+        "type": "Title"
+    },
+    {
+        "text": "print(number",
+        "type": "Title"
+    },
+    {
+        "text": "number)",
+        "type": "Title"
+    },
+    {
+        "text": "print(number**2)",
+        "type": "Title"
+    },
+    {
+        "text": "At the end of a function, you can either print something out, or\nreturn a value, which can be used for anything else. Here's\ncubeMe which works a lot like squareMe, but it cubes the number\nand instead of printing it, it returns it:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "def",
+        "type": "Title"
+    },
+    {
+        "text": "cubeMe",
+        "type": "Title"
+    },
+    {
+        "text": "number",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "return",
+        "type": "Title"
+    },
+    {
+        "text": "number",
+        "type": "Title"
+    },
+    {
+        "text": "number",
+        "type": "Title"
+    },
+    {
+        "text": "number",
+        "type": "Title"
+    },
+    {
+        "text": "Because we're not printing number, we can assign the value of cubeMe\nto another variable:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "cubeMe",
+        "type": "Title"
+    },
+    {
+        "text": "cubeMe",
+        "type": "Title"
+    },
+    {
+        "text": "512",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Notice that if x = cubeMe(2) and y = cubeMe(x) then we can\nsubstitute cubeMe(2) for x and write:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "cubeMe",
+        "type": "Title"
+    },
+    {
+        "text": "cubeMe",
+        "type": "Title"
+    },
+    {
+        "text": "))",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "512",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Thus, using return instead of print is more powerful, so after\nfinishing with flatPrint, we'll mostly write return and not\nprint functions.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "So, getting back to flatPrint, which you'll recall is (I'm adding\ncommented line numbers again so I can refer to them):",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "def",
+        "type": "Title"
+    },
+    {
+        "text": "flatPrint",
+        "type": "Title"
+    },
+    {
+        "text": "myList",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "# 1",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "thing",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "myList",
+        "type": "Title"
+    },
+    {
+        "text": "# 2",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "isinstance",
+        "type": "Title"
+    },
+    {
+        "text": "thing",
+        "type": "Title"
+    },
+    {
+        "text": "list",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "# 3",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "flatPrint",
+        "type": "Title"
+    },
+    {
+        "text": "thing",
+        "type": "Title"
+    },
+    {
+        "text": "# 4",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "else",
+        "type": "Title"
+    },
+    {
+        "text": "# 5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "thing",
+        "type": "Title"
+    },
+    {
+        "text": "# 6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Let's look at it line by line.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Line 1, as we said, defines the function called flatPrint which\nexpects a list which we'll call myList.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Line 2, says \u009cfor each thing that is inside myList, grab it and call it\nthing.\u009d Once we're done with thing, the program will jump back\nto line 2 to get the next thing.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Line 3, checks if thing is a list. If so, we do line 4. If not we\njump to line 5.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Line 4: This is where the magic happens. We know now that thing is a\nlist. So how do we print a list (which might have other lists inside of\nit)? We use flatPrint! In essence flatPrint uses its own power\nof discerning between lists and numbers to print any internal lists. We\ncall functions that use (\u009ccall\u009d) themselves recursive functions and\nthe process of using recursive functions is called recursion. It's a\npowerful tool and one we'll use in music21 a lot.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Line 5, is where we jump to from line 3 if thing is not a list, so\nthen Python executes line 6",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Line 6, simply prints thing, which we know by now is a number.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "A warning: unlike some programming languages (Java, C, etc.), Python\nnever checks that what you pass to flatPrint actually is a list. So\nyou can try doing something like flatPrint(30) but since 30\nisn't a list, you'll get an error:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "flatPrint",
+        "type": "Title"
+    },
+    {
+        "text": "30",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "---------------------------------------------------------------------------",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "TypeError",
+        "type": "Title"
+    },
+    {
+        "text": "Traceback",
+        "type": "Title"
+    },
+    {
+        "text": "most",
+        "type": "Title"
+    },
+    {
+        "text": "recent",
+        "type": "Title"
+    },
+    {
+        "text": "call",
+        "type": "Title"
+    },
+    {
+        "text": "last",
+        "type": "Title"
+    },
+    {
+        "text": "ipython",
+        "type": "Title"
+    },
+    {
+        "text": "input",
+        "type": "Title"
+    },
+    {
+        "text": "25",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "ea562a34cf18",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "module",
+        "type": "Title"
+    },
+    {
+        "text": "---->",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "flatPrint",
+        "type": "Title"
+    },
+    {
+        "text": "30",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "ipython",
+        "type": "Title"
+    },
+    {
+        "text": "input",
+        "type": "Title"
+    },
+    {
+        "text": "24",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "4772",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "cf1d5b5b",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "flatPrint",
+        "type": "Title"
+    },
+    {
+        "text": "myList",
+        "type": "Title"
+    },
+    {
+        "text": "def",
+        "type": "Title"
+    },
+    {
+        "text": "flatPrint",
+        "type": "Title"
+    },
+    {
+        "text": "myList",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "# 1",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "---->",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "thing",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "myList",
+        "type": "Title"
+    },
+    {
+        "text": "# 2",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "isinstance",
+        "type": "Title"
+    },
+    {
+        "text": "thing",
+        "type": "Title"
+    },
+    {
+        "text": "list",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "# 3",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "flatPrint",
+        "type": "Title"
+    },
+    {
+        "text": "thing",
+        "type": "Title"
+    },
+    {
+        "text": "# 4",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "else",
+        "type": "Title"
+    },
+    {
+        "text": "# 5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "TypeError",
+        "type": "Title"
+    },
+    {
+        "text": "'int'",
+        "type": "Title"
+    },
+    {
+        "text": "object",
+        "type": "Title"
+    },
+    {
+        "text": "is",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "not",
+        "type": "Title"
+    },
+    {
+        "text": "iterable",
+        "type": "Title"
+    },
+    {
+        "text": "For more information on data structures (lists, lists of lists, and\nthings we didn't get to, I suggest watching Google's Python tutorial,\nespecially class 2).",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Wrapup\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Streams",
+        "type": "Title"
+    },
+    {
+        "text": "Streams",
+        "type": "Title"
+    },
+    {
+        "text": "Measures",
+        "type": "Title"
+    },
+    {
+        "text": "Parts",
+        "type": "Title"
+    },
+    {
+        "text": "Score",
+        "type": "Title"
+    },
+    {
+        "text": "Streams of Streams.",
+        "type": "Title"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 5: Lists of Lists, Functions, and Recursion",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

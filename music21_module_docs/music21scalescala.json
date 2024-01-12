@@ -1,0 +1,710 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.scale.scala",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.scale.intervalNetwork",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.search.base",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.scale.scala\nScalaData\nScalaData\nScalaData.getAdjacentCents()\nScalaData.getCentsAboveTonic()\nScalaData.getFileString()\nScalaData.getIntervalSequence()\nScalaData.parse()\nScalaData.setAdjacentCents()\nScalaData.setIntervalSequence()\n\n\n\n\nScalaFile\nScalaFile\nScalaFile.close()\nScalaFile.open()\nScalaFile.openFileLike()\nScalaFile.read()\nScalaFile.readstr()\nScalaFile.write()\nScalaFile.writestr()\n\n\n\n\nScalaPitch\nScalaPitch\nScalaPitch.parse()\n\n\n\n\nFunctions\ngetPaths()\nparse()\nsearch()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.scale.scala\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "This module defines classes for representing Scala scale data,\nincluding Scala pitch representations, storage, and files.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "The Scala format is defined at the following URL:\nhttps://www.huygens-fokker.org/scala/scl_format.html",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "We thank Manuel Op de Coul for allowing us to include\nthe repository (as of May 11, 2011) with music21",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Scala files are encoded as latin-1 (ISO-8859) text",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Utility functions are also provided to search and find\nscales in the Scala scale archive. File names can be found\nwith the search() function.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "To create a ScalaScale instance, simply\nprovide a root pitch and the name of the scale. Scale names are given as\nthe scala .scl filename.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "mbiraScales",
+        "type": "Title"
+    },
+    {
+        "text": "scale",
+        "type": "Title"
+    },
+    {
+        "text": "scala",
+        "type": "Title"
+    },
+    {
+        "text": "search",
+        "type": "Title"
+    },
+    {
+        "text": "'mbira'",
+        "type": "Title"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "mbiraScales",
+        "type": "Title"
+    },
+    {
+        "text": "['mbira_banda.scl', 'mbira_banda2.scl', 'mbira_gondo.scl', 'mbira_kunaka.scl',",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'mbira_kunaka2.scl', 'mbira_mude.scl', 'mbira_mujuru.scl', 'mbira_zimb.scl']",
+        "type": "Title"
+    },
+    {
+        "text": "For most people you'll want to do something like this:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "sc",
+        "type": "Title"
+    },
+    {
+        "text": "scale",
+        "type": "Title"
+    },
+    {
+        "text": "ScalaScale",
+        "type": "Title"
+    },
+    {
+        "text": "'a4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'mbira_banda.scl'",
+        "type": "Title"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "sc",
+        "type": "Title"
+    },
+    {
+        "text": "pitches",
+        "type": "Title"
+    },
+    {
+        "text": "['A4', 'B4(-15c)', 'C#5(-11c)', 'E-5(-7c)', 'E~5(+6c)', 'F#5(+14c)', 'G~5(+1c)', 'B-5(+2c)']",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "ScalaData\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.scale.scala.",
+        "type": "Title"
+    },
+    {
+        "text": "ScalaData",
+        "type": "Title"
+    },
+    {
+        "text": "sourceString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "fileName",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Object representation of data stored in a Scala scale file. This object is used to\naccess Scala information stored in a file. To create a music21 scale with a Scala file,\nuse ScalaScale.\nThis is not called ScalaScale, as this name clashes with the\nScalaScale that uses this object.\n>>> import os\n>>> sf = scale.scala.ScalaFile()\n>>> fp = common.getSourceFilePath() / 'scale' / 'scala' / 'scl' / 'tanaka.scl'\n>>> sf.open(fp)\n>>> sd = sf.read()\n\n\n>>> print(sd.description)  # converted to unicode...\n26-note choice system of Shoh\u00c3\u00a9 Tanaka, Studien i.G.d. reinen Stimmung (1890)\n>>> sd.pitchCount\n26\n\n\nDistances from the tonic:\n>>> cat = sd.getCentsAboveTonic()\n>>> len(cat)\n26\n>>> list(int(round(x)) for x in cat[0:4])\n[71, 92, 112, 182]\n>>> sd.pitchValues[0]\n<music21.scale.scala.ScalaPitch object at 0x10b16fac8>\n>>> sd.pitchValues[0].cents\n70.6724...\n\n\nThis will not add up with centsAboveTonic above, due to rounding\n>>> adj = sd.getAdjacentCents()\n>>> list(int(round(x)) for x in adj[0:4])\n[71, 22, 20, 71]\n\n\nInterval Sequences\n>>> intSeq = sd.getIntervalSequence()\n>>> intSeq[0:4]\n[<music21.interval.Interval m2 (-29c)>,\n <music21.interval.Interval P1 (+22c)>,\n <music21.interval.Interval P1 (+20c)>,\n <music21.interval.Interval m2 (-29c)>]\n\n\nTweak the file and be ready to write it back out:\n>>> sd.pitchValues[0].cents = 73.25\n>>> sd.fileName = 'tanaka2.scl'\n>>> sd.description = 'Tweaked version of tanaka.scl'\n>>> fs = sd.getFileString()\n>>> print(fs)\n! tanaka2.scl\n!\nTweaked version of tanaka.scl\n26\n!\n73.25\n92.17...\n111.73...\n182.40...\n\n\nBe sure to reencode fs as latin-1 before writing to disk.\n>>> sf.close()",
+        "type": "ListItem"
+    },
+    {
+        "text": "ScalaData methods",
+        "type": "Title"
+    },
+    {
+        "text": "ScalaData.",
+        "type": "Title"
+    },
+    {
+        "text": "getAdjacentCents",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get cents values between adjacent intervals.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ScalaData.",
+        "type": "Title"
+    },
+    {
+        "text": "getCentsAboveTonic",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a list of cent values above the implied tonic.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ScalaData.",
+        "type": "Title"
+    },
+    {
+        "text": "getFileString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a unicode-string suitable for writing a Scala file\nThe unicode string should be encoded in Latin-1 for maximum\nScala compatibility.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ScalaData.",
+        "type": "Title"
+    },
+    {
+        "text": "getIntervalSequence",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get the scale as a list of Interval objects.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ScalaData.",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Parse a scala file delivered as a long string with line breaks",
+        "type": "ListItem"
+    },
+    {
+        "text": "ScalaData.",
+        "type": "Title"
+    },
+    {
+        "text": "setAdjacentCents",
+        "type": "Title"
+    },
+    {
+        "text": "centList",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a list of adjacent cent values, create the necessary ScalaPitch\nobjects and update them",
+        "type": "ListItem"
+    },
+    {
+        "text": "ScalaData.",
+        "type": "Title"
+    },
+    {
+        "text": "setIntervalSequence",
+        "type": "Title"
+    },
+    {
+        "text": "iList",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Set the scale from a list of Interval objects.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ScalaFile\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.scale.scala.",
+        "type": "Title"
+    },
+    {
+        "text": "ScalaFile",
+        "type": "Title"
+    },
+    {
+        "text": "data",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Interface for reading and writing scala files.\nOn reading, returns a ScalaData object.\n>>> import os\n>>> sf = scale.scala.ScalaFile()\n>>> fp = common.getSourceFilePath() / 'scale' / 'scala' / 'scl' / 'tanaka.scl'\n>>> sf.open(fp)\n>>> sd = sf.read()\n>>> sd\n<music21.scale.scala.ScalaData object at 0x10b170e10>\n>>> sd is sf.data\nTrue\n>>> sf.fileName.endswith('tanaka.scl')\nTrue\n>>> sd.pitchCount\n26\n>>> sf.close()",
+        "type": "ListItem"
+    },
+    {
+        "text": "ScalaFile methods",
+        "type": "Title"
+    },
+    {
+        "text": "ScalaFile.",
+        "type": "Title"
+    },
+    {
+        "text": "close",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "ScalaFile.",
+        "type": "Title"
+    },
+    {
+        "text": "open",
+        "type": "Title"
+    },
+    {
+        "text": "fp",
+        "type": "Title"
+    },
+    {
+        "text": "mode",
+        "type": "Title"
+    },
+    {
+        "text": "'r'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Open a file for reading",
+        "type": "ListItem"
+    },
+    {
+        "text": "ScalaFile.",
+        "type": "Title"
+    },
+    {
+        "text": "openFileLike",
+        "type": "Title"
+    },
+    {
+        "text": "fileLike",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Assign a file-like object, such as those provided by StringIO, as an open file object.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ScalaFile.",
+        "type": "Title"
+    },
+    {
+        "text": "read",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Read a file. Note that this calls readstr, which processes all tokens.\nIf number is given, a work number will be extracted if possible.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ScalaFile.",
+        "type": "Title"
+    },
+    {
+        "text": "readstr",
+        "type": "Title"
+    },
+    {
+        "text": "strSrc",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Read a string and process all Tokens. Returns a ABCHandler instance.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ScalaFile.",
+        "type": "Title"
+    },
+    {
+        "text": "write",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "ScalaFile.",
+        "type": "Title"
+    },
+    {
+        "text": "writestr",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "ScalaPitch\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.scale.scala.",
+        "type": "Title"
+    },
+    {
+        "text": "ScalaPitch",
+        "type": "Title"
+    },
+    {
+        "text": "sourceString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Representation of a scala pitch notation\n>>> sp = scale.scala.ScalaPitch(' 1066.667 cents')\n>>> print(sp.parse())\n1066.667\n\n\n>>> sp = scale.scala.ScalaPitch(' 2/1')\n>>> sp.parse()\n1200.0\n>>> sp.parse('100.0 C#')\n100.0\n>>> [sp.parse(x) for x in ['89/84', '55/49', '44/37', '63/50', '4/3', '99/70', '442/295',\n...     '27/17', '37/22', '98/55', '15/8', '2/1']]\n[100.0992..., 199.9798..., 299.9739..., 400.10848..., 498.04499...,\n 600.0883..., 699.9976..., 800.9095..., 900.0260...,\n 1000.0201..., 1088.2687..., 1200.0]",
+        "type": "ListItem"
+    },
+    {
+        "text": "ScalaPitch methods",
+        "type": "Title"
+    },
+    {
+        "text": "ScalaPitch.",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "sourceString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Parse the source string and set self.cents.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.scale.scala.",
+        "type": "Title"
+    },
+    {
+        "text": "getPaths",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get all scala scale paths. This is called once or the module and\ncached as SCALA_PATHS, which should be used instead of calls to this function.\n>>> a = scale.scala.getPaths()\n>>> len(a) >= 3800\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.scale.scala.",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "target",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get a ScalaData object from\nthe bundled SCL archive or a file path.\n>>> ss = scale.scala.parse('balafon6')\n>>> ss.description\n'Observed balafon tuning from Burma, Helmholtz/Ellis p. 518, nr.84'\n>>> [str(i) for i in ss.getIntervalSequence()]\n['<music21.interval.Interval m2 (+14c)>', '<music21.interval.Interval M2 (+36c)>',\n'<music21.interval.Interval M2>', '<music21.interval.Interval m2 (+37c)>',\n'<music21.interval.Interval M2 (-49c)>', '<music21.interval.Interval M2 (-6c)>',\n'<music21.interval.Interval M2 (-36c)>']\n\n\n>>> scale.scala.parse('incorrectFileName.scl') is None\nTrue\n\n\n>>> ss = scale.scala.parse('barbourChrom1')\n>>> print(ss.description)\nBarbour's #1 Chromatic\n>>> ss.fileName\n'barbour_chrom1.scl'\n\n\n>>> ss = scale.scala.parse('blackj_gws.scl')\n>>> ss.description\n'Detempered Blackjack in 1/4 kleismic marvel tuning'",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.scale.scala.",
+        "type": "Title"
+    },
+    {
+        "text": "search",
+        "type": "Title"
+    },
+    {
+        "text": "target",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Search the scala archive for matches based on a string\n>>> mbiraScales = scale.scala.search('mbira')\n>>> mbiraScales\n['mbira_banda.scl', 'mbira_banda2.scl', 'mbira_gondo.scl', 'mbira_kunaka.scl',\n 'mbira_kunaka2.scl', 'mbira_mude.scl', 'mbira_mujuru.scl', 'mbira_zimb.scl']",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.scale.scala",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

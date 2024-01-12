@@ -1,0 +1,1398 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.features.base",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.expressions",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.features.jSymbolic",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.features.base\nDataSet\nDataSet\nDataSet.addData()\nDataSet.addFeatureExtractors()\nDataSet.addMultipleData()\nDataSet.getAttributeLabels()\nDataSet.getClassLabel()\nDataSet.getClassPositionLabels()\nDataSet.getDiscreteLabels()\nDataSet.getFeaturesAsList()\nDataSet.getString()\nDataSet.getUniqueClassValues()\nDataSet.process()\nDataSet.write()\n\n\n\n\nFeature\nFeature\nFeature.normalize()\nFeature.prepareVectors()\n\n\n\n\nFeatureExtractor\nFeatureExtractor\nFeatureExtractor.extract()\nFeatureExtractor.fillFeatureAttributes()\nFeatureExtractor.getAttributeLabels()\nFeatureExtractor.getBlankFeature()\nFeatureExtractor.prepareFeature()\nFeatureExtractor.process()\nFeatureExtractor.setData()\n\n\n\n\nDataInstance\nDataInstance\nDataInstance.__getitem__()\nDataInstance.getClassValue()\nDataInstance.getId()\nDataInstance.parseStream()\nDataInstance.setClassLabel()\nDataInstance.setupPostStreamParse()\n\n\n\n\nStreamForms\nStreamForms\nStreamForms.__getitem__()\nStreamForms.formBeatHistogram()\nStreamForms.formChordify()\nStreamForms.formContourList()\nStreamForms.formGetElementsByClassMeasure()\nStreamForms.formMidiIntervalHistogram()\nStreamForms.formMidiPitchHistogram()\nStreamForms.formPartitionByInstrument()\nStreamForms.formPitchClassHistogram()\nStreamForms.formPitchClassSetHistogram()\nStreamForms.formQuarterLengthHistogram()\nStreamForms.formSecondsMap()\nStreamForms.formSetClassHistogram()\nStreamForms.formTypesHistogram()\nStreamForms.keys()\n\n\n\n\nFunctions\nallFeaturesAsList()\nextractorById()\nextractorsById()\ngetIndex()\nvectorById()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.features.base\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "DataSet\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.features.base.",
+        "type": "Title"
+    },
+    {
+        "text": "DataSet",
+        "type": "Title"
+    },
+    {
+        "text": "classLabel",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "featureExtractors",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A set of features, as well as a collection of data to operate on.\nComprises multiple DataInstance objects, a FeatureSet, and an OutputFormat.\n>>> ds = features.DataSet(classLabel='Composer')\n>>> f = [features.jSymbolic.PitchClassDistributionFeature,\n...      features.jSymbolic.ChangesOfMeterFeature,\n...      features.jSymbolic.InitialTimeSignatureFeature]\n>>> ds.addFeatureExtractors(f)\n>>> ds.addData('bwv66.6', classValue='Bach')\n>>> ds.addData('bach/bwv324.xml', classValue='Bach')\n>>> ds.process()\n>>> ds.getFeaturesAsList()[0]\n['bwv66.6', 0.196..., 0.0736..., 0.006..., 0.098..., 0.0368..., 0.177..., 0.0,\n 0.085..., 0.134..., 0.018..., 0.171..., 0.0, 0, 4, 4, 'Bach']\n>>> ds.getFeaturesAsList()[1]\n['bach/bwv324.xml', 0.25, 0.0288..., 0.125, 0.0, 0.144..., 0.125, 0.0, 0.163..., 0.0, 0.134...,\n0.0288..., 0.0, 0, 4, 4, 'Bach']\n\n\n>>> ds = ds.getString()\n\n\nBy default, all exceptions are caught and printed if debug mode is on.\nSet ds.failFast = True to not catch them.\nSet ds.quiet = False to print them regardless of debug mode.",
+        "type": "ListItem"
+    },
+    {
+        "text": "DataSet methods",
+        "type": "Title"
+    },
+    {
+        "text": "DataSet.",
+        "type": "Title"
+    },
+    {
+        "text": "addData",
+        "type": "Title"
+    },
+    {
+        "text": "dataOrStreamOrPath",
+        "type": "Title"
+    },
+    {
+        "text": "classValue",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "id",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Add a Stream, DataInstance, MetadataEntry, or path (Posix or str)\nto a corpus or local file to this data set.\nThe class value passed here is assumed to be the same as\nthe classLabel assigned at startup.",
+        "type": "ListItem"
+    },
+    {
+        "text": "DataSet.",
+        "type": "Title"
+    },
+    {
+        "text": "addFeatureExtractors",
+        "type": "Title"
+    },
+    {
+        "text": "values",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Add one or more FeatureExtractor objects, either as a list or as an individual object.",
+        "type": "ListItem"
+    },
+    {
+        "text": "DataSet.",
+        "type": "Title"
+    },
+    {
+        "text": "addMultipleData",
+        "type": "Title"
+    },
+    {
+        "text": "dataList",
+        "type": "Title"
+    },
+    {
+        "text": "classValues",
+        "type": "Title"
+    },
+    {
+        "text": "ids",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "add multiple data points at the same time.\nRequires an iterable (including MetadataBundle) for dataList holding\ntypes that can be passed to addData, and an equally sized list of dataValues\nand an equally sized list of ids (or None)\nclassValues can also be a pickleable function that will be called on\neach instance after parsing, as can ids.",
+        "type": "ListItem"
+    },
+    {
+        "text": "DataSet.",
+        "type": "Title"
+    },
+    {
+        "text": "getAttributeLabels",
+        "type": "Title"
+    },
+    {
+        "text": "includeClassLabel",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "includeId",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a list of all attribute labels. Optionally add a class\nlabel field and/or an id field.\n>>> f = [features.jSymbolic.PitchClassDistributionFeature,\n...      features.jSymbolic.ChangesOfMeterFeature]\n>>> ds = features.DataSet(classLabel='Composer', featureExtractors=f)\n>>> ds.getAttributeLabels(includeId=False)\n['Pitch_Class_Distribution_0',\n 'Pitch_Class_Distribution_1',\n ...\n ...\n 'Pitch_Class_Distribution_11',\n 'Changes_of_Meter',\n 'Composer']",
+        "type": "ListItem"
+    },
+    {
+        "text": "DataSet.",
+        "type": "Title"
+    },
+    {
+        "text": "getClassLabel",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "DataSet.",
+        "type": "Title"
+    },
+    {
+        "text": "getClassPositionLabels",
+        "type": "Title"
+    },
+    {
+        "text": "includeId",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return column labels for the presence of a class definition\n>>> f = [features.jSymbolic.PitchClassDistributionFeature,\n...      features.jSymbolic.ChangesOfMeterFeature]\n>>> ds = features.DataSet(classLabel='Composer', featureExtractors=f)\n>>> ds.getClassPositionLabels()\n[None, False, False, False, False, False, False, False, False,\n False, False, False, False, False, True]",
+        "type": "ListItem"
+    },
+    {
+        "text": "DataSet.",
+        "type": "Title"
+    },
+    {
+        "text": "getDiscreteLabels",
+        "type": "Title"
+    },
+    {
+        "text": "includeClassLabel",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "includeId",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return column labels for discrete status.\n>>> f = [features.jSymbolic.PitchClassDistributionFeature,\n...      features.jSymbolic.ChangesOfMeterFeature]\n>>> ds = features.DataSet(classLabel='Composer', featureExtractors=f)\n>>> ds.getDiscreteLabels()\n[None, False, False, False, False, False, False, False, False, False,\n False, False, False, True, True]",
+        "type": "ListItem"
+    },
+    {
+        "text": "DataSet.",
+        "type": "Title"
+    },
+    {
+        "text": "getFeaturesAsList",
+        "type": "Title"
+    },
+    {
+        "text": "includeClassLabel",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "includeId",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "concatenateLists",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get processed data as a list of lists, merging any sub-lists\nin multidimensional features.",
+        "type": "ListItem"
+    },
+    {
+        "text": "DataSet.",
+        "type": "Title"
+    },
+    {
+        "text": "getString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "outputFmt",
+        "type": "Title"
+    },
+    {
+        "text": "'tab'",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get a string representation of the data set in a specific format.",
+        "type": "ListItem"
+    },
+    {
+        "text": "DataSet.",
+        "type": "Title"
+    },
+    {
+        "text": "getUniqueClassValues",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a list of unique class values.",
+        "type": "ListItem"
+    },
+    {
+        "text": "DataSet.",
+        "type": "Title"
+    },
+    {
+        "text": "process",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Process all Data with all FeatureExtractors.\nProcessed data is stored internally as numerous Feature objects.",
+        "type": "ListItem"
+    },
+    {
+        "text": "DataSet.",
+        "type": "Title"
+    },
+    {
+        "text": "write",
+        "type": "Title"
+    },
+    {
+        "text": "fp",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "format",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "includeClassLabel",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Set the output format object.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Feature\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.features.base.",
+        "type": "Title"
+    },
+    {
+        "text": "Feature",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "An object representation of a feature, capable of presentation in a variety of formats,\nand returned from FeatureExtractor objects.\nFeature objects are simple. It is FeatureExtractors that store all metadata and processing\nroutines for creating Feature objects.  Normally you wouldn't create one of these yourself.\n>>> myFeature = features.Feature()\n>>> myFeature.dimensions = 3\n>>> myFeature.name = 'Random arguments'\n>>> myFeature.isSequential = True\n\n\nThis is a continuous Feature, so we will set discrete to false.\n>>> myFeature.discrete = False\n\n\nThe .vector is the most important part of the feature, and it starts out as None.\n>>> myFeature.vector is None\nTrue\n\n\nCalling .prepareVector() gives it a list of Zeros of the length of dimensions.\n>>> myFeature.prepareVectors()\n\n\n>>> myFeature.vector\n[0, 0, 0]\n\n\nNow we can set the vector parts:\n>>> myFeature.vector[0] = 4\n>>> myFeature.vector[1] = 2\n>>> myFeature.vector[2] = 1\n\n\nIt's okay just to assign a new list to .vector itself.\nThere is a \u009cnormalize()\u009d method which normalizes the values\nof a histogram to sum to 1.\n>>> myFeature.normalize()\n>>> myFeature.vector\n[0.571..., 0.285..., 0.142...]\n\n\nAnd that's it! FeatureExtractors are much more interesting.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Feature methods",
+        "type": "Title"
+    },
+    {
+        "text": "Feature.",
+        "type": "Title"
+    },
+    {
+        "text": "normalize",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Normalizes the vector so that the sum of its elements is 1.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Feature.",
+        "type": "Title"
+    },
+    {
+        "text": "prepareVectors",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Prepare the vector stored in this feature.",
+        "type": "ListItem"
+    },
+    {
+        "text": "FeatureExtractor\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.features.base.",
+        "type": "Title"
+    },
+    {
+        "text": "FeatureExtractor",
+        "type": "Title"
+    },
+    {
+        "text": "dataOrStream",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A model of process that extracts a feature from a Music21 Stream.\nThe main public interface is the extract() method.\nThe extractor can be passed a Stream or a reference to a DataInstance.\nAll Streams are internally converted to a DataInstance if necessary.\nUsage of a DataInstance offers significant performance advantages, as common forms of\nthe Stream are cached for easy processing.",
+        "type": "ListItem"
+    },
+    {
+        "text": "FeatureExtractor methods",
+        "type": "Title"
+    },
+    {
+        "text": "FeatureExtractor.",
+        "type": "Title"
+    },
+    {
+        "text": "extract",
+        "type": "Title"
+    },
+    {
+        "text": "source",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Extract the feature and return the result.",
+        "type": "ListItem"
+    },
+    {
+        "text": "FeatureExtractor.",
+        "type": "Title"
+    },
+    {
+        "text": "fillFeatureAttributes",
+        "type": "Title"
+    },
+    {
+        "text": "feature",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Fill the attributes of a Feature with the descriptors in the FeatureExtractor.",
+        "type": "ListItem"
+    },
+    {
+        "text": "FeatureExtractor.",
+        "type": "Title"
+    },
+    {
+        "text": "getAttributeLabels",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a list of string in a form that is appropriate for data storage.\n>>> fe = features.jSymbolic.AmountOfArpeggiationFeature()\n>>> fe.getAttributeLabels()\n['Amount_of_Arpeggiation']\n\n\n>>> fe = features.jSymbolic.FifthsPitchHistogramFeature()\n>>> fe.getAttributeLabels()\n['Fifths_Pitch_Histogram_0', 'Fifths_Pitch_Histogram_1', 'Fifths_Pitch_Histogram_2',\n 'Fifths_Pitch_Histogram_3', 'Fifths_Pitch_Histogram_4', 'Fifths_Pitch_Histogram_5',\n 'Fifths_Pitch_Histogram_6', 'Fifths_Pitch_Histogram_7', 'Fifths_Pitch_Histogram_8',\n 'Fifths_Pitch_Histogram_9', 'Fifths_Pitch_Histogram_10', 'Fifths_Pitch_Histogram_11']",
+        "type": "ListItem"
+    },
+    {
+        "text": "FeatureExtractor.",
+        "type": "Title"
+    },
+    {
+        "text": "getBlankFeature",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a properly configured plain feature as a placeholder\n>>> fe = features.jSymbolic.InitialTimeSignatureFeature()\n>>> fe.name\n'Initial Time Signature'\n\n\n>>> blankF = fe.getBlankFeature()\n>>> blankF.vector\n[0, 0]\n>>> blankF.name\n'Initial Time Signature'",
+        "type": "ListItem"
+    },
+    {
+        "text": "FeatureExtractor.",
+        "type": "Title"
+    },
+    {
+        "text": "prepareFeature",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Prepare a new Feature object for data acquisition.\n>>> s = stream.Stream()\n>>> fe = features.jSymbolic.InitialTimeSignatureFeature(s)\n>>> fe.prepareFeature()\n>>> fe.feature.name\n'Initial Time Signature'\n>>> fe.feature.dimensions\n2\n>>> fe.feature.vector\n[0, 0]",
+        "type": "ListItem"
+    },
+    {
+        "text": "FeatureExtractor.",
+        "type": "Title"
+    },
+    {
+        "text": "process",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Do processing necessary, storing result in _feature.",
+        "type": "ListItem"
+    },
+    {
+        "text": "FeatureExtractor.",
+        "type": "Title"
+    },
+    {
+        "text": "setData",
+        "type": "Title"
+    },
+    {
+        "text": "dataOrStream",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Set the data that this FeatureExtractor will process.\nEither a Stream or a DataInstance object can be provided.",
+        "type": "ListItem"
+    },
+    {
+        "text": "DataInstance\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.features.base.",
+        "type": "Title"
+    },
+    {
+        "text": "DataInstance",
+        "type": "Title"
+    },
+    {
+        "text": "streamOrPath",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "id",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A data instance for analysis. This object prepares a Stream\n(by stripping ties, etc.) and stores\nmultiple commonly-used stream representations once, providing rapid processing.",
+        "type": "ListItem"
+    },
+    {
+        "text": "DataInstance methods",
+        "type": "Title"
+    },
+    {
+        "text": "DataInstance.",
+        "type": "Title"
+    },
+    {
+        "text": "__getitem__",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get a form of this Stream, using a cached version if available.\n>>> di = features.DataInstance('bach/bwv66.6')\n>>> len(di['flat'])\n197\n>>> len(di['flat.pitches'])\n163\n>>> len(di['flat.notes'])\n163\n>>> len(di['getElementsByClass(Measure)'])\n40\n>>> len(di['flat.getElementsByClass(TimeSignature)'])\n4",
+        "type": "ListItem"
+    },
+    {
+        "text": "DataInstance.",
+        "type": "Title"
+    },
+    {
+        "text": "getClassValue",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "DataInstance.",
+        "type": "Title"
+    },
+    {
+        "text": "getId",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "DataInstance.",
+        "type": "Title"
+    },
+    {
+        "text": "parseStream",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "If a path to a Stream has been passed in at creation,\nthen this will parse it (whether it's a corpus string,\na converter string (url or filepath), a pathlib.Path,\nor a metadata.bundles.MetadataEntry).",
+        "type": "ListItem"
+    },
+    {
+        "text": "DataInstance.",
+        "type": "Title"
+    },
+    {
+        "text": "setClassLabel",
+        "type": "Title"
+    },
+    {
+        "text": "classLabel",
+        "type": "Title"
+    },
+    {
+        "text": "classValue",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Set the class label, as well as the class value if known.\nThe class label is the attribute name used to define the class of this data instance.\n>>> s = corpus.parse('bwv66.6')\n>>> di = features.DataInstance(s)\n>>> di.setClassLabel('Composer', 'Bach')",
+        "type": "ListItem"
+    },
+    {
+        "text": "DataInstance.",
+        "type": "Title"
+    },
+    {
+        "text": "setupPostStreamParse",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Set up the StreamForms objects and other things that\nneed to be done after a Stream is passed in but before\nfeature extracting is run.\nRun automatically at instantiation if a Stream is passed in.",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamForms\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.features.base.",
+        "type": "Title"
+    },
+    {
+        "text": "StreamForms",
+        "type": "Title"
+    },
+    {
+        "text": "streamObj",
+        "type": "Title"
+    },
+    {
+        "text": "Stream",
+        "type": "Title"
+    },
+    {
+        "text": "prepareStream",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A dictionary-like wrapper of a Stream, providing\nnumerous representations, generated on-demand, and cached.\nA single StreamForms object can be created for an\nentire Score, as well as one for each Part and/or Voice.\nA DataSet object manages one or more StreamForms\nobjects, and exposes them to FeatureExtractors for usage.\nThe streamObj is stored as self.stream and if \u009cprepared\u009d then\nthe prepared form is stored as .prepared\nA dictionary .forms stores various intermediary representations\nof the stream which is the main power of this routine, making\nit simple to add additional feature extractors at low additional\ntime cost.",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamForms methods",
+        "type": "Title"
+    },
+    {
+        "text": "StreamForms.",
+        "type": "Title"
+    },
+    {
+        "text": "__getitem__",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 Stream",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get a form of this Stream, using a cached version if available.",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamForms.",
+        "type": "Title"
+    },
+    {
+        "text": "formBeatHistogram",
+        "type": "Title"
+    },
+    {
+        "text": "secondsMap",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamForms.",
+        "type": "Title"
+    },
+    {
+        "text": "formChordify",
+        "type": "Title"
+    },
+    {
+        "text": "prepared",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamForms.",
+        "type": "Title"
+    },
+    {
+        "text": "formContourList",
+        "type": "Title"
+    },
+    {
+        "text": "prepared",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamForms.",
+        "type": "Title"
+    },
+    {
+        "text": "formGetElementsByClassMeasure",
+        "type": "Title"
+    },
+    {
+        "text": "prepared",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamForms.",
+        "type": "Title"
+    },
+    {
+        "text": "formMidiIntervalHistogram",
+        "type": "Title"
+    },
+    {
+        "text": "unused",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamForms.",
+        "type": "Title"
+    },
+    {
+        "text": "formMidiPitchHistogram",
+        "type": "Title"
+    },
+    {
+        "text": "pitches",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamForms.",
+        "type": "Title"
+    },
+    {
+        "text": "formPartitionByInstrument",
+        "type": "Title"
+    },
+    {
+        "text": "prepared",
+        "type": "Title"
+    },
+    {
+        "text": "Stream",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamForms.",
+        "type": "Title"
+    },
+    {
+        "text": "formPitchClassHistogram",
+        "type": "Title"
+    },
+    {
+        "text": "pitches",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamForms.",
+        "type": "Title"
+    },
+    {
+        "text": "formPitchClassSetHistogram",
+        "type": "Title"
+    },
+    {
+        "text": "prepared",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamForms.",
+        "type": "Title"
+    },
+    {
+        "text": "formQuarterLengthHistogram",
+        "type": "Title"
+    },
+    {
+        "text": "prepared",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamForms.",
+        "type": "Title"
+    },
+    {
+        "text": "formSecondsMap",
+        "type": "Title"
+    },
+    {
+        "text": "prepared",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamForms.",
+        "type": "Title"
+    },
+    {
+        "text": "formSetClassHistogram",
+        "type": "Title"
+    },
+    {
+        "text": "prepared",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamForms.",
+        "type": "Title"
+    },
+    {
+        "text": "formTypesHistogram",
+        "type": "Title"
+    },
+    {
+        "text": "prepared",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamForms.",
+        "type": "Title"
+    },
+    {
+        "text": "keys",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 KeysView[str]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.features.base.",
+        "type": "Title"
+    },
+    {
+        "text": "allFeaturesAsList",
+        "type": "Title"
+    },
+    {
+        "text": "streamInput",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "returns a list containing ALL currently implemented feature extractors\nstreamInput can be a Stream, DataInstance, or path to a corpus or local\nfile to this data set.\n>>> s = converter.parse('tinynotation: 4/4 c4 d e2')\n>>> f = features.allFeaturesAsList(s)\n>>> f[2:5]\n[[2], [2], [1.0]]\n>>> len(f) > 85\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.features.base.",
+        "type": "Title"
+    },
+    {
+        "text": "extractorById",
+        "type": "Title"
+    },
+    {
+        "text": "idOrList",
+        "type": "Title"
+    },
+    {
+        "text": "library",
+        "type": "Title"
+    },
+    {
+        "text": "('jSymbolic', 'native')",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get the first feature matched by extractorsById().\n>>> s = stream.Stream()\n>>> s.append(note.Note('A4'))\n>>> fe = features.extractorById('p20')(s)  # call class\n>>> fe.extract().vector\n[1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.features.base.",
+        "type": "Title"
+    },
+    {
+        "text": "extractorsById",
+        "type": "Title"
+    },
+    {
+        "text": "idOrList",
+        "type": "Title"
+    },
+    {
+        "text": "library",
+        "type": "Title"
+    },
+    {
+        "text": "('jSymbolic', 'native')",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given one or more FeatureExtractor ids, return the\nappropriate  subclass. An optional library argument can be added to define which\nmodule is used. Current options are jSymbolic and native.\n>>> features.extractorsById('p20')\n[<class 'music21.features.jSymbolic.PitchClassDistributionFeature'>]\n\n\n>>> [x.id for x in features.extractorsById('p20')]\n['P20']\n>>> [x.id for x in features.extractorsById(['p19', 'p20'])]\n['P19', 'P20']\n\n\nNormalizes case\u2026\n>>> [x.id for x in features.extractorsById(['r31', 'r32', 'r33', 'r34', 'r35', 'p1', 'p2'])]\n['R31', 'R32', 'R33', 'R34', 'R35', 'P1', 'P2']\n\n\nGet all feature extractors from all libraries\n>>> y = [x.id for x in features.extractorsById('all')]\n>>> y[0:3], y[-3:-1]\n(['M1', 'M2', 'M3'], ['CS12', 'MC1'])",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.features.base.",
+        "type": "Title"
+    },
+    {
+        "text": "getIndex",
+        "type": "Title"
+    },
+    {
+        "text": "featureString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "extractorType",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns the list index of the given feature extractor and the feature extractor\ncategory (jsymbolic or native). If feature extractor string is not in either\njsymbolic or native feature extractors, returns None\noptionally include the extractorType (\u0098jsymbolic' or \u0098native') if known\nand searching will be made more efficient\n>>> features.getIndex('Range')\n(61, 'jsymbolic')\n>>> features.getIndex('Ends With Landini Melodic Contour')\n(18, 'native')\n>>> features.getIndex('aBrandNewFeature!') is None\nTrue\n>>> features.getIndex('Fifths Pitch Histogram', 'jsymbolic')\n(70, 'jsymbolic')\n>>> features.getIndex('Tonal Certainty', 'native')\n(1, 'native')",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.features.base.",
+        "type": "Title"
+    },
+    {
+        "text": "vectorById",
+        "type": "Title"
+    },
+    {
+        "text": "streamObj",
+        "type": "Title"
+    },
+    {
+        "text": "vectorId",
+        "type": "Title"
+    },
+    {
+        "text": "library",
+        "type": "Title"
+    },
+    {
+        "text": "('jSymbolic', 'native')",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Utility function to get a vector from an extractor\n>>> s = stream.Stream()\n>>> s.append(note.Note('A4'))\n>>> features.vectorById(s, 'p20')\n[1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.features.base",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

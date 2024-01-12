@@ -1,0 +1,686 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.capella.fromCapellaXML",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.braille.translate",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.chord",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.capella.fromCapellaXML\nCapellaImporter\nCapellaImporter\nCapellaImporter.accidentalFromAlter()\nCapellaImporter.barlineListFromBarline()\nCapellaImporter.chordOrNoteFromChord()\nCapellaImporter.clefFromClefSign()\nCapellaImporter.domElementFromText()\nCapellaImporter.durationFromDuration()\nCapellaImporter.keySignatureFromKeySign()\nCapellaImporter.lyricFromVerse()\nCapellaImporter.lyricListFromLyric()\nCapellaImporter.noteFromHead()\nCapellaImporter.notesFromHeads()\nCapellaImporter.parseXMLText()\nCapellaImporter.partScoreFromSystemScore()\nCapellaImporter.readCapellaXMLFile()\nCapellaImporter.restFromRest()\nCapellaImporter.scoreFromFile()\nCapellaImporter.slurFromDrawObjSlur()\nCapellaImporter.streamFromNoteObjects()\nCapellaImporter.systemFromSystem()\nCapellaImporter.systemScoreFromScore()\nCapellaImporter.tieFromTie()\nCapellaImporter.timeSignatureFromTimeSign()\nCapellaImporter.tupletFromTuplet()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.capella.fromCapellaXML\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "A beta version of a complete .capx to music21 converter.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Currently only handles one <voice> per <staff> and does not deal with\nSlurs, Dynamics, Ornamentation, etc.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Does not handle pickup notes, which are defined simply with an early barline\n(same as incomplete bars at the end).",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "CapellaImporter\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.capella.fromCapellaXML.",
+        "type": "Title"
+    },
+    {
+        "text": "CapellaImporter",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Object for importing .capx, CapellaXML files into music21 (from which they can be\nconverted to musicxml, MIDI, lilypond, etc.)\nNote that Capella stores files closer to their printed versions \u2014 that is to say,\nSystems enclose all the parts for that system and have new clefs etc.",
+        "type": "ListItem"
+    },
+    {
+        "text": "CapellaImporter methods",
+        "type": "Title"
+    },
+    {
+        "text": "CapellaImporter.",
+        "type": "Title"
+    },
+    {
+        "text": "accidentalFromAlter",
+        "type": "Title"
+    },
+    {
+        "text": "alterElement",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "return a Accidental object from an <alter> tag.\n>>> ci = capella.fromCapellaXML.CapellaImporter()\n>>> alter = ci.domElementFromText('<alter step=\"-1\"/>')\n>>> ci.accidentalFromAlter(alter)\n<music21.pitch.Accidental flat>\n\n\nThe only known display type is \u009csuppress\u009d\n>>> alter = ci.domElementFromText('<alter step=\"2\" display=\"suppress\"/>')\n>>> accidentalObject = ci.accidentalFromAlter(alter)\n>>> accidentalObject\n<music21.pitch.Accidental double-sharp>\n>>> accidentalObject.displayType\n'never'",
+        "type": "ListItem"
+    },
+    {
+        "text": "CapellaImporter.",
+        "type": "Title"
+    },
+    {
+        "text": "barlineListFromBarline",
+        "type": "Title"
+    },
+    {
+        "text": "barlineElement",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Indication that the barline at this point should be something other than normal.\nCapella does not indicate measure breaks or barline breaks normally, so the only barlines\nthat are indicated are unusual ones.\nReturns a LIST of Barline or Repeat objects\nbecause the repEndBegin type requires two bar.Repeat objects to encode in music21.\n>>> ci = capella.fromCapellaXML.CapellaImporter()\n>>> barlineTag = ci.domElementFromText('<barline type=\"end\"/>')\n>>> ci.barlineListFromBarline(barlineTag)\n[<music21.bar.Barline type=final>]\n\n\n>>> repeatTag = ci.domElementFromText('<barline type=\"repEndBegin\"/>')\n>>> ci.barlineListFromBarline(repeatTag)\n[<music21.bar.Repeat direction=end>, <music21.bar.Repeat direction=start>]",
+        "type": "ListItem"
+    },
+    {
+        "text": "CapellaImporter.",
+        "type": "Title"
+    },
+    {
+        "text": "chordOrNoteFromChord",
+        "type": "Title"
+    },
+    {
+        "text": "chordElement",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "returns a Note or Chord\nfrom a chordElement \u2014 a Note\nis returned if the <chord> has one <head> element, a Chord is\nreturned if there are multiple <head> elements.\n>>> ci = capella.fromCapellaXML.CapellaImporter()\n>>> chordElement = ci.domElementFromText(\n...     '<chord><duration base=\"1/1\"/><heads><head pitch=\"G4\"/></heads></chord>')\n>>> n = ci.chordOrNoteFromChord(chordElement)\n>>> n\n<music21.note.Note G>\n>>> n.duration\n<music21.duration.Duration 4.0>\n\n\nThis one is an actual chord\n>>> chordElement = ci.domElementFromText(\n...        '<chord><duration base=\"1/8\"/>' +\n...        '<heads><head pitch=\"G4\"/><head pitch=\"A5\"/></heads></chord>')\n>>> c = ci.chordOrNoteFromChord(chordElement)\n>>> c\n<music21.chord.Chord G3 A4>\n>>> c.duration\n<music21.duration.Duration 0.5>",
+        "type": "ListItem"
+    },
+    {
+        "text": "CapellaImporter.",
+        "type": "Title"
+    },
+    {
+        "text": "clefFromClefSign",
+        "type": "Title"
+    },
+    {
+        "text": "clefSign",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "returns a Clef object or subclass from a <clefSign> tag.\n>>> ci = capella.fromCapellaXML.CapellaImporter()\n>>> clefSign = ci.domElementFromText('<clefSign clef=\"treble\"/>')\n>>> ci.clefFromClefSign(clefSign)\n<music21.clef.TrebleClef>\n\n\n>>> clefSign = ci.domElementFromText('<clefSign clef=\"G2-\"/>')\n>>> ci.clefFromClefSign(clefSign)\n<music21.clef.Treble8vbClef>\n\n\n>>> clefSign = ci.domElementFromText('<clefSign clef=\"F1+\"/>')\n>>> clefObject = ci.clefFromClefSign(clefSign)\n>>> clefObject\n<music21.clef.FClef>\n>>> clefObject.sign\n'F'\n>>> clefObject.line\n1\n>>> clefObject.octaveChange\n1",
+        "type": "ListItem"
+    },
+    {
+        "text": "CapellaImporter.",
+        "type": "Title"
+    },
+    {
+        "text": "domElementFromText",
+        "type": "Title"
+    },
+    {
+        "text": "xmlText",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Utility method, especially for the documentation examples/tests, which uses\nxml.etree.ElementTree to parse the string and returns its root object.\nNot used by the main parser\n>>> ci = capella.fromCapellaXML.CapellaImporter()\n>>> funnyTag = ci.domElementFromText(\n...    '<funny yes=\"definitely\"><greg/>hi<greg><ha>ha</ha>' +\n...    '<greg type=\"embedded\"/></greg></funny>')\n>>> funnyTag\n<Element 'funny' at 0x...>\n\n\niter searches recursively\n>>> len(list(funnyTag.iter('greg')))\n3\n\n\nfindall does not:\n>>> len(funnyTag.findall('greg'))\n2",
+        "type": "ListItem"
+    },
+    {
+        "text": "CapellaImporter.",
+        "type": "Title"
+    },
+    {
+        "text": "durationFromDuration",
+        "type": "Title"
+    },
+    {
+        "text": "durationElement",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a music21.duration.Duration element from an XML Element representing\na duration.\n>>> ci = capella.fromCapellaXML.CapellaImporter()\n>>> durationTag = ci.domElementFromText('<duration base=\"1/32\" dots=\"1\"/>')\n>>> durationObj = ci.durationFromDuration(durationTag)\n>>> durationObj\n<music21.duration.Duration 0.1875>\n>>> durationObj.type\n'32nd'\n>>> durationObj.dots\n1\n\n\nHere with Tuplets\n>>> durationTag2 = ci.domElementFromText(\n...      '<duration base=\"1/4\"><tuplet count=\"3\"/></duration>')\n>>> d2 = ci.durationFromDuration(durationTag2)\n>>> d2\n<music21.duration.Duration 2/3>\n>>> d2.type\n'quarter'\n>>> d2.tuplets\n(<music21.duration.Tuplet 3/2>,)\n\n\nDoes not handle noDuration='true', display, churchStyle on rest durations",
+        "type": "ListItem"
+    },
+    {
+        "text": "CapellaImporter.",
+        "type": "Title"
+    },
+    {
+        "text": "keySignatureFromKeySign",
+        "type": "Title"
+    },
+    {
+        "text": "keySign",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns a KeySignature object from a keySign tag.\n>>> ci = capella.fromCapellaXML.CapellaImporter()\n>>> keySign = ci.domElementFromText('<keySign fifths=\"-1\"/>')\n>>> ci.keySignatureFromKeySign(keySign)\n<music21.key.KeySignature of 1 flat>",
+        "type": "ListItem"
+    },
+    {
+        "text": "CapellaImporter.",
+        "type": "Title"
+    },
+    {
+        "text": "lyricFromVerse",
+        "type": "Title"
+    },
+    {
+        "text": "verse",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "returns a Lyric object from a <verse> tag\n>>> ci = capella.fromCapellaXML.CapellaImporter()\n>>> verse = ci.domElementFromText('<verse i=\"0\" hyphen=\"true\">di&quot;</verse>')\n>>> ci.lyricFromVerse(verse)\n<music21.note.Lyric number=1 syllabic=begin text='di\"'>\n\n\nDoes not yet support \u0098align' attribute\nif the text is empty, returns None",
+        "type": "ListItem"
+    },
+    {
+        "text": "CapellaImporter.",
+        "type": "Title"
+    },
+    {
+        "text": "lyricListFromLyric",
+        "type": "Title"
+    },
+    {
+        "text": "lyricElement",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "returns a list of Lyric objects from a <lyric> tag\n>>> ci = capella.fromCapellaXML.CapellaImporter()\n>>> lyricEl = ci.domElementFromText(\n...      '<lyric><verse i=\"0\" hyphen=\"true\">di</verse>' +\n...      '<verse i=\"1\">man,</verse><verse i=\"2\">frau,</verse></lyric>')\n>>> ci.lyricListFromLyric(lyricEl)\n[<music21.note.Lyric number=1 syllabic=begin text='di'>,\n <music21.note.Lyric number=2 syllabic=single text='man,'>,\n <music21.note.Lyric number=3 syllabic=single text='frau,'>]",
+        "type": "ListItem"
+    },
+    {
+        "text": "CapellaImporter.",
+        "type": "Title"
+    },
+    {
+        "text": "noteFromHead",
+        "type": "Title"
+    },
+    {
+        "text": "headElement",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "return a Note object from a <head> element.  This will become\npart of Chord._notes if there are multiple, but in any case, it needs to be a Note\nnot a Pitch for now, because it could have Tie information\n>>> ci = capella.fromCapellaXML.CapellaImporter()\n>>> headElement = ci.domElementFromText(\n...      '<head pitch=\"B7\"><alter step=\"-1\"/><tie end=\"true\"/></head>')\n>>> n = ci.noteFromHead(headElement)\n>>> n\n<music21.note.Note B->\n>>> n.octave  # capella octaves are one higher than written\n6\n>>> n.tie\n<music21.tie.Tie stop>",
+        "type": "ListItem"
+    },
+    {
+        "text": "CapellaImporter.",
+        "type": "Title"
+    },
+    {
+        "text": "notesFromHeads",
+        "type": "Title"
+    },
+    {
+        "text": "headsElement",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "returns a list of Note elements for each <head> in <heads>\n>>> ci = capella.fromCapellaXML.CapellaImporter()\n>>> headsElement = ci.domElementFromText(\n...    '<heads><head pitch=\"B7\"><alter step=\"-1\"/></head><head pitch=\"C2\"/></heads>')\n>>> ci.notesFromHeads(headsElement)\n[<music21.note.Note B->, <music21.note.Note C>]",
+        "type": "ListItem"
+    },
+    {
+        "text": "CapellaImporter.",
+        "type": "Title"
+    },
+    {
+        "text": "parseXMLText",
+        "type": "Title"
+    },
+    {
+        "text": "xmlText",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Takes the string (or unicode string) in xmlText and parses it with xml.etree.\nSets self.mainDom to the dom object and returns the dom object.",
+        "type": "ListItem"
+    },
+    {
+        "text": "CapellaImporter.",
+        "type": "Title"
+    },
+    {
+        "text": "partScoreFromSystemScore",
+        "type": "Title"
+    },
+    {
+        "text": "systemScore",
+        "type": "Title"
+    },
+    {
+        "text": "Score",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 Score",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Take a Score object which is organized\nby Systems and return a new Score object which is organized by\nParts.",
+        "type": "ListItem"
+    },
+    {
+        "text": "CapellaImporter.",
+        "type": "Title"
+    },
+    {
+        "text": "readCapellaXMLFile",
+        "type": "Title"
+    },
+    {
+        "text": "filename",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Reads in a .capx file at filename, stores it as self.zipFilename, unzips it,\nextracts the score.xml embedded file, sets self.xmlText to the contents.\nReturns self.xmlText",
+        "type": "ListItem"
+    },
+    {
+        "text": "CapellaImporter.",
+        "type": "Title"
+    },
+    {
+        "text": "restFromRest",
+        "type": "Title"
+    },
+    {
+        "text": "restElement",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns a Rest object from a <rest> tag.\n>>> ci = capella.fromCapellaXML.CapellaImporter()\n>>> restElement = ci.domElementFromText('<rest><duration base=\"1/2\"/></rest>')\n>>> r = ci.restFromRest(restElement)\n>>> r\n<music21.note.Rest half>\n>>> r.duration.type\n'half'",
+        "type": "ListItem"
+    },
+    {
+        "text": "CapellaImporter.",
+        "type": "Title"
+    },
+    {
+        "text": "scoreFromFile",
+        "type": "Title"
+    },
+    {
+        "text": "filename",
+        "type": "Title"
+    },
+    {
+        "text": "systemScore",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "main program: opens a file given by filename and returns a complete\nmusic21 Score from it.\nIf systemScore is True then it skips the step of making Parts from Systems\nand Measures within Parts.",
+        "type": "ListItem"
+    },
+    {
+        "text": "CapellaImporter.",
+        "type": "Title"
+    },
+    {
+        "text": "slurFromDrawObjSlur",
+        "type": "Title"
+    },
+    {
+        "text": "drawObj",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "not implemented",
+        "type": "ListItem"
+    },
+    {
+        "text": "CapellaImporter.",
+        "type": "Title"
+    },
+    {
+        "text": "streamFromNoteObjects",
+        "type": "Title"
+    },
+    {
+        "text": "noteObjectsElement",
+        "type": "Title"
+    },
+    {
+        "text": "streamObj",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Converts a <noteObjects> tag into a Stream object\nwhich is returned.\nA Stream can be given as an optional argument, in which case the objects of this\nStream are appended to this object.\n>>> ci = capella.fromCapellaXML.CapellaImporter()\n>>> noteObjectsString = r\"\"\"\n...           <noteObjects>\n...                <clefSign clef=\"G2-\"/>\n...                <keySign fifths=\"-1\"/>\n...                <chord>\n...                    <duration base=\"1/2\"/>\n...                    <lyric>\n...                        <verse i=\"0\">das,</verse>\n...                        <verse i=\"1\">scherz,</verse>\n...                    </lyric>\n...                    <heads>\n...                        <head pitch=\"G4\"/>\n...                    </heads>\n...                </chord>\n...                <chord>\n...                    <duration base=\"1/2\"/>\n...                    <lyric>\n...                        <verse i=\"0\">so</verse>\n...                        <verse i=\"1\">der</verse>\n...                    </lyric>\n...                    <heads>\n...                        <head pitch=\"A4\"/>\n...                    </heads>\n...                </chord>\n...                <barline type=\"end\"/>\n...            </noteObjects>\n...            \"\"\"\n>>> noteObjectsElement = ci.domElementFromText(noteObjectsString)\n>>> streamObj = ci.streamFromNoteObjects(noteObjectsElement)\n>>> streamObj.show('text')\n{0.0} <music21.clef.Treble8vbClef>\n{0.0} <music21.key.KeySignature of 1 flat>\n{0.0} <music21.note.Note G>\n{2.0} <music21.note.Note A>\n{4.0} <music21.bar.Barline type=final>\n\n\n>>> streamObj.highestTime\n4.0",
+        "type": "ListItem"
+    },
+    {
+        "text": "CapellaImporter.",
+        "type": "Title"
+    },
+    {
+        "text": "systemFromSystem",
+        "type": "Title"
+    },
+    {
+        "text": "systemElement",
+        "type": "Title"
+    },
+    {
+        "text": "systemObj",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "returns a System object from a <system> tag.\nThe System object will contain Part objects\nwhich will have the notes, etc. contained in it.\nTODO: Handle multiple <voices>",
+        "type": "ListItem"
+    },
+    {
+        "text": "CapellaImporter.",
+        "type": "Title"
+    },
+    {
+        "text": "systemScoreFromScore",
+        "type": "Title"
+    },
+    {
+        "text": "scoreElement",
+        "type": "Title"
+    },
+    {
+        "text": "scoreObj",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "returns an Score object from a <score> tag.\nThe Score object is not a standard music21 Score object which contains\nparts, then measures, then voices, but instead contains systems which\noptionally contain voices, which contain parts.  No measures have yet\nbeen created.",
+        "type": "ListItem"
+    },
+    {
+        "text": "CapellaImporter.",
+        "type": "Title"
+    },
+    {
+        "text": "tieFromTie",
+        "type": "Title"
+    },
+    {
+        "text": "tieElement",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "returns a Tie element from a <tie> tag\nif begin == \u0098true' then Tie.type = start\n>>> ci = capella.fromCapellaXML.CapellaImporter()\n>>> tieEl = ci.domElementFromText('<tie begin=\"true\"/>')\n>>> ci.tieFromTie(tieEl)\n<music21.tie.Tie start>\n\n\nif end == \u0098true' then Tie.type = stop\n>>> tieEl = ci.domElementFromText('<tie end=\"true\"/>')\n>>> ci.tieFromTie(tieEl)\n<music21.tie.Tie stop>\n\n\nif begin == \u0098true' and end == \u0098true' then Tie.type = continue (is this right???)\n>>> tieEl = ci.domElementFromText('<tie begin=\"true\" end=\"true\"/>')\n>>> ci.tieFromTie(tieEl)\n<music21.tie.Tie continue>",
+        "type": "ListItem"
+    },
+    {
+        "text": "CapellaImporter.",
+        "type": "Title"
+    },
+    {
+        "text": "timeSignatureFromTimeSign",
+        "type": "Title"
+    },
+    {
+        "text": "timeSign",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns a TimeSignature object from a timeSign tag.\n>>> ci = capella.fromCapellaXML.CapellaImporter()\n>>> timeSign = ci.domElementFromText('<timeSign time=\"4/4\"/>')\n>>> ci.timeSignatureFromTimeSign(timeSign)\n<music21.meter.TimeSignature 4/4>\n\n\n>>> timeSign = ci.domElementFromText('<timeSign time=\"infinite\"/>')\n>>> ci.timeSignatureFromTimeSign(timeSign) is None\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "CapellaImporter.",
+        "type": "Title"
+    },
+    {
+        "text": "tupletFromTuplet",
+        "type": "Title"
+    },
+    {
+        "text": "tupletElement",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns a Tuplet object from a <tuplet> tag.\n>>> ci = capella.fromCapellaXML.CapellaImporter()\n>>> tupletTag = ci.domElementFromText('<tuplet count=\"3\"/>')\n>>> ci.tupletFromTuplet(tupletTag)\n<music21.duration.Tuplet 3/2>\n\n\ndoes not handle \u0098tripartite' = True",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.capella.fromCapellaXML",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

@@ -1,0 +1,4658 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.graph.plot",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.graph.findPlot",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.graph.primitives",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.graph.plot\nHistogramPitchSpace\nHistogramPitchSpace\n\n\nHistogramPitchClass\nHistogramPitchClass\n\n\nHistogramQuarterLength\nHistogramQuarterLength\n\n\nWindowedKey\nWindowedKey\n\n\nWindowedAmbitus\nWindowedAmbitus\n\n\nScatterPitchSpaceQuarterLength\nScatterPitchSpaceQuarterLength\n\n\nScatterPitchClassQuarterLength\nScatterPitchClassQuarterLength\n\n\nScatterPitchClassOffset\nScatterPitchClassOffset\n\n\nScatterPitchSpaceDynamicSymbol\nScatterPitchSpaceDynamicSymbol\nScatterPitchSpaceDynamicSymbol.extractData()\n\n\n\n\nHorizontalBarPitchSpaceOffset\nHorizontalBarPitchSpaceOffset\n\n\nHorizontalBarPitchClassOffset\nHorizontalBarPitchClassOffset\n\n\nDolan\nDolan\n\n\nScatterWeightedPitchSpaceQuarterLength\nScatterWeightedPitchSpaceQuarterLength\n\n\nScatterWeightedPitchClassQuarterLength\nScatterWeightedPitchClassQuarterLength\n\n\nScatterWeightedPitchSpaceDynamicSymbol\nScatterWeightedPitchSpaceDynamicSymbol\nScatterWeightedPitchSpaceDynamicSymbol.extractData()\n\n\n\n\nPlot3DBarsPitchSpaceQuarterLength\nPlot3DBarsPitchSpaceQuarterLength\n\n\nFeatures\nFeatures\nFeatures.extractData()\nFeatures.run()\n\n\n\n\nHistogram\nHistogram\nHistogram.remapXTicksData()\nHistogram.run()\n\n\n\n\nHorizontalBar\nHorizontalBar\nHorizontalBar.assignColorsToParts()\nHorizontalBar.postProcessData()\nHorizontalBar.postProcessElement()\nHorizontalBar.run()\n\n\n\n\nHorizontalBarWeighted\nHorizontalBarWeighted\nHorizontalBarWeighted.extractData()\n\n\n\n\nMultiStream\nMultiStream\nMultiStream.parseStreams()\n\n\n\n\nPlot3DBars\nPlot3DBars\n\n\nPlotStream\nPlotStream\n\n\nPlotStreamMixin\nPlotStreamMixin\nPlotStreamMixin.allAxes\nPlotStreamMixin.id\nPlotStreamMixin.extractChordDataMultiAxis()\nPlotStreamMixin.extractChordDataOneAxis()\nPlotStreamMixin.extractData()\nPlotStreamMixin.fillValueLists()\nPlotStreamMixin.postProcessData()\nPlotStreamMixin.postProcessElement()\nPlotStreamMixin.processOneElement()\nPlotStreamMixin.run()\nPlotStreamMixin.setAxisKeywords()\n\n\n\n\nScatter\nScatter\n\n\nScatterWeighted\nScatterWeighted\n\n\nWindowedAnalysis\nWindowedAnalysis\nWindowedAnalysis.processor\nWindowedAnalysis.extractData()\nWindowedAnalysis.run()\nWindowedAnalysis.write()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.graph.plot\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Object definitions for plotting Stream objects.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "The PlotStream\nobject subclasses combine a Graph object with the PlotStreamMixin to give\nreusable approaches to graphing data and structures in\nStream objects.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "HistogramPitchSpace\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.graph.plot.",
+        "type": "Title"
+    },
+    {
+        "text": "HistogramPitchSpace",
+        "type": "Title"
+    },
+    {
+        "text": "streamObj",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A histogram of pitch space.\n>>> s = corpus.parse('bach/bwv57.8')\n>>> p = graph.plot.HistogramPitchSpace(s)\n>>> p.id\n'histogram-pitchSpace-count'\n>>> p.run()  # with defaults and proper configuration, will open graph",
+        "type": "ListItem"
+    },
+    {
+        "text": "HistogramPitchSpace bases",
+        "type": "Title"
+    },
+    {
+        "text": "Histogram",
+        "type": "ListItem"
+    },
+    {
+        "text": "GraphHistogram",
+        "type": "ListItem"
+    },
+    {
+        "text": "Graph",
+        "type": "ListItem"
+    },
+    {
+        "text": "PlotStreamMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "HistogramPitchSpace read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from PlotStreamMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "allAxes id",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "HistogramPitchSpace read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Graph:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "doneAction",
+        "type": "Table"
+    },
+    {
+        "text": "HistogramPitchSpace methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from Histogram:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "remapXTicksData() run()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from GraphHistogram:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "renderSubplot()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Graph:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "applyFormatting() applyFormattingToOneAxis() applyGrid() callDoneAction() hideAxisSpines() nextColor() process() setAxisLabel() setAxisRange() setIntegerTicksFromData() setTicks() show() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from PlotStreamMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "extractChordDataMultiAxis() extractChordDataOneAxis() extractData() fillValueLists() postProcessData() postProcessElement() processOneElement() setAxisKeywords()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "HistogramPitchSpace instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from GraphHistogram:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "binWidth",
+        "type": "Table"
+    },
+    {
+        "text": "HistogramPitchClass\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.graph.plot.",
+        "type": "Title"
+    },
+    {
+        "text": "HistogramPitchClass",
+        "type": "Title"
+    },
+    {
+        "text": "streamObj",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A histogram of pitch class\n>>> s = corpus.parse('bach/bwv57.8')\n>>> p = graph.plot.HistogramPitchClass(s)\n>>> p.id\n'histogram-pitchClass-count'\n>>> p.run()  # with defaults and proper configuration, will open graph",
+        "type": "ListItem"
+    },
+    {
+        "text": "HistogramPitchClass bases",
+        "type": "Title"
+    },
+    {
+        "text": "Histogram",
+        "type": "ListItem"
+    },
+    {
+        "text": "GraphHistogram",
+        "type": "ListItem"
+    },
+    {
+        "text": "Graph",
+        "type": "ListItem"
+    },
+    {
+        "text": "PlotStreamMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "HistogramPitchClass read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from PlotStreamMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "allAxes id",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "HistogramPitchClass read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Graph:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "doneAction",
+        "type": "Table"
+    },
+    {
+        "text": "HistogramPitchClass methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from Histogram:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "remapXTicksData() run()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from GraphHistogram:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "renderSubplot()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Graph:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "applyFormatting() applyFormattingToOneAxis() applyGrid() callDoneAction() hideAxisSpines() nextColor() process() setAxisLabel() setAxisRange() setIntegerTicksFromData() setTicks() show() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from PlotStreamMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "extractChordDataMultiAxis() extractChordDataOneAxis() extractData() fillValueLists() postProcessData() postProcessElement() processOneElement() setAxisKeywords()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "HistogramPitchClass instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from GraphHistogram:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "binWidth",
+        "type": "Table"
+    },
+    {
+        "text": "HistogramQuarterLength\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.graph.plot.",
+        "type": "Title"
+    },
+    {
+        "text": "HistogramQuarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "streamObj",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A histogram of pitch class.\n>>> s = corpus.parse('bach/bwv57.8')\n>>> p = graph.plot.HistogramQuarterLength(s)\n>>> p.id\n'histogram-quarterLength-count'\n>>> p.run()  # with defaults and proper configuration, will open graph",
+        "type": "ListItem"
+    },
+    {
+        "text": "HistogramQuarterLength bases",
+        "type": "Title"
+    },
+    {
+        "text": "Histogram",
+        "type": "ListItem"
+    },
+    {
+        "text": "GraphHistogram",
+        "type": "ListItem"
+    },
+    {
+        "text": "Graph",
+        "type": "ListItem"
+    },
+    {
+        "text": "PlotStreamMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "HistogramQuarterLength read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from PlotStreamMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "allAxes id",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "HistogramQuarterLength read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Graph:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "doneAction",
+        "type": "Table"
+    },
+    {
+        "text": "HistogramQuarterLength methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from Histogram:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "remapXTicksData() run()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from GraphHistogram:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "renderSubplot()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Graph:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "applyFormatting() applyFormattingToOneAxis() applyGrid() callDoneAction() hideAxisSpines() nextColor() process() setAxisLabel() setAxisRange() setIntegerTicksFromData() setTicks() show() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from PlotStreamMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "extractChordDataMultiAxis() extractChordDataOneAxis() extractData() fillValueLists() postProcessData() postProcessElement() processOneElement() setAxisKeywords()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "HistogramQuarterLength instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from GraphHistogram:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "binWidth",
+        "type": "Table"
+    },
+    {
+        "text": "WindowedKey\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.graph.plot.",
+        "type": "Title"
+    },
+    {
+        "text": "WindowedKey",
+        "type": "Title"
+    },
+    {
+        "text": "streamObj",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Stream plotting of windowed version of Krumhansl-Schmuckler analysis routine.\nSee KrumhanslSchmuckler for more details.\n>>> s = corpus.parse('bach/bwv66.6')\n>>> p = graph.plot.WindowedKey(s.parts[0])\n>>> p.run()  # with defaults and proper configuration, will open graph\n\n\n\n\nSet the processor class to one of the following for different uses:\n>>> p = graph.plot.WindowedKey(s.parts.first())\n>>> p.processorClass = analysis.discrete.AardenEssen\n>>> p.processorClass = analysis.discrete.SimpleWeights\n>>> p.processorClass = analysis.discrete.BellmanBudge\n>>> p.processorClass = analysis.discrete.TemperleyKostkaPayne\n>>> p.run()",
+        "type": "ListItem"
+    },
+    {
+        "text": "WindowedKey bases",
+        "type": "Title"
+    },
+    {
+        "text": "WindowedAnalysis",
+        "type": "ListItem"
+    },
+    {
+        "text": "GraphColorGrid",
+        "type": "ListItem"
+    },
+    {
+        "text": "Graph",
+        "type": "ListItem"
+    },
+    {
+        "text": "PlotStreamMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "WindowedKey read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from WindowedAnalysis:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "processor",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from PlotStreamMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "allAxes id",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "WindowedKey read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Graph:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "doneAction",
+        "type": "Table"
+    },
+    {
+        "text": "WindowedKey methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from WindowedAnalysis:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "extractData() run() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from GraphColorGrid:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "renderSubplot()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Graph:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "applyFormatting() applyFormattingToOneAxis() applyGrid() callDoneAction() hideAxisSpines() nextColor() process() setAxisLabel() setAxisRange() setIntegerTicksFromData() setTicks() show()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from PlotStreamMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "extractChordDataMultiAxis() extractChordDataOneAxis() fillValueLists() postProcessData() postProcessElement() processOneElement() setAxisKeywords()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "WindowedKey instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from GraphColorGrid:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "hideLeftBottomSpines",
+        "type": "Table"
+    },
+    {
+        "text": "WindowedAmbitus\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.graph.plot.",
+        "type": "Title"
+    },
+    {
+        "text": "WindowedAmbitus",
+        "type": "Title"
+    },
+    {
+        "text": "streamObj",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Stream plotting of basic pitch span.\n>>> s = corpus.parse('bach/bwv66.6')\n>>> p = graph.plot.WindowedAmbitus(s.parts.first())\n>>> p.run()  # with defaults and proper configuration, will open graph",
+        "type": "ListItem"
+    },
+    {
+        "text": "WindowedAmbitus bases",
+        "type": "Title"
+    },
+    {
+        "text": "WindowedAnalysis",
+        "type": "ListItem"
+    },
+    {
+        "text": "GraphColorGrid",
+        "type": "ListItem"
+    },
+    {
+        "text": "Graph",
+        "type": "ListItem"
+    },
+    {
+        "text": "PlotStreamMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "WindowedAmbitus read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from WindowedAnalysis:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "processor",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from PlotStreamMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "allAxes id",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "WindowedAmbitus read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Graph:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "doneAction",
+        "type": "Table"
+    },
+    {
+        "text": "WindowedAmbitus methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from WindowedAnalysis:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "extractData() run() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from GraphColorGrid:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "renderSubplot()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Graph:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "applyFormatting() applyFormattingToOneAxis() applyGrid() callDoneAction() hideAxisSpines() nextColor() process() setAxisLabel() setAxisRange() setIntegerTicksFromData() setTicks() show()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from PlotStreamMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "extractChordDataMultiAxis() extractChordDataOneAxis() fillValueLists() postProcessData() postProcessElement() processOneElement() setAxisKeywords()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "WindowedAmbitus instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from GraphColorGrid:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "hideLeftBottomSpines",
+        "type": "Table"
+    },
+    {
+        "text": "ScatterPitchSpaceQuarterLength\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.graph.plot.",
+        "type": "Title"
+    },
+    {
+        "text": "ScatterPitchSpaceQuarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "streamObj",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A scatter plot of pitch space and quarter length\n>>> s = corpus.parse('bach/bwv324.xml')\n>>> p = graph.plot.ScatterPitchSpaceQuarterLength(s)\n>>> p.id\n'scatter-quarterLength-pitchSpace'\n>>> p.run()",
+        "type": "ListItem"
+    },
+    {
+        "text": "ScatterPitchSpaceQuarterLength bases",
+        "type": "Title"
+    },
+    {
+        "text": "Scatter",
+        "type": "ListItem"
+    },
+    {
+        "text": "GraphScatter",
+        "type": "ListItem"
+    },
+    {
+        "text": "Graph",
+        "type": "ListItem"
+    },
+    {
+        "text": "PlotStreamMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ScatterPitchSpaceQuarterLength read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from PlotStreamMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "allAxes id",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "ScatterPitchSpaceQuarterLength read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Graph:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "doneAction",
+        "type": "Table"
+    },
+    {
+        "text": "ScatterPitchSpaceQuarterLength methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from GraphScatter:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "renderSubplot()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Graph:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "applyFormatting() applyFormattingToOneAxis() applyGrid() callDoneAction() hideAxisSpines() nextColor() process() setAxisLabel() setAxisRange() setIntegerTicksFromData() setTicks() show() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from PlotStreamMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "extractChordDataMultiAxis() extractChordDataOneAxis() extractData() fillValueLists() postProcessData() postProcessElement() processOneElement() run() setAxisKeywords()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "ScatterPitchClassQuarterLength\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.graph.plot.",
+        "type": "Title"
+    },
+    {
+        "text": "ScatterPitchClassQuarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "streamObj",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A scatter plot of pitch class and quarter length\n>>> s = corpus.parse('bach/bwv57.8')\n>>> p = graph.plot.ScatterPitchClassQuarterLength(s)\n>>> p.id\n'scatter-quarterLength-pitchClass'\n>>> p.run()",
+        "type": "ListItem"
+    },
+    {
+        "text": "ScatterPitchClassQuarterLength bases",
+        "type": "Title"
+    },
+    {
+        "text": "ScatterPitchSpaceQuarterLength",
+        "type": "ListItem"
+    },
+    {
+        "text": "Scatter",
+        "type": "ListItem"
+    },
+    {
+        "text": "GraphScatter",
+        "type": "ListItem"
+    },
+    {
+        "text": "Graph",
+        "type": "ListItem"
+    },
+    {
+        "text": "PlotStreamMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ScatterPitchClassQuarterLength read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from PlotStreamMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "allAxes id",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "ScatterPitchClassQuarterLength read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Graph:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "doneAction",
+        "type": "Table"
+    },
+    {
+        "text": "ScatterPitchClassQuarterLength methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from GraphScatter:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "renderSubplot()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Graph:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "applyFormatting() applyFormattingToOneAxis() applyGrid() callDoneAction() hideAxisSpines() nextColor() process() setAxisLabel() setAxisRange() setIntegerTicksFromData() setTicks() show() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from PlotStreamMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "extractChordDataMultiAxis() extractChordDataOneAxis() extractData() fillValueLists() postProcessData() postProcessElement() processOneElement() run() setAxisKeywords()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "ScatterPitchClassOffset\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.graph.plot.",
+        "type": "Title"
+    },
+    {
+        "text": "ScatterPitchClassOffset",
+        "type": "Title"
+    },
+    {
+        "text": "streamObj",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A scatter plot of pitch class and offset\n>>> s = corpus.parse('bach/bwv57.8')\n>>> p = graph.plot.ScatterPitchClassOffset(s)\n>>> p.id\n'scatter-offset-pitchClass'\n>>> p.run()",
+        "type": "ListItem"
+    },
+    {
+        "text": "ScatterPitchClassOffset bases",
+        "type": "Title"
+    },
+    {
+        "text": "Scatter",
+        "type": "ListItem"
+    },
+    {
+        "text": "GraphScatter",
+        "type": "ListItem"
+    },
+    {
+        "text": "Graph",
+        "type": "ListItem"
+    },
+    {
+        "text": "PlotStreamMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ScatterPitchClassOffset read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from PlotStreamMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "allAxes id",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "ScatterPitchClassOffset read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Graph:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "doneAction",
+        "type": "Table"
+    },
+    {
+        "text": "ScatterPitchClassOffset methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from GraphScatter:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "renderSubplot()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Graph:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "applyFormatting() applyFormattingToOneAxis() applyGrid() callDoneAction() hideAxisSpines() nextColor() process() setAxisLabel() setAxisRange() setIntegerTicksFromData() setTicks() show() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from PlotStreamMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "extractChordDataMultiAxis() extractChordDataOneAxis() extractData() fillValueLists() postProcessData() postProcessElement() processOneElement() run() setAxisKeywords()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "ScatterPitchSpaceDynamicSymbol\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.graph.plot.",
+        "type": "Title"
+    },
+    {
+        "text": "ScatterPitchSpaceDynamicSymbol",
+        "type": "Title"
+    },
+    {
+        "text": "streamObj",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A graph of dynamics used by pitch space.\n>>> s = corpus.parse('schumann_robert/opus41no1/movement2.xml')\n>>> p = graph.plot.ScatterPitchSpaceDynamicSymbol(s)\n>>> p.run()",
+        "type": "ListItem"
+    },
+    {
+        "text": "ScatterPitchSpaceDynamicSymbol bases",
+        "type": "Title"
+    },
+    {
+        "text": "Scatter",
+        "type": "ListItem"
+    },
+    {
+        "text": "GraphScatter",
+        "type": "ListItem"
+    },
+    {
+        "text": "Graph",
+        "type": "ListItem"
+    },
+    {
+        "text": "PlotStreamMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ScatterPitchSpaceDynamicSymbol read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from PlotStreamMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "allAxes id",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "ScatterPitchSpaceDynamicSymbol read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Graph:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "doneAction",
+        "type": "Table"
+    },
+    {
+        "text": "ScatterPitchSpaceDynamicSymbol methods",
+        "type": "Title"
+    },
+    {
+        "text": "ScatterPitchSpaceDynamicSymbol.",
+        "type": "Title"
+    },
+    {
+        "text": "extractData",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from GraphScatter:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "renderSubplot()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Graph:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "applyFormatting() applyFormattingToOneAxis() applyGrid() callDoneAction() hideAxisSpines() nextColor() process() setAxisLabel() setAxisRange() setIntegerTicksFromData() setTicks() show() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from PlotStreamMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "extractChordDataMultiAxis() extractChordDataOneAxis() fillValueLists() postProcessData() postProcessElement() processOneElement() run() setAxisKeywords()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "HorizontalBarPitchSpaceOffset\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.graph.plot.",
+        "type": "Title"
+    },
+    {
+        "text": "HorizontalBarPitchSpaceOffset",
+        "type": "Title"
+    },
+    {
+        "text": "streamObj",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "colorByPart",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A graph of events, sorted by pitch space, over time, generally called\na \u009cpiano roll\u009d.\n>>> s = corpus.parse('bach/bwv57.8')\n>>> p = graph.plot.HorizontalBarPitchSpaceOffset(s)\n>>> p.run()  # with defaults and proper configuration, will open graph",
+        "type": "ListItem"
+    },
+    {
+        "text": "HorizontalBarPitchSpaceOffset bases",
+        "type": "Title"
+    },
+    {
+        "text": "HorizontalBar",
+        "type": "ListItem"
+    },
+    {
+        "text": "GraphHorizontalBar",
+        "type": "ListItem"
+    },
+    {
+        "text": "Graph",
+        "type": "ListItem"
+    },
+    {
+        "text": "PlotStreamMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "HorizontalBarPitchSpaceOffset read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from GraphHorizontalBar:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "barHeight",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from PlotStreamMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "allAxes id",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "HorizontalBarPitchSpaceOffset read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Graph:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "doneAction",
+        "type": "Table"
+    },
+    {
+        "text": "HorizontalBarPitchSpaceOffset methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from HorizontalBar:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "assignColorsToParts() postProcessData() postProcessElement() run()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from GraphHorizontalBar:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "renderSubplot()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Graph:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "applyFormatting() applyFormattingToOneAxis() applyGrid() callDoneAction() hideAxisSpines() nextColor() process() setAxisLabel() setAxisRange() setIntegerTicksFromData() setTicks() show() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from PlotStreamMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "extractChordDataMultiAxis() extractChordDataOneAxis() extractData() fillValueLists() processOneElement() setAxisKeywords()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "HorizontalBarPitchSpaceOffset instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from GraphHorizontalBar:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "barSpace margin",
+        "type": "Table"
+    },
+    {
+        "text": "HorizontalBarPitchClassOffset\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.graph.plot.",
+        "type": "Title"
+    },
+    {
+        "text": "HorizontalBarPitchClassOffset",
+        "type": "Title"
+    },
+    {
+        "text": "streamObj",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "colorByPart",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A graph of events, sorted by pitch class, over time.\n>>> s = corpus.parse('bach/bwv57.8')\n>>> p = graph.plot.HorizontalBarPitchClassOffset(s)\n>>> p.run()  # with defaults and proper configuration, will open graph",
+        "type": "ListItem"
+    },
+    {
+        "text": "HorizontalBarPitchClassOffset bases",
+        "type": "Title"
+    },
+    {
+        "text": "HorizontalBar",
+        "type": "ListItem"
+    },
+    {
+        "text": "GraphHorizontalBar",
+        "type": "ListItem"
+    },
+    {
+        "text": "Graph",
+        "type": "ListItem"
+    },
+    {
+        "text": "PlotStreamMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "HorizontalBarPitchClassOffset read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from GraphHorizontalBar:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "barHeight",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from PlotStreamMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "allAxes id",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "HorizontalBarPitchClassOffset read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Graph:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "doneAction",
+        "type": "Table"
+    },
+    {
+        "text": "HorizontalBarPitchClassOffset methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from HorizontalBar:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "assignColorsToParts() postProcessData() postProcessElement() run()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from GraphHorizontalBar:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "renderSubplot()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Graph:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "applyFormatting() applyFormattingToOneAxis() applyGrid() callDoneAction() hideAxisSpines() nextColor() process() setAxisLabel() setAxisRange() setIntegerTicksFromData() setTicks() show() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from PlotStreamMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "extractChordDataMultiAxis() extractChordDataOneAxis() extractData() fillValueLists() processOneElement() setAxisKeywords()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "HorizontalBarPitchClassOffset instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from GraphHorizontalBar:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "barSpace margin",
+        "type": "Table"
+    },
+    {
+        "text": "Dolan\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.graph.plot.",
+        "type": "Title"
+    },
+    {
+        "text": "Dolan",
+        "type": "Title"
+    },
+    {
+        "text": "streamObj",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A graph of the activity of a parameter of a part (or a group of parts) over time.\nThe default parameter graphed is Dynamics. Dynamics are assumed to extend activity\nto the next change in dynamics.\nNumerous parameters can be configured based on functionality encoded in\nthe PartReduction object.\nIf the fillByMeasure parameter is True, and if measures are available, each part\nwill segment by Measure divisions, and look for the target activity only once per\nMeasure. If more than one target is found in the Measure, values will be averaged.\nIf fillByMeasure is False, the part will be segmented by each Note.\nThe segmentByTarget parameter is True, segments, which may be Notes or Measures,\nwill be divided if necessary to show changes that occur over the duration of the\nsegment by a target object.\nIf the normalizeByPart parameter is True, each part will be normalized within the\nrange only of that part. If False, all parts will be normalized by the max of all parts.\nThe default is True.\n>>> s = corpus.parse('bwv66.6')\n>>> dyn = ['p', 'mf', 'f', 'ff', 'mp', 'fff', 'ppp']\n>>> i = 0\n>>> for p in s.parts:\n...     for m in p.getElementsByClass(stream.Measure):\n...         m.insert(0, dynamics.Dynamic(dyn[i % len(dyn)]))\n...         i += 1\n...\n>>> s.plot('dolan', fillByMeasure=True, segmentByTarget=True)",
+        "type": "ListItem"
+    },
+    {
+        "text": "Dolan bases",
+        "type": "Title"
+    },
+    {
+        "text": "HorizontalBarWeighted",
+        "type": "ListItem"
+    },
+    {
+        "text": "GraphHorizontalBarWeighted",
+        "type": "ListItem"
+    },
+    {
+        "text": "Graph",
+        "type": "ListItem"
+    },
+    {
+        "text": "PlotStreamMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "Dolan read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from GraphHorizontalBarWeighted:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "barHeight",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from PlotStreamMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "allAxes id",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "Dolan read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Graph:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "doneAction",
+        "type": "Table"
+    },
+    {
+        "text": "Dolan methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from HorizontalBarWeighted:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "extractData()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from GraphHorizontalBarWeighted:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "renderSubplot()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Graph:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "applyFormatting() applyFormattingToOneAxis() applyGrid() callDoneAction() hideAxisSpines() nextColor() process() setAxisLabel() setAxisRange() setIntegerTicksFromData() setTicks() show() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from PlotStreamMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "extractChordDataMultiAxis() extractChordDataOneAxis() fillValueLists() postProcessData() postProcessElement() processOneElement() run() setAxisKeywords()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Dolan instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from GraphHorizontalBarWeighted:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "barSpace margin",
+        "type": "Table"
+    },
+    {
+        "text": "ScatterWeightedPitchSpaceQuarterLength\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.graph.plot.",
+        "type": "Title"
+    },
+    {
+        "text": "ScatterWeightedPitchSpaceQuarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "streamObj",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A graph of event, sorted by pitch, over time.\n>>> s = corpus.parse('bach/bwv57.8')\n>>> p = graph.plot.ScatterWeightedPitchSpaceQuarterLength(s)\n>>> p.run()  # with defaults and proper configuration, will open graph",
+        "type": "ListItem"
+    },
+    {
+        "text": "ScatterWeightedPitchSpaceQuarterLength bases",
+        "type": "Title"
+    },
+    {
+        "text": "ScatterWeighted",
+        "type": "ListItem"
+    },
+    {
+        "text": "GraphScatterWeighted",
+        "type": "ListItem"
+    },
+    {
+        "text": "Graph",
+        "type": "ListItem"
+    },
+    {
+        "text": "PlotStreamMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ScatterWeightedPitchSpaceQuarterLength read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from GraphScatterWeighted:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "rangeDiameter",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from PlotStreamMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "allAxes id",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "ScatterWeightedPitchSpaceQuarterLength read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Graph:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "doneAction",
+        "type": "Table"
+    },
+    {
+        "text": "ScatterWeightedPitchSpaceQuarterLength methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from GraphScatterWeighted:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "renderSubplot()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Graph:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "applyFormatting() applyFormattingToOneAxis() applyGrid() callDoneAction() hideAxisSpines() nextColor() process() setAxisLabel() setAxisRange() setIntegerTicksFromData() setTicks() show() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from PlotStreamMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "extractChordDataMultiAxis() extractChordDataOneAxis() extractData() fillValueLists() postProcessData() postProcessElement() processOneElement() run() setAxisKeywords()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "ScatterWeightedPitchSpaceQuarterLength instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from GraphScatterWeighted:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "maxDiameter minDiameter",
+        "type": "Table"
+    },
+    {
+        "text": "ScatterWeightedPitchClassQuarterLength\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.graph.plot.",
+        "type": "Title"
+    },
+    {
+        "text": "ScatterWeightedPitchClassQuarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "streamObj",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A graph of event, sorted by pitch class, over time.\n>>> s = corpus.parse('bach/bwv57.8')\n>>> p = graph.plot.ScatterWeightedPitchClassQuarterLength(s)\n>>> p.run()  # with defaults and proper configuration, will open graph",
+        "type": "ListItem"
+    },
+    {
+        "text": "ScatterWeightedPitchClassQuarterLength bases",
+        "type": "Title"
+    },
+    {
+        "text": "ScatterWeighted",
+        "type": "ListItem"
+    },
+    {
+        "text": "GraphScatterWeighted",
+        "type": "ListItem"
+    },
+    {
+        "text": "Graph",
+        "type": "ListItem"
+    },
+    {
+        "text": "PlotStreamMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ScatterWeightedPitchClassQuarterLength read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from GraphScatterWeighted:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "rangeDiameter",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from PlotStreamMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "allAxes id",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "ScatterWeightedPitchClassQuarterLength read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Graph:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "doneAction",
+        "type": "Table"
+    },
+    {
+        "text": "ScatterWeightedPitchClassQuarterLength methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from GraphScatterWeighted:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "renderSubplot()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Graph:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "applyFormatting() applyFormattingToOneAxis() applyGrid() callDoneAction() hideAxisSpines() nextColor() process() setAxisLabel() setAxisRange() setIntegerTicksFromData() setTicks() show() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from PlotStreamMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "extractChordDataMultiAxis() extractChordDataOneAxis() extractData() fillValueLists() postProcessData() postProcessElement() processOneElement() run() setAxisKeywords()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "ScatterWeightedPitchClassQuarterLength instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from GraphScatterWeighted:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "maxDiameter minDiameter",
+        "type": "Table"
+    },
+    {
+        "text": "ScatterWeightedPitchSpaceDynamicSymbol\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.graph.plot.",
+        "type": "Title"
+    },
+    {
+        "text": "ScatterWeightedPitchSpaceDynamicSymbol",
+        "type": "Title"
+    },
+    {
+        "text": "streamObj",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A graph of dynamics used by pitch space.\n>>> s = corpus.parse('schumann_robert/opus41no1/movement2.xml')\n>>> p = graph.plot.ScatterWeightedPitchSpaceDynamicSymbol(s)\n>>> p.run()  # with defaults and proper configuration, will open graph",
+        "type": "ListItem"
+    },
+    {
+        "text": "ScatterWeightedPitchSpaceDynamicSymbol bases",
+        "type": "Title"
+    },
+    {
+        "text": "ScatterWeighted",
+        "type": "ListItem"
+    },
+    {
+        "text": "GraphScatterWeighted",
+        "type": "ListItem"
+    },
+    {
+        "text": "Graph",
+        "type": "ListItem"
+    },
+    {
+        "text": "PlotStreamMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ScatterWeightedPitchSpaceDynamicSymbol read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from GraphScatterWeighted:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "rangeDiameter",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from PlotStreamMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "allAxes id",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "ScatterWeightedPitchSpaceDynamicSymbol read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Graph:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "doneAction",
+        "type": "Table"
+    },
+    {
+        "text": "ScatterWeightedPitchSpaceDynamicSymbol methods",
+        "type": "Title"
+    },
+    {
+        "text": "ScatterWeightedPitchSpaceDynamicSymbol.",
+        "type": "Title"
+    },
+    {
+        "text": "extractData",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from GraphScatterWeighted:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "renderSubplot()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Graph:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "applyFormatting() applyFormattingToOneAxis() applyGrid() callDoneAction() hideAxisSpines() nextColor() process() setAxisLabel() setAxisRange() setIntegerTicksFromData() setTicks() show() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from PlotStreamMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "extractChordDataMultiAxis() extractChordDataOneAxis() fillValueLists() postProcessData() postProcessElement() processOneElement() run() setAxisKeywords()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "ScatterWeightedPitchSpaceDynamicSymbol instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from GraphScatterWeighted:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "maxDiameter minDiameter",
+        "type": "Table"
+    },
+    {
+        "text": "Plot3DBarsPitchSpaceQuarterLength\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.graph.plot.",
+        "type": "Title"
+    },
+    {
+        "text": "Plot3DBarsPitchSpaceQuarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "streamObj",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A scatter plot of pitch and quarter length\n>>> from music21.musicxml import testFiles\n>>> s = converter.parse(testFiles.mozartTrioK581Excerpt)\n>>> p = graph.plot.Plot3DBarsPitchSpaceQuarterLength(s)\n>>> p.id\n'3DBars-quarterLength-pitchSpace-count'\n>>> p.run()  # with defaults and proper configuration, will open graph",
+        "type": "ListItem"
+    },
+    {
+        "text": "Plot3DBarsPitchSpaceQuarterLength bases",
+        "type": "Title"
+    },
+    {
+        "text": "Plot3DBars",
+        "type": "ListItem"
+    },
+    {
+        "text": "Graph3DBars",
+        "type": "ListItem"
+    },
+    {
+        "text": "Graph",
+        "type": "ListItem"
+    },
+    {
+        "text": "PlotStreamMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "Plot3DBarsPitchSpaceQuarterLength read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from PlotStreamMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "allAxes id",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "Plot3DBarsPitchSpaceQuarterLength read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Graph:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "doneAction",
+        "type": "Table"
+    },
+    {
+        "text": "Plot3DBarsPitchSpaceQuarterLength methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from Graph3DBars:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "process() renderSubplot()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Graph:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "applyFormatting() applyFormattingToOneAxis() applyGrid() callDoneAction() hideAxisSpines() nextColor() setAxisLabel() setAxisRange() setIntegerTicksFromData() setTicks() show() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from PlotStreamMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "extractChordDataMultiAxis() extractChordDataOneAxis() extractData() fillValueLists() postProcessData() postProcessElement() processOneElement() run() setAxisKeywords()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Features\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.graph.plot.",
+        "type": "Title"
+    },
+    {
+        "text": "Features",
+        "type": "Title"
+    },
+    {
+        "text": "streamList",
+        "type": "Title"
+    },
+    {
+        "text": "featureExtractors",
+        "type": "Title"
+    },
+    {
+        "text": "labelList",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Plots the output of a set of feature extractors.\nFeatureExtractors can be ids or classes.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Features bases",
+        "type": "Title"
+    },
+    {
+        "text": "MultiStream",
+        "type": "ListItem"
+    },
+    {
+        "text": "GraphGroupedVerticalBar",
+        "type": "ListItem"
+    },
+    {
+        "text": "Graph",
+        "type": "ListItem"
+    },
+    {
+        "text": "PlotStreamMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "Features read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from PlotStreamMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "allAxes id",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "Features read/write properties",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Read/write properties inherited from Graph:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "doneAction",
+        "type": "Table"
+    },
+    {
+        "text": "Features methods",
+        "type": "Title"
+    },
+    {
+        "text": "Features.",
+        "type": "Title"
+    },
+    {
+        "text": "extractData",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "Features.",
+        "type": "Title"
+    },
+    {
+        "text": "run",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "callProcess",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "main routine to extract data, set axis labels, run process() on the underlying\nGraph object, and if self.doneAction is not None, either write or show the graph.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from MultiStream:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "parseStreams()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from GraphGroupedVerticalBar:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "labelBars() renderSubplot()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Graph:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "applyFormatting() applyFormattingToOneAxis() applyGrid() callDoneAction() hideAxisSpines() nextColor() process() setAxisLabel() setAxisRange() setIntegerTicksFromData() setTicks() show() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from PlotStreamMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "extractChordDataMultiAxis() extractChordDataOneAxis() fillValueLists() postProcessData() postProcessElement() processOneElement() setAxisKeywords()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Histogram\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.graph.plot.",
+        "type": "Title"
+    },
+    {
+        "text": "Histogram",
+        "type": "Title"
+    },
+    {
+        "text": "streamObj",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Base class for histograms that plot one axis against its count",
+        "type": "ListItem"
+    },
+    {
+        "text": "Histogram bases",
+        "type": "Title"
+    },
+    {
+        "text": "GraphHistogram",
+        "type": "ListItem"
+    },
+    {
+        "text": "Graph",
+        "type": "ListItem"
+    },
+    {
+        "text": "PlotStreamMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "Histogram read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from PlotStreamMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "allAxes id",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "Histogram read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Graph:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "doneAction",
+        "type": "Table"
+    },
+    {
+        "text": "Histogram methods",
+        "type": "Title"
+    },
+    {
+        "text": "Histogram.",
+        "type": "Title"
+    },
+    {
+        "text": "remapXTicksData",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Changes the ticks and data so that they both run\n1, 2, 3, 4, etc.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Histogram.",
+        "type": "Title"
+    },
+    {
+        "text": "run",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "callProcess",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Override run method to remap X data into individual bins.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from GraphHistogram:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "renderSubplot()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Graph:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "applyFormatting() applyFormattingToOneAxis() applyGrid() callDoneAction() hideAxisSpines() nextColor() process() setAxisLabel() setAxisRange() setIntegerTicksFromData() setTicks() show() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from PlotStreamMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "extractChordDataMultiAxis() extractChordDataOneAxis() extractData() fillValueLists() postProcessData() postProcessElement() processOneElement() setAxisKeywords()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Histogram instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from GraphHistogram:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "binWidth",
+        "type": "Table"
+    },
+    {
+        "text": "HorizontalBar\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.graph.plot.",
+        "type": "Title"
+    },
+    {
+        "text": "HorizontalBar",
+        "type": "Title"
+    },
+    {
+        "text": "streamObj",
+        "type": "Title"
+    },
+    {
+        "text": "Stream | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "colorByPart",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A graph of events, sorted by pitch, over time.\nIf colorByPart is True, then each part will get its own color from\nself.colors (unless there are more parts than colors).",
+        "type": "ListItem"
+    },
+    {
+        "text": "HorizontalBar bases",
+        "type": "Title"
+    },
+    {
+        "text": "GraphHorizontalBar",
+        "type": "ListItem"
+    },
+    {
+        "text": "Graph",
+        "type": "ListItem"
+    },
+    {
+        "text": "PlotStreamMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "HorizontalBar read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from GraphHorizontalBar:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "barHeight",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from PlotStreamMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "allAxes id",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "HorizontalBar read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Graph:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "doneAction",
+        "type": "Table"
+    },
+    {
+        "text": "HorizontalBar methods",
+        "type": "Title"
+    },
+    {
+        "text": "HorizontalBar.",
+        "type": "Title"
+    },
+    {
+        "text": "assignColorsToParts",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 dict[music21.stream.base.Part, str]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Give a different color for each part, if self.colorByPart is True.\nReturns the assignment for any further manipulation.\nCurrently, two piano hands (PartStaff objects) get different colors.\n>>> bach = corpus.parse('bwv66.6')\n>>> plot = graph.plot.HorizontalBar(bach, colorByPart=True)\n>>> plot.assignColorsToParts()\n{<music21.stream.Part Soprano>: '#605c7f',\n <music21.stream.Part Alto>: '#5c7f60',\n <music21.stream.Part Tenor>: '#988969',\n <music21.stream.Part Bass>: '#628297'}",
+        "type": "ListItem"
+    },
+    {
+        "text": "HorizontalBar.",
+        "type": "Title"
+    },
+    {
+        "text": "postProcessData",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Call any post data processing routines here and on any axes.",
+        "type": "ListItem"
+    },
+    {
+        "text": "HorizontalBar.",
+        "type": "Title"
+    },
+    {
+        "text": "postProcessElement",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "Music21Object",
+        "type": "Title"
+    },
+    {
+        "text": "formatDict",
+        "type": "Title"
+    },
+    {
+        "text": "dict",
+        "type": "Title"
+    },
+    {
+        "text": "Any",
+        "type": "Title"
+    },
+    {
+        "text": "Any",
+        "type": "Title"
+    },
+    {
+        "text": "values",
+        "type": "Title"
+    },
+    {
+        "text": "list[numbers.Real]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Assign colors to each element if colorByPart is True.",
+        "type": "ListItem"
+    },
+    {
+        "text": "HorizontalBar.",
+        "type": "Title"
+    },
+    {
+        "text": "run",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "callProcess",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Optionally assign colors to Part objects and then do the normal run.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from GraphHorizontalBar:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "renderSubplot()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Graph:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "applyFormatting() applyFormattingToOneAxis() applyGrid() callDoneAction() hideAxisSpines() nextColor() process() setAxisLabel() setAxisRange() setIntegerTicksFromData() setTicks() show() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from PlotStreamMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "extractChordDataMultiAxis() extractChordDataOneAxis() extractData() fillValueLists() processOneElement() setAxisKeywords()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "HorizontalBar instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from GraphHorizontalBar:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "barSpace margin",
+        "type": "Table"
+    },
+    {
+        "text": "HorizontalBarWeighted\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.graph.plot.",
+        "type": "Title"
+    },
+    {
+        "text": "HorizontalBarWeighted",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "streamObj",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A base class for plots of Scores with weighted (by height) horizontal bars.\nMany weighted segments represent a dynamic parameter of a Part.",
+        "type": "ListItem"
+    },
+    {
+        "text": "HorizontalBarWeighted bases",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "GraphHorizontalBarWeighted",
+        "type": "ListItem"
+    },
+    {
+        "text": "Graph",
+        "type": "ListItem"
+    },
+    {
+        "text": "PlotStreamMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "HorizontalBarWeighted read-only properties",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Read-only properties inherited from GraphHorizontalBarWeighted:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "barHeight",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from PlotStreamMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "allAxes id",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "HorizontalBarWeighted read/write properties",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Read/write properties inherited from Graph:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "doneAction",
+        "type": "Table"
+    },
+    {
+        "text": "HorizontalBarWeighted methods",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "HorizontalBarWeighted.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "extractData",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Extract the data from the Stream.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from GraphHorizontalBarWeighted:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "renderSubplot()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Graph:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "applyFormatting() applyFormattingToOneAxis() applyGrid() callDoneAction() hideAxisSpines() nextColor() process() setAxisLabel() setAxisRange() setIntegerTicksFromData() setTicks() show() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from PlotStreamMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "extractChordDataMultiAxis() extractChordDataOneAxis() fillValueLists() postProcessData() postProcessElement() processOneElement() run() setAxisKeywords()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "HorizontalBarWeighted instance variables",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Instance variables inherited from GraphHorizontalBarWeighted:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "barSpace margin",
+        "type": "Table"
+    },
+    {
+        "text": "MultiStream\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.graph.plot.",
+        "type": "Title"
+    },
+    {
+        "text": "MultiStream",
+        "type": "Title"
+    },
+    {
+        "text": "streamList",
+        "type": "Title"
+    },
+    {
+        "text": "labelList",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Approaches to plotting and graphing multiple Streams.\nA base class from which Stream plotting Classes inherit.\nNot yet integrated into the new 2017 system, unfortunately\u2026\nProvide a list of Streams as an argument. Optionally\nprovide an additional list of labels for each list.",
+        "type": "ListItem"
+    },
+    {
+        "text": "MultiStream bases",
+        "type": "Title"
+    },
+    {
+        "text": "GraphGroupedVerticalBar",
+        "type": "ListItem"
+    },
+    {
+        "text": "Graph",
+        "type": "ListItem"
+    },
+    {
+        "text": "PlotStreamMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "MultiStream read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from PlotStreamMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "allAxes id",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "MultiStream read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Graph:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "doneAction",
+        "type": "Table"
+    },
+    {
+        "text": "MultiStream methods",
+        "type": "Title"
+    },
+    {
+        "text": "MultiStream.",
+        "type": "Title"
+    },
+    {
+        "text": "parseStreams",
+        "type": "Title"
+    },
+    {
+        "text": "streamList",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from GraphGroupedVerticalBar:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "labelBars() renderSubplot()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Graph:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "applyFormatting() applyFormattingToOneAxis() applyGrid() callDoneAction() hideAxisSpines() nextColor() process() setAxisLabel() setAxisRange() setIntegerTicksFromData() setTicks() show() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from PlotStreamMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "extractChordDataMultiAxis() extractChordDataOneAxis() extractData() fillValueLists() postProcessData() postProcessElement() processOneElement() run() setAxisKeywords()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Plot3DBars\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.graph.plot.",
+        "type": "Title"
+    },
+    {
+        "text": "Plot3DBars",
+        "type": "Title"
+    },
+    {
+        "text": "streamObj",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Base class for Stream plotting classes.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Plot3DBars bases",
+        "type": "Title"
+    },
+    {
+        "text": "Graph3DBars",
+        "type": "ListItem"
+    },
+    {
+        "text": "Graph",
+        "type": "ListItem"
+    },
+    {
+        "text": "PlotStreamMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "Plot3DBars read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from PlotStreamMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "allAxes id",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "Plot3DBars read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Graph:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "doneAction",
+        "type": "Table"
+    },
+    {
+        "text": "Plot3DBars methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from Graph3DBars:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "process() renderSubplot()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Graph:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "applyFormatting() applyFormattingToOneAxis() applyGrid() callDoneAction() hideAxisSpines() nextColor() setAxisLabel() setAxisRange() setIntegerTicksFromData() setTicks() show() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from PlotStreamMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "extractChordDataMultiAxis() extractChordDataOneAxis() extractData() fillValueLists() postProcessData() postProcessElement() processOneElement() run() setAxisKeywords()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "PlotStream\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.graph.plot.",
+        "type": "Title"
+    },
+    {
+        "text": "PlotStream",
+        "type": "Title"
+    },
+    {
+        "text": "streamObj",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A generic stream plotter.",
+        "type": "ListItem"
+    },
+    {
+        "text": "PlotStream bases",
+        "type": "Title"
+    },
+    {
+        "text": "Graph",
+        "type": "ListItem"
+    },
+    {
+        "text": "PlotStreamMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "PlotStream read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from PlotStreamMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "allAxes id",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "PlotStream read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Graph:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "doneAction",
+        "type": "Table"
+    },
+    {
+        "text": "PlotStream methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from Graph:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "applyFormatting() applyFormattingToOneAxis() applyGrid() callDoneAction() hideAxisSpines() nextColor() process() renderSubplot() setAxisLabel() setAxisRange() setIntegerTicksFromData() setTicks() show() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from PlotStreamMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "extractChordDataMultiAxis() extractChordDataOneAxis() extractData() fillValueLists() postProcessData() postProcessElement() processOneElement() run() setAxisKeywords()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "PlotStreamMixin\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.graph.plot.",
+        "type": "Title"
+    },
+    {
+        "text": "PlotStreamMixin",
+        "type": "Title"
+    },
+    {
+        "text": "streamObj",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "recurse",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "This Mixin adds Stream extracting and Axis holding features to any\nclass derived from Graph.",
+        "type": "ListItem"
+    },
+    {
+        "text": "PlotStreamMixin bases",
+        "type": "Title"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "PlotStreamMixin read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "PlotStreamMixin.",
+        "type": "Title"
+    },
+    {
+        "text": "allAxes",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "return a list of axisX, axisY, axisZ if any are defined in the class.\nSome might be None.\n>>> s = stream.Stream()\n>>> p = graph.plot.ScatterPitchClassOffset(s)\n>>> p.allAxes\n[<music21.graph.axis.OffsetAxis: x axis for ScatterPitchClassOffset>,\n <music21.graph.axis.PitchClassAxis: y axis for ScatterPitchClassOffset>]",
+        "type": "ListItem"
+    },
+    {
+        "text": "PlotStreamMixin.",
+        "type": "Title"
+    },
+    {
+        "text": "id",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Each PlotStream has a unique id that consists of its class name and\nthe class names of the axes:\n>>> s = stream.Stream()\n>>> pScatter = graph.plot.ScatterPitchClassQuarterLength(s)\n>>> pScatter.id\n'scatter-quarterLength-pitchClass'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "PlotStreamMixin methods",
+        "type": "Title"
+    },
+    {
+        "text": "PlotStreamMixin.",
+        "type": "Title"
+    },
+    {
+        "text": "extractChordDataMultiAxis",
+        "type": "Title"
+    },
+    {
+        "text": "formatDict",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns a list of lists of values for each axis.",
+        "type": "ListItem"
+    },
+    {
+        "text": "static",
+        "type": "Title"
+    },
+    {
+        "text": "PlotStreamMixin.",
+        "type": "Title"
+    },
+    {
+        "text": "extractChordDataOneAxis",
+        "type": "Title"
+    },
+    {
+        "text": "ax",
+        "type": "Title"
+    },
+    {
+        "text": "formatDict",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Look for Note-like attributes in a Chord. This is done by first\nlooking at the Chord, and then, if attributes are not found, looking at each pitch.\nReturns a list of values.",
+        "type": "ListItem"
+    },
+    {
+        "text": "PlotStreamMixin.",
+        "type": "Title"
+    },
+    {
+        "text": "extractData",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "static",
+        "type": "Title"
+    },
+    {
+        "text": "PlotStreamMixin.",
+        "type": "Title"
+    },
+    {
+        "text": "fillValueLists",
+        "type": "Title"
+    },
+    {
+        "text": "elementValues",
+        "type": "Title"
+    },
+    {
+        "text": "nullFillValue",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "pads a list of lists so that each list has the same length.\nPads with the first element of the list or nullFillValue if\nthe list has no elements.   Modifies in place so returns None\nUsed by extractChordDataMultiAxis\n>>> l0 = [2, 3, 4]\n>>> l1 = [10, 20, 30, 40, 50]\n>>> l2 = []\n>>> listOfLists = [l0, l1, l2]\n>>> graph.plot.PlotStream.fillValueLists(listOfLists)\n>>> listOfLists\n[[2,   3,  4,  2,  2],\n [10, 20, 30, 40, 50],\n [0,   0,  0,  0,  0]]",
+        "type": "ListItem"
+    },
+    {
+        "text": "PlotStreamMixin.",
+        "type": "Title"
+    },
+    {
+        "text": "postProcessData",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Call any post data processing routines here and on any axes.",
+        "type": "ListItem"
+    },
+    {
+        "text": "PlotStreamMixin.",
+        "type": "Title"
+    },
+    {
+        "text": "postProcessElement",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "Music21Object",
+        "type": "Title"
+    },
+    {
+        "text": "formatDict",
+        "type": "Title"
+    },
+    {
+        "text": "dict",
+        "type": "Title"
+    },
+    {
+        "text": "Any",
+        "type": "Title"
+    },
+    {
+        "text": "Any",
+        "type": "Title"
+    },
+    {
+        "text": "values",
+        "type": "Title"
+    },
+    {
+        "text": "list[numbers.Real]",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Any processing that needs to take place for each element, independent\nof what the axis is finding can go here.  For chords, a single\nformatDict applies to all pitches/notes in the chord.",
+        "type": "ListItem"
+    },
+    {
+        "text": "PlotStreamMixin.",
+        "type": "Title"
+    },
+    {
+        "text": "processOneElement",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "Music21Object",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get a list of data from a single element (generally a Note or chord):\n>>> n = note.Note('C#4')\n>>> n.offset = 10.25\n>>> s = stream.Stream([n])\n>>> pl = graph.plot.ScatterPitchClassOffset(s)\n>>> pl.processOneElement(n)\n[(10.25, 1, {})]\n\n\n>>> c = chord.Chord(['D4', 'E5'])\n>>> s.insert(5.0, c)\n>>> pl.processOneElement(c)\n[(5.0, 2, {}), (5.0, 4, {})]",
+        "type": "ListItem"
+    },
+    {
+        "text": "PlotStreamMixin.",
+        "type": "Title"
+    },
+    {
+        "text": "run",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "callProcess",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "main routine to extract data, set axis labels, run process() on the underlying\nGraph object, and if self.doneAction is not None, either write or show the graph.",
+        "type": "ListItem"
+    },
+    {
+        "text": "PlotStreamMixin.",
+        "type": "Title"
+    },
+    {
+        "text": "setAxisKeywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Configure axis parameters based on keywords given when creating the Plot.\nLooks in self.savedKeywords, in case any post creation manipulation needs\nto happen.\nFinds keywords that begin with x, y, z and sets the remainder of the\nkeyword (lowercasing the first letter) as an attribute.  Does not\nset any new attributes, only existing ones.\n>>> b = corpus.parse('bwv66.6')\n>>> hist = graph.plot.HistogramPitchSpace(b, xHideUnused=False)\n>>> hist.axisX.hideUnused\nTrue\n>>> hist.setAxisKeywords()\n>>> hist.axisX.hideUnused\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Scatter\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.graph.plot.",
+        "type": "Title"
+    },
+    {
+        "text": "Scatter",
+        "type": "Title"
+    },
+    {
+        "text": "streamObj",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Base class for 2D scatter plots.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Scatter bases",
+        "type": "Title"
+    },
+    {
+        "text": "GraphScatter",
+        "type": "ListItem"
+    },
+    {
+        "text": "Graph",
+        "type": "ListItem"
+    },
+    {
+        "text": "PlotStreamMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "Scatter read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from PlotStreamMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "allAxes id",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "Scatter read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Graph:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "doneAction",
+        "type": "Table"
+    },
+    {
+        "text": "Scatter methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from GraphScatter:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "renderSubplot()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Graph:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "applyFormatting() applyFormattingToOneAxis() applyGrid() callDoneAction() hideAxisSpines() nextColor() process() setAxisLabel() setAxisRange() setIntegerTicksFromData() setTicks() show() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from PlotStreamMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "extractChordDataMultiAxis() extractChordDataOneAxis() extractData() fillValueLists() postProcessData() postProcessElement() processOneElement() run() setAxisKeywords()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "ScatterWeighted\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.graph.plot.",
+        "type": "Title"
+    },
+    {
+        "text": "ScatterWeighted",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "streamObj",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Base class for histograms that plot one axis against its count.\nThe count is stored as the Z axis, though it is represented as size.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ScatterWeighted bases",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "GraphScatterWeighted",
+        "type": "ListItem"
+    },
+    {
+        "text": "Graph",
+        "type": "ListItem"
+    },
+    {
+        "text": "PlotStreamMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ScatterWeighted read-only properties",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Read-only properties inherited from GraphScatterWeighted:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "rangeDiameter",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from PlotStreamMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "allAxes id",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "ScatterWeighted read/write properties",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Read/write properties inherited from Graph:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "doneAction",
+        "type": "Table"
+    },
+    {
+        "text": "ScatterWeighted methods",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Methods inherited from GraphScatterWeighted:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "renderSubplot()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Graph:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "applyFormatting() applyFormattingToOneAxis() applyGrid() callDoneAction() hideAxisSpines() nextColor() process() setAxisLabel() setAxisRange() setIntegerTicksFromData() setTicks() show() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from PlotStreamMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "extractChordDataMultiAxis() extractChordDataOneAxis() extractData() fillValueLists() postProcessData() postProcessElement() processOneElement() run() setAxisKeywords()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "ScatterWeighted instance variables",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Instance variables inherited from GraphScatterWeighted:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "maxDiameter minDiameter",
+        "type": "Table"
+    },
+    {
+        "text": "WindowedAnalysis\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.graph.plot.",
+        "type": "Title"
+    },
+    {
+        "text": "WindowedAnalysis",
+        "type": "Title"
+    },
+    {
+        "text": "streamObj",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Base Plot for windowed analysis routines such as Key Analysis or Ambitus.",
+        "type": "ListItem"
+    },
+    {
+        "text": "WindowedAnalysis bases",
+        "type": "Title"
+    },
+    {
+        "text": "GraphColorGrid",
+        "type": "ListItem"
+    },
+    {
+        "text": "Graph",
+        "type": "ListItem"
+    },
+    {
+        "text": "PlotStreamMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "WindowedAnalysis read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "WindowedAnalysis.",
+        "type": "Title"
+    },
+    {
+        "text": "processor",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read-only properties inherited from PlotStreamMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "allAxes id",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "WindowedAnalysis read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Graph:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "doneAction",
+        "type": "Table"
+    },
+    {
+        "text": "WindowedAnalysis methods",
+        "type": "Title"
+    },
+    {
+        "text": "WindowedAnalysis.",
+        "type": "Title"
+    },
+    {
+        "text": "extractData",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Extract data actually calls the processing routine.\nReturns two element tuple of the data (colorMatrix) and the yTicks list",
+        "type": "ListItem"
+    },
+    {
+        "text": "WindowedAnalysis.",
+        "type": "Title"
+    },
+    {
+        "text": "run",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "callProcess",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "actually create the graph\u2026",
+        "type": "ListItem"
+    },
+    {
+        "text": "WindowedAnalysis.",
+        "type": "Title"
+    },
+    {
+        "text": "write",
+        "type": "Title"
+    },
+    {
+        "text": "fp",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Overrides the normal write method here to add a legend.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from GraphColorGrid:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "renderSubplot()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Graph:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "applyFormatting() applyFormattingToOneAxis() applyGrid() callDoneAction() hideAxisSpines() nextColor() process() setAxisLabel() setAxisRange() setIntegerTicksFromData() setTicks() show()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from PlotStreamMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "extractChordDataMultiAxis() extractChordDataOneAxis() fillValueLists() postProcessData() postProcessElement() processOneElement() setAxisKeywords()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "WindowedAnalysis instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from GraphColorGrid:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "hideLeftBottomSpines",
+        "type": "Table"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.graph.plot",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

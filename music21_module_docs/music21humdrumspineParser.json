@@ -1,0 +1,2550 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.humdrum.spineParser",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.humdrum.instruments",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.instrument",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.humdrum.spineParser\nDynamSpine\nDynamSpine\nDynamSpine.parse()\n\n\n\n\nEventCollection\nEventCollection\nEventCollection.addGlobalEvent()\nEventCollection.addLastSpineEvent()\nEventCollection.addSpineEvent()\nEventCollection.getAllOccurring()\nEventCollection.getSpineEvent()\nEventCollection.getSpineOccurring()\n\n\n\n\nGlobalComment\nGlobalComment\n\n\nGlobalCommentLine\nGlobalCommentLine\n\n\nGlobalReference\nGlobalReference\nGlobalReference.updateMetadata()\n\n\n\n\nGlobalReferenceLine\nGlobalReferenceLine\n\n\nHarmSpine\nHarmSpine\nHarmSpine.parse()\n\n\n\n\nHumdrumDataCollection\nHumdrumDataCollection\nHumdrumDataCollection.createHumdrumSpines()\nHumdrumDataCollection.determineIfDataStreamIsOpus()\nHumdrumDataCollection.insertGlobalEvents()\nHumdrumDataCollection.parse()\nHumdrumDataCollection.parseEventListFromDataStream()\nHumdrumDataCollection.parseMetadata()\nHumdrumDataCollection.parseNonOpus()\nHumdrumDataCollection.parseOpusDataCollections()\nHumdrumDataCollection.parseProtoSpinesAndEventCollections()\n\n\n\n\nHumdrumFile\nHumdrumFile\nHumdrumFile.parseFileHandle()\nHumdrumFile.parseFilename()\n\n\n\n\nHumdrumLine\nHumdrumLine\n\n\nHumdrumSpine\nHumdrumSpine\nHumdrumSpine.spineCollection\nHumdrumSpine.spineType\nHumdrumSpine.append()\nHumdrumSpine.moveElementsIntoMeasures()\nHumdrumSpine.parse()\n\n\n\n\nKernSpine\nKernSpine\nKernSpine.parse()\nKernSpine.processChordEvent()\nKernSpine.processNoteEvent()\nKernSpine.setBeamsForNote()\nKernSpine.setTupletTypeForNote()\n\n\n\n\nMiscTandem\nMiscTandem\n\n\nProtoSpine\nProtoSpine\n\n\nSpineCollection\nSpineCollection\nSpineCollection.addSpine()\nSpineCollection.appendSpine()\nSpineCollection.assignIds()\nSpineCollection.createMusic21Streams()\nSpineCollection.getOffsetsAndPrioritiesByPosition()\nSpineCollection.getSpineById()\nSpineCollection.makeVoices()\nSpineCollection.moveDynamicsAndLyricsToStreams()\nSpineCollection.moveObjectsToMeasures()\nSpineCollection.parseMusic21()\nSpineCollection.performInsertions()\nSpineCollection.performSpineInsertion()\nSpineCollection.reclassSpines()\nSpineCollection.removeSpineById()\n\n\n\n\nSpineComment\nSpineComment\n\n\nSpineEvent\nSpineEvent\nSpineEvent.toNote()\n\n\n\n\nSpineLine\nSpineLine\n\n\nFunctions\nhdStringToMeasure()\nhdStringToNote()\nkernTandemToObject()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.humdrum.spineParser\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.humdrum.spineParser is a collection of utilities for changing\nnative humdrum code into music21 streams.  Most music21 users will\nsimply want to call:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "myFile",
+        "type": "Title"
+    },
+    {
+        "text": "converter",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "'myFile.krn'",
+        "type": "Title"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "myFile",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The methods in here are documented for developers wishing to expand\nmusic21's ability to parse humdrum.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "SpineParsing consists of several steps.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "The data file is read in and all events are sliced horizontally (EventCollections)and vertically (Protospines)",
+        "type": "ListItem"
+    },
+    {
+        "text": "Protospines are parsed into HumdrumSpines by following Spine Path Indicators(*^ and *v especially)\nProtospines that separate become new Protospines with their parentSpine indicated.  Protospines\nthat merge again then followed by the same Protospine as before.  This will cause problems if\na voice re-merges with another staff, but in practice I have not\nseen a .krn file that does this and\nshould be avoided in any case.",
+        "type": "ListItem"
+    },
+    {
+        "text": "HumdrumSpines are reclassed according to their exclusive definition.**kern becomes KernSpines, etc.",
+        "type": "ListItem"
+    },
+    {
+        "text": "All reclassed HumdrumSpines are filled with music21 objects in their .stream property.Measures are put into the spine but are empty containers.  The resulting\nHumdrumSpine.stream objects\nlook like Stream.semiFlat versions in many ways.",
+        "type": "ListItem"
+    },
+    {
+        "text": "For HumdrumSpines with parent spines their .stream contents are theninserted into their parent spines with\nvoice tagged as a music21 Group property.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Lyrics and Dynamics are placed into their corresponding HumdrumSpine.stream objects",
+        "type": "ListItem"
+    },
+    {
+        "text": "Stream elements are moved into their measures within a Stream",
+        "type": "ListItem"
+    },
+    {
+        "text": "Measures are searched for elements with voice groups and Voice objects are created",
+        "type": "ListItem"
+    },
+    {
+        "text": "DynamSpine\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.humdrum.spineParser.",
+        "type": "Title"
+    },
+    {
+        "text": "DynamSpine",
+        "type": "Title"
+    },
+    {
+        "text": "spineId: int = 0",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "eventList=None",
+        "type": "Title"
+    },
+    {
+        "text": "streamClass=<class 'music21.stream.base.Stream'>",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A DynamSpine is a type of humdrum spine with the **dynam\nattribute set and thus events are processed as if they\nare dynamics.",
+        "type": "ListItem"
+    },
+    {
+        "text": "DynamSpine bases",
+        "type": "Title"
+    },
+    {
+        "text": "HumdrumSpine",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "DynamSpine read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "DynamSpine read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from HumdrumSpine:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "spineCollection spineType",
+        "type": "Table"
+    },
+    {
+        "text": "DynamSpine methods",
+        "type": "Title"
+    },
+    {
+        "text": "DynamSpine.",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Dummy method that pushes all these objects to HumdrumSpine.stream\nas ElementWrappers.  Should be overridden in\nspecific Spine subclasses.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from HumdrumSpine:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "append() moveElementsIntoMeasures()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "EventCollection\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.humdrum.spineParser.",
+        "type": "Title"
+    },
+    {
+        "text": "EventCollection",
+        "type": "Title"
+    },
+    {
+        "text": "maxSpines",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "An EventCollection is a time slice of all events that have\nan onset of a certain time.  If an event does not occur at\na certain time, then you should check EventCollection[n].lastEvents\nto get the previous event.  (If it is a note, it is the note\nstill sounding, etc.).  The happeningEvent method gets either\ncurrentEvent or lastEvent.\nThese objects normally get created by\nparseProtoSpinesAndEventCollections()\nso you won't need to do all the setup.\n\nAssume that ec1 isC4     pp\n\nand ec2 is:D4     .\n\n\n>>> SE = humdrum.spineParser.SpineEvent\n>>> eventList1 = [SE('C4'),SE('pp')]\n>>> eventList2 = [SE('D4'),SE('.')]\n>>> ec1 = humdrum.spineParser.EventCollection(maxSpines=2)\n>>> ec1.events = eventList1\n>>> ec2 = humdrum.spineParser.EventCollection(maxSpines=2)\n>>> ec2.events = eventList2\n>>> ec2.lastEvents[1] = eventList1[1]\n>>> ec2.maxSpines\n2\n>>> ec2.getAllOccurring()\n[<music21.humdrum.spineParser.SpineEvent D4>, <music21.humdrum.spineParser.SpineEvent pp>]",
+        "type": "ListItem"
+    },
+    {
+        "text": "EventCollection methods",
+        "type": "Title"
+    },
+    {
+        "text": "EventCollection.",
+        "type": "Title"
+    },
+    {
+        "text": "addGlobalEvent",
+        "type": "Title"
+    },
+    {
+        "text": "globalEvent",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "EventCollection.",
+        "type": "Title"
+    },
+    {
+        "text": "addLastSpineEvent",
+        "type": "Title"
+    },
+    {
+        "text": "spineNum",
+        "type": "Title"
+    },
+    {
+        "text": "spineEvent",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "EventCollection.",
+        "type": "Title"
+    },
+    {
+        "text": "addSpineEvent",
+        "type": "Title"
+    },
+    {
+        "text": "spineNum",
+        "type": "Title"
+    },
+    {
+        "text": "spineEvent",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "EventCollection.",
+        "type": "Title"
+    },
+    {
+        "text": "getAllOccurring",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "EventCollection.",
+        "type": "Title"
+    },
+    {
+        "text": "getSpineEvent",
+        "type": "Title"
+    },
+    {
+        "text": "spineNum",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "EventCollection.",
+        "type": "Title"
+    },
+    {
+        "text": "getSpineOccurring",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "spineNum",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "GlobalComment\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.humdrum.spineParser.",
+        "type": "Title"
+    },
+    {
+        "text": "GlobalComment",
+        "type": "Title"
+    },
+    {
+        "text": "comment",
+        "type": "Title"
+    },
+    {
+        "text": "''",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A Music21Object that represents a comment for the whole score\n>>> sc = humdrum.spineParser.GlobalComment('!! this is a global comment')\n>>> sc\n<music21.humdrum.spineParser.GlobalComment 'this is a global comment'>\n>>> sc.comment\n'this is a global comment'",
+        "type": "ListItem"
+    },
+    {
+        "text": "GlobalComment bases",
+        "type": "Title"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "GlobalComment read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "GlobalComment read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "GlobalComment methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "GlobalComment instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "GlobalCommentLine\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.humdrum.spineParser.",
+        "type": "Title"
+    },
+    {
+        "text": "GlobalCommentLine",
+        "type": "Title"
+    },
+    {
+        "text": "position",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "contents",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "''",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A GlobalCommentLine is a humdrum comment that pertains to all spines\nIn humdrum it is represented by two exclamation points (and usually one space)\nThe GlobalComment object takes two inputs and stores them as attributes:\nposition (line number in the humdrum file)\ncontents (string of contents)\nvalue    (contents minus !!)\n\n\nThe constructor can be passed (position, contents)\nif contents begins with bangs, they are removed along with up to one space directly afterwards\n>>> com1 = humdrum.spineParser.GlobalCommentLine(\n...          position = 4, contents='!! this comment is global')\n>>> com1.position\n4\n>>> com1.contents\n'!! this comment is global'\n>>> com1.value\n'this comment is global'",
+        "type": "ListItem"
+    },
+    {
+        "text": "GlobalCommentLine bases",
+        "type": "Title"
+    },
+    {
+        "text": "HumdrumLine",
+        "type": "ListItem"
+    },
+    {
+        "text": "GlobalReference\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.humdrum.spineParser.",
+        "type": "Title"
+    },
+    {
+        "text": "GlobalReference",
+        "type": "Title"
+    },
+    {
+        "text": "codeOrAll",
+        "type": "Title"
+    },
+    {
+        "text": "''",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "valueOrNone",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A Music21Object that represents a reference in the score, called a \u009creference record\u009d\nin Humdrum.  See Humdrum User's Guide Chapter 2.\n>>> sc = humdrum.spineParser.GlobalReference('!!!REF:this is a global reference')\n>>> sc\n<music21.humdrum.spineParser.GlobalReference REF 'this is a global reference'>\n>>> sc.code\n'REF'\n>>> sc.value\n'this is a global reference'\n\n\nAlternate form\n>>> sc = humdrum.spineParser.GlobalReference('REF', 'this is a global reference')\n>>> sc\n<music21.humdrum.spineParser.GlobalReference REF 'this is a global reference'>\n>>> sc.code\n'REF'\n>>> sc.value\n'this is a global reference'\n\n\nLanguage codes are parsed:\n>>> sc = humdrum.spineParser.GlobalReference('!!!OPT@@RUS: Vesna svyashchennaya')\n>>> sc.code\n'OPT'\n>>> sc.language\n'RUS'\n>>> sc.isPrimary\nTrue\n\n\n>>> sc = humdrum.spineParser.GlobalReference('!!!OPT@FRE: Le sacre du printemps')\n>>> sc.code\n'OPT'\n>>> sc.language\n'FRE'\n>>> sc.isPrimary\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "GlobalReference bases",
+        "type": "Title"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "GlobalReference read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "GlobalReference read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "GlobalReference methods",
+        "type": "Title"
+    },
+    {
+        "text": "GlobalReference.",
+        "type": "Title"
+    },
+    {
+        "text": "updateMetadata",
+        "type": "Title"
+    },
+    {
+        "text": "md",
+        "type": "Title"
+    },
+    {
+        "text": "Metadata",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "update a metadata object according to information in this GlobalReference\nSee humdrum guide Appendix I for information",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "GlobalReference instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "GlobalReferenceLine\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.humdrum.spineParser.",
+        "type": "Title"
+    },
+    {
+        "text": "GlobalReferenceLine",
+        "type": "Title"
+    },
+    {
+        "text": "position",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "contents",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "'!!! NUL: None'",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A GlobalReferenceLine is a type of HumdrumLine that contains\ninformation about the humdrum document.\nIn humdrum it is represented by three exclamation points\nfollowed by non-whitespace followed by a colon.  Examples:\n!!!COM: Stravinsky, Igor Fyodorovich\n!!!CDT: 1882/6/17/-1971/4/6\n!!!ODT: 1911//-1913//; 1947//\n!!!OPT@@RUS: Vesna svyashchennaya\n!!!OPT@FRE: Le sacre du printemps\n\n\nThe GlobalReferenceLine object takes two inputs:\nposition   line number in the humdrum file\ncontents   string of contents\n\n\nAnd stores them as three attributes:\nposition: as above\ncode:     non-whitespace code (usually three letters)\nvalue:    its value\n\n\n>>> gr = humdrum.spineParser.GlobalReferenceLine(\n...        position = 20, contents = '!!!COM: Stravinsky, Igor Fyodorovich\\n')\n>>> gr.position\n20\n>>> gr.code\n'COM'\n>>> gr.value\n'Stravinsky, Igor Fyodorovich'\n\n\nTODO: add parsing of three-digit Kern comment codes into fuller metadata",
+        "type": "ListItem"
+    },
+    {
+        "text": "GlobalReferenceLine bases",
+        "type": "Title"
+    },
+    {
+        "text": "HumdrumLine",
+        "type": "ListItem"
+    },
+    {
+        "text": "HarmSpine\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.humdrum.spineParser.",
+        "type": "Title"
+    },
+    {
+        "text": "HarmSpine",
+        "type": "Title"
+    },
+    {
+        "text": "spineId: int = 0",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "eventList=None",
+        "type": "Title"
+    },
+    {
+        "text": "streamClass=<class 'music21.stream.base.Stream'>",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A HarmSpine is a type of humdrum spine with the **harm\nattribute set and thus events are processed as if they\nare harmonic analysis annotations in the \u009charm\u009d syntax.\nThe harm roman numeral annotations are parsed using\na superset of the original **harm Humdrum representation, written\nfor python and extending the syntax based on other projects like the\nRomanText and the MuseScore roman numeral notations.",
+        "type": "ListItem"
+    },
+    {
+        "text": "HarmSpine bases",
+        "type": "Title"
+    },
+    {
+        "text": "HumdrumSpine",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "HarmSpine read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "HarmSpine read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from HumdrumSpine:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "spineCollection spineType",
+        "type": "Table"
+    },
+    {
+        "text": "HarmSpine methods",
+        "type": "Title"
+    },
+    {
+        "text": "HarmSpine.",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Dummy method that pushes all these objects to HumdrumSpine.stream\nas ElementWrappers.  Should be overridden in\nspecific Spine subclasses.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from HumdrumSpine:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "append() moveElementsIntoMeasures()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "HumdrumDataCollection\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.humdrum.spineParser.",
+        "type": "Title"
+    },
+    {
+        "text": "HumdrumDataCollection",
+        "type": "Title"
+    },
+    {
+        "text": "dataStream",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A HumdrumDataCollection takes in a mandatory list where each element\nis a line of humdrum data.  Together this list represents a collection\nof spines.  Essentially it's the contents of a humdrum file.\nUsually you will probably want to use HumdrumFile which can read\nin a file directly.  This class exists in case you have your Humdrum\ndata in another format (database, from the web, etc.) and already\nhave it as a string.\nYou are probably better off running humdrum.parseFile(\u009cfilename\u009d)\nwhich returns a humdrum.SpineCollection directly, or even better,\nconverter.parse(\u0098file.krn') which will just give you a stream.Score\ninstead.\nLIMITATIONS:\n(1) Spines cannot change definition (**exclusive interpretations) mid-spine.\n\nSo if you start off with **kern, the rest of the spine needs to be\n**kern (actually, the first exclusive interpretation for a spine is\nused throughout)\nNote that, even though changing exclusive interpretations mid-spine\nseems to be legal by the humdrum definition, it looks like none of the\nconventional humdrum parsing tools allow for changing\ndefinitions mid-spine, so I don't think this limitation is a problem.\n(Craig Stuart Sapp confirmed this to me)\nThe Aarden/Miller Palestrina dataset uses *- followed by **kern\nat the changes of sections thus some parsing of multiple exclusive\ninterpretations in a protospine may be necessary.\n\n\nSplit spines are assumed to be voices in a single spine staff.",
+        "type": "ListItem"
+    },
+    {
+        "text": "HumdrumDataCollection bases",
+        "type": "Title"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "HumdrumDataCollection read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "HumdrumDataCollection methods",
+        "type": "Title"
+    },
+    {
+        "text": "HumdrumDataCollection.",
+        "type": "Title"
+    },
+    {
+        "text": "createHumdrumSpines",
+        "type": "Title"
+    },
+    {
+        "text": "protoSpines",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "eventCollections",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Takes the data from the object's protoSpines and eventCollections\nand returns a SpineCollection\nobject that contains HumdrumSpine() objects.\nA HumdrumSpine object differs from a ProtoSpine in that it follows\nspinePathData \u2014 a ProtoSpine records all data in a given tab\nposition, and thus might consist of data from several\nspines that move around.  HumdrumSpines are smart enough not to\nhave this limitation.\nWhen we check for spinePathData we look for the following spine\npath indicators (from HumdrumDoc):\n*+    add a new spine (to the right of the current spine)\n*-    terminate a current spine\n*^    split a spine (into two)\n*v    join (two or more) spines into one\n*x    exchange the position of two spines\n*     do nothing",
+        "type": "ListItem"
+    },
+    {
+        "text": "HumdrumDataCollection.",
+        "type": "Title"
+    },
+    {
+        "text": "determineIfDataStreamIsOpus",
+        "type": "Title"
+    },
+    {
+        "text": "dataStream",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Some Humdrum files contain multiple pieces in one file\nwhich are better represented as Opus\nfile containing multiple scores.\nThis method examines that dataStream (or self.dataStream) and\nif it only has a single piece then it returns (False, None).\nIf it has multiple pieces, it returns True and a list of dataStreams.\n>>> from pprint import pprint as pp\n\n\n>>> mps = humdrum.testFiles.multipartSanctus\n>>> hdc = humdrum.spineParser.HumdrumDataCollection(mps)\n>>> (hasOpus, dataCollections) = hdc.determineIfDataStreamIsOpus()\n>>> hasOpus\nTrue\n>>> pp(dataCollections)\n[['!!!COM: Palestrina, Giovanni Perluigi da',\n  '**kern\\t**kern\\t**kern\\t**kern',\n  '*Ibass\\t*Itenor\\t*Icalto\\t*Icant',\n  '!Bassus\\t!Tenor\\t!Altus\\t!Cantus',\n  '*clefF4\\t*clefGv2\\t*clefG2\\t*clefG2',\n  '*M4/2\\t*M4/2\\t*M4/2\\t*M4/2',\n  '=1\\t=1\\t=1\\t=1',\n  '0r\\t0r\\t1g\\t1r',\n  '.\\t.\\t1a\\t1cc',\n  '=2\\t=2\\t=2\\t=2',\n  '0r\\t0r\\t1g\\t1dd',\n  '.\\t.\\t1r\\t1cc',\n  '*-\\t*-\\t*-\\t*-'],\n ['!! Pleni',\n  '**kern\\t**kern\\t**kern',\n  '*Ibass\\t*Itenor\\t*Icalto',\n  '*clefF4\\t*clefGv2\\t*clefG2',\n  '*M4/2\\t*M4/2\\t*M4/2',\n  '=3\\t=3\\t=3',\n  '1G\\t1r\\t0r',\n  '1A\\t1c\\t.',\n  '=4\\t=4\\t=4',\n  '1B\\t1d\\t1r',\n  '1c\\t1e\\t1g',\n  '*-\\t*-\\t*-'],\n ['!! Hosanna',\n  '**kern\\t**kern\\t**kern\\t**kern',\n  '*Ibass\\t*Itenor\\t*Icalto\\t*Icant',\n  '*clefF4\\t*clefGv2\\t*clefG2\\t*clefG2',\n  '*M3/2\\t*M3/2\\t*M3/2\\t*M3/2',\n  '=5\\t=5\\t=5\\t=5',\n  '1r\\t1r\\t1g\\t1r',\n  '2r\\t2r\\t[2a\\t[2cc',\n  '=5\\t=5\\t=5\\t=5',\n  '1r\\t1r\\t2a]\\t2cc]',\n  '.\\t.\\t2f\\t1dd',\n  '2r\\t2r\\t2g\\t.',\n  '*-\\t*-\\t*-\\t*-']]",
+        "type": "ListItem"
+    },
+    {
+        "text": "HumdrumDataCollection.",
+        "type": "Title"
+    },
+    {
+        "text": "insertGlobalEvents",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Insert the Global Events (GlobalReferenceLines and GlobalCommentLines) into an appropriate\nplace in the outer Stream.\nRun after self.spineCollection.createMusic21Streams().\nIs run automatically by self.parse().\nuses self.spineCollection.getOffsetsAndPrioritiesByPosition()",
+        "type": "ListItem"
+    },
+    {
+        "text": "HumdrumDataCollection.",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Parse a list (dataStream) of lines into a HumdrumSpineCollection\n(which contains HumdrumSpines)\nand set it in self.spineCollection\nif dataStream is None, look for it in self.dataStream.  If that's None too,\nreturn an exception.",
+        "type": "ListItem"
+    },
+    {
+        "text": "HumdrumDataCollection.",
+        "type": "Title"
+    },
+    {
+        "text": "parseEventListFromDataStream",
+        "type": "Title"
+    },
+    {
+        "text": "dataStream",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Sets self.eventList from a dataStream (that is, a\nlist of lines).  It sets self.maxSpines to the\nlargest number of spine events found on any line\nin the file.\nIt sets self.fileLength to the number of lines (excluding\ntotally blank lines) in the file.\nThe difference between the dataStream and self.eventList\nare the following:\n\n\nBlank lines are skipped.\n!!! lines become GlobalReferenceLine objects\n!! lines become GlobalCommentLine objects\nall other lines become SpineLine objects\n\n\nReturns eventList in addition to setting it as self.eventList.\n>>> eventString = ('!!! COM: Beethoven, Ludwig van\\n' +\n...                '!! Not really a piece by Beethoven\\n' +\n...                '**kern\\t**dynam\\n' +\n...                'C4\\tpp\\n' +\n...                'D8\\t.\\n')\n>>> hdc = humdrum.spineParser.HumdrumDataCollection(eventString)\n>>> hdc.maxSpines = 2\n>>> eList = hdc.parseEventListFromDataStream()\n>>> eList is hdc.eventList\nTrue\n>>> for e in eList:\n...     print(e)\n<music21.humdrum.spineParser.GlobalReferenceLine object at 0x...>\n<music21.humdrum.spineParser.GlobalCommentLine object at 0x...>\n<music21.humdrum.spineParser.SpineLine object at 0x...>\n<music21.humdrum.spineParser.SpineLine object at 0x...>\n<music21.humdrum.spineParser.SpineLine object at 0x...>\n>>> print(eList[0].value)\nBeethoven, Ludwig van\n>>> print(eList[3].spineData)\n['C4', 'pp']",
+        "type": "ListItem"
+    },
+    {
+        "text": "HumdrumDataCollection.",
+        "type": "Title"
+    },
+    {
+        "text": "parseMetadata",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Create a metadata object for the file.",
+        "type": "ListItem"
+    },
+    {
+        "text": "HumdrumDataCollection.",
+        "type": "Title"
+    },
+    {
+        "text": "parseNonOpus",
+        "type": "Title"
+    },
+    {
+        "text": "dataStream",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The main parse function for non-opus data collections.",
+        "type": "ListItem"
+    },
+    {
+        "text": "HumdrumDataCollection.",
+        "type": "Title"
+    },
+    {
+        "text": "parseOpusDataCollections",
+        "type": "Title"
+    },
+    {
+        "text": "dataCollections",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Take a dataCollection from determineIfDataStreamIsOpus\nand set self.stream to be an Opus instead.\n>>> mps = humdrum.testFiles.multipartSanctus\n>>> hdc = humdrum.spineParser.HumdrumDataCollection(mps)\n>>> (hasOpus, dataCollections) = hdc.determineIfDataStreamIsOpus()\n>>> if hasOpus is True:\n...     op = hdc.parseOpusDataCollections(dataCollections)\n...     print(len(op.scores))\n...     for sc in op.scores:\n...        print(sc)\n3\n<music21.stream.Score section_1>\n<music21.stream.Score section_2>\n<music21.stream.Score section_3>",
+        "type": "ListItem"
+    },
+    {
+        "text": "HumdrumDataCollection.",
+        "type": "Title"
+    },
+    {
+        "text": "parseProtoSpinesAndEventCollections",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Run after\nparseEventListFromDataStream()\nto take self.eventList and slice it horizontally\nto get self.eventCollections, which is a list of\nEventCollection objects, or things that happen simultaneously.\nAnd, more importantly, this method slices self.eventList\nvertically to get self.protoSpines which is a list\nof ProtoSpines, that is a vertical slice of everything that\nhappens in a column, regardless of spine-path indicators.\nEventCollection objects store global events at the position.\nProtoSpines do not.\nSo self.eventCollections and self.protoSpines can each be\nthought of as a two-dimensional sheet of cells, but where\nthe first index of the former is the vertical position in\nthe dataStream and the first index of the latter is the\nhorizontal position in the dataStream.  The contents of\neach cell is a SpineEvent object or None (if there's no\ndata at that point).  Even \u0098.' (continuation events) get\ntranslated into SpineEvent objects.\nCalls parseEventListFromDataStream()\nif it hasn't already been called.\nreturns a tuple of protoSpines and eventCollections in addition to\nsetting it in the calling object.\n>>> eventString = ('!!!COM: Beethoven, Ludwig van\\n' +\n...                '!! Not really a piece by Beethoven\\n' +\n...                '**kern\\t**dynam\\n' +\n...                'C4\\tpp\\n' +\n...                'D8\\t.\\n')\n>>> hdc = humdrum.spineParser.HumdrumDataCollection(eventString)\n>>> hdc.maxSpines = 2\n>>> hdc.fileLength = 5\n>>> protoSpines, eventCollections = hdc.parseProtoSpinesAndEventCollections()\n>>> protoSpines is hdc.protoSpines\nTrue\n>>> eventCollections is hdc.eventCollections\nTrue\n\n\nLooking at individual slices is unlikely to tell you much.\n>>> for thisSlice in eventCollections:\n...    print(thisSlice)\n<music21.humdrum.spineParser.EventCollection object at 0x...>\n<music21.humdrum.spineParser.EventCollection object at 0x...>\n<music21.humdrum.spineParser.EventCollection object at 0x...>\n<music21.humdrum.spineParser.EventCollection object at 0x...>\n<music21.humdrum.spineParser.EventCollection object at 0x...>\n\n\n>>> for thisSlice in protoSpines:\n...    print(thisSlice)\n<music21.humdrum.spineParser.ProtoSpine object at 0x...>\n<music21.humdrum.spineParser.ProtoSpine object at 0x...>\n\n\nBut looking at the individual slices is revealing:\n>>> eventCollections[4].getAllOccurring()\n[<music21.humdrum.spineParser.SpineEvent D8>, <music21.humdrum.spineParser.SpineEvent pp>]",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "HumdrumFile\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.humdrum.spineParser.",
+        "type": "Title"
+    },
+    {
+        "text": "HumdrumFile",
+        "type": "Title"
+    },
+    {
+        "text": "filename",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "pathlib.Path",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A HumdrumFile is a HumdrumDataCollection which takes\nas a mandatory argument a filename to be opened and read.",
+        "type": "ListItem"
+    },
+    {
+        "text": "HumdrumFile bases",
+        "type": "Title"
+    },
+    {
+        "text": "HumdrumDataCollection",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "HumdrumFile read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "HumdrumFile methods",
+        "type": "Title"
+    },
+    {
+        "text": "HumdrumFile.",
+        "type": "Title"
+    },
+    {
+        "text": "parseFileHandle",
+        "type": "Title"
+    },
+    {
+        "text": "fileHandle",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "takes a fileHandle and returns a HumdrumCollection by calling parse()",
+        "type": "ListItem"
+    },
+    {
+        "text": "HumdrumFile.",
+        "type": "Title"
+    },
+    {
+        "text": "parseFilename",
+        "type": "Title"
+    },
+    {
+        "text": "filename",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "pathlib.Path",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from HumdrumDataCollection:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "createHumdrumSpines() determineIfDataStreamIsOpus() insertGlobalEvents() parse() parseEventListFromDataStream() parseMetadata() parseNonOpus() parseOpusDataCollections() parseProtoSpinesAndEventCollections()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "HumdrumLine\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.humdrum.spineParser.",
+        "type": "Title"
+    },
+    {
+        "text": "HumdrumLine",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "HumdrumLine is a dummy class for subclassing\nSpineLine,\nGlobalCommentLine, and\nGlobalReferenceLine classes\nall of which represent one horizontal line of\ntext in a HumdrumDataCollection\nthat is aware of its\nposition in the file.\nSee the documentation for the specific classes mentioned above\nfor more details.",
+        "type": "ListItem"
+    },
+    {
+        "text": "HumdrumSpine\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.humdrum.spineParser.",
+        "type": "Title"
+    },
+    {
+        "text": "HumdrumSpine",
+        "type": "Title"
+    },
+    {
+        "text": "spineId: int = 0",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "eventList=None",
+        "type": "Title"
+    },
+    {
+        "text": "streamClass=<class 'music21.stream.base.Stream'>",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A HumdrumSpine is a representation of a generic HumdrumSpine\nregardless of **definition after spine path indicators have\nbeen simplified.\nA HumdrumSpine is a collection of events arranged vertically that have a\nconnection to each other.\nEach HumdrumSpine MUST have an id (numeric or string) attached to it.\n>>> SE = humdrum.spineParser.SpineEvent\n>>> spineEvents = [SE('**kern'), SE('c,4'), SE('d#8')]\n>>> spine1Id = 5\n>>> spine1 = humdrum.spineParser.HumdrumSpine(spine1Id, spineEvents)\n>>> spine1.insertPoint = 5\n>>> spine1.endingPosition = 6\n>>> spine1.parentSpine = 3  # spine 3 is the previous spine leading to this one\n>>> spine1.childSpines = [7, 8]  # the spine ends by being split into spines 7 and 8\n\n\nwe keep weak references to the spineCollection so that we\ndon't have circular references\n>>> spineCollection1 = humdrum.spineParser.SpineCollection()\n>>> spine1.spineCollection = spineCollection1\n\n\nThe spineType property searches the EventList or parentSpine to\nfigure out the spineType\n>>> spine1.spineType\n'kern'\n\n\nSpines can be iterated through:\n>>> for e in spine1:\n...    print(e)\n**kern\nc,4\nd#8\n\n\nIf you'd eventually like this spine to be converted to a class\nother than Stream, pass its classname in\nas the streamClass argument:\n>>> spine2 = humdrum.spineParser.HumdrumSpine(streamClass=stream.Part)\n>>> spine2.stream\n<music21.stream.Part ...>",
+        "type": "ListItem"
+    },
+    {
+        "text": "HumdrumSpine bases",
+        "type": "Title"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "HumdrumSpine read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "HumdrumSpine read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "HumdrumSpine.",
+        "type": "Title"
+    },
+    {
+        "text": "spineCollection",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "HumdrumSpine.",
+        "type": "Title"
+    },
+    {
+        "text": "spineType",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "searches the current and parent spineType for a search",
+        "type": "ListItem"
+    },
+    {
+        "text": "HumdrumSpine methods",
+        "type": "Title"
+    },
+    {
+        "text": "HumdrumSpine.",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "event",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "add an item to this Spine",
+        "type": "ListItem"
+    },
+    {
+        "text": "HumdrumSpine.",
+        "type": "Title"
+    },
+    {
+        "text": "moveElementsIntoMeasures",
+        "type": "Title"
+    },
+    {
+        "text": "streamIn",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Takes a parsed stream and moves the elements inside the\nmeasures.  Works with pickup measures, etc. Does not\nautomatically create ties, etc\u2026\nWhy not just use Stream.makeMeasures()? because\nhumdrum measures contain extra information about barlines\netc. and pickups are explicitly defined.\n>>> s1 = stream.Stream()\n>>> s1.append(meter.TimeSignature('2/4'))\n>>> m1 = stream.Measure()\n>>> m1.number = 1\n>>> s1.append(m1)\n>>> s1.append(note.Note('C4', type='quarter'))\n>>> m2 = stream.Measure()\n>>> m2.number = 2\n>>> s1.append(m2)\n>>> s1.append(note.Note('D4', type='half'))\n>>> s1.show('text')\n{0.0} <music21.stream.Measure 1 offset=0.0>\n\n{0.0} <music21.meter.TimeSignature 2/4>\n{0.0} <music21.note.Note C>\n{1.0} <music21.stream.Measure 2 offset=1.0>\n\n{1.0} <music21.note.Note D>\n\n\n>>> hds = humdrum.spineParser.HumdrumSpine()\n>>> s2 = hds.moveElementsIntoMeasures(s1)\n>>> s2.show('text')\n{0.0} <music21.stream.Measure 1 offset=0.0>\n    {0.0} <music21.meter.TimeSignature 2/4>\n    {0.0} <music21.note.Note C>\n{1.0} <music21.stream.Measure 2 offset=1.0>\n    {0.0} <music21.note.Note D>\n\n\nThe first measure is correctly identified as a pickup!\n>>> s2.measure(1).paddingLeft\n1.0",
+        "type": "ListItem"
+    },
+    {
+        "text": "HumdrumSpine.",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Dummy method that pushes all these objects to HumdrumSpine.stream\nas ElementWrappers.  Should be overridden in\nspecific Spine subclasses.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "KernSpine\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.humdrum.spineParser.",
+        "type": "Title"
+    },
+    {
+        "text": "KernSpine",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "spineId: int = 0",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "eventList=None",
+        "type": "Title"
+    },
+    {
+        "text": "streamClass=<class 'music21.stream.base.Stream'>",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A KernSpine is a type of humdrum spine with the **kern\nattribute set and thus events are processed as if they\nare kern notes",
+        "type": "ListItem"
+    },
+    {
+        "text": "KernSpine bases",
+        "type": "Title"
+    },
+    {
+        "text": "HumdrumSpine",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "KernSpine read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "KernSpine read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from HumdrumSpine:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "spineCollection spineType",
+        "type": "Table"
+    },
+    {
+        "text": "KernSpine methods",
+        "type": "Title"
+    },
+    {
+        "text": "KernSpine.",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Dummy method that pushes all these objects to HumdrumSpine.stream\nas ElementWrappers.  Should be overridden in\nspecific Spine subclasses.",
+        "type": "ListItem"
+    },
+    {
+        "text": "KernSpine.",
+        "type": "Title"
+    },
+    {
+        "text": "processChordEvent",
+        "type": "Title"
+    },
+    {
+        "text": "eventC",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Process a single chord event\nLike processNoteEvent, stores information about current beam and tuplet state.",
+        "type": "ListItem"
+    },
+    {
+        "text": "KernSpine.",
+        "type": "Title"
+    },
+    {
+        "text": "processNoteEvent",
+        "type": "Title"
+    },
+    {
+        "text": "eventC",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "similar to hdStringToNote, this method processes a string representing a single\nnote, but stores information about current beam and tuplet state.",
+        "type": "ListItem"
+    },
+    {
+        "text": "KernSpine.",
+        "type": "Title"
+    },
+    {
+        "text": "setBeamsForNote",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "sets the beams for a Note (or Chord) given self.currentBeamNumbers\nand updates self.currentBeamNumbers based on stop beams.\nSafe enough to use on elements such as rests that don't have beam info.",
+        "type": "ListItem"
+    },
+    {
+        "text": "KernSpine.",
+        "type": "Title"
+    },
+    {
+        "text": "setTupletTypeForNote",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from HumdrumSpine:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "append() moveElementsIntoMeasures()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "MiscTandem\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.humdrum.spineParser.",
+        "type": "Title"
+    },
+    {
+        "text": "MiscTandem",
+        "type": "Title"
+    },
+    {
+        "text": "tandem",
+        "type": "Title"
+    },
+    {
+        "text": "''",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "MiscTandem bases",
+        "type": "Title"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "MiscTandem read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "MiscTandem read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "MiscTandem methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "MiscTandem instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "ProtoSpine\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.humdrum.spineParser.",
+        "type": "Title"
+    },
+    {
+        "text": "ProtoSpine",
+        "type": "Title"
+    },
+    {
+        "text": "eventList",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A ProtoSpine is a collection of events arranged vertically.\nIt differs from a HumdrumSpine in that spine paths are not followed.\nSo ProtoSpine(1) would be everything in the 2nd column\nof a Humdrum file regardless of whether the 2nd column\nwas at some point an independent Spine\nor if it later became a split from the first spine.\nSee parseProtoSpinesAndEventCollections()\nfor more details on how ProtoSpine objects are created.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoSpine bases",
+        "type": "Title"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoSpine read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "ProtoSpine methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "SpineCollection\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.humdrum.spineParser.",
+        "type": "Title"
+    },
+    {
+        "text": "SpineCollection",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A SpineCollection is a set of HumdrumSpines with relationships to each\nother and where their position attributes indicate\nsimultaneous onsets.\nWhen you iterate over a SpineCollection, it goes from right to\nleft, since that's the order that humdrum expects.",
+        "type": "ListItem"
+    },
+    {
+        "text": "SpineCollection bases",
+        "type": "Title"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "SpineCollection read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "SpineCollection methods",
+        "type": "Title"
+    },
+    {
+        "text": "SpineCollection.",
+        "type": "Title"
+    },
+    {
+        "text": "addSpine",
+        "type": "Title"
+    },
+    {
+        "text": "streamClass: type[music21.stream.base.Stream] = <class 'music21.stream.base.Part'>",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "creates a new spine in the collection and returns it.\nBy default, the underlying music21 class of the spine is\nPart.  This can be overridden\nby passing in a different streamClass.\nAutomatically sets the id of the Spine.\n>>> hsc = humdrum.spineParser.SpineCollection()\n>>> newSpine = hsc.addSpine()\n>>> newSpine.id\n0\n>>> newSpine.stream\n<music21.stream.Part ...>\n>>> newSpine2 = hsc.addSpine(streamClass=stream.Stream)\n>>> newSpine2.id\n1\n>>> newSpine2\n<music21.humdrum.spineParser.HumdrumSpine: 1>\n>>> newSpine2.stream\n<music21.stream.Stream ...>",
+        "type": "ListItem"
+    },
+    {
+        "text": "SpineCollection.",
+        "type": "Title"
+    },
+    {
+        "text": "appendSpine",
+        "type": "Title"
+    },
+    {
+        "text": "spine",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "appendSpine(spine) \u2014 appends an already existing HumdrumSpine\nto the SpineCollection.  Returns void",
+        "type": "ListItem"
+    },
+    {
+        "text": "SpineCollection.",
+        "type": "Title"
+    },
+    {
+        "text": "assignIds",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "assign an ID based on the instrument or just a string of a number if none\n>>> hsc = humdrum.spineParser.SpineCollection()\n>>> newSpineDefault = hsc.addSpine()\n>>> newSpineDefault2 = hsc.addSpine()\n>>> newSpineOboe1 = hsc.addSpine()\n>>> newSpineOboe2 = hsc.addSpine()\n>>> newSpineTrumpet = hsc.addSpine()\n>>> newSpineOboe1.stream.append(instrument.Oboe())\n>>> newSpineOboe2.stream.append(instrument.Oboe())\n>>> newSpineTrumpet.stream.append(instrument.Trumpet())\n>>> hsc.assignIds()\n>>> for sp in hsc.spines:\n...     print(sp.stream.id)\n1\n2\nOboe-1\nOboe-2\nTrumpet",
+        "type": "ListItem"
+    },
+    {
+        "text": "SpineCollection.",
+        "type": "Title"
+    },
+    {
+        "text": "createMusic21Streams",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Create Music21 Stream objects from spineCollections by running:\n\nself.reclassSpines()\nself.parseMusic21()\nself.performInsertions()\nself.moveObjectsToMeasures()\nself.moveDynamicsAndLyricsToStreams()\nself.makeVoices()\nself.assignIds()",
+        "type": "ListItem"
+    },
+    {
+        "text": "SpineCollection.",
+        "type": "Title"
+    },
+    {
+        "text": "getOffsetsAndPrioritiesByPosition",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "iterates through the spines by location\nand records the offset and priority for each\nReturns a dictionary where each index is humdrumPosition and the value is a\ntwo-element tuple where the first element is the music21 offset and the\nsecond element is a list of Music21Objects at that position",
+        "type": "ListItem"
+    },
+    {
+        "text": "SpineCollection.",
+        "type": "Title"
+    },
+    {
+        "text": "getSpineById",
+        "type": "Title"
+    },
+    {
+        "text": "spineId",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "returns the HumdrumSpine with the given id.\nraises a HumdrumException if the spine with a given id is not found",
+        "type": "ListItem"
+    },
+    {
+        "text": "SpineCollection.",
+        "type": "Title"
+    },
+    {
+        "text": "makeVoices",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "make voices for each kernSpine \u2014 why not just run\nstream.makeVoices() ? because we have more information\nhere that lets us make voices more intelligently\nShould be done after measures have been made.",
+        "type": "ListItem"
+    },
+    {
+        "text": "SpineCollection.",
+        "type": "Title"
+    },
+    {
+        "text": "moveDynamicsAndLyricsToStreams",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "move **dynam and **lyrics/**text information to the appropriate staff.\nAssumes that *staff is consistent through the spine.",
+        "type": "ListItem"
+    },
+    {
+        "text": "SpineCollection.",
+        "type": "Title"
+    },
+    {
+        "text": "moveObjectsToMeasures",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "run moveElementsIntoMeasures for each HumdrumSpine\nthat is not a sub-spine.\nAlso fixes up the tuplets using duration.TupletFixer",
+        "type": "ListItem"
+    },
+    {
+        "text": "SpineCollection.",
+        "type": "Title"
+    },
+    {
+        "text": "parseMusic21",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "runs spine.parse() for each Spine.\nthus populating the spine.stream for each Spine",
+        "type": "ListItem"
+    },
+    {
+        "text": "SpineCollection.",
+        "type": "Title"
+    },
+    {
+        "text": "performInsertions",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "take a parsed spineCollection as music21 objects and take\nsub-spines and put them in their proper location",
+        "type": "ListItem"
+    },
+    {
+        "text": "SpineCollection.",
+        "type": "Title"
+    },
+    {
+        "text": "performSpineInsertion",
+        "type": "Title"
+    },
+    {
+        "text": "thisSpine",
+        "type": "Title"
+    },
+    {
+        "text": "newStream",
+        "type": "Title"
+    },
+    {
+        "text": "insertionPoint",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Insert all the spines into newStream that should be\ninserted into thisSpine at insertionPoint.",
+        "type": "ListItem"
+    },
+    {
+        "text": "SpineCollection.",
+        "type": "Title"
+    },
+    {
+        "text": "reclassSpines",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "changes the classes of HumdrumSpines to more specific types\n(KernSpine, DynamicSpine)\naccording to their spineType (e.g., **kern, **dynam)",
+        "type": "ListItem"
+    },
+    {
+        "text": "SpineCollection.",
+        "type": "Title"
+    },
+    {
+        "text": "removeSpineById",
+        "type": "Title"
+    },
+    {
+        "text": "spineId",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "deletes a spine from the SpineCollection (after inserting, integrating, etc.)\n>>> hsc = humdrum.spineParser.SpineCollection()\n>>> newSpine = hsc.addSpine()\n>>> newSpine.id\n0\n>>> newSpine2 = hsc.addSpine()\n>>> newSpine2.id\n1\n>>> hsc.spines\n[<music21.humdrum.spineParser.HumdrumSpine: 0>,\n <music21.humdrum.spineParser.HumdrumSpine: 1>]\n>>> hsc.removeSpineById(newSpine.id)\n>>> hsc.spines\n[<music21.humdrum.spineParser.HumdrumSpine: 1>]\n\n\nraises a HumdrumException if the spine with a given id is not found",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "SpineComment\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.humdrum.spineParser.",
+        "type": "Title"
+    },
+    {
+        "text": "SpineComment",
+        "type": "Title"
+    },
+    {
+        "text": "comment",
+        "type": "Title"
+    },
+    {
+        "text": "''",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A Music21Object that represents a comment in a single spine.\n>>> sc = humdrum.spineParser.SpineComment('! this is a spine comment')\n>>> sc\n<music21.humdrum.spineParser.SpineComment 'this is a spine comment'>\n>>> sc.comment\n'this is a spine comment'",
+        "type": "ListItem"
+    },
+    {
+        "text": "SpineComment bases",
+        "type": "Title"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "SpineComment read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "SpineComment read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "SpineComment methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "SpineComment instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "SpineEvent\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.humdrum.spineParser.",
+        "type": "Title"
+    },
+    {
+        "text": "SpineEvent",
+        "type": "Title"
+    },
+    {
+        "text": "contents",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "''",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "position",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A SpineEvent is an event in a HumdrumSpine or ProtoSpine.\nIt's .contents property contains the contents of the spine, or\nit could be \u0098.', in which case it means that a\nparticular event appears after the last event in a different spine.\nIt could also be \u009cNone\u009d indicating that there is no event at all\nat this moment in the humdrum file.  Happens if no ProtoSpine exists\nat this point in the file in this tab position.\nShould be initialized with its contents and position in file.\nThese attributes are optional but likely to be very helpful:\nposition -- event position in the file\nprotoSpineId -- ProtoSpine id (0 to N)\nspineId -- id of HumdrumSpine actually attached to (after SpinePaths are parsed)\n\n\nThe toNote() method converts the contents into a music21 note as\nif it's kern \u2014 useful to have in all spine types.\n>>> se1 = humdrum.spineParser.SpineEvent('EEE-8')\n>>> se1.position = 40\n>>> se1.contents\n'EEE-8'\n>>> se1\n<music21.humdrum.spineParser.SpineEvent EEE-8>\n>>> n = se1.toNote()\n>>> n\n<music21.note.Note E->",
+        "type": "ListItem"
+    },
+    {
+        "text": "SpineEvent bases",
+        "type": "Title"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "SpineEvent read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "SpineEvent methods",
+        "type": "Title"
+    },
+    {
+        "text": "SpineEvent.",
+        "type": "Title"
+    },
+    {
+        "text": "toNote",
+        "type": "Title"
+    },
+    {
+        "text": "convertString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "parse the object as a **kern note and return a\nNote object (or Rest, or Chord)\n>>> se = humdrum.spineParser.SpineEvent('DD#4')\n>>> n = se.toNote()\n>>> n\n<music21.note.Note D#>\n>>> n.octave\n2\n>>> n.duration.type\n'quarter'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "SpineLine\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.humdrum.spineParser.",
+        "type": "Title"
+    },
+    {
+        "text": "SpineLine",
+        "type": "Title"
+    },
+    {
+        "text": "position",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "contents",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "''",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A SpineLine is any horizontal line of a Humdrum file that\ncontains one or more spine elements (separated by tabs)\nand not Global elements.\nTakes in a position (line number in file, excluding blank lines)\nand a string of contents.\n>>> hsl = humdrum.spineParser.SpineLine(\n...         position = 7, contents='C4\\t!local comment\\t*M[4/4]\\t.\\n')\n>>> hsl.position\n7\n>>> hsl.numSpines\n4\n>>> hsl.spineData\n['C4', '!local comment', '*M[4/4]', '.']",
+        "type": "ListItem"
+    },
+    {
+        "text": "SpineLine bases",
+        "type": "Title"
+    },
+    {
+        "text": "HumdrumLine",
+        "type": "ListItem"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.humdrum.spineParser.",
+        "type": "Title"
+    },
+    {
+        "text": "hdStringToMeasure",
+        "type": "Title"
+    },
+    {
+        "text": "contents",
+        "type": "Title"
+    },
+    {
+        "text": "previousMeasure",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "kern uses an equals sign followed by processing instructions to\ncreate new measures.\nN.B. \u2014 much of the code for describing how repeat\nsigns are encoded is among the oldest code for music21\nand was not updated when musicxml parsing was added.\nIt does not yet use the bar.RepeatMark() class\nor any other post 2009 additions.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.humdrum.spineParser.",
+        "type": "Title"
+    },
+    {
+        "text": "hdStringToNote",
+        "type": "Title"
+    },
+    {
+        "text": "contents",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "returns a Note (or Rest or Unpitched, etc.)\nmatching the current SpineEvent.\nDoes not check to see that it is sane or part of a **kern spine, etc.\nNew rhythmic extensions formerly defined in\nwiki.humdrum.org/index.php/Rational_rhythms\nand now at http://extras.humdrum.org/man/rscale/\nare fully implemented:\n>>> n = humdrum.spineParser.hdStringToNote('CC3%2')\n>>> n.duration.quarterLength\nFraction(8, 3)\n>>> n.duration.fullName\n'Whole Triplet (2 2/3 QL)'\n\n\n>>> n = humdrum.spineParser.hdStringToNote('e-00.')\n>>> n.pitch\n<music21.pitch.Pitch E-4>\n>>> n.duration.quarterLength\n24.0\n>>> n.duration.fullName\n'Perfect Longa'\n\n\n>>> n = humdrum.spineParser.hdStringToNote('F#000')\n>>> n.duration.quarterLength\n32.0\n>>> n.duration.fullName\n'Imperfect Maxima'\n\n\nNote that the following example is interpreted as one note in the time of a\ndouble-dotted quarter not a double-dotted quarter-note triplet.\nI believe that the latter definition, though used in\nhttp://kern.ccarh.org/cgi-bin/ksdata?l=musedata/mozart/quartet&file=k421-01.krn&f=kern\nand the Josquin Research Project [JRP] is incorrect, seeing as it\ncontradicts the specification in\nhttps://web.archive.org/web/20100203144730/http://www.music-cog.ohio-state.edu/Humdrum/representations/kern.html#N-Tuplets\nThis is the default:\n>>> humdrum.spineParser.flavors['JRP'] = False\n\n\n>>> n = humdrum.spineParser.hdStringToNote('6..fff')\n>>> n.duration.quarterLength\nFraction(7, 6)\n\n\n>>> n.duration.dots\n0\n\n\n>>> n.duration.tuplets[0].durationNormal.dots\n2\n\n\nIf you want the JRP definition, set humdrum.spineParser.flavors[\u0098JRP'] = True\nbefore calling converter.parse() or anything like that:\n>>> humdrum.spineParser.flavors['JRP'] = True\n>>> n = humdrum.spineParser.hdStringToNote('6..fff')\n>>> n.duration.quarterLength\nFraction(7, 6)\n>>> n.duration.dots\n2\n>>> n.duration.tuplets[0].durationNormal.dots\n0\n\n\n>>> n = humdrum.spineParser.hdStringToNote('gg#q/LL')\n>>> n.duration\n<music21.duration.GraceDuration unlinked type:eighth quarterLength:0.0>\n>>> n.duration.isGrace\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.humdrum.spineParser.",
+        "type": "Title"
+    },
+    {
+        "text": "kernTandemToObject",
+        "type": "Title"
+    },
+    {
+        "text": "tandem",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Kern uses symbols such as *M5/4 and *clefG2, etc., to control processing\nThis method converts them to music21 objects.\n>>> m = humdrum.spineParser.kernTandemToObject('*M3/1')\n>>> m\n<music21.meter.TimeSignature 3/1>\n\n\nUnknown objects are converted to MiscTandem objects:\n>>> m2 = humdrum.spineParser.kernTandemToObject('*TandyUnk')\n>>> m2\n<music21.humdrum.spineParser.MiscTandem *TandyUnk>",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.humdrum.spineParser",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

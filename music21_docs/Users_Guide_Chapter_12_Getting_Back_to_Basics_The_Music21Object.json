@@ -1,0 +1,3950 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 12: Getting Back to Basics: The Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide, Chapter 11: Corpus Searching",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide, Chapter 13: More Music21Object Attributes and Properties",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide, Chapter 12: Getting Back to Basics: The Music21Object\nAttributes and Properties\nid\nGroups\nActiveSite\noffset\npriority\nclassSortOrder",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide\nUser's Guide: Table of Contents\nUser's Guide, Chapter 1: Installing and Getting Started with music21\nUser's Guide, Chapter 2: Notes\nUser's Guide, Chapter 3: Pitches, Durations, and Notes again\nUser's Guide, Chapter 4: Lists, Streams (I) and Output\nUser's Guide, Chapter 5: Lists of Lists, Functions, and Recursion\nUser's Guide, Chapter 6: Streams (II): Hierarchies, Recursion, and Flattening\nUser's Guide, Chapter 7: Chords\nUser's Guide, Chapter 8: Installing MusicXML Readers and File Formats (1)\nUser's Guide, Chapter 9: Chordify\nUser's Guide, Chapter 10: Examples 1\nUser's Guide, Chapter 11: Corpus Searching\nUser's Guide, Chapter 12: Getting Back to Basics: The Music21Object\nUser's Guide, Chapter 13: More Music21Object Attributes and Properties\nUser's Guide: Chapter 14: Time Signatures and Beats\nUser's Guide, Chapter 15: Keys and KeySignatures\nUser's Guide, Chapter 16: TinyNotation\nUser's Guide: Chapter 17: Derivations\nUser's Guide: Chapter 18: Intervals\nUser's Guide, Chapter 19: Advanced Durations (Complex and Tuplets)\nUser's Guide, Chapter 20: Examples 2\nUser's Guide, Chapter 21: Ordering and Sorting of Stream Elements\nUser's Guide, Chapter 22: Graphing and plotting\nUser's Guide, Chapter 23: Roman Numeral Analysis\nUser's Guide, Chapter 24: Configuring Environment Settings\nUser's Guide, Chapter 25: Post-Tonal Tools (1)\nUser's Guide, Chapter 26: Stream Iteration and Filtering\nUser's Guide, Chapter 27: Grace Notes\nUser's Guide, Chapter 28: Lyric Searching\nUser's Guide, Chapter 29: Spanners 1 (Slurs)\nUser's Guide, Chapter 30: Examples 3\nUser's Guide, Chapter 31: Clefs, Ties, and Beams\nUser's Guide, Chapter 32: Articulations\nUser's Guide, Chapter 44: Advanced Graphing (Axes, Plots, and Graphs)\nUser's Guide, Chapter 53: Advanced Corpus and Metadata Searching\nUser's Guide, Chapter 54: Extending Converter with New Formats\nUser's Guide, Chapter 55: Advanced Meter Topics\nUser's Guide, Chapter 58: Understanding Sites and Contexts\nUser's Guide, Chapter 61: TimespanTrees and Verticalities",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 12: Getting Back to Basics: The Music21Object\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Almost everything that we've been working with so far, Note objects,\nChord objects, Stream objects, etc., are subclasses of a object\nthat, for lack of a better name, is called\nMusic21Object.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "A Music21Object is something that can go in a Stream, knows\nwhere it is in a Stream, and has a Duration at .duration.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Of course, not every object in Python is a Music21Object, but a\nlittle surprisingly, not every object in music21 is a\n\u009cMusic21Object\u009d. For instance, the Pitch\nobject is not. If you try to put one in a Stream, you'll get an\nerror:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "from",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "import",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "\"A-2\"",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Stream",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "insert",
+        "type": "Title"
+    },
+    {
+        "text": "---------------------------------------------------------------------------",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "StreamException",
+        "type": "Title"
+    },
+    {
+        "text": "Traceback",
+        "type": "Title"
+    },
+    {
+        "text": "most",
+        "type": "Title"
+    },
+    {
+        "text": "recent",
+        "type": "Title"
+    },
+    {
+        "text": "call",
+        "type": "Title"
+    },
+    {
+        "text": "last",
+        "type": "Title"
+    },
+    {
+        "text": "var",
+        "type": "Title"
+    },
+    {
+        "text": "folders",
+        "type": "Title"
+    },
+    {
+        "text": "mk",
+        "type": "Title"
+    },
+    {
+        "text": "qf43gd_s5f30rzzbt7l7l01h0000gn",
+        "type": "Title"
+    },
+    {
+        "text": "ipykernel_7779",
+        "type": "Title"
+    },
+    {
+        "text": "2384846781.",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "py",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "module",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "\"A-2\"",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Stream",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "---->",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "insert",
+        "type": "Title"
+    },
+    {
+        "text": "~/",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "git",
+        "type": "Title"
+    },
+    {
+        "text": "music21base",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "base",
+        "type": "Title"
+    },
+    {
+        "text": "py",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "insert",
+        "type": "Title"
+    },
+    {
+        "text": "self",
+        "type": "Title"
+    },
+    {
+        "text": "offsetOrItemOrList",
+        "type": "Title"
+    },
+    {
+        "text": "itemOrNone",
+        "type": "Title"
+    },
+    {
+        "text": "ignoreSort",
+        "type": "Title"
+    },
+    {
+        "text": "setActiveSite",
+        "type": "Title"
+    },
+    {
+        "text": "2092",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "2093",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "# checks if element is self, among other checks",
+        "type": "NarrativeText"
+    },
+    {
+        "text": ">",
+        "type": "ListItem"
+    },
+    {
+        "text": "2094",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "self",
+        "type": "Title"
+    },
+    {
+        "text": "coreGuardBeforeAddElement",
+        "type": "Title"
+    },
+    {
+        "text": "element",
+        "type": "Title"
+    },
+    {
+        "text": "2095",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "# main insert procedure here",
+        "type": "Title"
+    },
+    {
+        "text": "2096",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "~/",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "git",
+        "type": "Title"
+    },
+    {
+        "text": "music21base",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "core",
+        "type": "Title"
+    },
+    {
+        "text": "py",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "coreGuardBeforeAddElement",
+        "type": "Title"
+    },
+    {
+        "text": "self",
+        "type": "Title"
+    },
+    {
+        "text": "element",
+        "type": "Title"
+    },
+    {
+        "text": "checkRedundancy",
+        "type": "Title"
+    },
+    {
+        "text": "419",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'cannot insert StreamIterator into a Stream",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "\\n",
+        "type": "Title"
+    },
+    {
+        "text": "420",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\"Iterate over it instead (User's Guide chs. 6 and 26)\"",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "-->",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "421",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "raise",
+        "type": "Title"
+    },
+    {
+        "text": "StreamException",
+        "type": "Title"
+    },
+    {
+        "text": "422",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'The object you tried to add to the Stream,",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "element",
+        "type": "Title"
+    },
+    {
+        "text": "!r}",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ", '",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "423",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'is not a Music21Object.  Use an ElementWrapper object '",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "StreamException",
+        "type": "Title"
+    },
+    {
+        "text": "The",
+        "type": "Title"
+    },
+    {
+        "text": "object",
+        "type": "Title"
+    },
+    {
+        "text": "you",
+        "type": "Title"
+    },
+    {
+        "text": "tried",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "add",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "the",
+        "type": "Title"
+    },
+    {
+        "text": "Stream",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "is",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "not",
+        "type": "Title"
+    },
+    {
+        "text": "Music21Object",
+        "type": "Title"
+    },
+    {
+        "text": "Use",
+        "type": "Title"
+    },
+    {
+        "text": "an",
+        "type": "Title"
+    },
+    {
+        "text": "ElementWrapper",
+        "type": "Title"
+    },
+    {
+        "text": "object",
+        "type": "Title"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "this",
+        "type": "Title"
+    },
+    {
+        "text": "is",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "what",
+        "type": "Title"
+    },
+    {
+        "text": "you",
+        "type": "Title"
+    },
+    {
+        "text": "intend",
+        "type": "Title"
+    },
+    {
+        "text": "Durations are also not\nMusic21Objects:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "Duration",
+        "type": "Title"
+    },
+    {
+        "text": "'half'",
+        "type": "Title"
+    },
+    {
+        "text": "insert",
+        "type": "Title"
+    },
+    {
+        "text": "---------------------------------------------------------------------------",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "StreamException",
+        "type": "Title"
+    },
+    {
+        "text": "Traceback",
+        "type": "Title"
+    },
+    {
+        "text": "most",
+        "type": "Title"
+    },
+    {
+        "text": "recent",
+        "type": "Title"
+    },
+    {
+        "text": "call",
+        "type": "Title"
+    },
+    {
+        "text": "last",
+        "type": "Title"
+    },
+    {
+        "text": "var",
+        "type": "Title"
+    },
+    {
+        "text": "folders",
+        "type": "Title"
+    },
+    {
+        "text": "mk",
+        "type": "Title"
+    },
+    {
+        "text": "qf43gd_s5f30rzzbt7l7l01h0000gn",
+        "type": "Title"
+    },
+    {
+        "text": "ipykernel_7779",
+        "type": "Title"
+    },
+    {
+        "text": "777471452.",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "py",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "module",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "Duration",
+        "type": "Title"
+    },
+    {
+        "text": "'half'",
+        "type": "Title"
+    },
+    {
+        "text": "---->",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "insert",
+        "type": "Title"
+    },
+    {
+        "text": "~/",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "git",
+        "type": "Title"
+    },
+    {
+        "text": "music21base",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "base",
+        "type": "Title"
+    },
+    {
+        "text": "py",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "insert",
+        "type": "Title"
+    },
+    {
+        "text": "self",
+        "type": "Title"
+    },
+    {
+        "text": "offsetOrItemOrList",
+        "type": "Title"
+    },
+    {
+        "text": "itemOrNone",
+        "type": "Title"
+    },
+    {
+        "text": "ignoreSort",
+        "type": "Title"
+    },
+    {
+        "text": "setActiveSite",
+        "type": "Title"
+    },
+    {
+        "text": "2092",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "2093",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "# checks if element is self, among other checks",
+        "type": "NarrativeText"
+    },
+    {
+        "text": ">",
+        "type": "ListItem"
+    },
+    {
+        "text": "2094",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "self",
+        "type": "Title"
+    },
+    {
+        "text": "coreGuardBeforeAddElement",
+        "type": "Title"
+    },
+    {
+        "text": "element",
+        "type": "Title"
+    },
+    {
+        "text": "2095",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "# main insert procedure here",
+        "type": "Title"
+    },
+    {
+        "text": "2096",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "~/",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "git",
+        "type": "Title"
+    },
+    {
+        "text": "music21base",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "core",
+        "type": "Title"
+    },
+    {
+        "text": "py",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "coreGuardBeforeAddElement",
+        "type": "Title"
+    },
+    {
+        "text": "self",
+        "type": "Title"
+    },
+    {
+        "text": "element",
+        "type": "Title"
+    },
+    {
+        "text": "checkRedundancy",
+        "type": "Title"
+    },
+    {
+        "text": "419",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'cannot insert StreamIterator into a Stream",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "\\n",
+        "type": "Title"
+    },
+    {
+        "text": "420",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\"Iterate over it instead (User's Guide chs. 6 and 26)\"",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "-->",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "421",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "raise",
+        "type": "Title"
+    },
+    {
+        "text": "StreamException",
+        "type": "Title"
+    },
+    {
+        "text": "422",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'The object you tried to add to the Stream,",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "element",
+        "type": "Title"
+    },
+    {
+        "text": "!r}",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ", '",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "423",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'is not a Music21Object.  Use an ElementWrapper object '",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "StreamException",
+        "type": "Title"
+    },
+    {
+        "text": "The",
+        "type": "Title"
+    },
+    {
+        "text": "object",
+        "type": "Title"
+    },
+    {
+        "text": "you",
+        "type": "Title"
+    },
+    {
+        "text": "tried",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "add",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "the",
+        "type": "Title"
+    },
+    {
+        "text": "Stream",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "Duration",
+        "type": "Title"
+    },
+    {
+        "text": "2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "is",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "not",
+        "type": "Title"
+    },
+    {
+        "text": "Music21Object",
+        "type": "Title"
+    },
+    {
+        "text": "Use",
+        "type": "Title"
+    },
+    {
+        "text": "an",
+        "type": "Title"
+    },
+    {
+        "text": "ElementWrapper",
+        "type": "Title"
+    },
+    {
+        "text": "object",
+        "type": "Title"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "this",
+        "type": "Title"
+    },
+    {
+        "text": "is",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "what",
+        "type": "Title"
+    },
+    {
+        "text": "you",
+        "type": "Title"
+    },
+    {
+        "text": "intend",
+        "type": "Title"
+    },
+    {
+        "text": "Music21Object",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Duration",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Duration",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'A-2'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "'half'",
+        "type": "Title"
+    },
+    {
+        "text": "insert",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "'text'",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">",
+        "type": "ListItem"
+    },
+    {
+        "text": "How can we tell that a Note is a Music21Object? Well we can read\nthe docs (Note) where it says:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Note bases:",
+        "type": "Title"
+    },
+    {
+        "text": "Or we can use the isinstance(obj, class) operator on a given note.\nThe class we are looking for is base.Music21Object. We still have\nour A\u00e2\u0099\u00ad as n, so we can do:",
+        "type": "ListItem"
+    },
+    {
+        "text": "NotRest",
+        "type": "Title"
+    },
+    {
+        "text": "GeneralNote",
+        "type": "Title"
+    },
+    {
+        "text": "Music21Object",
+        "type": "Title"
+    },
+    {
+        "text": "Or we can use the isinstance(obj, class) operator on a given note.\nThe class we are looking for is base.Music21Object. We still have\nour A\u00e2\u0099\u00ad as n, so we can do:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isinstance",
+        "type": "Title"
+    },
+    {
+        "text": "base",
+        "type": "Title"
+    },
+    {
+        "text": "Music21Object",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "Note that we need to have a Note object first, we can't test the class\nitself:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isinstance",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "base",
+        "type": "Title"
+    },
+    {
+        "text": "Music21Object",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "There's one other way that you can tell if an object is a\nMusic21Object, that's to check whether Music21Object appears in\nthe object's .classes:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "'Music21Object'",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "classes",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "But that's a bit of a cop-out. Things that are not Music21Objects\ndon't generally have a .classes property, so that won't work:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "import",
+        "type": "Title"
+    },
+    {
+        "text": "datetime",
+        "type": "Title"
+    },
+    {
+        "text": "dt",
+        "type": "Title"
+    },
+    {
+        "text": "datetime",
+        "type": "Title"
+    },
+    {
+        "text": "datetime",
+        "type": "Title"
+    },
+    {
+        "text": "2015",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "27",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "dt",
+        "type": "Title"
+    },
+    {
+        "text": "datetime",
+        "type": "Title"
+    },
+    {
+        "text": "datetime",
+        "type": "Title"
+    },
+    {
+        "text": "2015",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "27",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'Music21Object'",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "dt",
+        "type": "Title"
+    },
+    {
+        "text": "classes",
+        "type": "Title"
+    },
+    {
+        "text": "---------------------------------------------------------------------------",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "AttributeError",
+        "type": "Title"
+    },
+    {
+        "text": "Traceback",
+        "type": "Title"
+    },
+    {
+        "text": "most",
+        "type": "Title"
+    },
+    {
+        "text": "recent",
+        "type": "Title"
+    },
+    {
+        "text": "call",
+        "type": "Title"
+    },
+    {
+        "text": "last",
+        "type": "Title"
+    },
+    {
+        "text": "ipython",
+        "type": "Title"
+    },
+    {
+        "text": "input",
+        "type": "Title"
+    },
+    {
+        "text": "f578ffe0ec17",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "module",
+        "type": "Title"
+    },
+    {
+        "text": "---->",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'Music21Object'",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "dt",
+        "type": "Title"
+    },
+    {
+        "text": "classes",
+        "type": "Title"
+    },
+    {
+        "text": "AttributeError",
+        "type": "Title"
+    },
+    {
+        "text": "'datetime.datetime'",
+        "type": "Title"
+    },
+    {
+        "text": "object",
+        "type": "Title"
+    },
+    {
+        "text": "has",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "no",
+        "type": "Title"
+    },
+    {
+        "text": "attribute",
+        "type": "Title"
+    },
+    {
+        "text": "'classes'",
+        "type": "Title"
+    },
+    {
+        "text": "But it's a useful and easy way of checking to see if something you know\nis a Music21Object is a specific class:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "'Chord'",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "classes",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "In fact, it's useful enough that we've put it in a few objects in\nmusic21 that aren't Music21Objects",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "'Duration'",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "classes",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "The class of an object cannot (well, should not) change after it's been\ncreated. Thus it can be thought of as totally stable. Streams have many\nways of filtering out Music21Objects (a.k.a. \u009celements\u009d) according\nto class. The easiest way is with .getElementsByClass:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Stream",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "clef",
+        "type": "Title"
+    },
+    {
+        "text": "TrebleClef",
+        "type": "Title"
+    },
+    {
+        "text": "())",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "meter",
+        "type": "Title"
+    },
+    {
+        "text": "TimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "'3/4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "))",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "\"A\"",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "))",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Rest",
+        "type": "Title"
+    },
+    {
+        "text": "())",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "\"B\"",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "))",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "element",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "getElementsByClass",
+        "type": "Title"
+    },
+    {
+        "text": "'Note'",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "element",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "If you wanted to get the Notes and the Rest, you could figure out what\ntheir common ancestor class is and filter on that:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Rest",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "classes",
+        "type": "Title"
+    },
+    {
+        "text": "'Rest'",
+        "type": "Title"
+    },
+    {
+        "text": "'GeneralNote'",
+        "type": "Title"
+    },
+    {
+        "text": "'Music21Object'",
+        "type": "Title"
+    },
+    {
+        "text": "'ProtoM21Object'",
+        "type": "Title"
+    },
+    {
+        "text": "'object'",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "classes",
+        "type": "Title"
+    },
+    {
+        "text": "'Note'",
+        "type": "Title"
+    },
+    {
+        "text": "'NotRest'",
+        "type": "Title"
+    },
+    {
+        "text": "'GeneralNote'",
+        "type": "Title"
+    },
+    {
+        "text": "'Music21Object'",
+        "type": "Title"
+    },
+    {
+        "text": "'ProtoM21Object'",
+        "type": "Title"
+    },
+    {
+        "text": "'object'",
+        "type": "Title"
+    },
+    {
+        "text": "aha! The common ancestor class is GeneralNote so we will filter on\nthis:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "element",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "getElementsByClass",
+        "type": "Title"
+    },
+    {
+        "text": "'GeneralNote'",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "element",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Rest",
+        "type": "Title"
+    },
+    {
+        "text": "quarter",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "Or you could give a list of relevant classes:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "element",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "getElementsByClass",
+        "type": "Title"
+    },
+    {
+        "text": "([",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'Note'",
+        "type": "Title"
+    },
+    {
+        "text": "'Rest'",
+        "type": "Title"
+    },
+    {
+        "text": "]):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "element",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Rest",
+        "type": "Title"
+    },
+    {
+        "text": "quarter",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "For those who are familiar with HTML/Javascript/DOM programming, a\nPython Class is most similar to a DOM Tag (like <img>). So DOM methods\nsuch as .getElementsByTagName are similar to music21's\n.getElementsByClass.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "It's worth pointing out that there's also a .classSet (v.2.1+) on\nevery Music21Object that gives the string name of all base classes,\nthe fully-qualified string name for every class, as well as the class\nobject. Since it will return True for basically every form that\nsomeone might pass in a class selector, it's used a lot internally for\nsafety. It returns these objects as a frozenset(), meaning it will\nreturn in any order and cannot be manipulated:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Rest",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "classSet",
+        "type": "Title"
+    },
+    {
+        "text": "frozenset",
+        "type": "Title"
+    },
+    {
+        "text": "({",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "base",
+        "type": "Title"
+    },
+    {
+        "text": "Music21Object",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "GeneralNote",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Rest",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "prebase",
+        "type": "Title"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "Title"
+    },
+    {
+        "text": "object",
+        "type": "Title"
+    },
+    {
+        "text": "'GeneralNote'",
+        "type": "Title"
+    },
+    {
+        "text": "'Music21Object'",
+        "type": "Title"
+    },
+    {
+        "text": "'ProtoM21Object'",
+        "type": "Title"
+    },
+    {
+        "text": "'Rest'",
+        "type": "Title"
+    },
+    {
+        "text": "'builtins.object'",
+        "type": "Title"
+    },
+    {
+        "text": "'music21.base.Music21Object'",
+        "type": "Title"
+    },
+    {
+        "text": "'music21.note.GeneralNote'",
+        "type": "Title"
+    },
+    {
+        "text": "'music21.note.Rest'",
+        "type": "Title"
+    },
+    {
+        "text": "'music21.prebase.ProtoM21Object'",
+        "type": "Title"
+    },
+    {
+        "text": "'object'",
+        "type": "Title"
+    },
+    {
+        "text": "})",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'Rest'",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "classSet",
+        "type": "Title"
+    },
+    {
+        "text": "'music21.note.GeneralNote'",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "classSet",
+        "type": "Title"
+    },
+    {
+        "text": "base",
+        "type": "Title"
+    },
+    {
+        "text": "Music21Object",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "classSet",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "Attributes and Properties\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Once you know that something is a music21Object you can exploit the\nattributes of the object for musical purposes.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "id\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Each music21Object has a (should be) unique id stored in the .id\nattribute:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "\"C#4\"",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "id",
+        "type": "Title"
+    },
+    {
+        "text": "4540923128",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "By default, this .id is the same as the location of the object in\nmemory, which the built-in Python function id() returns:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "id",
+        "type": "Title"
+    },
+    {
+        "text": "4540923128",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "But we can set it manually so that the object is easier to find later:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "id",
+        "type": "Title"
+    },
+    {
+        "text": "'first_note'",
+        "type": "Title"
+    },
+    {
+        "text": "id",
+        "type": "Title"
+    },
+    {
+        "text": "'first_note'",
+        "type": "Title"
+    },
+    {
+        "text": "We advise .id not to include spaces or special characters, and may\nenforce it in the future.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "This .id is especially useful for Stream objects because it will\nbe displayed in the representation of the Stream and, if there's no\nother metadata, can be used as the name of the part:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Stream",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "id",
+        "type": "Title"
+    },
+    {
+        "text": "'empty_stream'",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Stream",
+        "type": "Title"
+    },
+    {
+        "text": "empty_stream",
+        "type": "Title"
+    },
+    {
+        "text": "Parts can be retrieved from the .parts attribute of a score by id.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "bach",
+        "type": "Title"
+    },
+    {
+        "text": "corpus",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "'bwv66.6'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "sopr",
+        "type": "Title"
+    },
+    {
+        "text": "bach",
+        "type": "Title"
+    },
+    {
+        "text": "parts",
+        "type": "Title"
+    },
+    {
+        "text": "'soprano'",
+        "type": "Title"
+    },
+    {
+        "text": "sopr",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Part",
+        "type": "Title"
+    },
+    {
+        "text": "Soprano",
+        "type": "Title"
+    },
+    {
+        "text": "sopr",
+        "type": "Title"
+    },
+    {
+        "text": "id",
+        "type": "Title"
+    },
+    {
+        "text": "'Soprano'",
+        "type": "Title"
+    },
+    {
+        "text": "There are some properties such as .getElementById() that retrieve\nobjects by .id:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "getElementById",
+        "type": "Title"
+    },
+    {
+        "text": "'first_note'",
+        "type": "Title"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "id",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#> first_note",
+        "type": "Title"
+    },
+    {
+        "text": "If you know HTML/Javascript/DOM programming, the similarity between\nmusic21's .getElementById() and HTML's .getElementById()\nis intentional.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Groups\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "A group is a collection of labels for an object. Think of\nGroups as being like .id with two\ndifferences: (1) each Music21Object can have zero, one, or multiple\nGroups \u2014 but it has exactly one .id and (2) a single group label can\nbelong to multiple Music21Objects.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "groups",
+        "type": "Title"
+    },
+    {
+        "text": "[]",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Groups are wrappers around lists that enforce the restriction that\nthe label must be a string. Since they're otherwise just lists, you can\nadd a group to any object just by appending a string to the group:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "groups",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "'black_key'",
+        "type": "Title"
+    },
+    {
+        "text": "groups",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "'sharped'",
+        "type": "Title"
+    },
+    {
+        "text": "groups",
+        "type": "Title"
+    },
+    {
+        "text": "'black_key'",
+        "type": "Title"
+    },
+    {
+        "text": "'sharped'",
+        "type": "Title"
+    },
+    {
+        "text": "We advise groups not to have spaces in them and will be enforcing this\nin v.3.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "'sharped'",
+        "type": "Title"
+    },
+    {
+        "text": "'black",
+        "type": "Title"
+    },
+    {
+        "text": "key'",
+        "type": "Title"
+    },
+    {
+        "text": "Stream.getElementsByGroup()",
+        "type": "Title"
+    },
+    {
+        "text": "Elements",
+        "type": "Title"
+    },
+    {
+        "text": "getElementById",
+        "type": "Title"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "getElementsByGroup",
+        "type": "Title"
+    },
+    {
+        "text": "'sharped'",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "id",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#> first_note",
+        "type": "Title"
+    },
+    {
+        "text": "Groups are the equivalent of the HTML/Javascript/DOM \u009cclass\u009d. (Since\nclass means something else in Python, we've changed the term).\nEventually, Groups will be able to be used in styling objects\nautomatically. For now we can just do it by hand:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "getElementsByGroup",
+        "type": "Title"
+    },
+    {
+        "text": "'black_key'",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "notehead",
+        "type": "Title"
+    },
+    {
+        "text": "'circle-x'",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "ActiveSite\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Music21Object",
+        "type": "Title"
+    },
+    {
+        "text": ".activeSite",
+        "type": "Title"
+    },
+    {
+        "text": "'empty",
+        "type": "Title"
+    },
+    {
+        "text": "stream'",
+        "type": "Title"
+    },
+    {
+        "text": ".activeSite",
+        "type": "Title"
+    },
+    {
+        "text": "activeSite",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Stream",
+        "type": "Title"
+    },
+    {
+        "text": "empty_stream",
+        "type": "Title"
+    },
+    {
+        "text": "The activeSite may change over time; obviously if the note is put in\nanother Stream then that Stream will become the activeSite. Let's put\nthe note in a new stream, four quarter notes from the start:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Stream",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "id",
+        "type": "Title"
+    },
+    {
+        "text": "'new_stream'",
+        "type": "Title"
+    },
+    {
+        "text": "insert",
+        "type": "Title"
+    },
+    {
+        "text": "4.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "activeSite",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Stream",
+        "type": "Title"
+    },
+    {
+        "text": "new_stream",
+        "type": "Title"
+    },
+    {
+        "text": "We can also change the activeSite\u2026",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite",
+        "type": "Title"
+    },
+    {
+        "text": "activeSite",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Stream",
+        "type": "Title"
+    },
+    {
+        "text": "empty_stream",
+        "type": "Title"
+    },
+    {
+        "text": "As long as it is a Stream that the Element is already a part of:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Stream",
+        "type": "Title"
+    },
+    {
+        "text": "id",
+        "type": "Title"
+    },
+    {
+        "text": "'unrelated_stream'",
+        "type": "Title"
+    },
+    {
+        "text": "activeSite",
+        "type": "Title"
+    },
+    {
+        "text": "---------------------------------------------------------------------------",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "KeyError",
+        "type": "Title"
+    },
+    {
+        "text": "Traceback",
+        "type": "Title"
+    },
+    {
+        "text": "most",
+        "type": "Title"
+    },
+    {
+        "text": "recent",
+        "type": "Title"
+    },
+    {
+        "text": "call",
+        "type": "Title"
+    },
+    {
+        "text": "last",
+        "type": "Title"
+    },
+    {
+        "text": "~/",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "git",
+        "type": "Title"
+    },
+    {
+        "text": "music21base",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "__init__",
+        "type": "Title"
+    },
+    {
+        "text": "py",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "elementOffset",
+        "type": "Title"
+    },
+    {
+        "text": "self",
+        "type": "Title"
+    },
+    {
+        "text": "element",
+        "type": "Title"
+    },
+    {
+        "text": "stringReturns",
+        "type": "Title"
+    },
+    {
+        "text": "1639",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "# 2.3 million times found in TestStream",
+        "type": "NarrativeText"
+    },
+    {
+        "text": ">",
+        "type": "ListItem"
+    },
+    {
+        "text": "1640",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "self",
+        "type": "Title"
+    },
+    {
+        "text": "_offsetDict",
+        "type": "Title"
+    },
+    {
+        "text": "id",
+        "type": "Title"
+    },
+    {
+        "text": "element",
+        "type": "Title"
+    },
+    {
+        "text": ")][",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "1641",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "# if returnedElement is not element:  # stale reference...",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "KeyError",
+        "type": "Title"
+    },
+    {
+        "text": "4540923128",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "During",
+        "type": "Title"
+    },
+    {
+        "text": "handling",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "of",
+        "type": "Title"
+    },
+    {
+        "text": "the",
+        "type": "Title"
+    },
+    {
+        "text": "above",
+        "type": "Title"
+    },
+    {
+        "text": "exception",
+        "type": "Title"
+    },
+    {
+        "text": "another",
+        "type": "Title"
+    },
+    {
+        "text": "exception",
+        "type": "Title"
+    },
+    {
+        "text": "occurred",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "SitesException",
+        "type": "Title"
+    },
+    {
+        "text": "Traceback",
+        "type": "Title"
+    },
+    {
+        "text": "most",
+        "type": "Title"
+    },
+    {
+        "text": "recent",
+        "type": "Title"
+    },
+    {
+        "text": "call",
+        "type": "Title"
+    },
+    {
+        "text": "last",
+        "type": "Title"
+    },
+    {
+        "text": "~/",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "git",
+        "type": "Title"
+    },
+    {
+        "text": "music21base",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "base",
+        "type": "Title"
+    },
+    {
+        "text": "py",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "_setActiveSite",
+        "type": "Title"
+    },
+    {
+        "text": "self",
+        "type": "Title"
+    },
+    {
+        "text": "site",
+        "type": "Title"
+    },
+    {
+        "text": "2037",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "try",
+        "type": "Title"
+    },
+    {
+        "text": ">",
+        "type": "ListItem"
+    },
+    {
+        "text": "2038",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "storedOffset",
+        "type": "Title"
+    },
+    {
+        "text": "site",
+        "type": "Title"
+    },
+    {
+        "text": "elementOffset",
+        "type": "Title"
+    },
+    {
+        "text": "self",
+        "type": "Title"
+    },
+    {
+        "text": "2039",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "except",
+        "type": "Title"
+    },
+    {
+        "text": "SitesException",
+        "type": "Title"
+    },
+    {
+        "text": "~/",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "git",
+        "type": "Title"
+    },
+    {
+        "text": "music21base",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "__init__",
+        "type": "Title"
+    },
+    {
+        "text": "py",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "elementOffset",
+        "type": "Title"
+    },
+    {
+        "text": "self",
+        "type": "Title"
+    },
+    {
+        "text": "element",
+        "type": "Title"
+    },
+    {
+        "text": "stringReturns",
+        "type": "Title"
+    },
+    {
+        "text": "1650",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'an entry for this object 0x",
+        "type": "Title"
+    },
+    {
+        "text": "%x",
+        "type": "Title"
+    },
+    {
+        "text": "is not stored in stream",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "%s",
+        "type": "Title"
+    },
+    {
+        "text": ">",
+        "type": "ListItem"
+    },
+    {
+        "text": "1651",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "id",
+        "type": "Title"
+    },
+    {
+        "text": "element",
+        "type": "Title"
+    },
+    {
+        "text": "),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "self",
+        "type": "Title"
+    },
+    {
+        "text": "))",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "1652",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "SitesException",
+        "type": "Title"
+    },
+    {
+        "text": "an",
+        "type": "Title"
+    },
+    {
+        "text": "entry",
+        "type": "Title"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "this",
+        "type": "Title"
+    },
+    {
+        "text": "object",
+        "type": "Title"
+    },
+    {
+        "text": "0x10ea8fcf8",
+        "type": "Title"
+    },
+    {
+        "text": "is",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "not",
+        "type": "Title"
+    },
+    {
+        "text": "stored",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Stream",
+        "type": "Title"
+    },
+    {
+        "text": "unrelated_stream",
+        "type": "Title"
+    },
+    {
+        "text": "During",
+        "type": "Title"
+    },
+    {
+        "text": "handling",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "of",
+        "type": "Title"
+    },
+    {
+        "text": "the",
+        "type": "Title"
+    },
+    {
+        "text": "above",
+        "type": "Title"
+    },
+    {
+        "text": "exception",
+        "type": "Title"
+    },
+    {
+        "text": "another",
+        "type": "Title"
+    },
+    {
+        "text": "exception",
+        "type": "Title"
+    },
+    {
+        "text": "occurred",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "SitesException",
+        "type": "Title"
+    },
+    {
+        "text": "Traceback",
+        "type": "Title"
+    },
+    {
+        "text": "most",
+        "type": "Title"
+    },
+    {
+        "text": "recent",
+        "type": "Title"
+    },
+    {
+        "text": "call",
+        "type": "Title"
+    },
+    {
+        "text": "last",
+        "type": "Title"
+    },
+    {
+        "text": "ipython",
+        "type": "Title"
+    },
+    {
+        "text": "input",
+        "type": "Title"
+    },
+    {
+        "text": "33",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "aa8ad4f44014",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "module",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Stream",
+        "type": "Title"
+    },
+    {
+        "text": "id",
+        "type": "Title"
+    },
+    {
+        "text": "'unrelated_stream'",
+        "type": "Title"
+    },
+    {
+        "text": "---->",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "activeSite",
+        "type": "Title"
+    },
+    {
+        "text": "~/",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "git",
+        "type": "Title"
+    },
+    {
+        "text": "music21base",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "base",
+        "type": "Title"
+    },
+    {
+        "text": "py",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "_setActiveSite",
+        "type": "Title"
+    },
+    {
+        "text": "self",
+        "type": "Title"
+    },
+    {
+        "text": "site",
+        "type": "Title"
+    },
+    {
+        "text": "2039",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "except",
+        "type": "Title"
+    },
+    {
+        "text": "SitesException",
+        "type": "Title"
+    },
+    {
+        "text": "2040",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "raise",
+        "type": "Title"
+    },
+    {
+        "text": "SitesException",
+        "type": "Title"
+    },
+    {
+        "text": "'activeSite cannot be set for '",
+        "type": "NarrativeText"
+    },
+    {
+        "text": ">",
+        "type": "ListItem"
+    },
+    {
+        "text": "2041",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'object",
+        "type": "Title"
+    },
+    {
+        "text": "self",
+        "type": "Title"
+    },
+    {
+        "text": "not in the Stream",
+        "type": "Title"
+    },
+    {
+        "text": "site",
+        "type": "Title"
+    },
+    {
+        "text": "2042",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "2043",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "self",
+        "type": "Title"
+    },
+    {
+        "text": "_activeSiteStoredOffset",
+        "type": "Title"
+    },
+    {
+        "text": "storedOffset",
+        "type": "Title"
+    },
+    {
+        "text": "SitesException",
+        "type": "Title"
+    },
+    {
+        "text": "activeSite",
+        "type": "Title"
+    },
+    {
+        "text": "cannot",
+        "type": "Title"
+    },
+    {
+        "text": "be",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "set",
+        "type": "Title"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "object",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#> not in the Stream <music21.stream.Stream unrelated_stream>",
+        "type": "Title"
+    },
+    {
+        "text": "Newly created objects have an .activeSite of None",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Rest",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "activeSite",
+        "type": "Title"
+    },
+    {
+        "text": "is",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "The .activeSite of an object will determine which other objects it\nis connected to, where it thinks it is, etc. The best way to demonstrate\nthat is with the next attribute\u2026",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "offset\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": ".offset",
+        "type": "Title"
+    },
+    {
+        "text": "Music21Object",
+        "type": "Title"
+    },
+    {
+        "text": ".activeSite",
+        "type": "Title"
+    },
+    {
+        "text": "'empty",
+        "type": "Title"
+    },
+    {
+        "text": "stream'",
+        "type": "Title"
+    },
+    {
+        "text": "'new",
+        "type": "Title"
+    },
+    {
+        "text": "stream'",
+        "type": "Title"
+    },
+    {
+        "text": "activeSite",
+        "type": "Title"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "activeSite",
+        "type": "Title"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "4.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "If we change the offset of the Note it changes it in the Stream,\nso that if we change the activeSite away and back, the offset is\npreserved. It's more easily demonstrated than explained in words:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite",
+        "type": "Title"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "activeSite",
+        "type": "Title"
+    },
+    {
+        "text": "activeSite",
+        "type": "Title"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A newly created Music21Object has a great advantage \u2014 it can set its\noffset to anything it wants and then when it is inserted into a Stream\nwith a single argument, it appears at that offset.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "n2",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'G-2'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "n2",
+        "type": "Title"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "20.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "insert",
+        "type": "Title"
+    },
+    {
+        "text": "n2",
+        "type": "Title"
+    },
+    {
+        "text": "n2",
+        "type": "Title"
+    },
+    {
+        "text": "activeSite",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Stream",
+        "type": "Title"
+    },
+    {
+        "text": "empty_stream",
+        "type": "Title"
+    },
+    {
+        "text": "n2",
+        "type": "Title"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "20.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "priority\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "If you have a Stream with two elements at the same offset, how can you\nknow which one of them should come first? The easiest way to ensure that\none comes before the other is to change the .priority of one of\nthem. .priority is any integer, with a default of zero. Let's create\nsome a new Stream and some notes:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Stream",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'D4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'E4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "insert",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "insert",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "'text'",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "Both notes are at offset 0, but D was inserted first, so it comes first.\nBut we can move E by making it's .priority lower than D's:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "priority",
+        "type": "Title"
+    },
+    {
+        "text": "priority",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "'text'",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "Think of priority like a number line.  So negative numbers come before positive.  Don't think of a\n\u009chigh priority\u009d like 2000 meaning that you will encounter that object first. It is the opposite.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Prior to music21 v3, changing the priority of an object did not automatically tell its sites\nthat they needed to be sorted again.  To get this output in earlier versions, call s.elementsChanged()",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "If there is enough demand, priority may become a per-site attribute like offset but this is a problem we\nplan to tackle when need arises.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "If we return e's priority to the default of 0, it will again appear\nafter d:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "priority",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "'text'",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "classSortOrder\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Objects seem to be sorted by offset first, then priority, then when they\nwere inserted. But what about this:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "tc",
+        "type": "Title"
+    },
+    {
+        "text": "clef",
+        "type": "Title"
+    },
+    {
+        "text": "TrebleClef",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "insert",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "tc",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "'text'",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "clef",
+        "type": "Title"
+    },
+    {
+        "text": "TrebleClef",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "How did the Stream (correctly) know that the treble clef should come\nfirst? It's not because of its priority:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "tc",
+        "type": "Title"
+    },
+    {
+        "text": "priority",
+        "type": "Title"
+    },
+    {
+        "text": "priority",
+        "type": "Title"
+    },
+    {
+        "text": "priority",
+        "type": "Title"
+    },
+    {
+        "text": ".classSortOrder",
+        "type": "Title"
+    },
+    {
+        "text": ".classSortOrder",
+        "type": "Title"
+    },
+    {
+        "text": "Clef",
+        "type": "Title"
+    },
+    {
+        "text": "tc",
+        "type": "Title"
+    },
+    {
+        "text": "classSortOrder",
+        "type": "Title"
+    },
+    {
+        "text": "classSortOrder",
+        "type": "Title"
+    },
+    {
+        "text": "classSortOrder",
+        "type": "Title"
+    },
+    {
+        "text": "20",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "20",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ".classSortOrder is like .priority in that lower numbers come\nfirst. We've arbitrarily placed Clef at 0 and Note at 20 and\nlots of other Classes in between. .classSortOrder is what is called\na Class Attribute, meaning that the class objects have this attribute\nset:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "clef",
+        "type": "Title"
+    },
+    {
+        "text": "TrebleClef",
+        "type": "Title"
+    },
+    {
+        "text": "classSortOrder",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "classSortOrder",
+        "type": "Title"
+    },
+    {
+        "text": "20",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "And any change in .classSortOrder applied to the class changes it\nfor all its members:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "clef",
+        "type": "Title"
+    },
+    {
+        "text": "TrebleClef",
+        "type": "Title"
+    },
+    {
+        "text": "classSortOrder",
+        "type": "Title"
+    },
+    {
+        "text": "25",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "classSortOrder",
+        "type": "Title"
+    },
+    {
+        "text": "10",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "tc",
+        "type": "Title"
+    },
+    {
+        "text": "classSortOrder",
+        "type": "Title"
+    },
+    {
+        "text": "classSortOrder",
+        "type": "Title"
+    },
+    {
+        "text": "classSortOrder",
+        "type": "Title"
+    },
+    {
+        "text": "25",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "10",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "10",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "But don't do that! For one thing, the ordering of existing Streams is\nnot changed, for another, we've carefully balanced the\nclassSortOrder so that musically logical order is maintained (have\nyou ever seen a score where the first note comes before the first\nclef?). So we'll change it back here.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "clef",
+        "type": "Title"
+    },
+    {
+        "text": "TrebleClef",
+        "type": "Title"
+    },
+    {
+        "text": "classSortOrder",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "classSortOrder",
+        "type": "Title"
+    },
+    {
+        "text": "20",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "tc",
+        "type": "Title"
+    },
+    {
+        "text": "classSortOrder",
+        "type": "Title"
+    },
+    {
+        "text": "classSortOrder",
+        "type": "Title"
+    },
+    {
+        "text": "classSortOrder",
+        "type": "Title"
+    },
+    {
+        "text": "20",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "20",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "If you do need to do something wacky, like have notes before clefs, you\ncan always change the .priority instead.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "For more information about how sorting works, jump to\nChapter 21: Ordering and Sorting of Stream Elements",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "That seems like a good place for a break. We've got some more to cover,\nso I've split this chapter into two parts, we'll continue in\nChapter 13: More Music21Object Attributes and Methods",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 12: Getting Back to Basics: The Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

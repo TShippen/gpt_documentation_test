@@ -1,0 +1,178 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21's Mistakes",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "Unofficial MusicXML Test Suite",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference\nTesting music21\nDocumenting music21\nDocumenting modules and classes\nBuilding Documentation\nUsing music21 with the Jupyter (iPython) Notebook\nUsing music21 with Git\nUnofficial MusicXML Test Suite\nMusic21's Mistakes",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21's Mistakes\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "So, you're a developer. Maybe you hate Python or you hate music21 or\nyou think (whenever you read this) that music21 was cool for its\ntime, but it's time to create a new system from scratch.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "I'm never going to do that: I know about the Second System\nEffect and know\nthat I couldn't do it right.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "But if you're interested, here are the mistakes I made in music21\nthat I know of that are too late to change now, but that I'd avoid if I\nwere you:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Most objects should be immutable. Maybe Streams can't be, but\ndefinitely Pitches, Accidentals, Durations, etc. Then they would be\nhashable and equality operators would work the way Python and most\nother languages intend them to be. But as it is, we have a situation\nwhere we need to know that Streams compare on identity while lists of\nnotes compare on equality. If you don't have a handle on the\ndifference between the identity and equality, do yourself a favor and\nbecome an expert before writing your system. I didn't know and now\nthings are awful in this respect.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Because of point 1, I probably would store objects and sites\nseparately and return them as a separate composite object; this would\neliminate 90% of the deepcopying happening in music21.",
+        "type": "ListItem"
+    },
+    {
+        "text": "I borrowed - for flat from Humdrum thinking that there would\notherwise be a lot of conflicts between octave signatures for B, like\n\u0098BBB' and \u0098bbb' and flats. It turns out that hasn't been much of a\nproblem.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Follow Liskov Substitution Principle. Violations of it are all over\nmusic21, and that's been an issue as computers need to infer type\nbetter.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Use fewer properties except when they are fast to compute, and never\nlet a property have a side effect. Modern IDEs are constantly\nquerying all properties to see what that might contain. This is why\n.flat had to become .flatten().",
+        "type": "ListItem"
+    },
+    {
+        "text": "Keep the core of the toolkit small and encourage an ecosystem of\nother add-ons.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Don't try to encode every exception to standard music that your\nmusicologist brain can conceive of. Put those in the .editorial\nor other special purpose attribute.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Make every pitch have an accidental. The difference between\nAccidental(\u0098natural') and None has raised more problems than its\nworth. (added June 2023)",
+        "type": "ListItem"
+    },
+    {
+        "text": "There will be more here as I think of it. \u2014 Michael Scott Asato\nCuthbert, 2022 October.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21's Mistakes",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

@@ -1,0 +1,518 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.metadata.caching",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.metadata.bundles",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.metadata.primitives",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.metadata.caching\nJobProcessor\nJobProcessor\nJobProcessor.process_parallel()\nJobProcessor.process_serial()\n\n\n\n\nMetadataCachingJob\nMetadataCachingJob\nMetadataCachingJob.cleanFilePath\nMetadataCachingJob.getErrors()\nMetadataCachingJob.getResults()\nMetadataCachingJob.parseFilePath()\nMetadataCachingJob.parseNonOpus()\nMetadataCachingJob.parseOpus()\nMetadataCachingJob.parseScoreInsideOpus()\nMetadataCachingJob.run()\n\n\n\n\nWorkerProcess\nWorkerProcess\nWorkerProcess.run()\n\n\n\n\nFunctions\ncacheMetadata()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.metadata.caching\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "JobProcessor\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.metadata.caching.",
+        "type": "Title"
+    },
+    {
+        "text": "JobProcessor",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Processes metadata-caching jobs, either serially (e.g. single-threaded) or\nin parallel, as a generator.\nYields a dictionary of:\n\nMetadataEntry instances\nfailed file paths\nthe last processed file path\nthe number of remaining jobs\n\n>>> jobs = []\n>>> mdb = corpus.corpora.CoreCorpus().search('monteverdi')[:3]\n>>> paths = [x.sourcePath for x in mdb]\n\n\n>>> for corpusPath in paths:\n...     job = metadata.caching.MetadataCachingJob(\n...         corpusPath,\n...         parseUsingCorpus=True,\n...         corpusName='core',\n...         )\n...     jobs.append(job)\n>>> jobGenerator = metadata.caching.JobProcessor.process_serial(jobs)\n>>> for result in jobGenerator:\n...     print(result['remainingJobs'])\n...\n2\n1\n0",
+        "type": "ListItem"
+    },
+    {
+        "text": "JobProcessor methods",
+        "type": "Title"
+    },
+    {
+        "text": "static",
+        "type": "Title"
+    },
+    {
+        "text": "JobProcessor.",
+        "type": "Title"
+    },
+    {
+        "text": "process_parallel",
+        "type": "Title"
+    },
+    {
+        "text": "jobs",
+        "type": "Title"
+    },
+    {
+        "text": "processCount",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Process jobs in parallel, with processCount processes.\nIf processCount is none, use 1 fewer process than the number of\navailable cores.\njobs is a list of MetadataCachingJob objects.",
+        "type": "ListItem"
+    },
+    {
+        "text": "static",
+        "type": "Title"
+    },
+    {
+        "text": "JobProcessor.",
+        "type": "Title"
+    },
+    {
+        "text": "process_serial",
+        "type": "Title"
+    },
+    {
+        "text": "jobs",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Process jobs serially.",
+        "type": "ListItem"
+    },
+    {
+        "text": "MetadataCachingJob\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.metadata.caching.",
+        "type": "Title"
+    },
+    {
+        "text": "MetadataCachingJob",
+        "type": "Title"
+    },
+    {
+        "text": "filePath",
+        "type": "Title"
+    },
+    {
+        "text": "jobNumber",
+        "type": "Title"
+    },
+    {
+        "text": "parseUsingCorpus",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "corpusName",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Parses one corpus path, and attempts to extract metadata from it:\n>>> job = metadata.caching.MetadataCachingJob(\n...     'bach/bwv66.6',\n...     parseUsingCorpus=True,\n...     corpusName='core',\n...     )\n>>> job.jobNumber\n0\n>>> job.corpusName\n'core'\n>>> job.run()\n((<music21.metadata.bundles.MetadataEntry 'bach_bwv66_6'>,), ())\n>>> results = job.getResults()\n>>> errors = job.getErrors()\n\n\nTODO: error list, not just numbers needs to be reported back up.",
+        "type": "ListItem"
+    },
+    {
+        "text": "MetadataCachingJob read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "MetadataCachingJob.",
+        "type": "Title"
+    },
+    {
+        "text": "cleanFilePath",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "MetadataCachingJob methods",
+        "type": "Title"
+    },
+    {
+        "text": "MetadataCachingJob.",
+        "type": "Title"
+    },
+    {
+        "text": "getErrors",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "MetadataCachingJob.",
+        "type": "Title"
+    },
+    {
+        "text": "getResults",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "MetadataCachingJob.",
+        "type": "Title"
+    },
+    {
+        "text": "parseFilePath",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "MetadataCachingJob.",
+        "type": "Title"
+    },
+    {
+        "text": "parseNonOpus",
+        "type": "Title"
+    },
+    {
+        "text": "parsedObject",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "MetadataCachingJob.",
+        "type": "Title"
+    },
+    {
+        "text": "parseOpus",
+        "type": "Title"
+    },
+    {
+        "text": "parsedObject",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "MetadataCachingJob.",
+        "type": "Title"
+    },
+    {
+        "text": "parseScoreInsideOpus",
+        "type": "Title"
+    },
+    {
+        "text": "score",
+        "type": "Title"
+    },
+    {
+        "text": "scoreNumber",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "MetadataCachingJob.",
+        "type": "Title"
+    },
+    {
+        "text": "run",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "WorkerProcess\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.metadata.caching.",
+        "type": "Title"
+    },
+    {
+        "text": "WorkerProcess",
+        "type": "Title"
+    },
+    {
+        "text": "job_queue",
+        "type": "Title"
+    },
+    {
+        "text": "result_queue",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A worker process for use by the multithreaded metadata-caching job\nprocessor.",
+        "type": "ListItem"
+    },
+    {
+        "text": "WorkerProcess methods",
+        "type": "Title"
+    },
+    {
+        "text": "WorkerProcess.",
+        "type": "Title"
+    },
+    {
+        "text": "run",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Method to be run in sub-process; can be overridden in sub-class",
+        "type": "ListItem"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.metadata.caching.",
+        "type": "Title"
+    },
+    {
+        "text": "cacheMetadata",
+        "type": "Title"
+    },
+    {
+        "text": "corpusNames",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "useMultiprocessing",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "verbose",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Cache metadata from corpora in corpusNames as local cache files.\nCall as metadata.cacheMetadata()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.metadata.caching",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

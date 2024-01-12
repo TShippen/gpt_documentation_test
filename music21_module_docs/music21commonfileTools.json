@@ -1,0 +1,278 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.fileTools",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.common.enums",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.common.formats",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.common.fileTools\nFunctions\ncd()\npreparePathClassesForUnpickling()\nreadFileEncodingSafe()\nreadPickleGzip()\nrestorePathClassesAfterUnpickling()\nrunSubprocessCapturingStderr()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.fileTools\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Tools for working with files",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.common.fileTools.",
+        "type": "Title"
+    },
+    {
+        "text": "cd",
+        "type": "Title"
+    },
+    {
+        "text": "targetDir",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Useful for a temporary cd for use in a with statement:\n\n\nwith cd(\u0098/Library/'):os.system(make)\n\n\n\nwill switch temporarily, and then switch back when leaving.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.fileTools.",
+        "type": "Title"
+    },
+    {
+        "text": "preparePathClassesForUnpickling",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "When we need to unpickle a function that might have relative paths\n(like some music21 stream options), Windows chokes if the PosixPath\nis not defined, but usually can still unpickle easily.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.fileTools.",
+        "type": "Title"
+    },
+    {
+        "text": "readFileEncodingSafe",
+        "type": "Title"
+    },
+    {
+        "text": "filePath",
+        "type": "Title"
+    },
+    {
+        "text": "firstGuess",
+        "type": "Title"
+    },
+    {
+        "text": "'utf-8'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u2192 str",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Slow, but will read a file of unknown encoding as safely as possible using\nthe chardet package.\nLet's try to load this file as ascii \u2014 it has a copyright symbol at the top,\nso it won't load in Python3:\n>>> import os\n>>> c = str(common.getSourceFilePath() / 'common' / '__init__.py')\n>>> f = open(c)\n>>> data = f.read()\nTraceback (most recent call last):\nUnicodeDecodeError: 'ascii' codec can't decode byte 0xc2 in position ...:\n    ordinal not in range(128)\n\n\nThat won't do! now I know that it is in utf-8, but maybe you don't. Or it could\nbe an old humdrum or Noteworthy file with unknown encoding.  This will load it safely.\n>>> data = common.readFileEncodingSafe(c)\n>>> data[0:30]\n'# -*- coding: utf-8 -*-\\n# ----'\n\n\nWell, that's nothing, since the first guess here is utf-8, and it's right. So let's\ngive a worse first guess:\n>>> data = common.readFileEncodingSafe(c, firstGuess='SHIFT_JIS')  # old Japanese standard\n>>> data[0:30]\n'# -*- coding: utf-8 -*-\\n# ----'\n\n\nIt worked!\nNote that this is slow enough if it gets it wrong that the firstGuess should be set\nto something reasonable like \u0098ascii' or \u0098utf-8'.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.fileTools.",
+        "type": "Title"
+    },
+    {
+        "text": "readPickleGzip",
+        "type": "Title"
+    },
+    {
+        "text": "filePath",
+        "type": "Title"
+    },
+    {
+        "text": "str | Path",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 Any",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Read a gzip-compressed pickle file, uncompress it, unpickle it, and\nreturn the contents.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.fileTools.",
+        "type": "Title"
+    },
+    {
+        "text": "restorePathClassesAfterUnpickling",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "After unpickling, leave pathlib alone.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.fileTools.",
+        "type": "Title"
+    },
+    {
+        "text": "runSubprocessCapturingStderr",
+        "type": "Title"
+    },
+    {
+        "text": "subprocessCommand",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Run a subprocess command, capturing stderr and\nonly show the error if an exception is raised.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.fileTools",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

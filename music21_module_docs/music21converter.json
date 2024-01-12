@@ -1,0 +1,1678 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.converter",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.common.weakrefTools",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.converter.museScore",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.converter\nConverter\nConverter\nConverter.stream\nConverter.defaultSubConverters()\nConverter.defaultSubconverters()\nConverter.formatFromHeader()\nConverter.getFormatFromFileExtension()\nConverter.getSubConverterFormats()\nConverter.getSubConverterFromFormat()\nConverter.getSubconverterFormats()\nConverter.parseData()\nConverter.parseFile()\nConverter.parseFileNoPickle()\nConverter.parseURL()\nConverter.regularizeFormat()\nConverter.setSubConverterFromFormat()\nConverter.setSubconverterFromFormat()\nConverter.subConvertersList()\nConverter.subconvertersList()\nConverter.subConverter\n\n\n\n\nArchiveManager\nArchiveManager\nArchiveManager.getData()\nArchiveManager.getNames()\nArchiveManager.isArchive()\n\n\n\n\nPickleFilter\nPickleFilter\nPickleFilter.getPickleFp()\nPickleFilter.removePickle()\nPickleFilter.status()\n\n\n\n\nFunctions\nparse()\nparseFile()\nparseData()\nparseURL()\nfreeze()\nthaw()\nfreezeStr()\nthawStr()\nregisterSubConverter()\nunregisterSubConverter()\nregisterSubconverter()\nresetSubConverters()\ntoData()\nunregisterSubconverter()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.converter\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.converter contains tools for loading music from various file formats,\nwhether from disk, from the web, or from text, into\nmusic21.stream.:class:~music21.stream.Score objects (or\nother similar stream objects).",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "The most powerful and easy to use tool is the parse()\nfunction. Simply provide a filename, URL, or text string and, if the format\nis supported, a Score will be returned.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "This is the most general, public interface for all formats.  Programmers\nadding their own formats to the system should provide an interface here to\ntheir own parsers (such as humdrum, musicxml, etc.)",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "The second and subsequent times that a file is loaded it will likely be much\nfaster since we store a parsed version of each file as a \u009cpickle\u009d object in\nthe temp folder on the disk.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "converter",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "'d:/myDocs/schubert.krn'",
+        "type": "Title"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "<music21.stream.Score ...>",
+        "type": "Title"
+    },
+    {
+        "text": "Converter\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.converter.",
+        "type": "Title"
+    },
+    {
+        "text": "Converter",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A class used for converting all supported data formats into music21 objects.\nNot a subclass, but a wrapper for different converter objects based on format.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Converter read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Converter.",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns the .subConverter.stream object.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Converter methods",
+        "type": "Title"
+    },
+    {
+        "text": "static",
+        "type": "Title"
+    },
+    {
+        "text": "Converter.",
+        "type": "Title"
+    },
+    {
+        "text": "defaultSubConverters",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 list[type[music21.converter.subConverters.SubConverter]]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "return an alphabetical list of the default subConverters: those in converter.subConverters\nwith the class SubConverter.\nDo not use generally.  Use Converter.subConvertersList()\n>>> c = converter.Converter()\n>>> for sc in c.defaultSubConverters():\n...     print(sc)\n<class 'music21.converter.subConverters.ConverterABC'>\n<class 'music21.converter.subConverters.ConverterBraille'>\n<class 'music21.converter.subConverters.ConverterCapella'>\n<class 'music21.converter.subConverters.ConverterClercqTemperley'>\n<class 'music21.converter.subConverters.ConverterHumdrum'>\n<class 'music21.converter.subConverters.ConverterIPython'>\n<class 'music21.converter.subConverters.ConverterLilypond'>\n<class 'music21.converter.subConverters.ConverterMEI'>\n<class 'music21.converter.subConverters.ConverterMidi'>\n<class 'music21.converter.subConverters.ConverterMuseData'>\n<class 'music21.converter.subConverters.ConverterMusicXML'>\n<class 'music21.converter.subConverters.ConverterNoteworthy'>\n<class 'music21.converter.subConverters.ConverterNoteworthyBinary'>\n<class 'music21.converter.subConverters.ConverterRomanText'>\n<class 'music21.converter.subConverters.ConverterScala'>\n<class 'music21.converter.subConverters.ConverterText'>\n<class 'music21.converter.subConverters.ConverterTextLine'>\n<class 'music21.converter.subConverters.ConverterTinyNotation'>\n<class 'music21.converter.subConverters.ConverterVexflow'>\n<class 'music21.converter.subConverters.ConverterVolpiano'>\n<class 'music21.converter.subConverters.SubConverter'>",
+        "type": "ListItem"
+    },
+    {
+        "text": "Converter.",
+        "type": "Title"
+    },
+    {
+        "text": "defaultSubconverters",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 list[type[music21.converter.subConverters.SubConverter]]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "Converter.",
+        "type": "Title"
+    },
+    {
+        "text": "formatFromHeader",
+        "type": "Title"
+    },
+    {
+        "text": "dataStr",
+        "type": "Title"
+    },
+    {
+        "text": "_StrOrBytes",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 tuple[str | None, _StrOrBytes]",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "if dataStr begins with a text header such as  \u009ctinyNotation:\u009d then\nreturn that format plus the dataStr with the head removed.\nElse, return (None, dataStr) where dataStr is the original untouched.\nThe header is not detected case-sensitive.\n>>> c = converter.Converter()\n>>> c.formatFromHeader('tinynotation: C4 E2')\n('tinynotation', 'C4 E2')\n\n\nNote that the format is always returned in lower case:\n>>> c.formatFromHeader('romanText: m1: a: I b2 V')\n('romantext', 'm1: a: I b2 V')\n\n\nIf there is no header then the format is None and the original is\nreturned unchanged:\n>>> c.formatFromHeader('C4 E2')\n(None, 'C4 E2')\n>>> c.formatFromHeader(b'binary-data')\n(None, b'binary-data')\n\n\nNew formats can register new headers, like this old Amiga format:\n>>> class ConverterSonix(converter.subConverters.SubConverter):\n...    registerFormats = ('sonix',)\n...    registerInputExtensions = ('mus',)\n>>> converter.registerSubConverter(ConverterSonix)\n>>> c.formatFromHeader('sonix: AIFF data')\n('sonix', 'AIFF data')\n\n\nIf bytes are passed in, the data is returned as bytes, but the\nheader format is still converted to a string:\n>>> c.formatFromHeader(b'romanText: m1: a: I b2 V')\n('romantext', b'm1: a: I b2 V')\n\n\nAnything except string or bytes raises a ValueError:\n>>> c.formatFromHeader(23)\nTraceback (most recent call last):\nValueError: Cannot parse a format from <class 'int'>.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Converter.",
+        "type": "Title"
+    },
+    {
+        "text": "getFormatFromFileExtension",
+        "type": "Title"
+    },
+    {
+        "text": "fp",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "gets the format from a file extension.\n>>> fp = common.getSourceFilePath() / 'musedata' / 'testZip.zip'\n>>> c = converter.Converter()\n>>> c.getFormatFromFileExtension(fp)\n'musedata'",
+        "type": "ListItem"
+    },
+    {
+        "text": "static",
+        "type": "Title"
+    },
+    {
+        "text": "Converter.",
+        "type": "Title"
+    },
+    {
+        "text": "getSubConverterFormats",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 dict[str, type[music21.converter.subConverters.SubConverter]]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get a dictionary of subConverters for various formats.\n(staticmethod: call on an instance or the class itself)\n>>> scf = converter.Converter.getSubConverterFormats()\n>>> scf['abc']\n<class 'music21.converter.subConverters.ConverterABC'>\n>>> for x in sorted(scf):\n...     x, scf[x]\n('abc', <class 'music21.converter.subConverters.ConverterABC'>)\n('braille', <class 'music21.converter.subConverters.ConverterBraille'>)\n('capella', <class 'music21.converter.subConverters.ConverterCapella'>)\n('clercqtemperley', <class 'music21.converter.subConverters.ConverterClercqTemperley'>)\n('cttxt', <class 'music21.converter.subConverters.ConverterClercqTemperley'>)\n('har', <class 'music21.converter.subConverters.ConverterClercqTemperley'>)\n('humdrum', <class 'music21.converter.subConverters.ConverterHumdrum'>)\n('ipython', <class 'music21.converter.subConverters.ConverterIPython'>)\n('jupyter', <class 'music21.converter.subConverters.ConverterIPython'>)\n('lily', <class 'music21.converter.subConverters.ConverterLilypond'>)\n('lilypond', <class 'music21.converter.subConverters.ConverterLilypond'>)\n('mei', <class 'music21.converter.subConverters.ConverterMEI'>)\n('midi', <class 'music21.converter.subConverters.ConverterMidi'>)\n('musedata', <class 'music21.converter.subConverters.ConverterMuseData'>)\n('musicxml', <class 'music21.converter.subConverters.ConverterMusicXML'>)\n('noteworthy', <class 'music21.converter.subConverters.ConverterNoteworthyBinary'>)\n('noteworthytext', <class 'music21.converter.subConverters.ConverterNoteworthy'>)\n('rntext', <class 'music21.converter.subConverters.ConverterRomanText'>)\n('romantext', <class 'music21.converter.subConverters.ConverterRomanText'>)\n('scala', <class 'music21.converter.subConverters.ConverterScala'>)\n('t', <class 'music21.converter.subConverters.ConverterText'>)\n('text', <class 'music21.converter.subConverters.ConverterText'>)\n('textline', <class 'music21.converter.subConverters.ConverterTextLine'>)\n('tinynotation', <class 'music21.converter.subConverters.ConverterTinyNotation'>)\n('txt', <class 'music21.converter.subConverters.ConverterText'>)\n('vexflow', <class 'music21.converter.subConverters.ConverterVexflow'>)\n('volpiano', <class 'music21.converter.subConverters.ConverterVolpiano'>)\n('xml', <class 'music21.converter.subConverters.ConverterMusicXML'>)",
+        "type": "ListItem"
+    },
+    {
+        "text": "static",
+        "type": "Title"
+    },
+    {
+        "text": "Converter.",
+        "type": "Title"
+    },
+    {
+        "text": "getSubConverterFromFormat",
+        "type": "Title"
+    },
+    {
+        "text": "converterFormat",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 SubConverter",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a particular subConverter class based on the format\nof the converterFormat string.\nStatic method: call on the class itself or an instance:\n>>> converter.Converter.getSubConverterFromFormat('musicxml')\n<music21.converter.subConverters.ConverterMusicXML object at 0x...>",
+        "type": "ListItem"
+    },
+    {
+        "text": "Converter.",
+        "type": "Title"
+    },
+    {
+        "text": "getSubconverterFormats",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 dict[str, type[music21.converter.subConverters.SubConverter]]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "Converter.",
+        "type": "Title"
+    },
+    {
+        "text": "parseData",
+        "type": "Title"
+    },
+    {
+        "text": "dataStr",
+        "type": "Title"
+    },
+    {
+        "text": "str | bytes",
+        "type": "Title"
+    },
+    {
+        "text": "number",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "format",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "forceSource",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given raw data, determine format and parse into a music21 Stream,\nset as self.stream.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Converter.",
+        "type": "Title"
+    },
+    {
+        "text": "parseFile",
+        "type": "Title"
+    },
+    {
+        "text": "fp",
+        "type": "Title"
+    },
+    {
+        "text": "number",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "format",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "forceSource",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "storePickle",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a file path, parse and store a music21 Stream, set as self.stream.\nIf format is None then look up the format from the file\nextension using common.findFormatFile.\nWill load from a pickle unless forceSource is True\nWill store as a pickle unless storePickle is False",
+        "type": "ListItem"
+    },
+    {
+        "text": "Converter.",
+        "type": "Title"
+    },
+    {
+        "text": "parseFileNoPickle",
+        "type": "Title"
+    },
+    {
+        "text": "fp",
+        "type": "Title"
+    },
+    {
+        "text": "Path | str",
+        "type": "Title"
+    },
+    {
+        "text": "number",
+        "type": "Title"
+    },
+    {
+        "text": "int | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "format",
+        "type": "Title"
+    },
+    {
+        "text": "str | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "forceSource",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a file path, parse and store a music21 Stream.\nIf format is None then look up the format from the file\nextension using common.findFormatFile.\nDoes not use or store pickles in any circumstance.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Converter.",
+        "type": "Title"
+    },
+    {
+        "text": "parseURL",
+        "type": "Title"
+    },
+    {
+        "text": "url",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "format",
+        "type": "Title"
+    },
+    {
+        "text": "str | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "number",
+        "type": "Title"
+    },
+    {
+        "text": "int | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "forceSource",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a url, download and parse the file\ninto a music21 Stream stored in the stream\nproperty of the converter object.\nNote that this checks the user Environment\nautoDownload setting before downloading.\nUse forceSource=True to download every time rather than\nre-reading from a cached file.\n>>> joplinURL = ('https://github.com/cuthbertLab/music21/raw/master'\n...              + '/music21/corpus/joplin/maple_leaf_rag.mxl')\n>>> c = converter.Converter()\n>>> c.parseURL(joplinURL)\n>>> joplinStream = c.stream\n\n\n\nChanged in v7: made keyword-only and added forceSource option.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Converter.",
+        "type": "Title"
+    },
+    {
+        "text": "regularizeFormat",
+        "type": "Title"
+    },
+    {
+        "text": "fmt",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 str | None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Take in a string representing a format, a file extension (w/ or without leading dot)\netc. and find the format string that best represents the format that should be used.\nSearches SubConverter.registerFormats first, then SubConverter.registerInputExtensions,\nthen SubConverter.registerOutputExtensions\nReturns None if no format applies:\n>>> c = converter.Converter()\n>>> c.regularizeFormat('mxl')\n'musicxml'\n>>> c.regularizeFormat('t')\n'text'\n>>> c.regularizeFormat('abc')\n'abc'\n>>> c.regularizeFormat('lily.png')\n'lilypond'\n>>> c.regularizeFormat('blah') is None\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "Converter.",
+        "type": "Title"
+    },
+    {
+        "text": "setSubConverterFromFormat",
+        "type": "Title"
+    },
+    {
+        "text": "converterFormat",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "sets the .subConverter according to the format of converterFormat:\n>>> convObj = converter.Converter()\n>>> convObj.setSubConverterFromFormat('humdrum')\n>>> convObj.subConverter\n<music21.converter.subConverters.ConverterHumdrum object at 0x...>",
+        "type": "ListItem"
+    },
+    {
+        "text": "Converter.",
+        "type": "Title"
+    },
+    {
+        "text": "setSubconverterFromFormat",
+        "type": "Title"
+    },
+    {
+        "text": "converterFormat",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "static",
+        "type": "Title"
+    },
+    {
+        "text": "Converter.",
+        "type": "Title"
+    },
+    {
+        "text": "subConvertersList",
+        "type": "Title"
+    },
+    {
+        "text": "converterType",
+        "type": "Title"
+    },
+    {
+        "text": "Literal",
+        "type": "Title"
+    },
+    {
+        "text": "'any'",
+        "type": "Title"
+    },
+    {
+        "text": "'input'",
+        "type": "Title"
+    },
+    {
+        "text": "'output'",
+        "type": "Title"
+    },
+    {
+        "text": "'any'",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 list[type[music21.converter.subConverters.SubConverter]]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Gives a list of all the subConverter classes that are registered.\nIf converterType is \u0098any' (true), then input or output\nsubConverters are listed.\nOtherwise, \u0098input', or \u0098output' can be used to filter.\n>>> c = converter.Converter()\n>>> scl = c.subConvertersList()\n>>> defaultScl = c.defaultSubConverters()\n>>> tuple(scl) == tuple(defaultScl)\nTrue\n\n\n>>> sclInput = c.subConvertersList('input')\n>>> sclInput\n[<class 'music21.converter.subConverters.ConverterABC'>,\n <class 'music21.converter.subConverters.ConverterCapella'>,\n <class 'music21.converter.subConverters.ConverterClercqTemperley'>,\n <class 'music21.converter.subConverters.ConverterHumdrum'>,\n <class 'music21.converter.subConverters.ConverterMEI'>,\n <class 'music21.converter.subConverters.ConverterMidi'>,\n <class 'music21.converter.subConverters.ConverterMuseData'>,\n <class 'music21.converter.subConverters.ConverterMusicXML'>,\n <class 'music21.converter.subConverters.ConverterNoteworthy'>,\n <class 'music21.converter.subConverters.ConverterNoteworthyBinary'>,\n <class 'music21.converter.subConverters.ConverterRomanText'>,\n <class 'music21.converter.subConverters.ConverterScala'>,\n <class 'music21.converter.subConverters.ConverterTinyNotation'>,\n <class 'music21.converter.subConverters.ConverterVolpiano'>]\n\n\nGet those that can output (note that this is also a static method\non converter)\n>>> sclOutput = converter.Converter.subConvertersList('output')\n>>> sclOutput\n[<class 'music21.converter.subConverters.ConverterBraille'>,\n <class 'music21.converter.subConverters.ConverterLilypond'>,\n <class 'music21.converter.subConverters.ConverterMidi'>,\n <class 'music21.converter.subConverters.ConverterMusicXML'>,\n <class 'music21.converter.subConverters.ConverterRomanText'>,\n <class 'music21.converter.subConverters.ConverterScala'>,\n <class 'music21.converter.subConverters.ConverterText'>,\n <class 'music21.converter.subConverters.ConverterTextLine'>,\n <class 'music21.converter.subConverters.ConverterVexflow'>,\n <class 'music21.converter.subConverters.ConverterVolpiano'>]\n\n\n>>> class ConverterSonix(converter.subConverters.SubConverter):\n...    registerFormats = ('sonix',)\n...    registerInputExtensions = ('mus',)\n>>> converter.registerSubConverter(ConverterSonix)\n>>> ConverterSonix in c.subConvertersList()\nTrue\n\n\nNewly registered subConveters appear first, so they will be used instead\nof any default subConverters that work on the same format or extension.\n>>> class BadMusicXMLConverter(converter.subConverters.SubConverter):\n...    registerFormats = ('musicxml',)\n...    registerInputExtensions = ('xml', 'mxl', 'musicxml')\n...    def parseData(self, strData, number=None):\n...        self.stream = stream.Score(id='empty')\n\n\n>>> converter.registerSubConverter(BadMusicXMLConverter)\n>>> c.subConvertersList()\n[<class 'music21.BadMusicXMLConverter'>,\n ...\n <class 'music21.converter.subConverters.ConverterMusicXML'>,\n ...]\n\n\nShow that this musicxml file by Amy Beach is now parsed by BadMusicXMLConverter:\n>>> s = corpus.parse('beach/prayer_of_a_tired_child')\n>>> s.id\n'empty'\n>>> len(s.parts)\n0\n\n\nNote that if the file has already been parsed by another subConverter format\nthe parameter forceSource is required to force the file to be parsed by the\nnewly registered subConverter:\n>>> converter.unregisterSubConverter(BadMusicXMLConverter)\n>>> s = corpus.parse('beach/prayer_of_a_tired_child')\n>>> s.id\n'empty'\n>>> s = corpus.parse('beach/prayer_of_a_tired_child', forceSource=True)\n>>> len(s.parts)\n6",
+        "type": "ListItem"
+    },
+    {
+        "text": "Converter.",
+        "type": "Title"
+    },
+    {
+        "text": "subconvertersList",
+        "type": "Title"
+    },
+    {
+        "text": "converterType",
+        "type": "Title"
+    },
+    {
+        "text": "Literal",
+        "type": "Title"
+    },
+    {
+        "text": "'any'",
+        "type": "Title"
+    },
+    {
+        "text": "'input'",
+        "type": "Title"
+    },
+    {
+        "text": "'output'",
+        "type": "Title"
+    },
+    {
+        "text": "'any'",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 list[type[music21.converter.subConverters.SubConverter]]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "Converter instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Converter.",
+        "type": "Title"
+    },
+    {
+        "text": "subConverter",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "a SubConverter object\nthat will do the actual converting.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ArchiveManager\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.converter.",
+        "type": "Title"
+    },
+    {
+        "text": "ArchiveManager",
+        "type": "Title"
+    },
+    {
+        "text": "fp",
+        "type": "Title"
+    },
+    {
+        "text": "str | Path",
+        "type": "Title"
+    },
+    {
+        "text": "archiveType",
+        "type": "Title"
+    },
+    {
+        "text": "'zip'",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Before opening a file path, this class can check if this is an\narchived file collection, such as a .zip or .mxl file. This will return the\ndata from the archive.\n>>> fnCorpus = corpus.getWork('bwv66.6', fileExtensions=('.xml',))\n\n\nThis is likely a unicode string\n>>> fnCorpus\n'/Users/cuthbert/git/music21base/music21/corpus/bach/bwv66.6.mxl'\n>>> am = converter.ArchiveManager(fnCorpus)\n>>> am.isArchive()\nTrue\n>>> am.getNames()\n['bwv66.6.xml', 'META-INF/container.xml']\n>>> data = am.getData()\n>>> data[0:70]\n'<?xml version=\"1.0\" encoding=\"UTF-8\"?>\\r<!DOCTYPE score-partwise PUBLIC'\n\n\nThe only archive type supported now is zip. But .mxl is zip\u2026",
+        "type": "ListItem"
+    },
+    {
+        "text": "ArchiveManager methods",
+        "type": "Title"
+    },
+    {
+        "text": "ArchiveManager.",
+        "type": "Title"
+    },
+    {
+        "text": "getData",
+        "type": "Title"
+    },
+    {
+        "text": "dataFormat",
+        "type": "Title"
+    },
+    {
+        "text": "'musicxml'",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 Any",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return data from the archive.\nFor \u0098musedata' format this will be a list of strings.\nFor \u0098musicxml' this will be a single string.\n\nChanged in v8: name is not used.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ArchiveManager.",
+        "type": "Title"
+    },
+    {
+        "text": "getNames",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 list[str]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a list of all names contained in this archive.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ArchiveManager.",
+        "type": "Title"
+    },
+    {
+        "text": "isArchive",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return True or False if the filepath is an\narchive of the supplied archiveType.",
+        "type": "ListItem"
+    },
+    {
+        "text": "PickleFilter\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.converter.",
+        "type": "Title"
+    },
+    {
+        "text": "PickleFilter",
+        "type": "Title"
+    },
+    {
+        "text": "fp",
+        "type": "Title"
+    },
+    {
+        "text": "str | Path",
+        "type": "Title"
+    },
+    {
+        "text": "forceSource",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "number",
+        "type": "Title"
+    },
+    {
+        "text": "int | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Before opening a file path, this class checks to see if there is an up-to-date\nversion of the file pickled and stored in the scratch directory.\nIf forceSource is True, then a pickle path will not be created.\nProvide a file path to check if there is pickled version.\nIf forceSource is True, pickled files, if available, will not be\nreturned.",
+        "type": "ListItem"
+    },
+    {
+        "text": "PickleFilter methods",
+        "type": "Title"
+    },
+    {
+        "text": "PickleFilter.",
+        "type": "Title"
+    },
+    {
+        "text": "getPickleFp",
+        "type": "Title"
+    },
+    {
+        "text": "directory",
+        "type": "Title"
+    },
+    {
+        "text": "Path",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "zipType",
+        "type": "Title"
+    },
+    {
+        "text": "str | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 Path",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns the file path of the pickle file for this file.\nReturns a pathlib.Path",
+        "type": "ListItem"
+    },
+    {
+        "text": "PickleFilter.",
+        "type": "Title"
+    },
+    {
+        "text": "removePickle",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "If a compressed pickled file exists, remove it from disk.\nGenerally not necessary to call, since we can just overwrite obsolete pickles,\nbut useful elsewhere.",
+        "type": "ListItem"
+    },
+    {
+        "text": "PickleFilter.",
+        "type": "Title"
+    },
+    {
+        "text": "status",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 tuple[pathlib.Path, bool, pathlib.Path | None]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a file path specified with __init__, look for an up-to-date pickled\nversion of this file path. If it exists, return its fp, otherwise return the\noriginal file path.\nReturn arguments are file path to load, boolean whether to write a pickle, and\nthe file path of the pickle.  All file paths can be pathlib.Path objects or None\nDoes not check that fp exists or create the pickle file.\n>>> fp = '/Users/Cuthbert/Desktop/musicFile.mxl'\n>>> pickFilter = converter.PickleFilter(fp)\n>>> pickFilter.status()\n(PosixPath('/Users/Cuthbert/Desktop/musicFile.mxl'), True,\n      PosixPath('/tmp/music21/m21-7.0.0-py3.9-18b8c5a5f07826bd67ea0f20462f0b8d.p.gz'))",
+        "type": "ListItem"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.converter.",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "value",
+        "type": "Title"
+    },
+    {
+        "text": "MetadataEntry",
+        "type": "Title"
+    },
+    {
+        "text": "bytes",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "Path",
+        "type": "Title"
+    },
+    {
+        "text": "forceSource",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "number",
+        "type": "Title"
+    },
+    {
+        "text": "int | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "format",
+        "type": "Title"
+    },
+    {
+        "text": "str | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 Score | Part | Opus",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a file path, encoded data in a Python string, or a URL, attempt to\nparse the item into a Stream.  Note: URL downloading will not happen\nautomatically unless the user has set their Environment \u009cautoDownload\u009d\npreference to \u009callow\u009d.\nKeywords can include number which specifies a piece number in a file of\nmulti-piece file.\nformat specifies the format to parse the line of text or the file as.\nquantizePost specifies whether to quantize a stream resulting from MIDI conversion.\nBy default, MIDI streams are quantized to the nearest sixteenth or triplet-eighth\n(i.e. smaller durations will not be preserved).\nquarterLengthDivisors sets the quantization units explicitly.\nA string of text is first checked to see if it is a filename that exists on\ndisk.  If not it is searched to see if it looks like a URL.  If not it is\nprocessed as data.\nPC File:\n>>> s = converter.parse(r'c:\\users\\myke\\desktop\\myFile.xml')\n\n\nMac File:\n>>> s = converter.parse('/Users/cuthbert/Desktop/myFile.xml')\n\n\nURL:\n>>> s = converter.parse('https://midirepository.org/file220/file.mid')\n\n\nData is preceded by an identifier such as \u009ctinynotation:\u009d\n>>> s = converter.parse(\"tinyNotation: 3/4 E4 r f# g=lastG trip{b-8 a g} c\", makeNotation=False)\n>>> s[meter.TimeSignature].first()\n<music21.meter.TimeSignature 3/4>\n\n\nor the format can be passed directly:\n>>> s = converter.parse(\"2/16 E4 r f# g=lastG trip{b-8 a g} c\", format='tinyNotation')\n>>> s[meter.TimeSignature].first()\n<music21.meter.TimeSignature 2/16>\n\n\n\n\nChanged in v8: passing a list of tinyNotation strings was never documented as apossibility and has been removed.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.converter.",
+        "type": "Title"
+    },
+    {
+        "text": "parseFile",
+        "type": "Title"
+    },
+    {
+        "text": "fp",
+        "type": "Title"
+    },
+    {
+        "text": "number",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "format",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "forceSource",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 Score | Part | Opus",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a file path, attempt to parse the file into a Stream.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.converter.",
+        "type": "Title"
+    },
+    {
+        "text": "parseData",
+        "type": "Title"
+    },
+    {
+        "text": "dataStr",
+        "type": "Title"
+    },
+    {
+        "text": "number",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "format",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 Score | Part | Opus",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given musical data represented within a Python string, attempt to parse the\ndata into a Stream.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.converter.",
+        "type": "Title"
+    },
+    {
+        "text": "parseURL",
+        "type": "Title"
+    },
+    {
+        "text": "url",
+        "type": "Title"
+    },
+    {
+        "text": "format",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "number",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "forceSource",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 Score | Part | Opus",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a URL, attempt to download and parse the file into a Stream. Note:\nURL downloading will not happen automatically unless the user has set their\nEnvironment \u009cautoDownload\u009d preference to \u009callow\u009d.\n\nChanged in v7: made keyword-only.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.converter.",
+        "type": "Title"
+    },
+    {
+        "text": "freeze",
+        "type": "Title"
+    },
+    {
+        "text": "streamObj",
+        "type": "Title"
+    },
+    {
+        "text": "fmt",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "fp",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "fastButUnsafe",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "zipType",
+        "type": "Title"
+    },
+    {
+        "text": "'zlib'",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 Path",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a StreamObject and a file path, serialize and store the Stream to a file.\nThis function is based on the StreamFreezer object.\nThe serialization format is defined by the fmt argument; \u0098pickle' (the default) is only one\npresently supported.  \u0098json' or \u0098jsonnative' will be used once jsonpickle is good enough.\nIf no file path is given, a temporary file is used.\nThe file path is returned.\n>>> c = converter.parse('tinynotation: 4/4 c4 d e f')\n>>> c.show('text')\n{0.0} <music21.stream.Measure 1 offset=0.0>\n    {0.0} <music21.clef.TrebleClef>\n    {0.0} <music21.meter.TimeSignature 4/4>\n    {0.0} <music21.note.Note C>\n    {1.0} <music21.note.Note D>\n    {2.0} <music21.note.Note E>\n    {3.0} <music21.note.Note F>\n    {4.0} <music21.bar.Barline type=final>\n>>> fp = converter.freeze(c, fmt='pickle')\n>>> fp\nPosixPath('/tmp/music21/sjiwoe.p.gz')\n\n\nThe file can then be \u009cthawed\u009d back into a Stream using the\nthaw() method.\n>>> d = converter.thaw(fp)\n>>> d.show('text')\n{0.0} <music21.stream.Measure 1 offset=0.0>\n    {0.0} <music21.clef.TrebleClef>\n    {0.0} <music21.meter.TimeSignature 4/4>\n    {0.0} <music21.note.Note C>\n    {1.0} <music21.note.Note D>\n    {2.0} <music21.note.Note E>\n    {3.0} <music21.note.Note F>\n    {4.0} <music21.bar.Barline type=final>",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.converter.",
+        "type": "Title"
+    },
+    {
+        "text": "thaw",
+        "type": "Title"
+    },
+    {
+        "text": "fp",
+        "type": "Title"
+    },
+    {
+        "text": "zipType",
+        "type": "Title"
+    },
+    {
+        "text": "'zlib'",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a file path of a serialized Stream, defrost the file into a Stream.\nThis function is based on the StreamFreezer object.\nSee the documentation for freeze() for demos.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.converter.",
+        "type": "Title"
+    },
+    {
+        "text": "freezeStr",
+        "type": "Title"
+    },
+    {
+        "text": "streamObj",
+        "type": "Title"
+    },
+    {
+        "text": "fmt",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a StreamObject\nserialize and return a serialization string.\nThis function is based on the\nStreamFreezer object.\nThe serialization format is defined by\nthe fmt argument; \u0098pickle' (the default),\nis the only one presently supported.\n>>> c = converter.parse('tinyNotation: 4/4 c4 d e f', makeNotation=False)\n>>> c.show('text')\n{0.0} <music21.meter.TimeSignature 4/4>\n{0.0} <music21.note.Note C>\n{1.0} <music21.note.Note D>\n{2.0} <music21.note.Note E>\n{3.0} <music21.note.Note F>\n>>> data = converter.freezeStr(c, fmt='pickle')\n>>> len(data) > 20  # pickle implementation dependent\nTrue\n>>> d = converter.thawStr(data)\n>>> d.show('text')\n{0.0} <music21.meter.TimeSignature 4/4>\n{0.0} <music21.note.Note C>\n{1.0} <music21.note.Note D>\n{2.0} <music21.note.Note E>\n{3.0} <music21.note.Note F>",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.converter.",
+        "type": "Title"
+    },
+    {
+        "text": "thawStr",
+        "type": "Title"
+    },
+    {
+        "text": "strData",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a serialization string, defrost into a Stream.\nThis function is based on the StreamFreezer object.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.converter.",
+        "type": "Title"
+    },
+    {
+        "text": "registerSubConverter",
+        "type": "Title"
+    },
+    {
+        "text": "newSubConverter",
+        "type": "Title"
+    },
+    {
+        "text": "type[music21.converter.subConverters.SubConverter]",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Add a SubConverter to the list of registered subConverters.\nExample, register a converter for the obsolete Amiga composition software Sonix (so fun\u2026)\n>>> class ConverterSonix(converter.subConverters.SubConverter):\n...    registerFormats = ('sonix',)\n...    registerInputExtensions = ('mus',)\n\n\n>>> converter.registerSubConverter(ConverterSonix)\n>>> scf = converter.Converter().getSubConverterFormats()\n>>> for x in sorted(scf):\n...     x, scf[x]\n('abc', <class 'music21.converter.subConverters.ConverterABC'>)\n...\n('sonix', <class 'music21.ConverterSonix'>)\n...\n\n\nSee converter.qmConverter for an example of an extended subConverter.\nChanged in v.9 \u2014 custom subConverters are registered above default subConverters.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.converter.",
+        "type": "Title"
+    },
+    {
+        "text": "unregisterSubConverter",
+        "type": "Title"
+    },
+    {
+        "text": "removeSubConverter",
+        "type": "Title"
+    },
+    {
+        "text": "Literal",
+        "type": "Title"
+    },
+    {
+        "text": "'all'",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "music21.converter.subConverters.SubConverter",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Remove a SubConverter from the list of registered subConverters.\n>>> mxlConverter = converter.subConverters.ConverterMusicXML\n\n\n>>> c = converter.Converter()\n>>> mxlConverter in c.subConvertersList()\nTrue\n>>> converter.unregisterSubConverter(mxlConverter)\n>>> mxlConverter in c.subConvertersList()\nFalse\n\n\nIf there is no such subConverter registered, and it is not a default subConverter,\nthen a converter.ConverterException is raised:\n>>> class ConverterSonix(converter.subConverters.SubConverter):\n...    registerFormats = ('sonix',)\n...    registerInputExtensions = ('mus',)\n>>> converter.unregisterSubConverter(ConverterSonix)\nTraceback (most recent call last):\nmusic21.converter.ConverterException: Could not remove <class 'music21.ConverterSonix'> from\n            registered subConverters\n\n\nThe special command \u009call\u009d removes everything including the default converters:\n>>> converter.unregisterSubConverter('all')\n>>> c.subConvertersList()\n[]",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.converter.",
+        "type": "Title"
+    },
+    {
+        "text": "registerSubconverter",
+        "type": "Title"
+    },
+    {
+        "text": "newSubConverter",
+        "type": "Title"
+    },
+    {
+        "text": "type[music21.converter.subConverters.SubConverter]",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Deprecated: use registerSubConverter w/ capital \u009cC\u009d instead.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.converter.",
+        "type": "Title"
+    },
+    {
+        "text": "resetSubConverters",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Reset state to default (removing all registered and deregistered subConverters).",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.converter.",
+        "type": "Title"
+    },
+    {
+        "text": "toData",
+        "type": "Title"
+    },
+    {
+        "text": "obj",
+        "type": "Title"
+    },
+    {
+        "text": "base.Music21Object",
+        "type": "Title"
+    },
+    {
+        "text": "fmt",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 str | bytes",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Convert obj to the given format fmt and return the information retrieved.\nCurrently, this is somewhat inefficient: it calls SubConverter.toData which\ncalls write() on the object and reads back the value of the file.\n>>> tiny = converter.parse('tinyNotation: 4/4 C4 D E F G1')\n>>> data = converter.toData(tiny, 'braille.ascii')\n>>> type(data)\n<class 'str'>\n>>> print(data)\n    #D4\n#A _?:$] (<K",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.converter.",
+        "type": "Title"
+    },
+    {
+        "text": "unregisterSubconverter",
+        "type": "Title"
+    },
+    {
+        "text": "newSubConverter",
+        "type": "Title"
+    },
+    {
+        "text": "type[music21.converter.subConverters.SubConverter]",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Deprecated: use unregisterSubConverter w/ capital \u009cC\u009d instead.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.converter",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 14, 2023.",
+        "type": "NarrativeText"
+    }
+]

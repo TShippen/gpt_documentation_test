@@ -1,0 +1,386 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.musedata.base40",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.musedata",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.musedata.translate",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.musedata.base40\nBaseN\nBaseN\nBaseN.generateLetters()\n\n\n\n\nFunctions\nbase40ActualInterval()\nbase40DeltaToInterval()\nbase40Interval()\nbase40ToPitch()\npitchToBase40()\nquickEnharmonicString()\nquickHigherEnharmonicString()\nquickLowerEnharmonicString()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.musedata.base40\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Implementation of Walter Hewlett's base40 system for musical intervals.\n(See Hewlett and Ann K. Blombach 1989 article)",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "BaseN\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.musedata.base40.",
+        "type": "Title"
+    },
+    {
+        "text": "BaseN",
+        "type": "Title"
+    },
+    {
+        "text": "order",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "BaseN methods",
+        "type": "Title"
+    },
+    {
+        "text": "BaseN.",
+        "type": "Title"
+    },
+    {
+        "text": "generateLetters",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.musedata.base40.",
+        "type": "Title"
+    },
+    {
+        "text": "base40ActualInterval",
+        "type": "Title"
+    },
+    {
+        "text": "base40NumA",
+        "type": "Title"
+    },
+    {
+        "text": "base40NumB",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Calculates a music21 Interval between two Base40 pitch\nnumbers, as calculated using the music21.interval module.\nRaises a Base40 Exception if (a) Either of the Base40 pitch\nnumbers does not correspond to a pitch name or (b) If\nan unusual interval is encountered that can't be handled\nby music21.\n>>> musedata.base40.base40ActualInterval(163, 191)\n<music21.interval.Interval m6>\n>>> musedata.base40.base40ActualInterval(186, 174)  # Descending M3\n<music21.interval.Interval M-3>\n>>> musedata.base40.base40ActualInterval(1, 5)\n<music21.interval.Interval AAAA1>\n>>> musedata.base40.base40ActualInterval(1, 3)\n<music21.interval.Interval AA1>\n>>> musedata.base40.base40ActualInterval(2, 6)\nTraceback (most recent call last):\nmusic21.musedata.base40.Base40Exception: Pitch name not assigned to this Base40 number 6",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.musedata.base40.",
+        "type": "Title"
+    },
+    {
+        "text": "base40DeltaToInterval",
+        "type": "Title"
+    },
+    {
+        "text": "delta",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns a music21 Interval between two Base40 pitch numbers\ngiven the delta (difference) between them.\nRaises a Base40 Exception if the interval is not handled by Base40.\nBase40 can only handle major, minor, perfect, augmented,\nand diminished intervals. Although not for certain, it seems\nthat the engineers that designed this system assumed that\nother intervals (doubly augmented intervals, for instance)\nwould be of a very rare occurrence, and extreme intervals\nwhich would trigger an incorrect answer (C\u2014 to C##, for\ninstance, would return a diminished second, even though it's\na quadruplely augmented unison) just would not occur.\n>>> musedata.base40.base40DeltaToInterval(4)\n<music21.interval.Interval d2>\n>>> musedata.base40.base40DeltaToInterval(11)\n<music21.interval.Interval m3>\n>>> musedata.base40.base40DeltaToInterval(23)\n<music21.interval.Interval P5>\n>>> musedata.base40.base40DeltaToInterval(-23)\n<music21.interval.Interval P-5>\n>>> musedata.base40.base40DeltaToInterval(52)\n<music21.interval.Interval M10>\n>>> musedata.base40.base40DeltaToInterval(-52)\n<music21.interval.Interval M-10>\n>>> musedata.base40.base40DeltaToInterval(77)\nTraceback (most recent call last):\nmusic21.musedata.base40.Base40Exception: Interval not handled by Base40 37",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.musedata.base40.",
+        "type": "Title"
+    },
+    {
+        "text": "base40Interval",
+        "type": "Title"
+    },
+    {
+        "text": "base40NumA",
+        "type": "Title"
+    },
+    {
+        "text": "base40NumB",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns a music21 Interval between two base40 pitch\nnumbers, using their delta (difference) as defined\nin Base40. The interval provided is without direction.\nRaises a Base40 Exception if the delta doesn't correspond\nto an interval in Base40, or if either base40 pitch\nnumber doesn't correspond to a pitch name.\n>>> musedata.base40.base40Interval(163, 191)\n<music21.interval.Interval m6>\n\n\n>>> musedata.base40.base40Interval(186, 174)      # Descending M3\n<music21.interval.Interval M-3>\n\n\nBase40 has limitations for intervals smaller than diminished or bigger than augmented.\n>>> musedata.base40.base40Interval(1, 5)\nTraceback (most recent call last):\nmusic21.musedata.base40.Base40Exception: Base40 cannot compute interval between 1 and 5.\n\n\n>>> musedata.base40.base40Interval(1, 3)\nTraceback (most recent call last):\nmusic21.musedata.base40.Base40Exception: Interval not handled by Base40 2\n\n\n>>> musedata.base40.base40Interval(2, 6)\nTraceback (most recent call last):\nmusic21.musedata.base40.Base40Exception: Pitch name not assigned to this Base40 number 6\n    Interval does not exist\n\n\n>>> musedata.base40.base40Interval(12, 6)\nTraceback (most recent call last):\nmusic21.musedata.base40.Base40Exception: Pitch name not assigned to these Base40 numbers\n    12 and 6 Interval does not exist",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.musedata.base40.",
+        "type": "Title"
+    },
+    {
+        "text": "base40ToPitch",
+        "type": "Title"
+    },
+    {
+        "text": "base40Num",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Converts a Base40 pitch number into a music21 Pitch.\nThe Base40 number is octave specific.\nRaises a Base40 Exception if the Base40 pitch number given doesn't\nhave an associated pitch name. There is one unassigned number\neach time the interval between two letters is a whole step.\n>>> musedata.base40.base40ToPitch(1)\n<music21.pitch.Pitch C--1>\n>>> musedata.base40.base40ToPitch(40)\n<music21.pitch.Pitch B##1>\n>>> musedata.base40.base40ToPitch(23)\nTraceback (most recent call last):\nmusic21.musedata.base40.Base40Exception: Pitch name not assigned to this Base40 number 23\n>>> musedata.base40.base40ToPitch(186)\n<music21.pitch.Pitch G5>",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.musedata.base40.",
+        "type": "Title"
+    },
+    {
+        "text": "pitchToBase40",
+        "type": "Title"
+    },
+    {
+        "text": "pitchToConvert",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Converts a pitch string or a music21 Pitch into a Base40\npitch number. The Base40 number is octave specific.\nRaises a Base40 Exception if the pitch to convert is outside the set\nof pitches that Base40 can handle; for example, half flats\nand half sharps or triple flats and triple sharps.\n>>> musedata.base40.pitchToBase40(pitch.Pitch('C--5'))\n161\n>>> musedata.base40.pitchToBase40('F##4')\n142\n>>> musedata.base40.pitchToBase40('F###4')\nTraceback (most recent call last):\nmusic21.musedata.base40.Base40Exception: Base40 cannot handle this pitch F###4",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.musedata.base40.",
+        "type": "Title"
+    },
+    {
+        "text": "quickEnharmonicString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "nameStr",
+        "type": "Title"
+    },
+    {
+        "text": "allowDoubleAccidentals",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Takes a name of a string and returns a list of the quick lower and higher enharmonics, limited\nto double sharps and double flats (or to single sharps and single flats if\nallowDoubleAccidentals is False)\n>>> musedata.base40.quickEnharmonicString('C')\n['B#', 'D--']\n>>> musedata.base40.quickEnharmonicString('C', allowDoubleAccidentals=False)\n['B#']\n>>> musedata.base40.quickEnharmonicString('G')\n['F##', 'A--']",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.musedata.base40.",
+        "type": "Title"
+    },
+    {
+        "text": "quickHigherEnharmonicString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "nameStr",
+        "type": "Title"
+    },
+    {
+        "text": "allowDoubleAccidentals",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Takes a name of a string and returns a list of the quick higher enharmonics, limited\nto double sharps and double flats (or to single sharps and single flats if\nallowDoubleAccidentals is False)\n>>> musedata.base40.quickHigherEnharmonicString('F#')\n['G-']\n>>> musedata.base40.quickHigherEnharmonicString('C##')\n['D', 'E--']\n>>> musedata.base40.quickHigherEnharmonicString('C##', allowDoubleAccidentals=False)\n['D']\n>>> musedata.base40.quickHigherEnharmonicString('B#')\n['C', 'D--']",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.musedata.base40.",
+        "type": "Title"
+    },
+    {
+        "text": "quickLowerEnharmonicString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "nameStr",
+        "type": "Title"
+    },
+    {
+        "text": "allowDoubleAccidentals",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Takes a name of a string and returns a list of the quick lower enharmonics, limited\nto double sharps and double flats (or to single sharps and single flats if\nallowDoubleAccidentals is False)\n>>> musedata.base40.quickLowerEnharmonicString('B-')\n['A#']\n>>> musedata.base40.quickLowerEnharmonicString('G-')\n['F#', 'E##']\n>>> musedata.base40.quickLowerEnharmonicString('G-', allowDoubleAccidentals=False)\n['F#']\n>>> musedata.base40.quickLowerEnharmonicString('C-')\n['B', 'A##']",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.musedata.base40",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

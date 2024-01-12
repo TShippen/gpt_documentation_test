@@ -1,0 +1,1074 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.stream.makeNotation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.stream.iterator",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.stream.streamStatus",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.stream.makeNotation\nFunctions\nconsolidateCompletedTuplets()\ngetTiePitchSet()\niterateBeamGroups()\nmakeAccidentalsInMeasureStream()\nmakeBeams()\nmakeMeasures()\nmakeOrnamentalAccidentals()\nmakeRests()\nmakeTies()\nmakeTupletBrackets()\nmoveNotesToVoices()\nornamentalPitches()\nrealizeOrnaments()\nsaveAccidentalDisplayStatus()\nsetStemDirectionForBeamGroups()\nsetStemDirectionOneGroup()\nsplitElementsToCompleteTuplets()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.stream.makeNotation\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.stream.makeNotation.",
+        "type": "Title"
+    },
+    {
+        "text": "consolidateCompletedTuplets",
+        "type": "Title"
+    },
+    {
+        "text": "stream.Stream",
+        "type": "Title"
+    },
+    {
+        "text": "recurse",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "onlyIfTied",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Locate consecutive notes or rests in s (or its substreams if recurse is True)\nthat are unnecessarily expressed as tuplets and replace them with a single\nelement. These groups must:\n\n\nbe consecutive (with respect to GeneralNote objects)\nbe all rests, or all pitches\nall have expressionIsInferred = True.\nsum to the tuplet's total length\nif NotRest, all must be tied (if onlyIfTied is True)\n\n\nThe groups are consolidated by prolonging the first note or rest in the group\nand removing the subsequent elements from the stream. (Destructive edit,\nso make a copy first if desired.)\n\nNew in v8.\n\n>>> s = stream.Stream()\n>>> r = note.Rest(quarterLength=1/6)\n>>> s.repeatAppend(r, 5)\n>>> s.insert(5/6, note.Note(duration=r.duration))\n>>> from music21.stream.makeNotation import consolidateCompletedTuplets\n>>> consolidateCompletedTuplets(s)\n>>> [el.quarterLength for el in s.notesAndRests]\n[0.5, Fraction(1, 6), Fraction(1, 6), Fraction(1, 6)]\n\n\nmustBeTied is True by default:\n>>> s2 = stream.Stream()\n>>> n = note.Note(quarterLength=1/3)\n>>> s2.repeatAppend(n, 3)\n>>> consolidateCompletedTuplets(s)\n>>> [el.quarterLength for el in s2.notesAndRests]\n[Fraction(1, 3), Fraction(1, 3), Fraction(1, 3)]\n\n\n>>> consolidateCompletedTuplets(s2, onlyIfTied=False)\n>>> [el.quarterLength for el in s2.notesAndRests]\n[1.0]\n\n\nDoes nothing if tuplet definitions are not the same. (In which case, see\nTupletFixer instead).\n>>> s3 = stream.Stream([note.Rest(quarterLength=1/3), note.Rest(quarterLength=1/6)])\n>>> for my_rest in s3.notesAndRests:\n...   print(my_rest.duration.tuplets)\n(<music21.duration.Tuplet 3/2/eighth>,)\n(<music21.duration.Tuplet 3/2/16th>,)\n>>> consolidateCompletedTuplets(s)\n>>> [el.quarterLength for el in s3.notesAndRests]\n[Fraction(1, 3), Fraction(1, 6)]\n\n\nDoes nothing if there are multiple (nested) tuplets.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.stream.makeNotation.",
+        "type": "Title"
+    },
+    {
+        "text": "getTiePitchSet",
+        "type": "Title"
+    },
+    {
+        "text": "prior",
+        "type": "Title"
+    },
+    {
+        "text": "music21.note.NotRest",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 set[str] | None",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "helper method for makeAccidentals to get the tie pitch set (or None)\nfrom the prior\n>>> n1 = note.Note('C4')\n>>> n2 = note.Note('D4')\n>>> n2.tie = tie.Tie('start')\n>>> n3 = note.Note('E4')\n>>> n3.tie = tie.Tie('stop')\n>>> n4 = note.Note('F4')\n>>> n4.tie = tie.Tie('continue')\n>>> c = chord.Chord([n1, n2, n3, n4])\n>>> tps = stream.makeNotation.getTiePitchSet(c)\n>>> isinstance(tps, set)\nTrue\n>>> sorted(tps)\n['D4', 'F4']\n\n\nNon tie possessing objects return None\n>>> r = bar.Repeat()\n>>> stream.makeNotation.getTiePitchSet(r) is None\nTrue\n\n\nNote or Chord without ties, returns an empty set:\n>>> n = note.Note('F#5')\n>>> stream.makeNotation.getTiePitchSet(n)\nset()\n\n\n>>> pChord = percussion.PercussionChord([note.Unpitched('D4'), note.Note('E5')])\n>>> stream.makeNotation.getTiePitchSet(pChord)\nset()\n\n\nRest returns None\n>>> r = note.Rest()\n>>> stream.makeNotation.getTiePitchSet(r) is None\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.stream.makeNotation.",
+        "type": "Title"
+    },
+    {
+        "text": "iterateBeamGroups",
+        "type": "Title"
+    },
+    {
+        "text": "StreamType",
+        "type": "Title"
+    },
+    {
+        "text": "skipNoBeams",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "recurse",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 Generator[list[music21.note.NotRest], None, None]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Generator that yields a List of NotRest objects that fall within a beam group.\nIf skipNoBeams is True, then NotRest objects that have no beams are skipped.\nRecurse is True by default.\nUnclosed beam groups (like start followed by a Rest before a stop), currently\nwill continue to yield until the first stop, but this behavior may change at any time in\nthe future as beaming-over-barlines with multiple voices or beaming across\nParts or PartStaffs is supported.\n>>> from music21.stream.makeNotation import iterateBeamGroups\n>>> sc = converter.parse('tinyNotation: 3/4 c8 d e f g4   a4 b8 a16 g16 f4')\n>>> sc.makeBeams(inPlace=True)\n>>> for beamGroup in iterateBeamGroups(sc):\n...     print(beamGroup)\n[<music21.note.Note C>, <music21.note.Note D>]\n[<music21.note.Note E>, <music21.note.Note F>]\n[<music21.note.Note B>, <music21.note.Note A>, <music21.note.Note G>]\n\n\n>>> for beamGroup in iterateBeamGroups(sc, skipNoBeams=False):\n...     print(beamGroup)\n[<music21.note.Note C>, <music21.note.Note D>]\n[<music21.note.Note E>, <music21.note.Note F>]\n[<music21.note.Note G>]\n[<music21.note.Note A>]\n[<music21.note.Note B>, <music21.note.Note A>, <music21.note.Note G>]\n[<music21.note.Note F>]\n\n\nIf recurse is False, assumes a flat Score:\n>>> for beamGroup in iterateBeamGroups(sc, recurse=False):\n...     print(beamGroup)\n\n\n>>> for beamGroup in iterateBeamGroups(sc.flatten(), recurse=False):\n...     print(beamGroup)\n[<music21.note.Note C>, <music21.note.Note D>]\n[<music21.note.Note E>, <music21.note.Note F>]\n[<music21.note.Note B>, <music21.note.Note A>, <music21.note.Note G>]\n\n\n\nNew in v6.7.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.stream.makeNotation.",
+        "type": "Title"
+    },
+    {
+        "text": "makeAccidentalsInMeasureStream",
+        "type": "Title"
+    },
+    {
+        "text": "StreamType | StreamIterator",
+        "type": "Title"
+    },
+    {
+        "text": "pitchPast",
+        "type": "Title"
+    },
+    {
+        "text": "list",
+        "type": "Title"
+    },
+    {
+        "text": "pitch.Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "pitchPastMeasure",
+        "type": "Title"
+    },
+    {
+        "text": "list",
+        "type": "Title"
+    },
+    {
+        "text": "pitch.Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "useKeySignature",
+        "type": "Title"
+    },
+    {
+        "text": "bool | key.KeySignature",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "alteredPitches",
+        "type": "Title"
+    },
+    {
+        "text": "list",
+        "type": "Title"
+    },
+    {
+        "text": "pitch.Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "cautionaryPitchClass",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "cautionaryAll",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "overrideStatus",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "cautionaryNotImmediateRepeat",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "tiePitchSet",
+        "type": "Title"
+    },
+    {
+        "text": "set",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Makes accidentals in place on a stream that contains Measures.\nHelper for Stream.makeNotation and Part.makeAccidentals.\nThe function walks measures in order to update the values for the following keyword\narguments of makeAccidentals() and calls\nthat method on each Measure. (For this reason, the values supplied\nfor these arguments in the method signature will be used on the first\nmeasure only, or in the case of useKeySignature, not at all if the first\nmeasure contains a KeySignature.):\npitchPastMeasure\nuseKeySignature\ntiePitchSet\n\n\nOperates on the measures in place; make a copy first if this is not desired.\n\n\nChanged in v8: the Stream may have other elements besides measures and the methodwill still work.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.stream.makeNotation.",
+        "type": "Title"
+    },
+    {
+        "text": "makeBeams",
+        "type": "Title"
+    },
+    {
+        "text": "StreamType",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "setStemDirections",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "failOnNoTimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 StreamType | None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a new Measure, or Stream of Measures, with beams applied to all\nnotes. Measures with Voices will process voices independently.\nNote that makeBeams() is automatically called in show(\u0098musicxml') and\nother formats if there is no beaming information in the piece (see\nhaveBeamsBeenMade).\nIf inPlace is True, this is done in-place; if inPlace is False,\nthis returns a modified deep copy.\nSee getBeams() for the algorithm used.\n>>> aMeasure = stream.Measure()\n>>> aMeasure.timeSignature = meter.TimeSignature('4/4')\n>>> aNote = note.Note()\n>>> aNote.quarterLength = 0.25\n>>> aMeasure.repeatAppend(aNote, 16)\n>>> bMeasure = aMeasure.makeBeams(inPlace=False)\n\n\n>>> for i in range(4):\n...   print(f'{i} {bMeasure.notes[i].beams!r}')\n0 <music21.beam.Beams <music21.beam.Beam 1/start>/<music21.beam.Beam 2/start>>\n1 <music21.beam.Beams <music21.beam.Beam 1/continue>/<music21.beam.Beam 2/stop>>\n2 <music21.beam.Beams <music21.beam.Beam 1/continue>/<music21.beam.Beam 2/start>>\n3 <music21.beam.Beams <music21.beam.Beam 1/stop>/<music21.beam.Beam 2/stop>>\n\n\nThis was formerly a bug \u2014 we could not have a partial-left beam at the start of a\nbeam group.  Now merges across the archetypeSpan\n>>> aMeasure = stream.Measure()\n>>> aMeasure.timeSignature = meter.TimeSignature('4/4')\n>>> for i in range(4):\n...     aMeasure.append(note.Rest(quarterLength=0.25))\n...     aMeasure.repeatAppend(note.Note('C4', quarterLength=0.25), 3)\n>>> bMeasure = aMeasure.makeBeams(inPlace=False).notes\n>>> for i in range(6):\n...   print(f'{i} {bMeasure[i].beams!r}')\n0 <music21.beam.Beams <music21.beam.Beam 1/start>/<music21.beam.Beam 2/start>>\n1 <music21.beam.Beams <music21.beam.Beam 1/continue>/<music21.beam.Beam 2/continue>>\n2 <music21.beam.Beams <music21.beam.Beam 1/stop>/<music21.beam.Beam 2/stop>>\n3 <music21.beam.Beams <music21.beam.Beam 1/start>/<music21.beam.Beam 2/start>>\n4 <music21.beam.Beams <music21.beam.Beam 1/continue>/<music21.beam.Beam 2/continue>>\n5 <music21.beam.Beams <music21.beam.Beam 1/stop>/<music21.beam.Beam 2/stop>>\n\n\nGrace notes no longer interfere with beaming:\n>>> m = stream.Measure()\n>>> m.timeSignature = meter.TimeSignature('3/4')\n>>> m.repeatAppend(note.Note(quarterLength=0.25), 4)\n>>> m.repeatAppend(note.Rest(), 2)\n>>> gn = note.Note(duration=duration.GraceDuration())\n>>> m.insert(0.25, gn)\n>>> m.makeBeams(inPlace=True)\n>>> [n.beams for n in m.notes]\n[<music21.beam.Beams <music21.beam.Beam 1/start>/<music21.beam.Beam 2/start>>,\n<music21.beam.Beams>,\n<music21.beam.Beams <music21.beam.Beam 1/continue>/<music21.beam.Beam 2/stop>>,\n<music21.beam.Beams <music21.beam.Beam 1/continue>/<music21.beam.Beam 2/start>>,\n<music21.beam.Beams <music21.beam.Beam 1/stop>/<music21.beam.Beam 2/stop>>]",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.stream.makeNotation.",
+        "type": "Title"
+    },
+    {
+        "text": "makeMeasures",
+        "type": "Title"
+    },
+    {
+        "text": "StreamType",
+        "type": "Title"
+    },
+    {
+        "text": "meterStream",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "refStreamOrTimeRange",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "searchContext",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "innerBarline",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "finalBarline",
+        "type": "Title"
+    },
+    {
+        "text": "'final'",
+        "type": "Title"
+    },
+    {
+        "text": "bestClef",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 StreamType | None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Takes a stream and places all of its elements into\nmeasures (Measure objects)\nbased on the TimeSignature objects\nplaced within\nthe stream. If no TimeSignatures are found in the\nstream, a default of 4/4 is used.\nIf inPlace is True, the original Stream is modified and lost\nif inPlace is False, this returns a modified deep copy.\nMany advanced features are available:\n(1) If a meterStream is given, the TimeSignatures in this\nstream are used instead of any found in the Stream.\nAlternatively, a single TimeSignature object\ncan be provided in lieu of the stream. This feature lets you\ntest out how a group of notes might be interpreted as measures\nin a number of different metrical schemes.\n(2) If refStreamOrTimeRange is provided, this Stream or List\nis used to give the span that you want to make measures as\nnecessary to fill empty rests at the ends or beginnings of\nStreams, etc.  Say for instance you'd like to make a complete\nscore from a short ossia section, then you might use another\nPart from the Score as a refStreamOrTimeRange to make sure\nthat the appropriate measures of rests are added at either side.\n(3) If innerBarline is not None, the specified Barline object\nor string-specification of Barline style will be used to create\nBarline objects between every created Measure. The default is None.\n(4) If finalBarline is not None, the specified Barline object or\nstring-specification of Barline style will be used to create a Barline\nobjects at the end of the last Measure. The default is \u0098final'.\nThe searchContext parameter determines whether context\nsearches are used to find Clef and other notation objects.\nHere is a simple example of makeMeasures:\nA single measure of 4/4 is created from a Stream\ncontaining only three quarter notes:\n>>> sSrc = stream.Stream()\n>>> sSrc.append(note.Note('C4', type='quarter'))\n>>> sSrc.append(note.Note('D4', type='quarter'))\n>>> sSrc.append(note.Note('E4', type='quarter'))\n>>> sMeasures = sSrc.makeMeasures()\n>>> sMeasures.show('text')\n{0.0} <music21.stream.Measure 1 offset=0.0>\n    {0.0} <music21.clef.TrebleClef>\n    {0.0} <music21.meter.TimeSignature 4/4>\n    {0.0} <music21.note.Note C>\n    {1.0} <music21.note.Note D>\n    {2.0} <music21.note.Note E>\n    {3.0} <music21.bar.Barline type=final>\n\n\nNotice that the last measure is incomplete \u2014 makeMeasures\ndoes not fill up incomplete measures.\nWe can also check that the measure created has\nthe correct TimeSignature:\n>>> sMeasures[0].timeSignature\n<music21.meter.TimeSignature 4/4>\n\n\nNow let's redo this work in 2/4 by putting a TimeSignature\nof 2/4 at the beginning of the stream and rerunning\nmakeMeasures. Now we will have two measures, each with\ncorrect measure numbers:\n>>> sSrc.insert(0.0, meter.TimeSignature('2/4'))\n>>> sMeasuresTwoFour = sSrc.makeMeasures()\n>>> sMeasuresTwoFour.show('text')\n{0.0} <music21.stream.Measure 1 offset=0.0>\n    {0.0} <music21.clef.TrebleClef>\n    {0.0} <music21.meter.TimeSignature 2/4>\n    {0.0} <music21.note.Note C>\n    {1.0} <music21.note.Note D>\n{2.0} <music21.stream.Measure 2 offset=2.0>\n    {0.0} <music21.note.Note E>\n    {1.0} <music21.bar.Barline type=final>\n\n\nLet us put 10 quarter notes in a Part.\n>>> sSrc = stream.Part()\n>>> n = note.Note('E-4')\n>>> n.quarterLength = 1\n>>> sSrc.repeatAppend(n, 10)\n\n\nAfter we run makeMeasures, we will have\n3 measures of 4/4 in a new Part object. This experiment\ndemonstrates that running makeMeasures does not\nchange the type of Stream you are using:\n>>> sMeasures = sSrc.makeMeasures()\n>>> len(sMeasures.getElementsByClass(stream.Measure))\n3\n>>> sMeasures.__class__.__name__\n'Part'\n\n\nDemonstrate what makeMeasures will do with inPlace = True:\n>>> sScr = stream.Score()\n>>> sPart = stream.Part()\n>>> sPart.insert(0, clef.TrebleClef())\n>>> sPart.insert(0, meter.TimeSignature('3/4'))\n>>> sPart.append(note.Note('C4', quarterLength = 3.0))\n>>> sPart.append(note.Note('D4', quarterLength = 3.0))\n>>> sScr.insert(0, sPart)\n>>> sScr.makeMeasures(inPlace=True)\n>>> sScr.show('text')\n{0.0} <music21.stream.Part 0x...>\n    {0.0} <music21.stream.Measure 1 offset=0.0>\n        {0.0} <music21.clef.TrebleClef>\n        {0.0} <music21.meter.TimeSignature 3/4>\n        {0.0} <music21.note.Note C>\n    {3.0} <music21.stream.Measure 2 offset=3.0>\n        {0.0} <music21.note.Note D>\n        {3.0} <music21.bar.Barline type=final>\n\n\nIf after running makeMeasures you run makeTies, it will also split\nlong notes into smaller notes with ties.  Lyrics and articulations\nare attached to the first note.  Expressions (fermatas,\netc.) will soon be attached to the last note but this is not yet done:\n>>> p1 = stream.Part()\n>>> p1.append(meter.TimeSignature('3/4'))\n>>> longNote = note.Note('D#4')\n>>> longNote.quarterLength = 7.5\n>>> longNote.articulations = [articulations.Staccato()]\n>>> longNote.lyric = 'hi'\n>>> p1.append(longNote)\n>>> partWithMeasures = p1.makeMeasures()\n>>> partWithMeasures is not p1\nTrue\n>>> dummy = partWithMeasures.makeTies(inPlace=True)\n>>> partWithMeasures.show('text')\n{0.0} <music21.stream.Measure 1 offset=0.0>\n    {0.0} <music21.clef.TrebleClef>\n    {0.0} <music21.meter.TimeSignature 3/4>\n    {0.0} <music21.note.Note D#>\n{3.0} <music21.stream.Measure 2 offset=3.0>\n    {0.0} <music21.note.Note D#>\n{6.0} <music21.stream.Measure 3 offset=6.0>\n    {0.0} <music21.note.Note D#>\n    {1.5} <music21.bar.Barline type=final>\n\n\n>>> allNotes = partWithMeasures.flatten().notes\n>>> allNotes[0].articulations\n[]\n\n\n>>> allNotes[1].articulations\n[]\n\n\n>>> allNotes[2].articulations\n[<music21.articulations.Staccato>]\n\n\n>>> [allNotes[0].lyric, allNotes[1].lyric, allNotes[2].lyric]\n['hi', None, None]\n\n\n\nChanged in v6: all but first attribute are keyword only\nChanged in v7: now safe to call makeMeasures directly on a score containing parts",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.stream.makeNotation.",
+        "type": "Title"
+    },
+    {
+        "text": "makeOrnamentalAccidentals",
+        "type": "Title"
+    },
+    {
+        "text": "noteOrChord",
+        "type": "Title"
+    },
+    {
+        "text": "Note | Chord",
+        "type": "Title"
+    },
+    {
+        "text": "pitchPast",
+        "type": "Title"
+    },
+    {
+        "text": "list",
+        "type": "Title"
+    },
+    {
+        "text": "music21.pitch.Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "pitchPastMeasure",
+        "type": "Title"
+    },
+    {
+        "text": "list",
+        "type": "Title"
+    },
+    {
+        "text": "music21.pitch.Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "otherSimultaneousPitches",
+        "type": "Title"
+    },
+    {
+        "text": "list",
+        "type": "Title"
+    },
+    {
+        "text": "music21.pitch.Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "alteredPitches",
+        "type": "Title"
+    },
+    {
+        "text": "list",
+        "type": "Title"
+    },
+    {
+        "text": "music21.pitch.Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "cautionaryPitchClass",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "cautionaryAll",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "overrideStatus",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "cautionaryNotImmediateRepeat",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Makes accidentals for the ornamental pitches for any Ornaments on noteOrChord.\nThis is very similar to the processing in pitch.updateAccidentalDisplay, except\nthat there is no tie processing, since ornamental pitches cannot be tied.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.stream.makeNotation.",
+        "type": "Title"
+    },
+    {
+        "text": "makeRests",
+        "type": "Title"
+    },
+    {
+        "text": "StreamType",
+        "type": "Title"
+    },
+    {
+        "text": "refStreamOrTimeRange",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "fillGaps",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "timeRangeFromBarDuration",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "hideRests",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 StreamType | None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a Stream with an offset not equal to zero,\nfill with one Rest preceding this offset.\nThis can be called on any Stream,\na Measure alone, or a Measure that contains\nVoices. This method recurses into Parts, Measures, and Voices,\nsince users are unlikely to want \u009cloose\u009d rests outside sub-containers.\nIf refStreamOrTimeRange is provided as a Stream, this\nStream is used to get min and max offsets. If a list is provided,\nthe list assumed to provide minimum and maximum offsets. Rests will\nbe added to fill all time defined within refStream.\nIf fillGaps is True, this will create rests in any\ntime regions that have no active elements.\nIf timeRangeFromBarDuration is True, and the calling Stream\nis a Measure with a TimeSignature (or a Part containing them),\nthe time range will be determined\nby taking the barDuration() and subtracting\npaddingLeft and\npaddingRight.\nThis keyword takes priority over refStreamOrTimeRange.\nIf both are provided, timeRangeFromBarDuration\nprevails, unless no TimeSignature can be found, in which case, the function\nfalls back to refStreamOrTimeRange.\nIf inPlace is True, this is done in-place; if inPlace is False,\nthis returns a modified deepcopy.\n>>> a = stream.Stream()\n>>> a.insert(20, note.Note())\n>>> len(a)\n1\n>>> a.lowestOffset\n20.0\n>>> a.show('text')\n{20.0} <music21.note.Note C>\n\n\nNow make some rests\u2026\n>>> b = a.makeRests(inPlace=False)\n>>> len(b)\n2\n>>> b.lowestOffset\n0.0\n>>> b.show('text')\n{0.0} <music21.note.Rest 20ql>\n{20.0} <music21.note.Note C>\n>>> b[0].duration.quarterLength\n20.0\n\n\nSame thing, but this time, with gaps, and hidden rests\u2026\n>>> a = stream.Stream()\n>>> a.insert(20, note.Note('C4'))\n>>> a.insert(30, note.Note('D4'))\n>>> len(a)\n2\n>>> a.lowestOffset\n20.0\n>>> a.show('text')\n{20.0} <music21.note.Note C>\n{30.0} <music21.note.Note D>\n>>> b = a.makeRests(fillGaps=True, inPlace=False, hideRests=True)\n>>> len(b)\n4\n>>> b.lowestOffset\n0.0\n>>> b.show('text')\n{0.0} <music21.note.Rest 20ql>\n{20.0} <music21.note.Note C>\n{21.0} <music21.note.Rest 9ql>\n{30.0} <music21.note.Note D>\n>>> b[0].style.hideObjectOnPrint\nTrue\n\n\nNow with measures:\n>>> a = stream.Part()\n>>> a.insert(4, note.Note('C4'))\n>>> a.insert(8, note.Note('D4'))\n>>> len(a)\n2\n>>> a.lowestOffset\n4.0\n>>> a.insert(0, meter.TimeSignature('4/4'))\n>>> a.makeMeasures(inPlace=True)\n>>> a.show('text', addEndTimes=True)\n{0.0 - 0.0} <music21.stream.Measure 1 offset=0.0>\n    {0.0 - 0.0} <music21.clef.TrebleClef>\n    {0.0 - 0.0} <music21.meter.TimeSignature 4/4>\n{4.0 - 5.0} <music21.stream.Measure 2 offset=4.0>\n    {0.0 - 1.0} <music21.note.Note C>\n{8.0 - 9.0} <music21.stream.Measure 3 offset=8.0>\n    {0.0 - 1.0} <music21.note.Note D>\n    {1.0 - 1.0} <music21.bar.Barline type=final>\n>>> a.makeRests(fillGaps=True, inPlace=True)\n>>> a.show('text', addEndTimes=True)\n{0.0 - 4.0} <music21.stream.Measure 1 offset=0.0>\n    {0.0 - 0.0} <music21.clef.TrebleClef>\n    {0.0 - 0.0} <music21.meter.TimeSignature 4/4>\n    {0.0 - 4.0} <music21.note.Rest whole>\n{4.0 - 8.0} <music21.stream.Measure 2 offset=4.0>\n    {0.0 - 1.0} <music21.note.Note C>\n    {1.0 - 4.0} <music21.note.Rest dotted-half>\n{8.0 - 12.0} <music21.stream.Measure 3 offset=8.0>\n    {0.0 - 1.0} <music21.note.Note D>\n    {1.0 - 4.0} <music21.note.Rest dotted-half>\n    {4.0 - 4.0} <music21.bar.Barline type=final>\n\n\n\nChanged in v6: all but first attribute are keyword only\nChanged in v7:\n- inPlace defaults False\n- Recurses into parts, measures, voices\n- Gave priority to timeRangeFromBarDuration over refStreamOrTimeRange\nChanged in v8: scores (or other streams having parts) edited inPlace return None.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.stream.makeNotation.",
+        "type": "Title"
+    },
+    {
+        "text": "makeTies",
+        "type": "Title"
+    },
+    {
+        "text": "s: ~music21.common.types.StreamType",
+        "type": "Title"
+    },
+    {
+        "text": "meterStream=None",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace=False",
+        "type": "Title"
+    },
+    {
+        "text": "displayTiedAccidentals=False",
+        "type": "Title"
+    },
+    {
+        "text": "classFilterList=(<class 'music21.note.GeneralNote'>",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 StreamType | None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a stream containing measures, examine each element in the\nStream. If the element's duration extends beyond the measure's boundary,\ncreate a tied entity, placing the split Note in the next Measure.\nNote that this method assumes that there is appropriate space in the\nnext Measure: this will not shift Note objects, but instead allocate\nthem evenly over barlines.\nIf inPlace is True, this is done in-place;\nif inPlace is False, this returns a modified deep copy.\nPut a 12-quarter-note-long note into a Stream w/ 4/4 as the duration.\n>>> d = stream.Stream()\n>>> d.insert(0, meter.TimeSignature('4/4'))\n>>> n = note.Note('C4')\n>>> n.quarterLength = 12\n>>> d.insert(0, n)\n>>> d.show('text')\n{0.0} <music21.meter.TimeSignature 4/4>\n{0.0} <music21.note.Note C>\n\n\nAfter running makeMeasures, we get nice measures, a clef, but only one\nway-too-long note in Measure 1:\n>>> x = d.makeMeasures()\n>>> x.show('text')\n{0.0} <music21.stream.Measure 1 offset=0.0>\n    {0.0} <music21.clef.TrebleClef>\n    {0.0} <music21.meter.TimeSignature 4/4>\n    {0.0} <music21.note.Note C>\n{4.0} <music21.stream.Measure 2 offset=4.0>\n\n{8.0} <music21.stream.Measure 3 offset=8.0>\n    {0.0} <music21.bar.Barline type=final>\n>>> n2 = x.measure(1).notes[0]\n>>> n2.duration.quarterLength\n12.0\n>>> n2 is n\nFalse\n\n\nBut after running makeTies, all is good:\n>>> x.makeTies(inPlace=True)\n>>> x.show('text')\n{0.0} <music21.stream.Measure 1 offset=0.0>\n    {0.0} <music21.clef.TrebleClef>\n    {0.0} <music21.meter.TimeSignature 4/4>\n    {0.0} <music21.note.Note C>\n{4.0} <music21.stream.Measure 2 offset=4.0>\n    {0.0} <music21.note.Note C>\n{8.0} <music21.stream.Measure 3 offset=8.0>\n    {0.0} <music21.note.Note C>\n    {4.0} <music21.bar.Barline type=final>\n>>> m = x.measure(1).notes[0]\n>>> m.duration.quarterLength\n4.0\n>>> m is n\nFalse\n>>> m.tie\n<music21.tie.Tie start>\n>>> x.measure(2).notes[0].tie\n<music21.tie.Tie continue>\n>>> x.measure(3).notes[0].tie\n<music21.tie.Tie stop>\n\n\nSame experiment, but with rests:\n>>> d = stream.Stream()\n>>> d.insert(0, meter.TimeSignature('4/4'))\n>>> r = note.Rest()\n>>> r.quarterLength = 12\n>>> d.insert(0, r)\n>>> x = d.makeMeasures()\n>>> x.makeTies(inPlace=True)\n>>> x.show('text')\n{0.0} <music21.stream.Measure 1 offset=0.0>\n    {0.0} <music21.clef.TrebleClef>\n    {0.0} <music21.meter.TimeSignature 4/4>\n    {0.0} <music21.note.Rest whole>\n{4.0} <music21.stream.Measure 2 offset=4.0>\n    {0.0} <music21.note.Rest whole>\n{8.0} <music21.stream.Measure 3 offset=8.0>\n    {0.0} <music21.note.Rest whole>\n    {4.0} <music21.bar.Barline type=final>\n\n\nNotes: uses base.Music21Object.splitAtQuarterLength() once it has figured out\nwhat to split.\n\nChanged in v4: inPlace = False by default.\nChanged in v6: all but first attribute are keyword only\nNew in v7: classFilterList acts as a filter on what elements will\nbe operated on (i.e. have durations split and/or ties made.)\nThe default (note.GeneralNote,) includes Notes, Chords, and Rests.\n\nHere will we split and make ties only on Notes, leaving the too-long\nrest in measure 1 alone.\n>>> p = stream.Part()\n>>> p.append(meter.TimeSignature('2/4'))\n>>> p.insert(0.0, note.Rest(quarterLength=3.0))\n>>> p.insert(3.0, note.Note(quarterLength=3.0))\n>>> p.makeMeasures(inPlace=True)\n>>> p.makeTies(classFilterList=[note.Note], inPlace=True)\n>>> p.show('text', addEndTimes=True)\n{0.0 - 3.0} <music21.stream.Measure 1 offset=0.0>\n    {0.0 - 0.0} <music21.clef.TrebleClef>\n    {0.0 - 0.0} <music21.meter.TimeSignature 2/4>\n    {0.0 - 3.0} <music21.note.Rest dotted-half>\n{2.0 - 4.0} <music21.stream.Measure 2 offset=2.0>\n    {1.0 - 2.0} <music21.note.Note C>\n{4.0 - 6.0} <music21.stream.Measure 3 offset=4.0>\n    {0.0 - 2.0} <music21.note.Note C>\n    {2.0 - 2.0} <music21.bar.Barline type=final>\n>>> p.measure(3).notes[0].tie\n<music21.tie.Tie stop>",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.stream.makeNotation.",
+        "type": "Title"
+    },
+    {
+        "text": "makeTupletBrackets",
+        "type": "Title"
+    },
+    {
+        "text": "StreamType",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 StreamType | None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a flat Stream of mixed durations, designates the first and last tuplet of any group\nof tuplets as the start or end of the tuplet, respectively.\n>>> n = note.Note()\n>>> n.duration.quarterLength = 1/3\n>>> s = stream.Stream()\n>>> s.insert(0, meter.TimeSignature('2/4'))\n>>> s.repeatAppend(n, 6)\n>>> tupletTypes = [x.duration.tuplets[0].type for x in s.notes]\n>>> tupletTypes\n[None, None, None, None, None, None]\n>>> stream.makeNotation.makeTupletBrackets(s, inPlace=True)\n>>> tupletTypes = [x.duration.tuplets[0].type for x in s.notes]\n>>> tupletTypes\n['start', None, 'stop', 'start', None, 'stop']\n\n\nThe tuplets must already be coherent.  See TupletFixer\nfor how to get that set up.\nTODO: does not handle nested tuplets\n\nChanged in v1.8: inPlace is False by default\nChanged in v7: Legacy behavior of taking in a list of durations removed.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.stream.makeNotation.",
+        "type": "Title"
+    },
+    {
+        "text": "moveNotesToVoices",
+        "type": "Title"
+    },
+    {
+        "text": "source",
+        "type": "Title"
+    },
+    {
+        "text": "StreamType",
+        "type": "Title"
+    },
+    {
+        "text": "classFilterList",
+        "type": "Title"
+    },
+    {
+        "text": "('GeneralNote',)",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Move notes into voices.  Happens inplace always.  Returns None",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.stream.makeNotation.",
+        "type": "Title"
+    },
+    {
+        "text": "ornamentalPitches",
+        "type": "Title"
+    },
+    {
+        "text": "StreamType",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 list[music21.pitch.Pitch]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns all ornamental Pitch objects found in any\nornaments in notes/chords in the stream (and substreams) as a Python list.\nVery much like the pitches property, except that instead of returning all\nthe pitches found in notes and chords, it returns the ornamental pitches\nfound in the ornaments on the notes and chords.\nIf you want a list of _all_ the pitches in a stream, including the ornamental\npitches, you can call s.pitches and makeNotation.ornamentalPitches(s),\nand then combine the two resulting lists into one big list.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.stream.makeNotation.",
+        "type": "Title"
+    },
+    {
+        "text": "realizeOrnaments",
+        "type": "Title"
+    },
+    {
+        "text": "StreamType",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 StreamType",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Realize all ornaments on a stream\nCreates a new stream that contains all realized ornaments in addition\nto other elements in the original stream.\n>>> s1 = stream.Stream()\n>>> m1 = stream.Measure()\n>>> m1.number = 1\n>>> m1.append(meter.TimeSignature('4/4'))\n>>> n1 = note.Note('C4', type='whole')\n>>> n1.expressions.append(expressions.Mordent())\n>>> m1.append(n1)\n>>> m2 = stream.Measure()\n>>> m2.number = 2\n>>> n2 = note.Note('D4', type='whole')\n>>> m2.append(n2)\n>>> s1.append(m1)\n>>> s1.append(m2)\n>>> for x in s1.recurse(includeSelf=True):\n...     x\n<music21.stream.Stream ...>\n<music21.stream.Measure 1 offset=0.0>\n<music21.meter.TimeSignature 4/4>\n<music21.note.Note C>\n<music21.stream.Measure 2 offset=4.0>\n<music21.note.Note D>\n\n\n>>> s2 = stream.makeNotation.realizeOrnaments(s1)\n>>> for x in s2.recurse(includeSelf=True):\n...     x\n<music21.stream.Stream ...>\n<music21.stream.Measure 1 offset=0.0>\n<music21.meter.TimeSignature 4/4>\n<music21.note.Note C>\n<music21.note.Note B>\n<music21.note.Note C>\n<music21.stream.Measure 2 offset=4.0>\n<music21.note.Note D>\n\n\n\nTODO: does not work for Gapful streams because it uses append ratherthan the offset of the original",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.stream.makeNotation.",
+        "type": "Title"
+    },
+    {
+        "text": "saveAccidentalDisplayStatus",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 Generator[None, None, None]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Restore accidental displayStatus on a Stream after an (inPlace) operation\nthat sets accidental displayStatus (e.g. a transposition).  Note that you\nshould not do this unless you know that the displayStatus values will still\nbe valid after the operation.\n>>> sc = corpus.parse('bwv66.6')\n>>> intv = interval.Interval('P8')\n>>> classList = (key.KeySignature, note.Note)\n>>> with stream.makeNotation.saveAccidentalDisplayStatus(sc):\n...     sc.transpose(intv, inPlace=True, classFilterList=classList)\n\n\n\nNew in v9.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.stream.makeNotation.",
+        "type": "Title"
+    },
+    {
+        "text": "setStemDirectionForBeamGroups",
+        "type": "Title"
+    },
+    {
+        "text": "StreamType",
+        "type": "Title"
+    },
+    {
+        "text": "setNewStems",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "overrideConsistentStemDirections",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Find all beam groups and set all the stemDirection tags for notes/chords\nin a beam group to point either up or down.  If any other stem direction is\nencountered (\u0098double', \u0098noStem', etc.) that note is skipped.\nIf all notes have the same (non-unspecified) direction, then they are left alone unless\noverrideConsistentStemDirections is True (default: False).  For instance,\ngetStemDirectionForPitches() might say \u009cdown\u009d but\nif everything in the beamGroup is either\nif setANewStems is True (as by default), then even notes with stemDirection\nof \u0098unspecified' get a stemDirection.\nThe method currently assumes that the clef does not change within a beam group.  This\nassumption may change in the future without notice.\nOperates in place.  Run copy.deepcopy(s) beforehand for a non-inPlace version.\n\nNew in v6.7.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.stream.makeNotation.",
+        "type": "Title"
+    },
+    {
+        "text": "setStemDirectionOneGroup",
+        "type": "Title"
+    },
+    {
+        "text": "group",
+        "type": "Title"
+    },
+    {
+        "text": "list[music21.note.NotRest]",
+        "type": "Title"
+    },
+    {
+        "text": "setNewStems",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "overrideConsistentStemDirections",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Helper function to set stem directions for one beam group (or perhaps a beat, etc.)\nSee setStemDirectionForBeamGroups for detailed information.\n\nNew in v6.7.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.stream.makeNotation.",
+        "type": "Title"
+    },
+    {
+        "text": "splitElementsToCompleteTuplets",
+        "type": "Title"
+    },
+    {
+        "text": "stream.Stream",
+        "type": "Title"
+    },
+    {
+        "text": "recurse",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "addTies",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Split notes or rests if doing so will complete any incomplete tuplets.\nThe element being split must have a duration that exceeds the\nremainder of the incomplete tuplet.\nThe first note is edited; the additional notes are inserted in place.\n(Destructive edit, so make a copy first if desired.)\nRelies on splitAtQuarterLength().\n\nNew in v8.\n\n>>> from music21.stream.makeNotation import splitElementsToCompleteTuplets\n>>> s = stream.Stream(\n...    [note.Note(quarterLength=1/3), note.Note(quarterLength=1), note.Note(quarterLength=2/3)]\n... )\n>>> splitElementsToCompleteTuplets(s)\n>>> [el.quarterLength for el in s.notes]\n[Fraction(1, 3), Fraction(2, 3), Fraction(1, 3), Fraction(2, 3)]\n>>> [el.tie for el in s.notes]\n[None, <music21.tie.Tie start>, <music21.tie.Tie stop>, None]\n\n\nWith recurse:\n>>> m = stream.Measure([note.Note(quarterLength=1/6)])\n>>> m.insert(5/6, note.Note(quarterLength=1/6))\n>>> m.makeRests(inPlace=True, fillGaps=True)\n>>> p = stream.Part([m])\n>>> splitElementsToCompleteTuplets(p, recurse=True)\n>>> [el.quarterLength for el in p.recurse().notesAndRests]\n[Fraction(1, 6), Fraction(1, 3), Fraction(1, 3), Fraction(1, 6)]",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.stream.makeNotation",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

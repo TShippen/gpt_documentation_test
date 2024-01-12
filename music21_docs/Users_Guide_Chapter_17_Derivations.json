@@ -1,0 +1,854 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide: Chapter 17: Derivations",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide, Chapter 16: TinyNotation",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide: Chapter 18: Intervals",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide\nUser's Guide: Table of Contents\nUser's Guide, Chapter 1: Installing and Getting Started with music21\nUser's Guide, Chapter 2: Notes\nUser's Guide, Chapter 3: Pitches, Durations, and Notes again\nUser's Guide, Chapter 4: Lists, Streams (I) and Output\nUser's Guide, Chapter 5: Lists of Lists, Functions, and Recursion\nUser's Guide, Chapter 6: Streams (II): Hierarchies, Recursion, and Flattening\nUser's Guide, Chapter 7: Chords\nUser's Guide, Chapter 8: Installing MusicXML Readers and File Formats (1)\nUser's Guide, Chapter 9: Chordify\nUser's Guide, Chapter 10: Examples 1\nUser's Guide, Chapter 11: Corpus Searching\nUser's Guide, Chapter 12: Getting Back to Basics: The Music21Object\nUser's Guide, Chapter 13: More Music21Object Attributes and Properties\nUser's Guide: Chapter 14: Time Signatures and Beats\nUser's Guide, Chapter 15: Keys and KeySignatures\nUser's Guide, Chapter 16: TinyNotation\nUser's Guide: Chapter 17: Derivations\nUser's Guide: Chapter 18: Intervals\nUser's Guide, Chapter 19: Advanced Durations (Complex and Tuplets)\nUser's Guide, Chapter 20: Examples 2\nUser's Guide, Chapter 21: Ordering and Sorting of Stream Elements\nUser's Guide, Chapter 22: Graphing and plotting\nUser's Guide, Chapter 23: Roman Numeral Analysis\nUser's Guide, Chapter 24: Configuring Environment Settings\nUser's Guide, Chapter 25: Post-Tonal Tools (1)\nUser's Guide, Chapter 26: Stream Iteration and Filtering\nUser's Guide, Chapter 27: Grace Notes\nUser's Guide, Chapter 28: Lyric Searching\nUser's Guide, Chapter 29: Spanners 1 (Slurs)\nUser's Guide, Chapter 30: Examples 3\nUser's Guide, Chapter 31: Clefs, Ties, and Beams\nUser's Guide, Chapter 32: Articulations\nUser's Guide, Chapter 44: Advanced Graphing (Axes, Plots, and Graphs)\nUser's Guide, Chapter 53: Advanced Corpus and Metadata Searching\nUser's Guide, Chapter 54: Extending Converter with New Formats\nUser's Guide, Chapter 55: Advanced Meter Topics\nUser's Guide, Chapter 58: Understanding Sites and Contexts\nUser's Guide, Chapter 61: TimespanTrees and Verticalities",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide: Chapter 17: Derivations\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Suppose you have a music21 score that was organized something like\nthis:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Figure 17.1: Score hierarchy\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "What we've seen already is that iterating over the score via,\nfor n in score: print n will only get you the highest level of\nobjects, namely the Metadata object and the two Part objects.\nThe inner objects, measures, clefs, notes, etc. Will not be available.\nThe simplest way of getting at all these objects is with the\nStream.flatten() method. Calling it on this score will change the\nrepresentation so that only the non-stream elements (the pink ovals)\nremain in the score:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Figure 17.2: Flat Score\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "stream.Score",
+        "type": "Title"
+    },
+    {
+        "text": "flattened",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "s.flat",
+        "type": "Title"
+    },
+    {
+        "text": "sf",
+        "type": "Title"
+    },
+    {
+        "text": "Derivation",
+        "type": "Title"
+    },
+    {
+        "text": "Figure 17.3: Derivation representation\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Let's parse a Mozart string quartet, K. 80, give it an ID and look where\nit came from:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "from",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "import",
+        "type": "Title"
+    },
+    {
+        "text": "corpus",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "'mozart/k80'",
+        "type": "Title"
+    },
+    {
+        "text": "id",
+        "type": "Title"
+    },
+    {
+        "text": "'mozartK80'",
+        "type": "Title"
+    },
+    {
+        "text": "derivation",
+        "type": "Title"
+    },
+    {
+        "text": "Derivation",
+        "type": "Title"
+    },
+    {
+        "text": "of",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Score",
+        "type": "Title"
+    },
+    {
+        "text": "mozartK80",
+        "type": "Title"
+    },
+    {
+        "text": "from",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "This Score is the first Stream representing this piece in music21 so it\nhas no derivation origin. However, let's look at the first couple of\nmeasures of the piece using .measures:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "sExcerpt",
+        "type": "Title"
+    },
+    {
+        "text": "measures",
+        "type": "Title"
+    },
+    {
+        "text": "sExcerpt",
+        "type": "Title"
+    },
+    {
+        "text": "id",
+        "type": "Title"
+    },
+    {
+        "text": "'excerpt'",
+        "type": "Title"
+    },
+    {
+        "text": "sExcerpt",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "This excerpt has a more interesting .derivation:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "sExcerpt",
+        "type": "Title"
+    },
+    {
+        "text": "derivation",
+        "type": "Title"
+    },
+    {
+        "text": "Derivation",
+        "type": "Title"
+    },
+    {
+        "text": "of",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Score",
+        "type": "Title"
+    },
+    {
+        "text": "excerpt",
+        "type": "Title"
+    },
+    {
+        "text": "from",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Score",
+        "type": "Title"
+    },
+    {
+        "text": "mozartK80",
+        "type": "Title"
+    },
+    {
+        "text": "via",
+        "type": "Title"
+    },
+    {
+        "text": "'measures'",
+        "type": "Title"
+    },
+    {
+        "text": "There are three things that are reported by the __repr__ of the\nDerivation object: the client (that is\nthe element housing the Derivation object), the origin (that is the\nStream that the client was derived from), and the method that derived\nthe new Stream:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "sExcerpt",
+        "type": "Title"
+    },
+    {
+        "text": "derivation",
+        "type": "Title"
+    },
+    {
+        "text": "client",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Score",
+        "type": "Title"
+    },
+    {
+        "text": "excerpt",
+        "type": "Title"
+    },
+    {
+        "text": "sExcerpt",
+        "type": "Title"
+    },
+    {
+        "text": "derivation",
+        "type": "Title"
+    },
+    {
+        "text": "origin",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Score",
+        "type": "Title"
+    },
+    {
+        "text": "mozartK80",
+        "type": "Title"
+    },
+    {
+        "text": "sExcerpt",
+        "type": "Title"
+    },
+    {
+        "text": "derivation",
+        "type": "Title"
+    },
+    {
+        "text": "method",
+        "type": "Title"
+    },
+    {
+        "text": "'measures'",
+        "type": "Title"
+    },
+    {
+        "text": "Let's create another Stream from the Excerpt, this time, via\ntransposition:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "sTransposed",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "sExcerpt",
+        "type": "Title"
+    },
+    {
+        "text": "transpose",
+        "type": "Title"
+    },
+    {
+        "text": "'P4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "sTransposed",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "sTransposed",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "id",
+        "type": "Title"
+    },
+    {
+        "text": "'transposed'",
+        "type": "Title"
+    },
+    {
+        "text": "sTransposed",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "derivation",
+        "type": "Title"
+    },
+    {
+        "text": "Derivation",
+        "type": "Title"
+    },
+    {
+        "text": "of",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Score",
+        "type": "Title"
+    },
+    {
+        "text": "transposed",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "from",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Score",
+        "type": "Title"
+    },
+    {
+        "text": "excerpt",
+        "type": "Title"
+    },
+    {
+        "text": "via",
+        "type": "Title"
+    },
+    {
+        "text": "'transpose'",
+        "type": "Title"
+    },
+    {
+        "text": "sTransposed",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "derivation",
+        "type": "Title"
+    },
+    {
+        "text": "method",
+        "type": "Title"
+    },
+    {
+        "text": "'transpose'",
+        "type": "Title"
+    },
+    {
+        "text": "Now this Stream has an origin, and that Stream has an origin. If we\nwanted to know where everything came from, we can use the\n.rootDerivation property:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "sTransposed",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "derivation",
+        "type": "Title"
+    },
+    {
+        "text": "origin",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Score",
+        "type": "Title"
+    },
+    {
+        "text": "excerpt",
+        "type": "Title"
+    },
+    {
+        "text": "sTransposed",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "derivation",
+        "type": "Title"
+    },
+    {
+        "text": "origin",
+        "type": "Title"
+    },
+    {
+        "text": "derivation",
+        "type": "Title"
+    },
+    {
+        "text": "origin",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Score",
+        "type": "Title"
+    },
+    {
+        "text": "mozartK80",
+        "type": "Title"
+    },
+    {
+        "text": "sTransposed",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "derivation",
+        "type": "Title"
+    },
+    {
+        "text": "rootDerivation",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Score",
+        "type": "Title"
+    },
+    {
+        "text": "mozartK80",
+        "type": "Title"
+    },
+    {
+        "text": "If we want to know the whole history of where this Stream comes from, we\ncan use the .chain() method on the Derivation object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "previousScore",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "sTransposed",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "derivation",
+        "type": "Title"
+    },
+    {
+        "text": "chain",
+        "type": "Title"
+    },
+    {
+        "text": "():",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "previousScore",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Score",
+        "type": "Title"
+    },
+    {
+        "text": "excerpt",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Score",
+        "type": "Title"
+    },
+    {
+        "text": "mozartK80",
+        "type": "Title"
+    },
+    {
+        "text": "Note that derived Streams retain information about where they came from,\nbut not vice-versa: there's no way to go from the original \u009cmozartK80\u009d\nStream back to the \u009ctransposed\u009d Stream.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "There are good uses for the derivation chain. For instance, what if we\nwant to change every piano mark to a forte, we might define a\nfunction to do that on a Stream and then call it on sTransposed:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "def",
+        "type": "Title"
+    },
+    {
+        "text": "makeLouder",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "dyn",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "recurse",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "getElementsByClass",
+        "type": "Title"
+    },
+    {
+        "text": "'Dynamic'",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "dyn",
+        "type": "Title"
+    },
+    {
+        "text": "value",
+        "type": "Title"
+    },
+    {
+        "text": "'f'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "makeLouder",
+        "type": "Title"
+    },
+    {
+        "text": "sTransposed",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "sTransposed",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "That's pretty cool, but our original score is unchanged:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "sExcerpt",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "So, if we want to backtrack up the history of the score, let's call\nmakeLouder on each Score in the .derivation.chain() (and now you\nmight see why we make makeLouder a function to begin with:)",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "sTransposed",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "derivation",
+        "type": "Title"
+    },
+    {
+        "text": "chain",
+        "type": "Title"
+    },
+    {
+        "text": "():",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "makeLouder",
+        "type": "Title"
+    },
+    {
+        "text": "sExcerpt",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "I hope that this gave a sense not only what Derviations are, but also\nwhy you might use them. We'll continue to use derivations in later\nchapters, but for now let's return to some fundamentals of music theory\nin the form of Intervals, in Chapter\n18.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide: Chapter 17: Derivations",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

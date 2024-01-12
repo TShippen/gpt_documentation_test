@@ -1,0 +1,678 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.tree.timespanTree",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.tree.spans",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.tree.toStream",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.tree.timespanTree\nTimespanTree\nTimespanTree\nTimespanTree.offset\nTimespanTree.element\nTimespanTree.allParts()\nTimespanTree.elementEndTime()\nTimespanTree.findNextPitchedTimespanInSameStreamByClass()\nTimespanTree.findPreviousPitchedTimespanInSameStreamByClass()\nTimespanTree.getVerticalityAtOrBefore()\nTimespanTree.index()\nTimespanTree.iterateConsonanceBoundedVerticalities()\nTimespanTree.iterateVerticalities()\nTimespanTree.iterateVerticalitiesNwise()\nTimespanTree.maximumOverlap()\nTimespanTree.removeTimespan()\nTimespanTree.removeTimespanList()\nTimespanTree.splitAt()\nTimespanTree.toPartwiseTimespanTrees()\nTimespanTree.unwrapVerticalities()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.tree.timespanTree\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Tools for grouping elements, timespans, and especially\npitched elements into kinds of searchable tree organized by start and stop offsets\nand other positions.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "TimespanTree\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.tree.timespanTree.",
+        "type": "Title"
+    },
+    {
+        "text": "TimespanTree",
+        "type": "Title"
+    },
+    {
+        "text": "elements",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "source",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A TimespanTree is a data structure for efficiently slicing a score for pitches, or,\nlike all OffsetTree objects, for searching large scores\nquickly by time.\nWhile you can construct an TimespanTree by hand, inserting timespans one at\na time, the common use-case is to construct the TimespanTree from an entire\nscore at once:\n>>> bach = corpus.parse('bwv66.6')\n>>> scoreTree = tree.fromStream.asTimespans(bach, flatten=True,\n...                                         classList=(note.Note, chord.Chord))\n\n\nFrom this representation, we can get what is happening at any given moment as a\nVerticality object.\n>>> print(scoreTree.getVerticalityAt(17.0))\n<music21.tree.verticality.Verticality 17.0 {F#3 C#4 A4}>\n\n\nThe equivalent call from the stream itself is:\n\nbach.asTrees(flatten=True, asTimespans=True, classList=(note.Note, chord.Chord))\n\nAll offsets are assumed to be relative to the score's source if flatten is True\nExample: How many moments in Bach are consonant and how many are dissonant:\n>>> totalConsonances = 0\n>>> totalDissonances = 0\n>>> for v in scoreTree.iterateVerticalities():\n...     if v.toChord().isConsonant():\n...        totalConsonances += 1\n...     else:\n...        totalDissonances += 1\n>>> (totalConsonances, totalDissonances)\n(34, 17)\n\n\nSo 1/3 of the vertical moments in Bach are dissonant!  But is this an\naccurate perception? Let's sum up the total consonant duration vs.\ndissonant duration.\nSince verticality objects do not know their end times, we can iterate pairwise\nto figure out the length.  We add \u009cpadEnd=True\u009d to include a dummy verticality\nat the end so that it includes the last object:\n>>> totalConsonanceDuration = 0\n>>> totalDissonanceDuration = 0\n>>> iterator = scoreTree.iterateVerticalitiesNwise(n=2, padEnd=True)\n>>> for verticality1, verticality2 in iterator:\n...     offset1 = verticality1.offset\n...     offset2 = verticality2.offset\n...     quarterLength = offset2 - offset1\n...     if verticality1.toChord().isConsonant():\n...        totalConsonanceDuration += quarterLength\n...     else:\n...        totalDissonanceDuration += quarterLength\n>>> (totalConsonanceDuration, totalDissonanceDuration)\n(26.5, 9.5)\n\n\nExample: Remove neighbor tones from the Bach chorale.  (It's actually quite viscous\nin its pruning\u2026)\nHere in Alto, measure 7, there's a neighbor tone E#.\n>>> bach.parts['#Alto'].measure(7).show('text')\n{0.0} <music21.note.Note F#>\n{0.5} <music21.note.Note E#>\n{1.0} <music21.note.Note F#>\n{1.5} <music21.note.Note F#>\n{2.0} <music21.note.Note C#>\n\n\nWe'll get rid of it and a lot of other neighbor tones.\n>>> for verticalities in scoreTree.iterateVerticalitiesNwise(n=3):\n...     horizontalities = scoreTree.unwrapVerticalities(verticalities)\n...     for unused_part, horizontality in horizontalities.items():\n...         if horizontality.hasNeighborTone:\n...             merged = horizontality[0].new(\n...                endTime=horizontality[2].endTime,\n...             )  # merged is a new PitchedTimespan\n...             scoreTree.removeTimespan(horizontality[0])\n...             scoreTree.removeTimespan(horizontality[1])\n...             scoreTree.removeTimespan(horizontality[2])\n...             scoreTree.insert(merged)\n\n\n>>> newBach = tree.toStream.partwise(scoreTree, templateStream=bach)\n>>> newBach.parts['#Alto'].measure(7).show('text')\n{0.0} <music21.chord.Chord F#4>\n{1.5} <music21.chord.Chord F#3>\n{2.0} <music21.chord.Chord C#4>\n\n\nThe second F# is an octave lower, so it wouldn't get merged even if\nadjacent notes were fused together (which they're not).\n\nNote\nTimespanTree is an implementation of an extended AVL tree. AVL\ntrees are a type of binary tree, like Red-Black trees. AVL trees are\nvery efficient at insertion when the objects being inserted are already\nsorted - which is usually the case with data extracted from a score.\nTimespanTree is an extended AVL tree because each node in the\ntree keeps track of not just the start offsets of PitchedTimespans\nstored at that node, but also the earliest and latest stop offset of\nall PitchedTimespans stores at both that node and all nodes which are\nchildren of that node. This lets us quickly located PitchedTimespans\nwhich overlap offsets or which are contained within ranges of offsets.\nThis also means that the contents of a TimespanTree are always\nsorted.",
+        "type": "ListItem"
+    },
+    {
+        "text": "TimespanTree bases",
+        "type": "Title"
+    },
+    {
+        "text": "OffsetTree",
+        "type": "ListItem"
+    },
+    {
+        "text": "ElementTree",
+        "type": "ListItem"
+    },
+    {
+        "text": "AVLTree",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "TimespanTree read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "TimespanTree.",
+        "type": "Title"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "this is just for mimicking elements as streams.\n\nChanged in v7: this was always meant to be a property, but was\nincorrectly a method earlier.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read-only properties inherited from ElementTree:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "endTime",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "TimespanTree read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "TimespanTree.",
+        "type": "Title"
+    },
+    {
+        "text": "element",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "defined so a TimespanTree can be used like an PitchedTimespan\nTODO: Look at subclassing or at least deriving from a common base\u2026",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read/write properties inherited from ElementTree:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "source",
+        "type": "Table"
+    },
+    {
+        "text": "TimespanTree methods",
+        "type": "Title"
+    },
+    {
+        "text": "TimespanTree.",
+        "type": "Title"
+    },
+    {
+        "text": "allParts",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "static",
+        "type": "Title"
+    },
+    {
+        "text": "TimespanTree.",
+        "type": "Title"
+    },
+    {
+        "text": "elementEndTime",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "unused_node",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Use so that both OffsetTrees, which have elements which do not have a .endTime, and\nTimespanTrees, which have element that have an .endTime but not a duration, can\nuse most of the same code.",
+        "type": "ListItem"
+    },
+    {
+        "text": "TimespanTree.",
+        "type": "Title"
+    },
+    {
+        "text": "findNextPitchedTimespanInSameStreamByClass",
+        "type": "Title"
+    },
+    {
+        "text": "pitchedTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "classList",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Finds next element timespan in the same stream class as PitchedTimespan.\nDefault classList is (stream.Part, )\n>>> score = corpus.parse('bwv66.6')\n>>> scoreTree = score.asTimespans(classList=(note.Note,))\n>>> timespan = scoreTree[0]\n>>> timespan\n<PitchedTimespan (0.0 to 0.5) <music21.note.Note C#>>\n\n\n>>> timespan.part\n<music21.stream.Part Soprano>\n\n\n>>> timespan = scoreTree.findNextPitchedTimespanInSameStreamByClass(timespan)\n>>> timespan\n<PitchedTimespan (0.5 to 1.0) <music21.note.Note B>>\n\n\n>>> timespan.part\n<music21.stream.Part Soprano>\n\n\n>>> timespan = scoreTree.findNextPitchedTimespanInSameStreamByClass(timespan)\n>>> timespan\n<PitchedTimespan (1.0 to 2.0) <music21.note.Note A>>\n\n\n>>> timespan.part\n<music21.stream.Part Soprano>",
+        "type": "ListItem"
+    },
+    {
+        "text": "TimespanTree.",
+        "type": "Title"
+    },
+    {
+        "text": "findPreviousPitchedTimespanInSameStreamByClass",
+        "type": "Title"
+    },
+    {
+        "text": "pitchedTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "classList",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Finds next element timespan in the same Part/Measure, etc. (specify in classList) as\nthe pitchedTimespan.\n>>> score = corpus.parse('bwv66.6')\n>>> scoreTree = score.asTimespans(classList=(note.Note,))\n>>> timespan = scoreTree[-1]\n>>> timespan\n<PitchedTimespan (35.0 to 36.0) <music21.note.Note F#>>\n\n\n>>> timespan.part\n<music21.stream.Part Bass>\n\n\n>>> timespan = scoreTree.findPreviousPitchedTimespanInSameStreamByClass(timespan)\n>>> timespan\n<PitchedTimespan (34.0 to 35.0) <music21.note.Note B>>\n\n\n>>> timespan.part\n<music21.stream.Part Bass>\n\n\n>>> timespan = scoreTree.findPreviousPitchedTimespanInSameStreamByClass(timespan)\n>>> timespan\n<PitchedTimespan (33.0 to 34.0) <music21.note.Note D>>\n\n\n>>> timespan.part\n<music21.stream.Part Bass>",
+        "type": "ListItem"
+    },
+    {
+        "text": "TimespanTree.",
+        "type": "Title"
+    },
+    {
+        "text": "getVerticalityAtOrBefore",
+        "type": "Title"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Gets the Verticality\nin this TimeSpanTree which starts at offset.\nIf the found Verticality has no start timespans, the function returns\nthe next previous verticality with start timespans.\n>>> score = corpus.parse('bwv66.6')\n>>> scoreTree = score.asTimespans()\n>>> scoreTree.getVerticalityAtOrBefore(0.125)\n<music21.tree.verticality.Verticality 0.0 {A3 E4 C#5}>\n\n\n>>> scoreTree.getVerticalityAtOrBefore(0.0)\n<music21.tree.verticality.Verticality 0.0 {A3 E4 C#5}>",
+        "type": "ListItem"
+    },
+    {
+        "text": "TimespanTree.",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "Title"
+    },
+    {
+        "text": "span",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Gets index of a TimeSpan in a TimespanTree.\nSince Timespans do not have .sites, there is only one offset to deal with\u2026\n>>> tsList = [(0, 2), (0, 9), (1, 1), (2, 3), (3, 4),\n...           (4, 9), (5, 6), (5, 8), (6, 8), (7, 7)]\n>>> ts = [tree.spans.Timespan(x, y) for x, y in tsList]\n>>> tsTree = tree.timespanTree.TimespanTree()\n>>> tsTree.insert(ts)\n\n\n>>> for timespan in ts:\n...     print(\"%r %s\" % (timespan, tsTree.index(timespan)))\n...\n<Timespan 0.0 2.0> 0\n<Timespan 0.0 9.0> 1\n<Timespan 1.0 1.0> 2\n<Timespan 2.0 3.0> 3\n<Timespan 3.0 4.0> 4\n<Timespan 4.0 9.0> 5\n<Timespan 5.0 6.0> 6\n<Timespan 5.0 8.0> 7\n<Timespan 6.0 8.0> 8\n<Timespan 7.0 7.0> 9\n\n\n>>> tsTree.index(tree.spans.Timespan(-100, 100))\nTraceback (most recent call last):\nValueError: <Timespan -100.0 100.0> not in Tree at offset -100.0.",
+        "type": "ListItem"
+    },
+    {
+        "text": "TimespanTree.",
+        "type": "Title"
+    },
+    {
+        "text": "iterateConsonanceBoundedVerticalities",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Iterates consonant-bounded verticality subsequences in this\noffset-tree.\n>>> score = corpus.parse('bwv66.6')\n>>> scoreTree = score.asTimespans()\n>>> for subsequence in scoreTree.iterateConsonanceBoundedVerticalities():\n...     print('Subsequence:')\n...     for verticality in subsequence:\n...         verticalityChord = verticality.toChord()\n...         print(f'\\t[{verticality.measureNumber}] '\n...               + f'{verticality}: {verticalityChord.isConsonant()}')\n...\nSubsequence:\n    [2] <music21.tree.verticality.Verticality 6.0 {E3 E4 G#4 B4}>: True\n    [2] <music21.tree.verticality.Verticality 6.5 {E3 D4 G#4 B4}>: False\n    [2] <music21.tree.verticality.Verticality 7.0 {A2 C#4 E4 A4}>: True\nSubsequence:\n    [3] <music21.tree.verticality.Verticality 9.0 {F#3 C#4 F#4 A4}>: True\n    [3] <music21.tree.verticality.Verticality 9.5 {B2 D4 G#4 B4}>: False\n    [3] <music21.tree.verticality.Verticality 10.0 {C#3 C#4 E#4 G#4}>: True\nSubsequence:\n    [3] <music21.tree.verticality.Verticality 10.0 {C#3 C#4 E#4 G#4}>: True\n    [3] <music21.tree.verticality.Verticality 10.5 {C#3 B3 E#4 G#4}>: False\n    [3] <music21.tree.verticality.Verticality 11.0 {F#2 A3 C#4 F#4}>: True\nSubsequence:\n    [3] <music21.tree.verticality.Verticality 12.0 {F#3 C#4 F#4 A4}>: True\n    [4] <music21.tree.verticality.Verticality 13.0 {G#3 B3 F#4 B4}>: False\n    [4] <music21.tree.verticality.Verticality 13.5 {F#3 B3 F#4 B4}>: False\n    [4] <music21.tree.verticality.Verticality 14.0 {G#3 B3 E4 B4}>: True\nSubsequence:\n    [4] <music21.tree.verticality.Verticality 14.0 {G#3 B3 E4 B4}>: True\n    [4] <music21.tree.verticality.Verticality 14.5 {A3 B3 E4 B4}>: False\n    [4] <music21.tree.verticality.Verticality 15.0 {B3 D#4 F#4}>: True\nSubsequence:\n    [4] <music21.tree.verticality.Verticality 15.0 {B3 D#4 F#4}>: True\n    [4] <music21.tree.verticality.Verticality 15.5 {B2 A3 D#4 F#4}>: False\n    [4] <music21.tree.verticality.Verticality 16.0 {C#3 G#3 C#4 E4}>: True\nSubsequence:\n    [5] <music21.tree.verticality.Verticality 17.5 {F#3 D4 F#4 A4}>: True\n    [5] <music21.tree.verticality.Verticality 18.0 {G#3 C#4 E4 B4}>: False\n    [5] <music21.tree.verticality.Verticality 18.5 {G#3 B3 E4 B4}>: True\nSubsequence:\n    [6] <music21.tree.verticality.Verticality 24.0 {F#3 C#4 F#4 A4}>: True\n    [7] <music21.tree.verticality.Verticality 25.0 {B2 D4 F#4 G#4}>: False\n    [7] <music21.tree.verticality.Verticality 25.5 {C#3 C#4 E#4 G#4}>: True\nSubsequence:\n    [7] <music21.tree.verticality.Verticality 25.5 {C#3 C#4 E#4 G#4}>: True\n    [7] <music21.tree.verticality.Verticality 26.0 {D3 C#4 F#4}>: False\n    [7] <music21.tree.verticality.Verticality 26.5 {D3 F#3 B3 F#4}>: True\nSubsequence:\n    [8] <music21.tree.verticality.Verticality 29.0 {A#2 F#3 C#4 F#4}>: True\n    [8] <music21.tree.verticality.Verticality 29.5 {A#2 F#3 D4 F#4}>: False\n    [8] <music21.tree.verticality.Verticality 30.0 {A#2 C#4 E4 F#4}>: False\n    [8] <music21.tree.verticality.Verticality 31.0 {B2 C#4 E4 F#4}>: False\n    [8] <music21.tree.verticality.Verticality 32.0 {C#3 B3 D4 F#4}>: False\n    [8] <music21.tree.verticality.Verticality 32.5 {C#3 A#3 C#4 F#4}>: False\n    [9] <music21.tree.verticality.Verticality 33.0 {D3 B3 F#4}>: True\nSubsequence:\n    [9] <music21.tree.verticality.Verticality 33.0 {D3 B3 F#4}>: True\n    [9] <music21.tree.verticality.Verticality 33.5 {D3 B3 C#4 F#4}>: False\n    [9] <music21.tree.verticality.Verticality 34.0 {B2 B3 D4 F#4}>: True\nSubsequence:\n    [9] <music21.tree.verticality.Verticality 34.0 {B2 B3 D4 F#4}>: True\n    [9] <music21.tree.verticality.Verticality 34.5 {B2 B3 D4 E#4}>: False\n    [9] <music21.tree.verticality.Verticality 35.0 {F#3 A#3 C#4 F#4}>: True",
+        "type": "ListItem"
+    },
+    {
+        "text": "TimespanTree.",
+        "type": "Title"
+    },
+    {
+        "text": "iterateVerticalities",
+        "type": "Title"
+    },
+    {
+        "text": "reverse",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Iterates all vertical moments in this TimespanTree, represented as\nVerticality objects.\n\nNote\nThe TimespanTree can be mutated while its verticalities are\niterated over. Each verticality holds a reference back to the\nTimespanTree and will ask for the start-offset after (or before) its\nown start offset in order to determine the next verticality to\nyield. If you mutate the tree by adding or deleting timespans, the\nnext verticality will reflect those changes.\n\n>>> score = corpus.parse('bwv66.6')\n>>> scoreTree = score.asTimespans(classList=(note.Note,))\n>>> iterator = scoreTree.iterateVerticalities()\n>>> for _ in range(10):\n...     next(iterator)\n...\n<music21.tree.verticality.Verticality 0.0 {A3 E4 C#5}>\n<music21.tree.verticality.Verticality 0.5 {G#3 B3 E4 B4}>\n<music21.tree.verticality.Verticality 1.0 {F#3 C#4 F#4 A4}>\n<music21.tree.verticality.Verticality 2.0 {G#3 B3 E4 B4}>\n<music21.tree.verticality.Verticality 3.0 {A3 E4 C#5}>\n<music21.tree.verticality.Verticality 4.0 {G#3 B3 E4 E5}>\n<music21.tree.verticality.Verticality 5.0 {A3 E4 C#5}>\n<music21.tree.verticality.Verticality 5.5 {C#3 E4 A4 C#5}>\n<music21.tree.verticality.Verticality 6.0 {E3 E4 G#4 B4}>\n<music21.tree.verticality.Verticality 6.5 {E3 D4 G#4 B4}>\n\n\nVerticalities can also be iterated in reverse:\n>>> iterator = scoreTree.iterateVerticalities(reverse=True)\n>>> for _ in range(10):\n...     next(iterator)\n...\n<music21.tree.verticality.Verticality 35.0 {F#3 A#3 C#4 F#4}>\n<music21.tree.verticality.Verticality 34.5 {B2 B3 D4 E#4}>\n<music21.tree.verticality.Verticality 34.0 {B2 B3 D4 F#4}>\n<music21.tree.verticality.Verticality 33.5 {D3 B3 C#4 F#4}>\n<music21.tree.verticality.Verticality 33.0 {D3 B3 F#4}>\n<music21.tree.verticality.Verticality 32.5 {C#3 A#3 C#4 F#4}>\n<music21.tree.verticality.Verticality 32.0 {C#3 B3 D4 F#4}>\n<music21.tree.verticality.Verticality 31.0 {B2 C#4 E4 F#4}>\n<music21.tree.verticality.Verticality 30.0 {A#2 C#4 E4 F#4}>\n<music21.tree.verticality.Verticality 29.5 {A#2 F#3 D4 F#4}>",
+        "type": "ListItem"
+    },
+    {
+        "text": "TimespanTree.",
+        "type": "Title"
+    },
+    {
+        "text": "iterateVerticalitiesNwise",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "reverse",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "padEnd",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 Generator[VerticalitySequence, None, None]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Iterates Verticality objects in groups of length n.\n\nNote\nThe TimespanTree can be mutated while its verticalities are\niterated over. Each verticality holds a reference back to the\nTimespanTree and will ask for the start-offset after (or before) its\nown start offset in order to determine the next verticality to\nyield. If you mutate the tree by adding or deleting timespans, the\nnext verticality will reflect those changes.\n\n>>> score = corpus.parse('bwv66.6')\n>>> scoreTree = score.asTimespans(classList=(note.Note,))\n>>> iterator = scoreTree.iterateVerticalitiesNwise(n=2)\n>>> for _ in range(4):\n...     print(next(iterator))\n...\n<music21.tree.verticality.VerticalitySequence [\n    (0.0 {A3 E4 C#5}),\n    (0.5 {G#3 B3 E4 B4})\n    ]>\n<music21.tree.verticality.VerticalitySequence [\n    (0.5 {G#3 B3 E4 B4}),\n    (1.0 {F#3 C#4 F#4 A4})\n    ]>\n<music21.tree.verticality.VerticalitySequence [\n    (1.0 {F#3 C#4 F#4 A4}),\n    (2.0 {G#3 B3 E4 B4})\n    ]>\n<music21.tree.verticality.VerticalitySequence [\n    (2.0 {G#3 B3 E4 B4}),\n    (3.0 {A3 E4 C#5})\n    ]>\n\n\nGrouped verticalities can also be iterated in reverse, but note that the\ngroups within each iteration are still ordered from earliest to last.\n>>> iterator = scoreTree.iterateVerticalitiesNwise(n=2, reverse=True)\n>>> for _ in range(4):\n...     print(next(iterator))\n...\n<music21.tree.verticality.VerticalitySequence [\n    (34.5 {B2 B3 D4 E#4}),\n    (35.0 {F#3 A#3 C#4 F#4})\n    ]>\n<music21.tree.verticality.VerticalitySequence [\n    (34.0 {B2 B3 D4 F#4}),\n    (34.5 {B2 B3 D4 E#4})\n    ]>\n<music21.tree.verticality.VerticalitySequence [\n    (33.5 {D3 B3 C#4 F#4}),\n    (34.0 {B2 B3 D4 F#4})\n    ]>\n<music21.tree.verticality.VerticalitySequence [\n    (33.0 {D3 B3 F#4}),\n    (33.5 {D3 B3 C#4 F#4})\n    ]>\n\n\nWhen iterating with n > 1 and padEnd=True will put sentinel\nVerticalities in the last VerticalitySequences that occur at the\nendTime of the tree, with no elements:\n>>> iterator = scoreTree.iterateVerticalitiesNwise(n=3, padEnd=True)\n>>> for v in iterator:\n...     pass\n>>> v\n<music21.tree.verticality.VerticalitySequence [\n    (35.0 {F#3 A#3 C#4 F#4}),\n    (36.0 {}),\n    (36.0 {})\n    ]>\n\n\n\n\nChanged in v8: added padEnd.  Streams with fewer than n elementsalso return an empty sentinel entry.",
+        "type": "ListItem"
+    },
+    {
+        "text": "TimespanTree.",
+        "type": "Title"
+    },
+    {
+        "text": "maximumOverlap",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The maximum number of timespans overlapping at any given moment in this\ntimespan collection.\n>>> score = corpus.parse('bwv66.6')\n>>> scoreTree = score.asTimespans(classList=(note.Note,))\n>>> scoreTree.maximumOverlap()\n4\n\n\nReturns None if there is no verticality here.",
+        "type": "ListItem"
+    },
+    {
+        "text": "TimespanTree.",
+        "type": "Title"
+    },
+    {
+        "text": "removeTimespan",
+        "type": "Title"
+    },
+    {
+        "text": "elements",
+        "type": "Title"
+    },
+    {
+        "text": "offsets",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "runUpdate",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "this will eventually be different from above\u2026",
+        "type": "ListItem"
+    },
+    {
+        "text": "TimespanTree.",
+        "type": "Title"
+    },
+    {
+        "text": "removeTimespanList",
+        "type": "Title"
+    },
+    {
+        "text": "elements",
+        "type": "Title"
+    },
+    {
+        "text": "offsets",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "runUpdate",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "this will eventually be different from above\u2026",
+        "type": "ListItem"
+    },
+    {
+        "text": "TimespanTree.",
+        "type": "Title"
+    },
+    {
+        "text": "splitAt",
+        "type": "Title"
+    },
+    {
+        "text": "offsets",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Splits all timespans in this TimespanTree at offsets, operating in\nplace.\n>>> score = corpus.parse('bwv66.6')\n>>> scoreTree = score.asTimespans()\n>>> scoreTree.elementsStartingAt(0.1)\n()\n\n\n>>> for timespan in scoreTree.elementsOverlappingOffset(0.1):\n...     print(\"%r, %s\" % (timespan, timespan.part.id))\n...\n<PitchedTimespan (0.0 to 0.5) <music21.note.Note C#>>, Soprano\n<PitchedTimespan (0.0 to 0.5) <music21.note.Note A>>, Tenor\n<PitchedTimespan (0.0 to 0.5) <music21.note.Note A>>, Bass\n<PitchedTimespan (0.0 to 1.0) <music21.note.Note E>>, Alto\n\n\nNote that the Alto is last in both of these because currently the sorting\nis done according to the endTime \u2014 potentially to be changed soon.\n>>> scoreTree.splitAt(0.1)\n>>> for timespan in scoreTree.elementsStartingAt(0.1):\n...     print(\"%r, %s\" % (timespan, timespan.part.id))\n...\n<PitchedTimespan (0.1 to 0.5) <music21.note.Note C#>>, Soprano\n<PitchedTimespan (0.1 to 0.5) <music21.note.Note A>>, Tenor\n<PitchedTimespan (0.1 to 0.5) <music21.note.Note A>>, Bass\n<PitchedTimespan (0.1 to 1.0) <music21.note.Note E>>, Alto\n\n\n>>> scoreTree.elementsOverlappingOffset(0.1)\n()",
+        "type": "ListItem"
+    },
+    {
+        "text": "TimespanTree.",
+        "type": "Title"
+    },
+    {
+        "text": "toPartwiseTimespanTrees",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns a dictionary of TimespanTrees where each entry\nis indexed by a Part object (TODO: Don't use mutable objects as hash keys!)\nand each key is a TimeSpan tree containing only element timespans belonging\nto that part.\nUsed by reduceChords.  May disappear at any time without a deprecation\nnotice.",
+        "type": "ListItem"
+    },
+    {
+        "text": "static",
+        "type": "Title"
+    },
+    {
+        "text": "TimespanTree.",
+        "type": "Title"
+    },
+    {
+        "text": "unwrapVerticalities",
+        "type": "Title"
+    },
+    {
+        "text": "verticalities",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Unwraps a sequence of Verticality objects into a dictionary of\nPart:Horizontality key/value pairs.\n>>> score = corpus.parse('bwv66.6')\n>>> scoreTree = score.asTimespans(classList=(note.Note,))\n>>> iterator = scoreTree.iterateVerticalitiesNwise()\n>>> verticalities = next(iterator)\n>>> unwrapped = scoreTree.unwrapVerticalities(verticalities)\n>>> for part in sorted(unwrapped, key=lambda x: x.partName):\n...     print(part)\n...     horizontality = unwrapped[part]\n...     for timespan in horizontality:\n...         print('\\t%r' % timespan)\n...\n<music21.stream.Part Alto>\n    <PitchedTimespan (0.0 to 1.0) <music21.note.Note E>>\n    <PitchedTimespan (1.0 to 2.0) <music21.note.Note F#>>\n<music21.stream.Part Bass>\n    <PitchedTimespan (0.0 to 0.5) <music21.note.Note A>>\n    <PitchedTimespan (0.5 to 1.0) <music21.note.Note G#>>\n    <PitchedTimespan (1.0 to 2.0) <music21.note.Note F#>>\n<music21.stream.Part Soprano>\n    <PitchedTimespan (0.0 to 0.5) <music21.note.Note C#>>\n    <PitchedTimespan (0.5 to 1.0) <music21.note.Note B>>\n    <PitchedTimespan (1.0 to 2.0) <music21.note.Note A>>\n<music21.stream.Part Tenor>\n    <PitchedTimespan (0.0 to 0.5) <music21.note.Note A>>\n    <PitchedTimespan (0.5 to 1.0) <music21.note.Note B>>\n    <PitchedTimespan (1.0 to 2.0) <music21.note.Note C#>>",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from OffsetTree:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__getitem__() allOffsets() allTimePoints() append() copy() elementsOverlappingOffset() elementsStartingAt() elementsStoppingAt() getPositionFromElementUnsafe() getVerticalityAt() overlapTimePoints() removeElements() simultaneityDict()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ElementTree:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() getNodeByIndex() highestPosition() insert() iterNodes() lowestPosition() populateFromSortedList()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from AVLTree:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "createNodeAtPosition() debug() getNodeAfter() getNodeBefore() getNodeByPosition() getPositionAfter() getPositionBefore() removeNode()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.tree.timespanTree",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

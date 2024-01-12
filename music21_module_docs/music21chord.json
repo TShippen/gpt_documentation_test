@@ -1,0 +1,3510 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.chord",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.capella.fromCapellaXML",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.chord.tables",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.chord\nChord\nChord\nChord.chordTablesAddress\nChord.commonName\nChord.fifth\nChord.forteClass\nChord.forteClassNumber\nChord.forteClassTn\nChord.forteClassTnI\nChord.fullName\nChord.hasZRelation\nChord.intervalVector\nChord.intervalVectorString\nChord.isPrimeFormInversion\nChord.multisetCardinality\nChord.normalOrder\nChord.normalOrderString\nChord.orderedPitchClasses\nChord.orderedPitchClassesString\nChord.pitchClassCardinality\nChord.pitchClasses\nChord.pitchedCommonName\nChord.primeForm\nChord.primeFormString\nChord.quality\nChord.scaleDegrees\nChord.seventh\nChord.third\nChord.duration\nChord.notes\nChord.pitchNames\nChord.pitches\nChord.__eq__()\nChord.__getitem__()\nChord.add()\nChord.annotateIntervals()\nChord.areZRelations()\nChord.bass()\nChord.canBeDominantV()\nChord.canBeTonic()\nChord.closedPosition()\nChord.containsSeventh()\nChord.containsTriad()\nChord.formatVectorString()\nChord.geometricNormalForm()\nChord.getChordStep()\nChord.getColor()\nChord.getNotehead()\nChord.getNoteheadFill()\nChord.getStemDirection()\nChord.getTie()\nChord.getVolume()\nChord.getZRelation()\nChord.hasAnyEnharmonicSpelledPitches()\nChord.hasAnyRepeatedDiatonicNote()\nChord.hasRepeatedChordStep()\nChord.intervalFromChordStep()\nChord.inversion()\nChord.inversionName()\nChord.inversionText()\nChord.isAugmentedSixth()\nChord.isAugmentedTriad()\nChord.isConsonant()\nChord.isDiminishedSeventh()\nChord.isDiminishedTriad()\nChord.isDominantSeventh()\nChord.isFalseDiminishedSeventh()\nChord.isFrenchAugmentedSixth()\nChord.isGermanAugmentedSixth()\nChord.isHalfDiminishedSeventh()\nChord.isIncompleteMajorTriad()\nChord.isIncompleteMinorTriad()\nChord.isItalianAugmentedSixth()\nChord.isMajorTriad()\nChord.isMinorTriad()\nChord.isNinth()\nChord.isSeventh()\nChord.isSeventhOfType()\nChord.isSwissAugmentedSixth()\nChord.isTranspositionallySymmetrical()\nChord.isTriad()\nChord.removeRedundantPitchClasses()\nChord.removeRedundantPitchNames()\nChord.removeRedundantPitches()\nChord.root()\nChord.semiClosedPosition()\nChord.semitonesFromChordStep()\nChord.setColor()\nChord.setNotehead()\nChord.setNoteheadFill()\nChord.setStemDirection()\nChord.setTie()\nChord.setVolume()\nChord.simplifyEnharmonics()\nChord.sortAscending()\nChord.sortChromaticAscending()\nChord.sortDiatonicAscending()\nChord.sortFrequencyAscending()\nChord.transpose()\nChord.beams\nChord.isChord\nChord.isNote\nChord.isRest\n\n\n\n\nChordBase\nChordBase\nChordBase.notes\nChordBase.tie\nChordBase.volume\nChordBase.__eq__()\nChordBase.add()\nChordBase.hasComponentVolumes()\nChordBase.remove()\nChordBase.setVolumes()\nChordBase.beams\nChordBase.isNote\nChordBase.isRest\n\n\n\n\nFunctions\nfromForteClass()\nfromIntervalVector()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.chord\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "This module defines the Chord object, a subclass of GeneralNote\nas well as other methods, functions, and objects related to chords.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Chord\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.chord.",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "notes",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "Sequence",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Sequence",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "Sequence",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "Sequence",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "Sequence",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Class representing Chords.\nA Chord functions like a Note object but has multiple pitches.\nCreate chords by passing a list of strings of pitch names:\n>>> dMaj = chord.Chord(['D', 'F#', 'A'])\n>>> dMaj\n<music21.chord.Chord D F# A>\n\n\nPitch names can also include octaves:\n>>> dMaj = chord.Chord(['D3', 'F#4', 'A5'])\n>>> dMaj\n<music21.chord.Chord D3 F#4 A5>\n\n\nA single string with note names separated by spaces also works:\n>>> myChord = chord.Chord('A4 C#5 E5')\n>>> myChord\n<music21.chord.Chord A4 C#5 E5>\n\n\nOr you can combine already created Notes or Pitches:\n>>> cNote = note.Note('C')\n>>> eNote = note.Note('E')\n>>> gNote = note.Note('G')\n\n\nAnd then create a chord with note objects:\n>>> cmaj = chord.Chord([cNote, eNote, gNote])\n>>> cmaj  # default octave of 4 is used for these notes, since octave was not specified\n<music21.chord.Chord C E G>\n\n\nOr with pitches:\n>>> cmaj2 = chord.Chord([pitch.Pitch('C'), pitch.Pitch('E'), pitch.Pitch('G')])\n>>> cmaj2\n<music21.chord.Chord C E G>\n\n\nChord has the ability to determine the root of a chord, as well as the bass note of a chord.\nIn addition, Chord is capable of determining what type of chord a particular chord is, whether\nit is a triad or a seventh, major or minor, etc., as well as what inversion the chord is in.\nA chord can also be created from pitch class numbers:\n>>> c = chord.Chord([0, 2, 3, 5])\n>>> c.pitches\n(<music21.pitch.Pitch C>,\n <music21.pitch.Pitch D>,\n <music21.pitch.Pitch E->,\n <music21.pitch.Pitch F>)\n\n\nOr from MIDI numbers:\n>>> c = chord.Chord([72, 76, 79])\n>>> c.pitches\n(<music21.pitch.Pitch C5>, <music21.pitch.Pitch E5>, <music21.pitch.Pitch G5>)\n\n\n(If the number is < 12, it is assumed to be an octaveless pitch-class number, if above\n12, then a MIDI number.  To create chords below MIDI 12, create a Pitch object with that\nMIDI number instead and then pass that to the Chord creator).\nDuration or quarterLength also works:\n>>> d = duration.Duration(2.0)\n>>> myChord = chord.Chord('A4 C#5 E5', duration=d)\n>>> myChord\n<music21.chord.Chord A4 C#5 E5>\n>>> myChord.duration\n<music21.duration.Duration 2.0>\n>>> myChord.duration is d\nTrue\n\n\n>>> myChord = chord.Chord('A4 C#5 E5', quarterLength=3.75)\n>>> myChord.duration.type\n'half'\n>>> myChord.duration.dots\n3",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord bases",
+        "type": "Title"
+    },
+    {
+        "text": "ChordBase",
+        "type": "ListItem"
+    },
+    {
+        "text": "NotRest",
+        "type": "ListItem"
+    },
+    {
+        "text": "GeneralNote",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "chordTablesAddress",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a four-element ChordTableAddress that represents that raw data location for\ninformation on the set class interpretation of this Chord as well as the original\npitchClass\nThe data format is a Forte set class cardinality, index number, and\ninversion status (where 0 is invariant, and -1 and 1 represent\ninverted or not, respectively).\n>>> c = chord.Chord(['D4', 'F#4', 'B-4'])\n>>> c.chordTablesAddress\nChordTableAddress(cardinality=3, forteClass=12, inversion=0, pcOriginal=2)\n\n\n>>> c = chord.Chord('G#2 A2 D3 G3')\n>>> c.chordTablesAddress\nChordTableAddress(cardinality=4, forteClass=6, inversion=0, pcOriginal=2)\n\n\nThis method caches the result so that it does not need to be looked up again.\nOne change from chord.tables.seekChordTablesAddress: the empty chord returns\na special address instead of raising an exception:\n>>> chord.Chord().chordTablesAddress\nChordTableAddress(cardinality=0, forteClass=0, inversion=0, pcOriginal=0)",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "commonName",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return the most common name associated with this Chord as a string.\nChecks some common enharmonic equivalents.\n>>> c1 = chord.Chord(['c', 'e-', 'g'])\n>>> c1.commonName\n'minor triad'\n\n\n>>> c2 = chord.Chord(['c', 'e', 'g'])\n>>> c2.commonName\n'major triad'\n\n\n>>> c2b = chord.Chord(['c', 'f-', 'g'])\n>>> c2b.commonName\n'enharmonic equivalent to major triad'\n\n\n>>> c3 = chord.Chord(['c', 'd-', 'e', 'f#'])\n>>> c3.commonName\n'all-interval tetrachord'\n\n\nChords with no common names just return the Forte Class\n>>> c3 = chord.Chord([0, 1, 2, 3, 4, 9])\n>>> c3.commonName\n'forte class 6-36B'\n\n\nDominant seventh and German/Swiss sixths are distinguished\n>>> c4a = chord.Chord(['c', 'e', 'g', 'b-'])\n>>> c4a.commonName\n'dominant seventh chord'\n\n\n>>> c4b = chord.Chord(['c', 'e', 'g', 'a#'])\n>>> c4b.commonName\n'German augmented sixth chord'\n\n\n>>> c4c = chord.Chord(['c', 'e', 'f##', 'a#'])\n>>> c4c.commonName  # some call it Alsacian or English\n'Swiss augmented sixth chord'\n\n\nWhen in an unusual inversion, augmented sixth chords have their inversion added:\n>>> c4b = chord.Chord('A#3 C4 E4 G4')\n>>> c4b.commonName\n'German augmented sixth chord in root position'\n\n\nDyads are called by actual name:\n>>> dyad1 = chord.Chord('C E')\n>>> dyad1.commonName\n'Major Third'\n>>> dyad2 = chord.Chord('C F-')\n>>> dyad2.commonName\n'Diminished Fourth'\n\n\nCompound intervals are given in full if there are only two distinct pitches:\n>>> dyad1 = chord.Chord('C4 E5')\n>>> dyad1.commonName\n'Major Tenth'\n\n\nBut if there are more pitches, then the interval is given in a simpler form:\n>>> dyad1 = chord.Chord('C4 C5 E5 C6')\n>>> dyad1.commonName\n'Major Third with octave doublings'\n\n\nIf there are multiple enharmonics present just the simple\nnumber of semitones is returned.\n>>> dyad1 = chord.Chord('C4 E5 F-5 B#7')\n>>> dyad1.commonName\n'4 semitones'\n\n\nSpecial handling of one- and two-pitchClass chords:\n>>> gAlone = chord.Chord(['G4'])\n>>> gAlone.commonName\n'note'\n>>> gAlone = chord.Chord('G4 G4')\n>>> gAlone.commonName\n'unison'\n>>> gAlone = chord.Chord('G4 G5')\n>>> gAlone.commonName\n'Perfect Octave'\n>>> gAlone = chord.Chord('G4 G6')\n>>> gAlone.commonName\n'Perfect Double-octave'\n>>> gAlone = chord.Chord('G4 G5 G6')\n>>> gAlone.commonName\n'multiple octaves'\n>>> gAlone = chord.Chord('F#4 G-4')\n>>> gAlone.commonName\n'enharmonic unison'\n\n\n>>> chord.Chord().commonName\n'empty chord'\n\n\nMicrotonal chords all have the same commonName:\n>>> chord.Chord('C`4 D~4').commonName\n'microtonal chord'\n\n\nEnharmonic equivalents to common sevenths and ninths are clarified:\n>>> chord.Chord('C4 E4 G4 A##4').commonName\n'enharmonic equivalent to major seventh chord'\n\n\n>>> chord.Chord('C4 E-4 G4 A#4 D4').commonName\n'enharmonic equivalent to minor-ninth chord'\n\n\n\nChanged in v5.5: special cases for checking enharmonics in some cases\nChanged in v6.5: better handling of 0-, 1-, and 2-pitchClass and microtonal chords.\nChanged in v7: Inversions of augmented sixth-chords are specified.\nChanged in v7.3: Enharmonic equivalents to common seventh and ninth chords are specified.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "fifth",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Shortcut for getChordStep(5), but caches it and does not raise exceptions\n>>> cMaj1stInv = chord.Chord(['E3', 'C4', 'G5'])\n>>> cMaj1stInv.fifth\n<music21.pitch.Pitch G5>\n\n\n>>> cMaj1stInv.fifth.midi\n79\n\n\n>>> chord.Chord('C4 D4').fifth is None\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "forteClass",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return the Forte set class name as a string. This assumes a Tn\nformation, where inversion distinctions are represented.\n(synonym: forteClassTn)\n>>> c1 = chord.Chord(['c', 'e-', 'g'])\n>>> c1.forteClass\n'3-11A'\n\n\n>>> c2 = chord.Chord(['c', 'e', 'g'])\n>>> c2.forteClass\n'3-11B'\n\n\nEmpty chords return \u0098N/A'\n>>> chord.Chord().forteClass\n'N/A'\n\n\nNon-twelve-tone chords return as if all microtones and non-twelve-tone\naccidentals are removed:\n>>> chord.Chord('c~4 d`4').forteClass\n'2-2'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "forteClassNumber",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return the number of the Forte set class within the defined set group.\nThat is, if the set is 3-11, this method returns 11.\n>>> c1 = chord.Chord(['c', 'e-', 'g'])\n>>> c1.forteClassNumber\n11\n\n\n>>> c2 = chord.Chord(['c', 'e', 'g'])\n>>> c2.forteClassNumber\n11",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "forteClassTn",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A synonym for \u009cforteClass\u009d\nReturn the Forte Tn set class name, where inversion distinctions are\nrepresented:\n>>> c1 = chord.Chord(['c', 'e-', 'g'])\n>>> c1.forteClass\n'3-11A'\n\n\n>>> c2 = chord.Chord(['c', 'e', 'g'])\n>>> c2.forteClassTn\n'3-11B'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "forteClassTnI",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return the Forte TnI class name, where inversion distinctions are not\nrepresented.\n>>> c1 = chord.Chord(['c', 'e-', 'g'])\n>>> c1.forteClassTnI\n'3-11'\n\n\n>>> c2 = chord.Chord(['c', 'e', 'g'])\n>>> c2.forteClassTnI\n'3-11'\n\n\nEmpty chords return \u0098N/A'\n>>> chord.Chord().forteClassTnI\n'N/A'\n\n\nNon-twelve-tone chords return as if all microtones and non-twelve-tone\naccidentals are removed:\n>>> chord.Chord('c~4 d`4').forteClassTnI\n'2-2'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "fullName",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return the most complete representation of this Note, providing\nduration and pitch information.\n>>> c = chord.Chord(['D', 'F#', 'A'])\n>>> c.fullName\n'Chord {D | F-sharp | A} Quarter'\n\n\n>>> chord.Chord(['d1', 'e4-', 'b3-'], quarterLength=2/3).fullName\n'Chord {D in octave 1 | E-flat in octave 4 | B-flat in octave 3} Quarter Triplet (2/3 QL)'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "hasZRelation",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return True or False if the Chord has a Z-relation.\n>>> c1 = chord.Chord(['c', 'e-', 'g'])\n>>> c1.hasZRelation\nFalse\n\n\n>>> c2 = chord.Chord(['c', 'c#', 'e', 'f#'])\n>>> c2.hasZRelation  # it is c, c#, e-, g\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "intervalVector",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return the interval vector for this Chord as a list of integers.\n>>> c1 = chord.Chord(['c', 'e-', 'g'])\n>>> c1.intervalVector\n[0, 0, 1, 1, 1, 0]\n\n\n>>> c2 = chord.Chord(['c', 'c#', 'e', 'f#'])\n>>> c2.intervalVector\n[1, 1, 1, 1, 1, 1]\n\n\n>>> c3 = chord.Chord(['c', 'c#', 'e-', 'g'])\n>>> c3.intervalVector\n[1, 1, 1, 1, 1, 1]",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "intervalVectorString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return the interval vector as a string representation.\n>>> c1 = chord.Chord(['c', 'e-', 'g'])\n>>> c1.intervalVectorString\n'<001110>'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "isPrimeFormInversion",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return True or False if the Chord represents a set class inversion.\n>>> c1 = chord.Chord(['c', 'e-', 'g'])\n>>> c1.isPrimeFormInversion\nFalse\n\n\n>>> c2 = chord.Chord(['c', 'e', 'g'])\n>>> c2.isPrimeFormInversion\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "multisetCardinality",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return an integer representing the cardinality of the multiset, or the\nnumber of pitch values.\n>>> c1 = chord.Chord(['D4', 'A4', 'F#5', 'D6'])\n>>> c1.multisetCardinality\n4",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "normalOrder",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return the normal order/normal form of the Chord represented as a list of integers:\n>>> c1 = chord.Chord(['c', 'e-', 'g'])\n>>> c1.normalOrder\n[0, 3, 7]\n\n\n>>> c2 = chord.Chord(['c', 'e', 'g'])\n>>> c2.normalOrder\n[0, 4, 7]\n\n\n>>> c3 = chord.Chord(['d', 'f#', 'a'])\n>>> c3.normalOrder\n[2, 6, 9]\n\n\n>>> c3 = chord.Chord(['B-4', 'D5', 'F5'])\n>>> c3.normalOrder\n[10, 2, 5]\n\n\nTo get normalOrder transposed to PC 0, do this:\n>>> c3 = chord.Chord(['B-4', 'D5', 'F5'])\n>>> normalOrder = c3.normalOrder\n>>> firstPitch = normalOrder[0]\n>>> [(pc - firstPitch) % 12 for pc in normalOrder]\n[0, 4, 7]\n\n\nTo get normalOrder formatted as a vectorString run .formatVectorString on it:\n>>> c3.normalOrder\n[10, 2, 5]\n\n\n>>> chord.Chord.formatVectorString(c3.normalOrder)\n'<A25>'\n\n\n(this is equivalent\u2026)\n>>> c3.formatVectorString(c3.normalOrder)\n'<A25>'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "normalOrderString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return the normal order/normal form of the Chord as a string representation.\n>>> c1 = chord.Chord(['c', 'e-', 'g'])\n>>> c1.normalOrder\n[0, 3, 7]\n\n\n>>> c1.normalOrderString\n'<037>'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "orderedPitchClasses",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a list of pitch class integers, ordered form lowest to highest.\n>>> c1 = chord.Chord(['D4', 'A4', 'F#5', 'D6'])\n>>> c1.orderedPitchClasses\n[2, 6, 9]",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "orderedPitchClassesString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a string representation of the pitch class values.\n>>> c1 = chord.Chord(['f#', 'e-', 'g'])\n>>> c1.orderedPitchClassesString\n'<367>'\n\n\nRedundancies are removed\n>>> c1 = chord.Chord(['f#', 'e-', 'e-', 'g'])\n>>> c1.orderedPitchClassesString\n'<367>'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "pitchClassCardinality",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return the cardinality of pitch classes, or the number of unique\npitch classes, in the Chord:\n>>> c1 = chord.Chord(['D4', 'A4', 'F#5', 'D6'])\n>>> c1.pitchClassCardinality\n3",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "pitchClasses",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a list of all pitch classes in the chord as integers. Not sorted\n>>> c1 = chord.Chord(['D4', 'A4', 'F#5', 'D6'])\n>>> c1.pitchClasses\n[2, 9, 6, 2]",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "pitchedCommonName",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a common name of this Chord including a pitch identifier, if possible:\nMost common chords will use the root as the pitch name and have it at the beginning:\n>>> c1 = chord.Chord(['c', 'e-', 'g'])\n>>> c1.pitchedCommonName\n'C-minor triad'\n\n\n>>> c2 = chord.Chord(['c', 'e', 'g'])\n>>> c2.pitchedCommonName\n'C-major triad'\n\n\nBecause the hyphen is confusing w/ music21 flat notation, flats are displayed\nas \u009cb\u009d:\n>>> c2a = chord.Chord('C-2 E-2 G-2')\n>>> c2a.pitchedCommonName\n'Cb-major triad'\n\n\nOther forms might have the pitch elsewhere.  Thus, this is a method for display,\nnot for extracting information:\n>>> c3 = chord.Chord('A#2 D3 F3')\n>>> c3.pitchedCommonName\n'enharmonic equivalent to major triad above A#'\n\n\nNote that in this case, the bass, not the root is used to determine the pitch name:\n>>> c4 = chord.Chord('D3 F3 A#3')\n>>> c4.pitchedCommonName\n'enharmonic equivalent to major triad above D'\n\n\n>>> c5 = chord.Chord([1, 2, 3, 4, 5, 10])\n>>> c5.pitchedCommonName\n'forte class 6-36B above C#'\n\n\n>>> c4 = chord.Chord('D3 F3 A#3')\n>>> c4.pitchedCommonName\n'enharmonic equivalent to major triad above D'\n\n\nA single pitch just returns that pitch name:\n>>> chord.Chord(['D3']).pitchedCommonName\n'D'\n\n\nUnless there is more than one octave:\n>>> chord.Chord('D3 D4').pitchedCommonName\n'Perfect Octave above D'\n>>> chord.Chord('D3 D4 D5').pitchedCommonName\n'multiple octaves above D'\n\n\nTwo different pitches give interval names:\n>>> chord.Chord('F3 C4').pitchedCommonName\n'Perfect Fifth above F'\n\n\nCompound intervals are used unless there are multiple octaves:\n>>> chord.Chord('E-3 C5').pitchedCommonName\n'Major Thirteenth above Eb'\n>>> chord.Chord('E-3 C5 C6').pitchedCommonName\n'Major Sixth with octave doublings above Eb'\n\n\nThese one-pitch-class and two-pitch-class chords with multiple enharmonics are unusual:\n>>> chord.Chord('D#3 E-3').pitchedCommonName\n'enharmonic unison above D#'\n>>> chord.Chord('D#3 E-3 D#4').pitchedCommonName\n'enharmonic octaves above D#'\n>>> chord.Chord('D#3 E-3 E3').pitchedCommonName\n'1 semitone above D#'\n>>> chord.Chord('D#3 E-3 F3 G--4').pitchedCommonName\n'2 semitones above D#'\n\n\n>>> chord.Chord().pitchedCommonName\n'empty chord'\n\n\n\nChanged in v5.5: octaves never included, flats are converted,\nspecial tools for enharmonics.\nChanged in v6.5: special names for 0-, 1-, and 2-pitchClass chords.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "primeForm",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a representation of the Chord as a prime-form list of pitch\nclass integers:\n>>> c1 = chord.Chord(['c', 'e-', 'g'])\n>>> c1.primeForm\n[0, 3, 7]\n\n\n>>> c2 = chord.Chord(['c', 'e', 'g'])\n>>> c2.primeForm\n[0, 3, 7]",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "primeFormString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a representation of the Chord as a prime-form set class string.\n>>> c1 = chord.Chord(['c', 'e-', 'g'])\n>>> c1.primeFormString\n'<037>'\n\n\n>>> c1 = chord.Chord(['c', 'e', 'g'])\n>>> c1.primeFormString\n'<037>'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "quality",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns the quality of the underlying triad of a triad or\nseventh, either major, minor, diminished, augmented, or other:\n>>> a = chord.Chord(['a', 'c', 'e'])\n>>> a.quality\n'minor'\n\n\nInversions don't matter, nor do added tones so long as a root can be\nfound:\n>>> a = chord.Chord(['f', 'b', 'd', 'g'])\n>>> a.quality\n'major'\n\n\n>>> a = chord.Chord(['c', 'a-', 'e'])\n>>> a.quality\n'augmented'\n\n\n>>> a = chord.Chord(['c', 'c#', 'd'])\n>>> a.quality\n'other'\n\n\nIncomplete triads are returned as major or minor:\n>>> a = chord.Chord(['c', 'e-'])\n>>> a.quality\n'minor'\n\n\n>>> a = chord.Chord(['e-', 'g'])\n>>> a.quality\n'major'\n\n\nChords that contain more than one triad return \u0098other'\n>>> chord.Chord('C C# E G').quality\n'other'\n>>> chord.Chord('C E- E G').quality\n'other'\n>>> chord.Chord('C E G- G').quality\n'other'\n\n\nNote these two edge cases:\n>>> chord.Chord('C D E').quality  # NB! Major 9th....\n'major'\n>>> chord.Chord('C E--').quality\n'other'\n\n\nEmpty chords are definitely \u0098other':\n>>> chord.Chord().quality\n'other'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "scaleDegrees",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns a list of two-element tuples for each pitch in the chord where\nthe first element of the tuple is the scale degree as an int and the\nsecond is an Accidental object that specifies the alteration from the\nscale degree (could be None if the note is not part of the scale).\nIt is easiest to see the utility of this method using a chord subclass,\nmusic21.roman.RomanNumeral, but it is also callable from this\nChord object if the Chord has a Key or Scale context set for it.\n>>> k = key.Key('f#')  # 3-sharps minor\n>>> rn = roman.RomanNumeral('V', k)\n>>> rn.key\n<music21.key.Key of f# minor>\n\n\n>>> rn.pitches\n(<music21.pitch.Pitch C#5>, <music21.pitch.Pitch E#5>, <music21.pitch.Pitch G#5>)\n\n\n>>> rn.scaleDegrees\n[(5, None), (7, <music21.pitch.Accidental sharp>), (2, None)]\n\n\n>>> rn2 = roman.RomanNumeral('N6', k)\n>>> rn2.pitches\n(<music21.pitch.Pitch B4>, <music21.pitch.Pitch D5>, <music21.pitch.Pitch G5>)\n\n\n>>> rn2.scaleDegrees  # N.B. -- natural form used for minor!\n[(4, None), (6, None), (2, <music21.pitch.Accidental flat>)]\n\n\nAs mentioned above, the property can also get its scale from context if\nthe chord is embedded in a Stream.  Let's create the same V in f#-minor\nagain, but give it a context of c-sharp minor, and then c-minor instead:\n>>> chord1 = chord.Chord(['C#5', 'E#5', 'G#5'])\n>>> st1 = stream.Stream()\n>>> st1.append(key.Key('c#'))  # c-sharp minor\n>>> st1.append(chord1)\n>>> chord1.scaleDegrees\n[(1, None), (3, <music21.pitch.Accidental sharp>), (5, None)]\n\n\n>>> st2 = stream.Stream()\n>>> chord2 = chord.Chord(['C#5', 'E#5', 'G#5'])\n>>> st2.append(key.Key('c'))  # c minor\n>>> st2.append(chord2)        # same pitches as before gives different scaleDegrees\n>>> chord2.scaleDegrees\n[(1, <music21.pitch.Accidental sharp>),\n (3, <music21.pitch.Accidental double-sharp>),\n (5, <music21.pitch.Accidental sharp>)]\n\n\n>>> st3 = stream.Stream()\n>>> st3.append(key.Key('C'))  # C major\n>>> chord2 = chord.Chord(['C4', 'C#4', 'D4', 'E-4', 'E4', 'F4'])  # 1st 1/2 of chromatic\n>>> st3.append(chord2)\n>>> chord2.scaleDegrees\n[(1, None), (1, <music21.pitch.Accidental sharp>), (2, None),\n (3, <music21.pitch.Accidental flat>), (3, None), (4, None)]\n\n\nIf no context can be found, return None:\n>>> chord.Chord('C4 E4 G4').scaleDegrees is None\nTrue\n\n\n\nChanged in v6.5: will return None if no context can be found:",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "seventh",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Shortcut for getChordStep(7), but caches the value\n>>> bDim7_2ndInv = chord.Chord(['F2', 'A-3', 'B4', 'D5'])\n>>> bDim7_2ndInv.seventh\n<music21.pitch.Pitch A-3>\n\n\nTest whether this strange chord gets the B# not the C or something else:\n>>> c = chord.Chord(['C4', 'E4', 'G4', 'B#4'])\n>>> c.seventh\n<music21.pitch.Pitch B#4>\n\n\n\nChanged in v6.5: return None on empty chords/errors",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "third",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Shortcut for getChordStep(3), but caches the value, and returns\nNone on errors.\n>>> cMaj1stInv = chord.Chord(['E3', 'C4', 'G5'])\n>>> cMaj1stInv.third\n<music21.pitch.Pitch E3>\n\n\n>>> cMaj1stInv.third.octave\n3\n\n\n\nChanged in v6.5: return None on empty chords/errors",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "Chord read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get or set the duration of this Chord as a Duration object.\n>>> c = chord.Chord(['a', 'c', 'e'])\n>>> c.duration\n<music21.duration.Duration 1.0>\n\n\nDurations can be overridden after the fact:\n>>> d = duration.Duration()\n>>> d.quarterLength = 2\n>>> c.duration = d\n>>> c.duration\n<music21.duration.Duration 2.0>\n\n\n>>> c.duration == d\nTrue\n\n\n>>> c.duration is d\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "notes",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a tuple (immutable) of the notes contained in the chord.\nGenerally using .pitches or iterating over the chord is the best way to work with\nthe components of a chord, but in unusual cases, a chord may, for instance, consist\nof notes with independent durations, volumes, or colors, or, more often, different tie\nstatuses.  Chord includes methods such as .setTie() for most of these features,\nbut from time to time accessing all the Note objects as a tuple can be valuable.\n>>> c1 = chord.Chord(['c', 'e-', 'g'])\n>>> c1.duration.type = 'quarter'\n>>> c1Notes = c1.notes\n>>> c1Notes\n(<music21.note.Note C>, <music21.note.Note E->, <music21.note.Note G>)\n\n\nNote that to set duration independently, a new Duration object needs to\nbe created.  Internal notes for Chords created from strings or pitches\nall share a Duration object.\n>>> c1.duration is c1Notes[0].duration\nTrue\n>>> c1Notes[1].duration is c1Notes[2].duration\nTrue\n\n\n>>> c1Notes[2].duration = duration.Duration('half')\n>>> c1.duration.type\n'quarter'\n>>> c1[2].duration.type\n'half'\n\n\nThe property can also set the notes for a chord, but it must be\nset to an iterable of literal Note objects.\n>>> c1.notes = [note.Note('D#4'), note.Note('C#4')]\n>>> c1\n<music21.chord.Chord D#4 C#4>\n\n\nNotice that the notes set this way are not sorted \u2014 this is a property for\npower users who want complete control.\nAny incorrect assignment raises a TypeError:\n>>> c1.notes = 'C E G'\nTraceback (most recent call last):\nTypeError: notes must be set with an iterable\n\n\n>>> c1.notes = [pitch.Pitch('C'), pitch.Pitch('E')]\nTraceback (most recent call last):\nTypeError: every element of notes must be a note.Note object\n\n\nIn case of an error, the previous notes are not changed (for this reason,\n.notes cannot take a generator expression).\n>>> c1\n<music21.chord.Chord D#4 C#4>\n\n\n\nNew in v5.7",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "pitchNames",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a list of Pitch names from each\nPitch object's\nname attribute.\n>>> c = chord.Chord(['g#', 'd-'])\n>>> c.pitchNames\n['G#', 'D-']\n\n\n>>> c = chord.Chord('C4 E4 G4 C4')\n>>> c.pitchNames\n['C', 'E', 'G', 'C']\n\n\n>>> c.pitchNames = ['c2', 'g2']\n>>> c.pitchNames\n['C', 'G']",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "pitches",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get or set a list or tuple of all Pitch objects in this Chord.\n>>> c = chord.Chord(['C4', 'E4', 'G#4'])\n>>> c.pitches\n(<music21.pitch.Pitch C4>, <music21.pitch.Pitch E4>, <music21.pitch.Pitch G#4>)\n\n\n>>> [p.midi for p in c.pitches]\n[60, 64, 68]\n\n\n>>> d = chord.Chord()\n>>> d.pitches = c.pitches\n>>> d.pitches\n(<music21.pitch.Pitch C4>, <music21.pitch.Pitch E4>, <music21.pitch.Pitch G#4>)\n\n\n>>> c = chord.Chord(['C4', 'A4', 'E5'])\n>>> c.bass()\n<music21.pitch.Pitch C4>\n\n\n>>> c.root()\n<music21.pitch.Pitch A4>\n\n\nNote here that the list will be converted to a tuple:\n>>> c.pitches = ['C#4', 'A#4', 'E#5']\n>>> c.pitches\n(<music21.pitch.Pitch C#4>, <music21.pitch.Pitch A#4>, <music21.pitch.Pitch E#5>)\n\n\nBass and root information is also changed.\n>>> c.bass()\n<music21.pitch.Pitch C#4>\n\n\n>>> c.root()\n<music21.pitch.Pitch A#4>",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read/write properties inherited from ChordBase:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "tie volume",
+        "type": "Table"
+    },
+    {
+        "text": "Read/write properties inherited from NotRest:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "notehead noteheadFill noteheadParenthesis stemDirection storedInstrument",
+        "type": "Table"
+    },
+    {
+        "text": "Read/write properties inherited from GeneralNote:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "lyric",
+        "type": "Table"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "Chord methods",
+        "type": "Title"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "__eq__",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "other",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Define equality for Music21Objects.  See main class docs.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "__getitem__",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get item makes accessing pitch components for the Chord easier\n>>> c = chord.Chord('C#4 D-4')\n>>> cSharp = c[0]\n>>> cSharp\n<music21.note.Note C#>\n\n\n>>> c['0.step']\n'C'\n>>> c['3.accidental']\nTraceback (most recent call last):\nKeyError: \"Cannot access component with: '3.accidental'\"\n\n\n>>> c[5]\nTraceback (most recent call last):\nKeyError: 'Cannot access component with: 5'\n\n\n>>> c['D-4']\n<music21.note.Note D->\n\n\n>>> c['D-4.style.color'] is None\nTrue\n\n\nGetting by note does not do very much\u2026\n>>> c[cSharp]\n<music21.note.Note C#>\n\n\nBut we can get from another note\n>>> cSharp2 = note.Note('C#4')\n>>> cSharp2.duration.quarterLength = 3.0\n>>> c[cSharp2] is cSharp\nTrue\n>>> c[cSharp2] is cSharp2\nFalse\n\n\nKeyError is raised if not in chord.\n>>> notInChord = note.Note('G')\n>>> c[notInChord]\nTraceback (most recent call last):\nKeyError: 'Cannot access component with: <music21.note.Note G>'\n\n\n>>> c[None]\nTraceback (most recent call last):\nKeyError: 'Cannot access component with: None'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "add",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "notes",
+        "type": "Title"
+    },
+    {
+        "text": "runSort",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Add a Note, Pitch, the .notes of another chord,\nor string representing a pitch,\nor a list of any-of-the-above types to a Chord.\nIf runSort is True (default=True) then after appending, the\nchord will be sorted.\n>>> c = chord.Chord('C4 E4 G4')\n>>> c.add('B3')\n>>> c\n<music21.chord.Chord B3 C4 E4 G4>\n>>> c.duration\n<music21.duration.Duration 1.0>\n\n\n>>> c.add('A2', runSort=False)\n>>> c\n<music21.chord.Chord B3 C4 E4 G4 A2>\n\n\n>>> c.add(['B5', 'C6'])\n>>> c\n<music21.chord.Chord A2 B3 C4 E4 G4 B5 C6>\n\n\n>>> c.add(pitch.Pitch('D6'))\n>>> c\n<music21.chord.Chord A2 B3 C4 E4 G4 B5 C6 D6>\n\n\n>>> n = note.Note('E6')\n>>> n.duration.type = 'half'\n>>> c.add(n)\n>>> c\n<music21.chord.Chord A2 B3 C4 E4 G4 B5 C6 D6 E6>\n>>> c.duration\n<music21.duration.Duration 1.0>\n>>> c[-1]\n<music21.note.Note E>\n>>> c[-1].duration\n<music21.duration.Duration 2.0>\n\n\nOverrides ChordBase.add() to permit sorting with runSort.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "annotateIntervals",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "stripSpecifiers",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "sortPitches",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "returnList",
+        "type": "Title"
+    },
+    {
+        "text": "Literal[True]",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 list[str]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "annotateIntervals",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "Literal[True]",
+        "type": "Title"
+    },
+    {
+        "text": "stripSpecifiers",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "sortPitches",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "returnList",
+        "type": "Title"
+    },
+    {
+        "text": "Literal[False]",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "annotateIntervals",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "Literal[False]",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "stripSpecifiers",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "sortPitches",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "returnList",
+        "type": "Title"
+    },
+    {
+        "text": "Literal[False]",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 _ChordType",
+        "type": "Title"
+    },
+    {
+        "text": "Add lyrics to the chord that show the distance of each note from\nthe bass.  If returnList is True, a list of the intervals is returned instead.\nBy default, we show only the generic interval:\n>>> c1 = chord.Chord(['C2', 'E2', 'G2', 'C3'])\n>>> c2 = c1.annotateIntervals(inPlace=False)\n>>> c2.lyrics\n[<music21.note.Lyric number=1 syllabic=single text='8'>,\n <music21.note.Lyric number=2 syllabic=single text='5'>,\n <music21.note.Lyric number=3 syllabic=single text='3'>]\n\n\n>>> [ly.text for ly in c2.lyrics]\n['8', '5', '3']\n\n\nThe stripSpecifiers parameter can be used to show only the intervals size (3, 5, etc.)\nor the complete interval specification (m3, P5, etc.)\n>>> c3 = c1.annotateIntervals(inPlace=False, stripSpecifiers=False)\n>>> c3.lyrics\n[<music21.note.Lyric number=1 syllabic=single text='P8'>,\n <music21.note.Lyric number=2 syllabic=single text='P5'>,\n <music21.note.Lyric number=3 syllabic=single text='M3'>]\n\n\n>>> [ly.text for ly in c3.lyrics]\n['P8', 'P5', 'M3']\n\n\nThis chord was giving us problems:\n>>> c4 = chord.Chord(['G4', 'E4', 'B3', 'E3'])\n>>> c4.annotateIntervals(inPlace=True, stripSpecifiers=False)\n>>> [ly.text for ly in c4.lyrics]\n['m3', 'P8', 'P5']\n>>> c4.annotateIntervals(inPlace=True, stripSpecifiers=False, returnList=True)\n['m3', 'P8', 'P5']\n\n\nIf sortPitches is false it still gives problems\u2026\n>>> c4 = chord.Chord(['G4', 'E4', 'B3', 'E3'])\n>>> c4.annotateIntervals(inPlace=True, stripSpecifiers=False, sortPitches=False)\n>>> [ly.text for ly in c4.lyrics]\n['m3', 'm6', 'm3']\n\n\n>>> c = chord.Chord(['c4', 'd-4', 'g4'])\n>>> c.annotateIntervals(inPlace=True)\n>>> [ly.text for ly in c.lyrics]\n['5', '2']\n\n\n>>> c = chord.Chord(['c4', 'd-4', 'g4'])\n>>> c.annotateIntervals(inPlace=True, stripSpecifiers=False)\n>>> [ly.text for ly in c.lyrics]\n['P5', 'm2']\n\n\n>>> c = chord.Chord(['c4', 'd---4', 'g4'])\n>>> c.annotateIntervals(inPlace=True, stripSpecifiers=False)\n>>> [ly.text for ly in c.lyrics]\n['P5', 'dd2']\n\n\n>>> c = chord.Chord(['c4', 'g5', 'e6'])\n>>> c.annotateIntervals(inPlace=True)\n>>> [ly.text for ly in c.lyrics]\n['5', '3']",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "areZRelations",
+        "type": "Title"
+    },
+    {
+        "text": "other",
+        "type": "Title"
+    },
+    {
+        "text": "_ChordType",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Check if another Chord is a z-relation to this Chord.\n>>> c1 = chord.Chord(['C', 'c#', 'e', 'f#'])\n>>> c2 = chord.Chord(['C', 'c#', 'e-', 'g'])\n>>> c3 = chord.Chord(['C', 'c#', 'f#', 'g'])\n>>> c1.areZRelations(c2)\nTrue\n\n\n>>> c1.areZRelations(c3)\nFalse\n\n\nIf there is no z-relation for the first chord, obviously return False:\n>>> c4 = chord.Chord('C E G')\n>>> c4.areZRelations(c3)\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "bass",
+        "type": "Title"
+    },
+    {
+        "text": "newbass",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "find",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "bool | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "allow_add",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "bass",
+        "type": "Title"
+    },
+    {
+        "text": "newbass",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "find",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "bool | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "allow_add",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "Generally used to find and return the bass Pitch:\n>>> cmaj1stInv = chord.Chord(['C4', 'E3', 'G5'])\n>>> cmaj1stInv.bass()\n<music21.pitch.Pitch E3>\n\n\nSubclasses of Chord often have basses that are harder to determine.\n>>> cmaj = harmony.ChordSymbol('CM')\n>>> cmaj.bass()\n<music21.pitch.Pitch C3>\n\n\n>>> cmin_inv = harmony.ChordSymbol('Cm/E-')\n>>> cmin_inv.bass()\n<music21.pitch.Pitch E-3>\n\n\nCan also be used in rare occasions to set the bass note to a new Pitch,\nso long as that note is found in the chord:\n>>> strange_chord = chord.Chord('E##4 F-4 C5')\n>>> strange_chord.bass()\n<music21.pitch.Pitch E##4>\n>>> strange_chord.bass('F-4')\n>>> strange_chord.bass()\n<music21.pitch.Pitch F-4>\n\n\nIf the note assigned to the bass is not found, it will default to raising a\nChordException:\n>>> strange_chord.bass('G--4')\nTraceback (most recent call last):\nmusic21.chord.ChordException: Pitch G--4 not found in chord\n\n\nFor the purposes of initializing from a ChordSymbol and in other cases,\na new bass can be added to the chord by setting allow_add = True:\n>>> strange_chord.bass('G--4', allow_add=True)\n>>> strange_chord.bass()\n<music21.pitch.Pitch G--4>\n\n\nBy default, if nothing has been overridden, this method uses a\nquick algorithm to find the bass among the\nchord's pitches, if no bass has been previously specified. If this is\nnot intended, set find to False when calling this method, and \u0098None'\nwill be returned if no bass is specified\n>>> em = chord.Chord(['E3', 'G3', 'B4'])\n>>> print(em.bass(find=False))\nNone\n\n\n\nChanged in v8: raise an exception if setting a new bass\nto a pitch not in the chord, unless new keyword allow_add is True.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "canBeDominantV",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if the chord is a Major Triad or a Dominant Seventh:\n>>> gSeven = chord.Chord(['g', 'b', 'd', 'f'])\n>>> gSeven.canBeDominantV()\nTrue\n\n\n>>> gDim = chord.Chord(['g', 'b-', 'd-'])\n>>> gDim.canBeDominantV()\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "canBeTonic",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if the chord is a major or minor triad:\n>>> a = chord.Chord(['g', 'b', 'd', 'f'])\n>>> a.canBeTonic()\nFalse\n\n\n>>> a = chord.Chord(['g', 'b', 'd'])\n>>> a.canBeTonic()\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "closedPosition",
+        "type": "Title"
+    },
+    {
+        "text": "forceOctave",
+        "type": "Title"
+    },
+    {
+        "text": "int | None",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "Literal[True]",
+        "type": "Title"
+    },
+    {
+        "text": "leaveRedundantPitches",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "closedPosition",
+        "type": "Title"
+    },
+    {
+        "text": "forceOctave",
+        "type": "Title"
+    },
+    {
+        "text": "int | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "Literal[False]",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "leaveRedundantPitches",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 _ChordType",
+        "type": "Title"
+    },
+    {
+        "text": "Returns a new Chord object with the same pitch classes,\nbut now in closed position.\nIf forcedOctave is provided, the bass of the chord will\nbe shifted to that provided octave.\nIf inPlace is True then the original chord is returned with new pitches.\n>>> chord1 = chord.Chord(['C#4', 'G5', 'E6'])\n>>> chord2 = chord1.closedPosition()\n>>> chord2\n<music21.chord.Chord C#4 E4 G4>\n\n\nForce octave changes the octave of the bass note (and all notes above it\u2026)\n>>> c2 = chord.Chord(['C#4', 'G5', 'E6'])\n>>> c2.closedPosition(forceOctave=2)\n<music21.chord.Chord C#2 E2 G2>\n\n\n>>> c3 = chord.Chord(['C#4', 'G5', 'E6'])\n>>> c3.closedPosition(forceOctave=6)\n<music21.chord.Chord C#6 E6 G6>\n\n\nRedundant pitches are removed by default, but can be retained\u2026\n>>> c4 = chord.Chord(['C#4', 'C5', 'F7', 'F8'])\n>>> c5 = c4.closedPosition(forceOctave=4, inPlace=False)\n>>> c5\n<music21.chord.Chord C#4 F4 C5>\n\n\n>>> c6 = c4.closedPosition(forceOctave=4, inPlace=False, leaveRedundantPitches=True)\n>>> c6\n<music21.chord.Chord C#4 F4 F4 C5>\n\n\nImplicit octaves work fine\u2026\n>>> c7 = chord.Chord(['A4', 'B4', 'A'])\n>>> c7.closedPosition(forceOctave=4, inPlace=True)\n>>> c7\n<music21.chord.Chord A4 B4>",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "containsSeventh",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if the chord contains at least one of each of Third, Fifth, and Seventh.\nraises an exception if the Root can't be determined\nA ninth chord contains a seventh:\n>>> c9 = chord.Chord(['C4', 'E4', 'G4', 'B4', 'D5'])\n>>> c9.containsSeventh()\nTrue\n\n\nAs does a cluster:\n>>> cluster = chord.Chord('C D E F G A B')\n>>> cluster.containsSeventh()\nTrue\n\n\nBut a major triad does not:\n>>> dMaj = chord.Chord([pitch.Pitch('D4'), pitch.Pitch('F#4'), pitch.Pitch('A5')])\n>>> dMaj.containsSeventh()\nFalse\n\n\nNote that a seventh chord itself contains a seventh.\n>>> cChord = chord.Chord(['C', 'E', 'G', 'B'])\n>>> cChord.containsSeventh()\nTrue\n\n\nEmpty chord returns False\n>>> chord.Chord().containsSeventh()\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "containsTriad",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True or False if there is no triad above the root.\n\u009cContains vs. Is\u009d: A dominant-seventh chord contains a triad.\n>>> cChord = chord.Chord(['C', 'E', 'G'])\n>>> other = chord.Chord(['C', 'D', 'E', 'F', 'G'])\n>>> cChord.containsTriad()\nTrue\n\n\n>>> other.containsTriad()\nTrue\n\n\n>>> scale = chord.Chord(['C', 'D-', 'E', 'F#', 'G', 'A#', 'B'])\n>>> scale.containsTriad()\nTrue\n\n\n>>> c = chord.Chord('C4 D4')\n>>> c.containsTriad()\nFalse\n\n\n>>> chord.Chord().containsTriad()\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "static",
+        "type": "Title"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "formatVectorString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "vectorList",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 str",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a string representation of a vector or set\nStatic method.  Works on the class:\n>>> chord.Chord.formatVectorString([0, 11])\n'<0B>'\n\n\nor an existing chord:\n>>> c1 = chord.Chord(['D4', 'A4', 'F#5', 'D6'])\n>>> c1.formatVectorString(c1.normalOrder)\n'<269>'\n\n\nor on a list that has nothing to do with the chord\n>>> c1.formatVectorString([10, 11, 3, 5])\n'<AB35>'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "geometricNormalForm",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 list[int]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Geometric Normal Form, as first defined by Dmitri Tymoczko, orders pitch classes\nsuch that the spacing is prioritized with the smallest spacing between the first and\nsecond pitch class first, then the smallest spacing between second and third pitch class,\nand so on. This form has unique properties that make it useful.  It also transposes\nto PC0\ngeometricNormalForm returns a list of pitch class integers in\ngeometric normal form.\nExample 1: A major triad has geometricNormalForm of 038 not 047.\n>>> c1 = chord.Chord('E4 C5 G6 C7')\n>>> pcList = c1.geometricNormalForm()\n>>> pcList\n[0, 3, 8]\n\n\n>>> c2 = chord.Chord(pcList)\n>>> c2.orderedPitchClassesString\n'<038>'\n\n\nCompare this to the usual normalOrder transposed to PC0:\n>>> normalOrder = c1.normalOrder\n>>> normalOrderFirst = normalOrder[0]\n>>> [(pc - normalOrderFirst) % 12 for pc in normalOrder]\n[0, 4, 7]",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "getChordStep",
+        "type": "Title"
+    },
+    {
+        "text": "chordStep",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "testRoot",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 Pitch | None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns the (first) pitch at the provided scaleDegree (Thus, it's\nexactly like semitonesFromChordStep, except it instead of the number of\nsemitones.)\nReturns None if none can be found.\n>>> cmaj = chord.Chord(['C', 'E', 'G'])\n>>> cmaj.getChordStep(3)  # will return the third of the chord\n<music21.pitch.Pitch E>\n\n\n>>> g = cmaj.getChordStep(5)  # will return the fifth of the chord\n>>> g.name\n'G'\n\n\n>>> cmaj.getChordStep(6) is None\nTrue\n\n\nNinths can be specified with either 9 or 2.  Similarly for elevenths\nand thirteenths.\n>>> c9 = chord.Chord('C4 E4 G4 B4 D5')\n>>> c9.getChordStep(9)\n<music21.pitch.Pitch D5>\n>>> c9.getChordStep(2)\n<music21.pitch.Pitch D5>",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "getColor",
+        "type": "Title"
+    },
+    {
+        "text": "pitchTarget",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "For a pitch in this Chord, return the color stored in self.editorial,\nor, if set for each component, return the color assigned to this\ncomponent.\nFirst checks for \u009cis\u009d then \u009cequals\u009d\n>>> p = pitch.Pitch('C4')\n>>> n = note.Note(p)\n>>> n.style.color = 'red'\n>>> c = chord.Chord([n, 'E4'])\n>>> c.getColor(p)\n'red'\n>>> c.getColor('C4')\n'red'\n>>> c.getColor('E4') is None\nTrue\n\n\nThe color of any pitch (even a non-existing one) is the color of the chord if\nthe color of that pitch is not defined.\n>>> c.style.color = 'pink'\n>>> c.getColor('E4')\n'pink'\n>>> c.getColor('D#7')\n'pink'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "getNotehead",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a pitch in this Chord, return an associated notehead\nattribute, or return \u0098normal' if not defined for that Pitch.\nIf the pitch is not found, None will be returned.\n>>> n1 = note.Note('D4')\n>>> n2 = note.Note('G4')\n>>> n2.notehead = 'diamond'\n>>> c1 = chord.Chord([n1, n2])\n>>> c1.getNotehead(c1.pitches[1])\n'diamond'\n\n\n>>> c1.getNotehead(c1.pitches[0])\n'normal'\n\n\n>>> c1.getNotehead(pitch.Pitch('A#6')) is None\nTrue\n\n\nWill work if the two notes are equal in pitch\n>>> c1.getNotehead(note.Note('G4'))\n'diamond'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "getNoteheadFill",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a pitch in this Chord, return an associated noteheadFill\nattribute, or return None if not defined for that Pitch.\nIf the pitch is not found, None will also be returned.\n>>> n1 = note.Note('D4')\n>>> n2 = note.Note('G4')\n>>> n2.noteheadFill = True\n>>> c1 = chord.Chord([n1, n2])\n>>> c1.getNoteheadFill(c1.pitches[1])\nTrue\n\n\n>>> print(c1.getNoteheadFill(c1.pitches[0]))\nNone\n\n\n>>> c1.getNoteheadFill(pitch.Pitch('A#6')) is None\nTrue\n\n\nWill work if the two notes are equal in pitch\n>>> c1.getNoteheadFill(note.Note('G4'))\nTrue\n\n\nReturns None if the pitch is not in the Chord:",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "getStemDirection",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a pitch in this Chord, return an associated stem attribute, or\nreturn \u0098unspecified' if not defined for that Pitch or None.\nIf the pitch is not found, None will be returned.\n>>> n1 = note.Note('D4')\n>>> n2 = note.Note('G4')\n>>> n2.stemDirection = 'double'\n>>> c1 = chord.Chord([n1, n2])\n>>> c1.getStemDirection(c1.pitches[1])\n'double'\n\n\n>>> c1.getStemDirection(c1.pitches[0])\n'unspecified'\n\n\nWill work if the two pitches are equal in pitch\n>>> c1.getStemDirection(note.Note('G4'))\n'double'\n\n\nReturns None if a Note or Pitch is not in the Chord\n>>> c1.getStemDirection(pitch.Pitch('A#4')) is None\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "getTie",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a pitch in this Chord, return an associated Tie object, or return\nNone if not defined for that Pitch.\n>>> c1 = chord.Chord(['d', 'e-', 'b-'])\n>>> t1 = tie.Tie('start')\n>>> c1.setTie(t1, c1.pitches[2])  # just to b-\n>>> c1.getTie(c1.pitches[2]) == t1\nTrue\n\n\n>>> c1.getTie(c1.pitches[0]) is None\nTrue\n\n\nAll notes not in chord return None\n>>> c1.getTie(pitch.Pitch('F#2')) is None\nTrue\n\n\n>>> c1.getTie('B-')\n<music21.tie.Tie start>",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "getVolume",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "For a given Pitch in this Chord, return the\nVolume object.\nRaises an exception if the pitch isn't in the chord\n(TODO: consider changing to be like notehead, etc.)\n>>> c = chord.Chord('C4 F4')\n>>> c[0].volume = 2\n>>> c.getVolume('C4')\n<music21.volume.Volume realized=0.02>\n\n\n>>> c.getVolume('F4')  # default\n<music21.volume.Volume realized=0.71>\n\n\n>>> c.getVolume('G4')\nTraceback (most recent call last):\nmusic21.chord.ChordException: the given pitch is not in the Chord: G4",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "getZRelation",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 Chord | None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a Z relation if it exists, otherwise return None.\n>>> chord.fromIntervalVector((1, 1, 1, 1, 1, 1))\n<music21.chord.Chord C C# E F#>\n\n\n>>> chord.fromIntervalVector((1, 1, 1, 1, 1, 1)).getZRelation()\n<music21.chord.Chord C D- E- G>\n\n\nZ relation will always be zero indexed:\n>>> c = chord.Chord('D D# F# G#')\n>>> c.getZRelation()\n<music21.chord.Chord C D- E- G>\n\n\n>>> chord.Chord('C E G').getZRelation() is None\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "hasAnyEnharmonicSpelledPitches",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if for any given pitchClass there is at most one spelling of the note\n(in any octave).\n>>> cChord = chord.Chord('C4 E4 G4 C5')\n>>> cChord.hasAnyEnharmonicSpelledPitches()\nFalse\n\n\nNotice that having a C in two different octaves is no problem.  However, this is False:\n>>> cChord = chord.Chord('C4 E4 G4 B#4')\n>>> cChord.hasAnyEnharmonicSpelledPitches()\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "hasAnyRepeatedDiatonicNote",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if for any diatonic note (e.g., C or C# = C) there are two or more\ndifferent notes (such as E and E-) in the chord. If there are no repeated\nscale degrees, return False.\n>>> cChord = chord.Chord(['C', 'E', 'E-', 'G'])\n>>> cChord.hasAnyRepeatedDiatonicNote()\nTrue\n\n\nThis routine is helpful for anything that works with Generic intervals and chord\nsteps such as .third which makes sure that checking for root, second, third,\n\u2026, seventh will actually find all the different notes.\nThis following example returns False because chromatically identical notes of\ndifferent scale degrees do not count as a repeated diatonic note.\n(See hasAnyEnharmonicSpelledPitches() for that method)\n>>> other = chord.Chord(['C', 'E', 'F-', 'G'])\n>>> other.hasAnyRepeatedDiatonicNote()\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "hasRepeatedChordStep",
+        "type": "Title"
+    },
+    {
+        "text": "chordStep",
+        "type": "Title"
+    },
+    {
+        "text": "testRoot",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if chordStep above testRoot (or self.root()) has two\nor more different notes (such as E and E-) in it.  Otherwise\nreturns False.\n>>> cChord = chord.Chord(['G2', 'E4', 'E-5', 'C6'])\n>>> cChord.hasRepeatedChordStep(3)\nTrue\n\n\n>>> cChord.hasRepeatedChordStep(5)\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "intervalFromChordStep",
+        "type": "Title"
+    },
+    {
+        "text": "chordStep",
+        "type": "Title"
+    },
+    {
+        "text": "testRoot",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Exactly like semitonesFromChordStep, except it returns the interval\nitself instead of the number of semitones:\n>>> cmaj = chord.Chord(['C', 'E', 'G'])\n>>> cmaj.intervalFromChordStep(3)  # will return the interval between C and E\n<music21.interval.Interval M3>\n\n\n>>> cmaj.intervalFromChordStep(5)  # will return the interval between C and G\n<music21.interval.Interval P5>\n\n\n>>> print(cmaj.intervalFromChordStep(6))\nNone",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "inversion",
+        "type": "Title"
+    },
+    {
+        "text": "newInversion",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "find",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "testRoot",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "transposeOnSet",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "inversion",
+        "type": "Title"
+    },
+    {
+        "text": "newInversion",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "find",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "testRoot",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "transposeOnSet",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 int",
+        "type": "Title"
+    },
+    {
+        "text": "Find the chord's inversion or (if called with a number) set the chord to\nthe new inversion.\nWhen called without a number argument, returns an integer (or None)\nrepresenting which inversion (if any)\nthe chord is in. The Chord does not have to be complete, in which case\nthis function determines the inversion by looking at the relationship\nof the bass note to the root.\nReturns a maximum value of 5 for the fifth inversion of a thirteenth chord.\nReturns 0 if the bass to root interval is a unison\nor if interval is not a common inversion (1st-5th).\nThe octave of the bass and root are irrelevant to this calculation of inversion.\nReturns None if the Chord has no pitches.\n>>> g7 = chord.Chord(['g4', 'b4', 'd5', 'f5'])\n>>> g7.inversion()\n0\n>>> g7.inversion(1)\n>>> g7\n<music21.chord.Chord B4 D5 F5 G5>\n\n\nWith implicit octaves, D becomes the bass (since octaves start on C):\n>>> g7_implicit = chord.Chord(['g', 'b', 'd', 'f'])\n>>> g7_implicit.inversion()\n2\n\n\nNote that in inverting a chord with implicit octaves, some\npitches will gain octave designations, but not necessarily all of them\n(this behavior might change in the future):\n>>> g7_implicit.inversion(1)\n>>> g7_implicit\n<music21.chord.Chord B D5 F5 G5>\n\n\nExamples of each inversion:\n>>> cTriad1stInversion = chord.Chord(['E1', 'G1', 'C2'])\n>>> cTriad1stInversion.inversion()\n1\n\n\n>>> cTriad2ndInversion = chord.Chord(['G1', 'E2', 'C2'])\n>>> cTriad2ndInversion.inversion()\n2\n\n\n>>> dSeventh3rdInversion = chord.Chord(['C4', 'B4'])\n>>> dSeventh3rdInversion.bass(pitch.Pitch('B4'))\n>>> dSeventh3rdInversion.inversion()\n3\n\n\n>>> gNinth4thInversion = chord.Chord(['G4', 'B4', 'D5', 'F5', 'A4'])\n>>> gNinth4thInversion.bass(pitch.Pitch('A4'))\n>>> gNinth4thInversion.inversion()\n4\n\n\n>>> bbEleventh5thInversion = chord.Chord(['B-', 'D', 'F', 'A', 'C', 'E-'])\n>>> bbEleventh5thInversion.bass(pitch.Pitch('E-4'))\n>>> bbEleventh5thInversion.inversion()\n5\n\n\nRepeated notes do not affect the inversion:\n>>> gMajRepeats = chord.Chord(['G4', 'B5', 'G6', 'B6', 'D7'])\n>>> gMajRepeats.inversion(2)\n>>> gMajRepeats\n<music21.chord.Chord D7 G7 B7 G8 B8>\n\n\n>>> gMajRepeats.inversion(3)\nTraceback (most recent call last):\nmusic21.chord.ChordException: Could not invert chord...inversion may not exist\n\n\nIf testRoot is True then that temporary root is used instead of self.root().\nGet the inversion for a seventh chord showing different roots\n>>> dim7 = chord.Chord('B4 D5 F5 A-5 C6 E6 G6')\n>>> dim7.inversion()\n0\n>>> dim7.inversion(testRoot=pitch.Pitch('D5'))\n6\n>>> dim7.inversion('six-four')\nTraceback (most recent call last):\nmusic21.chord.ChordException: Inversion must be an integer, got: <class 'str'>\n\n\nChords without pitches or otherwise impossible chords return -1, indicating\nno normal inversion.\n>>> chord.Chord().inversion(testRoot=pitch.Pitch('C5'))\n-1\n\n\nFor Harmony subclasses, this method does not check to see if\nthe inversion is reasonable according to the figure provided.\nsee inversionIsValid()\nfor checker method on ChordSymbolObjects.\nIf only two pitches given, an inversion is still returned, often as\nif it were a triad:\n>>> chord.Chord('C4 G4').inversion()\n0\n>>> chord.Chord('G4 C5').inversion()\n2\n\n\nIf transposeOnSet is False then setting the inversion simply\nsets the value to be returned later, which might be useful for\ncases where the chords are poorly spelled, or there is an added note.\n\nChanged in v8: chords without pitches",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "inversionName",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 int | None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns an integer representing the common abbreviation for the\ninversion the chord is in. If chord is not in a common inversion,\nreturns None.\nThird inversion sevenths return 42 not 2.\n>>> a = chord.Chord(['G3', 'B3', 'F3', 'D3'])\n>>> a.inversionName()\n43",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "inversionText",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 str",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A helper method to return a readable inversion text (with capitalization) for a chord:\n>>> chord.Chord('C4 E4 G4').inversionText()\n'Root Position'\n>>> chord.Chord('E4 G4 C5').inversionText()\n'First Inversion'\n\n\n>>> chord.Chord('B-3 C4 E4 G4').inversionText()\n'Third Inversion'\n\n\n>>> chord.Chord().inversionText()\n'Unknown Position'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "isAugmentedSixth",
+        "type": "Title"
+    },
+    {
+        "text": "permitAnyInversion",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "returns True if the chord is an Augmented 6th chord in normal inversion.\n(that is, in first inversion for Italian and German and second for French and Swiss)\n>>> c = chord.Chord(['A-3', 'C4', 'E-4', 'F#4'])\n>>> c.isAugmentedSixth()\nTrue\n\n\nSpelling matters\n>>> c.pitches[3].getEnharmonic(inPlace=True)\n>>> c\n<music21.chord.Chord A-3 C4 E-4 G-4>\n>>> c.isAugmentedSixth()\nFalse\n\n\nItalian\u2026\n>>> c = chord.Chord(['A-3', 'C4', 'F#4'])\n>>> c.isAugmentedSixth()\nTrue\n\n\nIf permitAnyInversion is True then any inversion is allowed.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "isAugmentedTriad",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if chord is an Augmented Triad, that is,\nif it contains only notes that are\neither in unison with the root, a major third above the root,\nor an augmented fifth above the\nroot. Additionally, the Chord must contain at least one of each third and\nfifth above the root.\nThe chord might not seem to need to be spelled correctly\nsince incorrectly spelled Augmented Triads are\nusually augmented triads in some other inversion\n(e.g. C-E-Ab is a second-inversion augmented triad; C-Fb-Ab\nis in first inversion).  However, B#-Fb-Ab does return False as it is not a\nstack of two major thirds in any inversion.\nReturns False if is not an augmented triad.\n>>> c = chord.Chord(['C4', 'E4', 'G#4'])\n>>> c.isAugmentedTriad()\nTrue\n>>> c = chord.Chord(['C4', 'E4', 'G4'])\n>>> c.isAugmentedTriad()\nFalse\n\n\nOther spellings will give other roots!\n>>> c = chord.Chord(['C4', 'E4', 'A-4'])\n>>> c.isAugmentedTriad()\nTrue\n>>> c.root()\n<music21.pitch.Pitch A-4>\n\n\n>>> c = chord.Chord(['C4', 'F-4', 'A-4'])\n>>> c.isAugmentedTriad()\nTrue\n>>> c = chord.Chord(['B#4', 'F-4', 'A-4'])\n>>> c.isAugmentedTriad()\nFalse\n\n\n>>> chord.Chord().isAugmentedTriad()\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "isConsonant",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if the chord is:\n\none pitch (always consonant)\n\ntwo pitches: uses isConsonant() , whichchecks if the interval is a major or minor third or sixth or perfect fifth.\n\n\n\nthree pitches: if chord is a major or minor triad not in second inversion.\n\nThese rules define all common-practice consonances\n(and earlier back to about 1300 all imperfect consonances)\n>>> c1 = chord.Chord(['C3', 'E4', 'G5'])\n>>> c1.isConsonant()\nTrue\n\n\n>>> c2 = chord.Chord(['G3', 'E-4', 'C5'])\n>>> c2.isConsonant()\nFalse\n\n\n>>> c3 = chord.Chord(['F2', 'A2', 'C3', 'E-3'])\n>>> c3.isConsonant()\nFalse\n\n\n>>> c4 = chord.Chord(['C1', 'G1', 'C2', 'G2', 'C3', 'G3'])\n>>> c4.isConsonant()\nTrue\n\n\n>>> c5 = chord.Chord(['G1', 'C2', 'G2', 'C3', 'G3'])\n>>> c5.isConsonant()\nFalse\n\n\n>>> c6 = chord.Chord(['F#'])\n>>> c6.isConsonant()\nTrue\n\n\n>>> c7 = chord.Chord(['C1', 'C#1', 'D-1'])\n>>> c7.isConsonant()\nFalse\n\n\nSpelling does matter:\n>>> c8 = chord.Chord(['D-4', 'G#4'])\n>>> c8.isConsonant()\nFalse\n\n\n>>> c9 = chord.Chord(['D3', 'A2', 'D2', 'D2', 'A4'])\n>>> c9.isConsonant()\nTrue\n\n\n>>> c10 = chord.Chord(['D3', 'A2', 'D2', 'D2', 'A1'])\n>>> c10.isConsonant()\nFalse\n\n\n>>> c11 = chord.Chord(['F3', 'D4', 'A4'])\n>>> c11.isConsonant()\nTrue\n\n\n>>> c12 = chord.Chord(['F3', 'D4', 'A4', 'E#4'])\n>>> c12.isConsonant()\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "isDiminishedSeventh",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if chord is a Diminished Seventh, that is,\nif it contains only notes that are\neither in unison with the root, a minor third above the root,\na diminished fifth, or a minor seventh\nabove the root. Additionally, must contain at least one of\neach third and fifth above the root.\nChord must be spelled correctly. Otherwise returns false.\n>>> a = chord.Chord(['c', 'e-', 'g-', 'b--'])\n>>> a.isDiminishedSeventh()\nTrue\n\n\n>>> chord.Chord().isDiminishedSeventh()\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "isDiminishedTriad",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if chord is a Diminished Triad, that is,\nif it contains only notes that are\neither in unison with the root, a minor third above the\nroot, or a diminished fifth above the\nroot. Additionally, must contain at least one of each\nthird and fifth above the root.\nChord must be spelled correctly. Otherwise returns false.\n>>> cChord = chord.Chord(['C', 'E-', 'G-'])\n>>> cChord.isDiminishedTriad()\nTrue\n>>> other = chord.Chord(['C', 'E-', 'F#'])\n>>> other.isDiminishedTriad()\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "isDominantSeventh",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if chord is a Dominant Seventh, that is,\nif it contains only notes that are\neither in unison with the root, a major third above the root,\na perfect fifth, or a major seventh\nabove the root. Additionally, must contain at least one of\neach third and fifth above the root.\nChord must be spelled correctly. Otherwise returns false.\n>>> a = chord.Chord(['b', 'g', 'd', 'f'])\n>>> a.isDominantSeventh()\nTrue\n\n\n>>> chord.Chord().isDominantSeventh()\nFalse\n\n\n>>> c2 = chord.Chord('C4 E4 G4 A#4')\n>>> c2.isDominantSeventh()\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "isFalseDiminishedSeventh",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if chord is a Diminished Seventh, that is,\nif it contains only notes that are\neither in unison with the root, a minor third above the root,\na diminished fifth, or a diminished seventh\nabove the root. Additionally, must contain at least one of\neach third and fifth above the root.\nChord MAY BE SPELLED INCORRECTLY. Otherwise returns False.\n>>> c = chord.Chord('C D# G- A')\n>>> c.isFalseDiminishedSeventh()\nTrue\n\n\n>>> chord.Chord().isFalseDiminishedSeventh()\nFalse\n\n\n>>> chord.Chord('C4 E4 G4').isFalseDiminishedSeventh()\nFalse\n\n\nCorrectly spelled diminished seventh chords are also false diminished sevenths.\n>>> chord.Chord('C4 E-4 G-4 B--4').isFalseDiminishedSeventh()\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "isFrenchAugmentedSixth",
+        "type": "Title"
+    },
+    {
+        "text": "permitAnyInversion",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if the chord is a French augmented sixth chord\n(flat 6th scale degree in bass, tonic, second scale degree, and raised 4th).\nN.B. The root() method of music21.chord.Chord determines\nthe root based on the note with\nthe most thirds above it. However, under this definition, a\n1st-inversion french augmented sixth chord\nresembles a second inversion chord, not the first inversion\nsubdominant chord it is based\nupon. We fix this by adjusting the root. First, however, we\ncheck to see if the chord is\nin second inversion to begin with, otherwise it is not\na Fr+6 chord. This is to avoid ChordException errors.\n>>> fr6a = chord.Chord(['A-3', 'C4', 'D4', 'F#4'])\n>>> fr6a.isFrenchAugmentedSixth()\nTrue\n\n\nSpelling matters:\n>>> fr6b = chord.Chord(['A-3', 'C4', 'D4', 'G-4'])\n>>> fr6b.isFrenchAugmentedSixth()\nFalse\n\n\n>>> fr6b = chord.Chord(['A-3', 'C4', 'E--4', 'F#4'])\n>>> fr6b.isFrenchAugmentedSixth()\nFalse\n\n\nInversion matters\u2026\n>>> fr6c = chord.Chord(['C4', 'D4', 'F#4', 'A-4'])\n>>> fr6c.isFrenchAugmentedSixth()\nFalse\n\n\nUnless permitAnyInversion is True\n>>> fr6c.isFrenchAugmentedSixth(permitAnyInversion=True)\nTrue\n\n\n\nChanged in v7: permitAnyInversion added",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "isGermanAugmentedSixth",
+        "type": "Title"
+    },
+    {
+        "text": "permitAnyInversion",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if the chord is a German augmented sixth chord\n(flat 6th scale degree in bass, tonic, flat third scale degree, and raised 4th).\n>>> gr6a = chord.Chord(['A-3', 'C4', 'E-4', 'F#4'])\n>>> gr6a.isGermanAugmentedSixth()\nTrue\n\n\nSpelling matters (see isSwissAugmentedSixth)\n>>> gr6b = chord.Chord(['A-3', 'C4', 'D#4', 'F#4'])\n>>> gr6b.isGermanAugmentedSixth()\nFalse\n\n\nInversion matters\u2026\n>>> gr6c = chord.Chord(['C4', 'E-4', 'F#4', 'A-4'])\n>>> gr6c.isGermanAugmentedSixth()\nFalse\n\n\nunless permitAnyInversion is True\n>>> gr6c.isGermanAugmentedSixth(permitAnyInversion=True)\nTrue\n\n\n\nChanged in v7: permitAnyInversion added",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "isHalfDiminishedSeventh",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if chord is a Half Diminished Seventh, that is,\nif it contains only notes that are\neither in unison with the root, a minor third above the root, a\ndiminished fifth, or a major seventh\nabove the root. Additionally, must contain at least one of each third,\nfifth, and seventh above the root.\nChord must be spelled correctly. Otherwise returns false.\n>>> c1 = chord.Chord(['C4', 'E-4', 'G-4', 'B-4'])\n>>> c1.isHalfDiminishedSeventh()\nTrue\n\n\nIncorrectly spelled chords are not considered half-diminished sevenths\n>>> c2 = chord.Chord([\u0098C4', \u0098E-4', \u0098G-4', \u0098A#4'])\n>>> c2.isHalfDiminishedSeventh()\nFalse\nNor are incomplete chords\n>>> c3 = chord.Chord([\u0098C4', \u0098G-4', \u0098B-4'])\n>>> c3.isHalfDiminishedSeventh()\nFalse\n>>> chord.Chord().isHalfDiminishedSeventh()\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "isIncompleteMajorTriad",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if the chord is an incomplete Major triad, or, essentially,\na dyad of root and major third\n>>> c1 = chord.Chord(['C4', 'E3'])\n>>> c1.isMajorTriad()\nFalse\n>>> c1.isIncompleteMajorTriad()\nTrue\n\n\nNote that complete major triads return False:\n>>> c2 = chord.Chord(['C4', 'E3', 'G5'])\n>>> c2.isIncompleteMajorTriad()\nFalse\n\n\nRemember, MAJOR Triad\u2026\n>>> c3 = chord.Chord(['C4', 'E-3'])\n>>> c3.isIncompleteMajorTriad()\nFalse\n\n\nMust be spelled properly\n>>> c1 = chord.Chord(['C4', 'F-4'])\n>>> c1.isIncompleteMajorTriad()\nFalse\n\n\nEmpty Chords return False\n>>> chord.Chord().isIncompleteMajorTriad()\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "isIncompleteMinorTriad",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "returns True if the chord is an incomplete Minor triad, or, essentially,\na dyad of root and minor third\n>>> c1 = chord.Chord(['C4', 'E-3'])\n>>> c1.isMinorTriad()\nFalse\n>>> c1.isIncompleteMinorTriad()\nTrue\n>>> c2 = chord.Chord(['C4', 'E-3', 'G5'])\n>>> c2.isIncompleteMinorTriad()\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "isItalianAugmentedSixth",
+        "type": "Title"
+    },
+    {
+        "text": "restrictDoublings",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "permitAnyInversion",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if the chord is a properly spelled Italian augmented sixth chord in\nfirst inversion.  Otherwise returns False.\nIf restrictDoublings is set to True then only the tonic may be doubled.\n>>> c1 = chord.Chord(['A-4', 'C5', 'F#6'])\n>>> c1.isItalianAugmentedSixth()\nTrue\n\n\nSpelling matters:\n>>> c2 = chord.Chord(['A-4', 'C5', 'G-6'])\n>>> c2.isItalianAugmentedSixth()\nFalse\n\n\nSo does inversion:\n>>> c3 = chord.Chord(['F#4', 'C5', 'A-6'])\n>>> c3.isItalianAugmentedSixth()\nFalse\n>>> c4 = chord.Chord(['C5', 'A-5', 'F#6'])\n>>> c4.isItalianAugmentedSixth()\nFalse\n\n\nIf inversions don't matter to you, add permitAnyInversion=True:\n>>> c3.isItalianAugmentedSixth(permitAnyInversion=True)\nTrue\n>>> c4.isItalianAugmentedSixth(permitAnyInversion=True)\nTrue\n\n\nIf doubling rules are turned on then only the tonic can be doubled:\n>>> c4 = chord.Chord(['A-4', 'C5', 'F#6', 'C6', 'C7'])\n>>> c4.isItalianAugmentedSixth(restrictDoublings=True)\nTrue\n>>> c5 = chord.Chord(['A-4', 'C5', 'F#6', 'C5', 'F#7'])\n>>> c5.isItalianAugmentedSixth(restrictDoublings=True)\nFalse\n>>> c5.isItalianAugmentedSixth(restrictDoublings=False)\nTrue\n\n\n\nChanged in v7: restrictDoublings is keyword only.  Added permitAnyInversion.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "isMajorTriad",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if chord is a Major Triad, that is, if it contains only notes that are\neither in unison with the root, a major third above the root, or a perfect fifth above the\nroot. Additionally, must contain at least one of each third and fifth above the root.\nChord must be spelled correctly. Otherwise returns false.\nExample:\n>>> cChord = chord.Chord(['C', 'E', 'G'])\n>>> other = chord.Chord(['C', 'G'])\n>>> cChord.isMajorTriad()\nTrue\n>>> other.isMajorTriad()\nFalse\n\n\nNotice that the proper spelling of notes is crucial\n>>> chord.Chord(['B-', 'D', 'F']).isMajorTriad()\nTrue\n>>> chord.Chord(['A#', 'D', 'F']).isMajorTriad()\nFalse\n\n\n(See: forteClassTn() to catch this case; major triads\nin the forte system are 3-11B no matter how they are spelled.)\n>>> chord.Chord(['A#', 'D', 'F']).forteClassTn == '3-11B'\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "isMinorTriad",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if chord is a Minor Triad, that is, if it contains only notes that are\neither in unison with the root, a minor third above the root, or a perfect fifth above the\nroot. Additionally, must contain at least one of each third and fifth above the root.\nChord must be spelled correctly. Otherwise returns false.\nExample:\n>>> cChord = chord.Chord(['C', 'E-', 'G'])\n>>> cChord.isMinorTriad()\nTrue\n>>> other = chord.Chord(['C', 'E', 'G'])\n>>> other.isMinorTriad()\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "isNinth",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if chord contains at least one of each of Third, Fifth, Seventh, and Ninth\nand every note in the chord is a Third, Fifth, Seventh, or Ninth, such that there are no\nrepeated scale degrees (ex: E and E-). Else return false.\nExample:\n>>> cChord = chord.Chord(['C', 'E', 'G', 'B', 'D'])\n>>> cChord.isNinth()\nTrue\n>>> other = chord.Chord(['C', 'E', 'F', 'G', 'B'])\n>>> other.isNinth()\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "isSeventh",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if chord contains at least one of each of Third, Fifth, and Seventh,\nand every note in the chord is a Third, Fifth, or Seventh, such that there are no\nrepeated scale degrees (ex: E and E-). Else return false.\nExample:\n>>> cChord = chord.Chord(['C', 'E', 'G', 'B'])\n>>> cChord.isSeventh()\nTrue\n>>> other = chord.Chord(['C', 'D', 'E', 'F', 'G', 'B'])\n>>> other.isSeventh()\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "isSeventhOfType",
+        "type": "Title"
+    },
+    {
+        "text": "intervalArray",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if chord is a seventh chord of a particular type\nas specified by intervalArray.  For instance .isDiminishedSeventh()\nis just a thin wrapper around .isSeventhOfType([0, 3, 6, 9])\nand isDominantSeventh() has intervalArray([0, 4, 7, 10])\nintervalArray can be any iterable.\nThough it checks on intervalArray, it does make sure that it is a\nseventh chord, not D\u2014, D##, G, B-\n>>> chord.Chord('C E G B-').isSeventhOfType((0, 4, 7, 10))\nTrue\n>>> chord.Chord('C E G B-').isSeventhOfType((0, 3, 7, 10))\nFalse\n>>> chord.Chord('D-- D## G B-').isSeventhOfType((0, 4, 7, 10))\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "isSwissAugmentedSixth",
+        "type": "Title"
+    },
+    {
+        "text": "permitAnyInversion",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns true if it is a respelled German augmented 6th chord with\nsharp 2 instead of flat 3.  This chord has many names,\nSwiss Augmented Sixth, Alsatian Chord, English A6, Norwegian, etc.\nas well as doubly-augmented sixth, which is a bit of a misnomer since\nit is the 4th that is doubly augmented, not the sixth.\n>>> chord.Chord('A-4 C5 D#5 F#6').isSwissAugmentedSixth()\nTrue\n\n\nRespelled as a German Augmented Sixth does not count:\n>>> chord.Chord('A-4 C5 E-5 F#6').isSwissAugmentedSixth()\nFalse\n\n\nInversions matter:\n>>> ch3 = chord.Chord('F#4 D#5 C6 A-6')\n>>> ch3.isSwissAugmentedSixth()\nFalse\n\n\nunless permitAnyInversion is given:\n>>> ch3.isSwissAugmentedSixth(permitAnyInversion=True)\nTrue\n\n\n\nChanged in v7: permitAnyInversion added",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "isTranspositionallySymmetrical",
+        "type": "Title"
+    },
+    {
+        "text": "requireIntervallicEvenness",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if the Chord is symmetrical under transposition\nand False otherwise.  A pitch-class-based way of looking at this, is\ncan all the pitch classes be transposed up some number of semitones 1-11\nand end up with the same pitch-classes.  Like the dyad F-B can have each\nnote transposed up 6 semitones and get another B-F = F-B dyad.\nA tonally-focused way of looking at this would be to ask, \u009cAre we unable\nto distinguish root position vs. some inversion of the basic chord by ear alone?\u009d\nFor instance, we can see (visually) that C-Eb-Gb-Bbb is a diminished-seventh\nchord in root position, while\nEb-Gb-Bbb-C is a diminished-seventh in first inversion.\nBut if the chord were heard in isolation\nit would not be possible to tell the inversion at all, since diminished-sevenths\nare transpositionally symmetrical.\nWith either way of looking at it,\nthere are fourteen set classes of 2-10 pitch classes have this property,\nincluding the augmented triad:\n>>> chord.Chord('C E G#').isTranspositionallySymmetrical()\nTrue\n\n\n\u2026but not the major triad:\n>>> chord.Chord('C E G').isTranspositionallySymmetrical()\nFalse\n\n\nThe whole-tone scale and the Petrushka chord are both transpositionally symmetrical:\n>>> wholeToneAsChord = chord.Chord('C D E F# G# B- C')\n>>> wholeToneAsChord.isTranspositionallySymmetrical()\nTrue\n\n\n>>> petrushka = chord.Chord([0, 1, 3, 6, 7, 9])\n>>> petrushka.isTranspositionallySymmetrical()\nTrue\n\n\nIf requireIntervallicEvenness is True then only chords that also have\neven spacing / evenly divide the octave are considered transpositionally\nsymmetrical.  The normal cases are the F-B (06) dyad, the augmented triad,\nthe diminished-seventh chord, and the whole-tone scale collection:\n>>> wholeToneAsChord.isTranspositionallySymmetrical(requireIntervallicEvenness=True)\nTrue\n\n\n>>> petrushka.isTranspositionallySymmetrical(requireIntervallicEvenness=True)\nFalse\n\n\nNote that complements of these chords (except the whole-tone collection) are\nnot transpositionally symmetrical if requireIntervallicEvenness is required:\n>>> chord.Chord([0, 4, 8]).isTranspositionallySymmetrical(requireIntervallicEvenness=True)\nTrue\n\n\n>>> chord.Chord([1, 2, 3, 5, 6, 7, 9, 10, 11]).isTranspositionallySymmetrical(\n...       requireIntervallicEvenness=True)\nFalse\n\n\nEmpty chords and the total aggregate cannot have their inversion determined by ear alone.\nSo they are True with or without requireIntervallicEvenness.\n>>> chord.Chord().isTranspositionallySymmetrical()\nTrue\n\n\n>>> chord.Chord(list(range(12))).isTranspositionallySymmetrical()\nTrue\n\n\nMonads (single-note \u009cchords\u009d) cannot be transposed 1-11 semitones to recreate themselves,\nso they return False by default:\n>>> chord.Chord('C').isTranspositionallySymmetrical()\nFalse\n\n\nBut they are the only case where requireIntervallicEvenness actually switches from\nFalse to True, because they do evenly divide the octave.\n>>> chord.Chord('C').isTranspositionallySymmetrical(requireIntervallicEvenness=True)\nTrue\n\n\n11-note chords return False in either case:\n>>> chord.Chord(list(range(11))).isTranspositionallySymmetrical()\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "isTriad",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if this Chord is a triad of some sort.  It could even be a rather\nexotic triad so long as the chord contains at least one Third and one Fifth and\nall notes have the same name as one of the three notes.\nNote: only returns True if triad is spelled correctly.\nNote the difference of \u009ccontainsTriad\u009d vs. \u009cisTriad\u009d:\nA dominant-seventh chord is NOT a triad, but it contains two triads.\n>>> cChord = chord.Chord(['C4', 'E4', 'A4'])\n>>> cChord.isTriad()\nTrue\n\n\n>>> other = chord.Chord(['C', 'D', 'E', 'F', 'G'])\n>>> other.isTriad()\nFalse\n\n\n>>> incorrectlySpelled = chord.Chord(['C', 'D#', 'G'])\n>>> incorrectlySpelled.isTriad()\nFalse\n\n\n>>> incorrectlySpelled.pitches[1].getEnharmonic(inPlace=True)\n>>> incorrectlySpelled\n<music21.chord.Chord C E- G>\n>>> incorrectlySpelled.isTriad()\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "removeRedundantPitchClasses",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Remove all but the FIRST instance of a pitch class with more than one\ninstance of that pitch class.\nIf inPlace is True, a copy is not made and a list of deleted pitches is returned;\notherwise a copy is made and that copy is returned.\n>>> c1 = chord.Chord(['c2', 'e3', 'g4', 'e3'])\n>>> removed = c1.removeRedundantPitchClasses(inPlace=True)\n>>> c1.pitches\n(<music21.pitch.Pitch C2>, <music21.pitch.Pitch E3>, <music21.pitch.Pitch G4>)\n\n\n>>> c2 = chord.Chord(['c5', 'e3', 'g4', 'c2', 'e3', 'f-4'])\n>>> removed = c2.removeRedundantPitchClasses(inPlace=True)\n>>> c2.pitches\n(<music21.pitch.Pitch C5>, <music21.pitch.Pitch E3>, <music21.pitch.Pitch G4>)\n\n\n\nChanged in v6: inPlace defaults to False.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "removeRedundantPitchNames",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Remove all but the FIRST instance of a pitch class with more than one\ninstance of that pitch name regardless of octave (but note that\nspelling matters, so that in the example, the F-flat stays even\nthough there is already an E.)\nIf inPlace is True, a copy is not made and a list of deleted pitches is returned;\notherwise a copy is made and that copy is returned.\n>>> c2 = chord.Chord(['c5', 'e3', 'g4', 'c2', 'e3', 'f-4'])\n>>> c2\n<music21.chord.Chord C5 E3 G4 C2 E3 F-4>\n\n\n>>> rem = c2.removeRedundantPitchNames(inPlace=True)\n>>> c2\n<music21.chord.Chord C5 E3 G4 F-4>\n>>> rem\n[<music21.pitch.Pitch C2>, <music21.pitch.Pitch E3>]\n\n\n\nChanged in v6: inPlace defaults to False.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "removeRedundantPitches",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Remove all but one instance of a pitch that appears twice.\nIt removes based on the name of the note and the octave, so the same\nnote name in two different octaves is retained.\nIf inPlace is True, a copy is not made and a list of deleted pitches is returned;\notherwise a copy is made and that copy is returned.\n>>> c1 = chord.Chord(['c2', 'e3', 'g4', 'e3'])\n>>> c1\n<music21.chord.Chord C2 E3 G4 E3>\n\n\n>>> removedList = c1.removeRedundantPitches(inPlace=True)\n>>> c1\n<music21.chord.Chord C2 E3 G4>\n>>> removedList\n[<music21.pitch.Pitch E3>]\n\n\n>>> c1.forteClass\n'3-11B'\n\n\n>>> c2 = chord.Chord(['c2', 'e3', 'g4', 'c5'])\n>>> c2c = c2.removeRedundantPitches(inPlace=False)\n>>> c2c\n<music21.chord.Chord C2 E3 G4 C5>\n\n\nIt is a known bug that because pitch.nameWithOctave gives\nthe same value for B-flat in octave 1 as B-natural in octave\nnegative 1, negative octaves can screw up this method.\nWith all the things left to do for music21, it doesn't seem\na bug worth squashing at this moment, but FYI:\n>>> p1 = pitch.Pitch('B-')\n>>> p1.octave = 1\n>>> p2 = pitch.Pitch('B')\n>>> p2.octave = -1\n>>> c3 = chord.Chord([p1, p2])\n>>> removedPitches = c3.removeRedundantPitches(inPlace=True)\n>>> c3.pitches\n(<music21.pitch.Pitch B-1>,)\n\n\n>>> c3.pitches[0].name\n'B-'\n>>> c3.pitches[0].octave\n1\n>>> removedPitches\n[<music21.pitch.Pitch B-1>]\n>>> removedPitches[0].name\n'B'\n>>> removedPitches[0].octave\n-1\n\n\nThe first pitch survives:\n>>> c3.pitches[0] is p1\nTrue\n\n\n>>> c3.pitches[0] is p2\nFalse\n\n\n\nChanged in v6: inPlace defaults to False.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "root",
+        "type": "Title"
+    },
+    {
+        "text": "newroot",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "find",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "bool | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "root",
+        "type": "Title"
+    },
+    {
+        "text": "newroot",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "find",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "bool | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "Returns the root of the chord.  Or if given a Pitch as the\nnewroot will override the algorithm and always return that Pitch.\n>>> cmaj = chord.Chord(['E3', 'C4', 'G5'])\n>>> cmaj.root()\n<music21.pitch.Pitch C4>\n\n\nExamples:\n>>> cmaj = chord.Chord(['E', 'G', 'C'])\n>>> cmaj.root()\n<music21.pitch.Pitch C>\n\n\nFor some chords we make an exception.  For instance, this chord in\nB-flat minor:\n>>> aDim7no3rd = chord.Chord(['A3', 'E-4', 'G4'])\n\n\n\u2026could be considered a type of E-flat 11 chord with a 3rd, but no 5th,\n7th, or 9th, in 5th inversion.  That doesn't make sense, so we should\ncall it an A dim 7th chord\nwith no 3rd.\n>>> aDim7no3rd.root()\n<music21.pitch.Pitch A3>\n\n\n>>> aDim7no3rdInv = chord.Chord(['E-3', 'A4', 'G4'])\n>>> aDim7no3rdInv.root()\n<music21.pitch.Pitch A4>\n\n\nThe root of a 13th chord (which could be any chord in any inversion) is\ndesigned to be the bass:\n>>> chord.Chord('F3 A3 C4 E-4 G-4 B4 D5').root()\n<music21.pitch.Pitch F3>\n\n\nMultiple pitches in different octaves do not interfere with root.\n>>> lotsOfNotes = chord.Chord(['E3', 'C4', 'G4', 'B-4', 'E5', 'G5'])\n>>> r = lotsOfNotes.root()\n>>> r\n<music21.pitch.Pitch C4>\n\n\n>>> r is lotsOfNotes.pitches[1]\nTrue\n\n\nSetting of a root may happen for a number of reasons, such as\nin the case where music21's idea of a root differs from the interpreter's.\nTo specify the root directly, pass the pitch to the root function:\n>>> cSus4 = chord.Chord('C4 F4 G4')\n>>> cSus4.root()  # considered by music21 to be an F9 chord in 2nd inversion\n<music21.pitch.Pitch F4>\n\n\nChange it to be a Csus4:\n>>> cSus4.root('C4')\n>>> cSus4.root()\n<music21.pitch.Pitch C4>\n\n\nNote that if passing in a string as the root,\nthe root is set to a pitch in the chord if possible.\n>>> cSus4.root() is cSus4.pitches[0]\nTrue\n\n\nYou might also want to supply an \u009cimplied root.\u009d For instance, some people\ncall a diminished seventh chord (generally viio7)\na dominant chord with an omitted root (Vo9) \u2014 here we will specify the root\nto be a note not in the chord:\n>>> vo9 = chord.Chord(['B3', 'D4', 'F4', 'A-4'])\n>>> vo9.root()\n<music21.pitch.Pitch B3>\n\n\n>>> vo9.root(pitch.Pitch('G3'))\n>>> vo9.root()\n<music21.pitch.Pitch G3>\n\n\nWhen setting a root, the pitches of the chord are left untouched:\n>>> [p.nameWithOctave for p in vo9.pitches]\n['B3', 'D4', 'F4', 'A-4']\n\n\nBy default, this method uses an algorithm to find the root among the\nchord's pitches, if no root has been previously specified.  If a root\nhas been explicitly specified, as in the Csus4 chord above, it can be\nreturned to the original root() by setting find explicitly to True:\n>>> cSus4.root(find=True)\n<music21.pitch.Pitch F4>\n\n\nSubsequent calls without find=True have also removed the overridden root:\n>>> cSus4.root()\n<music21.pitch.Pitch F4>\n\n\nIf for some reason you do not want the root-finding algorithm to be\nrun (for instance, checking to see if an overridden root has been\nspecified) set find=False.  \u009cNone\u009d will be returned if no root has been specified.\n>>> c = chord.Chord(['E3', 'G3', 'B4'])\n>>> print(c.root(find=False))\nNone\n\n\nChord symbols, for instance, have their root already specified on construction:\n>>> d = harmony.ChordSymbol('CM/E')\n>>> d.root(find=False)\n<music21.pitch.Pitch C4>\n\n\nThere is no need to set find=False in this case, however, the\nalgorithm will skip the slow part of finding the root if it\nhas been specified (or already found and no pitches have changed).\nA chord with no pitches has no root and raises a ChordException.\n>>> chord.Chord().root()\nTraceback (most recent call last):\nmusic21.chord.ChordException: no pitches in chord <music21.chord.Chord ...>\n\n\n\nChanged in v5.2: find is a keyword-only parameter,\nnewroot finds Pitch in Chord",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "semiClosedPosition",
+        "type": "Title"
+    },
+    {
+        "text": "forceOctave",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "Literal[True]",
+        "type": "Title"
+    },
+    {
+        "text": "leaveRedundantPitches",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "semiClosedPosition",
+        "type": "Title"
+    },
+    {
+        "text": "forceOctave",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "Literal[False]",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "leaveRedundantPitches",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 _ChordType",
+        "type": "Title"
+    },
+    {
+        "text": "Similar to ClosedPosition() in that it\nmoves everything within an octave EXCEPT if there's already\na pitch at that step, then it puts it up an octave.  It's a\nvery useful display standard for dense post-tonal chords.\n>>> c1 = chord.Chord(['C3', 'E5', 'C#6', 'E-7', 'G8', 'C9', 'E#9'])\n>>> c2 = c1.semiClosedPosition(inPlace=False)\n>>> c2\n<music21.chord.Chord C3 E-3 G3 C#4 E4 E#5>\n\n\nleaveRedundantPitches still works, and gives them a new octave!\n>>> c3 = c1.semiClosedPosition(\n...     inPlace=False,\n...     leaveRedundantPitches=True,\n...     )\n>>> c3\n<music21.chord.Chord C3 E-3 G3 C4 E4 C#5 E#5>\n\n\nof course forceOctave still works, as does inPlace=True.\n>>> c1.semiClosedPosition(\n...     forceOctave=2,\n...     inPlace=True,\n...     leaveRedundantPitches=True,\n...     )\n>>> c1\n<music21.chord.Chord C2 E-2 G2 C3 E3 C#4 E#4>",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "semitonesFromChordStep",
+        "type": "Title"
+    },
+    {
+        "text": "chordStep",
+        "type": "Title"
+    },
+    {
+        "text": "testRoot",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns the number of semitones (mod12) above the root that the\nchordStep lies (i.e., 3 = third of the chord; 5 = fifth, etc.) if one\nexists.  Or None if it does not exist.\nYou can optionally specify a note.Note object to try as the root.  It\ndoes not change the Chord.root object.  We use these methods to figure\nout what the root of the triad is.\nCurrently, there is a bug that in the case of a triply diminished third\n(e.g., \u009cc\u009d => \u009ce\u2013-\u009c), this function will incorrectly claim no third\nexists.  Perhaps this should be construed as a feature.\nIn the case of chords such as C, E-, E, semitonesFromChordStep(3)\nwill return the number for the first third, in this case 3.  It\nwill not return 4, nor a list object (3, 4).  You probably do not\nwant to be using tonal chord manipulation functions on chords such\nas these anyway.  Check for such cases with\nchord.hasAnyRepeatedDiatonicNote first.\nTools with the expression \u009cchordStep\u009d in them refer to the diatonic\nthird, fifth, etc., of the chord.  They have little to do with\nthe scale degree of the scale or key that the chord is embedded\nwithin.  See \u009cchord.scaleDegrees\u009d for this functionality.\n>>> cChord = chord.Chord(['E3', 'C4', 'G5'])\n>>> cChord.semitonesFromChordStep(3)  # distance from C to E\n4\n\n\n>>> cChord.semitonesFromChordStep(5)  # C to G\n7\n\n\nOmitted chordSteps return None\n>>> print(cChord.semitonesFromChordStep(6))\nNone\n\n\nNote that the routine returns the semitones to the FIRST third.\nThis chord has two thirds, C and C#\n>>> aChord = chord.Chord(['a2', 'c4', 'c#5', 'e#7'])\n>>> aChord.semitonesFromChordStep(3)\n3\n\n\n>>> aChord.semitonesFromChordStep(5)\n8\n>>> print(aChord.semitonesFromChordStep(2))\nNone\n\n\nTest whether this strange chord gets the B# as 0 semitones:\n>>> c = chord.Chord(['C4', 'E4', 'G4', 'B#4'])\n>>> c.semitonesFromChordStep(7)\n0\n\n\nIf testRoot is set to a Pitch object then that note is used as the root of the chord\nregardless of anything else that might be considered.\nA-minor: 1st inversion.\n>>> aMin = chord.Chord(['C4', 'E4', 'A4'])\n>>> aMin.semitonesFromChordStep(3)\n3\n>>> aMin.semitonesFromChordStep(5)\n7\n\n\nC6 chord, jazz like, root position:\n>>> cPitch = pitch.Pitch('C4')\n>>> c6 = aMin  # renaming for clarity\n>>> c6.semitonesFromChordStep(3, testRoot = cPitch)\n4\n>>> c6.semitonesFromChordStep(5, testRoot = cPitch) is None\nTrue\n>>> c6.semitonesFromChordStep(6, testRoot = cPitch)\n9",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "setColor",
+        "type": "Title"
+    },
+    {
+        "text": "value",
+        "type": "Title"
+    },
+    {
+        "text": "pitchTarget",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Set color for specific pitch.\n>>> c = chord.Chord('C4 E4 G4')\n>>> c.setColor('red', 'C4')\n>>> c['0.style.color']\n'red'\n>>> c.setColor('blue')  # set for whole chord...\n>>> c.style.color\n'blue'\n>>> c['E4.style.color']\n'blue'\n\n\n>>> c.setColor('red', 'C9')\nTraceback (most recent call last):\nmusic21.chord.ChordException: the given pitch is not in the Chord: C9",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "setNotehead",
+        "type": "Title"
+    },
+    {
+        "text": "nh",
+        "type": "Title"
+    },
+    {
+        "text": "pitchTarget",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a notehead attribute as a string and a pitch object in this\nChord, set the notehead attribute of that pitch to the value of that\nnotehead. Valid notehead type names are found in note.noteheadTypeNames\n(see below):\n>>> for noteheadType in note.noteheadTypeNames:\n...    noteheadType\n...\n'arrow down'\n'arrow up'\n'back slashed'\n'circle dot'\n'circle-x'\n'circled'\n'cluster'\n'cross'\n'diamond'\n'do'\n'fa'\n'inverted triangle'\n'la'\n'left triangle'\n'mi'\n'none'\n'normal'\n'other'\n're'\n'rectangle'\n'slash'\n'slashed'\n'so'\n'square'\n'ti'\n'triangle'\n'x'\n\n\n>>> n1 = note.Note('D4')\n>>> n2 = note.Note('G4')\n>>> c1 = chord.Chord([n1, n2])\n>>> c1.setNotehead('diamond', c1.pitches[1])  # just to g\n>>> c1.getNotehead(c1.pitches[1])\n'diamond'\n\n\n>>> c1.getNotehead(c1.pitches[0])\n'normal'\n\n\nIf a chord has two of the same pitch, but each associated with a different notehead, then\nobject equality must be used to distinguish between the two.\n>>> c2 = chord.Chord(['D4', 'D4'])\n>>> secondD4 = c2.pitches[1]\n>>> c2.setNotehead('diamond', secondD4)\n>>> for i in [0, 1]:\n...     c2.getNotehead(c2.pitches[i])\n...\n'normal'\n'diamond'\n\n\nBy default, assigns to first pitch:\n>>> c3 = chord.Chord('C3 F4')\n>>> c3.setNotehead('slash', None)\n>>> c3['0.notehead']\n'slash'\n\n\nLess safe to match by string, but possible:\n>>> c3.setNotehead('so', 'F4')\n>>> c3['1.notehead']\n'so'\n\n\nError:\n>>> c3.setNotehead('so', 'G4')\nTraceback (most recent call last):\nmusic21.chord.ChordException: the given pitch is not in the Chord: G4",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "setNoteheadFill",
+        "type": "Title"
+    },
+    {
+        "text": "nh",
+        "type": "Title"
+    },
+    {
+        "text": "pitchTarget",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a noteheadFill attribute as a string (or False) and a pitch object in this\nChord, set the noteheadFill attribute of that pitch to the value of that\nnotehead. Valid noteheadFill names are True, False, None (default)\n>>> n1 = note.Note('D4')\n>>> n2 = note.Note('G4')\n>>> c1 = chord.Chord([n1, n2])\n>>> c1.setNoteheadFill(False, c1.pitches[1])  # just to g\n>>> c1.getNoteheadFill(c1.pitches[1])\nFalse\n\n\n>>> c1.getNoteheadFill(c1.pitches[0]) is None\nTrue\n\n\nIf a chord has two of the same pitch, but each associated with a different notehead, then\nobject equality must be used to distinguish between the two.\n>>> c2 = chord.Chord(['D4', 'D4'])\n>>> secondD4 = c2.pitches[1]\n>>> c2.setNoteheadFill(False, secondD4)\n>>> for i in [0, 1]:\n...     print(c2.getNoteheadFill(c2.pitches[i]))\n...\nNone\nFalse\n\n\nBy default assigns to first pitch:\n>>> c3 = chord.Chord('C3 F4')\n>>> c3.setNoteheadFill(False, None)\n>>> c3['0.noteheadFill']\nFalse\n\n\nLess safe to match by string, but possible:\n>>> c3.setNoteheadFill(True, 'F4')\n>>> c3['1.noteheadFill']\nTrue\n\n\nError:\n>>> c3.setNoteheadFill(True, \u0098G4')\nTraceback (most recent call last):\nmusic21.chord.ChordException: the given pitch is not in the Chord: G4",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "setStemDirection",
+        "type": "Title"
+    },
+    {
+        "text": "stem",
+        "type": "Title"
+    },
+    {
+        "text": "pitchTarget",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a stem attribute as a string and a pitch object in this Chord,\nset the stem attribute of that pitch to the value of that stem. Valid\nstem directions are found note.stemDirectionNames (see below).\n>>> for name in note.stemDirectionNames:\n...     name\n...\n'double'\n'down'\n'noStem'\n'none'\n'unspecified'\n'up'\n\n\n>>> n1 = note.Note('D4')\n>>> n2 = note.Note('G4')\n>>> c1 = chord.Chord([n1, n2])\n>>> c1.setStemDirection('double', c1.pitches[1])  # just to g\n>>> c1.getStemDirection(c1.pitches[1])\n'double'\n\n\n>>> c1.getStemDirection(c1.pitches[0])\n'unspecified'\n\n\nIf a chord has two of the same pitch, but each associated with a\ndifferent stem, then object equality must be used to distinguish\nbetween the two.\n>>> c2 = chord.Chord(['D4', 'D4'])\n>>> secondD4 = c2.pitches[1]\n>>> c2.setStemDirection('double', secondD4)\n>>> for i in [0, 1]:\n...    print(c2.getStemDirection(c2.pitches[i]))\n...\nunspecified\ndouble\n\n\nBy default, assigns to first pitch:\n>>> c3 = chord.Chord('C3 F4')\n>>> c3.setStemDirection('down', None)\n>>> c3['0.stemDirection']\n'down'\n\n\nLess safe to match by string, but possible:\n>>> c3.setStemDirection('down', 'F4')\n>>> c3['1.stemDirection']\n'down'\n\n\nError:\n>>> c3.setStemDirection(\u0098up', \u0098G4')\nTraceback (most recent call last):\nmusic21.chord.ChordException: the given pitch is not in the Chord: G4",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "setTie",
+        "type": "Title"
+    },
+    {
+        "text": "tieObjOrStr",
+        "type": "Title"
+    },
+    {
+        "text": "Tie | str",
+        "type": "Title"
+    },
+    {
+        "text": "pitchTarget",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a tie object (or a tie type string) and a pitch or Note in this Chord,\nset the pitch's tie attribute in this chord to that tie type.\n>>> c1 = chord.Chord(['d3', 'e-4', 'b-4'])\n>>> t1 = tie.Tie('start')\n>>> c1.setTie(t1, 'b-4')  # or it can be done with a pitch.Pitch object\n>>> c1.getTie(c1.pitches[2]) is t1\nTrue\n\n\nSetting a tie with a chord with the same pitch twice requires\ngetting the exact pitch object out to be sure which one\u2026\n>>> c2 = chord.Chord(['D4', 'D4'])\n>>> secondD4 = c2.pitches[1]\n>>> c2.setTie('start', secondD4)\n>>> for i in [0, 1]:\n...    print(c2.getTie(c2.pitches[i]))\n...\nNone\n<music21.tie.Tie start>\n\n\n>>> c3 = chord.Chord('C3 F4')\n>>> c3.setTie('start', None)\n>>> c3.getTie(c3.pitches[0])\n<music21.tie.Tie start>\n\n\nLess safe to match by string, because there might be multiple\npitches with the same name in the chord, but possible:\n>>> c4 = chord.Chord('D4 F#4')\n>>> c4.setTie('start', 'F#4')\n>>> c4.getTie('F#4')\n<music21.tie.Tie start>\n\n\nSetting a tie on a note not in the chord is an error:\n>>> c3.setTie('stop', 'G4')\nTraceback (most recent call last):\nmusic21.chord.ChordException: the given pitch is not in the Chord: G4",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "setVolume",
+        "type": "Title"
+    },
+    {
+        "text": "vol",
+        "type": "Title"
+    },
+    {
+        "text": "Volume",
+        "type": "Title"
+    },
+    {
+        "text": "target",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Set the Volume object of a specific Pitch.\n\n\nChanged in v8: after appearing in ChordBase in v7, it has been properlymoved back to Chord itself.  The ability to change just the first note's\nvolume has been removed.  Use Chord().volume = vol to change the\nvolume for a whole chord.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "simplifyEnharmonics",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "keyContext",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Calls pitch.simplifyMultipleEnharmonics on the pitches of the chord.\nSimplifies the enharmonics in the sense of making a more logical chord.  Note below\nthat E# is added there because C# major is simpler than C# F G#.\n>>> c = chord.Chord('C# F G#')\n>>> c.pitches\n(<music21.pitch.Pitch C#>, <music21.pitch.Pitch F>, <music21.pitch.Pitch G#>)\n\n\n>>> c.simplifyEnharmonics(inPlace=True)\n>>> c.pitches\n(<music21.pitch.Pitch C#>, <music21.pitch.Pitch E#>, <music21.pitch.Pitch G#>)\n\n\nIf keyContext is provided the enharmonics are simplified based on the supplied\nKey or KeySignature.\n>>> c.simplifyEnharmonics(inPlace=True, keyContext=key.Key('A-'))\n>>> c.pitches\n(<music21.pitch.Pitch D->, <music21.pitch.Pitch F>, <music21.pitch.Pitch A->)",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "sortAscending",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "sortChromaticAscending",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Same as sortAscending but notes are sorted by midi number, so F## sorts above G-.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "sortDiatonicAscending",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The notes are sorted by diatonicNoteNum\nor vertical position on a grand staff (so F## sorts below G-).\nNotes that are the identical diatonicNoteNum are further sorted by\nps (midi numbers that accommodate floats).\nWe return a new Chord object with the notes arranged from lowest to highest\n(unless inPlace=True)\n>>> cMajUnsorted = chord.Chord(['E4', 'C4', 'G4'])\n>>> cMajSorted = cMajUnsorted.sortDiatonicAscending()\n>>> cMajSorted.pitches[0].name\n'C'\n\n\n>>> c2 = chord.Chord(['E4', 'C4', 'G4'])\n>>> c2.sortDiatonicAscending(inPlace=True)\n>>> c2\n<music21.chord.Chord C4 E4 G4>\n\n\n>>> sameDNN = chord.Chord(['F#4', 'F4'])\n>>> sameDNN.sortDiatonicAscending()\n<music21.chord.Chord F4 F#4>\n\n\n\nChanged in v6: if inPlace is True do not return anything.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "sortFrequencyAscending",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Same as above, but uses a note's frequency to determine height; so that\nC# would be below D- in 1/4-comma meantone, equal in equal temperament,\nbut below it in (most) just intonation types.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "transpose",
+        "type": "Title"
+    },
+    {
+        "text": "value",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Transpose the Chord by the user-provided value. If the value\nis an integer, the transposition is treated in half steps and\nenharmonics might be simplified (not done yet). If the value is a\nstring, any Interval string specification can be provided.\nIf inPlace is set to True (default = False) then the original\nchord is changed.  Otherwise a new Chord is returned.\nWe take a three-note chord (G, A, C#) and transpose it up a minor\nthird, getting the chord B-flat, C, E.\n>>> a = chord.Chord(['g4', 'a3', 'c#6'])\n>>> b = a.transpose('m3')\n>>> b\n<music21.chord.Chord B-4 C4 E6>\n\n\nHere we create the interval object first (rather than giving\na string) and specify transposing down six semitones, instead\nof saying A-4.\n>>> aInterval = interval.Interval(-6)\n>>> b = a.transpose(aInterval)\n>>> b\n<music21.chord.Chord C#4 E-3 G5>\n\n\nIf inPlace is True then rather than returning a new chord, the\nchord itself is changed.\n>>> a.transpose(aInterval, inPlace=True)\n>>> a\n<music21.chord.Chord C#4 E-3 G5>",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from ChordBase:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "hasComponentVolumes() remove() setVolumes()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from NotRest:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "getInstrument() hasVolumeInformation()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from GeneralNote:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "addLyric() augmentOrDiminish() getGrace() insertLyric()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Chord instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "beams",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A Beams object that contains\ninformation about the beaming of this note.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "isChord",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Boolean read-only value describing if this\nGeneralNote object is a Chord. Is True",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "isNote",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Boolean read-only value describing if this\nGeneralNote object is a Note. Is False",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord.",
+        "type": "Title"
+    },
+    {
+        "text": "isRest",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Boolean read-only value describing if this\nGeneralNote object is a Rest. Is False\n>>> c = chord.Chord()\n>>> c.isRest\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "Instance variables inherited from ChordBase:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beams isNote isRest",
+        "type": "Table"
+    },
+    {
+        "text": "Instance variables inherited from NotRest:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beams",
+        "type": "Table"
+    },
+    {
+        "text": "Instance variables inherited from GeneralNote:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "articulations expressions isChord lyrics",
+        "type": "Table"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "ChordBase\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.chord.",
+        "type": "Title"
+    },
+    {
+        "text": "ChordBase",
+        "type": "Title"
+    },
+    {
+        "text": "notes",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "Sequence",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "Sequence",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Sequence",
+        "type": "Title"
+    },
+    {
+        "text": "ChordBase",
+        "type": "Title"
+    },
+    {
+        "text": "Sequence",
+        "type": "Title"
+    },
+    {
+        "text": "NotRest",
+        "type": "Title"
+    },
+    {
+        "text": "Sequence",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A base class for NotRest objects that have multiple underlying structures\nlike notes or unpitched percussion.\nAs of Version 7, ChordBase lies between Chord and NotRest in the music21\nhierarchy, so that features can be shared with PercussionChord.\n>>> cb = chord.ChordBase('C4 E4 G4')\n>>> cb.notes\n(<music21.note.Note C>, <music21.note.Note E>, <music21.note.Note G>)\n\n\nEquality\nEquality on ChordBase is strange, but necessary to help Chord and PercussionChord\ndo meaningful equality checks themselves.\nTwo ChordBase objects are equal if they pass all super()\nequality tests and the number of stored Notes are the same.\n>>> cb1 = chord.ChordBase('C4 E4 G4')\n>>> cb2 = chord.ChordBase('C4 E4')\n>>> cb1 == cb2\nFalse\n\n\nThis is surprising, but it's necessary to make checking equality\nof Chord objects and PercussionChord objects themselves easier.\n>>> cb3 = chord.ChordBase('A#4 A#4 A#4')\n>>> cb1 == cb3\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "ChordBase bases",
+        "type": "Title"
+    },
+    {
+        "text": "NotRest",
+        "type": "ListItem"
+    },
+    {
+        "text": "GeneralNote",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ChordBase read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "ChordBase.",
+        "type": "Title"
+    },
+    {
+        "text": "notes",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read-only properties inherited from GeneralNote:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "fullName",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "ChordBase read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "ChordBase.",
+        "type": "Title"
+    },
+    {
+        "text": "tie",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get or set a single tie based on all the ties in this Chord.\nThis overloads the behavior of the tie attribute found in all\nNotRest classes.\nIf setting a tie, tie is applied to all pitches.\n>>> c1 = chord.Chord(['c4', 'g4'])\n>>> tie1 = tie.Tie('start')\n>>> c1.tie = tie1\n>>> c1.tie\n<music21.tie.Tie start>\n\n\n>>> c1.getTie(c1.pitches[1])\n<music21.tie.Tie start>",
+        "type": "ListItem"
+    },
+    {
+        "text": "ChordBase.",
+        "type": "Title"
+    },
+    {
+        "text": "volume",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get or set the Volume object for this\nChord.\nWhen setting the .volume property, all pitches are treated as\nhaving the same Volume object.\n>>> c = chord.Chord(['g#', 'd-'])\n>>> c.volume\n<music21.volume.Volume realized=0.71>\n\n\n>>> c.volume = volume.Volume(velocity=64)\n>>> c.volume.velocityIsRelative = False\n>>> c.volume\n<music21.volume.Volume realized=0.5>\n\n\n\nChanged in v8: setting volume to a list of volumes is no longer supported.\nSee setVolumes() instead",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read/write properties inherited from NotRest:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "notehead noteheadFill noteheadParenthesis stemDirection storedInstrument",
+        "type": "Table"
+    },
+    {
+        "text": "Read/write properties inherited from GeneralNote:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "lyric pitches",
+        "type": "Table"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "ChordBase methods",
+        "type": "Title"
+    },
+    {
+        "text": "ChordBase.",
+        "type": "Title"
+    },
+    {
+        "text": "__eq__",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "other",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Define equality for Music21Objects.  See main class docs.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ChordBase.",
+        "type": "Title"
+    },
+    {
+        "text": "add",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "notes",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Add a Note, Pitch, the .notes of another chord,\nor string representing a Pitch,\nor a list of any-of-the-above types to a Chord or PercussionChord.\nDoes no sorting.  That is on the Chord object.\n>>> c = chord.Chord('C4 E4 G4')\n>>> c.add('B3')\n>>> c\n<music21.chord.Chord B3 C4 E4 G4>\n>>> c.duration\n<music21.duration.Duration 1.0>\n\n\n>>> c.add('A2', runSort=False)\n>>> c\n<music21.chord.Chord B3 C4 E4 G4 A2>\n\n\n>>> c.add(['B5', 'C6'])\n>>> c\n<music21.chord.Chord A2 B3 C4 E4 G4 B5 C6>\n\n\n>>> c.add(pitch.Pitch('D6'))\n>>> c\n<music21.chord.Chord A2 B3 C4 E4 G4 B5 C6 D6>\n\n\n>>> n = note.Note('E6')\n>>> n.duration.type = 'half'\n>>> c.add(n)\n>>> c\n<music21.chord.Chord A2 B3 C4 E4 G4 B5 C6 D6 E6>\n>>> c.duration\n<music21.duration.Duration 1.0>\n>>> c[-1]\n<music21.note.Note E>\n>>> c[-1].duration\n<music21.duration.Duration 2.0>",
+        "type": "ListItem"
+    },
+    {
+        "text": "ChordBase.",
+        "type": "Title"
+    },
+    {
+        "text": "hasComponentVolumes",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Utility method to determine if this object has component\nVolume objects assigned to each\nnote-component.\n>>> c1 = chord.Chord(['c4', 'd-1', 'g6'])\n>>> c1.setVolumes([60, 20, 120])\n>>> [n.volume.velocity for n in c1]\n[60, 20, 120]\n\n\n>>> c1.hasComponentVolumes()\nTrue\n\n\n>>> c2 = chord.Chord(['c4', 'd-1', 'g6'])\n>>> c2.volume.velocity = 23\n>>> c2.hasComponentVolumes()\nFalse\n\n\n>>> c3 = chord.Chord(['c4', 'd-1', 'g6'])\n>>> c3.setVolumes([0.2, 0.5, 0.8])\n>>> [n.volume.velocity for n in c3]\n[25, 64, 102]\n\n\n>>> c4 = chord.Chord(['c4', 'd-1', 'g6'])\n>>> c4.volume = 89\n>>> c4.volume.velocity\n89\n\n\n>>> c4.hasComponentVolumes()\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "ChordBase.",
+        "type": "Title"
+    },
+    {
+        "text": "remove",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "removeItem",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Removes a note or pitch from the chord.  Must be a pitch\nequal to a pitch in the chord or a string specifying the pitch\nname with octave or a note from a chord.  If not found,\nraises a ValueError\n>>> c = chord.Chord('C4 E4 G4')\n>>> c.remove('E4')\n>>> c\n<music21.chord.Chord C4 G4>\n>>> c.remove('D5')\nTraceback (most recent call last):\nValueError: Chord.remove(x), x not in chord\n\n\n>>> c = chord.Chord('C4 E4 G4')\n>>> c.remove(pitch.Pitch('E4'))\n>>> c\n<music21.chord.Chord C4 G4>\n>>> c.remove(pitch.Pitch('F#5'))\nTraceback (most recent call last):\nValueError: Chord.remove(x), x not in chord\n\n\nThe Note also does not need to be the exact note of the\nchord, just matches on equality\n>>> c = chord.Chord('C4 E4 G4')\n>>> c.remove(note.Note('E4'))\n>>> c\n<music21.chord.Chord C4 G4>\n\n\n>>> c.remove(c[1])\n>>> c\n<music21.chord.Chord C4>\n\n\n>>> c.remove(note.Note('B-2'))\nTraceback (most recent call last):\nValueError: Chord.remove(x), x not in chord\n\n\n>>> c.remove(4)\nTraceback (most recent call last):\nValueError: Cannot remove 4 from a chord; try a Pitch or Note object\n\n\nLike Python's list object does not work on lists\u2026\n>>> c = chord.Chord('C4 E4 G4')\n>>> c.remove(['C4', 'E4'])\nTraceback (most recent call last):\nValueError: Cannot remove ['C4', 'E4'] from a chord; try a Pitch or Note object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ChordBase.",
+        "type": "Title"
+    },
+    {
+        "text": "setVolumes",
+        "type": "Title"
+    },
+    {
+        "text": "volumes",
+        "type": "Title"
+    },
+    {
+        "text": "Sequence",
+        "type": "Title"
+    },
+    {
+        "text": "'music21.volume.Volume'",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "float",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Set as many individual volumes as appear in volumes.  If there are not\nenough volumes, then cycles through the list of volumes here:\n>>> c = chord.Chord(['g#', 'd-'])\n>>> c.setVolumes([volume.Volume(velocity=96), volume.Volume(velocity=96)])\n>>> c.hasComponentVolumes()\nTrue\n\n\nNote that this means that the chord itself does not have a volume at this moment!\n>>> c.hasVolumeInformation()\nFalse\n\n\n>>> c.volume.velocity\n96\n\n\nBut after having called the volume, now it does:\n>>> c.hasVolumeInformation()\nTrue\n\n\n>>> c.volume.velocityIsRelative = False\n>>> c.volume\n<music21.volume.Volume realized=0.76>\n\n\n\nNew in v8: replaces setting .volume to a list",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from NotRest:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "getInstrument() hasVolumeInformation()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from GeneralNote:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "addLyric() augmentOrDiminish() getGrace() insertLyric()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "ChordBase instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "ChordBase.",
+        "type": "Title"
+    },
+    {
+        "text": "beams",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A Beams object that contains\ninformation about the beaming of this note.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ChordBase.",
+        "type": "Title"
+    },
+    {
+        "text": "isNote",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Boolean read-only value describing if this\nGeneralNote object is a Note. Is False",
+        "type": "ListItem"
+    },
+    {
+        "text": "ChordBase.",
+        "type": "Title"
+    },
+    {
+        "text": "isRest",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Boolean read-only value describing if this\nGeneralNote object is a Rest. Is False\n>>> c = chord.Chord()\n>>> c.isRest\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "Instance variables inherited from NotRest:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beams",
+        "type": "Table"
+    },
+    {
+        "text": "Instance variables inherited from GeneralNote:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "articulations expressions isChord lyrics",
+        "type": "Table"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.chord.",
+        "type": "Title"
+    },
+    {
+        "text": "fromForteClass",
+        "type": "Title"
+    },
+    {
+        "text": "notation",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "Sequence",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 Chord",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a Chord given a Forte-class notation. The Forte class can be\nspecified as string (e.g., 3-11) or as a list of cardinality and number\n(e.g., [8, 1]).\nIf no match is available, None is returned.\n>>> chord.fromForteClass('3-11')\n<music21.chord.Chord C E- G>\n\n\n>>> chord.fromForteClass('3-11b')\n<music21.chord.Chord C E G>\n\n\n>>> chord.fromForteClass('3-11a')\n<music21.chord.Chord C E- G>\n\n\n>>> chord.fromForteClass((11, 1))\n<music21.chord.Chord C D- D E- E F G- G A- A B->",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.chord.",
+        "type": "Title"
+    },
+    {
+        "text": "fromIntervalVector",
+        "type": "Title"
+    },
+    {
+        "text": "notation",
+        "type": "Title"
+    },
+    {
+        "text": "getZRelation",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return one or more Chords given an interval vector.\n>>> chord.fromIntervalVector([0, 0, 0, 0, 0, 1])\n<music21.chord.Chord C F#>\n\n\n>>> chord.fromIntervalVector((5, 5, 5, 5, 5, 5)) is None\nTrue\n\n\n>>> chord.fromIntervalVector((1, 1, 1, 1, 1, 1))\n<music21.chord.Chord C C# E F#>\n\n\n>>> chord.fromIntervalVector((1, 1, 1, 1, 1, 1), getZRelation=True)\n<music21.chord.Chord C D- E- G>\n\n\n>>> chord.fromIntervalVector((1, 1, 1, 1, 1, 1)).getZRelation()\n<music21.chord.Chord C D- E- G>",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.chord",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

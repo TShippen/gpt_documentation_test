@@ -1,0 +1,1246 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.sieve",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.serial",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.sites",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.sieve\nCompressionSegment\nCompressionSegment\n\n\nPitchSieve\nPitchSieve\nPitchSieve.getIntervalSequence()\n\n\n\n\nPrimeSegment\nPrimeSegment\n\n\nResidual\nResidual\nResidual.__eq__()\nResidual.copy()\nResidual.period()\nResidual.represent()\nResidual.segment()\nResidual.setSegmentFormat()\nResidual.setZ()\nResidual.setZRange()\n\n\n\n\nSieve\nSieve\nSieve.collect()\nSieve.compress()\nSieve.expand()\nSieve.period()\nSieve.represent()\nSieve.segment()\nSieve.setSegmentFormat()\nSieve.setZ()\nSieve.setZRange()\n\n\n\n\nFunctions\ndiscreteBinaryPad()\neratosthenes()\nrabinMiller()\nunitNormEqual()\nunitNormRange()\nunitNormStep()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.sieve\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "A comprehensive, object model of the Xenakis Sieve. music21.sieve.Sieve\nobjects can be created from high-level string notations, and used to generate line segments\nin various representation. Additional functionality is available through associated objects.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "The music21.sieve.Sieve class permits generation segments in four formats.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "sieve",
+        "type": "Title"
+    },
+    {
+        "text": "Sieve",
+        "type": "Title"
+    },
+    {
+        "text": "'3@2|7@1'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "segment",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "[1, 2, 5, 8, 11, 14, 15, 17, 20, 22, 23, 26, 29, 32, 35, 36, 38, 41, 43, 44,",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "47, 50, 53, 56, 57, 59, 62, 64, 65, 68, 71, 74, 77, 78, 80, 83, 85, 86, 89, 92, 95, 98, 99]",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "segment",
+        "type": "Title"
+    },
+    {
+        "text": "segmentFormat",
+        "type": "Title"
+    },
+    {
+        "text": "'binary'",
+        "type": "Title"
+    },
+    {
+        "text": "[0, 1, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0, 1,",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "0, 0, 1, 0, 0, 1, 0, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1,",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "0, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 1, 0, 1,",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "0, 0, 1, 0, 1, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 1]",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "segment",
+        "type": "Title"
+    },
+    {
+        "text": "segmentFormat",
+        "type": "Title"
+    },
+    {
+        "text": "'width'",
+        "type": "Title"
+    },
+    {
+        "text": "[1, 3, 3, 3, 3, 1, 2, 3, 2, 1, 3, 3, 3, 3, 1, 2, 3, 2, 1, 3, 3, 3, 3, 1, 2, 3, 2,",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "1, 3, 3, 3, 3, 1, 2, 3, 2, 1, 3, 3, 3, 3, 1]",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "len",
+        "type": "Title"
+    },
+    {
+        "text": "segment",
+        "type": "Title"
+    },
+    {
+        "text": "segmentFormat",
+        "type": "Title"
+    },
+    {
+        "text": "'unit'",
+        "type": "Title"
+    },
+    {
+        "text": "))",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "43",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A music21.sieve.CompressionSegment can be used to derive a Sieve from a\nny sequence of integers.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "sieve",
+        "type": "Title"
+    },
+    {
+        "text": "CompressionSegment",
+        "type": "Title"
+    },
+    {
+        "text": "([",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "13",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "19",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "])",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "'6@1|7@6|8@5|9@4|10@3|11@8'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The music21.sieve.PitchSieve class provides a quick generation of\nmusic21.pitch.Pitch lists from Sieves.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "sieve",
+        "type": "Title"
+    },
+    {
+        "text": "PitchSieve",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "'13@3|13@6|13@9'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'c1'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'c10'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'f#4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "pitches",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "', '",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "join",
+        "type": "Title"
+    },
+    {
+        "text": "([",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "pitches",
+        "type": "Title"
+    },
+    {
+        "text": "])",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'F#1, A1, C2, G2, B-2, C#3, G#3, B3, D4, A4, C5, E-5, B-5, C#6, E6, B6, D7,",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "F7, C8, E-8, F#8, C#9, E9, G9'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "CompressionSegment\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.sieve.",
+        "type": "Title"
+    },
+    {
+        "text": "CompressionSegment",
+        "type": "Title"
+    },
+    {
+        "text": "src",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Utility to convert from a point sequence to sieve.\nA z range can be supplied to explicitly provide the complete sieve segment,\nboth positive and negative values. all values in the z range not in the\nsegment are interpreted as negative values. thus, there is an essential\ndependency on the z range and the realized sieve.\nNo matter the size of the z range, there is a modulus at which one point\nin the segment can be found. As such, any segment can be reduced to, at a\nminimum, a residual for each point in the segment, each, for the supplied z,\nproviding a segment with one point.\nThe same segment can then have multiplied logical string representations,\ndepending on the provided z.\n>>> a = sieve.CompressionSegment([3, 4, 5, 6, 7, 8, 13, 19])\n>>> str(a)\n'6@1|7@6|8@5|9@4|10@3|11@8'\n\n\n>>> b = sieve.CompressionSegment([0, 2, 4, 6, 8])\n>>> str(b)\n'2@0'\n\n\n>>> c = sieve.CompressionSegment([0, 2, 4, 5, 7, 9, 11, 12])\n>>> str(c)\n'5@2|5@4|6@5|7@0'",
+        "type": "ListItem"
+    },
+    {
+        "text": "PitchSieve\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.sieve.",
+        "type": "Title"
+    },
+    {
+        "text": "PitchSieve",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "sieveString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "pitchLower",
+        "type": "Title"
+    },
+    {
+        "text": "str | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "pitchUpper",
+        "type": "Title"
+    },
+    {
+        "text": "str | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "pitchOrigin",
+        "type": "Title"
+    },
+    {
+        "text": "str | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "eld",
+        "type": "Title"
+    },
+    {
+        "text": "int | float",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Quick utility generator of music21.pitch.Pitch lists\nfrom music21.sieve.Sieve objects.\n>>> ps = sieve.PitchSieve('6@0', 'c4', 'c8')\n>>> [str(p) for p in ps()]\n['C4', 'F#4', 'C5', 'F#5', 'C6', 'F#6', 'C7', 'F#7', 'C8']\n\n\n>>> a = sieve.PitchSieve('4@7')\n>>> [str(p) for p in a()]\n['E-3', 'G3', 'B3', 'E-4', 'G4', 'B4']",
+        "type": "ListItem"
+    },
+    {
+        "text": "PitchSieve methods",
+        "type": "Title"
+    },
+    {
+        "text": "PitchSieve.",
+        "type": "Title"
+    },
+    {
+        "text": "getIntervalSequence",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 list[music21.interval.Interval]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a list of Interval objects that defines the complete structure\nof this music21.sieve.Sieve.\n>>> a = sieve.PitchSieve('3@0')\n>>> a.getIntervalSequence()\n[<music21.interval.Interval m3>]\n\n\n>>> a = sieve.PitchSieve('3@0|7@0')\n>>> a.sieveObject.segment()\n[0, 3, 6, 7, 9, 12, 14, 15, 18, 21, 24, 27, 28, 30, 33, 35, 36, 39, 42, 45, 48, 49,\n 51, 54, 56, 57, 60, 63, 66, 69, 70, 72, 75, 77, 78, 81, 84, 87, 90, 91, 93, 96, 98, 99]\n>>> a.sieveObject.period()\n21\n>>> a.getIntervalSequence()\n[<music21.interval.Interval m3>, <music21.interval.Interval m3>,\n <music21.interval.Interval m2>, <music21.interval.Interval M2>,\n <music21.interval.Interval m3>, <music21.interval.Interval M2>,\n <music21.interval.Interval m2>, <music21.interval.Interval m3>,\n <music21.interval.Interval m3>]\n\n\nThis is the PitchSieve for a major scale:\n>>> b = sieve.PitchSieve('(-3@2 & 4) | (-3@1 & 4@1) | (3@2 & 4@2) | (-3 & 4@3)')\n>>> b.getIntervalSequence()\n[<music21.interval.Interval M2>,\n <music21.interval.Interval M2>,\n <music21.interval.Interval m2>,\n <music21.interval.Interval M2>,\n <music21.interval.Interval M2>,\n <music21.interval.Interval M2>,\n <music21.interval.Interval m2>]",
+        "type": "ListItem"
+    },
+    {
+        "text": "PrimeSegment\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.sieve.",
+        "type": "Title"
+    },
+    {
+        "text": "PrimeSegment",
+        "type": "Title"
+    },
+    {
+        "text": "start",
+        "type": "Title"
+    },
+    {
+        "text": "length",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "Residual\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.sieve.",
+        "type": "Title"
+    },
+    {
+        "text": "Residual",
+        "type": "Title"
+    },
+    {
+        "text": "shift",
+        "type": "Title"
+    },
+    {
+        "text": "neg",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "object that represents a modulus and a start point\neach object stores a range of integers (self._z) from which sections are drawn\nthis range of integers can be changed whenever the section os drawn\n>>> residual = sieve.Residual(3, 2)",
+        "type": "ListItem"
+    },
+    {
+        "text": "Residual methods",
+        "type": "Title"
+    },
+    {
+        "text": "Residual.",
+        "type": "Title"
+    },
+    {
+        "text": "__eq__",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "other",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "==, compare residual classes in terms of m and shift",
+        "type": "ListItem"
+    },
+    {
+        "text": "Residual.",
+        "type": "Title"
+    },
+    {
+        "text": "copy",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "Residual.",
+        "type": "Title"
+    },
+    {
+        "text": "period",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 int",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "period is M; obvious, but nice for completeness\n>>> a = sieve.Residual(3, 2)\n>>> a.period()\n3",
+        "type": "ListItem"
+    },
+    {
+        "text": "Residual.",
+        "type": "Title"
+    },
+    {
+        "text": "represent",
+        "type": "Title"
+    },
+    {
+        "text": "style",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "does not show any logical operator but unary negation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Residual.",
+        "type": "Title"
+    },
+    {
+        "text": "segment",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "segmentFormat",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "get a residual subset of this modulus at this n\nwithin the integer range provided by z\nformat can be \u0098int' or \u0098bin', for integer or binary\n>>> a = sieve.Residual(3, 2)\n>>> a.segment(3)\n[2, 5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 53, 56, 59,\n 62, 65, 68, 71, 74, 77, 80, 83, 86, 89, 92, 95, 98]\n>>> a.segment(3, range(3, 15))\n[5, 8, 11, 14]",
+        "type": "ListItem"
+    },
+    {
+        "text": "Residual.",
+        "type": "Title"
+    },
+    {
+        "text": "setSegmentFormat",
+        "type": "Title"
+    },
+    {
+        "text": "fmt",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "Residual.",
+        "type": "Title"
+    },
+    {
+        "text": "setZ",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "z is the range of integers to use when generating a list",
+        "type": "ListItem"
+    },
+    {
+        "text": "Residual.",
+        "type": "Title"
+    },
+    {
+        "text": "setZRange",
+        "type": "Title"
+    },
+    {
+        "text": "minInt",
+        "type": "Title"
+    },
+    {
+        "text": "maxInt",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "z is the range of integers to use when generating a list\nconvenience function that fixes max",
+        "type": "ListItem"
+    },
+    {
+        "text": "Sieve\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.sieve.",
+        "type": "Title"
+    },
+    {
+        "text": "Sieve",
+        "type": "Title"
+    },
+    {
+        "text": "usrStr",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "list",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "list",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Create a sieve segment from a sieve logical string of any complexity.\n>>> a = sieve.Sieve('3@11')\n>>> b = sieve.Sieve('2&4&8|5')\n>>> c = sieve.Sieve('(5|2)&4&8')",
+        "type": "ListItem"
+    },
+    {
+        "text": "Sieve methods",
+        "type": "Title"
+    },
+    {
+        "text": "Sieve.",
+        "type": "Title"
+    },
+    {
+        "text": "collect",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "zMinimum",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "length",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "segmentFormat",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "zStep",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "100",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u2192 list[int]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Collect sieve segment points for the provided length and format.\n>>> a = sieve.Sieve('3@11')\n>>> a.collect(10, 100, 10, 'int')\n[102, 105, 108, 111, 114, 117, 120, 123, 126, 129]",
+        "type": "ListItem"
+    },
+    {
+        "text": "Sieve.",
+        "type": "Title"
+    },
+    {
+        "text": "compress",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Set this sieve to its compressed state.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Sieve.",
+        "type": "Title"
+    },
+    {
+        "text": "expand",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Set this Sieve to its expanded state.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Sieve.",
+        "type": "Title"
+    },
+    {
+        "text": "period",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 int",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return the period of the sieve.\n>>> a = sieve.Sieve('3@11')\n>>> a.period()\n3\n>>> b = sieve.Sieve('2&4&8|5')\n>>> b.period()\n40\n>>> c = sieve.Sieve('(5|2)&4&8')\n>>> c.period()\n40\n\n\n\nChanged in v9: state is taken from the object.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Sieve.",
+        "type": "Title"
+    },
+    {
+        "text": "represent",
+        "type": "Title"
+    },
+    {
+        "text": "state",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "style",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "style of None is use for users; adds | to single residuals\nstyle abs (absolute) does not add | tos single residual class",
+        "type": "ListItem"
+    },
+    {
+        "text": "Sieve.",
+        "type": "Title"
+    },
+    {
+        "text": "segment",
+        "type": "Title"
+    },
+    {
+        "text": "state",
+        "type": "Title"
+    },
+    {
+        "text": "Literal",
+        "type": "Title"
+    },
+    {
+        "text": "'cmp'",
+        "type": "Title"
+    },
+    {
+        "text": "Literal",
+        "type": "Title"
+    },
+    {
+        "text": "'exp'",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "segmentFormat",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 list[int]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a sieve segment in various formats.\n>>> a = sieve.Sieve('3@11')\n>>> a.segment('exp')\n[2, 5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47,\n 50, 53, 56, 59, 62, 65, 68, 71, 74, 77, 80, 83, 86, 89, 92, 95, 98]\n\n\n>>> c = sieve.Sieve('(5|2)&4&8')\n>>> c.segment('cmp', segmentFormat='wid')\n[8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8]",
+        "type": "ListItem"
+    },
+    {
+        "text": "Sieve.",
+        "type": "Title"
+    },
+    {
+        "text": "setSegmentFormat",
+        "type": "Title"
+    },
+    {
+        "text": "fmt",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "Sieve.",
+        "type": "Title"
+    },
+    {
+        "text": "setZ",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Set the z as a list. The z is the range of integers to use when\ngenerating a sieve segment.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Sieve.",
+        "type": "Title"
+    },
+    {
+        "text": "setZRange",
+        "type": "Title"
+    },
+    {
+        "text": "minInt",
+        "type": "Title"
+    },
+    {
+        "text": "maxInt",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Set the z as a min and max value. The z is the range of\nintegers to use when generating a sieve segment.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.sieve.",
+        "type": "Title"
+    },
+    {
+        "text": "discreteBinaryPad",
+        "type": "Title"
+    },
+    {
+        "text": "series",
+        "type": "Title"
+    },
+    {
+        "text": "Iterable[int]",
+        "type": "Title"
+    },
+    {
+        "text": "fixRange",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 list[int]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Treat a sequence of integers as defining contiguous binary integers,\nwhere provided values are 1's and excluded values are zero.\nFor instance, running [3, 10, 12] through this method gives a 1 for\nthe first entry (signifying 3), 0s for the next six entries (signifying\n4-9), a 1 (for 10), a 0 (for 11), and a 1 (for 12).\n>>> sieve.discreteBinaryPad([3, 10, 12])\n[1, 0, 0, 0, 0, 0, 0, 1, 0, 1]\n\n\n>>> sieve.discreteBinaryPad([3, 4, 5])\n[1, 1, 1]",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.sieve.",
+        "type": "Title"
+    },
+    {
+        "text": "eratosthenes",
+        "type": "Title"
+    },
+    {
+        "text": "firstCandidate",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Yields the sequence of prime numbers via the Sieve of Eratosthenes.\nrather than creating a fixed list of a range (z) and crossing out\nmultiples of sequential candidates, this algorithm stores primes under\ntheir next possible candidate, thus allowing the generation of primes\nin sequence without storing a complete range (z).\nCreate a dictionary. Each entry in the dictionary is a key:item pair of\n(key) the largest multiple of this prime so far found and (item)\nthe prime. The dictionary only has as many entries as found primes.\nIf a candidate is not a key in the dictionary, it is not a multiple of\nany already-found prime; it is thus a prime. a new entry is added to the\ndictionary, with the square of the prime as the key. The square of the prime\nis the next possible multiple to be found.\nTo use this generator, create an instance and then call the .next() method\non the instance.\n>>> a = sieve.eratosthenes()\n>>> next(a)\n2\n>>> next(a)\n3\n\n\nWe can also specify a starting value for the sequence, skipping over\ninitial primes smaller than this number:\n>>> a = sieve.eratosthenes(95)\n>>> next(a)\n97\n>>> next(a)\n101",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.sieve.",
+        "type": "Title"
+    },
+    {
+        "text": "rabinMiller",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if an integer is likely prime or False if it is likely composite using the\nRabin Miller primality test.\nSee also here: http://www.4dsolutions.net/ocn/numeracy2.html\n>>> sieve.rabinMiller(234)\nFalse\n>>> sieve.rabinMiller(5)\nTrue\n>>> sieve.rabinMiller(4)\nFalse\n\n\n>>> sieve.rabinMiller(97 * 2)\nFalse\n\n\n>>> sieve.rabinMiller(6 ** 4 + 1)  # prime\nTrue\n\n\n>>> sieve.rabinMiller(123986234193)  # divisible by 3, runs fast\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.sieve.",
+        "type": "Title"
+    },
+    {
+        "text": "unitNormEqual",
+        "type": "Title"
+    },
+    {
+        "text": "parts",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a certain number of parts, return a list unit-interval values\nbetween 0 and 1, with as many divisions as parts; 0 and 1 are always inclusive.\n>>> sieve.unitNormEqual(3)\n[0.0, 0.5, 1]\n\n\nIf parts is 0 or 1, then a single entry of [0] is given:\n>>> sieve.unitNormEqual(1)\n[0]",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.sieve.",
+        "type": "Title"
+    },
+    {
+        "text": "unitNormRange",
+        "type": "Title"
+    },
+    {
+        "text": "series",
+        "type": "Title"
+    },
+    {
+        "text": "fixRange",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a list of numbers, create a proportional spacing across the unit interval.\nThe first entry will always be 0 and the last 1, other entries will be spaced\naccording to their distance between these two units.  For instance, for 0, 3, 4\nthe middle entry will be 0.75 since 3 is 3/4 of the distance between 0 and 4:\n>>> sieve.unitNormRange([0, 3, 4])\n[0.0, 0.75, 1.0]\n\n\nbut for [1, 3, 4], it will be 0.666\u2026 because 3 is 2/3 of the distance between\n1 and 4\n>>> sieve.unitNormRange([1, 3, 4])\n[0.0, 0.666..., 1.0]",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.sieve.",
+        "type": "Title"
+    },
+    {
+        "text": "unitNormStep",
+        "type": "Title"
+    },
+    {
+        "text": "step",
+        "type": "Title"
+    },
+    {
+        "text": "normalized",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a step size and an a/b min/max range, calculate number of parts\nto fill step through inclusive a,b, then return a unit interval list of values\nnecessary to cover region.\nNote that returned values are, by default, normalized within the unit interval.\n>>> sieve.unitNormStep(0.5, 0, 1)\n[0.0, 0.5, 1]\n\n\n>>> sieve.unitNormStep(0.5, -1, 1)\n[0.0, 0.25, 0.5, 0.75, 1]\n\n\n>>> sieve.unitNormStep(0.5, -1, 1, normalized=False)\n[-1, -0.5, 0.0, 0.5, 1.0]\n\n\n>>> post = sieve.unitNormStep(0.25, 0, 20)\n>>> len(post)\n81\n>>> post = sieve.unitNormStep(0.25, 0, 20, normalized=False)\n>>> len(post)\n81",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.sieve",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

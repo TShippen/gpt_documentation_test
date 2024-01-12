@@ -1,0 +1,250 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.graph.utilities",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.graph.primitives",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.harmony",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.graph.utilities\nExtendedModules\nExtendedModules\n\n\nFunctions\naccidentalLabelToUnicode()\ngetColor()\ngetExtendedModules()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.graph.utilities\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Functions for finding external modules, converting colors to Matplotlib colors, etc.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "ExtendedModules\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.graph.utilities.",
+        "type": "Title"
+    },
+    {
+        "text": "ExtendedModules",
+        "type": "Title"
+    },
+    {
+        "text": "matplotlib",
+        "type": "Title"
+    },
+    {
+        "text": "Axes3D",
+        "type": "Title"
+    },
+    {
+        "text": "collections",
+        "type": "Title"
+    },
+    {
+        "text": "patches",
+        "type": "Title"
+    },
+    {
+        "text": "plt",
+        "type": "Title"
+    },
+    {
+        "text": "networkx",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.graph.utilities.",
+        "type": "Title"
+    },
+    {
+        "text": "accidentalLabelToUnicode",
+        "type": "Title"
+    },
+    {
+        "text": "label",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Changes a label possibly containing a modifier such as \u009c-\u009d or \u009c#\u009d into\na unicode string.\n>>> graph.utilities.accidentalLabelToUnicode('B-4')\n'B\u00e2\u0099\u00ad4'\n\n\nSince matplotlib's default fonts do not support double sharps or double flats,\netc. these are converted as best we can\u2026\n>>> graph.utilities.accidentalLabelToUnicode('B--4')\n'B\u00e2\u0099\u00ad\u00e2\u0099\u00ad4'",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.graph.utilities.",
+        "type": "Title"
+    },
+    {
+        "text": "getColor",
+        "type": "Title"
+    },
+    {
+        "text": "color",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Convert any specification of a color to a hexadecimal color used by matplotlib.\n>>> graph.utilities.getColor('red')\n'#ff0000'\n>>> graph.utilities.getColor('r')\n'#ff0000'\n>>> graph.utilities.getColor('Steel Blue')\n'#4682b4'\n>>> graph.utilities.getColor('#f50')\n'#ff5500'\n>>> graph.utilities.getColor([0.5, 0.5, 0.5])\n'#808080'\n>>> graph.utilities.getColor(0.8)\n'#cccccc'\n>>> graph.utilities.getColor([0.8])\n'#cccccc'\n>>> graph.utilities.getColor([255, 255, 255])\n'#ffffff'\n\n\nInvalid colors raise GraphExceptions:\n>>> graph.utilities.getColor('l')\nTraceback (most recent call last):\nmusic21.graph.utilities.GraphException: invalid color abbreviation: l\n\n\n>>> graph.utilities.getColor('chalkywhitebutsortofgreenish')\nTraceback (most recent call last):\nmusic21.graph.utilities.GraphException: invalid color name: chalkywhitebutsortofgreenish\n\n\n>>> graph.utilities.getColor(True)\nTraceback (most recent call last):\nmusic21.graph.utilities.GraphException: invalid color specification: True",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.graph.utilities.",
+        "type": "Title"
+    },
+    {
+        "text": "getExtendedModules",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "this is done inside a function, so that the slow import of matplotlib is not done\nin from music21 import * unless it's actually needed.\nReturns a namedtuple: (matplotlib, Axes3D, collections, patches, plt, networkx)",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.graph.utilities",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

@@ -1,0 +1,482 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.editorial",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.dynamics",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.environment",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.editorial\nEditorial\nEditorial\nEditorial.comments\nEditorial.ficta\nEditorial.footnotes\nEditorial.harmonicInterval\nEditorial.melodicInterval\n\n\n\n\nComment\nComment",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.editorial\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Editorial objects store comments and other metadata associated with specific\nMusic21Object elements such as Notes.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Some aspects of Editorial objects\nrepresent very early (pre-v0.1) versions of music21.  Thus, some\npre-defined aspects might be removed from documentation in the future.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Access an editorial object by calling .editorial on any music21 object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "clef",
+        "type": "Title"
+    },
+    {
+        "text": "TrebleClef",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "ed",
+        "type": "Title"
+    },
+    {
+        "text": "editorial",
+        "type": "Title"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "ed",
+        "type": "Title"
+    },
+    {
+        "text": "<music21.editorial.Editorial {}>",
+        "type": "Title"
+    },
+    {
+        "text": "The object is lazily created on first access.\nTo see if there is any existing editorial information without creating\nthe object, call .hasEditorialInformation",
+        "type": "NarrativeText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'C#4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "hasEditorialInformation",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "editorial",
+        "type": "Title"
+    },
+    {
+        "text": "unedited",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "hasEditorialInformation",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "Editorial\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.editorial.",
+        "type": "Title"
+    },
+    {
+        "text": "Editorial",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Editorial comments and special effects that can be applied to music21 objects.\n>>> ed1 = editorial.Editorial()\n>>> ed1.backgroundHighlight = 'yellow'  # non-standard.\n>>> ed1.backgroundHighlight\n'yellow'\n>>> list(ed1.keys())\n['backgroundHighlight']\n>>> ed1\n <music21.editorial.Editorial {'backgroundHighlight': 'yellow'}>\n\n\nEvery GeneralNote object already has a NoteEditorial object attached to it\nat object.editorial.  Normally you will just change that object instead.\nFor instance, take the case where a scribe wrote F in the score, knowing\nthat a good singer would automatically sing F-sharp instead.  We can store\nthe editorial suggestion to sing F-sharp as a \u009cmusica ficta\u009d accidental\nobject:\n>>> fictaSharp = pitch.Accidental('sharp')\n>>> n = note.Note('F')\n>>> n.editorial.ficta = fictaSharp\n>>> n.show('lily.png')  # only Lilypond currently supports musica ficta",
+        "type": "ListItem"
+    },
+    {
+        "text": "Editorial bases",
+        "type": "Title"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "Editorial read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "Editorial methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Editorial instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Editorial.",
+        "type": "Title"
+    },
+    {
+        "text": "comments",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "a list of Comment objects that represent any comments\nabout the object.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Editorial.",
+        "type": "Title"
+    },
+    {
+        "text": "ficta",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "a Accidental object that specifies musica\nficta for the note.  Will only be displayed in LilyPond and then only if\nthere is no Accidental object on the note itself",
+        "type": "ListItem"
+    },
+    {
+        "text": "Editorial.",
+        "type": "Title"
+    },
+    {
+        "text": "footnotes",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "a list of Comment objects that represent annotations\nfor the object.  These have specific meanings in MusicXML.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Editorial.",
+        "type": "Title"
+    },
+    {
+        "text": "harmonicInterval",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "an Interval object that specifies\nthe harmonic interval between this object and a single other object, or None\n(useful for storing information post analysis)",
+        "type": "ListItem"
+    },
+    {
+        "text": "Editorial.",
+        "type": "Title"
+    },
+    {
+        "text": "melodicInterval",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "an Interval object that specifies\nthe melodic interval to the next object in this Part/Voice/Stream, etc.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Comment\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.editorial.",
+        "type": "Title"
+    },
+    {
+        "text": "Comment",
+        "type": "Title"
+    },
+    {
+        "text": "text",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A comment or footnote or something else attached to a note.\n>>> c = editorial.Comment('presented as C natural in the 1660 print.')\n>>> c.isFootnote = True\n>>> c.levelInformation = 'musicological'\n\n\n>>> n = note.Note('C#4')\n>>> n.editorial.footnotes.append(c)\n>>> n.editorial.footnotes[0]\n<music21.editorial.Comment 'presented as C na...'>\n\n\nComments have style information:\n>>> c.style.color = 'red'\n>>> c.style.color\n'red'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Comment bases",
+        "type": "Title"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "StyleMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "SlottedObjectMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "Comment read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from StyleMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "hasEditorialInformation hasStyleInformation",
+        "type": "Table"
+    },
+    {
+        "text": "Comment read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from StyleMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "editorial style",
+        "type": "Table"
+    },
+    {
+        "text": "Comment methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.editorial",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

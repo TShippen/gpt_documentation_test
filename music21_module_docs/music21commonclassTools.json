@@ -1,0 +1,406 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.classTools",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.clef",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.common.decorators",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.common.classTools\nFunctions\nclassToClassStr()\ngetClassSet()\nholdsType()\nisInt()\nisIterable()\nisListLike()\nisNum()\nsaveAttributes()\ntempAttribute()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.classTools\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.common.classTools.",
+        "type": "Title"
+    },
+    {
+        "text": "classToClassStr",
+        "type": "Title"
+    },
+    {
+        "text": "classObj",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 str",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Convert a class object to a class string.\n>>> common.classToClassStr(note.Note)\n'Note'\n>>> common.classToClassStr(chord.Chord)\n'Chord'",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.classTools.",
+        "type": "Title"
+    },
+    {
+        "text": "getClassSet",
+        "type": "Title"
+    },
+    {
+        "text": "instance",
+        "type": "Title"
+    },
+    {
+        "text": "classNameTuple",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return the classSet for an instance (whether a Music21Object or something else).\nSee base.Music21Object.classSet for more details.\n>>> p = pitch.Pitch()\n>>> cs = common.classTools.getClassSet(p)\n>>> cs\n frozenset(...)\n>>> pitch.Pitch in cs\nTrue\n>>> 'music21.pitch.Pitch' in cs\nTrue\n>>> 'Pitch' in cs\nTrue\n>>> object in cs\nTrue\n>>> 'object' in cs\nTrue\n>>> note.Note in cs\nFalse\n\n\nTo save time (this IS a performance-critical operation), classNameTuple\ncan be passed a tuple of names such as (\u0098Pitch', \u0098object') that\nwill save the creation time of this set.\n>>> cs2 = common.classTools.getClassSet(p, classNameTuple=('Pitch', 'ProtoM21Object'))\n>>> 'Pitch' in cs2\nTrue\n\n\nUse base.Music21Object.classSet in general for music21Objects since it\nnot only caches the result for each object, it caches the result for the\nwhole class the first time it is run.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.classTools.",
+        "type": "Title"
+    },
+    {
+        "text": "holdsType",
+        "type": "Title"
+    },
+    {
+        "text": "usrData",
+        "type": "Title"
+    },
+    {
+        "text": "Any",
+        "type": "Title"
+    },
+    {
+        "text": "checkType",
+        "type": "Title"
+    },
+    {
+        "text": "type[_T]",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 TypeGuard[Collection[_T]]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if usrData is a Collection of type checkType.\nThis reads an item from usrData, so don't use it on something\nwhere iterating destroys the type.\n>>> y = [1, 2, 3]\n>>> common.classTools.holdsType(y, int)\nTrue\n>>> common.classTools.holdsType(5, int)\nFalse\n>>> common.classTools.holdsType(['hello'], str)\nTrue\n\n\nEmpty iterators hold the type:\n>>> common.classTools.holdsType([], float)\nTrue\n\n\nNote that a mixed collection holds whatever is first\n>>> common.classTools.holdsType((4, 'hello'), int)\nTrue\n>>> common.classTools.holdsType((4, 'hello'), str)\nFalse\n\n\nWorks on sets with arbitrary order:\n>>> common.classTools.holdsType({2, 10}, int)\nTrue\n\n\nIntelligent collections will not have their position affected.\n>>> m = stream.Measure([note.Note('C'), note.Rest()])\n>>> common.classTools.holdsType(m, note.GeneralNote)\nTrue\n>>> next(iter(m))\n<music21.note.Note C>\n\n\n>>> r = range(1, 100)\n>>> common.classTools.holdsType(r, int)\nTrue\n>>> next(iter(r))\n1\n\n\n\nNew in v9.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.classTools.",
+        "type": "Title"
+    },
+    {
+        "text": "isInt",
+        "type": "Title"
+    },
+    {
+        "text": "usrData",
+        "type": "Title"
+    },
+    {
+        "text": "Any",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 TypeGuard[int]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Check if usrData is an integer and not True or False.\n>>> common.isInt(3)\nTrue\n>>> common.isInt(False)\nFalse\n>>> common.isInt(2.0)\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.classTools.",
+        "type": "Title"
+    },
+    {
+        "text": "isIterable",
+        "type": "Title"
+    },
+    {
+        "text": "usrData",
+        "type": "Title"
+    },
+    {
+        "text": "Any",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 TypeGuard[Iterable]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if is the object can be iter'd over\nand is NOT a string.  Marks it as an Iterable for type checking.\n>>> common.isIterable([5, 10])\nTrue\n>>> common.isIterable('sharp')\nFalse\n>>> common.isIterable((None, None))\nTrue\n>>> common.isIterable(stream.Stream())\nTrue\n\n\nRanges are not iterators by python 3, but return True\n>>> common.isIterable(range(20))\nTrue\n\n\nClasses are not iterable even if their instances are:\n>>> common.isIterable(stream.Stream)\nFalse\n\n\n\nChanged in v7.3: Classes (not instances) are not iterable",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.classTools.",
+        "type": "Title"
+    },
+    {
+        "text": "isListLike",
+        "type": "Title"
+    },
+    {
+        "text": "usrData",
+        "type": "Title"
+    },
+    {
+        "text": "Any",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 TypeGuard[list | tuple]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if is a List or Tuple or their subclasses.\nFormerly allowed for set here, but that does not allow for\nsubscripting (set([1, 2, 3])[0] is undefined).\nDiffers from isinstance(collections.abc.Sequence()) in that\nwe do not want Streams included even if __contains__, __reversed__,\nand count are added, and we do not want to include str or bytes.\n>>> common.isListLike([])\nTrue\n>>> common.isListLike('sharp')\nFalse\n>>> common.isListLike((None, None))\nTrue\n>>> common.isListLike({'a', 'b', 'c', 'c'})\nFalse\n>>> common.isListLike(stream.Stream())\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.classTools.",
+        "type": "Title"
+    },
+    {
+        "text": "isNum",
+        "type": "Title"
+    },
+    {
+        "text": "usrData",
+        "type": "Title"
+    },
+    {
+        "text": "t.Any",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 t.TypeGuard[t.Union[float, int, Fraction]]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "check if usrData is a music21 number (float, int, Fraction),\nreturn boolean and if True casts the value as a Rational number\nDiffers from isinstance(usrData, Rational) which\ndoes not return True for True, False, and does not support Decimal\nDoes not use isinstance(usrData, Rational) which is 2-6 times slower\nthan calling this function (except in the case of Fraction, when\nit's 6 times faster, but that's rarer).  (6 times slower on Py3.4, now\nonly 2x slower in Python 3.10)\nRuns by adding 0 to the \u009cnumber\u009d \u2014 so anything that implements\nadd to a scalar works\n>>> common.isNum(3.0)\nTrue\n>>> common.isNum(3)\nTrue\n>>> common.isNum('three')\nFalse\n>>> common.isNum([2, 3, 4])\nFalse\n\n\nTrue and False are NOT numbers:\n>>> common.isNum(True)\nFalse\n>>> common.isNum(False)\nFalse\n>>> common.isNum(None)\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.classTools.",
+        "type": "Title"
+    },
+    {
+        "text": "saveAttributes",
+        "type": "Title"
+    },
+    {
+        "text": "obj",
+        "type": "Title"
+    },
+    {
+        "text": "attributeList",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 Generator[None, None, None]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Save a number of attributes in an object and then restore them afterwards.\n>>> p = pitch.Pitch('C#2')\n>>> with common.classTools.saveAttributes(p, 'name', 'accidental'):\n...     p.step = 'E'\n...     p.accidental = pitch.Accidental('flat')\n...     p.nameWithOctave\n'E-2'\n>>> p.nameWithOctave\n'C#2'\n\n\nFor storing and setting a value on a single attribute see\ntempAttribute().\n\nNew in v7.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.classTools.",
+        "type": "Title"
+    },
+    {
+        "text": "tempAttribute",
+        "type": "Title"
+    },
+    {
+        "text": "obj",
+        "type": "Title"
+    },
+    {
+        "text": "attribute: str",
+        "type": "Title"
+    },
+    {
+        "text": "new_val=<object object>",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Temporarily set an attribute in an object to another value\nand then restore it afterwards.\n>>> p = pitch.Pitch('C4')\n>>> p.midi\n60\n>>> with common.classTools.tempAttribute(p, 'nameWithOctave', 'D#5'):\n...     p.midi\n75\n>>> p.nameWithOctave\n'C4'\n\n\nSetting to a new value is optional.\nFor working with multiple attributes see saveAttributes().\n\nNew in v7.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.classTools",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

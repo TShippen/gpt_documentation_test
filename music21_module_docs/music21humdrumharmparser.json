@@ -1,0 +1,246 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.humdrum.harmparser",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.harmony",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.humdrum.instruments",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.humdrum.harmparser\nHarmDefs\nHarmDefs\n\n\nHarmParser\nHarmParser\nHarmParser.parse()\n\n\n\n\nFunctions\nconvertHarmToRoman()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.humdrum.harmparser\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Harmonic annotations from humdrum to music21.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "The **harm representation is described here: https://www.humdrum.org/rep/harm/",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "HarmDefs\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.humdrum.harmparser.",
+        "type": "Title"
+    },
+    {
+        "text": "HarmDefs",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Regular expression definitions for the HarmParser class",
+        "type": "ListItem"
+    },
+    {
+        "text": "HarmParser\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.humdrum.harmparser.",
+        "type": "Title"
+    },
+    {
+        "text": "HarmParser",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Parses an expression in **harm syntax",
+        "type": "ListItem"
+    },
+    {
+        "text": "HarmParser methods",
+        "type": "Title"
+    },
+    {
+        "text": "HarmParser.",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "harmExpression",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 dict[str, Any]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.humdrum.harmparser.",
+        "type": "Title"
+    },
+    {
+        "text": "convertHarmToRoman",
+        "type": "Title"
+    },
+    {
+        "text": "harmStr",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Converts a **harm string into a string that\ncan be used to instantiate a RomanNumeral object.\nThis is necessary because the two notations are not\nidentical. For example, a \u009cV7b\u009d in **harm turns into \u009cV65\u009d.\nInstantiate a HarmParser to process **harm strings\n>>> convertHarmToRoman = humdrum.harmparser.convertHarmToRoman\n\n\nConvert a few **harm strings to music21.roman.RomanNumeral figures\n>>> diatonicTriads = ['I', 'Vc', 'Ib', 'iib', 'V', 'viiob', 'vib']\n>>> [convertHarmToRoman(x) for x in diatonicTriads]\n['I', 'V64', 'I6', 'ii6', 'V', 'viio6', 'vi6']\n\n\nA few seventh-chord inversions\n>>> diatonicSevenths = [\u0098V7', \u0098viio7c', \u0098V7d', \u0098viio7b', \u0098V7c']\n>>> [convertHarmToRoman(x) for x in diatonicSevenths]\n[\u0098V7', \u0098viio43', \u0098V2', \u0098viio65', \u0098V43']\nInversion-wise, augmented sixth chords are a bit tricky\nGerman and French are treated as seventh-chords (4 notes)\nItalians are treated as triads\n>>> italianSixths = ['Lt', 'Ltb', 'Ltc']\n>>> [convertHarmToRoman(x) for x in italianSixths]\n['It', 'It6', 'It64']\n\n\n>>> frenchSixths = ['Fr', 'Frb', 'Frc', 'Frd']\n>>> [convertHarmToRoman(x) for x in frenchSixths]\n['Fr7', 'Fr65', 'Fr43', 'Fr2']\n\n\n>>> germanSixths = ['Gn', 'Gnb', 'Gnc', 'Gnd']\n>>> [convertHarmToRoman(x) for x in germanSixths]\n['Ger7', 'Ger65', 'Ger43', 'Ger2']",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.humdrum.harmparser",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

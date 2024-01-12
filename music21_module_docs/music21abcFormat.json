@@ -1,0 +1,3734 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.abcFormat",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "Module Reference",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.abcFormat.translate",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.abcFormat\nABCFile\nABCFile\nABCFile.close()\nABCFile.extractReferenceNumber()\nABCFile.open()\nABCFile.openFileLike()\nABCFile.read()\nABCFile.readstr()\n\n\n\n\nABCHandler\nABCHandler\nABCHandler.barlineTokenFilter()\nABCHandler.definesMeasures()\nABCHandler.definesReferenceNumbers()\nABCHandler.getReferenceNumber()\nABCHandler.getTitle()\nABCHandler.hasNotes()\nABCHandler.parseHeaderForVersionInformation()\nABCHandler.process()\nABCHandler.processComment()\nABCHandler.returnAbcVersionFromMatch()\nABCHandler.splitByMeasure()\nABCHandler.splitByReferenceNumber()\nABCHandler.splitByVoice()\nABCHandler.startsMetadata()\nABCHandler.tokenProcess()\nABCHandler.tokenize()\nABCHandler.tokensToBarIndices()\n\n\n\n\nABCHandlerBar\nABCHandlerBar\n\n\nABCAccent\nABCAccent\n\n\nABCBar\nABCBar\nABCBar.getBarObject()\nABCBar.isRegular()\nABCBar.isRepeat()\nABCBar.isRepeatBracket()\nABCBar.parse()\n\n\n\n\nABCBrokenRhythmMarker\nABCBrokenRhythmMarker\nABCBrokenRhythmMarker.preParse()\n\n\n\n\nABCChord\nABCChord\nABCChord.parse()\n\n\n\n\nABCCrescStart\nABCCrescStart\nABCCrescStart.fillCresc()\n\n\n\n\nABCDimStart\nABCDimStart\nABCDimStart.fillDim()\n\n\n\n\nABCDownbow\nABCDownbow\n\n\nABCGraceStart\nABCGraceStart\n\n\nABCGraceStop\nABCGraceStop\n\n\nABCMetadata\nABCMetadata\nABCMetadata.getClefObject()\nABCMetadata.getDefaultQuarterLength()\nABCMetadata.getKeySignatureObject()\nABCMetadata.getKeySignatureParameters()\nABCMetadata.getMetronomeMarkObject()\nABCMetadata.getTimeSignatureObject()\nABCMetadata.getTimeSignatureParameters()\nABCMetadata.isComposer()\nABCMetadata.isDefaultNoteLength()\nABCMetadata.isKey()\nABCMetadata.isMeter()\nABCMetadata.isOrigin()\nABCMetadata.isReferenceNumber()\nABCMetadata.isTempo()\nABCMetadata.isTitle()\nABCMetadata.isVersion()\nABCMetadata.isVoice()\nABCMetadata.parse()\nABCMetadata.preParse()\n\n\n\n\nABCNote\nABCNote\nABCNote.getPitchName()\nABCNote.getQuarterLength()\nABCNote.parse()\n\n\n\n\nABCParenStop\nABCParenStop\n\n\nABCSlurStart\nABCSlurStart\nABCSlurStart.fillSlur()\n\n\n\n\nABCStaccato\nABCStaccato\n\n\nABCStraccent\nABCStraccent\n\n\nABCTenuto\nABCTenuto\n\n\nABCTie\nABCTie\n\n\nABCToken\nABCToken\nABCToken.parse()\nABCToken.preParse()\nABCToken.stripComment()\n\n\n\n\nABCTuplet\nABCTuplet\nABCTuplet.updateNoteCount()\nABCTuplet.updateRatio()\n\n\n\n\nABCUpbow\nABCUpbow\n\n\nFunctions\nmergeLeadingMetaData()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.abcFormat\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "ABC is a music format that, while being able to encode all sorts of scores, is especially\nstrong at representing monophonic music, and folk music in particular.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Modules in the music21.abcFormat package deal with importing ABC into music21.  Most people\nworking with ABC data won't need to use this package.  To convert ABC from a file or URL\nto a Stream use the parse() function of\nthe converter module:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "from",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "import",
+        "type": "Title"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "abcScore",
+        "type": "Title"
+    },
+    {
+        "text": "converter",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "'/users/ariza/myScore.abc'",
+        "type": "Title"
+    },
+    {
+        "text": "For users who will be editing ABC extensively or need a way to have music21 output ABC\n(which it doesn't do natively), we suggest using the open source EasyABC package:\nhttp://easyabc.sourceforge.net .  You can set it up as a MusicXML reader through:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "us",
+        "type": "Title"
+    },
+    {
+        "text": "environment",
+        "type": "Title"
+    },
+    {
+        "text": "UserSettings",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "us",
+        "type": "Title"
+    },
+    {
+        "text": "'musicxmlPath'",
+        "type": "Title"
+    },
+    {
+        "text": "'/Applications/EasyABC.app'",
+        "type": "Title"
+    },
+    {
+        "text": "or wherever you have downloaded EasyABC to\n(PC users might need: \u0098c:/program files (x86)/easyabc/easyabc.exe')\n(Thanks to Norman Schmidt for the heads-up)",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "There is a two-step process in converting ABC files to music21 Streams.  First this module\nreads in the text-based .abc file and converts all the information into ABCToken objects.  Then\nthe function music21.abcFormat.translate.abcToStreamScore() of\nthe music21.abcFormat.translate module\ntranslates those Tokens into music21 objects.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Music21 implements the entire v1.6 ABC standard (January 1997) found at\nhttps://abcnotation.com/standard/abc_v1.6.txt .  The system aims to support the\nv2.1 ABC standard (December 2011) found at\nhttps://abcnotation.com/wiki/abc:standard:v2.1 but some parts (e.g. 4.10 Variant Endings) are not\nimplemented.  No support is yet given for the draft 2.2 standard.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "ABCFile\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.abcFormat.",
+        "type": "Title"
+    },
+    {
+        "text": "ABCFile",
+        "type": "Title"
+    },
+    {
+        "text": "abcVersion",
+        "type": "Title"
+    },
+    {
+        "text": "tuple",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "(1, 3, 0)",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "ABC File or String access\nThe abcVersion attribution optionally specifies the (major, minor, patch)\nversion of ABC to process\u2014 e.g., (2, 1, 0).\nIf not set, default ABC 1.3 parsing is performed.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCFile bases",
+        "type": "Title"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCFile read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "ABCFile methods",
+        "type": "Title"
+    },
+    {
+        "text": "ABCFile.",
+        "type": "Title"
+    },
+    {
+        "text": "close",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "static",
+        "type": "Title"
+    },
+    {
+        "text": "ABCFile.",
+        "type": "Title"
+    },
+    {
+        "text": "extractReferenceNumber",
+        "type": "Title"
+    },
+    {
+        "text": "strSrc",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "number",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 str",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Extract the string data relating to a single reference number\nfrom a file that defines multiple songs or pieces.\nThis method permits loading a single work from a collection/opus\nwithout parsing the entire file.\nHere is sample data that is not correct ABC but demonstrates the basic concept:\n>>> fileData = \"\"\"\n...   X:1\n...   Hello\n...   X:2\n...   Aloha\n...   X:3\n...   Goodbye\n...   \"\"\"\n\n\n>>> file2 = abcFormat.ABCFile.extractReferenceNumber(fileData, 2)\n>>> print(file2)\nX:2\nAloha\n\n\nIf the number does not exist, raises an ABCFileException:\n>>> abcFormat.ABCFile.extractReferenceNumber(fileData, 99)\nTraceback (most recent call last):\nmusic21.abcFormat.ABCFileException: cannot find requested\n    reference number in source file: 99\n\n\nIf the same number is defined twice in one file (should not be) only\nthe first data is returned.\n\nChanged in v6.2: now a static method.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCFile.",
+        "type": "Title"
+    },
+    {
+        "text": "open",
+        "type": "Title"
+    },
+    {
+        "text": "filename",
+        "type": "Title"
+    },
+    {
+        "text": "str | pathlib.Path",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Open a file for reading",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCFile.",
+        "type": "Title"
+    },
+    {
+        "text": "openFileLike",
+        "type": "Title"
+    },
+    {
+        "text": "fileLike",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Assign a file-like object, such as those provided by\nStringIO, as an open file object.\n>>> from io import StringIO\n>>> fileLikeOpen = StringIO()",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCFile.",
+        "type": "Title"
+    },
+    {
+        "text": "read",
+        "type": "Title"
+    },
+    {
+        "text": "number",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Read a file. Note that this calls readstr,\nwhich processes all tokens.\nIf number is given, a work number will be extracted if possible.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCFile.",
+        "type": "Title"
+    },
+    {
+        "text": "readstr",
+        "type": "Title"
+    },
+    {
+        "text": "strSrc",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "number",
+        "type": "Title"
+    },
+    {
+        "text": "int | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 ABCHandler",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Read a string and process all Tokens.\nReturns a ABCHandler instance.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "ABCHandler\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.abcFormat.",
+        "type": "Title"
+    },
+    {
+        "text": "ABCHandler",
+        "type": "Title"
+    },
+    {
+        "text": "abcVersion",
+        "type": "Title"
+    },
+    {
+        "text": "tuple",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "(1, 3, 0)",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "lineBreaksDefinePhrases",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "An ABCHandler is able to divide elements of a character stream into objects and handle\nstore in a list, and passes global information to components\nOptionally, specify the (major, minor, patch) version of ABC to process\u2014\ne.g., (1.2.0). If not set, default ABC 1.3 parsing is performed.\nIf lineBreaksDefinePhrases is True then new lines within music elements\ndefine new phrases.  This is useful for parsing extra information from\nthe Essen Folksong repertory\n\nNew in v6.3: lineBreaksDefinePhrases \u2014 does not yet do anything",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCHandler methods",
+        "type": "Title"
+    },
+    {
+        "text": "static",
+        "type": "Title"
+    },
+    {
+        "text": "ABCHandler.",
+        "type": "Title"
+    },
+    {
+        "text": "barlineTokenFilter",
+        "type": "Title"
+    },
+    {
+        "text": "token",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 list[music21.abcFormat.ABCBar]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Some single barline tokens are better replaced\nwith two tokens. This method, given a token,\nreturns a list of tokens. If there is no change\nnecessary, the provided token will be returned within\nthe list.\nA staticmethod.  Call on the class itself.\n>>> abcFormat.ABCHandler.barlineTokenFilter('::')\n[<music21.abcFormat.ABCBar ':|'>, <music21.abcFormat.ABCBar '|:'>]\n\n\n>>> abcFormat.ABCHandler.barlineTokenFilter('|2')\n[<music21.abcFormat.ABCBar '|'>, <music21.abcFormat.ABCBar '[2'>]\n\n\n>>> abcFormat.ABCHandler.barlineTokenFilter(':|1')\n[<music21.abcFormat.ABCBar ':|'>, <music21.abcFormat.ABCBar '[1'>]\n\n\nIf nothing matches, the original token is returned as an ABCBar object:\n>>> abcFormat.ABCHandler.barlineTokenFilter('hi')\n[<music21.abcFormat.ABCBar 'hi'>]",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCHandler.",
+        "type": "Title"
+    },
+    {
+        "text": "definesMeasures",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if this token structure defines Measures in a normal Measure form.\nOtherwise False\n>>> abcStr = ('M:6/8\\nL:1/8\\nK:G\\nV:1 name=\"Whistle\" ' +\n...     'snm=\"wh\"\\nB3 A3 | G6 | B3 A3 | G6 ||\\nV:2 name=\"violin\" ' +\n...     'snm=\"v\"\\nBdB AcA | GAG D3 | BdB AcA | GAG D6 ||\\nV:3 name=\"Bass\" ' +\n...     'snm=\"b\" clef=bass\\nD3 D3 | D6 | D3 D3 | D6 ||')\n>>> ah = abcFormat.ABCHandler()\n>>> junk = ah.process(abcStr)\n>>> ah.definesMeasures()\nTrue\n\n\n>>> abcStr = 'M:6/8\\nL:1/8\\nK:G\\nB3 A3 G6 B3 A3 G6'\n>>> ah = abcFormat.ABCHandler()\n>>> junk = ah.process(abcStr)\n>>> ah.definesMeasures()\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCHandler.",
+        "type": "Title"
+    },
+    {
+        "text": "definesReferenceNumbers",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return True if this token structure defines more than 1 reference number,\nusually implying multiple pieces encoded in one file.\n>>> abcStr = 'X:5\\nM:6/8\\nL:1/8\\nK:G\\nB3 A3 | G6 | B3 A3 | G6 ||'\n>>> ah = abcFormat.ABCHandler()\n>>> junk = ah.process(abcStr)\n>>> ah.definesReferenceNumbers()  # only one returns False\nFalse\n\n\n>>> abcStr = 'X:5\\nM:6/8\\nL:1/8\\nK:G\\nB3 A3 | G6 | B3 A3 | G6 ||\\n'\n>>> abcStr += 'X:6\\nM:6/8\\nL:1/8\\nK:G\\nB3 A3 | G6 | B3 A3 | G6 ||'\n>>> ah = abcFormat.ABCHandler()\n>>> junk = ah.process(abcStr)\n\n\nThere are two tokens, so this returns True\n>>> ah.definesReferenceNumbers()\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCHandler.",
+        "type": "Title"
+    },
+    {
+        "text": "getReferenceNumber",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "If tokens are processed, get the first\nreference number defined.\n>>> abcStr = 'X:5\\nM:6/8\\nL:1/8\\nK:G\\nB3 A3 | G6 | B3 A3 | G6 ||'\n>>> ah = abcFormat.ABCHandler()\n>>> junk = ah.process(abcStr)\n>>> ah.getReferenceNumber()\n'5'",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCHandler.",
+        "type": "Title"
+    },
+    {
+        "text": "getTitle",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 str | None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get the first title tag. Used for testing.\nRequires tokens to have been processed.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCHandler.",
+        "type": "Title"
+    },
+    {
+        "text": "hasNotes",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "If tokens are processed, return True if ABCNote or\nABCChord classes are defined\n>>> abcStr = 'M:6/8\\nL:1/8\\nK:G\\n'\n>>> ah1 = abcFormat.ABCHandler()\n>>> junk = ah1.process(abcStr)\n>>> ah1.hasNotes()\nFalse\n\n\n>>> abcStr = 'M:6/8\\nL:1/8\\nK:G\\nc1D2'\n>>> ah2 = abcFormat.ABCHandler()\n>>> junk = ah2.process(abcStr)\n>>> ah2.hasNotes()\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCHandler.",
+        "type": "Title"
+    },
+    {
+        "text": "parseHeaderForVersionInformation",
+        "type": "Title"
+    },
+    {
+        "text": "inputSearch",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Search a line of text for a comment abc version number\n>>> ah = abcFormat.ABCHandler()\n>>> ah.abcVersion\n(1, 3, 0)\n\n\n>>> ah.parseHeaderForVersionInformation('%abc-2.3.2')\n>>> ah.abcVersion\n(2, 3, 2)\n\n\nChanged in v9: abcVersion defaults to (1, 3, 0) as documented.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCHandler.",
+        "type": "Title"
+    },
+    {
+        "text": "process",
+        "type": "Title"
+    },
+    {
+        "text": "strSrc",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCHandler.",
+        "type": "Title"
+    },
+    {
+        "text": "processComment",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Processes the comment at self.pos in self.strSrc, setting self.skipAhead\nand self.abcDirectives for the directiveKey.\n>>> from textwrap import dedent\n>>> ah = abcFormat.ABCHandler()\n>>> data = dedent(\"\"\"\n...    Hello % this is a comment\n...    Bye\n...    \"\"\")\n>>> ah.strSrc = data\n>>> ah.pos = 6\n>>> ah.processComment()\n>>> ah.skipAhead\n19\n>>> len(' this is a comment\\n')\n19\n\n\nDirectives get stored in the handler:\n>>> data = '%%abc-hello world'\n>>> ah = abcFormat.ABCHandler()\n>>> ah.strSrc = data\n>>> ah.pos = 0\n>>> ah.processComment()\n>>> ah.abcDirectives\n{'abc-hello': 'world'}\n>>> ah.abcDirectives['abc-hello']\n'world'\n\n\n\nChanged in v9: version is not parsed by this method.",
+        "type": "ListItem"
+    },
+    {
+        "text": "static",
+        "type": "Title"
+    },
+    {
+        "text": "ABCHandler.",
+        "type": "Title"
+    },
+    {
+        "text": "returnAbcVersionFromMatch",
+        "type": "Title"
+    },
+    {
+        "text": "verMats",
+        "type": "Title"
+    },
+    {
+        "text": "Match",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 tuple[int, int, int]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a match from a regular expression return the parsed ABC version\n>>> import re\n>>> match = re.match('(\\d+).(\\d+).(\\d+)', '2.3.4')\n>>> ah = abcFormat.ABCHandler()\n>>> ah.returnAbcVersionFromMatch(match)\n(2, 3, 4)\n\n\n>>> match = re.match('(\\d+).(\\d+).?(\\d?)', '1.7')\n>>> ah.returnAbcVersionFromMatch(match)\n(1, 7, 0)",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCHandler.",
+        "type": "Title"
+    },
+    {
+        "text": "splitByMeasure",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 list[music21.abcFormat.ABCHandlerBar]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Divide a token list by Measures, also\ndefining start and end bars of each Measure.\nIf a component does not have notes, leave\nas an empty bar. This is often done with leading metadata.\nReturns a list of ABCHandlerBar instances.\nThe first usually defines only Metadata\nTODO: Test and examples",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCHandler.",
+        "type": "Title"
+    },
+    {
+        "text": "splitByReferenceNumber",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 dict[int | None, music21.abcFormat.ABCHandler]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Split tokens by reference numbers.\nReturns a dictionary of ABCHandler instances, where the reference number\nis used to access the music. If no reference numbers are defined,\nthe tune is available under the dictionary entry None.\n>>> abcStr = 'X:5\\nM:6/8\\nL:1/8\\nK:G\\nB3 A3 | G6 | B3 A3 | G6 ||'\n>>> abcStr += 'X:6\\nM:6/8\\nL:1/8\\nK:G\\nB3 A3 | G6 | B3 A3 | G6 ||'\n>>> ah = abcFormat.ABCHandler()\n>>> junk = ah.process(abcStr)\n>>> len(ah)\n28\n>>> ahDict = ah.splitByReferenceNumber()\n>>> 5 in ahDict\nTrue\n>>> 6 in ahDict\nTrue\n>>> 7 in ahDict\nFalse\n\n\nEach entry is its own ABCHandler object.\n>>> ahDict[5]\n<music21.abcFormat.ABCHandler object at 0x10b0cf5f8>\n>>> len(ahDict[5].tokens)\n14\n\n\nHeader information (except for comments) should be appended to all pieces.\n>>> from textwrap import dedent\n>>> abcEarly = dedent(\"\"\"X:4\n...    M:6/8\n...    L:1/8\n...    K:F\n...    I:abc-version 1.6\n...    B=3 B3 | G6 | B3 A3 | G6 ||\n...    \"\"\")\n>>> abcStrWHeader = '%abc-2.1\\nO: Irish\\n' + abcEarly + abcStr\n\n\n>>> ah = abcFormat.ABCHandler()\n>>> junk = ah.process(abcStrWHeader)\n>>> len(ah)\n44\n>>> ahDict = ah.splitByReferenceNumber()\n\n\nDid we get the origin header in each score?\n>>> ahDict[5].tokens[0]\n<music21.abcFormat.ABCMetadata 'O: Irish'>\n>>> ahDict[6].tokens[0]\n<music21.abcFormat.ABCMetadata 'O: Irish'>\n\n\nBefore parsing all the tokens should have the 2.1 version:\n>>> ahDict[4].abcVersion\n(2, 1, 0)\n>>> ahDict[5].abcVersion\n(2, 1, 0)\n\n\nAfter parsing, the abcVersion should be set for score 4 and\nrevert for score 5.\n>>> for f in ahDict:\n...    _ = abcFormat.translate.abcToStreamScore(ahDict[f])\n>>> ahDict[4].abcVersion\n(1, 6, 0)\n>>> ahDict[5].abcVersion\n(2, 1, 0)",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCHandler.",
+        "type": "Title"
+    },
+    {
+        "text": "splitByVoice",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 list[music21.abcFormat.ABCHandler]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a processed token list, look for voices. If voices exist,\nsplit into parts: common metadata, then next voice, next voice, etc.\nEach part is returned as a ABCHandler instance.\n>>> abcStr = ('M:6/8\\nL:1/8\\nK:G\\nV:1 name=\"Whistle\" ' +\n...     'snm=\"wh\"\\nB3 A3 | G6 | B3 A3 | G6 ||\\nV:2 name=\"violin\" ' +\n...     'snm=\"v\"\\nBdB AcA | GAG D3 | BdB AcA | GAG D6 ||\\nV:3 name=\"Bass\" ' +\n...     'snm=\"b\" clef=bass\\nD3 D3 | D6 | D3 D3 | D6 ||')\n>>> ah = abcFormat.ABCHandler()\n>>> ah.process(abcStr)\n>>> tokenColls = ah.splitByVoice()\n>>> tokenColls[0]\n<music21.abcFormat.ABCHandler object at 0x...>\n\n\nCommon headers are first\n>>> [token.src for token in tokenColls[0].tokens]\n['M:6/8', 'L:1/8', 'K:G']\n\n\nThen each voice\n>>> [token.src for token in tokenColls[1].tokens]\n['V:1 name=\"Whistle\" snm=\"wh\"',\n 'B3', 'A3', '|', 'G6', '|', 'B3', 'A3', '|', 'G6', '||']\n>>> [token.src for token in tokenColls[2].tokens]\n['V:2 name=\"violin\" snm=\"v\"',\n 'B', 'd', 'B', 'A', 'c', 'A', '|',\n 'G', 'A', 'G', 'D3', '|',\n 'B', 'd', 'B', 'A', 'c', 'A', '|',\n 'G', 'A', 'G', 'D6', '||']\n>>> [token.src for token in tokenColls[3].tokens]\n['V:3 name=\"Bass\" snm=\"b\" clef=bass',\n 'D3', 'D3', '|', 'D6', '|',\n 'D3', 'D3', '|', 'D6', '||']\n\n\nThen later the metadata can be merged at the start of each voice\u2026\n>>> mergedTokens = tokenColls[0] + tokenColls[1]\n>>> mergedTokens\n<music21.abcFormat.ABCHandler object at 0x...>\n>>> [token.src for token in mergedTokens.tokens]\n['M:6/8', 'L:1/8', 'K:G', 'V:1 name=\"Whistle\" snm=\"wh\"',\n 'B3', 'A3', '|', 'G6', '|',\n 'B3', 'A3', '|', 'G6', '||']",
+        "type": "ListItem"
+    },
+    {
+        "text": "static",
+        "type": "Title"
+    },
+    {
+        "text": "ABCHandler.",
+        "type": "Title"
+    },
+    {
+        "text": "startsMetadata",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "cNext",
+        "type": "Title"
+    },
+    {
+        "text": "str | None",
+        "type": "Title"
+    },
+    {
+        "text": "cNextNext",
+        "type": "Title"
+    },
+    {
+        "text": "str | None",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if this context describes the start of a metadata section, like\nA:something\nMetadata: capital letter, with next char as \u0098:' and some following character\n>>> ah = abcFormat.ABCHandler\n>>> ah.startsMetadata('A', ':', 's')\nTrue\n\n\nlowercase w: is a special case for lyric defs\n>>> ah.startsMetadata('w', ':', 's')\nTrue\n\n\nFollowing char must be \u009c:\u009d\n>>> ah.startsMetadata('A', ' ', 's')\nFalse\n\n\nPipe after colon indicates not metadata (bar info).\nFor example need to not misinterpret repeat bars as metadata\ne.g. dAG FED:|2 dAG FGA|\nthis is incorrect, but we can avoid it by\nlooking for a leading pipe and returning False\n>>> ah.startsMetadata('A', ':', '|')\nFalse\n\n\n>>> ah.startsMetadata('A', ':', None)\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCHandler.",
+        "type": "Title"
+    },
+    {
+        "text": "tokenProcess",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Process all token objects. First, calls preParse(), then\ndoes context assignments, then calls parse().",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCHandler.",
+        "type": "Title"
+    },
+    {
+        "text": "tokenize",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "strSrc",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Walk the abc string, creating ABC objects along the way.\nThis may be called separately from process(), in the case\nthat pre-/post-parse processing is not needed.\n>>> abch = abcFormat.ABCHandler()\n>>> abch.tokens\n[]\n>>> abch.tokenize('X: 1')\n>>> abch.tokens\n[<music21.abcFormat.ABCMetadata 'X: 1'>]\n\n\n>>> abch = abcFormat.ABCHandler()\n>>> abch.tokenize('(6f')\n>>> abch.tokens\n[<music21.abcFormat.ABCTuplet '(6'>, <music21.abcFormat.ABCNote 'f'>]\n\n\n>>> abch = abcFormat.ABCHandler()\n>>> abch.tokenize('(6:4f')\n>>> abch.tokens\n[<music21.abcFormat.ABCTuplet '(6:4'>, <music21.abcFormat.ABCNote 'f'>]\n\n\n>>> abch = abcFormat.ABCHandler()\n>>> abch.tokenize('(6:4:2f')\n>>> abch.tokens\n[<music21.abcFormat.ABCTuplet '(6:4:2'>, <music21.abcFormat.ABCNote 'f'>]\n\n\n>>> abch = abcFormat.ABCHandler()\n>>> abch.tokenize('(6::2f')\n>>> abch.tokens\n[<music21.abcFormat.ABCTuplet '(6::2'>, <music21.abcFormat.ABCNote 'f'>]",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCHandler.",
+        "type": "Title"
+    },
+    {
+        "text": "tokensToBarIndices",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 list[int]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a list of indices indicating which tokens in self.tokens are\nbar lines or the last piece of metadata before a note or chord.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCHandlerBar\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.abcFormat.",
+        "type": "Title"
+    },
+    {
+        "text": "ABCHandlerBar",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A Handler specialized for storing bars. All left\nand right bars are collected and assigned to their respective attributes.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCHandlerBar bases",
+        "type": "Title"
+    },
+    {
+        "text": "ABCHandler",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCHandlerBar methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from ABCHandler:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "barlineTokenFilter() definesMeasures() definesReferenceNumbers() getReferenceNumber() getTitle() hasNotes() parseHeaderForVersionInformation() process() processComment() returnAbcVersionFromMatch() splitByMeasure() splitByReferenceNumber() splitByVoice() startsMetadata() tokenProcess() tokenize() tokensToBarIndices()",
+        "type": "Table"
+    },
+    {
+        "text": "ABCAccent\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.abcFormat.",
+        "type": "Title"
+    },
+    {
+        "text": "ABCAccent",
+        "type": "Title"
+    },
+    {
+        "text": "src",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "''",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "ABCAccent tokens \u009cK\u009d precede a note or chord;\nthey are a property of that note/chord.\nThese appear as \u009c>\u009d in the output.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCAccent bases",
+        "type": "Title"
+    },
+    {
+        "text": "ABCToken",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "EqualSlottedObjectMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "SlottedObjectMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCAccent read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "ABCAccent methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from ABCToken:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "parse() preParse() stripComment()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from EqualSlottedObjectMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__()",
+        "type": "Table"
+    },
+    {
+        "text": "ABCBar\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.abcFormat.",
+        "type": "Title"
+    },
+    {
+        "text": "ABCBar",
+        "type": "Title"
+    },
+    {
+        "text": "src",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "An ABCBar token represents a barline, possibly with repeat information.\nCurrently 4.10 Variant",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCBar bases",
+        "type": "Title"
+    },
+    {
+        "text": "ABCToken",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "EqualSlottedObjectMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "SlottedObjectMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCBar read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "ABCBar methods",
+        "type": "Title"
+    },
+    {
+        "text": "ABCBar.",
+        "type": "Title"
+    },
+    {
+        "text": "getBarObject",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bar.Barline | None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a music21 bar object\n>>> ab = abcFormat.ABCBar('|:')\n>>> ab.parse()\n>>> barObject = ab.getBarObject()\n>>> barObject\n <music21.bar.Repeat direction=start>",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCBar.",
+        "type": "Title"
+    },
+    {
+        "text": "isRegular",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return True if this is a regular, single, light bar line.\n>>> ab = abcFormat.ABCBar('|')\n>>> ab.parse()\n>>> ab.isRegular()\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCBar.",
+        "type": "Title"
+    },
+    {
+        "text": "isRepeat",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCBar.",
+        "type": "Title"
+    },
+    {
+        "text": "isRepeatBracket",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 int | Literal[False]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a number if this defines a repeat bracket for an alternate ending\notherwise returns False.\n>>> ab = abcFormat.ABCBar('[2')\n>>> ab.parse()\n>>> ab.isRepeat()\nFalse\n>>> ab.isRepeatBracket()\n2",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCBar.",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Assign the bar-type based on the source string.\n>>> ab = abcFormat.ABCBar('|')\n>>> ab.parse()\n>>> ab\n<music21.abcFormat.ABCBar '|'>\n\n\n>>> ab.barType\n'barline'\n>>> ab.barStyle\n'regular'\n\n\n>>> ab = abcFormat.ABCBar('||')\n>>> ab.parse()\n>>> ab.barType\n'barline'\n>>> ab.barStyle\n'light-light'\n\n\n>>> ab = abcFormat.ABCBar('|:')\n>>> ab.parse()\n>>> ab.barType\n'repeat'\n>>> ab.barStyle\n'heavy-light'\n>>> ab.repeatForm\n'start'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from ABCToken:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "preParse() stripComment()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from EqualSlottedObjectMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__()",
+        "type": "Table"
+    },
+    {
+        "text": "ABCBrokenRhythmMarker\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.abcFormat.",
+        "type": "Title"
+    },
+    {
+        "text": "ABCBrokenRhythmMarker",
+        "type": "Title"
+    },
+    {
+        "text": "src",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "''",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Marks that rhythm is broken with \u0098>>>'",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCBrokenRhythmMarker bases",
+        "type": "Title"
+    },
+    {
+        "text": "ABCToken",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "EqualSlottedObjectMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "SlottedObjectMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCBrokenRhythmMarker read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "ABCBrokenRhythmMarker methods",
+        "type": "Title"
+    },
+    {
+        "text": "ABCBrokenRhythmMarker.",
+        "type": "Title"
+    },
+    {
+        "text": "preParse",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Called before context adjustments: need to have access to data\n>>> brokenRhythm = abcFormat.ABCBrokenRhythmMarker('>>>')\n>>> brokenRhythm.preParse()\n>>> brokenRhythm.data\n'>>>'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from ABCToken:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "parse() stripComment()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from EqualSlottedObjectMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__()",
+        "type": "Table"
+    },
+    {
+        "text": "ABCChord\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.abcFormat.",
+        "type": "Title"
+    },
+    {
+        "text": "ABCChord",
+        "type": "Title"
+    },
+    {
+        "text": "src",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "''",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A representation of an ABC Chord, which contains within its delimiters individual notes.\nA subclass of ABCNote.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCChord bases",
+        "type": "Title"
+    },
+    {
+        "text": "ABCNote",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCToken",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "EqualSlottedObjectMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "SlottedObjectMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCChord read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "ABCChord methods",
+        "type": "Title"
+    },
+    {
+        "text": "ABCChord.",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "forceKeySignature",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "forceDefaultQuarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Handles the following types of chords:\n\nChord without length modifier: [ceg]\nChords with outer length modifier: [ceg]2, [ceg]/2\nChords with inner length modifier: [c2e2g2], [c2eg]\nChords with inner and outer length modifier: [c2e2g2]/2, [c/2e/2g/2]2",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from ABCNote:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "getPitchName() getQuarterLength()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ABCToken:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "preParse() stripComment()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from EqualSlottedObjectMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__()",
+        "type": "Table"
+    },
+    {
+        "text": "ABCCrescStart\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.abcFormat.",
+        "type": "Title"
+    },
+    {
+        "text": "ABCCrescStart",
+        "type": "Title"
+    },
+    {
+        "text": "src",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "''",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "ABCCrescStart tokens always precede the notes in a crescendo.\nThese tokens coincide with the string \u009c!crescendo(\u009c;\nthe closing string \u009c!crescendo)\u009d counts as an ABCParenStop.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCCrescStart bases",
+        "type": "Title"
+    },
+    {
+        "text": "ABCToken",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "EqualSlottedObjectMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "SlottedObjectMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCCrescStart read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "ABCCrescStart methods",
+        "type": "Title"
+    },
+    {
+        "text": "ABCCrescStart.",
+        "type": "Title"
+    },
+    {
+        "text": "fillCresc",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from ABCToken:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "parse() preParse() stripComment()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from EqualSlottedObjectMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__()",
+        "type": "Table"
+    },
+    {
+        "text": "ABCDimStart\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.abcFormat.",
+        "type": "Title"
+    },
+    {
+        "text": "ABCDimStart",
+        "type": "Title"
+    },
+    {
+        "text": "src",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "''",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "ABCDimStart tokens always precede the notes in a diminuendo.\nThey function identically to ABCCrescStart tokens.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCDimStart bases",
+        "type": "Title"
+    },
+    {
+        "text": "ABCToken",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "EqualSlottedObjectMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "SlottedObjectMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCDimStart read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "ABCDimStart methods",
+        "type": "Title"
+    },
+    {
+        "text": "ABCDimStart.",
+        "type": "Title"
+    },
+    {
+        "text": "fillDim",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from ABCToken:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "parse() preParse() stripComment()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from EqualSlottedObjectMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__()",
+        "type": "Table"
+    },
+    {
+        "text": "ABCDownbow\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.abcFormat.",
+        "type": "Title"
+    },
+    {
+        "text": "ABCDownbow",
+        "type": "Title"
+    },
+    {
+        "text": "src",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "''",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "ABCDownbow tokens \u009cv\u009d precede a note or chord;\nthey are a property of that note/chord.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCDownbow bases",
+        "type": "Title"
+    },
+    {
+        "text": "ABCToken",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "EqualSlottedObjectMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "SlottedObjectMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCDownbow read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "ABCDownbow methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from ABCToken:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "parse() preParse() stripComment()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from EqualSlottedObjectMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__()",
+        "type": "Table"
+    },
+    {
+        "text": "ABCGraceStart\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.abcFormat.",
+        "type": "Title"
+    },
+    {
+        "text": "ABCGraceStart",
+        "type": "Title"
+    },
+    {
+        "text": "src",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "''",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Grace note start",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCGraceStart bases",
+        "type": "Title"
+    },
+    {
+        "text": "ABCToken",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "EqualSlottedObjectMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "SlottedObjectMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCGraceStart read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "ABCGraceStart methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from ABCToken:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "parse() preParse() stripComment()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from EqualSlottedObjectMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__()",
+        "type": "Table"
+    },
+    {
+        "text": "ABCGraceStop\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.abcFormat.",
+        "type": "Title"
+    },
+    {
+        "text": "ABCGraceStop",
+        "type": "Title"
+    },
+    {
+        "text": "src",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "''",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Grace note end",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCGraceStop bases",
+        "type": "Title"
+    },
+    {
+        "text": "ABCToken",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "EqualSlottedObjectMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "SlottedObjectMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCGraceStop read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "ABCGraceStop methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from ABCToken:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "parse() preParse() stripComment()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from EqualSlottedObjectMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__()",
+        "type": "Table"
+    },
+    {
+        "text": "ABCMetadata\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.abcFormat.",
+        "type": "Title"
+    },
+    {
+        "text": "ABCMetadata",
+        "type": "Title"
+    },
+    {
+        "text": "src",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "''",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Defines a token of metadata in ABC.\n>>> md = abcFormat.ABCMetadata('I:linebreak')\n>>> md.src\n'I:linebreak'\n\n\nHas two attributes, tag and data which are strings.\nInitially both are set to \u0098':\n>>> md.tag\n''\n\n\nAfter calling preParse(), these are separated:\n>>> md.preParse()\n>>> md.tag\n'I'\n>>> md.data\n'linebreak'",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCMetadata bases",
+        "type": "Title"
+    },
+    {
+        "text": "ABCToken",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "EqualSlottedObjectMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "SlottedObjectMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCMetadata read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "ABCMetadata methods",
+        "type": "Title"
+    },
+    {
+        "text": "ABCMetadata.",
+        "type": "Title"
+    },
+    {
+        "text": "getClefObject",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 tuple[clef.Clef | None, int | None]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Extract any clef parameters stored in the key metadata token.\nAssume that a clef definition suggests a transposition.\nReturn both the Clef and the transposition.\nReturns a two-element tuple of clefObj and transposition in semitones\n>>> am = abcFormat.ABCMetadata('K:Eb Lydian bass')\n>>> am.preParse()\n>>> am.getClefObject()\n(<music21.clef.BassClef>, -24)",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCMetadata.",
+        "type": "Title"
+    },
+    {
+        "text": "getDefaultQuarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 float",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "If there is a quarter length representation available, return it as a floating point value\n>>> am = abcFormat.ABCMetadata('L:1/2')\n>>> am.preParse()\n>>> am.getDefaultQuarterLength()\n2.0\n\n\n>>> am = abcFormat.ABCMetadata('L:1/8')\n>>> am.preParse()\n>>> am.getDefaultQuarterLength()\n0.5\n\n\n>>> am = abcFormat.ABCMetadata('M:C|')\n>>> am.preParse()\n>>> am.getDefaultQuarterLength()\n0.5\n\n\nIf taking from meter, find the \u009cfraction\u009d and if < 0.75 use sixteenth notes.\nIf >= 0.75 use eighth notes.\n>>> am = abcFormat.ABCMetadata('M:2/4')\n>>> am.preParse()\n>>> am.getDefaultQuarterLength()\n0.25\n\n\n>>> am = abcFormat.ABCMetadata('M:3/4')\n>>> am.preParse()\n>>> am.getDefaultQuarterLength()\n0.5\n\n\n>>> am = abcFormat.ABCMetadata('M:6/8')\n>>> am.preParse()\n>>> am.getDefaultQuarterLength()\n0.5\n\n\nMeter is only used for default length if there is no L:\n>>> x = 'L:1/4\\nM:3/4\\n\\nf'\n>>> sc = converter.parse(x, format='abc')\n>>> sc.recurse().notes.first().duration.type\n'quarter'",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCMetadata.",
+        "type": "Title"
+    },
+    {
+        "text": "getKeySignatureObject",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 t.Union[key.Key, key.KeySignature, None]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a music21 KeySignature or Key\nobject for this metadata tag.\n>>> am = abcFormat.ABCMetadata('K:G')\n>>> am.preParse()\n>>> ks = am.getKeySignatureObject()\n>>> ks\n<music21.key.Key of G major>\n\n\n>>> am = abcFormat.ABCMetadata('K:Gmin')\n>>> am.preParse()\n>>> ks = am.getKeySignatureObject()\n>>> ks\n<music21.key.Key of g minor>\n>>> ks.sharps\n-2\n\n\nNote that capitalization does not matter\n(http://abcnotation.com/wiki/abc:standard:v2.1#kkey)\nso this should still be minor.\n>>> am = abcFormat.ABCMetadata('K:GM')\n>>> am.preParse()\n>>> ks = am.getKeySignatureObject()\n>>> ks\n<music21.key.Key of g minor>",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCMetadata.",
+        "type": "Title"
+    },
+    {
+        "text": "getKeySignatureParameters",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 tuple[int, str | None]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Extract key signature parameters,\nreturning the number of sharps and the mode.\n>>> am = abcFormat.ABCMetadata('K:Eb Lydian')\n>>> am.preParse()\n>>> am.getKeySignatureParameters()\n(-2, 'lydian')\n\n\n>>> am = abcFormat.ABCMetadata('K:APhry')\n>>> am.preParse()\n>>> am.getKeySignatureParameters()\n(-1, 'phrygian')\n\n\n>>> am = abcFormat.ABCMetadata('K:G Mixolydian')\n>>> am.preParse()\n>>> am.getKeySignatureParameters()\n(0, 'mixolydian')\n\n\n>>> am = abcFormat.ABCMetadata('K: Edor')\n>>> am.preParse()\n>>> am.getKeySignatureParameters()\n(2, 'dorian')\n\n\n>>> am = abcFormat.ABCMetadata('K: F')\n>>> am.preParse()\n>>> am.getKeySignatureParameters()\n(-1, 'major')\n\n\n>>> am = abcFormat.ABCMetadata('K:G')\n>>> am.preParse()\n>>> am.getKeySignatureParameters()\n(1, 'major')\n\n\n>>> am = abcFormat.ABCMetadata('K:Gm')\n>>> am.preParse()\n>>> am.getKeySignatureParameters()\n(-2, 'minor')\n\n\n>>> am = abcFormat.ABCMetadata('K:Hp')\n>>> am.preParse()\n>>> am.getKeySignatureParameters()\n(2, None)\n\n\n>>> am = abcFormat.ABCMetadata('K:G ionian')\n>>> am.preParse()\n>>> am.getKeySignatureParameters()\n(1, 'ionian')\n\n\n>>> am = abcFormat.ABCMetadata('K:G aeol')\n>>> am.preParse()\n>>> am.getKeySignatureParameters()\n(-2, 'aeolian')",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCMetadata.",
+        "type": "Title"
+    },
+    {
+        "text": "getMetronomeMarkObject",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 tempo.MetronomeMark | None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Extract any tempo parameters stored in a tempo metadata token.\n>>> am = abcFormat.ABCMetadata('Q: \"Allegro\" 1/4=120')\n>>> am.preParse()\n>>> am.getMetronomeMarkObject()\n<music21.tempo.MetronomeMark Allegro Quarter=120>\n\n\n>>> am = abcFormat.ABCMetadata('Q: 3/8=50 \"Slowly\"')\n>>> am.preParse()\n>>> am.getMetronomeMarkObject()\n<music21.tempo.MetronomeMark Slowly Dotted Quarter=50>\n\n\n>>> am = abcFormat.ABCMetadata('Q:1/2=120')\n>>> am.preParse()\n>>> am.getMetronomeMarkObject()\n<music21.tempo.MetronomeMark animato Half=120>\n\n\n>>> am = abcFormat.ABCMetadata('Q:1/4 3/8 1/4 3/8=40')\n>>> am.preParse()\n>>> am.getMetronomeMarkObject()\n<music21.tempo.MetronomeMark grave Whole tied to Quarter (5 total QL)=40>\n\n\n>>> am = abcFormat.ABCMetadata('Q:90')\n>>> am.preParse()\n>>> am.getMetronomeMarkObject()\n<music21.tempo.MetronomeMark maestoso Quarter=90>",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCMetadata.",
+        "type": "Title"
+    },
+    {
+        "text": "getTimeSignatureObject",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 meter.TimeSignature | None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a music21 TimeSignature\nobject for this metadata tag, if isMeter is True, otherwise raise exception.\n>>> am = abcFormat.ABCMetadata('M:2/2')\n>>> am.preParse()\n>>> ts = am.getTimeSignatureObject()\n>>> ts\n<music21.meter.TimeSignature 2/2>\n\n\n>>> am = abcFormat.ABCMetadata('Q:40')\n>>> am.getTimeSignatureObject()\nTraceback (most recent call last):\nmusic21.abcFormat.ABCTokenException: no time signature associated with\n    this non-metrical metadata.\n\n\n>>> am = abcFormat.ABCMetadata('M:none')\n>>> am.preParse()\n>>> ts = am.getTimeSignatureObject()\n>>> ts is None\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCMetadata.",
+        "type": "Title"
+    },
+    {
+        "text": "getTimeSignatureParameters",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 tuple[int, int, str] | None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "If there is a time signature representation available,\nget a numerator, denominator and an abbreviation symbol.\nTo get a music21 TimeSignature object, use\nthe getTimeSignatureObject() method.\n>>> am = abcFormat.ABCMetadata('M:2/2')\n>>> am.preParse()\n>>> am.isMeter()\nTrue\n>>> am.getTimeSignatureParameters()\n(2, 2, 'normal')\n\n\n>>> am = abcFormat.ABCMetadata('M:C|')\n>>> am.preParse()\n>>> am.getTimeSignatureParameters()\n(2, 2, 'cut')\n\n\n>>> am = abcFormat.ABCMetadata('M: none')\n>>> am.preParse()\n>>> am.getTimeSignatureParameters() is None\nTrue\n\n\n>>> am = abcFormat.ABCMetadata('M: FREI4/4')\n>>> am.preParse()\n>>> am.getTimeSignatureParameters()\n(4, 4, 'normal')",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCMetadata.",
+        "type": "Title"
+    },
+    {
+        "text": "isComposer",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if the tag is \u009cC\u009d for composer, False otherwise.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCMetadata.",
+        "type": "Title"
+    },
+    {
+        "text": "isDefaultNoteLength",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if the tag is \u009cL\u009d, False otherwise.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCMetadata.",
+        "type": "Title"
+    },
+    {
+        "text": "isKey",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if the tag is \u009cK\u009d, False otherwise.\nNote that in some cases a Key will encode clef information.\n(example from corpus: josquin/laDeplorationDeLaMorteDeJohannesOckeghem.abc)",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCMetadata.",
+        "type": "Title"
+    },
+    {
+        "text": "isMeter",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if the tag is \u009cM\u009d for meter, False otherwise.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCMetadata.",
+        "type": "Title"
+    },
+    {
+        "text": "isOrigin",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if the tag is \u009cO\u009d for origin, False otherwise.\nThis value is set in the Metadata localOfComposition of field.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCMetadata.",
+        "type": "Title"
+    },
+    {
+        "text": "isReferenceNumber",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if the tag is \u009cX\u009d, False otherwise.\n>>> x = abcFormat.ABCMetadata('X:5')\n>>> x.preParse()\n>>> x.tag\n'X'\n>>> x.isReferenceNumber()\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCMetadata.",
+        "type": "Title"
+    },
+    {
+        "text": "isTempo",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if the tag is \u009cQ\u009d for tempo, False otherwise.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCMetadata.",
+        "type": "Title"
+    },
+    {
+        "text": "isTitle",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if the tag is \u009cT\u009d for title, False otherwise.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCMetadata.",
+        "type": "Title"
+    },
+    {
+        "text": "isVersion",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if the tag is \u009cI\u009d for \u009cInformation\u009d and\nthe data is \u009cabc-version\u009d, False otherwise.\n>>> x = abcFormat.ABCMetadata('I:abc-version 2.1')\n>>> x.preParse()\n>>> x.tag\n'I'\n>>> x.isVersion()\nTrue\n\n\n>>> deer = abcFormat.ABCMetadata('I:abc-venison yummy')\n>>> deer.preParse()\n>>> deer.tag\n'I'\n>>> deer.isVersion()\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCMetadata.",
+        "type": "Title"
+    },
+    {
+        "text": "isVoice",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if the tag is \u009cV\u009d, False otherwise.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCMetadata.",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Dummy method that reads self.src and loads attributes.\nIt is called after contextual adjustments.\nIt is designed to be subclassed or overridden.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCMetadata.",
+        "type": "Title"
+    },
+    {
+        "text": "preParse",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Called before contextual adjustments and needs\nto have access to data.  Divides a token into\n.tag (a single capital letter or w) and .data representations.\n>>> x = abcFormat.ABCMetadata('T:tagData')\n>>> x.preParse()\n>>> x.tag\n'T'\n>>> x.data\n'tagData'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from ABCToken:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "stripComment()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from EqualSlottedObjectMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__()",
+        "type": "Table"
+    },
+    {
+        "text": "ABCNote\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.abcFormat.",
+        "type": "Title"
+    },
+    {
+        "text": "ABCNote",
+        "type": "Title"
+    },
+    {
+        "text": "src",
+        "type": "Title"
+    },
+    {
+        "text": "''",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "carriedAccidental",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "''",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A model of an ABCNote.\nGeneral usage requires multi-pass processing. After being tokenized,\neach ABCNote needs a number of attributes updates. Attributes to\nbe updated after tokenizing, and based on the linear sequence of\ntokens: inBar, inBeam (not used), inGrace,\nactiveDefaultQuarterLength, brokenRhythmMarker, and\nactiveKeySignature.\nThe chordSymbols list stores one or more chord symbols (ABC calls\nthese guitar chords) associated with this note. This attribute is\nupdated when parse() is called.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCNote bases",
+        "type": "Title"
+    },
+    {
+        "text": "ABCToken",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "EqualSlottedObjectMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "SlottedObjectMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCNote read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "ABCNote methods",
+        "type": "Title"
+    },
+    {
+        "text": "ABCNote.",
+        "type": "Title"
+    },
+    {
+        "text": "getPitchName",
+        "type": "Title"
+    },
+    {
+        "text": "strSrc",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "forceKeySignature",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 tuple[str | None, bool | None]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a note or rest string without a chord symbol,\nreturn a music21 pitch string or None (if a rest),\nand the accidental display status. This value is paired\nwith an accidental display status. Pitch alterations, and\naccidental display status, are adjusted if a key is\ndeclared in the Note.\n>>> an = abcFormat.ABCNote()\n>>> an.getPitchName('e2')\n('E5', None)\n>>> an.getPitchName('C')\n('C4', None)\n>>> an.getPitchName('B,,')\n('B2', None)\n>>> an.getPitchName('C,')\n('C3', None)\n>>> an.getPitchName('c')\n('C5', None)\n>>> an.getPitchName(\"c'\")\n('C6', None)\n>>> an.getPitchName(\"c''\")\n('C7', None)\n>>> an.getPitchName(\"^g\")\n('G#5', True)\n>>> an.getPitchName(\"_g''\")\n('G-7', True)\n>>> an.getPitchName('=c')\n('Cn5', True)\n\n\nIf pitch is a rest (z) then the Pitch name is None:\n>>> an.getPitchName('z4')\n(None, None)\n\n\nGrace note:\n>>> an.getPitchName('{c}')\n('C5', None)\n\n\nGiven an active KeySignature object, the pitch name might\nchange:\n>>> an.activeKeySignature = key.KeySignature(3)\n>>> an.getPitchName('c')\n('C#5', False)\n\n\nIllegal pitch names raise an ABCHandlerException\n>>> an.getPitchName('x')\nTraceback (most recent call last):\nmusic21.abcFormat.ABCHandlerException: cannot find any pitch information in: 'x'",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCNote.",
+        "type": "Title"
+    },
+    {
+        "text": "getQuarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "strSrc",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "forceDefaultQuarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "float | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 float",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Called with parse(), after context processing, to calculate duration\n>>> an = abcFormat.ABCNote()\n>>> an.activeDefaultQuarterLength = 0.5\n>>> an.getQuarterLength('e2')\n1.0\n>>> an.getQuarterLength('G')\n0.5\n>>> an.getQuarterLength('=c/2')\n0.25\n>>> an.getQuarterLength('A3/2')\n0.75\n>>> an.getQuarterLength('A/')\n0.25\n\n\n>>> an.getQuarterLength('A//')\n0.125\n>>> an.getQuarterLength('A///')\n0.0625\n\n\n>>> an = abcFormat.ABCNote()\n>>> an.activeDefaultQuarterLength = 0.5\n>>> an.brokenRhythmMarker = ('>', 'left')\n>>> an.getQuarterLength('A')\n0.75\n>>> an.brokenRhythmMarker = ('>', 'right')\n>>> an.getQuarterLength('A')\n0.25\n\n\n>>> an.brokenRhythmMarker = ('<<', 'left')\n>>> an.getQuarterLength('A')\n0.125\n>>> an.brokenRhythmMarker = ('<<', 'right')\n>>> an.getQuarterLength('A')\n0.875\n\n\n>>> an.brokenRhythmMarker = ('<<<', 'left')\n>>> an.getQuarterLength('A')\n0.0625\n>>> an.brokenRhythmMarker = ('<<<', 'right')\n>>> an.getQuarterLength('A')\n0.9375\n\n\n>>> an.getQuarterLength('A', forceDefaultQuarterLength=1.0)\n1.875",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCNote.",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "forceDefaultQuarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "float | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "forceKeySignature",
+        "type": "Title"
+    },
+    {
+        "text": "key.KeySignature | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Dummy method that reads self.src and loads attributes.\nIt is called after contextual adjustments.\nIt is designed to be subclassed or overridden.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from ABCToken:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "preParse() stripComment()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from EqualSlottedObjectMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__()",
+        "type": "Table"
+    },
+    {
+        "text": "ABCParenStop\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.abcFormat.",
+        "type": "Title"
+    },
+    {
+        "text": "ABCParenStop",
+        "type": "Title"
+    },
+    {
+        "text": "src",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "''",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A general parenthesis stop;\ncomes at the end of a tuplet, slur, or dynamic marking.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCParenStop bases",
+        "type": "Title"
+    },
+    {
+        "text": "ABCToken",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "EqualSlottedObjectMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "SlottedObjectMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCParenStop read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "ABCParenStop methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from ABCToken:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "parse() preParse() stripComment()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from EqualSlottedObjectMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__()",
+        "type": "Table"
+    },
+    {
+        "text": "ABCSlurStart\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.abcFormat.",
+        "type": "Title"
+    },
+    {
+        "text": "ABCSlurStart",
+        "type": "Title"
+    },
+    {
+        "text": "src",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "''",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "ABCSlurStart tokens always precede the notes in a slur.\nFor nested slurs, each open parenthesis gets its own token.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCSlurStart bases",
+        "type": "Title"
+    },
+    {
+        "text": "ABCToken",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "EqualSlottedObjectMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "SlottedObjectMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCSlurStart read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "ABCSlurStart methods",
+        "type": "Title"
+    },
+    {
+        "text": "ABCSlurStart.",
+        "type": "Title"
+    },
+    {
+        "text": "fillSlur",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Creates a spanner object for each open paren associated with a slur;\nthese slurs are filled with notes until end parens are read.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from ABCToken:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "parse() preParse() stripComment()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from EqualSlottedObjectMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__()",
+        "type": "Table"
+    },
+    {
+        "text": "ABCStaccato\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.abcFormat.",
+        "type": "Title"
+    },
+    {
+        "text": "ABCStaccato",
+        "type": "Title"
+    },
+    {
+        "text": "src",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "''",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "ABCStaccato tokens \u009c.\u009d precede a note or chord;\nthey are a property of that note/chord.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCStaccato bases",
+        "type": "Title"
+    },
+    {
+        "text": "ABCToken",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "EqualSlottedObjectMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "SlottedObjectMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCStaccato read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "ABCStaccato methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from ABCToken:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "parse() preParse() stripComment()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from EqualSlottedObjectMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__()",
+        "type": "Table"
+    },
+    {
+        "text": "ABCStraccent\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.abcFormat.",
+        "type": "Title"
+    },
+    {
+        "text": "ABCStraccent",
+        "type": "Title"
+    },
+    {
+        "text": "src",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "''",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "ABCStraccent tokens \u009ck\u009d precede a note or chord;\nthey are a property of that note/chord.\nThese appear as \u009c^\u009d in the output.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCStraccent bases",
+        "type": "Title"
+    },
+    {
+        "text": "ABCToken",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "EqualSlottedObjectMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "SlottedObjectMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCStraccent read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "ABCStraccent methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from ABCToken:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "parse() preParse() stripComment()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from EqualSlottedObjectMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__()",
+        "type": "Table"
+    },
+    {
+        "text": "ABCTenuto\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.abcFormat.",
+        "type": "Title"
+    },
+    {
+        "text": "ABCTenuto",
+        "type": "Title"
+    },
+    {
+        "text": "src",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "''",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "ABCTenuto tokens \u009cM\u009d precede a note or chord;\nthey are a property of that note/chord.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCTenuto bases",
+        "type": "Title"
+    },
+    {
+        "text": "ABCToken",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "EqualSlottedObjectMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "SlottedObjectMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCTenuto read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "ABCTenuto methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from ABCToken:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "parse() preParse() stripComment()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from EqualSlottedObjectMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__()",
+        "type": "Table"
+    },
+    {
+        "text": "ABCTie\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.abcFormat.",
+        "type": "Title"
+    },
+    {
+        "text": "ABCTie",
+        "type": "Title"
+    },
+    {
+        "text": "src",
+        "type": "Title"
+    },
+    {
+        "text": "''",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Handles instances of ties \u0098-' between notes in an ABC score.\nTies are treated as an attribute of the note before the \u0098-\u0098;\nthe note after is marked as the end of the tie.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCTie bases",
+        "type": "Title"
+    },
+    {
+        "text": "ABCToken",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "EqualSlottedObjectMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "SlottedObjectMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCTie read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "ABCTie methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from ABCToken:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "parse() preParse() stripComment()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from EqualSlottedObjectMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__()",
+        "type": "Table"
+    },
+    {
+        "text": "ABCToken\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.abcFormat.",
+        "type": "Title"
+    },
+    {
+        "text": "ABCToken",
+        "type": "Title"
+    },
+    {
+        "text": "src",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "''",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "ABC processing works with a multi-pass procedure. The first pass\nbreaks the data stream into a list of ABCToken objects. ABCToken\nobjects are specialized in subclasses.\nThe multi-pass procedure is conducted by an ABCHandler object.\nThe ABCHandler.tokenize() method breaks the data stream into\nABCToken objects. The tokenProcess() method first\ncalls the preParse() method on each token,\nthen does contextual\nadjustments to all tokens, then calls parse() on all tokens.\nThe source ABC string itself is stored in self.src.\nBecause of how copying ABCTokens works, all tokens must have default parameters in their\ninitializers",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCToken bases",
+        "type": "Title"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "EqualSlottedObjectMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "SlottedObjectMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCToken read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "ABCToken methods",
+        "type": "Title"
+    },
+    {
+        "text": "ABCToken.",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Dummy method that reads self.src and loads attributes.\nIt is called after contextual adjustments.\nIt is designed to be subclassed or overridden.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCToken.",
+        "type": "Title"
+    },
+    {
+        "text": "preParse",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Dummy method that is called before contextual adjustments.\nDesigned to be subclassed or overridden.",
+        "type": "ListItem"
+    },
+    {
+        "text": "static",
+        "type": "Title"
+    },
+    {
+        "text": "ABCToken.",
+        "type": "Title"
+    },
+    {
+        "text": "stripComment",
+        "type": "Title"
+    },
+    {
+        "text": "strSrc",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 str",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "removes ABC-style comments from a string:\n>>> ao = abcFormat.ABCToken()\n>>> ao.stripComment('asdf')\n'asdf'\n>>> ao.stripComment('asdf%234')\n'asdf'\n>>> ao.stripComment('asdf  %     234')\n'asdf  '\n>>> ao.stripComment('[ceg]% this chord appears 50% more often than other chords do')\n'[ceg]'\n\n\nThis is a static method, so it can also be called on the class itself:\n>>> abcFormat.ABCToken.stripComment('b1 % a b-flat actually')\n'b1 '\n\n\n\nChanged in v6.2: made a staticmethod",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from EqualSlottedObjectMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__()",
+        "type": "Table"
+    },
+    {
+        "text": "ABCTuplet\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.abcFormat.",
+        "type": "Title"
+    },
+    {
+        "text": "ABCTuplet",
+        "type": "Title"
+    },
+    {
+        "text": "src",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "''",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "ABCTuplet tokens always precede the notes they describe.\nIn ABCHandler.tokenProcess(), rhythms are adjusted.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCTuplet bases",
+        "type": "Title"
+    },
+    {
+        "text": "ABCToken",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "EqualSlottedObjectMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "SlottedObjectMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCTuplet read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "ABCTuplet methods",
+        "type": "Title"
+    },
+    {
+        "text": "ABCTuplet.",
+        "type": "Title"
+    },
+    {
+        "text": "updateNoteCount",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Update the note count of notes that are\naffected by this tuplet. Can be set by p:q:r style tuplets.\nAlso creates a tuplet object.\n>>> at = abcFormat.ABCTuplet('(6')\n>>> at.updateRatio()\n>>> at.updateNoteCount()\n>>> at.noteCount\n6\n>>> at.tupletObj\n<music21.duration.Tuplet 6/2>\n\n\n>>> at = abcFormat.ABCTuplet('(6:4:12')\n>>> at.updateRatio()\n>>> at.updateNoteCount()\n>>> at.noteCount\n12\n>>> at.tupletObj\n<music21.duration.Tuplet 6/4>\n\n\n>>> at = abcFormat.ABCTuplet('(6::18')\n>>> at.updateRatio()\n>>> at.updateNoteCount()\n>>> at.noteCount\n18",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCTuplet.",
+        "type": "Title"
+    },
+    {
+        "text": "updateRatio",
+        "type": "Title"
+    },
+    {
+        "text": "timeSignatureObj",
+        "type": "Title"
+    },
+    {
+        "text": "meter.TimeSignature | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Cannot be called until local meter context\nis established.\n>>> at = abcFormat.ABCTuplet('(3')\n>>> at.updateRatio()\n>>> at.numberNotesActual, at.numberNotesNormal\n(3, 2)\n\n\nGenerally a 5:n tuplet is 5 in the place of 2.\n>>> at = abcFormat.ABCTuplet('(5')\n>>> at.updateRatio()\n>>> at.numberNotesActual, at.numberNotesNormal\n(5, 2)\n\n\nUnless it's in a meter.TimeSignature compound (triple) context:\n>>> at = abcFormat.ABCTuplet('(5')\n>>> at.updateRatio(meter.TimeSignature('6/8'))\n>>> at.numberNotesActual, at.numberNotesNormal\n(5, 3)\n\n\nSix is 6:2, not 6:4!\n>>> at = abcFormat.ABCTuplet('(6')\n>>> at.updateRatio()\n>>> at.numberNotesActual, at.numberNotesNormal\n(6, 2)\n\n\n>>> at = abcFormat.ABCTuplet('(6:4')\n>>> at.updateRatio()\n>>> at.numberNotesActual, at.numberNotesNormal\n(6, 4)\n\n\n>>> at = abcFormat.ABCTuplet('(6::6')\n>>> at.updateRatio()\n>>> at.numberNotesActual, at.numberNotesNormal\n(6, 2)\n\n\n2 is 2 in 3\u2026\n>>> at = abcFormat.ABCTuplet('(2')\n>>> at.updateRatio()\n>>> at.numberNotesActual, at.numberNotesNormal\n(2, 3)\n\n\nSome other types:\n>>> for n in 1, 2, 3, 4, 5, 6, 7, 8, 9:\n...     at = abcFormat.ABCTuplet(f'({n}')\n...     at.updateRatio()\n...     print(at.numberNotesActual, at.numberNotesNormal)\n1 1\n2 3\n3 2\n4 3\n5 2\n6 2\n7 2\n8 3\n9 2\n\n\nTuplets > 9 raise an exception:\n>>> at = abcFormat.ABCTuplet('(10')\n>>> at.updateRatio()\nTraceback (most recent call last):\nmusic21.abcFormat.ABCTokenException: cannot handle tuplet of form: '(10'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from ABCToken:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "parse() preParse() stripComment()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from EqualSlottedObjectMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__()",
+        "type": "Table"
+    },
+    {
+        "text": "ABCUpbow\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.abcFormat.",
+        "type": "Title"
+    },
+    {
+        "text": "ABCUpbow",
+        "type": "Title"
+    },
+    {
+        "text": "src",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "''",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "ABCUpbow tokens \u009cu\u009d precede a note or chord;\nthey are a property of that note/chord.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCUpbow bases",
+        "type": "Title"
+    },
+    {
+        "text": "ABCToken",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "EqualSlottedObjectMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "SlottedObjectMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "ABCUpbow read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "ABCUpbow methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from ABCToken:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "parse() preParse() stripComment()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from EqualSlottedObjectMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__()",
+        "type": "Table"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.abcFormat.",
+        "type": "Title"
+    },
+    {
+        "text": "mergeLeadingMetaData",
+        "type": "Title"
+    },
+    {
+        "text": "barHandlers",
+        "type": "Title"
+    },
+    {
+        "text": "list[music21.abcFormat.ABCHandlerBar]",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 list[music21.abcFormat.ABCHandlerBar]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a list of ABCHandlerBar objects, return a list of ABCHandlerBar\nobjects where leading metadata is merged, if possible,\nwith the bar data following.\nThis consolidates all metadata in bar-like entities.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.abcFormat",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

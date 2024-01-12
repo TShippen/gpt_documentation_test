@@ -1,0 +1,2322 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.pitch",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.percussion",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.prebase",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.pitch\nPitch\nPitch\nPitch.alter\nPitch.french\nPitch.fullName\nPitch.german\nPitch.implicitOctave\nPitch.italian\nPitch.spanish\nPitch.unicodeName\nPitch.unicodeNameWithOctave\nPitch.accidental\nPitch.diatonicNoteNum\nPitch.freq440\nPitch.frequency\nPitch.groups\nPitch.microtone\nPitch.midi\nPitch.name\nPitch.nameWithOctave\nPitch.octave\nPitch.pitchClass\nPitch.pitchClassString\nPitch.ps\nPitch.step\nPitch.__eq__()\nPitch.convertMicrotonesToQuarterTones()\nPitch.convertQuarterTonesToMicrotones()\nPitch.getAllCommonEnharmonics()\nPitch.getCentShiftFromMidi()\nPitch.getEnharmonic()\nPitch.getHarmonic()\nPitch.getHigherEnharmonic()\nPitch.getLowerEnharmonic()\nPitch.getStringHarmonic()\nPitch.harmonicAndFundamentalFromPitch()\nPitch.harmonicAndFundamentalStringFromPitch()\nPitch.harmonicFromFundamental()\nPitch.harmonicString()\nPitch.informClient()\nPitch.isEnharmonic()\nPitch.isTwelveTone()\nPitch.simplifyEnharmonic()\nPitch.transpose()\nPitch.transposeAboveTarget()\nPitch.transposeBelowTarget()\nPitch.updateAccidentalDisplay()\nPitch.spellingIsInferred\n\n\n\n\nAccidental\nAccidental\nAccidental.fullName\nAccidental.unicode\nAccidental.alter\nAccidental.displayStatus\nAccidental.displayType\nAccidental.modifier\nAccidental.name\nAccidental.__eq__()\nAccidental.inheritDisplay()\nAccidental.isTwelveTone()\nAccidental.listNames()\nAccidental.set()\nAccidental.setAttributeIndependently()\nAccidental.displayLocation\nAccidental.displaySize\nAccidental.displayStyle\n\n\n\n\nMicrotone\nMicrotone\nMicrotone.alter\nMicrotone.cents\nMicrotone.harmonicShift\nMicrotone.__eq__()\n\n\n\n\nFunctions\nconvertPitchClassToStr()\nisValidAccidentalName()\nsimplifyMultipleEnharmonics()\nstandardizeAccidentalName()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.pitch\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Classes for representing and manipulating pitches, pitch-space, and accidentals.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Each Note object has a Pitch object embedded in it.\nSome methods below, such as Pitch.name, Pitch.step, etc. are\nmade available directly in the Note object, so they will seem familiar.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Pitch\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.pitch.",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "name",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "float",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "step",
+        "type": "Title"
+    },
+    {
+        "text": "Literal",
+        "type": "Title"
+    },
+    {
+        "text": "'C'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'D'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'E'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'F'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'G'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'A'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'B'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "octave",
+        "type": "Title"
+    },
+    {
+        "text": "int | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "accidental",
+        "type": "Title"
+    },
+    {
+        "text": "Accidental",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "float",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "microtone",
+        "type": "Title"
+    },
+    {
+        "text": "Microtone",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "float",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "pitchClass",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "Literal",
+        "type": "Title"
+    },
+    {
+        "text": "'a'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'A'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'t'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'T'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'b'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'B'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'e'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'E'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "midi",
+        "type": "Title"
+    },
+    {
+        "text": "int | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "ps",
+        "type": "Title"
+    },
+    {
+        "text": "float | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "fundamental",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A fundamental object that represents a single pitch.\nPitch objects are most often created by passing in a note name\n(C, D, E, F, G, A, B), an optional accidental (one or more \u009c#\u009ds or \u009c-\u009cs,\nwhere \u009c-\u009d means flat), and an optional octave number:\n>>> highEflat = pitch.Pitch('E-6')\n>>> highEflat.name\n'E-'\n>>> highEflat.step\n'E'\n>>> highEflat.accidental\n<music21.pitch.Accidental flat>\n>>> highEflat.octave\n6\n\n\nThe .nameWithOctave property gives back what we put in, \u0098E-6':\n>>> highEflat.nameWithOctave\n'E-6'\n\n\nPitch objects represent themselves as the class name followed\nby the .nameWithOctave:\n>>> p1 = pitch.Pitch('a#4')\n>>> p1\n<music21.pitch.Pitch A#4>\n\n\nPrinting a pitch.Pitch object or converting it\nto a string gives a more compact form:\n>>> print(p1)\nA#4\n>>> str(p1)\n'A#4'\n\n\n\nWarning\nA Pitch without an accidental has a .accidental of None,\nnot Natural.  This can lead to problems if you assume that every\nPitch or Note has a .accidental that you can call .alter\nor something like that on:\n>>> c = pitch.Pitch('C4')\n>>> c.accidental is None\nTrue\n\n\n>>> alters = []\n>>> for pName in ['G#5', 'B-5', 'C6']:\n...     p = pitch.Pitch(pName)\n...     alters.append(p.accidental.alter)\nTraceback (most recent call last):\nAttributeError: 'NoneType' object has no attribute 'alter'\n>>> alters\n[1.0, -1.0]\n\n\n\nIf a Pitch doesn't have an associated octave, then its\n.octave value is None.  This means that it represents\nany G#, regardless of octave.  Transposing this note up\nan octave doesn't change anything.\n>>> anyGSharp = pitch.Pitch('G#')\n>>> anyGSharp.octave is None\nTrue\n>>> print(anyGSharp.transpose('P8'))\nG#\n\n\nSometimes we need an octave for a Pitch even if it's not\nspecified.  For instance, we can't play an octave-less Pitch\nin MIDI or display it on a staff.  So there is an .implicitOctave\ntag to deal with these situations; by default it's always 4 (unless\ndefaults.pitchOctave is changed)\n>>> anyGSharp.implicitOctave\n4\n\n\nIf a Pitch has its .octave explicitly set, then .implicitOctave\nalways equals .octave.\n>>> highEflat.implicitOctave\n6\n\n\nIf an integer or float >= 12 is passed to the constructor then it is\nused as the .ps attribute, which is for most common piano notes, the\nsame as a MIDI number:\n>>> pitch.Pitch(65)\n<music21.pitch.Pitch F4>\n\n\n>>> pitch.Pitch(65.5).accidental\n<music21.pitch.Accidental half-sharp>\n\n\nA pitch.Pitch object can also be created using only a number\nfrom 0-11, that number is taken to be a pitchClass, where\n0 = C, 1 = C#/D-, etc. and no octave is set.\n>>> p2 = pitch.Pitch(3)\n>>> p2\n<music21.pitch.Pitch E->\n>>> p2.octave is None\nTrue\n\n\nSince in instantiating pitches from numbers,\npitch.Pitch(3) could be either a D# or an E-flat,\nthis Pitch object has an attribute called .spellingIsInferred that\nis set to True.  That means that when it is transposed or\ndisplayed, other functions or programs should feel free to substitute an\nenharmonically equivalent pitch in its place:\n>>> p2.spellingIsInferred\nTrue\n>>> p1.spellingIsInferred\nFalse\n\n\nAs MIDI numbers < 12 are almost unheard of in actual music,\nthere is unlikely to be confusion between\na pitchClass instantiation and a MIDI number instantiation, but if one must be\nclear, use midi= in the constructor:\n>>> lowE = pitch.Pitch(midi=3)\n>>> lowE.name, lowE.octave\n('E-', -1)\n\n\nInstead of using a single string or integer for creating the object, a succession\nof named keywords can be used instead:\n>>> p3 = pitch.Pitch(name='C', accidental='#', octave=7, microtone=-30)\n>>> p3.fullName\n'C-sharp in octave 7 (-30c)'\n\n\nThe full list of supported keywords are: name, accidental (which\ncan be a string or an Accidental object), octave,\nmicrotone (which can be a number or a Microtone object),\npitchClass (0-11), fundamental (another Pitch object representing the\nfundamental for this harmonic; harmonic is not yet supported, but should be),\nand midi or ps (two ways of specifying nearly the same thing, see below).\nUsing keywords to create Pitch objects is especially important if\nextreme pitches might be found.  For instance, the first Pitch is B-double flat\nin octave 3, not B-flat in octave -3.  The second object creates that low Pitch\nproperly:\n>>> p4 = pitch.Pitch('B--3')\n>>> p4.accidental\n<music21.pitch.Accidental double-flat>\n>>> p4.octave\n3\n\n\n>>> p5 = pitch.Pitch(step='B', accidental='-', octave=-3)\n>>> p5.accidental\n<music21.pitch.Accidental flat>\n>>> p5.octave\n-3\n\n\nInternally, pitches are represented by their\nscale step (self.step), their octave, and their\naccidental. Pitch objects use these three elements to figure out their\npitch space representation (self.ps); altering any\nof the first three changes the pitch space (ps) representation.\nSimilarly, altering the .ps representation\nalters the first three.\n>>> aSharp = pitch.Pitch('A#5')\n>>> aSharp.ps\n82.0\n\n\n>>> aSharp.octave = 4\n>>> aSharp.ps\n70.0\n\n\n>>> aSharp.ps = 60.0\n>>> aSharp.nameWithOctave\n'C4'\n\n\nTwo Pitches are equal if they represent the same\npitch and are spelled the same (enharmonics do not count).\nA Pitch is greater than another Pitch if its .ps is greater than\nthe other.  Thus, C##4 > D-4.\n>>> pitch.Pitch('C#5') == pitch.Pitch('C#5')\nTrue\n>>> pitch.Pitch('C#5') == pitch.Pitch('D-5')\nFalse\n>>> pitch.Pitch('C##5') > pitch.Pitch('D-5')\nTrue\n\n\nA consequence of comparing enharmonics for equality but .ps for comparisons\nis that a Pitch can be neither less than\nnor greater than another Pitch without being equal:\n>>> pitch.Pitch('C#5') == pitch.Pitch('D-5')\nFalse\n>>> pitch.Pitch('C#5') > pitch.Pitch('D-5')\nFalse\n>>> pitch.Pitch('C#5') < pitch.Pitch('D-5')\nFalse\n\n\nTo check for enharmonic equality, use the .ps attribute:\n>>> pitch.Pitch('C#5').ps == pitch.Pitch('D-5').ps\nTrue\n\n\nAdvanced construction of pitch with keywords:\n>>> pitch.Pitch(name='D', accidental=pitch.Accidental('double-flat'))\n<music21.pitch.Pitch D-->\n>>> f = pitch.Pitch(pitchClass=5, octave=4,\n...                 microtone=pitch.Microtone(30), fundamental=pitch.Pitch('B-2'))\n>>> f\n<music21.pitch.Pitch F4(+30c)>\n>>> f.fundamental\n<music21.pitch.Pitch B-2>\n\n\nIf contradictory keyword attributes (like name='E-', accidental='#') are passed in,\nbehavior is not defined, but unlikely to make you happy.\nPitches are ProtoM21Objects, so they retain some attributes there\nsuch as .classes and .groups, but they don't have Duration or Sites objects\nand cannot be put into Streams",
+        "type": "ListItem"
+    },
+    {
+        "text": "Pitch bases",
+        "type": "Title"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "Pitch read-only properties",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Pitch.",
+        "type": "Title"
+    },
+    {
+        "text": "alter",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get the number of half-steps shifted\nby this pitch, such as 1.0 for a sharp, -1.0 for a flat,\n0.0 for a natural, 2.0 for a double sharp,\nand -0.5 for a quarter tone flat.\nThus, the alter value combines the pitch change\nsuggested by the Accidental and the Microtone combined.\n>>> p = pitch.Pitch('g#4')\n>>> p.alter\n1.0\n>>> p.microtone = -25  # in cents\n>>> p.alter\n0.75\n\n\nTo change the alter value, change either the accidental\nor the microtone.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Pitch.",
+        "type": "Title"
+    },
+    {
+        "text": "french",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Read-only attribute. Returns the name\nof a Pitch in the French system\n(where A = la, B = si, B-flat = si b\u00c3\u00a9mol, C-sharp = do di\u00c3\u00a8se, etc.)\n(Microtones and Quarter tones raise an error).  Note that\ndo is used instead of the also acceptable ut.\n>>> print(pitch.Pitch('B-').french)\nsi b\u00c3\u00a9mol\n\n\n>>> print(pitch.Pitch('B').french)\nsi\n\n\n>>> print(pitch.Pitch('E-').french)\nmi b\u00c3\u00a9mol\n\n\n>>> print(pitch.Pitch('C#').french)\ndo di\u00c3\u00a8se\n\n\n>>> print(pitch.Pitch('A--').french)\nla double b\u00c3\u00a9mol\n\n\n>>> p1 = pitch.Pitch('C')\n>>> p1.accidental = pitch.Accidental('half-sharp')\n>>> p1.french\nTraceback (most recent call last):\nmusic21.pitch.PitchException: On ne peut pas utiliser les microtones avec \"french.\"\n    Quelle Dommage!",
+        "type": "ListItem"
+    },
+    {
+        "text": "Pitch.",
+        "type": "Title"
+    },
+    {
+        "text": "fullName",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return the most complete representation of this Pitch,\nproviding name, octave, accidental, and any\nmicrotonal adjustments.\n>>> p = pitch.Pitch('A-3')\n>>> p.microtone = 33.33\n>>> p.fullName\n'A-flat in octave 3 (+33c)'\n\n\n>>> p = pitch.Pitch('A`7')\n>>> p.fullName\n'A-half-flat in octave 7'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Pitch.",
+        "type": "Title"
+    },
+    {
+        "text": "german",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Read-only property. Returns a unicode string of the name\nof a Pitch in the German system\n(where B-flat = B, B = H, etc.)\n(Microtones and Quarter tones raise an error).  Note that\nAses is used instead of the also acceptable Asas.\n>>> print(pitch.Pitch('B-').german)\nB\n>>> print(pitch.Pitch('B').german)\nH\n>>> print(pitch.Pitch('E-').german)\nEs\n>>> print(pitch.Pitch('C#').german)\nCis\n>>> print(pitch.Pitch('A--').german)\nAses\n>>> p1 = pitch.Pitch('C')\n>>> p1.accidental = pitch.Accidental('half-sharp')\n>>> p1.german\nTraceback (most recent call last):\nmusic21.pitch.PitchException:\n    Es geht nicht \"german\" zu benutzen mit Microt...nen.  Schade!\n\n\nNote these rarely used pitches:\n>>> print(pitch.Pitch('B--').german)\nHeses\n>>> print(pitch.Pitch('B#').german)\nHis",
+        "type": "ListItem"
+    },
+    {
+        "text": "Pitch.",
+        "type": "Title"
+    },
+    {
+        "text": "implicitOctave",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns the octave of the Pitch, or defaultOctave if\noctave was never set. To set an octave, use .octave.\nDefault octave is usually 4.\n>>> p = pitch.Pitch('C#')\n>>> p.octave is None\nTrue\n>>> p.implicitOctave\n4\n\n\nCannot be set.  Instead, just change the .octave of the pitch",
+        "type": "ListItem"
+    },
+    {
+        "text": "Pitch.",
+        "type": "Title"
+    },
+    {
+        "text": "italian",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Read-only attribute. Returns the name\nof a Pitch in the Italian system\n(F-sharp is fa diesis, C-flat is do bemolle, etc.)\n(Microtones and Quarter tones raise an error).\n>>> print(pitch.Pitch('B-').italian)\nsi bemolle\n>>> print(pitch.Pitch('B').italian)\nsi\n>>> print(pitch.Pitch('E-9').italian)\nmi bemolle\n>>> print(pitch.Pitch('C#').italian)\ndo diesis\n>>> print(pitch.Pitch('A--4').italian)\nla doppio bemolle\n>>> p1 = pitch.Pitch('C')\n>>> p1.accidental = pitch.Accidental('half-sharp')\n>>> p1.italian\nTraceback (most recent call last):\nmusic21.pitch.PitchException: Non si puo usare `italian` con microtoni\n\n\nNote these rarely used pitches:\n>>> print(pitch.Pitch('E####').italian)\nmi quadruplo diesis\n>>> print(pitch.Pitch('D---').italian)\nre triplo bemolle",
+        "type": "ListItem"
+    },
+    {
+        "text": "Pitch.",
+        "type": "Title"
+    },
+    {
+        "text": "spanish",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Read-only attribute. Returns the name\nof a Pitch in Spanish\n(Microtones and Quarter tones raise an error).\n>>> print(pitch.Pitch('B-').spanish)\nsi bemol\n>>> print(pitch.Pitch('E-').spanish)\nmi bemol\n>>> print(pitch.Pitch('C#').spanish)\ndo sostenido\n>>> print(pitch.Pitch('A--').spanish)\nla doble bemol\n>>> p1 = pitch.Pitch('C')\n>>> p1.accidental = pitch.Accidental('half-sharp')\n>>> p1.spanish\nTraceback (most recent call last):\nmusic21.pitch.PitchException: Unsupported accidental type.\n\n\nNote these rarely used pitches:\n>>> print(pitch.Pitch('B--').spanish)\nsi doble bemol\n>>> print(pitch.Pitch('B#').spanish)\nsi sostenido",
+        "type": "ListItem"
+    },
+    {
+        "text": "Pitch.",
+        "type": "Title"
+    },
+    {
+        "text": "unicodeName",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Name presently returns pitch name and accidental without octave.\n>>> a = pitch.Pitch('G#')\n>>> a.unicodeName\n'G\u00e2\u0099\u00af'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Pitch.",
+        "type": "Title"
+    },
+    {
+        "text": "unicodeNameWithOctave",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return the pitch name with octave with unicode accidental symbols,\nif available.\nRead-only property.\n>>> p = pitch.Pitch('C#4')\n>>> p.unicodeNameWithOctave\n'C\u00e2\u0099\u00af4'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "Pitch read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch.",
+        "type": "Title"
+    },
+    {
+        "text": "accidental",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Stores an optional accidental object contained within the\nPitch object.  This might return None, which is different\nfrom a natural accidental:\n>>> a = pitch.Pitch('E-')\n>>> a.accidental.alter\n-1.0\n>>> a.accidental.modifier\n'-'\n\n\n>>> b = pitch.Pitch('C4')\n>>> b.accidental is None\nTrue\n>>> b.accidental = pitch.Accidental('natural')\n>>> b.accidental is None\nFalse\n>>> b.accidental\n<music21.pitch.Accidental natural>",
+        "type": "ListItem"
+    },
+    {
+        "text": "Pitch.",
+        "type": "Title"
+    },
+    {
+        "text": "diatonicNoteNum",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns (or takes) an integer that uniquely identifies the\ndiatonic version of a note, that is ignoring accidentals.\nThe number returned is the diatonic interval above C0 (the lowest C on\na B\u00c3\u00b6sendorfer Imperial Grand), so G0 = 5, C1 = 8, etc.\nNumbers can be negative for very low notes.\nC4 (middleC) = 29, C#4 = 29, C##4 = 29, D-4 = 30, D4 = 30, etc.\n>>> c = pitch.Pitch('c4')\n>>> c.diatonicNoteNum\n29\n\n\nUnlike MIDI numbers (or .ps), C and C# has the same diatonicNoteNum:\n>>> c = pitch.Pitch('c#4')\n>>> c.diatonicNoteNum\n29\n\n\nBut D-double-flat has a different diatonicNoteNum than C.\n>>> d = pitch.Pitch('d--4')\n>>> d.accidental.name\n'double-flat'\n>>> d.diatonicNoteNum\n30\n\n\n>>> lowC = pitch.Pitch('c1')\n>>> lowC.diatonicNoteNum\n8\n\n\n>>> b = pitch.Pitch()\n>>> b.step = 'B'\n>>> b.octave = -1\n>>> b.diatonicNoteNum\n0\n\n\nAn implicitOctave of 4 is used if octave is not set:\n>>> c = pitch.Pitch('C')\n>>> c.diatonicNoteNum\n29\n\n\ndiatonicNoteNum can also be set.  Changing it\ndoes not change the Accidental associated with the Pitch.\n>>> lowDSharp = pitch.Pitch('C#7')  # start high !!!\n>>> lowDSharp.diatonicNoteNum = 9  # move low\n>>> lowDSharp.octave\n1\n>>> lowDSharp.name\n'D#'\n\n\nNegative diatonicNoteNums are possible,\nin case, like John Luther Adams, you want\nto notate the sounds of sub-sonic Earth rumblings.\n>>> lowLowA = pitch.Pitch('A')\n>>> lowLowA.octave = -1\n>>> lowLowA.diatonicNoteNum\n-1\n\n\n>>> lowLowLowD = pitch.Pitch('D')\n>>> lowLowLowD.octave = -3\n>>> lowLowLowD.diatonicNoteNum\n-19",
+        "type": "ListItem"
+    },
+    {
+        "text": "Pitch.",
+        "type": "Title"
+    },
+    {
+        "text": "freq440",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Gets the frequency of the note as if it's in an equal temperament\ncontext where A4 = 440hz.  The same as .frequency so long\nas no other temperaments are currently being used.\nSince we don't have any other temperament objects at present,\nthis is the same as .frequency always.\n>>> a = pitch.Pitch('A4')\n>>> a.freq440\n440.0",
+        "type": "ListItem"
+    },
+    {
+        "text": "Pitch.",
+        "type": "Title"
+    },
+    {
+        "text": "frequency",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The frequency property gets or sets the frequency of\nthe pitch in hertz.\nIf the frequency has not been overridden, then\nit is computed based on A440Hz and equal temperament\n>>> a = pitch.Pitch()\n>>> a.frequency = 440.0\n>>> a.frequency\n440.0\n>>> a.name\n'A'\n>>> a.octave\n4\n\n\nMicrotones are captured if the frequency doesn't correspond to any standard note.\n>>> a.frequency = 450.0\n>>> a\n<music21.pitch.Pitch A~4(-11c)>",
+        "type": "ListItem"
+    },
+    {
+        "text": "Pitch.",
+        "type": "Title"
+    },
+    {
+        "text": "groups",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Similar to Groups on music21 object, returns or sets a Groups object.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Pitch.",
+        "type": "Title"
+    },
+    {
+        "text": "microtone",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns or sets the microtone object contained within the\nPitch object. Microtones must be supplied in cents.\n>>> p = pitch.Pitch('E-4')\n>>> p.microtone.cents == 0\nTrue\n>>> p.ps\n63.0\n>>> p.microtone = 33  # adjustment in cents\n>>> str(p)\n'E-4(+33c)'\n>>> p.microtone\n<music21.pitch.Microtone (+33c)>\n\n\n>>> (p.name, p.nameWithOctave)  # these representations are unchanged\n('E-', 'E-4')\n>>> p.microtone = '(-12c'  # adjustment in cents\n>>> p\n<music21.pitch.Pitch E-4(-12c)>\n>>> p.microtone = pitch.Microtone(-30)\n>>> p\n<music21.pitch.Pitch E-4(-30c)>",
+        "type": "ListItem"
+    },
+    {
+        "text": "Pitch.",
+        "type": "Title"
+    },
+    {
+        "text": "midi",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get or set a pitch value in MIDI.\nMIDI pitch values are like ps values (pitchSpace) rounded to\nthe nearest integer; while the ps attribute will accommodate floats.\n>>> c = pitch.Pitch('C4')\n>>> c.midi\n60\n>>> c.midi =  23.5\n>>> c.midi\n24\n\n\nNote that like ps (pitchSpace), MIDI notes do not distinguish between\nsharps and flats, etc.\n>>> dSharp = pitch.Pitch('D#4')\n>>> dSharp.midi\n63\n>>> eFlat = pitch.Pitch('E-4')\n>>> eFlat.midi\n63\n\n\nMidi values are constrained to the space 0-127.  Higher or lower\nvalues will be transposed octaves to fit in this space.\n>>> veryHighFHalfFlat = pitch.Pitch('F')\n>>> veryHighFHalfFlat.octave = 12\n>>> veryHighFHalfFlat.accidental = pitch.Accidental('half-flat')\n>>> veryHighFHalfFlat\n<music21.pitch.Pitch F`12>\n>>> veryHighFHalfFlat.ps\n160.5\n>>> veryHighFHalfFlat.midi\n125\n>>> veryHighFHalfFlat.octave = 9\n>>> veryHighFHalfFlat.midi\n125\n\n\n>>> notAsHighNote = pitch.Pitch()\n>>> notAsHighNote.ps = veryHighFHalfFlat.midi\n>>> notAsHighNote\n<music21.pitch.Pitch F9>\n\n\nNote that the conversion of improper midi values to proper\nmidi values is done before assigning .ps:\n>>> a = pitch.Pitch()\n>>> a.midi = -10\n>>> a.midi\n2\n>>> a.ps\n2.0\n>>> a.spellingIsInferred\nTrue\n\n\nMore absurd octaves\u2026\n>>> p = pitch.Pitch('c~4')\n>>> p.octave = -1\n>>> p.ps\n0.5\n>>> p.midi\n1\n>>> p.octave = -2\n>>> p.ps\n-11.5\n>>> p.midi\n1",
+        "type": "ListItem"
+    },
+    {
+        "text": "Pitch.",
+        "type": "Title"
+    },
+    {
+        "text": "name",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Gets or sets the name (pitch name with accidental but\nwithout octave) of the Pitch.\n>>> p = pitch.Pitch('D#5')\n>>> p.name\n'D#'\n\n\n>>> p.name = 'C#'\n>>> p.name\n'C#'\n\n\n>>> a = pitch.Pitch('G#')\n>>> a.name\n'G#'\n\n\nDoes not simplify enharmonics\n>>> a = pitch.Pitch('B---')\n>>> a.name\n'B---'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Pitch.",
+        "type": "Title"
+    },
+    {
+        "text": "nameWithOctave",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return or set the pitch name with an octave designation.\nIf no octave as been set, no octave value is returned.\n>>> gSharp = pitch.Pitch('G#4')\n>>> gSharp.nameWithOctave\n'G#4'\n\n\n>>> dFlatFive = pitch.Pitch()\n>>> dFlatFive.step = 'D'\n>>> dFlatFive.accidental = pitch.Accidental('flat')\n>>> dFlatFive.octave = 5\n>>> dFlatFive.nameWithOctave\n'D-5'\n>>> dFlatFive.nameWithOctave = 'C#6'\n>>> dFlatFive.name\n'C#'\n>>> dFlatFive.octave\n6\n\n\nN.B. \u2014 it's generally better to set the name and octave separately, especially\nsince you may at some point encounter very low pitches such as \u009cA octave -1\u009d, which\nwill be interpreted as \u009cA-flat, octave 1\u009d.  Our crude setting algorithm also does\nnot support octaves above 9.\n>>> lowA = pitch.Pitch()\n>>> lowA.name = 'A'\n>>> lowA.octave = -1\n>>> lowA.nameWithOctave\n'A-1'\n>>> lowA.nameWithOctave = lowA.nameWithOctave\n>>> lowA.name\n'A-'\n>>> lowA.octave\n1\n\n\nOctave must be included in nameWithOctave or an exception is raised:\n>>> a = pitch.Pitch()\n>>> a.nameWithOctave = 'C#9'\n>>> a.nameWithOctave = 'C#'\nTraceback (most recent call last):\nmusic21.pitch.PitchException: Cannot set a nameWithOctave with 'C#'\n\n\nSet octave to None explicitly instead.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Pitch.",
+        "type": "Title"
+    },
+    {
+        "text": "octave",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns or sets the octave of the note.\nSetting the octave updates the pitchSpace attribute.\n>>> a = pitch.Pitch('g')\n>>> a.octave is None\nTrue\n>>> a.implicitOctave\n4\n>>> a.ps  ## will use implicitOctave\n67.0\n>>> a.name\n'G'\n\n\n>>> a.octave = 14\n>>> a.octave\n14\n>>> a.implicitOctave\n14\n>>> a.name\n'G'\n>>> a.ps\n187.0",
+        "type": "ListItem"
+    },
+    {
+        "text": "Pitch.",
+        "type": "Title"
+    },
+    {
+        "text": "pitchClass",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns or sets the integer value for the pitch, 0-11, where C=0,\nC#=1, D=2\u2026B=11. Can be set using integers (0-11) or \u0098A' or \u0098B'\nfor 10 or 11.\n>>> a = pitch.Pitch('a3')\n>>> a.pitchClass\n9\n>>> dis = pitch.Pitch('d3')\n>>> dis.pitchClass\n2\n>>> dis.accidental = pitch.Accidental('#')\n>>> dis.pitchClass\n3\n\n\nIf a string \u009cA\u009d or \u009cB\u009d is given to pitchClass, it is\nstill returned as an int.\n>>> dis.pitchClass = 'A'\n>>> dis.pitchClass\n10\n>>> dis.name\n'B-'\n\n\nExtreme octaves will not affect pitchClass\n>>> dis.octave = -10\n>>> dis.pitchClass\n10\n\n\nIn the past, certain microtones and/or octaves were returning pc 12!\nThis is now fixed.\n>>> flattedC = pitch.Pitch('C4')\n>>> flattedC.microtone = -4\n>>> print(flattedC)\nC4(-4c)\n>>> flattedC.pitchClass\n0\n>>> print(flattedC.ps)\n59.96\n>>> flattedC.octave = -3\n>>> print(flattedC.ps)\n-24.04\n>>> flattedC.pitchClass\n0\n\n\nNote that the pitchClass of a microtonally altered pitch is the pitch class of\nthe nearest pitch.  Python 3 uses the \u009cround-to-even\u009d method so C~4 (C half sharp 4)\nis pitchClass 0, since 60.5 rounds to 60.0\n>>> p = pitch.Pitch('C~4')\n>>> p.ps\n60.5\n>>> p.pitchClass\n0\n\n\nHowever, for backwards compatability, the MIDI number of a microtone\nis created by using \u009cschoolyard\u009d rounding which always rounds 0.5 upwards, which\ncan cause some unusual behavior:\n>>> p.midi\n61\n>>> pitch.Pitch(midi=p.midi).pitchClass\n1\n\n\nThis means that pitchClass + microtone is NOT a good way to estimate the frequency\nof a pitch.  For instance, if we take a pitch that is 90% of the way between pitchClass\n0 (C) and pitchClass 1 (C#/D-flat), this formula gives an inaccurate answer of 1.9, not\n0.9:\n>>> p = pitch.Pitch('C4')\n>>> p.microtone = 90\n>>> p\n<music21.pitch.Pitch C4(+90c)>\n>>> p.pitchClass + (p.microtone.cents / 100.0)\n1.9\n\n\nMore examples of setting the pitchClass.\n>>> a = pitch.Pitch('a3')\n>>> a.pitchClass = 3\n>>> a\n<music21.pitch.Pitch E-3>\n>>> a.spellingIsInferred\nTrue\n>>> a.pitchClass = 'A'\n>>> a\n<music21.pitch.Pitch B-3>\n\n\nChanging pitchClass does not remove microtones.\n>>> a.microtone = 20\n>>> a.pitchClass = 1\n>>> a\n<music21.pitch.Pitch C#3(+20c)>",
+        "type": "ListItem"
+    },
+    {
+        "text": "Pitch.",
+        "type": "Title"
+    },
+    {
+        "text": "pitchClassString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns or sets a string representation of the pitch class,\nwhere integers greater than 10 are replaced by A and B,\nrespectively. Can be used to set pitch class by a\nstring representation as well (though this is also\npossible with pitchClass).\n>>> a = pitch.Pitch('a#3')\n>>> a.pitchClass\n10\n>>> a.pitchClassString\n'A'\n\n\nWe can set the pitchClassString as well:\n>>> a.pitchClassString = 'B'\n>>> a.pitchClass\n11",
+        "type": "ListItem"
+    },
+    {
+        "text": "Pitch.",
+        "type": "Title"
+    },
+    {
+        "text": "ps",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The ps property permits getting and setting\na pitch space value, a floating point number\nrepresenting pitch space, where 60.0 is C4, middle C,\n61.0 is C#4 or D-4, and floating point values are\nmicrotonal tunings (0.01 is equal to one cent), so\na quarter-tone sharp above C5 is 72.5.\nNote that the choice of 60.0 for C4 makes it identical\nto the integer value of 60 for .midi, but .midi\ndoes not allow for microtones and is limited to 0-127\nwhile .ps allows for notes before midi 0 or above midi 127.\n>>> a = pitch.Pitch('C4')\n>>> a.ps\n60.0\n\n\nChanging the ps value for a will change the step and octave:\n>>> a.ps = 45\n>>> a\n<music21.pitch.Pitch A2>\n>>> a.ps\n45.0\n\n\nNotice that ps 61 represents both\nC# and D-flat.  Thus, \u009cspellingIsInferred\u009d\nwill be true after setting our pitch to 61:\n>>> a.ps = 61\n>>> a\n<music21.pitch.Pitch C#4>\n>>> a.ps\n61.0\n>>> a.spellingIsInferred\nTrue\n\n\nMicrotonal accidentals and pure Microtones are allowed, as are extreme ranges:\n>>> b = pitch.Pitch('B9')\n>>> b.accidental = pitch.Accidental('half-flat')\n>>> b\n<music21.pitch.Pitch B`9>\n>>> b.ps\n130.5\n\n\n>>> p = pitch.Pitch('c4')\n>>> p.microtone = 20\n>>> print('%.1f' % p.ps)\n60.2\n\n\nOctaveless pitches use their .implicitOctave attributes:\n>>> d = pitch.Pitch('D#')\n>>> d.octave is None\nTrue\n>>> d.implicitOctave\n4\n>>> d.ps\n63.0\n\n\n>>> d.octave = 5\n>>> d.ps\n75.0\n\n\nSetting with microtones\n>>> p = pitch.Pitch()\n>>> p.ps = 61\n>>> p.ps\n61.0\n>>> p.spellingIsInferred\nTrue\n>>> p.ps = 61.5  # get a quarter tone\n>>> p\n<music21.pitch.Pitch C#~4>\n>>> p.ps = 61.7  # set a microtone\n>>> print(p)\nC#~4(+20c)\n>>> p.ps = 61.4  # set a microtone\n>>> print(p)\nC#~4(-10c)\n\n\nThe property is called when self.step, self.octave\nor self.accidental are changed.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Pitch.",
+        "type": "Title"
+    },
+    {
+        "text": "step",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The diatonic name of the note; i.e. does not give the\naccidental or octave.\n>>> a = pitch.Pitch('B-3')\n>>> a.step\n'B'\n\n\nUpper-case or lower-case names can be given to .step \u2014 they\nwill be converted to upper-case\n>>> b = pitch.Pitch()\n>>> b.step = 'c'\n>>> b.step\n'C'\n\n\nChanging the .step does not change the .accidental or\n.octave:\n>>> a = pitch.Pitch('F#5')\n>>> a.step = 'D'\n>>> a.nameWithOctave\n'D#5'\n\n\nGiving a value that includes an accidental raises a PitchException.\nUse .name instead to change that.\n>>> b = pitch.Pitch('E4')\n>>> b.step = 'B-'\nTraceback (most recent call last):\nmusic21.pitch.PitchException: Cannot make a step out of 'B-'\n\n\nThis is okay though:\n>>> b.name = 'B-'\n\n\nNote that if spelling is inferred, setting the step does NOT\ngive that enharmonic.  Perhaps it should, but best to make people use\n.getLowerEnharmonic or .getHigherEnharmonic instead.\n>>> b.ps = 60\n>>> b.nameWithOctave\n'C4'\n>>> b.spellingIsInferred\nTrue\n>>> b.step = 'B'\n>>> b.accidental is None  # maybe this should set to B#? But that could be screwy.\nTrue\n>>> b.spellingIsInferred\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "Pitch methods",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch.",
+        "type": "Title"
+    },
+    {
+        "text": "__eq__",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "other",
+        "type": "Title"
+    },
+    {
+        "text": "object",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Are two pitches equal?\nThey must both sound the same and be spelled the same.\nEnharmonic equivalence is not equality, nor is impliedOctave\nor is a pitch without an accidental equal to a pitch with a\nnatural accidental.  (See :meth:`~music21.pitch.Pitch.isEnharmonic for\na method that does not require spelling equivalence, and for an example\nof how to compare notes without accidentals to notes with natural\naccidentals.)\n>>> c = pitch.Pitch('C2')\n>>> c.octave\n2\n>>> cs = pitch.Pitch('C#4')\n>>> cs.octave\n4\n>>> c == cs\nFalse\n>>> c != cs\nTrue\n\n\n>>> seven = 7\n>>> c == seven\nFalse\n\n\n>>> c != seven\nTrue\n\n\n>>> df = pitch.Pitch('D-4')\n>>> cs == df\nFalse\n\n\nImplied octaves do not equal explicit octaves\n>>> c4 = pitch.Pitch('C4')\n>>> cImplied = pitch.Pitch('C')\n>>> c4 == cImplied\nFalse\n>>> c4.ps == cImplied.ps\nTrue\n\n\nNote: currently spellingIsInferred and fundamental\nare not checked \u2014 this behavior may change in the future.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Pitch.",
+        "type": "Title"
+    },
+    {
+        "text": "convertMicrotonesToQuarterTones",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Convert any Microtones available to quarter tones, if possible.\n>>> p = pitch.Pitch('g3')\n>>> p.microtone = 78\n>>> str(p)\n'G3(+78c)'\n>>> p.convertMicrotonesToQuarterTones(inPlace=True)\n>>> str(p)\n'G#3(-22c)'\n\n\n>>> p = pitch.Pitch('d#3')\n>>> p.microtone = 46\n>>> p\n<music21.pitch.Pitch D#3(+46c)>\n>>> p.convertMicrotonesToQuarterTones(inPlace=True)\n>>> p\n<music21.pitch.Pitch D#~3(-4c)>\n\n\n>>> p = pitch.Pitch('f#2')\n>>> p.microtone = -38\n>>> p.convertMicrotonesToQuarterTones(inPlace=True)\n>>> str(p)\n'F~2(+12c)'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Pitch.",
+        "type": "Title"
+    },
+    {
+        "text": "convertQuarterTonesToMicrotones",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Convert any quarter tone Accidentals to Microtones.\ntilde is the symbol for half-sharp, so G#~ is G three-quarters sharp.\n>>> p = pitch.Pitch('G#~')\n>>> str(p), p.microtone\n('G#~', <music21.pitch.Microtone (+0c)>)\n>>> p.convertQuarterTonesToMicrotones(inPlace=True)\n>>> p.ps\n68.5\n>>> str(p), p.microtone\n('G#(+50c)', <music21.pitch.Microtone (+50c)>)\n\n\n>>> p = pitch.Pitch('A')\n>>> p.accidental = pitch.Accidental('half-flat')  # back-tick\n>>> str(p), p.microtone\n('A`', <music21.pitch.Microtone (+0c)>)\n>>> x = p.convertQuarterTonesToMicrotones(inPlace=False)\n>>> str(x), x.microtone\n('A(-50c)', <music21.pitch.Microtone (-50c)>)\n>>> str(p), p.microtone\n('A`', <music21.pitch.Microtone (+0c)>)",
+        "type": "ListItem"
+    },
+    {
+        "text": "Pitch.",
+        "type": "Title"
+    },
+    {
+        "text": "getAllCommonEnharmonics",
+        "type": "Title"
+    },
+    {
+        "text": "alterLimit",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 list[PitchType]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return all common unique enharmonics for a pitch,\nor those that do not involve more than two accidentals.\n>>> p = pitch.Pitch('c#3')\n>>> p.getAllCommonEnharmonics()\n[<music21.pitch.Pitch D-3>, <music21.pitch.Pitch B##2>]\n\n\n\u009cHigher\u009d enharmonics are listed before \u009cLower\u009d:\n>>> p = pitch.Pitch('G4')\n>>> p.getAllCommonEnharmonics()\n[<music21.pitch.Pitch A--4>, <music21.pitch.Pitch F##4>]\n\n\nBy setting alterLimit to a higher or lower number we\ncan limit the maximum number of notes to return:\n>>> p = pitch.Pitch('G-6')\n>>> p.getAllCommonEnharmonics(alterLimit=1)\n[<music21.pitch.Pitch F#6>]\n\n\nIf you set alterLimit to 3 or 4, you're stretching the name of\nthe method; some of these are certainly not common enharmonics:\n>>> p = pitch.Pitch('G-6')\n>>> enharmonics = p.getAllCommonEnharmonics(alterLimit=3)\n>>> [str(enh) for enh in enharmonics]\n['A---6', 'F#6', 'E##6']\n\n\nMusic21 does not support accidentals beyond quadruple sharp/flat, so\nalterLimit = 4 is the most you can use. (Thank goodness!)",
+        "type": "ListItem"
+    },
+    {
+        "text": "Pitch.",
+        "type": "Title"
+    },
+    {
+        "text": "getCentShiftFromMidi",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 int",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get cent deviation of this pitch from MIDI pitch.\n>>> p = pitch.Pitch('c~4')\n>>> p.ps\n60.5\n>>> p.midi  # midi values automatically round up at 0.5\n61\n>>> p.getCentShiftFromMidi()\n-50\n>>> p.microtone = -25\n>>> p.ps\n60.25\n>>> p.midi\n60\n>>> p.getCentShiftFromMidi()\n25\n\n\n>>> p = pitch.Pitch('c#4')\n>>> p.microtone = -25\n>>> p.ps\n60.75\n>>> p.midi\n61\n>>> p.getCentShiftFromMidi()\n-25\n\n\n>>> p = pitch.Pitch('c#~4')\n>>> p.ps\n61.5\n>>> p.midi\n62\n>>> p.getCentShiftFromMidi()\n-50\n>>> p.microtone = -3\n>>> p.ps\n61.47\n>>> p.midi\n61\n>>> p.getCentShiftFromMidi()\n47\n>>> p.microtone = 3\n>>> p.ps\n61.53\n>>> p.midi\n62\n>>> p.accidental\n<music21.pitch.Accidental one-and-a-half-sharp>\n>>> p.getCentShiftFromMidi()\n-47\n\n\n>>> p = pitch.Pitch('c`4')  # quarter tone flat\n>>> p.getCentShiftFromMidi()\n-50\n>>> p.microtone = 3\n>>> p.getCentShiftFromMidi()\n-47\n\n\nAbsurd octaves that MIDI can't handle will still give the right sounding pitch\nout of octave:\n>>> p = pitch.Pitch('c~4')\n>>> p.octave = 10\n>>> p.ps\n132.5\n>>> p.midi\n121\n>>> p.getCentShiftFromMidi()\n-50\n>>> p.octave = -1\n>>> p.getCentShiftFromMidi()\n-50\n>>> p.octave = -2\n>>> p.getCentShiftFromMidi()\n-50",
+        "type": "ListItem"
+    },
+    {
+        "text": "Pitch.",
+        "type": "Title"
+    },
+    {
+        "text": "getEnharmonic",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 PitchType | None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns a new Pitch that is the(/an) enharmonic equivalent of this Pitch.\nCan be thought of as flipEnharmonic or something like that.\nN.B.: n1.name == getEnharmonic(getEnharmonic(n1)).name is not necessarily true.\nFor instance:\n\ngetEnharmonic(E##) => F#\ngetEnharmonic(F#) => G-\ngetEnharmonic(A\u2014) => G\ngetEnharmonic(G) => F##\n\nHowever, for all cases not involving double sharps or flats\n(and even many that do), getEnharmonic(getEnharmonic(n)) = n\nFor the most ambiguous cases, it's good to know that these are the enharmonics:\n\nC <-> B#, D <-> C##, E <-> F-; F <-> E#, G <-> F##, A <-> B\u2014, B <-> C-\n\nHowever, isEnharmonic() for A## and B certainly returns True.\n>>> p = pitch.Pitch('d#')\n>>> print(p.getEnharmonic())\nE-\n>>> p = pitch.Pitch('e-8')\n>>> print(p.getEnharmonic())\nD#8\n\n\nOther tests:\n>>> print(pitch.Pitch('c-3').getEnharmonic())\nB2\n>>> print(pitch.Pitch('e#2').getEnharmonic())\nF2\n>>> print(pitch.Pitch('f#2').getEnharmonic())\nG-2\n>>> print(pitch.Pitch('c##5').getEnharmonic())\nD5\n>>> print(pitch.Pitch('g3').getEnharmonic())\nF##3\n>>> print(pitch.Pitch('B7').getEnharmonic())\nC-8\n\n\nOctaveless Pitches remain octaveless:\n>>> p = pitch.Pitch('a-')\n>>> p.getEnharmonic()\n<music21.pitch.Pitch G#>\n>>> p = pitch.Pitch('B#')\n>>> p.getEnharmonic()\n<music21.pitch.Pitch C>\n\n\nWorks with half-sharps, but converts them to microtones:\n>>> dHalfSharp = pitch.Pitch('D~')\n>>> print(dHalfSharp.getEnharmonic())\nE-(-50c)",
+        "type": "ListItem"
+    },
+    {
+        "text": "Pitch.",
+        "type": "Title"
+    },
+    {
+        "text": "getHarmonic",
+        "type": "Title"
+    },
+    {
+        "text": "number",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a Pitch object representing the harmonic found above this Pitch.\n>>> p = pitch.Pitch('a4')\n>>> print(p.getHarmonic(2))\nA5\n>>> print(p.getHarmonic(3))\nE6(+2c)\n>>> print(p.getHarmonic(4))\nA6\n>>> print(p.getHarmonic(5))\nC#7(-14c)\n>>> print(p.getHarmonic(6))\nE7(+2c)\n>>> print(p.getHarmonic(7))\nF#~7(+19c)\n>>> print(p.getHarmonic(8))\nA7\n\n\n>>> p2 = p.getHarmonic(2)\n>>> p2\n<music21.pitch.Pitch A5>\n>>> p2.fundamental\n<music21.pitch.Pitch A4>\n>>> p2.transpose('p5', inPlace=True)\n>>> p2\n<music21.pitch.Pitch E6>\n>>> p2.fundamental\n<music21.pitch.Pitch E5>\n\n\nOr we can iterate over a list of the next 8 odd harmonics:\n>>> allHarmonics = ''\n>>> for i in [9, 11, 13, 15, 17, 19, 21, 23]:\n...     allHarmonics += ' ' + str(p.getHarmonic(i))\n>>> print(allHarmonics)\nB7(+4c) D~8(+1c) F~8(-9c) G#8(-12c) B-8(+5c) C9(-2c) C#~9(+21c) E`9(-22c)\n\n\nMicrotonally adjusted notes also generate harmonics:\n>>> q = pitch.Pitch('C4')\n>>> q.microtone = 10\n>>> q.getHarmonic(2)\n<music21.pitch.Pitch C5(+10c)>\n>>> q.getHarmonic(3)\n<music21.pitch.Pitch G5(+12c)>\n\n\nThe fundamental is stored with the harmonic.\n>>> h7 = pitch.Pitch('A4').getHarmonic(7)\n>>> print(h7)\nF#~7(+19c)\n>>> h7.fundamental\n<music21.pitch.Pitch A4>\n>>> h7.harmonicString()\n'7thH/A4'\n>>> h7.harmonicString('A3')\n'14thH/A3'\n\n\n>>> h2 = h7.getHarmonic(2)\n>>> h2\n<music21.pitch.Pitch F#~8(+19c)>\n>>> h2.fundamental\n<music21.pitch.Pitch F#~7(+19c)>\n>>> h2.fundamental.fundamental\n<music21.pitch.Pitch A4>\n>>> h2.transpose(-24, inPlace=True)\n>>> h2\n<music21.pitch.Pitch F#~6(+19c)>\n>>> h2.fundamental.fundamental\n<music21.pitch.Pitch A2>",
+        "type": "ListItem"
+    },
+    {
+        "text": "Pitch.",
+        "type": "Title"
+    },
+    {
+        "text": "getHigherEnharmonic",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "Literal[False]",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 PitchType",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Pitch.",
+        "type": "Title"
+    },
+    {
+        "text": "getHigherEnharmonic",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "Literal[True]",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "Returns an enharmonic Pitch object that is a higher\nenharmonic.  That is, the Pitch a diminished-second above\nthe current Pitch.\n>>> p1 = pitch.Pitch('C#3')\n>>> p2 = p1.getHigherEnharmonic()\n>>> print(p2)\nD-3\n\n\nWe can also set it in place (in which case it returns None):\n>>> p1 = pitch.Pitch('C#3')\n>>> p1.getHigherEnharmonic(inPlace=True)\n>>> print(p1)\nD-3\n\n\nThe method even works for certain CRAZY enharmonics\n>>> p3 = pitch.Pitch('D--3')\n>>> p4 = p3.getHigherEnharmonic()\n>>> print(p4)\nE----3\n\n\nBut not for things that are just utterly insane:\n>>> p4.getHigherEnharmonic()\nTraceback (most recent call last):\nmusic21.pitch.AccidentalException: -5 is not a supported accidental type\n\n\nNote that half accidentals (~ = half-sharp, ` = half-flat)\nget converted to microtones:\n>>> pHalfSharp = pitch.Pitch('D~4')\n>>> p3QuartersFlat = pHalfSharp.getHigherEnharmonic()\n>>> print(p3QuartersFlat)\nE-4(-50c)",
+        "type": "ListItem"
+    },
+    {
+        "text": "Pitch.",
+        "type": "Title"
+    },
+    {
+        "text": "getLowerEnharmonic",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "Literal[False]",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 PitchType",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Pitch.",
+        "type": "Title"
+    },
+    {
+        "text": "getLowerEnharmonic",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "Literal[True]",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "returns a Pitch enharmonic that is a diminished second\nbelow the current note\nIf inPlace is set to true, changes the current Pitch and returns None.\n>>> p1 = pitch.Pitch('E-')\n>>> p2 = p1.getLowerEnharmonic()\n>>> print(p2)\nD#\n\n\nThe lower enharmonic can have a different octave than\nthe original.\n>>> p1 = pitch.Pitch('C-3')\n>>> p2 = p1.getLowerEnharmonic()\n>>> print(p2)\nB2\n\n\n>>> p1 = pitch.Pitch('C#3')\n>>> p1.getLowerEnharmonic(inPlace=True)\n>>> print(p1)\nB##2",
+        "type": "ListItem"
+    },
+    {
+        "text": "Pitch.",
+        "type": "Title"
+    },
+    {
+        "text": "getStringHarmonic",
+        "type": "Title"
+    },
+    {
+        "text": "chordIn",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a chord, determines whether the chord constitutes a string\nharmonic and then returns a new chord with the proper sounding pitch\nadded.\n>>> n1 = note.Note('d3')\n>>> n2 = note.Note('g3')\n>>> n2.notehead = 'diamond'\n>>> n2.noteheadFill = False\n>>> p1 = pitch.Pitch('d3')\n>>> harmChord = chord.Chord([n1, n2])\n>>> harmChord.quarterLength = 1\n>>> newChord = p1.getStringHarmonic(harmChord)\n>>> newChord.quarterLength = 1\n>>> pitchList = newChord.pitches\n>>> pitchList\n(<music21.pitch.Pitch D3>, <music21.pitch.Pitch G3>, <music21.pitch.Pitch D5>)\n\n\notherwise returns False",
+        "type": "ListItem"
+    },
+    {
+        "text": "Pitch.",
+        "type": "Title"
+    },
+    {
+        "text": "harmonicAndFundamentalFromPitch",
+        "type": "Title"
+    },
+    {
+        "text": "target",
+        "type": "Title"
+    },
+    {
+        "text": "str | Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 tuple[int, music21.pitch.Pitch]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a Pitch that is a plausible target for a fundamental,\nreturn the harmonic number and a potentially shifted fundamental\nthat describes this Pitch.\n>>> g4 = pitch.Pitch('g4')\n>>> g4.harmonicAndFundamentalFromPitch('c3')\n(3, <music21.pitch.Pitch C3(-2c)>)",
+        "type": "ListItem"
+    },
+    {
+        "text": "Pitch.",
+        "type": "Title"
+    },
+    {
+        "text": "harmonicAndFundamentalStringFromPitch",
+        "type": "Title"
+    },
+    {
+        "text": "fundamental",
+        "type": "Title"
+    },
+    {
+        "text": "str | Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 str",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a Pitch that is a plausible target for a fundamental,\nfind the harmonic number and a potentially shifted fundamental\nthat describes this Pitch. Return a string representation.\n>>> pitch.Pitch('g4').harmonicAndFundamentalStringFromPitch('c3')\n'3rdH/C3(-2c)'\n\n\n>>> pitch.Pitch('c4').harmonicAndFundamentalStringFromPitch('c3')\n'2ndH/C3'\n\n\n>>> p = pitch.Pitch('c4')\n>>> p.microtone = 20  # raise 20\n>>> p.harmonicAndFundamentalStringFromPitch('c3')\n'2ndH/C3(+20c)'\n\n\n>>> p.microtone = -20  # lower 20\n>>> p.harmonicAndFundamentalStringFromPitch('c3')\n'2ndH/C3(-20c)'\n\n\n>>> p = pitch.Pitch('c4')\n>>> f = pitch.Pitch('c3')\n>>> f.microtone = -20\n>>> p.harmonicAndFundamentalStringFromPitch(f)\n'2ndH/C3'\n>>> f.microtone = +20\n>>> p.harmonicAndFundamentalStringFromPitch(f)\n'2ndH/C3'\n\n\n>>> p = pitch.Pitch('A4')\n>>> p.microtone = 69\n>>> p.harmonicAndFundamentalStringFromPitch('c2')\n'7thH/C2'\n\n\n>>> p = pitch.Pitch('A4')\n>>> p.harmonicAndFundamentalStringFromPitch('c2')\n'7thH/C2(-69c)'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Pitch.",
+        "type": "Title"
+    },
+    {
+        "text": "harmonicFromFundamental",
+        "type": "Title"
+    },
+    {
+        "text": "fundamental",
+        "type": "Title"
+    },
+    {
+        "text": "str | Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 tuple[int, float]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given another Pitch as a fundamental, find the harmonic\nof that pitch that is equal to this Pitch.\nReturns a tuple of harmonic number and the number of cents that\nthe first Pitch object would have to be shifted to be the exact\nharmonic of this fundamental.\nMicrotones applied to the fundamental are irrelevant,\nas the fundamental may be microtonally shifted to find a match to this Pitch.\nExample: G4 is the third harmonic of C3, albeit 2 cents flatter than\nthe true 3rd harmonic.\n>>> p = pitch.Pitch('g4')\n>>> f = pitch.Pitch('c3')\n>>> p.harmonicFromFundamental(f)\n(3, 2.0)\n>>> p.microtone = p.harmonicFromFundamental(f)[1]  # adjust microtone\n>>> int(f.getHarmonic(3).frequency) == int(p.frequency)\nTrue\n\n\nThe shift from B-5 to the 7th harmonic of C3 is more substantial\nand likely to be noticed by the audience.  To make p the 7th harmonic\nit'd have to be lowered by 31 cents.  Note that the\nsecond argument is a float, but because the default rounding of\nmusic21 is to the nearest cent, the 0.0 is not a significant digit.\nI.e. it might be more like 31.3 cents.\n>>> p = pitch.Pitch('B-5')\n>>> f = pitch.Pitch('C3')\n>>> p.harmonicFromFundamental(f)\n(7, -31.0)",
+        "type": "ListItem"
+    },
+    {
+        "text": "Pitch.",
+        "type": "Title"
+    },
+    {
+        "text": "harmonicString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "fundamental",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 str",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a string representation of a harmonic equivalence.\nN.B. this has nothing to do with what string a string player\nwould use to play the harmonic on.  (Perhaps should be\nrenamed).\n>>> pitch.Pitch('g4').harmonicString('c3')\n'3rdH(-2c)/C3'\n\n\n>>> pitch.Pitch('c4').harmonicString('c3')\n'2ndH/C3'\n\n\n>>> p = pitch.Pitch('c4')\n>>> p.microtone = 20  # raise 20\n>>> p.harmonicString('c3')\n'2ndH(+20c)/C3'\n\n\n>>> p.microtone = -20  # lower 20\n>>> p.harmonicString('c3')\n'2ndH(-20c)/C3'\n\n\n>>> p = pitch.Pitch('c4')\n>>> f = pitch.Pitch('c3')\n>>> f.microtone = -20\n>>> p.harmonicString(f)\n'2ndH(+20c)/C3(-20c)'\n>>> f.microtone = +20\n>>> p.harmonicString(f)\n'2ndH(-20c)/C3(+20c)'\n\n\n>>> p = pitch.Pitch('A4')\n>>> p.microtone = 69\n>>> p.harmonicString('c2')\n'7thH/C2'\n\n\n>>> p = pitch.Pitch('A4')\n>>> p.harmonicString('c2')\n'7thH(-69c)/C2'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Pitch.",
+        "type": "Title"
+    },
+    {
+        "text": "informClient",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "if this pitch is attached to a note, then let it know that it has changed.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Pitch.",
+        "type": "Title"
+    },
+    {
+        "text": "isEnharmonic",
+        "type": "Title"
+    },
+    {
+        "text": "other",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return True if another Pitch is an enharmonic equivalent of this Pitch.\n>>> p1 = pitch.Pitch('C#3')\n>>> p2 = pitch.Pitch('D-3')\n>>> p3 = pitch.Pitch('D#3')\n>>> p1.isEnharmonic(p2)\nTrue\n>>> p2.isEnharmonic(p1)\nTrue\n>>> p3.isEnharmonic(p1)\nFalse\n\n\nPitches are enharmonics of themselves:\n>>> pC = pitch.Pitch('C4')\n>>> pC.isEnharmonic(pC)\nTrue\n\n\nNotes that sound in different octaves are not enharmonics:\n>>> pitch.Pitch('C#4').isEnharmonic( pitch.Pitch('D-5') )\nFalse\n\n\nHowever, different octave numbers can be the same enharmonic,\nbecause octave number is relative to the step (natural form) of the pitch.\n>>> pitch.Pitch('C4').isEnharmonic( pitch.Pitch('B#3') )\nTrue\n>>> pitch.Pitch('C4').isEnharmonic( pitch.Pitch('B#4') )\nFalse\n\n\nIf either pitch is octaveless, then a pitch in any octave will match:\n>>> pitch.Pitch('C#').isEnharmonic( pitch.Pitch('D-9') )\nTrue\n>>> pitch.Pitch('C#4').isEnharmonic( pitch.Pitch('D-') )\nTrue\n\n\nQuarter tone enharmonics work as well:\n>>> pC.accidental = pitch.Accidental('one-and-a-half-sharp')\n>>> pC\n<music21.pitch.Pitch C#~4>\n>>> pD = pitch.Pitch('D4')\n>>> pD.accidental = pitch.Accidental('half-flat')\n>>> pD\n<music21.pitch.Pitch D`4>\n>>> pC.isEnharmonic(pD)\nTrue\n\n\nMicrotonally altered pitches do not return True unless the microtones are the same:\n>>> pSharp = pitch.Pitch('C#4')\n>>> pSharp.microtone = 20\n>>> pFlat = pitch.Pitch('D-4')\n>>> pSharp.isEnharmonic(pFlat)\nFalse\n\n\n>>> pFlat.microtone = 20\n>>> pSharp.isEnharmonic(pFlat)\nTrue\n\n\nExtreme enharmonics also work:\n>>> p4 = pitch.Pitch('B##3')\n>>> p5 = pitch.Pitch('E---4')\n>>> p4.isEnharmonic(p5)\nTrue\n\n\nIf either pitch has no octave then the comparison is done without\nregard to octave:\n>>> pSharp4 = pitch.Pitch('C#4')\n>>> pFlatNoOctave = pitch.Pitch('D-')\n>>> pSharp4.isEnharmonic(pFlatNoOctave)\nTrue\n>>> pFlatNoOctave.isEnharmonic(pSharp4)\nTrue\n\n\nisEnharmonic can be combined with a test to see if two pitches have the\nsame step to ensure that they both sound the same and are written\nthe same, without regard to the presence or absence of an accidental\n(this is used in :meth:~music21.stream.base.Stream.stripTies):\n>>> pD4 = pitch.Pitch('D4')\n>>> pDNatural4 = pitch.Pitch('D4', accidental=pitch.Accidental('natural'))\n>>> pD4 == pDNatural4\nFalse\n>>> pD4.isEnharmonic(pDNatural4) and pD4.step == pDNatural4.step\nTrue\n>>> pEbb4 = pitch.Pitch('E--4')\n>>> pD4.isEnharmonic(pEbb4) and pD4.step == pEbb4.step\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "Pitch.",
+        "type": "Title"
+    },
+    {
+        "text": "isTwelveTone",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return True if this Pitch is\none of the twelve tones available on a piano\nkeyboard. Returns False if it instead\nhas a non-zero microtonal adjustment or\nhas a quarter tone accidental.\n>>> p = pitch.Pitch('g4')\n>>> p.isTwelveTone()\nTrue\n>>> p.microtone = -20\n>>> p.isTwelveTone()\nFalse\n\n\n>>> p2 = pitch.Pitch('g~4')\n>>> p2.isTwelveTone()\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "Pitch.",
+        "type": "Title"
+    },
+    {
+        "text": "simplifyEnharmonic",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "mostCommon",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 PitchType | None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns a new Pitch (or sets the current one if inPlace is True)\nthat is either the same as the current pitch or has fewer\nsharps or flats if possible.  For instance, E# returns F,\nwhile A# remains A# (i.e., does not take into account that B- is\nmore common than A#).  Useful to call if you ever have an\nalgorithm that might take your piece far into the realm of\ndouble or triple flats or sharps.\nIf mostCommon is set to True, then the most commonly used\nenharmonic spelling is chosen (that is, the one that appears\nfirst in key signatures as you move away from C on the circle\nof fifths).  Thus, G-flat becomes F#, A# becomes B-flat,\nD# becomes E-flat, D-flat becomes C#, G# and A-flat are left\nalone.\n>>> p1 = pitch.Pitch('B#5')\n>>> p1.simplifyEnharmonic().nameWithOctave\n'C6'\n\n\n>>> p2 = pitch.Pitch('A#2')\n>>> p2.simplifyEnharmonic(inPlace=True)\n>>> p2\n<music21.pitch.Pitch A#2>\n\n\n>>> p3 = pitch.Pitch('E--3')\n>>> p4 = p3.transpose(interval.Interval('-A5'))\n>>> p4.simplifyEnharmonic()\n<music21.pitch.Pitch F#2>\n\n\nSetting mostCommon = True simplifies enharmonics\neven further.\n>>> pList = [pitch.Pitch('A#4'), pitch.Pitch('B-4'),\n...          pitch.Pitch('G-4'), pitch.Pitch('F#4')]\n>>> [str(p.simplifyEnharmonic(mostCommon=True)) for p in pList]\n['B-4', 'B-4', 'F#4', 'F#4']\n\n\nNote that pitches with implicit octaves retain their implicit octaves.\nThis might change the pitch space for B#s and C-s.\n>>> pList = [pitch.Pitch('B'), pitch.Pitch('C#'), pitch.Pitch('G'), pitch.Pitch('A--')]\n>>> [str(p.simplifyEnharmonic()) for p in pList]\n['B', 'C#', 'G', 'G']\n\n\n>>> pList = [pitch.Pitch('C-'), pitch.Pitch('B#')]\n>>> [p.ps for p in pList]\n[59.0, 72.0]\n>>> [p.simplifyEnharmonic().ps for p in pList]\n[71.0, 60.0]",
+        "type": "ListItem"
+    },
+    {
+        "text": "Pitch.",
+        "type": "Title"
+    },
+    {
+        "text": "transpose",
+        "type": "Title"
+    },
+    {
+        "text": "value",
+        "type": "Title"
+    },
+    {
+        "text": "IntervalBase",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "Literal[True]",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Pitch.",
+        "type": "Title"
+    },
+    {
+        "text": "transpose",
+        "type": "Title"
+    },
+    {
+        "text": "value",
+        "type": "Title"
+    },
+    {
+        "text": "IntervalBase",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "Literal[False]",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 PitchType",
+        "type": "Title"
+    },
+    {
+        "text": "Transpose the pitch by the user-provided value.  If the value is an\ninteger, the transposition is treated in half steps. If the value is a\nstring, any Interval string specification can be provided.\nAlternatively, a music21.interval.Interval object can be\nsupplied.\n>>> aPitch = pitch.Pitch('g4')\n>>> bPitch = aPitch.transpose('m3')\n>>> bPitch\n<music21.pitch.Pitch B-4>\n>>> cPitch = bPitch.transpose(interval.GenericInterval(2))\n>>> cPitch\n<music21.pitch.Pitch C-5>\n\n\nAn interval object can also be a certain number of semitones,\nin which case, the spelling of the resulting note (sharp or flat, etc.)\nis up to the system to choose.\n>>> aInterval = interval.Interval(-6)\n>>> bPitch = aPitch.transpose(aInterval)\n>>> bPitch\n<music21.pitch.Pitch C#4>\n\n\nTranspose fFlat down 5 semitones \u2014 sort of like a Perfect 4th, but\nshould be respelled:\n>>> fFlat = pitch.Pitch('F-4')\n>>> newPitch = fFlat.transpose(-5)\n>>> newPitch\n<music21.pitch.Pitch B3>\n\n\n>>> aPitch\n<music21.pitch.Pitch G4>\n\n\n>>> aPitch.transpose(aInterval, inPlace=True)\n>>> aPitch\n<music21.pitch.Pitch C#4>\n\n\nImplicit octaves remain implicit:\n>>> anyGSharp = pitch.Pitch('G#')\n>>> print(anyGSharp.transpose('P8'))\nG#\n>>> print(anyGSharp.transpose('P5'))\nD#\n\n\nIf the accidental of a pitch is chosen by music21, not\ngiven by the user, then after transposing, music21 will\nsimplify the spelling again:\n>>> pc6 = pitch.Pitch(6)\n>>> pc6\n<music21.pitch.Pitch F#>\n>>> pc6.spellingIsInferred\nTrue\n>>> pc6.transpose('-m2')\n<music21.pitch.Pitch F>",
+        "type": "ListItem"
+    },
+    {
+        "text": "Pitch.",
+        "type": "Title"
+    },
+    {
+        "text": "transposeAboveTarget",
+        "type": "Title"
+    },
+    {
+        "text": "target",
+        "type": "Title"
+    },
+    {
+        "text": "minimize",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 PitchType | None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a source Pitch, shift it up octaves until it is above the target.\nIf minimize is True, a pitch above the target will move down to the\nnearest octave.\n>>> pitch.Pitch('d2').transposeAboveTarget(pitch.Pitch('e4'))\n<music21.pitch.Pitch D5>\n\n\nTo change the pitch itself, set inPlace to True:\n>>> p = pitch.Pitch('d2')\n>>> p.transposeAboveTarget(pitch.Pitch('e4'), inPlace=True)\n>>> p\n<music21.pitch.Pitch D5>\n\n\nIf already above the target, make no change:\n>>> pitch.Pitch('d7').transposeAboveTarget(pitch.Pitch('e2'))\n<music21.pitch.Pitch D7>\n\n\nAccept the same pitch:\n>>> pitch.Pitch('d2').transposeAboveTarget(pitch.Pitch('d8'))\n<music21.pitch.Pitch D8>\n\n\nIf minimize is True, we go the closest position:\n>>> pitch.Pitch('d#8').transposeAboveTarget(pitch.Pitch('d2'), minimize=True)\n<music21.pitch.Pitch D#2>\n\n\n>>> pitch.Pitch('d7').transposeAboveTarget(pitch.Pitch('e2'), minimize=True)\n<music21.pitch.Pitch D3>\n\n\n>>> pitch.Pitch('d0').transposeAboveTarget(pitch.Pitch('e2'), minimize=True)\n<music21.pitch.Pitch D3>\n\n\nIf the original pitch is octaveless, raises a PitchException:\n>>> pitch.Pitch('d').transposeAboveTarget(pitch.Pitch('e2'), minimize=True)\nTraceback (most recent call last):\nmusic21.pitch.PitchException: Cannot call transposeAboveTarget with an octaveless Pitch.\n\n\nIf the target pitch is octaveless, assumes it has the default of octave 4.\n(The reason for this asymmetry is that the target pitch is never altered\nwhile the original pitch (or its copy) is).\n>>> pitch.Pitch('d4').transposeAboveTarget(pitch.Pitch('e'), minimize=True)\n<music21.pitch.Pitch D5>\n\n\n\nChanged in v3: default for inPlace=False.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Pitch.",
+        "type": "Title"
+    },
+    {
+        "text": "transposeBelowTarget",
+        "type": "Title"
+    },
+    {
+        "text": "target",
+        "type": "Title"
+    },
+    {
+        "text": "minimize",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 PitchType | None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a source Pitch, shift it down some number of octaves until it is below the\ntarget.\nIf minimize is True, a pitch below the target will move up to the\nnearest octave.\n>>> higherG = pitch.Pitch('G5')\n>>> lowerG = higherG.transposeBelowTarget(pitch.Pitch('C#4'))\n>>> lowerG\n<music21.pitch.Pitch G3>\n>>> higherG\n<music21.pitch.Pitch G5>\n\n\nTo change the pitch itself, set inPlace to True:\n>>> p = pitch.Pitch('G5')\n>>> p.transposeBelowTarget(pitch.Pitch('C#4'), inPlace=True)\n>>> p\n<music21.pitch.Pitch G3>\n\n\nIf already below the target, make no change:\n>>> pitch.Pitch('G#3').transposeBelowTarget(pitch.Pitch('C#6'))\n<music21.pitch.Pitch G#3>\n\n\nBelow target includes being the same as the target\n>>> pitch.Pitch('g#8').transposeBelowTarget(pitch.Pitch('g#1'))\n<music21.pitch.Pitch G#1>\n\n\nThis does nothing because it is already low enough\u2026\n>>> pitch.Pitch('g#2').transposeBelowTarget(pitch.Pitch('f#8'))\n<music21.pitch.Pitch G#2>\n\n\nBut with minimize=True, it will actually RAISE the pitch so that it is the closest\npitch to the target\n>>> target = pitch.Pitch('f#8')\n>>> pitch.Pitch('g#2').transposeBelowTarget(target, minimize=True)\n<music21.pitch.Pitch G#7>\n\n\n>>> pitch.Pitch('f#2').transposeBelowTarget(target, minimize=True)\n<music21.pitch.Pitch F#8>\n\n\nIf the original pitch is octaveless, raises a PitchException:\n>>> pitch.Pitch('d').transposeBelowTarget(pitch.Pitch('e2'), minimize=True)\nTraceback (most recent call last):\nmusic21.pitch.PitchException: Cannot call transposeBelowTarget with an octaveless Pitch.\n\n\nIf the target pitch is octaveless, assumes it has the default of octave 4.\n(The reason for this asymmetry is that the target pitch is never altered\nwhile the original pitch (or its copy) is).\n>>> pitch.Pitch('f4').transposeBelowTarget(pitch.Pitch('e'), minimize=True)\n<music21.pitch.Pitch F3>\n\n\n\nChanged in v3: default for inPlace=False.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Pitch.",
+        "type": "Title"
+    },
+    {
+        "text": "updateAccidentalDisplay",
+        "type": "Title"
+    },
+    {
+        "text": "pitchPast",
+        "type": "Title"
+    },
+    {
+        "text": "list",
+        "type": "Title"
+    },
+    {
+        "text": "music21.pitch.Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "pitchPastMeasure",
+        "type": "Title"
+    },
+    {
+        "text": "list",
+        "type": "Title"
+    },
+    {
+        "text": "music21.pitch.Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "otherSimultaneousPitches",
+        "type": "Title"
+    },
+    {
+        "text": "list",
+        "type": "Title"
+    },
+    {
+        "text": "music21.pitch.Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "alteredPitches",
+        "type": "Title"
+    },
+    {
+        "text": "list",
+        "type": "Title"
+    },
+    {
+        "text": "music21.pitch.Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "cautionaryPitchClass",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "cautionaryAll",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "overrideStatus",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "cautionaryNotImmediateRepeat",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "lastNoteWasTied",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given an ordered list of Pitch objects in pitchPast, determine if\nthis pitch's Accidental object needs to be created or updated with a\nnatural or other cautionary accidental.\nChanges to this Pitch object's Accidental object are made in-place.\npitchPast is a list of pitches preceding this pitch in the same measure.\nIf None, a new list will be made.\npitchPastMeasure is a list of pitches preceding this pitch but in a\nprevious measure. If None, a new list will be made.\notherSimultaneousPitches is a list of other pitches in this simultaneity, for use\nwhen cautionaryPitchClass is True.\nThe alteredPitches list supplies pitches from a KeySignature\nobject using the alteredPitches property.\nIf None, a new list will be made.\nIf cautionaryPitchClass is True, comparisons to past accidentals are\nmade regardless of register. That is, if a past sharp is found two\noctaves above a present natural, a natural sign is still displayed.\nNote that this has nothing to do with whether a sharp (not in the key\nsignature) is found in a different octave from the same note in a\ndifferent octave.  The sharp must always be displayed.  Notes\nwith displayType = \u0098if-absolutely-necessary' will ignore the True\nsetting.\nIf overrideStatus is True, this method will ignore any current\ndisplayStatus setting found on the Accidental. By default, this does\nnot happen. If displayStatus is set to None, the Accidental's\ndisplayStatus is set.\nIf cautionaryNotImmediateRepeat is True, cautionary accidentals will\nbe displayed for an altered pitch even if that pitch had already been\ndisplayed as altered (unless it's an immediate repetition).  Notes\nwith displayType = \u0098if-absolutely-necessary' will ignore the True\nsetting.\nIf lastNoteWasTied is True then this note will be treated as\nimmediately following a tie.\n>>> a = pitch.Pitch('a')\n>>> past = [pitch.Pitch('a#'), pitch.Pitch('c#'), pitch.Pitch('c')]\n>>> a.updateAccidentalDisplay(pitchPast=past, cautionaryAll=True)\n>>> a.accidental, a.accidental.displayStatus\n(<music21.pitch.Accidental natural>, True)\n\n\n>>> b = pitch.Pitch('a')\n>>> past = [pitch.Pitch('a#'), pitch.Pitch('c#'), pitch.Pitch('c')]\n>>> b.updateAccidentalDisplay(pitchPast=past)  # should add a natural\n>>> b.accidental, b.accidental.displayStatus\n(<music21.pitch.Accidental natural>, True)\n\n\nIn this example, the method will not add a natural because the match is\npitchSpace and our octave is different.\n>>> a4 = pitch.Pitch('a4')\n>>> past = [pitch.Pitch('a#3'), pitch.Pitch('c#'), pitch.Pitch('c')]\n>>> a4.updateAccidentalDisplay(pitchPast=past, cautionaryPitchClass=False)\n>>> a4.accidental is None\nTrue\n\n\nv8 \u2014 made keyword-only and added otherSimultaneousPitches.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Pitch instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch.",
+        "type": "Title"
+    },
+    {
+        "text": "spellingIsInferred",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True or False about whether enharmonic spelling\nHas been inferred on pitch creation or whether it has\nbeen specified directly.\nMIDI 61 is C# or D- equally.\n>>> p = pitch.Pitch('C4')\n>>> p.spellingIsInferred\nFalse\n>>> p.ps = 61\n>>> p.spellingIsInferred\nTrue\n>>> p.name\n'C#'\n>>> p.name = 'C#'\n>>> p.spellingIsInferred\nFalse\n\n\nThis makes a difference in transposing.  For instance:\n>>> pInferred = pitch.Pitch(61)\n>>> pNotInferred = pitch.Pitch('C#4')\n>>> pInferred.nameWithOctave, pNotInferred.nameWithOctave\n('C#4', 'C#4')\n>>> pInferred.spellingIsInferred, pNotInferred.spellingIsInferred\n(True, False)\n\n\n>>> inferredTransposed = pInferred.transpose('A1')\n>>> inferredTransposed.nameWithOctave\n'D4'\n>>> notInferredTransposed = pNotInferred.transpose('A1')\n>>> notInferredTransposed.nameWithOctave\n'C##4'\n\n\nAn operation like diatonic transposition should retain the spelling is inferred\nfor the resulting object\n>>> inferredTransposed.spellingIsInferred, notInferredTransposed.spellingIsInferred\n(True, False)\n\n\nBut Chromatic transposition can change an object to inferred spelling:\n>>> p3 = notInferredTransposed.transpose(1)  # C## -> E- not to C###\n>>> p3.nameWithOctave\n'E-4'\n>>> p3.spellingIsInferred\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "Accidental\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.pitch.",
+        "type": "Title"
+    },
+    {
+        "text": "Accidental",
+        "type": "Title"
+    },
+    {
+        "text": "specifier",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "float",
+        "type": "Title"
+    },
+    {
+        "text": "'natural'",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Accidental class, representing the symbolic and numerical representation of\npitch deviation from a pitch name (e.g., G, B).\nTwo accidentals are considered equal if their names are equal.\nAccidentals have three defining attributes: a name, a modifier, and an\nalter.  For microtonal specifications, the name and modifier are the same\nexcept in the case of half-sharp, half-flat, one-and-a-half-flat, and\none-and-a-half-sharp.\nAccidentals up to quadruple-sharp and quadruple-flat are allowed.\nNatural-sharp etc. (for canceling a previous flat) are not yet supported officially.\n>>> a = pitch.Accidental('sharp')\n>>> a.name, a.alter, a.modifier\n('sharp', 1.0, '#')\n>>> a.style.color = 'red'\n\n\n>>> import copy\n>>> b = copy.deepcopy(a)\n>>> b.style.color\n'red'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Accidental bases",
+        "type": "Title"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "StyleMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "SlottedObjectMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "Accidental read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Accidental.",
+        "type": "Title"
+    },
+    {
+        "text": "fullName",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return the most complete representation of this Accidental.\n>>> a = pitch.Accidental('double-flat')\n>>> a.fullName\n'double-flat'\n\n\nNote that non-standard microtone names are converted to standard ones:\n>>> a = pitch.Accidental('quarter-flat')\n>>> a.fullName\n'half-flat'\n\n\nFor now this is the same as .name.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Accidental.",
+        "type": "Title"
+    },
+    {
+        "text": "unicode",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a unicode representation of this accidental\nor the best unicode representation if that is not possible.\n>>> flat = pitch.Accidental('flat')\n>>> flat.unicode\n'\u00e2\u0099\u00ad'\n\n\nCompare:\n>>> sharp = pitch.Accidental('sharp')\n>>> sharp.modifier\n'#'\n>>> sharp.unicode\n'\u00e2\u0099\u00af'\n\n\nSome accidentals, such as double sharps, produce code points outside\nthe 2-byte set (so called \u009castral plane\u009d unicode) and thus cannot be\nused in every circumnstance.\n>>> sharp = pitch.Accidental('quadruple-flat')\n>>> sharp.unicode\n'\u00f0\u009d\u0084\u00ab\u00f0\u009d\u0084\u00ab'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from StyleMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "hasEditorialInformation hasStyleInformation",
+        "type": "Table"
+    },
+    {
+        "text": "Accidental read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Accidental.",
+        "type": "Title"
+    },
+    {
+        "text": "alter",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get or set the alter of the Accidental,\nor the semitone shift caused by the Accidental where 1.0\nis a shift up of one semitone, and -1.0 is the shift down of\none semitone.\n>>> sharp = pitch.Accidental('sharp')\n>>> sharp.alter\n1.0\n\n\n>>> sharp.alter = -1\n\n\nAfter changing alter to a known other value, name changes:\n>>> sharp.name\n'flat'\n\n\nBut changing it to an unusual value does not change the name:\n>>> notSoFlat = pitch.Accidental('flat')\n>>> notSoFlat.alter = -0.9\n>>> notSoFlat.name\n'flat'\n\n\n\nChanged in v5: changing the alter here changes other values, conditionally",
+        "type": "ListItem"
+    },
+    {
+        "text": "Accidental.",
+        "type": "Title"
+    },
+    {
+        "text": "displayStatus",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Determines if this Accidental is to be displayed;\ncan be None (for not set), True, or False.  In general do not\nset this, set .displayType instead.  Music21 will change displayStatus\nat any time without warning.\nWhile .displayType gives general rules about when this accidental\nshould be displayed or not, displayStatus determines whether after\napplying those rules this accidental will be displayed.\nIn general, a displayStatus of None means that no high-level\nprocessing of accidentals has happened.\nCan be set to True or False (or None) directly for contexts where\nthe next program down the line cannot evaluate displayType.  See\nstream.makeAccidentals() for more information.\nExample:\n>>> n0 = note.Note('C#4')\n>>> n1 = note.Note('C#4')\n>>> print(n0.pitch.accidental.displayStatus)\nNone\n>>> print(n1.pitch.accidental.displayStatus)\nNone\n>>> s = stream.Stream()\n>>> s.append([n0, n1])\n>>> s.makeAccidentals(inPlace=True)\n>>> n0.pitch.accidental.displayStatus\nTrue\n>>> n1.pitch.accidental.displayStatus\nFalse\n\n\n>>> n1.pitch.accidental.displayStatus = 2\nTraceback (most recent call last):\nmusic21.pitch.AccidentalException: Supplied display status is not supported: 2",
+        "type": "ListItem"
+    },
+    {
+        "text": "Accidental.",
+        "type": "Title"
+    },
+    {
+        "text": "displayType",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns or sets the display type of the accidental\n\u009cnormal\u009d (default) displays it if it is the first in measure,\nor is needed to contradict a previous accidental, etc.\nother valid terms:\n\n\u009calways\u009d\n\u009cnever\u009d\n\u009cunless-repeated\u009d (show always unless\nthe immediately preceding note is the same)\n\u009ceven-tied\u009d (stronger than always: shows even\nif it is tied to the previous note)\n\u009cif-absolutely-necessary\u009d (display only if it is absolutely necessary,\nlike an F-natural after an F-sharp in the same measure, but not an\nF-natural following an F-sharp directly across a barline.  Nor an\nF-natural in a different octave immediately following an F-sharp).\nThis is not yet implemented.\n\n>>> a = pitch.Accidental('flat')\n>>> a.displayType = 'unless-repeated'\n>>> a.displayType\n'unless-repeated'\n>>> a.displayType = 'underwater'\nTraceback (most recent call last):\nmusic21.pitch.AccidentalException: Supplied display type is not supported: 'underwater'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Accidental.",
+        "type": "Title"
+    },
+    {
+        "text": "modifier",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get or set the alter of the modifier, or the string symbol\nused to modify the pitch name, such as \u009c#\u009d or\n\u009c-\u009d for sharp and flat, respectively.  For a representation\nlikely to be read by non-music21 users, see .unicode.\n>>> f = pitch.Accidental('flat')\n>>> f.modifier\n'-'\n>>> f.modifier = '#'\n>>> f.name\n'sharp'\n\n\nHowever, an unknown modifier does not change anything but is preserved:\n>>> f.modifier = '&'\n>>> f.modifier\n'&'\n>>> f.name\n'sharp'\n\n\n\nChanged in v5: changing the modifier here changes\nother values, conditionally",
+        "type": "ListItem"
+    },
+    {
+        "text": "Accidental.",
+        "type": "Title"
+    },
+    {
+        "text": "name",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get or set the name of the Accidental, like \u0098sharp' or \u0098double-flat'\nIf the name is set to a standard name then it changes alter and modifier.\nIf set to a non-standard name, then it does not change them:\n>>> a = pitch.Accidental()\n>>> a.name = 'flat'\n>>> a.alter\n-1.0\n>>> a.modifier\n'-'\n>>> a.name = 'flat-flat-up'\n>>> a.alter\n-1.0\n\n\n\nChanged in v5: changing the name here changes other values, conditionally",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read/write properties inherited from StyleMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "editorial style",
+        "type": "Table"
+    },
+    {
+        "text": "Accidental methods",
+        "type": "Title"
+    },
+    {
+        "text": "Accidental.",
+        "type": "Title"
+    },
+    {
+        "text": "__eq__",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "other",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Equality. Needed for pitch comparisons.\n>>> a = pitch.Accidental('double-flat')\n>>> b = pitch.Accidental('double-flat')\n>>> c = pitch.Accidental('double-sharp')\n>>> a == b\nTrue\n\n\n>>> a == c\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "Accidental.",
+        "type": "Title"
+    },
+    {
+        "text": "inheritDisplay",
+        "type": "Title"
+    },
+    {
+        "text": "other",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given another Accidental object, inherit all the display properties\nof that object.\nThis is needed when transposing Pitches: we need to retain accidental display properties.\n>>> a = pitch.Accidental('double-flat')\n>>> a.displayType = 'always'\n>>> b = pitch.Accidental('sharp')\n>>> b.inheritDisplay(a)\n>>> b.displayType\n'always'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Accidental.",
+        "type": "Title"
+    },
+    {
+        "text": "isTwelveTone",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a boolean if this Accidental describes a twelve-tone, non-microtonal pitch.\n>>> a = pitch.Accidental('half-flat')\n>>> a.isTwelveTone()\nFalse\n\n\n>>> a = pitch.Accidental('###')\n>>> a.isTwelveTone()\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "classmethod",
+        "type": "Title"
+    },
+    {
+        "text": "Accidental.",
+        "type": "Title"
+    },
+    {
+        "text": "listNames",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns a list of accidental names that have any sort of\nsemantic importance in music21.\nYou may choose a name not from this list (1/7th-sharp) but\nif it's not on this list don't expect it to do anything for you.\nThis is a class method, so you may call it directly on the class:\nListed in alphabetical order. (TODO: maybe from lowest to highest\nor something implying importance?)\n>>> pitch.Accidental.listNames()\n ['double-flat', 'double-sharp', 'flat', 'half-flat',\n  'half-sharp', 'natural', 'one-and-a-half-flat', 'one-and-a-half-sharp',\n  'quadruple-flat', 'quadruple-sharp', 'sharp', 'triple-flat', 'triple-sharp']\n\n\nOr call on an instance of an accidental:\n>>> f = pitch.Accidental('flat')\n>>> f.listNames()\n ['double-flat', 'double-sharp', 'flat', 'half-flat', 'half-sharp', 'natural',\n  'one-and-a-half-flat', 'one-and-a-half-sharp', 'quadruple-flat', 'quadruple-sharp',\n  'sharp', 'triple-flat', 'triple-sharp']",
+        "type": "ListItem"
+    },
+    {
+        "text": "Accidental.",
+        "type": "Title"
+    },
+    {
+        "text": "set",
+        "type": "Title"
+    },
+    {
+        "text": "name",
+        "type": "Title"
+    },
+    {
+        "text": "allowNonStandardValue",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Change the type of the Accidental.  Strings, numbers, and Lilypond (German-like)\nabbreviations are all accepted.  All other values will change\nafter setting.\n>>> a = pitch.Accidental()\n>>> a.set('sharp')\n>>> a.alter\n1.0\n\n\n>>> a = pitch.Accidental()\n>>> a.set(2)\n>>> a.modifier == '##'\nTrue\n\n\n>>> a = pitch.Accidental()\n>>> a.set(2.0)\n>>> a.modifier == '##'\nTrue\n\n\n>>> a = pitch.Accidental('--')\n>>> a.alter\n-2.0\n>>> a.set('half-sharp')\n>>> a.alter\n0.5\n>>> a.name\n'half-sharp'\n\n\nSetting an illegal name is generally an error:\n>>> a.set('flat-flat-up')\nTraceback (most recent call last):\nmusic21.pitch.AccidentalException: flat-flat-up is not a supported accidental type\n\n\nBut if \u0098allowNonStandardValue' is True then other names (if strings) or alters (if numbers)\nare allowed:\n>>> a.set('quintuple-sharp', allowNonStandardValue=True)\n>>> a.set(5.0, allowNonStandardValue=True)\n>>> a.name\n'quintuple-sharp'\n>>> a.alter\n5.0\n\n\nThis is the argument that .name and .alter use to allow non-standard names\n\nChanged in v5: added allowNonStandardValue",
+        "type": "ListItem"
+    },
+    {
+        "text": "Accidental.",
+        "type": "Title"
+    },
+    {
+        "text": "setAttributeIndependently",
+        "type": "Title"
+    },
+    {
+        "text": "attribute",
+        "type": "Title"
+    },
+    {
+        "text": "value",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Set an attribute of \u0098name', \u0098alter', and \u0098modifier', independently\nof the other attributes.\n>>> a = pitch.Accidental('natural')\n>>> a.setAttributeIndependently('alter', 1.0)\n>>> a.alter\n1.0\n>>> a.name\n'natural'\n\n\n>>> a.setAttributeIndependently('name', 'sori')\n>>> a.setAttributeIndependently('modifier', '$')\n>>> a.modifier\n'$'\n>>> a.name\n'sori'\n>>> a.alter\n1.0\n\n\nOnly \u0098name', \u0098alter', and \u0098modifier' can be set independently:\n>>> a.setAttributeIndependently('color', 'red')\nTraceback (most recent call last):\nmusic21.pitch.AccidentalException: Cannot set attribute color independently of other parts.\n\n\n\nNew in v5: needed because .name, .alter, and .modifier run .set()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Accidental instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Accidental.",
+        "type": "Title"
+    },
+    {
+        "text": "displayLocation",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Location of accidental: \u009cnormal\u009d, \u009cabove\u009d, \u009cbelow\u009d.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Accidental.",
+        "type": "Title"
+    },
+    {
+        "text": "displaySize",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Size in display: \u009ccue\u009d, \u009clarge\u009d, or a percentage.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Accidental.",
+        "type": "Title"
+    },
+    {
+        "text": "displayStyle",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Style of display: \u009cparentheses\u009d, \u009cbracket\u009d, \u009cboth\u009d.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Microtone\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.pitch.",
+        "type": "Title"
+    },
+    {
+        "text": "Microtone",
+        "type": "Title"
+    },
+    {
+        "text": "centsOrString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "float",
+        "type": "Title"
+    },
+    {
+        "text": "harmonicShift",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The Microtone object defines a pitch transformation above or below a\nstandard Pitch and its Accidental.\n>>> m = pitch.Microtone(20)\n>>> m.cents\n20\n\n\n>>> m.alter\n0.2...\n\n\n>>> print(m)\n(+20c)\n>>> m\n<music21.pitch.Microtone (+20c)>\n\n\nMicrotones can be shifted according to the harmonic. Here we take the 3rd\nharmonic of the previous microtone\n>>> m.harmonicShift = 3\n>>> m.harmonicShift\n3\n>>> m\n<music21.pitch.Microtone (+20c+3rdH)>\n\n\n>>> m.cents\n1922\n\n\n>>> m.alter\n19.2...\n\n\nMicrotonal changes can be positive or negative.  Both Positive and negative\nnumbers can optionally be placed in parentheses Negative numbers in\nparentheses still need the minus sign.\n>>> m = pitch.Microtone('(-33.333333)')\n>>> m\n<music21.pitch.Microtone (-33c)>\n\n\n>>> m = pitch.Microtone('33.333333')\n>>> m\n<music21.pitch.Microtone (+33c)>\n\n\nNote that we round the display of microtones to the nearest cent, but we\nkeep the exact alteration in both .cents and .alter:\n>>> m.cents\n33.333...\n\n\n>>> m.alter\n0.3333...",
+        "type": "ListItem"
+    },
+    {
+        "text": "Microtone bases",
+        "type": "Title"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "SlottedObjectMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "Microtone read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Microtone.",
+        "type": "Title"
+    },
+    {
+        "text": "alter",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return the microtone value in accidental alter values.\n>>> pitch.Microtone(20).alter\n0.2",
+        "type": "ListItem"
+    },
+    {
+        "text": "Microtone.",
+        "type": "Title"
+    },
+    {
+        "text": "cents",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return the microtone value in cents.  This is not a settable property.\nTo set the value in cents, simply use that value as a creation\nargument.\n>>> pitch.Microtone(20).cents\n20",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "Microtone read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Microtone.",
+        "type": "Title"
+    },
+    {
+        "text": "harmonicShift",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Set or get the harmonic shift, altering the microtone",
+        "type": "ListItem"
+    },
+    {
+        "text": "Microtone methods",
+        "type": "Title"
+    },
+    {
+        "text": "Microtone.",
+        "type": "Title"
+    },
+    {
+        "text": "__eq__",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "other",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Compare cents (including harmonicShift)\n>>> m1 = pitch.Microtone(20)\n>>> m2 = pitch.Microtone(20)\n>>> m3 = pitch.Microtone(21)\n>>> m1 == m2\nTrue\n>>> m1 == m3\nFalse\n\n\n>>> m2.harmonicShift = 3\n>>> m1 == m2\nFalse\n\n\nCannot compare True to a non-Microtone:\n>>> m1 == pitch.Accidental(1)\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.pitch.",
+        "type": "Title"
+    },
+    {
+        "text": "convertPitchClassToStr",
+        "type": "Title"
+    },
+    {
+        "text": "pc",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 str",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a pitch class number, return a string.\n>>> pitch.convertPitchClassToStr(3)\n'3'\n>>> pitch.convertPitchClassToStr(10)\n'A'",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.pitch.",
+        "type": "Title"
+    },
+    {
+        "text": "isValidAccidentalName",
+        "type": "Title"
+    },
+    {
+        "text": "name",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Check if name is a valid accidental name string that can\nbe used to initialize an Accidental.\nStandard accidental names are valid:\n>>> pitch.isValidAccidentalName('double-flat')\nTrue\n\n\nAccidental modifiers are valid:\n>>> pitch.isValidAccidentalName('--')\nTrue\n\n\nAlternate accidental names are valid:\n>>> pitch.isValidAccidentalName('eses')\nTrue\n\n\nAnything else is not valid:\n>>> pitch.isValidAccidentalName('two flats')\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.pitch.",
+        "type": "Title"
+    },
+    {
+        "text": "simplifyMultipleEnharmonics",
+        "type": "Title"
+    },
+    {
+        "text": "pitches",
+        "type": "Title"
+    },
+    {
+        "text": "criterion=<function _dissonanceScore>",
+        "type": "Title"
+    },
+    {
+        "text": "keyContext=None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Tries to simplify the enharmonic spelling of a list of pitches, pitch-\nor pitch-class numbers according to a given criterion.\nA function can be passed as an argument to criterion, that is tried to be\nminimized in a greedy left-to-right fashion.\n>>> pitch.simplifyMultipleEnharmonics([11, 3, 6])\n[<music21.pitch.Pitch B>, <music21.pitch.Pitch D#>, <music21.pitch.Pitch F#>]\n\n\n>>> pitch.simplifyMultipleEnharmonics([3, 8, 0])\n[<music21.pitch.Pitch E->, <music21.pitch.Pitch A->, <music21.pitch.Pitch C>]\n\n\n>>> pitch.simplifyMultipleEnharmonics([pitch.Pitch('G3'),\n...                                    pitch.Pitch('C-4'),\n...                                    pitch.Pitch('D4')])\n[<music21.pitch.Pitch G3>, <music21.pitch.Pitch B3>, <music21.pitch.Pitch D4>]\n\n\n>>> pitch.simplifyMultipleEnharmonics([pitch.Pitch('A3'),\n...                                    pitch.Pitch('B#3'),\n...                                    pitch.Pitch('E4')])\n[<music21.pitch.Pitch A3>, <music21.pitch.Pitch C4>, <music21.pitch.Pitch E4>]\n\n\nThe attribute keyContext is for supplying a KeySignature or a Key\nwhich is used in the simplification:\n>>> pitch.simplifyMultipleEnharmonics([6, 10, 1], keyContext=key.Key('B'))\n[<music21.pitch.Pitch F#>, <music21.pitch.Pitch A#>, <music21.pitch.Pitch C#>]\n\n\n>>> pitch.simplifyMultipleEnharmonics([6, 10, 1], keyContext=key.Key('C-'))\n[<music21.pitch.Pitch G->, <music21.pitch.Pitch B->, <music21.pitch.Pitch D->]\n\n\nNote that if there's no key context, then we won't simplify everything (at least\nfor now; this behavior may change, ).\n>>> pitch.simplifyMultipleEnharmonics([pitch.Pitch('D--3'),\n...                                    pitch.Pitch('F-3'),\n...                                    pitch.Pitch('A--3')])\n[<music21.pitch.Pitch D--3>, <music21.pitch.Pitch F-3>, <music21.pitch.Pitch A--3>]\n\n\n>>> pitch.simplifyMultipleEnharmonics([pitch.Pitch('D--3'),\n...                                    pitch.Pitch('F-3'),\n...                                    pitch.Pitch('A--3')],\n...                                    keyContext=key.Key('C'))\n[<music21.pitch.Pitch C3>, <music21.pitch.Pitch E3>, <music21.pitch.Pitch G3>]\n\n\n\nChanged in v7.3: fixed a bug with compound intervals (such as formed against\nthe tonic of a KeySignature defaulting to octave 4):\n\n>>> pitch.simplifyMultipleEnharmonics([pitch.Pitch('B5')], keyContext=key.Key('D'))\n[<music21.pitch.Pitch B5>]",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.pitch.",
+        "type": "Title"
+    },
+    {
+        "text": "standardizeAccidentalName",
+        "type": "Title"
+    },
+    {
+        "text": "name",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 str",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Convert a valid accidental name to the standard accidental name.\nRaises AccidentalException if name is not a valid accidental name.\n>>> pitch.standardizeAccidentalName('double-flat')\n'double-flat'\n\n\n>>> pitch.standardizeAccidentalName('--')\n'double-flat'\n\n\n>>> pitch.standardizeAccidentalName('eses')\n'double-flat'\n\n\n>>> pitch.standardizeAccidentalName('two flats')\nTraceback (most recent call last):\nmusic21.pitch.AccidentalException: 'two flats' is not a supported accidental type",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.pitch",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

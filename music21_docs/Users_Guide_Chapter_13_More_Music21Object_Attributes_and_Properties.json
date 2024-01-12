@@ -1,0 +1,2446 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 13: More Music21Object Attributes and Properties",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide, Chapter 12: Getting Back to Basics: The Music21Object",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide: Chapter 14: Time Signatures and Beats",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide, Chapter 13: More Music21Object Attributes and Properties\nSites and the storing of elements\nDerivations\nContext attributes\nMethods on Music21Objects\n\n\n.getOffsetBySite and .setOffsetBySite\ngetContextByClass()\nSplitting methods\nShowing and Writing",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide\nUser's Guide: Table of Contents\nUser's Guide, Chapter 1: Installing and Getting Started with music21\nUser's Guide, Chapter 2: Notes\nUser's Guide, Chapter 3: Pitches, Durations, and Notes again\nUser's Guide, Chapter 4: Lists, Streams (I) and Output\nUser's Guide, Chapter 5: Lists of Lists, Functions, and Recursion\nUser's Guide, Chapter 6: Streams (II): Hierarchies, Recursion, and Flattening\nUser's Guide, Chapter 7: Chords\nUser's Guide, Chapter 8: Installing MusicXML Readers and File Formats (1)\nUser's Guide, Chapter 9: Chordify\nUser's Guide, Chapter 10: Examples 1\nUser's Guide, Chapter 11: Corpus Searching\nUser's Guide, Chapter 12: Getting Back to Basics: The Music21Object\nUser's Guide, Chapter 13: More Music21Object Attributes and Properties\nUser's Guide: Chapter 14: Time Signatures and Beats\nUser's Guide, Chapter 15: Keys and KeySignatures\nUser's Guide, Chapter 16: TinyNotation\nUser's Guide: Chapter 17: Derivations\nUser's Guide: Chapter 18: Intervals\nUser's Guide, Chapter 19: Advanced Durations (Complex and Tuplets)\nUser's Guide, Chapter 20: Examples 2\nUser's Guide, Chapter 21: Ordering and Sorting of Stream Elements\nUser's Guide, Chapter 22: Graphing and plotting\nUser's Guide, Chapter 23: Roman Numeral Analysis\nUser's Guide, Chapter 24: Configuring Environment Settings\nUser's Guide, Chapter 25: Post-Tonal Tools (1)\nUser's Guide, Chapter 26: Stream Iteration and Filtering\nUser's Guide, Chapter 27: Grace Notes\nUser's Guide, Chapter 28: Lyric Searching\nUser's Guide, Chapter 29: Spanners 1 (Slurs)\nUser's Guide, Chapter 30: Examples 3\nUser's Guide, Chapter 31: Clefs, Ties, and Beams\nUser's Guide, Chapter 32: Articulations\nUser's Guide, Chapter 44: Advanced Graphing (Axes, Plots, and Graphs)\nUser's Guide, Chapter 53: Advanced Corpus and Metadata Searching\nUser's Guide, Chapter 54: Extending Converter with New Formats\nUser's Guide, Chapter 55: Advanced Meter Topics\nUser's Guide, Chapter 58: Understanding Sites and Contexts\nUser's Guide, Chapter 61: TimespanTrees and Verticalities",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 13: More Music21Object Attributes and Properties\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Music21Object",
+        "type": "Title"
+    },
+    {
+        "text": ".id",
+        "type": "Title"
+    },
+    {
+        "text": ".groups",
+        "type": "Title"
+    },
+    {
+        "text": ".offset",
+        "type": "Title"
+    },
+    {
+        "text": ".priority",
+        "type": "Title"
+    },
+    {
+        "text": ".classSortOrder",
+        "type": "Title"
+    },
+    {
+        "text": ".activeSite",
+        "type": "Title"
+    },
+    {
+        "text": "Sites and the storing of elements\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "All Music21Objects (i.e., elements) have a .sites property which\nis a Sites object which holds information\nabout all the places the Music21Object is stored in. At its\nsimplest, it's something that can be iterated over:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "from",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "import",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "s1",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Stream",
+        "type": "Title"
+    },
+    {
+        "text": "id",
+        "type": "Title"
+    },
+    {
+        "text": "'s1'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "s2",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Stream",
+        "type": "Title"
+    },
+    {
+        "text": "id",
+        "type": "Title"
+    },
+    {
+        "text": "'s2'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "s1",
+        "type": "Title"
+    },
+    {
+        "text": "insert",
+        "type": "Title"
+    },
+    {
+        "text": "10",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "s2",
+        "type": "Title"
+    },
+    {
+        "text": "insert",
+        "type": "Title"
+    },
+    {
+        "text": "20",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "sites",
+        "type": "Title"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "elementOffset",
+        "type": "Title"
+    },
+    {
+        "text": "))",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Stream",
+        "type": "Title"
+    },
+    {
+        "text": "s1",
+        "type": "Title"
+    },
+    {
+        "text": "10.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Stream",
+        "type": "Title"
+    },
+    {
+        "text": "s2",
+        "type": "Title"
+    },
+    {
+        "text": "20.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Note that the order of the Streams in .sites is guaranteed to be the\norder in which the note was inserted into the site.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "There's a lot more that .sites can do, but primarily for developers.\nWe will get back to sites later.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Derivations\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "We will talk about derivations more in a future chapter, but we alluded\nto them in the Example in chapter 10, so let's say a few words about\nthis advanced feature. A Derivation\nobject is a pointer to an object that this object is derived from in\nsome way. They've gone their separate ways to an extent, but may want to\ntalk to each other later. A Music21Object starts out with no useful\nDerivation:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'C4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "derivation",
+        "type": "Title"
+    },
+    {
+        "text": "Derivation",
+        "type": "Title"
+    },
+    {
+        "text": "of",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "from",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "But we can create new notes from it and they're not totally connected,\nbut show their connection through .derivation:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "transpose",
+        "type": "Title"
+    },
+    {
+        "text": "'P4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "derivation",
+        "type": "Title"
+    },
+    {
+        "text": "Derivation",
+        "type": "Title"
+    },
+    {
+        "text": "of",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "from",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "via",
+        "type": "Title"
+    },
+    {
+        "text": "'transpose'",
+        "type": "Title"
+    },
+    {
+        "text": "Now c has a life of its own from f. We can add a sharp to C and\nthe transpose relationship of F to C does not affect it:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "accidental",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Accidental",
+        "type": "Title"
+    },
+    {
+        "text": "'sharp'",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#>, <music21.note.Note F>)",
+        "type": "Title"
+    },
+    {
+        "text": "But if f wants to do something to c, it can by changing itself\nand every element of its .derivation.chain():",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "notehead",
+        "type": "Title"
+    },
+    {
+        "text": "'diamond'",
+        "type": "Title"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "derivation",
+        "type": "Title"
+    },
+    {
+        "text": "chain",
+        "type": "Title"
+    },
+    {
+        "text": "():",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "notehead",
+        "type": "Title"
+    },
+    {
+        "text": "'diamond'",
+        "type": "Title"
+    },
+    {
+        "text": "notehead",
+        "type": "Title"
+    },
+    {
+        "text": "notehead",
+        "type": "Title"
+    },
+    {
+        "text": "'diamond'",
+        "type": "Title"
+    },
+    {
+        "text": "'diamond'",
+        "type": "Title"
+    },
+    {
+        "text": "While f can search upwards in its .derivation.chain() and find\nc, c cannot find f in its derivation; it is a connection\nthat is designed to be one-way only.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Setting derivations can be done manually, but it's an advanced enough\ntopic that we will get to it later.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Context attributes\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Several attributes of Music21Objects only work after the object has\nbeen placed inside a Stream that has certain features of their own.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "An easy one to understand is .measureNumber which finds the\n.number value of the measure that an object is placed in:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'C'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Measure",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "number",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "measureNumber",
+        "type": "Title"
+    },
+    {
+        "text": "This works even if a note is inside a voice inside a measure:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Voice",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "n2",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'D'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "n2",
+        "type": "Title"
+    },
+    {
+        "text": "insert",
+        "type": "Title"
+    },
+    {
+        "text": "n2",
+        "type": "Title"
+    },
+    {
+        "text": "measureNumber",
+        "type": "Title"
+    },
+    {
+        "text": "Without a context, you'll get None",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "n3",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "n3",
+        "type": "Title"
+    },
+    {
+        "text": "measureNumber",
+        "type": "Title"
+    },
+    {
+        "text": "is",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "The second context attribute is, appropriately, called .seconds. It\nrequires a tempo.MetronomeMark() to be placed into the Stream before the\nobject and will calculate how many seconds the object (note, etc.) lasts\nat that tempo:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "insert",
+        "type": "Title"
+    },
+    {
+        "text": "tempo",
+        "type": "Title"
+    },
+    {
+        "text": "MetronomeMark",
+        "type": "Title"
+    },
+    {
+        "text": "'Allegro'",
+        "type": "Title"
+    },
+    {
+        "text": "120",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "))",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "quarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "seconds",
+        "type": "Title"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "0.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Unlike .measureNumber and the rest of the attributes we will see\nbelow, you can change .seconds to reflect exact timing you might\nhave from audio or MIDI data.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "seconds",
+        "type": "Title"
+    },
+    {
+        "text": "0.6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "seconds",
+        "type": "Title"
+    },
+    {
+        "text": "0.6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "An object with no tempo information in its surrounding context returns\nthe special nan meaning \u009cnot a number\u009d for .seconds",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "n3",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'E'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "n3",
+        "type": "Title"
+    },
+    {
+        "text": "seconds",
+        "type": "Title"
+    },
+    {
+        "text": "nan",
+        "type": "Title"
+    },
+    {
+        "text": "So use math.isnan() to catch this:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "from",
+        "type": "Title"
+    },
+    {
+        "text": "math",
+        "type": "Title"
+    },
+    {
+        "text": "import",
+        "type": "Title"
+    },
+    {
+        "text": "isnan",
+        "type": "Title"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "n2",
+        "type": "Title"
+    },
+    {
+        "text": "n3",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "seconds",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "seconds",
+        "type": "Title"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "isnan",
+        "type": "Title"
+    },
+    {
+        "text": "seconds",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "seconds",
+        "type": "Title"
+    },
+    {
+        "text": "'No information'",
+        "type": "Title"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "step",
+        "type": "Title"
+    },
+    {
+        "text": "seconds",
+        "type": "Title"
+    },
+    {
+        "text": "0.6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "0.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "No",
+        "type": "Title"
+    },
+    {
+        "text": "information",
+        "type": "Title"
+    },
+    {
+        "text": ".beat",
+        "type": "Title"
+    },
+    {
+        "text": ".beatStr",
+        "type": "Title"
+    },
+    {
+        "text": ".beatStrength",
+        "type": "Title"
+    },
+    {
+        "text": "TimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "nan",
+        "type": "Title"
+    },
+    {
+        "text": "our next chapter we'll put them\noff until then.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Most Music21Objects such as Notes have many additional\nattributes, but these are all the ones that are common to every object\nthat can go in a Stream (after all, what would .step mean for a\nMetronomeMark?)",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "You may find other attributes on your base.Music21Object, especially if you are running\nan older version of music21. They are all deprecated most have been removed in\nrecent versions; programmers are advised to stick to the safe list of attributes described here.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Before v6.2, .seconds without a TimeSignature in contexts raised an exception.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Methods on Music21Objects\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Attributes and properties are aspects of an object that are lightweight\nand have no configuration options, so they are accessed without ().\nMethods tend to do more work and have more options, so they will always\nbe called with () signs.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Unlike attributes, where we have documented all of them, only a subset\nof the methods on Music21Objects are listed below. All of them can\nbe found in the documentation to Music21Object,\nbut many of them have obscure uses and might be moved later to not\nclutter up what is really important! And those are\u2026",
+        "type": "NarrativeText"
+    },
+    {
+        "text": ".getOffsetBySite and .setOffsetBySite\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "These methods work as the .offset attribute but can work on any site\nwhere the object is a part of.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "s1",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Stream",
+        "type": "Title"
+    },
+    {
+        "text": "id",
+        "type": "Title"
+    },
+    {
+        "text": "'s1'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "s1",
+        "type": "Title"
+    },
+    {
+        "text": "insert",
+        "type": "Title"
+    },
+    {
+        "text": "10",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "s2",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Stream",
+        "type": "Title"
+    },
+    {
+        "text": "id",
+        "type": "Title"
+    },
+    {
+        "text": "'s2'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "s2",
+        "type": "Title"
+    },
+    {
+        "text": "insert",
+        "type": "Title"
+    },
+    {
+        "text": "20",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "getOffsetBySite",
+        "type": "Title"
+    },
+    {
+        "text": "s1",
+        "type": "Title"
+    },
+    {
+        "text": "10.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "setOffsetBySite",
+        "type": "Title"
+    },
+    {
+        "text": "s1",
+        "type": "Title"
+    },
+    {
+        "text": "15.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "getOffsetBySite",
+        "type": "Title"
+    },
+    {
+        "text": "s1",
+        "type": "Title"
+    },
+    {
+        "text": "15.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "There is one extra possible attribute on .getOffsetBySite,\n\u009creturnSpecial=True\u009d which will say whether or not an element has a\nshifting offset. Right barlines have one:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "s3",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Measure",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "n3",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "'whole'",
+        "type": "Title"
+    },
+    {
+        "text": "s3",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "n3",
+        "type": "Title"
+    },
+    {
+        "text": "rb",
+        "type": "Title"
+    },
+    {
+        "text": "bar",
+        "type": "Title"
+    },
+    {
+        "text": "Barline",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "s3",
+        "type": "Title"
+    },
+    {
+        "text": "rightBarline",
+        "type": "Title"
+    },
+    {
+        "text": "rb",
+        "type": "Title"
+    },
+    {
+        "text": "rb",
+        "type": "Title"
+    },
+    {
+        "text": "getOffsetBySite",
+        "type": "Title"
+    },
+    {
+        "text": "s3",
+        "type": "Title"
+    },
+    {
+        "text": "4.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "rb",
+        "type": "Title"
+    },
+    {
+        "text": "getOffsetBySite",
+        "type": "Title"
+    },
+    {
+        "text": "s3",
+        "type": "Title"
+    },
+    {
+        "text": "returnSpecial",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "OffsetSpecial",
+        "type": "Title"
+    },
+    {
+        "text": "AT_END",
+        "type": "Title"
+    },
+    {
+        "text": "And in fact if we change the duration of n3 the position of the\nbarline will shift along with it:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "n3",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "'half'",
+        "type": "Title"
+    },
+    {
+        "text": "rb",
+        "type": "Title"
+    },
+    {
+        "text": "getOffsetBySite",
+        "type": "Title"
+    },
+    {
+        "text": "s3",
+        "type": "Title"
+    },
+    {
+        "text": "2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "getContextByClass()\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "This is an extremely powerful tool \u2014 you might not use it often, but be\nassured that music21 is using it on your behalf all the time when\nsophisticated analysis is involved. It finds the active element matching\na certain class preceeding the element. Let me demonstrate:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "bach",
+        "type": "Title"
+    },
+    {
+        "text": "corpus",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "'bwv66.6'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "lastNote",
+        "type": "Title"
+    },
+    {
+        "text": "bach",
+        "type": "Title"
+    },
+    {
+        "text": "recurse",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "getElementsByClass",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "last",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "lastNote",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "What part is it in?",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "lastNote",
+        "type": "Title"
+    },
+    {
+        "text": "getContextByClass",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Part",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Part",
+        "type": "Title"
+    },
+    {
+        "text": "Bass",
+        "type": "Title"
+    },
+    {
+        "text": "What was the Key at that moment?",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "lastNote",
+        "type": "Title"
+    },
+    {
+        "text": "getContextByClass",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "KeySignature",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "Key",
+        "type": "Title"
+    },
+    {
+        "text": "of",
+        "type": "Title"
+    },
+    {
+        "text": "# minor>",
+        "type": "Title"
+    },
+    {
+        "text": "What is the TimeSignature at that moment?",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "lastNote",
+        "type": "Title"
+    },
+    {
+        "text": "getContextByClass",
+        "type": "Title"
+    },
+    {
+        "text": "meter",
+        "type": "Title"
+    },
+    {
+        "text": "TimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "meter",
+        "type": "Title"
+    },
+    {
+        "text": "TimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "Why is this such a sophisticated method? It knows about the differences\nin different types of Streams. If the key signature changes in a\ndifferent part then it doesn't affect the notes of the current part, but\nif it changes in a previous measure in the same part, then that matters.\nFurthermore, the caching mechanism via something called Timespans is\namazingly fast, so that running through an entire score getting the\ncontext for each object doesn't take long at all.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "We demonstrate here on an early 15th-century Mass piece that uses four\ndifferent time singatures:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "gloria",
+        "type": "Title"
+    },
+    {
+        "text": "corpus",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "'luca/gloria'",
+        "type": "Title"
+    },
+    {
+        "text": "soprano",
+        "type": "Title"
+    },
+    {
+        "text": "gloria",
+        "type": "Title"
+    },
+    {
+        "text": "parts",
+        "type": "Title"
+    },
+    {
+        "text": "lastTimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "soprano",
+        "type": "Title"
+    },
+    {
+        "text": "recurse",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "getElementsByClass",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "thisTimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "getContextByClass",
+        "type": "Title"
+    },
+    {
+        "text": "meter",
+        "type": "Title"
+    },
+    {
+        "text": "TimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "thisTimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "is",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "not",
+        "type": "Title"
+    },
+    {
+        "text": "lastTimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "lastTimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "thisTimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "thisTimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "measureNumber",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "meter",
+        "type": "Title"
+    },
+    {
+        "text": "TimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "meter",
+        "type": "Title"
+    },
+    {
+        "text": "TimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "28",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "meter",
+        "type": "Title"
+    },
+    {
+        "text": "TimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "80",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "meter",
+        "type": "Title"
+    },
+    {
+        "text": "TimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "110",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "As you might expect, the .measureNumber routine uses\n.getContextByClass(stream.Measure) internally. What is also\ninteresting is that .getContextByClass is smart enough to search out\nderivation chains to find what it is looking for. For instance, this\nflat stream has only notes, no time signatures. But it can still find\neach note's time signature and measure number context.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Here we will use the string ('TimeSignature') form of\ngetContextByClass instead of the class name (meter.TimeSignature)",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "lastTimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "soprano",
+        "type": "Title"
+    },
+    {
+        "text": "flatten",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "notes",
+        "type": "Title"
+    },
+    {
+        "text": "thisTimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "getContextByClass",
+        "type": "Title"
+    },
+    {
+        "text": "'TimeSignature'",
+        "type": "Title"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "thisTimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "is",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "not",
+        "type": "Title"
+    },
+    {
+        "text": "lastTimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "lastTimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "thisTimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "thisTimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "measureNumber",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "meter",
+        "type": "Title"
+    },
+    {
+        "text": "TimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "meter",
+        "type": "Title"
+    },
+    {
+        "text": "TimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "28",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "meter",
+        "type": "Title"
+    },
+    {
+        "text": "TimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "80",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "meter",
+        "type": "Title"
+    },
+    {
+        "text": "TimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "110",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Internally .getContextByClass uses another Music21Object method\ncalled .contextSites() which is a generator that tells the system\nwhere to search next:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "cs",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "lastNote",
+        "type": "Title"
+    },
+    {
+        "text": "contextSites",
+        "type": "Title"
+    },
+    {
+        "text": "():",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "cs",
+        "type": "Title"
+    },
+    {
+        "text": "ContextTuple",
+        "type": "Title"
+    },
+    {
+        "text": "site",
+        "type": "Title"
+    },
+    {
+        "text": "=<",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Measure",
+        "type": "Title"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "33.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "recurseType",
+        "type": "Title"
+    },
+    {
+        "text": "=<",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "RecursionType",
+        "type": "Title"
+    },
+    {
+        "text": "ELEMENTS_FIRST",
+        "type": "Title"
+    },
+    {
+        "text": "ContextTuple",
+        "type": "Title"
+    },
+    {
+        "text": "site",
+        "type": "Title"
+    },
+    {
+        "text": "=<",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Part",
+        "type": "Title"
+    },
+    {
+        "text": "Bass",
+        "type": "Title"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "35.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "recurseType",
+        "type": "Title"
+    },
+    {
+        "text": "=<",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "RecursionType",
+        "type": "Title"
+    },
+    {
+        "text": "FLATTEN",
+        "type": "Title"
+    },
+    {
+        "text": "ContextTuple",
+        "type": "Title"
+    },
+    {
+        "text": "site",
+        "type": "Title"
+    },
+    {
+        "text": "=<",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Score",
+        "type": "Title"
+    },
+    {
+        "text": "bach",
+        "type": "Title"
+    },
+    {
+        "text": "bwv66",
+        "type": "Title"
+    },
+    {
+        "text": ".6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "mxl",
+        "type": "Title"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "35.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "recurseType",
+        "type": "Title"
+    },
+    {
+        "text": "=<",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "RecursionType",
+        "type": "Title"
+    },
+    {
+        "text": "ELEMENTS_ONLY",
+        "type": "Title"
+    },
+    {
+        "text": ".contextSites returns a \u009cContextTuple\u009d which is a lightweight\nnamedtuple that has three attributes, site, offset, and\nrecurseType.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "The first ContextTuple says that first the elements of site: Measure\n9 should be searched, beginning at offset 2.0 and (because\nrecurseType is\nRecursionType.ELEMENTS_FIRST) working\nbackwards to the beginning of the measure, then if the matching context\nisn't found, the measure will be flattened (in case there are other\nvoices in the measure) and anything from before offset 2.0 of that\nflattened stream will be searched.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "If that fails, then the Bass part as a whole will be searched, with all\nelements flattened, beginning at offset 35 and working backwards. That\nway if the context is in another measure it will be found.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Then if that fails, it will look at the score as a whole, beginning at\noffset 35 and working backwards, but only looking at things that are at\nthe score level, not looking at elements within other parts. There may\nbe scores where for instance, expressive markings appear at the Score\nlevel. This will find them.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Related to .getContextByClass() is .getAllContextsByClass()\nwhich is a generator that returns each preceeding context.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "Two known bugs that we hope to get fixed soon: if there are two or more\ncontexts at the same offset, .getAllContextsByClass() will skip over\nall but one of them. Using Music21Object as a class list can create infinite loops.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "lastGloriaNote",
+        "type": "Title"
+    },
+    {
+        "text": "soprano",
+        "type": "Title"
+    },
+    {
+        "text": "recurse",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "notes",
+        "type": "Title"
+    },
+    {
+        "text": "last",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "ts",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "lastGloriaNote",
+        "type": "Title"
+    },
+    {
+        "text": "getAllContextsByClass",
+        "type": "Title"
+    },
+    {
+        "text": "meter",
+        "type": "Title"
+    },
+    {
+        "text": "TimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "ts",
+        "type": "Title"
+    },
+    {
+        "text": "ts",
+        "type": "Title"
+    },
+    {
+        "text": "measureNumber",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "meter",
+        "type": "Title"
+    },
+    {
+        "text": "TimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "110",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "meter",
+        "type": "Title"
+    },
+    {
+        "text": "TimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "80",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "meter",
+        "type": "Title"
+    },
+    {
+        "text": "TimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "28",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "meter",
+        "type": "Title"
+    },
+    {
+        "text": "TimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "Similar to .getContextByClass() are the .next(class) and\n.previous(class) methods which move to the next or previous element\nof the same class at the same (or a higher) hierarchical level. They're\ndesigned to be really easy to use, but so far, I've failed at achieving\nthat. Hopefully in the next few versions I'll be able to demonstrate in\npractice how these commands were designed to work. For now, I'd suggest\navoiding them.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Splitting methods\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Music21 has three methods on Music21Objects for splitting\nthem. Eventually the plan is to unite them into a single .split()\nmethod, but we're not there yet.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "The three methods are:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": ".splitAtQuarterLength \u2014 splits an object into two objects at the\ngiven quarter length",
+        "type": "ListItem"
+    },
+    {
+        "text": ".splitByQuarterLengths \u2014 splits an object into two or more\nobjects according to a list of quarter lengths",
+        "type": "ListItem"
+    },
+    {
+        "text": ".splitAtDurations \u2014 takes an object with a complex duration (such\nas 5.0 quarters) and splits it into notatable units.",
+        "type": "ListItem"
+    },
+    {
+        "text": "These all work rather similarly. Behind their seeming simplicity are a\nhost of complex musical decisions that are being made. Take this rather\ncomplex note (we're introducing expressions and articulations\nsoftly here, so that you don't need to wait for\nChapter 32 to encounter them):",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'C#5'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "'whole'",
+        "type": "Title"
+    },
+    {
+        "text": "articulations",
+        "type": "Title"
+    },
+    {
+        "text": "articulations",
+        "type": "Title"
+    },
+    {
+        "text": "Staccato",
+        "type": "Title"
+    },
+    {
+        "text": "(),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "articulations",
+        "type": "Title"
+    },
+    {
+        "text": "Accent",
+        "type": "Title"
+    },
+    {
+        "text": "()]",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "lyric",
+        "type": "Title"
+    },
+    {
+        "text": "'hi!'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "expressions",
+        "type": "Title"
+    },
+    {
+        "text": "expressions",
+        "type": "Title"
+    },
+    {
+        "text": "Mordent",
+        "type": "Title"
+    },
+    {
+        "text": "(),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "expressions",
+        "type": "Title"
+    },
+    {
+        "text": "Trill",
+        "type": "Title"
+    },
+    {
+        "text": "(),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "expressions",
+        "type": "Title"
+    },
+    {
+        "text": "Fermata",
+        "type": "Title"
+    },
+    {
+        "text": "()]",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Now let's split this note just before beat 4:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "splitTuple",
+        "type": "Title"
+    },
+    {
+        "text": "splitAtQuarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "3.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Stream",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "splitTuple",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Notice the choices that music21 made \u2014 the two notes are tied, the\nlyrics are sung at the beginning, the accent and mordent appear at the\nbeginning of the note while the staccato and fermata(!) appear on the\nsecond note, while trill mark gets put onto the first note only. This is\npart of the \u009cbatteries included\u009d music21 approach \u2014 try to do\nsomething musically smart in most cases. In fact, it's even a bit\nsmarter \u2014 the splitTuple knows that there's something called a\nTrillExtension spanner in it which should be put into the Stream:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "splitTuple",
+        "type": "Title"
+    },
+    {
+        "text": "spannerList",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "expressions",
+        "type": "Title"
+    },
+    {
+        "text": "TrillExtension",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#><music21.note.Note C#>>]",
+        "type": "Title"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "thisSpanner",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "splitTuple",
+        "type": "Title"
+    },
+    {
+        "text": "spannerList",
+        "type": "Title"
+    },
+    {
+        "text": "insert",
+        "type": "Title"
+    },
+    {
+        "text": "thisSpanner",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Showing and Writing\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": ".show()",
+        "type": "Title"
+    },
+    {
+        "text": ".write()",
+        "type": "Title"
+    },
+    {
+        "text": ".show()",
+        "type": "Title"
+    },
+    {
+        "text": "'musicxml'",
+        "type": "Title"
+    },
+    {
+        "text": "'musicxml.png'",
+        "type": "Title"
+    },
+    {
+        "text": ".write()",
+        "type": "Title"
+    },
+    {
+        "text": "We'll see enough about .show() and .write() later, so that's\nenough for now on this long chapter. Let's return to the .beat\nrelated function in\nChapter 14, Time Signatures.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 13: More Music21Object Attributes and Properties",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

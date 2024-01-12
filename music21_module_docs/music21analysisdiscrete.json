@@ -1,0 +1,1378 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.analysis.discrete",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.analysis.correlate",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.analysis.elements",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.analysis.discrete\nDiscreteAnalysis\nDiscreteAnalysis\nDiscreteAnalysis.clearSolutionsFound()\nDiscreteAnalysis.getColorsUsed()\nDiscreteAnalysis.getSolution()\nDiscreteAnalysis.getSolutionsUsed()\nDiscreteAnalysis.process()\nDiscreteAnalysis.solutionLegend()\nDiscreteAnalysis.solutionToColor()\nDiscreteAnalysis.solutionUnitString()\n\n\n\n\nAmbitus\nAmbitus\nAmbitus.getPitchSpan()\nAmbitus.getSolution()\nAmbitus.process()\nAmbitus.solutionLegend()\nAmbitus.solutionToColor()\nAmbitus.solutionUnitString()\n\n\n\n\nMelodicIntervalDiversity\nMelodicIntervalDiversity\nMelodicIntervalDiversity.countMelodicIntervals()\nMelodicIntervalDiversity.getSolution()\nMelodicIntervalDiversity.process()\nMelodicIntervalDiversity.solutionToColor()\n\n\n\n\nKeyWeightKeyAnalysis\nKeyWeightKeyAnalysis\nKeyWeightKeyAnalysis.getSolution()\nKeyWeightKeyAnalysis.getWeights()\nKeyWeightKeyAnalysis.process()\nKeyWeightKeyAnalysis.solutionLegend()\nKeyWeightKeyAnalysis.solutionToColor()\nKeyWeightKeyAnalysis.solutionUnitString()\n\n\n\n\nSimpleWeights\nSimpleWeights\nSimpleWeights.getWeights()\n\n\n\n\nAardenEssen\nAardenEssen\nAardenEssen.getWeights()\n\n\n\n\nBellmanBudge\nBellmanBudge\nBellmanBudge.getWeights()\n\n\n\n\nKrumhanslSchmuckler\nKrumhanslSchmuckler\nKrumhanslSchmuckler.getWeights()\n\n\n\n\nTemperleyKostkaPayne\nTemperleyKostkaPayne\nTemperleyKostkaPayne.getWeights()\n\n\n\n\nFunctions\nanalyzeStream()\nanalysisClassFromMethodName()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.analysis.discrete\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Modular analysis procedures for use alone or\napplied with music21.analysis.windowed.WindowedAnalysis class.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "All procedures should inherit from\nmusic21.analysis.discrete.DiscreteAnalysis,\nor provide a similar interface.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "The music21.analysis.discrete.KrumhanslSchmuckler\n(for algorithmic key detection) and\nmusic21.analysis.discrete.Ambitus (for pitch range analysis) provide examples.",
+        "type": "Title"
+    },
+    {
+        "text": "DiscreteAnalysis\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.analysis.discrete.",
+        "type": "Title"
+    },
+    {
+        "text": "DiscreteAnalysis",
+        "type": "Title"
+    },
+    {
+        "text": "referenceStream",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Parent class for analytical methods.\nEach analytical method returns a discrete numerical (or other)\nresults as well as a color.  Colors can be used in mapping output.\nAnalytical methods may make use of a referenceStream to\nconfigure the processor on initialization.",
+        "type": "ListItem"
+    },
+    {
+        "text": "DiscreteAnalysis methods",
+        "type": "Title"
+    },
+    {
+        "text": "DiscreteAnalysis.",
+        "type": "Title"
+    },
+    {
+        "text": "clearSolutionsFound",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Clear all stored solutions",
+        "type": "ListItem"
+    },
+    {
+        "text": "DiscreteAnalysis.",
+        "type": "Title"
+    },
+    {
+        "text": "getColorsUsed",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Based on solutions found so far with this processor,\nreturn the colors that have been used.",
+        "type": "ListItem"
+    },
+    {
+        "text": "DiscreteAnalysis.",
+        "type": "Title"
+    },
+    {
+        "text": "getSolution",
+        "type": "Title"
+    },
+    {
+        "text": "subStream",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "For a given Stream, apply the analysis and return the best solution.",
+        "type": "ListItem"
+    },
+    {
+        "text": "DiscreteAnalysis.",
+        "type": "Title"
+    },
+    {
+        "text": "getSolutionsUsed",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Based on solutions found so far with this processor,\nreturn the solutions that have been used.",
+        "type": "ListItem"
+    },
+    {
+        "text": "DiscreteAnalysis.",
+        "type": "Title"
+    },
+    {
+        "text": "process",
+        "type": "Title"
+    },
+    {
+        "text": "sStream",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a Stream, apply the analysis to all components of this Stream.\nExpected return is a solution (method specific) and a color value.",
+        "type": "ListItem"
+    },
+    {
+        "text": "DiscreteAnalysis.",
+        "type": "Title"
+    },
+    {
+        "text": "solutionLegend",
+        "type": "Title"
+    },
+    {
+        "text": "compress",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A list of pairs showing all discrete results and the assigned color.\nData should be organized to be passed to\nmusic21.graph.GraphColorGridLegend.\nIf compress is True, the legend will only show values for solutions\nthat have been encountered.",
+        "type": "ListItem"
+    },
+    {
+        "text": "DiscreteAnalysis.",
+        "type": "Title"
+    },
+    {
+        "text": "solutionToColor",
+        "type": "Title"
+    },
+    {
+        "text": "solution",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given an analysis specific result, return the appropriate color.\nMust be able to handle None in the case that there is no result.",
+        "type": "ListItem"
+    },
+    {
+        "text": "DiscreteAnalysis.",
+        "type": "Title"
+    },
+    {
+        "text": "solutionUnitString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a string describing the solution values. Used in Legend formation.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Ambitus\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.analysis.discrete.",
+        "type": "Title"
+    },
+    {
+        "text": "Ambitus",
+        "type": "Title"
+    },
+    {
+        "text": "referenceStream",
+        "type": "Title"
+    },
+    {
+        "text": "stream.Stream | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A basic analysis method for measuring register.\n>>> ambitusAnalysis = analysis.discrete.Ambitus()\n>>> ambitusAnalysis.identifiers[0]\n'ambitus'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Ambitus bases",
+        "type": "Title"
+    },
+    {
+        "text": "DiscreteAnalysis",
+        "type": "ListItem"
+    },
+    {
+        "text": "Ambitus methods",
+        "type": "Title"
+    },
+    {
+        "text": "Ambitus.",
+        "type": "Title"
+    },
+    {
+        "text": "getPitchSpan",
+        "type": "Title"
+    },
+    {
+        "text": "subStream",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 tuple[music21.pitch.Pitch, music21.pitch.Pitch] | None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "For a given subStream, return a tuple consisting of the two pitches\nwith the minimum and maximum pitch space value.\nThis public method may be used by other classes.\nignores ChordSymbol objects\u2026\n>>> s = corpus.parse('bach/bwv66.6')\n>>> p = analysis.discrete.Ambitus()\n>>> pitchMin, pitchMax = p.getPitchSpan(s.parts[0].getElementsByClass(stream.Measure)[3])\n>>> pitchMin.ps, pitchMax.ps\n(66.0, 71.0)\n>>> p.getPitchSpan(s.parts[0].getElementsByClass(stream.Measure)[6])\n(<music21.pitch.Pitch A4>, <music21.pitch.Pitch C#5>)\n\n\n>>> s = stream.Stream()\n>>> c = chord.Chord(['a2', 'b4', 'c8'])\n>>> s.append(c)\n>>> p.getPitchSpan(s)\n(<music21.pitch.Pitch A2>, <music21.pitch.Pitch C8>)\n\n\nReturns None if the stream contains no pitches.\n>>> s = stream.Stream(note.Rest())\n>>> p.getPitchSpan(s) is None\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "Ambitus.",
+        "type": "Title"
+    },
+    {
+        "text": "getSolution",
+        "type": "Title"
+    },
+    {
+        "text": "sStream",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Procedure to only return an Interval object.\n>>> s = corpus.parse('bach/bwv66.6')\n>>> p = analysis.discrete.Ambitus()\n>>> p.getSolution(s)\n<music21.interval.Interval m21>",
+        "type": "ListItem"
+    },
+    {
+        "text": "Ambitus.",
+        "type": "Title"
+    },
+    {
+        "text": "process",
+        "type": "Title"
+    },
+    {
+        "text": "sStream",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a Stream, return a solution (as an interval) and a color string.\n>>> p = analysis.discrete.Ambitus()\n>>> s = stream.Stream()\n>>> c = chord.Chord(['a2', 'b4', 'c8'])\n>>> s.append(c)\n>>> p.process(s)\n(<music21.interval.Interval m38>, '#665288')",
+        "type": "ListItem"
+    },
+    {
+        "text": "Ambitus.",
+        "type": "Title"
+    },
+    {
+        "text": "solutionLegend",
+        "type": "Title"
+    },
+    {
+        "text": "compress",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return legend data.\n>>> s = corpus.parse('bach/bwv66.6')\n>>> soprano = s.parts[0]\n>>> p = analysis.discrete.Ambitus(soprano)  # provide ref stream\n>>> p.solutionLegend()\n[['',\n  [(0, '#130f19'), (1, '#211a2c'), (2, '#2f263f'),\n   (3, '#3e3253'), (4, '#4c3d66'), (5, '#5b4979')]],\n ['',\n  [(6, '#69548c'), (7, '#775f9f'), (8, '#866bb2'), (9, '#9476c5'),\n   (10, '#a382d9'), (11, '#b18eec'), (12, '#bf99ff')]]]\n\n\n>>> len(p.solutionLegend())\n2\n>>> [len(x) for x in p.solutionLegend()]\n[2, 2]\n\n\n>>> [len(y) for y in [x for x in p.solutionLegend()]]\n[2, 2]\n\n\n>>> s = corpus.parse('bach/bwv66.6')\n>>> p = analysis.discrete.Ambitus()\n>>> p.solutionLegend(compress=True)  # empty if nothing processed\n[['', []], ['', []]]\n\n\n>>> x = p.process(s.parts[0])\n>>> [len(y) for y in [x for x in p.solutionLegend(compress=True)]]\n[2, 2]\n\n\n>>> x = p.process(s.parts[1])\n>>> [len(y) for y in [x for x in p.solutionLegend(compress=True)]]\n[2, 2]",
+        "type": "ListItem"
+    },
+    {
+        "text": "Ambitus.",
+        "type": "Title"
+    },
+    {
+        "text": "solutionToColor",
+        "type": "Title"
+    },
+    {
+        "text": "solution",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>> p = analysis.discrete.Ambitus()\n>>> s = stream.Stream()\n>>> c = chord.Chord(['a2', 'b4', 'c8'])\n>>> s.append(c)\n>>> minPitch, maxPitch = p.getPitchSpan(s)\n>>> p.solutionToColor(maxPitch.ps - minPitch.ps).startswith('#')\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "Ambitus.",
+        "type": "Title"
+    },
+    {
+        "text": "solutionUnitString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a string describing the solution values. Used in Legend formation.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from DiscreteAnalysis:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "clearSolutionsFound() getColorsUsed() getSolutionsUsed()",
+        "type": "Table"
+    },
+    {
+        "text": "MelodicIntervalDiversity\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.analysis.discrete.",
+        "type": "Title"
+    },
+    {
+        "text": "MelodicIntervalDiversity",
+        "type": "Title"
+    },
+    {
+        "text": "referenceStream",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "An analysis method to determine the diversity of intervals used in a Stream.",
+        "type": "ListItem"
+    },
+    {
+        "text": "MelodicIntervalDiversity bases",
+        "type": "Title"
+    },
+    {
+        "text": "DiscreteAnalysis",
+        "type": "ListItem"
+    },
+    {
+        "text": "MelodicIntervalDiversity methods",
+        "type": "Title"
+    },
+    {
+        "text": "MelodicIntervalDiversity.",
+        "type": "Title"
+    },
+    {
+        "text": "countMelodicIntervals",
+        "type": "Title"
+    },
+    {
+        "text": "sStream",
+        "type": "Title"
+    },
+    {
+        "text": "found",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "ignoreDirection",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "ignoreUnison",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Find all unique melodic intervals in this Stream.\nIf found is provided as a dictionary, this dictionary will be used to store Intervals,\nand counts of Intervals already found will be incremented.",
+        "type": "ListItem"
+    },
+    {
+        "text": "MelodicIntervalDiversity.",
+        "type": "Title"
+    },
+    {
+        "text": "getSolution",
+        "type": "Title"
+    },
+    {
+        "text": "sStream",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Solution is the number of unique intervals.",
+        "type": "ListItem"
+    },
+    {
+        "text": "MelodicIntervalDiversity.",
+        "type": "Title"
+    },
+    {
+        "text": "process",
+        "type": "Title"
+    },
+    {
+        "text": "sStream",
+        "type": "Title"
+    },
+    {
+        "text": "ignoreDirection",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Find how many unique intervals are used in this Stream",
+        "type": "ListItem"
+    },
+    {
+        "text": "MelodicIntervalDiversity.",
+        "type": "Title"
+    },
+    {
+        "text": "solutionToColor",
+        "type": "Title"
+    },
+    {
+        "text": "solution",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given an analysis specific result, return the appropriate color.\nMust be able to handle None in the case that there is no result.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from DiscreteAnalysis:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "clearSolutionsFound() getColorsUsed() getSolutionsUsed() solutionLegend() solutionUnitString()",
+        "type": "Table"
+    },
+    {
+        "text": "KeyWeightKeyAnalysis\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.analysis.discrete.",
+        "type": "Title"
+    },
+    {
+        "text": "KeyWeightKeyAnalysis",
+        "type": "Title"
+    },
+    {
+        "text": "referenceStream",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Base class for all key-weight key analysis subclasses.",
+        "type": "ListItem"
+    },
+    {
+        "text": "KeyWeightKeyAnalysis bases",
+        "type": "Title"
+    },
+    {
+        "text": "DiscreteAnalysis",
+        "type": "ListItem"
+    },
+    {
+        "text": "KeyWeightKeyAnalysis methods",
+        "type": "Title"
+    },
+    {
+        "text": "KeyWeightKeyAnalysis.",
+        "type": "Title"
+    },
+    {
+        "text": "getSolution",
+        "type": "Title"
+    },
+    {
+        "text": "sStream",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a music21 Key object defining the results of the analysis.\nDo not call process before calling this method, as this method calls process.\nNote that all alternative solutions are returned as Key objects and stored\non a list found at Key.alternateInterpretations.\n>>> s = corpus.parse('bach/bwv66.6')\n>>> p = analysis.discrete.KrumhanslSchmuckler()\n>>> p.getSolution(s)  # this seems correct\n<music21.key.Key of f# minor>\n\n\n>>> s = corpus.parse('bach/bwv57.8')\n>>> p = analysis.discrete.KrumhanslSchmuckler(s)\n>>> p.getSolution(s)\n<music21.key.Key of B- major>",
+        "type": "ListItem"
+    },
+    {
+        "text": "KeyWeightKeyAnalysis.",
+        "type": "Title"
+    },
+    {
+        "text": "getWeights",
+        "type": "Title"
+    },
+    {
+        "text": "weightType",
+        "type": "Title"
+    },
+    {
+        "text": "'major'",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 list[float]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns the key weights. To provide different key weights,\nsubclass and override this method. The defaults here are KrumhanslSchmuckler.\n>>> a = analysis.discrete.KrumhanslSchmuckler()\n>>> len(a.getWeights('major'))\n12\n>>> len(a.getWeights('minor'))\n12",
+        "type": "ListItem"
+    },
+    {
+        "text": "KeyWeightKeyAnalysis.",
+        "type": "Title"
+    },
+    {
+        "text": "process",
+        "type": "Title"
+    },
+    {
+        "text": "sStream",
+        "type": "Title"
+    },
+    {
+        "text": "storeAlternatives",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Takes in a Stream or sub-Stream and performs analysis\non all contents of the Stream. The\nWindowedAnalysis\nwindowing system can be used to get numerous results\nby calling this method.\nReturns two values, a solution data list and a color string.\nThe data list contains a key (as a string), a mode\n(as a string), and a correlation value (degree of certainty)",
+        "type": "ListItem"
+    },
+    {
+        "text": "KeyWeightKeyAnalysis.",
+        "type": "Title"
+    },
+    {
+        "text": "solutionLegend",
+        "type": "Title"
+    },
+    {
+        "text": "compress",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns a list of lists of possible results for the creation of a legend.\n>>> p = analysis.discrete.KrumhanslSchmuckler()\n>>> post = p.solutionLegend()",
+        "type": "ListItem"
+    },
+    {
+        "text": "KeyWeightKeyAnalysis.",
+        "type": "Title"
+    },
+    {
+        "text": "solutionToColor",
+        "type": "Title"
+    },
+    {
+        "text": "solution",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a two-element tuple of (tonicPitch, modality) return the proper color\n>>> p = analysis.discrete.KrumhanslSchmuckler()\n>>> solution = (pitch.Pitch('C'), 'major')\n>>> p.solutionToColor(solution)\n'#ff816b'",
+        "type": "ListItem"
+    },
+    {
+        "text": "KeyWeightKeyAnalysis.",
+        "type": "Title"
+    },
+    {
+        "text": "solutionUnitString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a string describing the solution values. Used in Legend formation.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from DiscreteAnalysis:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "clearSolutionsFound() getColorsUsed() getSolutionsUsed()",
+        "type": "Table"
+    },
+    {
+        "text": "SimpleWeights\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.analysis.discrete.",
+        "type": "Title"
+    },
+    {
+        "text": "SimpleWeights",
+        "type": "Title"
+    },
+    {
+        "text": "referenceStream",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Implementation of simple weights by Craig Sapp for Krumhansl-Schmuckler\nkey determination algorithm.\nValues from from http://extras.humdrum.org/man/keycor/, which describes\nthese weightings as \u009cPerforms most consistently with large regions of music,\nbecomes noisier with smaller regions of music.\u009d",
+        "type": "ListItem"
+    },
+    {
+        "text": "SimpleWeights bases",
+        "type": "Title"
+    },
+    {
+        "text": "KeyWeightKeyAnalysis",
+        "type": "ListItem"
+    },
+    {
+        "text": "DiscreteAnalysis",
+        "type": "ListItem"
+    },
+    {
+        "text": "SimpleWeights methods",
+        "type": "Title"
+    },
+    {
+        "text": "SimpleWeights.",
+        "type": "Title"
+    },
+    {
+        "text": "getWeights",
+        "type": "Title"
+    },
+    {
+        "text": "weightType",
+        "type": "Title"
+    },
+    {
+        "text": "'major'",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns the key weights.\n>>> a = analysis.discrete.SimpleWeights()\n>>> len(a.getWeights('major'))\n12\n>>> len(a.getWeights('minor'))\n12",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from KeyWeightKeyAnalysis:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "getSolution() process() solutionLegend() solutionToColor() solutionUnitString()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from DiscreteAnalysis:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "clearSolutionsFound() getColorsUsed() getSolutionsUsed()",
+        "type": "Table"
+    },
+    {
+        "text": "AardenEssen\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.analysis.discrete.",
+        "type": "Title"
+    },
+    {
+        "text": "AardenEssen",
+        "type": "Title"
+    },
+    {
+        "text": "referenceStream",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Implementation of Aarden-Essen weightings for Krumhansl-Schmuckler key determination algorithm.\nValues from from http://extras.humdrum.org/man/keycor/, which\ndescribes these weightings as \u009cWeak tendency to identify the subdominant key as the tonic.\u009d\n(N.B. \u2014 we are not sure exactly where the minor weightings come from, and recommend\nonly using these weights for major).",
+        "type": "ListItem"
+    },
+    {
+        "text": "AardenEssen bases",
+        "type": "Title"
+    },
+    {
+        "text": "KeyWeightKeyAnalysis",
+        "type": "ListItem"
+    },
+    {
+        "text": "DiscreteAnalysis",
+        "type": "ListItem"
+    },
+    {
+        "text": "AardenEssen methods",
+        "type": "Title"
+    },
+    {
+        "text": "AardenEssen.",
+        "type": "Title"
+    },
+    {
+        "text": "getWeights",
+        "type": "Title"
+    },
+    {
+        "text": "weightType",
+        "type": "Title"
+    },
+    {
+        "text": "'major'",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns the key weights.\n>>> a = analysis.discrete.AardenEssen()\n>>> len(a.getWeights('major'))\n12\n>>> len(a.getWeights('minor'))\n12",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from KeyWeightKeyAnalysis:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "getSolution() process() solutionLegend() solutionToColor() solutionUnitString()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from DiscreteAnalysis:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "clearSolutionsFound() getColorsUsed() getSolutionsUsed()",
+        "type": "Table"
+    },
+    {
+        "text": "BellmanBudge\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.analysis.discrete.",
+        "type": "Title"
+    },
+    {
+        "text": "BellmanBudge",
+        "type": "Title"
+    },
+    {
+        "text": "referenceStream",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Implementation of Bellman-Budge weightings for Krumhansl-Schmuckler key determination algorithm.\nValues from from http://extras.humdrum.org/man/keycor/, which describes these\nweightings as \u009cNo particular tendencies for confusions with neighboring keys.\u009d",
+        "type": "ListItem"
+    },
+    {
+        "text": "BellmanBudge bases",
+        "type": "Title"
+    },
+    {
+        "text": "KeyWeightKeyAnalysis",
+        "type": "ListItem"
+    },
+    {
+        "text": "DiscreteAnalysis",
+        "type": "ListItem"
+    },
+    {
+        "text": "BellmanBudge methods",
+        "type": "Title"
+    },
+    {
+        "text": "BellmanBudge.",
+        "type": "Title"
+    },
+    {
+        "text": "getWeights",
+        "type": "Title"
+    },
+    {
+        "text": "weightType",
+        "type": "Title"
+    },
+    {
+        "text": "'major'",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns the key weights.\n>>> a = analysis.discrete.BellmanBudge()\n>>> len(a.getWeights('major'))\n12\n>>> len(a.getWeights('minor'))\n12\n>>> a.getWeights('major')\n[16.8..., 0.8..., 12.9..., 1.4..., ...]",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from KeyWeightKeyAnalysis:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "getSolution() process() solutionLegend() solutionToColor() solutionUnitString()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from DiscreteAnalysis:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "clearSolutionsFound() getColorsUsed() getSolutionsUsed()",
+        "type": "Table"
+    },
+    {
+        "text": "KrumhanslSchmuckler\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.analysis.discrete.",
+        "type": "Title"
+    },
+    {
+        "text": "KrumhanslSchmuckler",
+        "type": "Title"
+    },
+    {
+        "text": "referenceStream",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Implementation of Krumhansl-Schmuckler/Kessler weightings for\nKrumhansl-Schmuckler key determination algorithm.\nValues from from http://extras.humdrum.org/man/keycor/, which describes these\nweightings as \u009cStrong tendency to identify the dominant key as the tonic.\u009d\n\nChanged in v6.3: it used to be that these were different from the\nKessler profiles, but that was likely a typo.  Thus, KrumhanslKessler and\nKrumhanslSchmuckler are synonyms of each other.",
+        "type": "ListItem"
+    },
+    {
+        "text": "KrumhanslSchmuckler bases",
+        "type": "Title"
+    },
+    {
+        "text": "KeyWeightKeyAnalysis",
+        "type": "ListItem"
+    },
+    {
+        "text": "DiscreteAnalysis",
+        "type": "ListItem"
+    },
+    {
+        "text": "KrumhanslSchmuckler methods",
+        "type": "Title"
+    },
+    {
+        "text": "KrumhanslSchmuckler.",
+        "type": "Title"
+    },
+    {
+        "text": "getWeights",
+        "type": "Title"
+    },
+    {
+        "text": "weightType",
+        "type": "Title"
+    },
+    {
+        "text": "'major'",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns the key weights. To provide different key weights,\nsubclass and override this method. The defaults here are KrumhanslSchmuckler.\n>>> a = analysis.discrete.KrumhanslSchmuckler()\n>>> len(a.getWeights('major'))\n12\n>>> len(a.getWeights('minor'))\n12",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from KeyWeightKeyAnalysis:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "getSolution() process() solutionLegend() solutionToColor() solutionUnitString()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from DiscreteAnalysis:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "clearSolutionsFound() getColorsUsed() getSolutionsUsed()",
+        "type": "Table"
+    },
+    {
+        "text": "TemperleyKostkaPayne\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.analysis.discrete.",
+        "type": "Title"
+    },
+    {
+        "text": "TemperleyKostkaPayne",
+        "type": "Title"
+    },
+    {
+        "text": "referenceStream",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Implementation of Temperley-Kostka-Payne weightings for Krumhansl-Schmuckler\nkey determination algorithm.\nValues from from http://extras.humdrum.org/man/keycor/, which describes\nthese weightings as \u009cStrong tendency to identify the relative major as the tonic\nin minor keys. Well-balanced for major keys.\u009d",
+        "type": "ListItem"
+    },
+    {
+        "text": "TemperleyKostkaPayne bases",
+        "type": "Title"
+    },
+    {
+        "text": "KeyWeightKeyAnalysis",
+        "type": "ListItem"
+    },
+    {
+        "text": "DiscreteAnalysis",
+        "type": "ListItem"
+    },
+    {
+        "text": "TemperleyKostkaPayne methods",
+        "type": "Title"
+    },
+    {
+        "text": "TemperleyKostkaPayne.",
+        "type": "Title"
+    },
+    {
+        "text": "getWeights",
+        "type": "Title"
+    },
+    {
+        "text": "weightType",
+        "type": "Title"
+    },
+    {
+        "text": "'major'",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns the key weights.\n>>> a = analysis.discrete.TemperleyKostkaPayne()\n>>> len(a.getWeights('major'))\n12\n>>> len(a.getWeights('minor'))\n12",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from KeyWeightKeyAnalysis:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "getSolution() process() solutionLegend() solutionToColor() solutionUnitString()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from DiscreteAnalysis:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "clearSolutionsFound() getColorsUsed() getSolutionsUsed()",
+        "type": "Table"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.analysis.discrete.",
+        "type": "Title"
+    },
+    {
+        "text": "analyzeStream",
+        "type": "Title"
+    },
+    {
+        "text": "streamObj",
+        "type": "Title"
+    },
+    {
+        "text": "stream.Stream",
+        "type": "Title"
+    },
+    {
+        "text": "method",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Public interface to discrete analysis methods to be applied\nto a Stream given as an argument. Methods return process-specific data format.\nSee subclasses for details.\nAnalysis methods can be specified as arguments or by use of a method\nkeyword argument. If method is the class name, that class is returned.\nOtherwise, the identifiers\nlist of all DiscreteAnalysis subclass objects\nwill be searched for matches. The first match that is found is returned.\nAmbitus\nKrumhanslSchmuckler\n>>> s = corpus.parse('bach/bwv66.6')\n>>> analysis.discrete.analyzeStream(s, 'Krumhansl')\n<music21.key.Key of f# minor>\n>>> analysis.discrete.analyzeStream(s, 'ambitus')\n<music21.interval.Interval m21>\n\n\n>>> analysis.discrete.analyzeStream(s, 'key')\n<music21.key.Key of f# minor>\n>>> analysis.discrete.analyzeStream(s, 'span')\n<music21.interval.Interval m21>\n\n\nNote that the same results can be obtained by calling \u009canalyze\u009d directly on the stream object:\n>>> s.analyze(\u0098key')\n<music21.key.Key of f# minor>\n>>> s.analyze(\u0098span')\n<music21.interval.Interval m21>",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.analysis.discrete.",
+        "type": "Title"
+    },
+    {
+        "text": "analysisClassFromMethodName",
+        "type": "Title"
+    },
+    {
+        "text": "method",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 type[music21.analysis.discrete.DiscreteAnalysis] | None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns an analysis class given a method name, or None if none can be found\nSearches first the class name, then the .identifiers array for each class,\nthen a subset of any identifier.\n>>> acfmn = analysis.discrete.analysisClassFromMethodName\n>>> acfmn('aarden')\n<class 'music21.analysis.discrete.AardenEssen'>\n>>> acfmn('span')\n<class 'music21.analysis.discrete.Ambitus'>\n\n\nThis one is fundamentally important\u2026\n>>> acfmn('key')\n<class 'music21.analysis.discrete.AardenEssen'>\n\n\n>>> print(repr(acfmn('unknown-format')))\nNone",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.analysis.discrete",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

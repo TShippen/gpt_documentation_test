@@ -1,0 +1,2026 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.graph.primitives",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.graph.plot",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.graph.utilities",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.graph.primitives\nGraph\nGraph\nGraph.doneAction\nGraph.applyFormatting()\nGraph.applyFormattingToOneAxis()\nGraph.applyGrid()\nGraph.callDoneAction()\nGraph.hideAxisSpines()\nGraph.nextColor()\nGraph.process()\nGraph.renderSubplot()\nGraph.setAxisLabel()\nGraph.setAxisRange()\nGraph.setIntegerTicksFromData()\nGraph.setTicks()\nGraph.show()\nGraph.write()\n\n\n\n\nGraph3DBars\nGraph3DBars\nGraph3DBars.process()\nGraph3DBars.renderSubplot()\n\n\n\n\nGraphColorGrid\nGraphColorGrid\nGraphColorGrid.renderSubplot()\nGraphColorGrid.hideLeftBottomSpines\n\n\n\n\nGraphColorGridLegend\nGraphColorGridLegend\nGraphColorGridLegend.makeOneRowOfGraph()\nGraphColorGridLegend.renderSubplot()\nGraphColorGridLegend.hideLeftBottomSpines\n\n\n\n\nGraphGroupedVerticalBar\nGraphGroupedVerticalBar\nGraphGroupedVerticalBar.labelBars()\nGraphGroupedVerticalBar.renderSubplot()\n\n\n\n\nGraphHistogram\nGraphHistogram\nGraphHistogram.renderSubplot()\nGraphHistogram.binWidth\n\n\n\n\nGraphHorizontalBar\nGraphHorizontalBar\nGraphHorizontalBar.barHeight\nGraphHorizontalBar.renderSubplot()\nGraphHorizontalBar.barSpace\nGraphHorizontalBar.margin\n\n\n\n\nGraphHorizontalBarWeighted\nGraphHorizontalBarWeighted\nGraphHorizontalBarWeighted.barHeight\nGraphHorizontalBarWeighted.renderSubplot()\nGraphHorizontalBarWeighted.barSpace\nGraphHorizontalBarWeighted.margin\n\n\n\n\nGraphNetworkxGraph\nGraphNetworkxGraph\nGraphNetworkxGraph.renderSubplot()\nGraphNetworkxGraph.hideLeftBottomSpines\nGraphNetworkxGraph.networkxGraph\n\n\n\n\nGraphScatter\nGraphScatter\nGraphScatter.renderSubplot()\n\n\n\n\nGraphScatterWeighted\nGraphScatterWeighted\nGraphScatterWeighted.rangeDiameter\nGraphScatterWeighted.renderSubplot()\nGraphScatterWeighted.maxDiameter\nGraphScatterWeighted.minDiameter",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.graph.primitives\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Object definitions for graphing and plotting Stream objects.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "The Graph object subclasses primitive,\nabstract fundamental graphing archetypes using the matplotlib library.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "From the highest level to the lowest level of usage, ways of graphing are as follows:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "streamObj.plot(\u0098graphName')",
+        "type": "ListItem"
+    },
+    {
+        "text": "graph.plot.Class(streamObj).run()",
+        "type": "ListItem"
+    },
+    {
+        "text": "plotter = graph.primitives.Class(); plotter.data = \u2026; plotter.process()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Use matplotlib directly to create your graph.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Graph\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.graph.primitives.",
+        "type": "Title"
+    },
+    {
+        "text": "Graph",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A music21.graph.primitives.Graph is an object that represents a visual graph or\nplot, automating the creation and configuration of this graph in matplotlib.\nIt is a low-level object that most music21 users do not need to call directly;\nyet, as most graphs will take keyword arguments that specify the\nlook of graphs, they are important to know about.\nThe keyword arguments can be provided for configuration are:\n\ndoneAction (see below)\nalpha (which describes how transparent elements of the graph are)\ndpi\ncolorBackgroundData\ncolorBackgroundFigure\ncolorGrid,\ntitle (a string)\nfigureSize (a tuple of two ints)\ncolors (a list of colors to cycle through)\ntickFontSize\ntickColors (a dict of \u0098x': \u0098#color', \u0098y': \u0098#color')\ntitleFontSize\nlabelFontSize\nfontFamily\nhideXGrid\nhideYGrid\nxTickLabelRotation\nmarker\nmarkersize\n\nGraph objects do not manipulate Streams or other music21 data; they only\nmanipulate raw data formatted for each Graph subclass, hence it is\nunlikely that users will call this class directly.\nThe doneAction argument determines what happens after the graph\nhas been processed. Currently, there are three options, \u0098write' creates\na file on disk (this is the default), while \u0098show' opens an\ninteractive GUI browser.  The\nthird option, None, does the processing but does not write any output.\nfigureSize:\n\nA two-element iterable.\nScales all graph components but because of matplotlib limitations\n(esp. on 3d graphs) no all labels scale properly.\ndefaults to .figureSizeDefault\n\n>>> a = graph.primitives.Graph(title='a graph of some data to be given soon', tickFontSize=9)\n>>> a.data = [[0, 2], [1, 3]]\n>>> a.graphType\n'genericGraph'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Graph bases",
+        "type": "Title"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "Graph read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "Graph read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Graph.",
+        "type": "Title"
+    },
+    {
+        "text": "doneAction",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "returns or sets what should happen when the graph is created (see docs above)\ndefault is \u0098write'.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Graph methods",
+        "type": "Title"
+    },
+    {
+        "text": "Graph.",
+        "type": "Title"
+    },
+    {
+        "text": "applyFormatting",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "subplot",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Apply formatting to the Subplot (Axes) container and Figure instance.\nax should be an AxesSubplot object or\nan Axes3D object or something similar.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Graph.",
+        "type": "Title"
+    },
+    {
+        "text": "applyFormattingToOneAxis",
+        "type": "Title"
+    },
+    {
+        "text": "subplot",
+        "type": "Title"
+    },
+    {
+        "text": "axis",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a matplotlib.Axes object (a subplot) and a string of\n\u0098x', \u0098y', or \u0098z', set the Axes object's xlim (or ylim or zlim or xlim3d, etc.) from\nself.axis[axis][\u0098range'], Set the label from self.axis[axis][\u0098label'],\nthe scale, the ticks, and the ticklabels.\nReturns the matplotlib Axis object that has been modified",
+        "type": "ListItem"
+    },
+    {
+        "text": "Graph.",
+        "type": "Title"
+    },
+    {
+        "text": "applyGrid",
+        "type": "Title"
+    },
+    {
+        "text": "subplot",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Apply the Grid to the subplot such that it goes below the data.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Graph.",
+        "type": "Title"
+    },
+    {
+        "text": "callDoneAction",
+        "type": "Title"
+    },
+    {
+        "text": "fp",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Implement the desired doneAction, after data processing",
+        "type": "ListItem"
+    },
+    {
+        "text": "static",
+        "type": "Title"
+    },
+    {
+        "text": "Graph.",
+        "type": "Title"
+    },
+    {
+        "text": "hideAxisSpines",
+        "type": "Title"
+    },
+    {
+        "text": "subplot",
+        "type": "Title"
+    },
+    {
+        "text": "leftBottom",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Remove the right and top spines from the diagram.\nIf leftBottom is True, remove the left and bottom spines as well.\nSpines are removed by setting their colors to \u0098none' and every other\ntick line set_visible to False.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Graph.",
+        "type": "Title"
+    },
+    {
+        "text": "nextColor",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Utility function that cycles through the colors of self.colors\u2026\n>>> g = graph.primitives.Graph()\n>>> g.colors = ['#605c7f', '#5c7f60', '#715c7f']\n\n\n>>> g.nextColor()\n'#605c7f'\n\n\n>>> g.nextColor()\n'#5c7f60'\n\n\n>>> g.nextColor()\n'#715c7f'\n\n\n>>> g.nextColor()\n'#605c7f'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Graph.",
+        "type": "Title"
+    },
+    {
+        "text": "process",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Creates the figure and subplot, calls renderSubplot to get the\nsubclass specific information on the data, runs hideAxisSpines,\napplyFormatting, and then calls the done action.  Returns None,\nbut the subplot is available at self.subplot",
+        "type": "ListItem"
+    },
+    {
+        "text": "Graph.",
+        "type": "Title"
+    },
+    {
+        "text": "renderSubplot",
+        "type": "Title"
+    },
+    {
+        "text": "subplot",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Calls the subclass specific information to get the data",
+        "type": "ListItem"
+    },
+    {
+        "text": "Graph.",
+        "type": "Title"
+    },
+    {
+        "text": "setAxisLabel",
+        "type": "Title"
+    },
+    {
+        "text": "axisKey",
+        "type": "Title"
+    },
+    {
+        "text": "label",
+        "type": "Title"
+    },
+    {
+        "text": "conditional",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "Graph.",
+        "type": "Title"
+    },
+    {
+        "text": "setAxisRange",
+        "type": "Title"
+    },
+    {
+        "text": "axisKey",
+        "type": "Title"
+    },
+    {
+        "text": "valueRange",
+        "type": "Title"
+    },
+    {
+        "text": "paddingFraction",
+        "type": "Title"
+    },
+    {
+        "text": "0.1",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Set the range for the axis for a given axis key\n(generally, \u0098x', or \u0098y')\nValueRange is a two-element tuple of the lowest\nnumber and the highest.\nBy default, there is a padding of 10% of the range\nin either direction.  Set paddingFraction = 0 to\neliminate this shift",
+        "type": "ListItem"
+    },
+    {
+        "text": "Graph.",
+        "type": "Title"
+    },
+    {
+        "text": "setIntegerTicksFromData",
+        "type": "Title"
+    },
+    {
+        "text": "unsortedData",
+        "type": "Title"
+    },
+    {
+        "text": "axisKey",
+        "type": "Title"
+    },
+    {
+        "text": "'y'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "dataSteps",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Set the ticks for an axis (usually \u0098y') given unsorted data.\nData steps shows how many ticks to make from the data.\n>>> g = graph.primitives.GraphHorizontalBar()\n>>> g.setIntegerTicksFromData([10, 5, 3, 8, 20, 11], dataSteps=4)\n>>> g.axis['y']['ticks']\n([0, 5, 10, 15, 20], ['0', '5', '10', '15', '20'])\n\n\nTODO: should this not also use min? instead of always starting from zero?",
+        "type": "ListItem"
+    },
+    {
+        "text": "Graph.",
+        "type": "Title"
+    },
+    {
+        "text": "setTicks",
+        "type": "Title"
+    },
+    {
+        "text": "axisKey",
+        "type": "Title"
+    },
+    {
+        "text": "pairs",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Set the tick-labels for a given graph or plot's axisKey\n(generally \u0098x', and \u0098y') with a set of pairs\nPairs are iterables of positions and labels.\nN.B. \u2014 both \u0098x' and \u0098y' ticks have to be set in\norder to get matplotlib to display either\u2026 (and presumably \u0098z' for 3D graphs)\n>>> g = graph.primitives.GraphHorizontalBar()\n>>> g.axis['x']['ticks']\nTraceback (most recent call last):\nKeyError: 'ticks'\n>>> g.axis['x']\n{'range': None}\n\n\n>>> g.setTicks('x', [(0, 'a'), (1, 'b')])\n>>> g.axis['x']['ticks']\n([0, 1], ['a', 'b'])\n\n\n>>> g.setTicks('m', [('a', 'b')])\nTraceback (most recent call last):\nmusic21.graph.utilities.GraphException: Cannot find key 'm' in self.axis\n\n\n>>> g.setTicks('x', [])\n>>> g.axis['x']['ticks']\n([], [])",
+        "type": "ListItem"
+    },
+    {
+        "text": "Graph.",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Calls the show() method of the matplotlib plot.\nFor most matplotlib back ends, this will open\na GUI window with the desired graph.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Graph.",
+        "type": "Title"
+    },
+    {
+        "text": "write",
+        "type": "Title"
+    },
+    {
+        "text": "fp",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Writes the graph to a file. If no file path is given, a temporary file is used.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Graph3DBars\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.graph.primitives.",
+        "type": "Title"
+    },
+    {
+        "text": "Graph3DBars",
+        "type": "Title"
+    },
+    {
+        "text": "alpha",
+        "type": "Title"
+    },
+    {
+        "text": "float",
+        "type": "Title"
+    },
+    {
+        "text": "0.8",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Graph multiple parallel bar graphs in 3D.\nData definition:\nA list of lists where the inner list of\n(x, y, z) coordinates.\nFor instance, a graph where the x values increase\n(left to right), the y values increase in a step\npattern (front to back), and the z values decrease\n(top to bottom):\n>>> g = graph.primitives.Graph3DBars()\n>>> data = []\n>>> for i in range(1, 10 + 1):\n...    q = [i, i//2, 10 - i]\n...    data.append(q)\n>>> g.data = data\n>>> g.process()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Graph3DBars bases",
+        "type": "Title"
+    },
+    {
+        "text": "Graph",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "Graph3DBars read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "Graph3DBars read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Graph:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "doneAction",
+        "type": "Table"
+    },
+    {
+        "text": "Graph3DBars methods",
+        "type": "Title"
+    },
+    {
+        "text": "Graph3DBars.",
+        "type": "Title"
+    },
+    {
+        "text": "process",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Creates the figure and subplot, calls renderSubplot to get the\nsubclass specific information on the data, runs hideAxisSpines,\napplyFormatting, and then calls the done action.  Returns None,\nbut the subplot is available at self.subplot",
+        "type": "ListItem"
+    },
+    {
+        "text": "Graph3DBars.",
+        "type": "Title"
+    },
+    {
+        "text": "renderSubplot",
+        "type": "Title"
+    },
+    {
+        "text": "subplot",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Calls the subclass specific information to get the data",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from Graph:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "applyFormatting() applyFormattingToOneAxis() applyGrid() callDoneAction() hideAxisSpines() nextColor() setAxisLabel() setAxisRange() setIntegerTicksFromData() setTicks() show() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "GraphColorGrid\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.graph.primitives.",
+        "type": "Title"
+    },
+    {
+        "text": "GraphColorGrid",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Grid of discrete colored \u009cblocks\u009d to visualize results of a windowed analysis routine.\nData is provided as a list of lists of colors, where colors are specified as a hex triplet,\nor the common HTML color codes, and based on analysis-specific mapping of colors to results.\n>>> g = graph.primitives.GraphColorGrid()\n>>> data = [['#55FF00', '#9b0000', '#009b00'],\n...         ['#FFD600', '#FF5600'],\n...         ['#201a2b', '#8f73bf', '#a080d5', '#403355', '#999999']]\n>>> g.data = data\n>>> g.process()",
+        "type": "ListItem"
+    },
+    {
+        "text": "GraphColorGrid bases",
+        "type": "Title"
+    },
+    {
+        "text": "Graph",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "GraphColorGrid read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "GraphColorGrid read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Graph:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "doneAction",
+        "type": "Table"
+    },
+    {
+        "text": "GraphColorGrid methods",
+        "type": "Title"
+    },
+    {
+        "text": "GraphColorGrid.",
+        "type": "Title"
+    },
+    {
+        "text": "renderSubplot",
+        "type": "Title"
+    },
+    {
+        "text": "subplot",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Calls the subclass specific information to get the data",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from Graph:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "applyFormatting() applyFormattingToOneAxis() applyGrid() callDoneAction() hideAxisSpines() nextColor() process() setAxisLabel() setAxisRange() setIntegerTicksFromData() setTicks() show() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "GraphColorGrid instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "GraphColorGrid.",
+        "type": "Title"
+    },
+    {
+        "text": "hideLeftBottomSpines",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "bool to hide the left and bottom axis spines; default True",
+        "type": "ListItem"
+    },
+    {
+        "text": "GraphColorGridLegend\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.graph.primitives.",
+        "type": "Title"
+    },
+    {
+        "text": "GraphColorGridLegend",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Grid of discrete colored \u009cblocks\u009d where each block can be labeled\nData is provided as a list of lists of colors, where colors are specified as a hex triplet,\nor the common HTML color codes, and based on analysis-specific mapping of colors to results.\n>>> g = graph.primitives.GraphColorGridLegend()\n>>> data = []\n>>> data.append(('Major', [('C#', '#00AA55'), ('D-', '#5600FF'), ('G#', '#2B00FF')]))\n>>> data.append(('Minor', [('C#', '#004600'), ('D-', '#00009b'), ('G#', '#00009B')]))\n>>> g.data = data\n>>> g.process()",
+        "type": "ListItem"
+    },
+    {
+        "text": "GraphColorGridLegend bases",
+        "type": "Title"
+    },
+    {
+        "text": "Graph",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "GraphColorGridLegend read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "GraphColorGridLegend read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Graph:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "doneAction",
+        "type": "Table"
+    },
+    {
+        "text": "GraphColorGridLegend methods",
+        "type": "Title"
+    },
+    {
+        "text": "GraphColorGridLegend.",
+        "type": "Title"
+    },
+    {
+        "text": "makeOneRowOfGraph",
+        "type": "Title"
+    },
+    {
+        "text": "figure",
+        "type": "Title"
+    },
+    {
+        "text": "rowIndex",
+        "type": "Title"
+    },
+    {
+        "text": "rowLabel",
+        "type": "Title"
+    },
+    {
+        "text": "rowData",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Makes a subplot for one row of data (such as for the Major label)\nand returns a matplotlib.axes.AxesSubplot instance representing the subplot.\nHere we create an axis with a part of Scriabin's mapping of colors\nto keys in Prometheus: The Poem of Fire.\n>>> import matplotlib.pyplot\n\n\n>>> colorLegend = graph.primitives.GraphColorGridLegend()\n>>> rowData = [('C', '#ff0000'), ('G', '#ff8800'), ('D', '#ffff00'),\n...            ('A', '#00ff00'), ('E', '#4444ff')]\n>>> colorLegend.data = [['Scriabin Mapping', rowData]]\n\n\n>>> fig = matplotlib.pyplot.figure()\n>>> subplot = colorLegend.makeOneRowOfGraph(fig, 0, 'Scriabin Mapping', rowData)\n>>> subplot\n<Axes: >",
+        "type": "ListItem"
+    },
+    {
+        "text": "GraphColorGridLegend.",
+        "type": "Title"
+    },
+    {
+        "text": "renderSubplot",
+        "type": "Title"
+    },
+    {
+        "text": "subplot",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Calls the subclass specific information to get the data",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from Graph:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "applyFormatting() applyFormattingToOneAxis() applyGrid() callDoneAction() hideAxisSpines() nextColor() process() setAxisLabel() setAxisRange() setIntegerTicksFromData() setTicks() show() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "GraphColorGridLegend instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "GraphColorGridLegend.",
+        "type": "Title"
+    },
+    {
+        "text": "hideLeftBottomSpines",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "bool to hide the left and bottom axis spines; default True",
+        "type": "ListItem"
+    },
+    {
+        "text": "GraphGroupedVerticalBar\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.graph.primitives.",
+        "type": "Title"
+    },
+    {
+        "text": "GraphGroupedVerticalBar",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Graph the count of on or more elements in vertical bars\nData set is simply a list of x and y pairs, where there\nis only one of each x value, and y value is a list of values\n>>> from collections import OrderedDict\n>>> g = graph.primitives.GraphGroupedVerticalBar()\n>>> lengths = OrderedDict( [('a', 3), ('b', 2), ('c', 1)] )\n>>> data = [('bar' + str(x), lengths) for x in range(3)]\n>>> data\n[('bar0', OrderedDict([('a', 3), ('b', 2), ('c', 1)])),\n ('bar1', OrderedDict([('a', 3), ('b', 2), ('c', 1)])),\n ('bar2', OrderedDict([('a', 3), ('b', 2), ('c', 1)]))]\n>>> g.data = data\n>>> g.process()",
+        "type": "ListItem"
+    },
+    {
+        "text": "GraphGroupedVerticalBar bases",
+        "type": "Title"
+    },
+    {
+        "text": "Graph",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "GraphGroupedVerticalBar read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "GraphGroupedVerticalBar read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Graph:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "doneAction",
+        "type": "Table"
+    },
+    {
+        "text": "GraphGroupedVerticalBar methods",
+        "type": "Title"
+    },
+    {
+        "text": "GraphGroupedVerticalBar.",
+        "type": "Title"
+    },
+    {
+        "text": "labelBars",
+        "type": "Title"
+    },
+    {
+        "text": "subplot",
+        "type": "Title"
+    },
+    {
+        "text": "rects",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "GraphGroupedVerticalBar.",
+        "type": "Title"
+    },
+    {
+        "text": "renderSubplot",
+        "type": "Title"
+    },
+    {
+        "text": "subplot",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Calls the subclass specific information to get the data",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from Graph:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "applyFormatting() applyFormattingToOneAxis() applyGrid() callDoneAction() hideAxisSpines() nextColor() process() setAxisLabel() setAxisRange() setIntegerTicksFromData() setTicks() show() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "GraphHistogram\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.graph.primitives.",
+        "type": "Title"
+    },
+    {
+        "text": "GraphHistogram",
+        "type": "Title"
+    },
+    {
+        "text": "binWidth",
+        "type": "Title"
+    },
+    {
+        "text": "float",
+        "type": "Title"
+    },
+    {
+        "text": "0.8",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "alpha",
+        "type": "Title"
+    },
+    {
+        "text": "float",
+        "type": "Title"
+    },
+    {
+        "text": "0.8",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Graph the count of a single element.\nData set is simply a list of x and y pairs, where there\nis only one of each x value, and y value is the count or magnitude\nof that value\n>>> import random\n>>> g = graph.primitives.GraphHistogram()\n>>> g.graphType\n'histogram'\n\n\n>>> data = [(x, random.choice(range(30))) for x in range(50)]\n>>> g.data = data\n>>> g.process()",
+        "type": "ListItem"
+    },
+    {
+        "text": "GraphHistogram bases",
+        "type": "Title"
+    },
+    {
+        "text": "Graph",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "GraphHistogram read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "GraphHistogram read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Graph:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "doneAction",
+        "type": "Table"
+    },
+    {
+        "text": "GraphHistogram methods",
+        "type": "Title"
+    },
+    {
+        "text": "GraphHistogram.",
+        "type": "Title"
+    },
+    {
+        "text": "renderSubplot",
+        "type": "Title"
+    },
+    {
+        "text": "subplot",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Calls the subclass specific information to get the data",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from Graph:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "applyFormatting() applyFormattingToOneAxis() applyGrid() callDoneAction() hideAxisSpines() nextColor() process() setAxisLabel() setAxisRange() setIntegerTicksFromData() setTicks() show() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "GraphHistogram instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "GraphHistogram.",
+        "type": "Title"
+    },
+    {
+        "text": "binWidth",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Size of each bin; if the bins are equally spaced at intervals of 1,\nthen 0.8 is a good default to allow a little space. 1.0 will give no\nspace.",
+        "type": "ListItem"
+    },
+    {
+        "text": "GraphHorizontalBar\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.graph.primitives.",
+        "type": "Title"
+    },
+    {
+        "text": "GraphHorizontalBar",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Numerous horizontal bars in discrete channels, where bars\ncan be incomplete and/or overlap.\nData provided is a list of pairs, where the first value becomes the key,\nthe second value is a list of x-start, x-length values.\nNote how the second element in each data point is the length, so\nsubtracting death year from birth year gives the appropriate length.\nExample: Plot the life-span of four composers whose lives were entertwined:\nChopin, Robert and Clara Schumann, and Brahms.\n>>> a = graph.primitives.GraphHorizontalBar()\n>>> data = [('Chopin', [(1810, 1849-1810)]),\n...         ('Schumanns', [(1810, 1856-1810), (1819, 1896-1819)]),\n...         ('Brahms', [(1833, 1897-1833)])]\n>>> a.data = data\n>>> a.process()\n\n\n\nData is a list of tuples in the form, where each entry represents a space on the\nY axis:\n\n\nLabel\n\nList of tuples of numeric data where each tuple has two or three elements:\nStart x-position\nLength of bar\nOptional: dictionary of format information about this point.\n\n\n\n\nOptional: dictionary of format informmation for all points at this level.\n(this will be overridden by any information for the particular point)\n\n\nTo make an equally spaced plot, like in a Pitch Space plot, leave empty data in the form:\n\n(\u0098', [], {})",
+        "type": "ListItem"
+    },
+    {
+        "text": "GraphHorizontalBar bases",
+        "type": "Title"
+    },
+    {
+        "text": "Graph",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "GraphHorizontalBar read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "GraphHorizontalBar.",
+        "type": "Title"
+    },
+    {
+        "text": "barHeight",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "GraphHorizontalBar read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Graph:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "doneAction",
+        "type": "Table"
+    },
+    {
+        "text": "GraphHorizontalBar methods",
+        "type": "Title"
+    },
+    {
+        "text": "GraphHorizontalBar.",
+        "type": "Title"
+    },
+    {
+        "text": "renderSubplot",
+        "type": "Title"
+    },
+    {
+        "text": "subplot",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Calls the subclass specific information to get the data",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from Graph:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "applyFormatting() applyFormattingToOneAxis() applyGrid() callDoneAction() hideAxisSpines() nextColor() process() setAxisLabel() setAxisRange() setIntegerTicksFromData() setTicks() show() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "GraphHorizontalBar instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "GraphHorizontalBar.",
+        "type": "Title"
+    },
+    {
+        "text": "barSpace",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Amount of vertical space each bar takes; default 8",
+        "type": "ListItem"
+    },
+    {
+        "text": "GraphHorizontalBar.",
+        "type": "Title"
+    },
+    {
+        "text": "margin",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Vertical space above and below the bars, default 2 (= total4 space between bars)",
+        "type": "ListItem"
+    },
+    {
+        "text": "GraphHorizontalBarWeighted\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.graph.primitives.",
+        "type": "Title"
+    },
+    {
+        "text": "GraphHorizontalBarWeighted",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Numerous horizontal bars in discrete channels,\nwhere bars can be incomplete and/or overlap, and\ncan have different heights and colors within their\nrespective channel.",
+        "type": "ListItem"
+    },
+    {
+        "text": "GraphHorizontalBarWeighted bases",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Graph",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "GraphHorizontalBarWeighted read-only properties",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "GraphHorizontalBarWeighted.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "barHeight",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "GraphHorizontalBarWeighted read/write properties",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Read/write properties inherited from Graph:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "doneAction",
+        "type": "Table"
+    },
+    {
+        "text": "GraphHorizontalBarWeighted methods",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "GraphHorizontalBarWeighted.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "renderSubplot",
+        "type": "Title"
+    },
+    {
+        "text": "subplot",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Calls the subclass specific information to get the data",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from Graph:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "applyFormatting() applyFormattingToOneAxis() applyGrid() callDoneAction() hideAxisSpines() nextColor() process() setAxisLabel() setAxisRange() setIntegerTicksFromData() setTicks() show() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "GraphHorizontalBarWeighted instance variables",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "GraphHorizontalBarWeighted.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "barSpace",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Amount of vertical space each bar takes; default 8",
+        "type": "ListItem"
+    },
+    {
+        "text": "GraphHorizontalBarWeighted.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "margin",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Space around the bars, default 2",
+        "type": "ListItem"
+    },
+    {
+        "text": "GraphNetworkxGraph\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.graph.primitives.",
+        "type": "Title"
+    },
+    {
+        "text": "GraphNetworkxGraph",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Grid a networkx graph \u2014 which is a graph of nodes and edges.\nRequires the optional networkx module.",
+        "type": "ListItem"
+    },
+    {
+        "text": "GraphNetworkxGraph bases",
+        "type": "Title"
+    },
+    {
+        "text": "Graph",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "GraphNetworkxGraph read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "GraphNetworkxGraph read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Graph:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "doneAction",
+        "type": "Table"
+    },
+    {
+        "text": "GraphNetworkxGraph methods",
+        "type": "Title"
+    },
+    {
+        "text": "GraphNetworkxGraph.",
+        "type": "Title"
+    },
+    {
+        "text": "renderSubplot",
+        "type": "Title"
+    },
+    {
+        "text": "subplot",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Calls the subclass specific information to get the data",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from Graph:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "applyFormatting() applyFormattingToOneAxis() applyGrid() callDoneAction() hideAxisSpines() nextColor() process() setAxisLabel() setAxisRange() setIntegerTicksFromData() setTicks() show() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "GraphNetworkxGraph instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "GraphNetworkxGraph.",
+        "type": "Title"
+    },
+    {
+        "text": "hideLeftBottomSpines",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "bool to hide the left and bottom axis spines; default True",
+        "type": "ListItem"
+    },
+    {
+        "text": "GraphNetworkxGraph.",
+        "type": "Title"
+    },
+    {
+        "text": "networkxGraph",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "An instance of a networkx graph object.",
+        "type": "ListItem"
+    },
+    {
+        "text": "GraphScatter\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.graph.primitives.",
+        "type": "Title"
+    },
+    {
+        "text": "GraphScatter",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Graph two parameters in a scatter plot.\nData representation is a list of points of values.\n>>> g = graph.primitives.GraphScatter()\n>>> data = [(x, x * x) for x in range(50)]\n>>> g.data = data\n>>> g.process()",
+        "type": "ListItem"
+    },
+    {
+        "text": "GraphScatter bases",
+        "type": "Title"
+    },
+    {
+        "text": "Graph",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "GraphScatter read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "GraphScatter read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Graph:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "doneAction",
+        "type": "Table"
+    },
+    {
+        "text": "GraphScatter methods",
+        "type": "Title"
+    },
+    {
+        "text": "GraphScatter.",
+        "type": "Title"
+    },
+    {
+        "text": "renderSubplot",
+        "type": "Title"
+    },
+    {
+        "text": "subplot",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Calls the subclass specific information to get the data",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from Graph:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "applyFormatting() applyFormattingToOneAxis() applyGrid() callDoneAction() hideAxisSpines() nextColor() process() setAxisLabel() setAxisRange() setIntegerTicksFromData() setTicks() show() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "GraphScatterWeighted\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.graph.primitives.",
+        "type": "Title"
+    },
+    {
+        "text": "GraphScatterWeighted",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A scatter plot where points are scaled in size to\nrepresent the number of values stored within.\n>>> g = graph.primitives.GraphScatterWeighted()\n>>> data = [(23, 15, 234), (10, 23, 12), (4, 23, 5), (15, 18, 120)]\n>>> g.data = data\n>>> g.process()",
+        "type": "ListItem"
+    },
+    {
+        "text": "GraphScatterWeighted bases",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Graph",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "GraphScatterWeighted read-only properties",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "GraphScatterWeighted.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "rangeDiameter",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "GraphScatterWeighted read/write properties",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Read/write properties inherited from Graph:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "doneAction",
+        "type": "Table"
+    },
+    {
+        "text": "GraphScatterWeighted methods",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "GraphScatterWeighted.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "renderSubplot",
+        "type": "Title"
+    },
+    {
+        "text": "subplot",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Calls the subclass specific information to get the data",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from Graph:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "applyFormatting() applyFormattingToOneAxis() applyGrid() callDoneAction() hideAxisSpines() nextColor() process() setAxisLabel() setAxisRange() setIntegerTicksFromData() setTicks() show() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "GraphScatterWeighted instance variables",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "GraphScatterWeighted.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "maxDiameter",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "the maximum diameter of any ellipse, default 1.25",
+        "type": "ListItem"
+    },
+    {
+        "text": "GraphScatterWeighted.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "minDiameter",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "the minimum diameter of any ellipse, default 0.25",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.graph.primitives",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

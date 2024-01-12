@@ -1,0 +1,2098 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.base",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.bar",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.beam",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.base\nMusic21Object\nMusic21Object\nMusic21Object.beat\nMusic21Object.beatDuration\nMusic21Object.beatStr\nMusic21Object.beatStrength\nMusic21Object.hasEditorialInformation\nMusic21Object.hasStyleInformation\nMusic21Object.measureNumber\nMusic21Object.activeSite\nMusic21Object.derivation\nMusic21Object.duration\nMusic21Object.editorial\nMusic21Object.id\nMusic21Object.offset\nMusic21Object.priority\nMusic21Object.quarterLength\nMusic21Object.seconds\nMusic21Object.style\nMusic21Object.__eq__()\nMusic21Object.clearCache()\nMusic21Object.containerHierarchy()\nMusic21Object.contextSites()\nMusic21Object.getAllContextsByClass()\nMusic21Object.getContextByClass()\nMusic21Object.getOffsetBySite()\nMusic21Object.getOffsetInHierarchy()\nMusic21Object.getSpannerSites()\nMusic21Object.informSites()\nMusic21Object.mergeAttributes()\nMusic21Object.next()\nMusic21Object.previous()\nMusic21Object.purgeLocations()\nMusic21Object.purgeOrphans()\nMusic21Object.setOffsetBySite()\nMusic21Object.show()\nMusic21Object.sortTuple()\nMusic21Object.splitAtDurations()\nMusic21Object.splitAtQuarterLength()\nMusic21Object.splitByQuarterLengths()\nMusic21Object.write()\nMusic21Object.classSortOrder\nMusic21Object.groups\nMusic21Object.isStream\nMusic21Object.sites\n\n\n\n\nElementWrapper\nElementWrapper\nElementWrapper.obj\n\n\n\n\nContextSortTuple\nContextSortTuple\n\n\nContextTuple\nContextTuple\n\n\nGroups\nGroups\nGroups.__eq__()\nGroups.append()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.base\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.base is what you get in music21 if you type import music21. It\ncontains all the most low-level objects that also appear in the music21 module\n(i.e., music21.base.Music21Object is the same as music21.Music21Object).",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Music21 base classes for Stream objects and all\nelements contained within them including Notes, etc. Additional objects for\ndefining and manipulating elements are included.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "The namespace of this file, as all base.py files, is loaded into the package\nthat contains this file via __init__.py. Everything in this file is thus\navailable after importing music21.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "import",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "Music21Object",
+        "type": "Title"
+    },
+    {
+        "text": "<class 'music21.base.Music21Object'>",
+        "type": "Title"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "VERSION_STR",
+        "type": "Title"
+    },
+    {
+        "text": "'9.0.0b1'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Alternatively, after doing a complete import, these classes are available\nunder the module \u009cbase\u009d:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "base",
+        "type": "Title"
+    },
+    {
+        "text": "Music21Object",
+        "type": "Title"
+    },
+    {
+        "text": "<class 'music21.base.Music21Object'>",
+        "type": "Title"
+    },
+    {
+        "text": "Music21Object\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.base.",
+        "type": "Title"
+    },
+    {
+        "text": "Music21Object",
+        "type": "Title"
+    },
+    {
+        "text": "id",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "groups",
+        "type": "Title"
+    },
+    {
+        "text": "Groups | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "sites",
+        "type": "Title"
+    },
+    {
+        "text": "Sites | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "Duration | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "activeSite",
+        "type": "Title"
+    },
+    {
+        "text": "stream.Stream | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "style",
+        "type": "Title"
+    },
+    {
+        "text": "Style | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "editorial",
+        "type": "Title"
+    },
+    {
+        "text": "Editorial | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "OffsetQL",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "quarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "OffsetQLIn | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Music21Object is the base class for all elements that can go into Streams.\nNotes, Clefs, TimeSignatures are all sublcasses of Music21Object.  Durations\nand Pitches (which need to be attached to Notes, etc.) are not.\nAll music21 objects have these pieces of information:\n\nid: identification string unique to the object's container (optional).\nDefaults to the id() of the element.\ngroups: a Groups object: which is a\nlist of strings identifying internal sub-collections\n(voices, parts, selections) to which this element belongs\nduration: Duration object representing the length of the object\nactiveSite: a reference to the currently active Stream or None\noffset: a floating point or Fraction value, generally in quarter lengths,\nspecifying the position of the object in a site.\npriority: int representing the position of an object among all\nobjects at the same offset.\nsites: a Sites object that stores all\nthe Streams and Contexts that an\nobject is in.\nderivation: a Derivation object, or None, that shows\nwhere the object came from.\nstyle: a Style object, that contains Style information\nautomatically created if it doesn't exist, so check .hasStyleInformation first\nif that is not desired.\neditorial: a Editorial object\n\nEach of these may be passed in as a named keyword to any music21 object.\nSome of these may be intercepted by the subclassing object (e.g., duration\nwithin Note)\nEquality\nFor historical reasons, music21 uses a different idea of object equality\nfor Music21Objects than recommended by modern Python standards.\nTwo Music21Objects are equal if they are the same class and same duration.\nTheir offset, activeSite, id, and groups do not matter for equality.\nSince these two objects are therefore not interchangable, they do not have\nthe same hash value.\n>>> obj1 = base.Music21Object(id='obj1')\n>>> obj2 = base.Music21Object(id='obj2')\n>>> obj1 == obj2\nTrue\n>>> hash(obj1) == hash(obj2)\nFalse\n\n\nThis has the stange side effect that structures that use equality to\nreport containment (such as lists and tuples) will report differently from\nstructures that use hash values to report containment (such as dicts and sets):\n>>> obj1 in [obj2]\nTrue\n>>> obj1 in {obj2}\nFalse\n\n\nSubclasses need to apply stricter criteria for equality, like Barline does here\nwith .location\n>>> bar1 = bar.Barline('double', 'left')\n>>> bar2 = bar.Barline('double', 'right')\n>>> bar1 == bar2\nFalse\n>>> bar2.location = 'left'\n>>> bar1 == bar2\nTrue\n>>> bar1.duration.type = 'whole'  # Buh?\n>>> bar1 == bar2\nFalse\n\n\nIn general, a subclass of Music21Object must match all super-class criteria for\nequality before they can be considered equal themselves.  However, there are some\nexceptions.  For instance, RomanNumeral objects with the same figure and key are\nequal even if their notes are in different octaves or have different doublings.\nDevelopers creating their own Music21Object subclasses should add a class attribute\nequalityAttributes = (\u0098one', \u0098two').  (Remember that as a tuple of strings, if there\nis only one string, don't forget the trailing comma: (\u0098only',).\n>>> class CarolineShawBreathMark(base.Music21Object):\n...     equalityAttributes = ('direction',)\n...     def __init__(self, direction, speed):\n...         super().__init__(self)\n...         self.direction = direction\n...         self.speed = speed\n>>> bm1 = CarolineShawBreathMark('in', 'fast')\n>>> bm2 = CarolineShawBreathMark('out', 'fast')\n>>> bm1 == bm2\nFalse\n\n\n\u009cspeed\u009d is not in the equalityAttributes so it can differ while objects are still\nequal.\n>>> bm3 = CarolineShawBreathMark('in', 'slow')\n>>> bm1 == bm3\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object bases",
+        "type": "Title"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Music21Object.",
+        "type": "Title"
+    },
+    {
+        "text": "beat",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return the beat of this object as found in the most\nrecently positioned Measure. Beat values count from 1 and\ncontain a floating-point designation between 0 and 1 to\nshow proportional progress through the beat.\n>>> n = note.Note()\n>>> n.quarterLength = 0.5\n>>> m = stream.Measure()\n>>> m.timeSignature = meter.TimeSignature('3/4')\n>>> m.repeatAppend(n, 6)\n>>> [n.beat for n in m.notes]\n[1.0, 1.5, 2.0, 2.5, 3.0, 3.5]\n\n\nFractions are returned for positions that cannot be represented perfectly using floats:\n>>> m.timeSignature = meter.TimeSignature('6/8')\n>>> [n.beat for n in m.notes]\n[1.0, Fraction(4, 3), Fraction(5, 3), 2.0, Fraction(7, 3), Fraction(8, 3)]\n\n\n>>> s = stream.Stream()\n>>> s.insert(0, meter.TimeSignature('3/4'))\n>>> s.repeatAppend(note.Note(), 8)\n>>> [n.beat for n in s.notes]\n[1.0, 2.0, 3.0, 1.0, 2.0, 3.0, 1.0, 2.0]\n\n\nNotes inside flat streams can still find the original beat placement from outer\nstreams:\n>>> p = stream.Part()\n>>> ts = meter.TimeSignature('2/4')\n>>> p.insert(0, ts)\n\n\n>>> n = note.Note('C4', type='eighth')\n>>> m1 = stream.Measure(number=1)\n>>> m1.repeatAppend(n, 4)\n\n\n>>> m2 = stream.Measure(number=2)\n>>> m2.repeatAppend(n, 4)\n\n\n>>> p.append([m1, m2])\n>>> [n.beat for n in p.flatten().notes]\n[1.0, 1.5, 2.0, 2.5, 1.0, 1.5, 2.0, 2.5]\n\n\nFractions print out as improper fraction strings\n>>> m = stream.Measure()\n>>> m.timeSignature = meter.TimeSignature('4/4')\n>>> n = note.Note()\n>>> n.quarterLength = 1/3\n>>> m.repeatAppend(n, 12)\n>>> for n in m.notes[:5]:\n...    print(n.beat)\n1.0\n4/3\n5/3\n2.0\n7/3\n\n\nIf there is no TimeSignature object in sites then returns the special float\nnan meaning \u009cNot a Number\u009d:\n>>> isolatedNote = note.Note('E4')\n>>> isolatedNote.beat\nnan\n\n\nNot-a-number objects do not compare equal to themselves:\n>>> isolatedNote.beat == isolatedNote.beat\nFalse\n\n\nInstead, to test for nan, import the math module and use isnan():\n>>> import math\n>>> math.isnan(isolatedNote.beat)\nTrue\n\n\n\nChanged in v6.3: returns nan if\nthere is no TimeSignature in sites.\nPreviously raised an exception.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object.",
+        "type": "Title"
+    },
+    {
+        "text": "beatDuration",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a Duration of the beat\nactive for this object as found in the most recently\npositioned Measure.\nIf extending beyond the Measure, or in a Stream with a TimeSignature,\nthe meter modulus value will be returned.\n>>> n = note.Note('C4', type='eighth')\n>>> n.duration\n<music21.duration.Duration 0.5>\n\n\n>>> m = stream.Measure()\n>>> m.timeSignature = meter.TimeSignature('3/4')\n>>> m.repeatAppend(n, 6)\n>>> n0 = m.notes.first()\n>>> n0.beatDuration\n<music21.duration.Duration 1.0>\n\n\nNotice that the beat duration is the same for all these notes\nand has nothing to do with the duration of the element itself\n>>> [n.beatDuration.quarterLength for n in m.notes]\n[1.0, 1.0, 1.0, 1.0, 1.0, 1.0]\n\n\nChanging the time signature changes the beat duration:\n>>> m.timeSignature = meter.TimeSignature('6/8')\n>>> [n.beatDuration.quarterLength for n in m.notes]\n[1.5, 1.5, 1.5, 1.5, 1.5, 1.5]\n\n\nComplex time signatures will give different note lengths:\n>>> s = stream.Stream()\n>>> s.insert(0, meter.TimeSignature('2/4+3/4'))\n>>> s.repeatAppend(note.Note(type='quarter'), 8)\n>>> [n.beatDuration.quarterLength for n in s.notes]\n[2.0, 2.0, 3.0, 3.0, 3.0, 2.0, 2.0, 3.0]\n\n\nIf there is no TimeSignature object in sites then returns a duration object\nof Zero length.\n>>> isolatedNote = note.Note('E4')\n>>> isolatedNote.beatDuration\n<music21.duration.Duration 0.0>\n\n\n\nChanged in v6.3: returns a duration.Duration object of length 0 if\nthere is no TimeSignature in sites.  Previously raised an exception.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object.",
+        "type": "Title"
+    },
+    {
+        "text": "beatStr",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a string representation of the beat of\nthis object as found in the most recently positioned\nMeasure. Beat values count from 1 and contain a\nfractional designation to show progress through the beat.\n>>> n = note.Note(type='eighth')\n>>> m = stream.Measure()\n>>> m.timeSignature = meter.TimeSignature('3/4')\n>>> m.repeatAppend(n, 6)\n\n\n>>> [n.beatStr for n in m.notes]\n['1', '1 1/2', '2', '2 1/2', '3', '3 1/2']\n\n\n>>> m.timeSignature = meter.TimeSignature('6/8')\n>>> [n.beatStr for n in m.notes]\n['1', '1 1/3', '1 2/3', '2', '2 1/3', '2 2/3']\n\n\n>>> s = stream.Stream()\n>>> s.insert(0, meter.TimeSignature('3/4'))\n>>> s.repeatAppend(note.Note(type='quarter'), 8)\n>>> [n.beatStr for n in s.notes]\n['1', '2', '3', '1', '2', '3', '1', '2']\n\n\nIf there is no TimeSignature object in sites then returns \u0098nan' for not a number.\n>>> isolatedNote = note.Note('E4')\n>>> isolatedNote.beatStr\n'nan'\n\n\n\nChanged in v6.3: returns \u0098nan' if\nthere is no TimeSignature in sites.\nPreviously raised an exception.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object.",
+        "type": "Title"
+    },
+    {
+        "text": "beatStrength",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return the metrical accent of this object\nin the most recently positioned Measure. Accent values\nare between zero and one, and are derived from the local\nTimeSignature's accent MeterSequence weights. If the offset\nof this object does not match a defined accent weight, a\nminimum accent weight will be returned.\n>>> n = note.Note(type='eighth')\n>>> m = stream.Measure()\n>>> m.timeSignature = meter.TimeSignature('3/4')\n>>> m.repeatAppend(n, 6)\n\n\nThe first note of a measure is (generally?) always beat strength 1.0:\n>>> m.notes.first().beatStrength\n1.0\n\n\nNotes on weaker beats have lower strength:\n>>> [n.beatStrength for n in m.notes]\n[1.0, 0.25, 0.5, 0.25, 0.5, 0.25]\n\n\n>>> m.timeSignature = meter.TimeSignature('6/8')\n>>> [n.beatStrength for n in m.notes]\n[1.0, 0.25, 0.25, 0.5, 0.25, 0.25]\n\n\nImportantly, the actual numbers here have no particular meaning.  You cannot\n\u009cadd\u009d two beatStrengths of 0.25 and say that they have the same beat strength\nas one note of 0.5.  Only the ordinal relations really matter.  Even taking\nan average of beat strengths is a tiny bit methodologically suspect (though\nit is common in research for lack of a better method).\nWe can also get the beatStrength for elements not in\na measure, if the enclosing stream has a TimeSignature.\nWe just assume that the time signature carries through to\nhypothetical following measures:\n>>> n = note.Note('E-3', type='quarter')\n>>> s = stream.Stream()\n>>> s.insert(0.0, meter.TimeSignature('2/2'))\n>>> s.repeatAppend(n, 12)\n>>> [n.beatStrength for n in s.notes]\n[1.0, 0.25, 0.5, 0.25, 1.0, 0.25, 0.5, 0.25, 1.0, 0.25, 0.5, 0.25]\n\n\nChanging the meter changes the output, of course, as can be seen from the\nfourth quarter note onward:\n>>> s.insert(4.0, meter.TimeSignature('3/4'))\n>>> [n.beatStrength for n in s.notes]\n[1.0, 0.25, 0.5, 0.25, 1.0, 0.5, 0.5, 1.0, 0.5, 0.5, 1.0, 0.5]\n\n\nThe method returns correct numbers for the prevailing time signature\neven if no measures have been made:\n>>> n = note.Note('E--3', type='half')\n>>> s = stream.Stream()\n>>> s.isMeasure\nFalse\n\n\n>>> s.insert(0, meter.TimeSignature('2/2'))\n>>> s.repeatAppend(n, 16)\n>>> s.notes[0].beatStrength\n1.0\n>>> s.notes[1].beatStrength\n0.5\n>>> s.notes[4].beatStrength\n1.0\n>>> s.notes[5].beatStrength\n0.5\n\n\nGetting the beatStrength of an object without a time signature in its context\nreturns the not-a-number special object \u0098nan':\n>>> n2 = note.Note(type='whole')\n>>> n2.beatStrength\nnan\n>>> from math import isnan\n>>> isnan(n2.beatStrength)\nTrue\n\n\n\nChanged in v6.3: return \u0098nan' instead of raising an exception.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object.",
+        "type": "Title"
+    },
+    {
+        "text": "hasEditorialInformation",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if there is a Editorial object\nalready associated with this object, False otherwise.\nCalling .editorial on an object will always create a new\nEditorial object, so even though a new Editorial object isn't too expensive\nto create, this property helps to prevent creating new Editorial objects\nmore than is necessary.\n>>> mObj = base.Music21Object()\n>>> mObj.hasEditorialInformation\nFalse\n>>> mObj.editorial\n<music21.editorial.Editorial {}>\n>>> mObj.hasEditorialInformation\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object.",
+        "type": "Title"
+    },
+    {
+        "text": "hasStyleInformation",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if there is a Style object\nalready associated with this object, False otherwise.\nCalling .style on an object will always create a new\nStyle object, so even though a new Style object isn't too expensive\nto create, this property helps to prevent creating new Styles more than\nnecessary.\n>>> mObj = base.Music21Object()\n>>> mObj.hasStyleInformation\nFalse\n>>> mObj.style\n<music21.style.Style object at 0x10b0a2080>\n>>> mObj.hasStyleInformation\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object.",
+        "type": "Title"
+    },
+    {
+        "text": "measureNumber",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return the measure number of a Measure that contains this\nobject if the object is in a measure.\nReturns None if the object is not in a measure.  Also note that by\ndefault Measure objects\nhave measure number 0.\nIf an object belongs to multiple measures (not in the same hierarchy\u2026)\nthen it returns the\nmeasure number of the activeSite() if that is a\nMeasure object.  Otherwise, it will use\ngetContextByClass()\nto find the number of the measure it was most recently added to.\n>>> m = stream.Measure()\n>>> m.number = 12\n>>> n = note.Note()\n>>> m.append(n)\n>>> n.measureNumber\n12\n\n\n>>> n2 = note.Note()\n>>> n2.measureNumber is None\nTrue\n>>> m2 = stream.Measure()\n>>> m2.append(n2)\n>>> n2.measureNumber\n0\n\n\nThe property updates if the object's surrounding measure's number changes:\n>>> m2.number = 11\n>>> n2.measureNumber\n11\n\n\nThe most recent measure added to is used unless activeSite is a measure:\n>>> m.append(n2)\n>>> n2.measureNumber\n12\n>>> n2.activeSite = m2\n>>> n2.measureNumber\n11\n\n\nCopies can retain measure numbers until set themselves:\n>>> import copy\n>>> nCopy = copy.deepcopy(n2)\n>>> nCopy.measureNumber\n12\n>>> m3 = stream.Measure()\n>>> m3.number = 4\n>>> m3.append(nCopy)\n>>> nCopy.measureNumber\n4",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "Music21Object read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Music21Object.",
+        "type": "Title"
+    },
+    {
+        "text": "activeSite",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A reference to the most-recent object used to\ncontain this object. In most cases, this will be a\nStream or Stream sub-class. In most cases, an object's\nactiveSite attribute is automatically set when the\nobject is attached to a Stream.\n>>> n = note.Note('C#4')\n>>> p = stream.Part()\n>>> p.insert(20.0, n)\n>>> n.activeSite is p\nTrue\n>>> n.offset\n20.0\n\n\n>>> m = stream.Measure()\n>>> m.insert(10.0, n)\n>>> n.activeSite is m\nTrue\n>>> n.offset\n10.0\n>>> n.activeSite = p\n>>> n.offset\n20.0",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object.",
+        "type": "Title"
+    },
+    {
+        "text": "derivation",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return the Derivation object for this element.\nOr create one if none exists:\n>>> n = note.Note()\n>>> n.derivation\n<Derivation of <music21.note.Note C> from None>\n>>> import copy\n>>> n2 = copy.deepcopy(n)\n>>> n2.pitch.step = 'D'  # for seeing easier...\n>>> n2.derivation\n<Derivation of <music21.note.Note D> from <music21.note.Note C> via '__deepcopy__'>\n>>> n2.derivation.origin is n\nTrue\n\n\nNote that (for now at least) derivation.origin is NOT a weakref:\n>>> del n\n>>> n2.derivation\n<Derivation of <music21.note.Note D> from <music21.note.Note C> via '__deepcopy__'>\n>>> n2.derivation.origin\n<music21.note.Note C>",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object.",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get and set the duration of this object as a Duration object.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object.",
+        "type": "Title"
+    },
+    {
+        "text": "editorial",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "a Editorial object that stores editorial information\n(comments, footnotes, harmonic information, ficta).\nCreated automatically as needed:\n>>> n = note.Note('C4')\n>>> n.editorial\n<music21.editorial.Editorial {}>\n>>> n.editorial.ficta = pitch.Accidental('sharp')\n>>> n.editorial.ficta\n<music21.pitch.Accidental sharp>\n>>> n.editorial\n<music21.editorial.Editorial {'ficta': <music21.pitch.Accidental sharp>}>",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object.",
+        "type": "Title"
+    },
+    {
+        "text": "id",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A unique identification string or int; not to be confused with Python's\nbuilt-in id() method. However, if not set, will return\nPython's id() number.\n\u009cUnique\u009d is intended with respect to the stream hierarchy one is likely\nto query with getElementById(). For\ninstance, the .id of a Voice should be unique in any single Measure,\nbut the id's may reset from measure to measure across a Part.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object.",
+        "type": "Title"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The offset property sets or returns the position of this object\nas a float or fractions.Fraction value\n(generally in quarterLengths), depending on what is representable.\nOffsets are measured from the start of the object's activeSite,\nthat is, the most recently referenced Stream or Stream subclass such\nas Part, Measure, or Voice.  It is a simpler\nway of calling o.getOffsetBySite(o.activeSite, returnType='rational').\nIf we put a Note into a Stream, we will see the activeSite changes.\n>>> import fractions\n>>> n1 = note.Note('D#3')\n>>> n1.activeSite is None\nTrue\n\n\n>>> m1 = stream.Measure()\n>>> m1.number = 4\n>>> m1.insert(10.0, n1)\n>>> n1.offset\n10.0\n>>> n1.activeSite\n<music21.stream.Measure 4 offset=0.0>\n\n\n>>> n1.activeSite is m1\nTrue\n\n\nThe most recently referenced Stream becomes an object's activeSite and\nthus the place where .offset looks to find its number.\n>>> m2 = stream.Measure()\n>>> m2.insert(3/5, n1)\n>>> m2.number = 5\n>>> n1.offset\nFraction(3, 5)\n>>> n1.activeSite is m2\nTrue\n\n\nNotice though that .offset depends on the .activeSite which is the most\nrecently accessed/referenced Stream.\nHere we will iterate over the elements in m1 and we\nwill see that the .offset of n1 now is its offset in\nm1 even though we haven't done anything directly to n1.\nSimply iterating over a site is enough to change the .activeSite\nof its elements:\n>>> for element in m1:\n...     pass\n>>> n1.offset\n10.0\n\n\nThe property can also set the offset for the object if no\ncontainer has been set:\n>>> n1 = note.Note()\n>>> n1.id = 'hi'\n>>> n1.offset = 20/3\n>>> n1.offset\nFraction(20, 3)\n>>> float(n1.offset)\n6.666...\n\n\n>>> s1 = stream.Stream()\n>>> s1.append(n1)\n>>> n1.offset\n0.0\n>>> s2 = stream.Stream()\n>>> s2.insert(30.5, n1)\n>>> n1.offset\n30.5\n\n\nAfter calling getElementById on s1, the\nreturned element's offset will be its offset in s1.\n>>> n2 = s1.getElementById('hi')\n>>> n2 is n1\nTrue\n>>> n2.offset\n0.0\n\n\nIterating over the elements in a Stream will\nmake its offset be the offset in iterated\nStream.\n>>> for thisElement in s2:\n...     thisElement.offset\n30.5\n\n\nWhen in doubt, use .getOffsetBySite(streamObj)\nwhich is safer or streamObj.elementOffset(self) which is 3x faster.\n\nChanged in v8: using a Duration object as an offset is not allowed.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object.",
+        "type": "Title"
+    },
+    {
+        "text": "priority",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get and set the priority integer value.\nPriority specifies the order of processing from left (lowest number)\nto right (highest number) of objects at the same offset.  For\ninstance, if you want a key change and a clef change to happen at\nthe same time but the key change to appear first, then set:\nkeySigElement.priority = 1; clefElement.priority = 2 this might be\na slightly counterintuitive numbering of priority, but it does\nmean, for instance, if you had two elements at the same offset,\nan allegro tempo change and an andante tempo change, then the\ntempo change with the higher priority number would apply to the\nfollowing notes (by being processed second).\nDefault priority is 0; thus negative priorities are encouraged\nto have Elements that appear before non-priority set elements.\nIn case of tie, there are defined class sort orders defined in\nmusic21.base.classSortOrder.  For instance, a key signature\nchange appears before a time signature change before a\nnote at the same offset.  This produces the familiar order of\nmaterials at the start of a musical score.\n>>> import music21\n>>> a = music21.Music21Object()\n>>> a.priority = 3\n>>> a.priority = 'high'\nTraceback (most recent call last):\nmusic21.base.ElementException: priority values must be integers.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object.",
+        "type": "Title"
+    },
+    {
+        "text": "quarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Set or Return the Duration as represented in Quarter Length, possibly as a fraction.\nSame as setting .duration.quarterLength.\n>>> n = note.Note()\n>>> n.quarterLength = 2.0\n>>> n.quarterLength\n2.0\n>>> n.quarterLength = 1/3\n>>> n.quarterLength\nFraction(1, 3)",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object.",
+        "type": "Title"
+    },
+    {
+        "text": "seconds",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get or set the duration of this object in seconds, assuming\nthat this object has a MetronomeMark\nor MetricModulation\n(or any TempoIndication) in its past context.\n>>> s = stream.Stream()\n>>> for i in range(3):\n...    s.append(note.Note(type='quarter'))\n...    s.append(note.Note(type='quarter', dots=1))\n>>> s.insert(0, tempo.MetronomeMark(number=60))\n>>> s.insert(2, tempo.MetronomeMark(number=120))\n>>> s.insert(4, tempo.MetronomeMark(number=30))\n>>> [n.seconds for n in s.notes]\n[1.0, 1.5, 0.5, 0.75, 2.0, 3.0]\n\n\nSetting the number of seconds on a music21 object changes its duration:\n>>> lastNote = s.notes[-1]\n>>> lastNote.duration.fullName\n'Dotted Quarter'\n>>> lastNote.seconds = 4.0\n>>> lastNote.duration.fullName\n'Half'\n\n\nAny object of length 0 has zero-second length:\n>>> tc = clef.TrebleClef()\n>>> tc.seconds\n0.0\n\n\nIf an object has positive duration but no tempo indication in its context,\nthen the special number \u0098nan' for \u009cnot-a-number\u009d is returned:\n>>> r = note.Rest(type='whole')\n>>> r.seconds\nnan\n\n\nCheck for \u0098nan' with the math.isnan() routine:\n>>> import math\n>>> math.isnan(r.seconds)\nTrue\n\n\nSetting seconds for an element without a tempo-indication in its sites raises\na Music21ObjectException:\n>>> r.seconds = 2.0\nTraceback (most recent call last):\nmusic21.base.Music21ObjectException: this object does not have a TempoIndication in Sites\n\n\nNote that if an object is in multiple Sites with multiple Metronome marks,\nthe activeSite (or the hierarchy of the activeSite)\ndetermines its seconds for getting or setting:\n>>> r = note.Rest(type='whole')\n>>> m1 = stream.Measure()\n>>> m1.insert(0, tempo.MetronomeMark(number=60))\n>>> m1.append(r)\n>>> r.seconds\n4.0\n\n\n>>> m2 = stream.Measure()\n>>> m2.insert(0, tempo.MetronomeMark(number=120))\n>>> m2.append(r)\n>>> r.seconds\n2.0\n>>> r.activeSite = m1\n>>> r.seconds\n4.0\n>>> r.seconds = 1.0\n>>> r.duration.type\n'quarter'\n>>> r.activeSite = m2\n>>> r.seconds = 1.0\n>>> r.duration.type\n'half'\n\n\n\nChanged in v6.3: return nan instead of raising an exception.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object.",
+        "type": "Title"
+    },
+    {
+        "text": "style",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns (or Creates and then Returns) the Style object\nassociated with this object, or sets a new\nstyle object.  Different classes might use\ndifferent Style objects because they might have different\nstyle needs (such as text formatting or bezier positioning)\nEventually will also query the groups to see if they have\nany styles associated with them.\n>>> n = note.Note()\n>>> st = n.style\n>>> st\n<music21.style.NoteStyle object at 0x10ba96208>\n>>> st.absoluteX = 20.0\n>>> st.absoluteX\n20.0\n>>> n.style = style.Style()\n>>> n.style.absoluteX is None\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object methods",
+        "type": "Title"
+    },
+    {
+        "text": "Music21Object.",
+        "type": "Title"
+    },
+    {
+        "text": "__eq__",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "other",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 t.TypeGuard[_M21T]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Define equality for Music21Objects.  See main class docs.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object.",
+        "type": "Title"
+    },
+    {
+        "text": "clearCache",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A number of music21 attributes (especially with Chords and RomanNumerals, etc.)\nare expensive to compute and are therefore cached.  Generally speaking\nobjects are responsible for making sure that their own caches are up to date,\nbut a power user might want to do something in an unusual way (such as manipulating\nprivate attributes on a Pitch object) and need to be able to clear caches.\nThat's what this is here for.  If all goes well, you'll never need to call it\nunless you're expanding music21's core functionality.\n**keywords is not used in Music21Object but is included for subclassing.\nLook at cacheMethod() for the other half of this\nutility.\n\nNew in v6: exposes previously hidden functionality.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object.",
+        "type": "Title"
+    },
+    {
+        "text": "containerHierarchy",
+        "type": "Title"
+    },
+    {
+        "text": "followDerivation",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "includeNonStreamDerivations",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a list of Stream subclasses that this object\nis contained within or (if followDerivation is set) is derived from.\nThis method gives access to the hierarchy that contained or\ncreated this object.\n>>> s = corpus.parse('bach/bwv66.6')\n>>> noteE = s[1][2][3]\n>>> noteE\n<music21.note.Note E>\n>>> [e for e in noteE.containerHierarchy()]\n[<music21.stream.Measure 1 offset=1.0>,\n <music21.stream.Part Soprano>,\n <music21.stream.Score bach/bwv66.6.mxl>]\n\n\nNote that derived objects also can follow the container hierarchy:\n>>> import copy\n>>> n2 = copy.deepcopy(noteE)\n>>> [e for e in n2.containerHierarchy()]\n[<music21.stream.Measure 1 offset=1.0>,\n <music21.stream.Part Soprano>,\n <music21.stream.Score bach/bwv66.6.mxl>]\n\n\nUnless followDerivation is False:\n>>> [e for e in n2.containerHierarchy(followDerivation=False)]\n[]\n\n\nif includeNonStreamDerivations is True then n2's containerHierarchy will include\nn even though it's not a container.  It gives a good idea of how the hierarchy is being\nconstructed.\n>>> [e for e in n2.containerHierarchy(includeNonStreamDerivations=True)]\n[<music21.note.Note E>,\n <music21.stream.Measure 1 offset=1.0>,\n <music21.stream.Part Soprano>,\n <music21.stream.Score bach/bwv66.6.mxl>]\n\n\nThe method follows activeSites, so set the activeSite as necessary.\n>>> p = stream.Part(id='newPart')\n>>> m = stream.Measure(number=20)\n>>> p.insert(0, m)\n>>> m.insert(0, noteE)\n>>> noteE.activeSite\n<music21.stream.Measure 20 offset=0.0>\n>>> noteE.containerHierarchy()\n[<music21.stream.Measure 20 offset=0.0>,\n <music21.stream.Part newPart>]\n\n\n\nChanged in v5.7: followDerivation and\nincludeNonStreamDerivations are now keyword only",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object.",
+        "type": "Title"
+    },
+    {
+        "text": "contextSites",
+        "type": "Title"
+    },
+    {
+        "text": "returnSortTuples",
+        "type": "Title"
+    },
+    {
+        "text": "Literal[True]",
+        "type": "Title"
+    },
+    {
+        "text": "callerFirst",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "memo",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "offsetAppend",
+        "type": "Title"
+    },
+    {
+        "text": "float | Fraction",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "sortByCreationTime",
+        "type": "Title"
+    },
+    {
+        "text": "Literal",
+        "type": "Title"
+    },
+    {
+        "text": "'reverse'",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "priorityTarget",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "followDerivation",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "priorityTargetOnly",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 Generator[ContextSortTuple, None, None]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Music21Object.",
+        "type": "Title"
+    },
+    {
+        "text": "contextSites",
+        "type": "Title"
+    },
+    {
+        "text": "callerFirst",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "memo",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "offsetAppend",
+        "type": "Title"
+    },
+    {
+        "text": "float | Fraction",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "sortByCreationTime",
+        "type": "Title"
+    },
+    {
+        "text": "Literal",
+        "type": "Title"
+    },
+    {
+        "text": "'reverse'",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "priorityTarget",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "returnSortTuples",
+        "type": "Title"
+    },
+    {
+        "text": "Literal[False]",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "followDerivation",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "priorityTargetOnly",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 Generator[ContextTuple, None, None]",
+        "type": "Title"
+    },
+    {
+        "text": "A generator that returns a list of namedtuples of sites to search for a context\u2026\nEach tuple contains three elements:\n.site \u2014  Stream object\n.offset \u2014 the offset or position (sortTuple) of this element in that Stream\n.recurseType \u2014 the way of searching that should be applied to search for a context.\nThe recurseType values are all music21.stream.enums.RecurseType:\n\n\nFLATTEN \u2014 flatten the stream and then look from this offset backwards.\n\nELEMENTS_ONLY \u2014 only search the stream's personalelements from this offset backwards\n\n\n\n\nELEMENTS_FIRST \u2014 search this stream backwards,and then flatten and search backwards\n\n\n\n\n\n>>> c = corpus.parse('bwv66.6')\n>>> c.id = 'bach'\n>>> n = c[2][4][2]\n>>> n\n<music21.note.Note G#>\n\n\nReturning sortTuples are important for distinguishing the order of multiple sites\nat the same offset.\n>>> for csTuple in n.contextSites(returnSortTuples=True):\n...      yClearer = (csTuple.site, csTuple.offset.shortRepr(), csTuple.recurseType)\n...      print(yClearer)\n(<music21.stream.Measure 3 offset=9.0>, '0.5 <0.20...>', <RecursionType.ELEMENTS_FIRST>)\n(<music21.stream.Part Alto>, '9.5 <0.20...>', <RecursionType.FLATTEN>)\n(<music21.stream.Score bach>, '9.5 <0.20...>', <RecursionType.ELEMENTS_ONLY>)\n\n\nStreams have themselves as the first element in their context sites, at position\nzero and classSortOrder negative infinity.\nThis example shows the context sites for Measure 3 of the\nAlto part. We will get the measure object using direct access to\nindices to ensure that no other temporary\nstreams are created; normally, we would do c.parts[\u0098#Alto'].measure(3).\n>>> m = c.parts['#Alto'].getElementsByClass(stream.Measure)[3]\n>>> m\n<music21.stream.Measure 3 offset=9.0>\n\n\nIf returnSortTuples is true then ContextSortTuples are returned, where the\nsecond element is a SortTuple:\n>>> for csTuple in m.contextSites(returnSortTuples=True):\n...     print(csTuple)\nContextSortTuple(site=<music21.stream.Measure 3 offset=9.0>,\n                 offset=SortTuple(atEnd=0, offset=0.0, priority=-inf, ...),\n                 recurseType=<RecursionType.ELEMENTS_FIRST>)\nContextSortTuple(...)\nContextSortTuple(...)\n\n\nBecause SortTuples are so detailed, we'll use their shortRepr() to see the\nvalues, removing the insertIndex because it changes from run to run:\n>>> for csTuple in m.contextSites(returnSortTuples=True):\n...      yClearer = (csTuple.site, csTuple.offset.shortRepr(), csTuple.recurseType)\n...      print(yClearer)\n(<music21.stream.Measure 3 offset=9.0>, '0.0 <-inf.-20...>', <RecursionType.ELEMENTS_FIRST>)\n(<music21.stream.Part Alto>, '9.0 <0.-20...>', <RecursionType.FLATTEN>)\n(<music21.stream.Score bach>, '9.0 <0.-20...>', <RecursionType.ELEMENTS_ONLY>)\n\n\nHere we make a copy of the earlier measure, and we see that its contextSites\nfollow the derivationChain from the original measure and still find the Part\nand Score of the original Measure 3 (and also the original Measure 3)\neven though mCopy is not in any of these objects.\n>>> import copy\n>>> mCopy = copy.deepcopy(m)\n>>> mCopy.number = 3333\n>>> for csTuple in mCopy.contextSites():\n...      print(csTuple, mCopy in csTuple.site)\nContextTuple(site=<music21.stream.Measure 3333 offset=0.0>,\n             offset=0.0,\n             recurseType=<RecursionType.ELEMENTS_FIRST>) False\nContextTuple(site=<music21.stream.Measure 3 offset=9.0>,\n             offset=0.0,\n             recurseType=<RecursionType.ELEMENTS_FIRST>) False\nContextTuple(site=<music21.stream.Part Alto>,\n             offset=9.0,\n             recurseType=<RecursionType.FLATTEN>) False\nContextTuple(site=<music21.stream.Score bach>,\n             offset=9.0,\n             recurseType=<RecursionType.ELEMENTS_ONLY>) False\n\n\nIf followDerivation were False, then the Part and Score would not be found.\n>>> for csTuple in mCopy.contextSites(followDerivation=False):\n...     print(csTuple)\nContextTuple(site=<music21.stream.Measure 3333 offset=0.0>,\n             offset=0.0,\n             recurseType=<RecursionType.ELEMENTS_FIRST>)\n\n\n>>> partIterator = c.parts\n>>> m3 = partIterator[1].measure(3)\n>>> for csTuple in m3.contextSites():\n...      print(csTuple)\nContextTuple(site=<music21.stream.Measure 3 offset=9.0>,\n             offset=0.0,\n             recurseType=<RecursionType.ELEMENTS_FIRST>)\nContextTuple(site=<music21.stream.Part Alto>,\n             offset=9.0,\n             recurseType=<RecursionType.FLATTEN>)\nContextTuple(site=<music21.stream.Score bach>,\n             offset=9.0,\n             recurseType=<RecursionType.ELEMENTS_ONLY>)\n\n\nSorting order:\n>>> p1 = stream.Part()\n>>> p1.id = 'p1'\n>>> m1 = stream.Measure()\n>>> m1.number = 1\n>>> n = note.Note()\n>>> m1.append(n)\n>>> p1.append(m1)\n>>> for csTuple in n.contextSites():\n...     print(csTuple.site)\n<music21.stream.Measure 1 offset=0.0>\n<music21.stream.Part p1>\n\n\n>>> p2 = stream.Part()\n>>> p2.id = 'p2'\n>>> m2 = stream.Measure()\n>>> m2.number = 2\n>>> m2.append(n)\n>>> p2.append(m2)\n\n\nThe keys could have appeared in any order, but by default\nwe set priorityTarget to activeSite.  So this is the same as omitting.\n>>> for y in n.contextSites(priorityTarget=n.activeSite):\n...     print(y[0])\n<music21.stream.Measure 2 offset=0.0>\n<music21.stream.Part p2>\n<music21.stream.Measure 1 offset=0.0>\n<music21.stream.Part p1>\n\n\nWe can sort sites by creationTime\u2026\n>>> for csTuple in n.contextSites(sortByCreationTime=True):\n...     print(csTuple.site)\n<music21.stream.Measure 2 offset=0.0>\n<music21.stream.Part p2>\n<music21.stream.Measure 1 offset=0.0>\n<music21.stream.Part p1>\n\n\noldest first\u2026\n>>> for csTuple in n.contextSites(sortByCreationTime='reverse'):\n...     print(csTuple.site)\n<music21.stream.Measure 1 offset=0.0>\n<music21.stream.Part p1>\n<music21.stream.Measure 2 offset=0.0>\n<music21.stream.Part p2>\n\n\nNote that by default we search all sites, but you might want to only search\none, for instance:\n>>> c = note.Note('C')\n>>> m1 = stream.Measure()\n>>> m1.append(c)\n\n\n>>> d = note.Note('D')\n>>> m2 = stream.Measure()\n>>> m2.append([c, d])\n\n\n>>> c.activeSite = m1\n>>> c.next('Note')  # uses contextSites\n<music21.note.Note D>\n\n\nThere is a particular site in which there is a Note after c,\nbut we want to know if there is one in m1 or its hierarchy, so\nwe can pass in activeSiteOnly to .next() which sets\npriorityTargetOnly=True for contextSites\n>>> print(c.next('Note', activeSiteOnly=True))\nNone\n\n\n\nRemoved in v3: priorityTarget cannot be set, in order\nto use .sites.yieldSites()\nChanged in v5.5: all arguments are keyword only.\nChanged in v6: added priorityTargetOnly=False to only search in the\ncontext of the priorityTarget.\nChanged in v8: returnSortTuple=True returns a new ContextSortTuple",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object.",
+        "type": "Title"
+    },
+    {
+        "text": "getAllContextsByClass",
+        "type": "Title"
+    },
+    {
+        "text": "className",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns a generator that yields elements found by .getContextByClass and\nthen finds the previous contexts for that element.\n>>> s = stream.Stream()\n>>> s.append(meter.TimeSignature('2/4'))\n>>> s.append(note.Note('C'))\n>>> s.append(meter.TimeSignature('3/4'))\n>>> n = note.Note('D')\n>>> s.append(n)\n\n\n>>> for ts in n.getAllContextsByClass(meter.TimeSignature):\n...     print(ts, ts.offset)\n<music21.meter.TimeSignature 3/4> 1.0\n<music21.meter.TimeSignature 2/4> 0.0\n\n\nTODO: make it so that it does not skip over multiple matching classes\nat the same offset. with sortTuple",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object.",
+        "type": "Title"
+    },
+    {
+        "text": "getContextByClass",
+        "type": "Title"
+    },
+    {
+        "text": "className",
+        "type": "Title"
+    },
+    {
+        "text": "type[_M21T]",
+        "type": "Title"
+    },
+    {
+        "text": "getElementMethod",
+        "type": "Title"
+    },
+    {
+        "text": "ElementSearch.AT_OR_BEFORE",
+        "type": "Title"
+    },
+    {
+        "text": "sortByCreationTime",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "followDerivation",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "priorityTargetOnly",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 _M21T | None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Music21Object.",
+        "type": "Title"
+    },
+    {
+        "text": "getContextByClass",
+        "type": "Title"
+    },
+    {
+        "text": "className",
+        "type": "Title"
+    },
+    {
+        "text": "str | None",
+        "type": "Title"
+    },
+    {
+        "text": "getElementMethod",
+        "type": "Title"
+    },
+    {
+        "text": "ElementSearch.AT_OR_BEFORE",
+        "type": "Title"
+    },
+    {
+        "text": "sortByCreationTime",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "followDerivation",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "priorityTargetOnly",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 Music21Object | None",
+        "type": "Title"
+    },
+    {
+        "text": "A very powerful method in music21 of fundamental importance: Returns\nthe element matching the className that is closest to this element in\nits current hierarchy (or the hierarchy of the derivation origin unless\nfollowDerivation is False).  For instance, take this stream of changing time\nsignatures:\n>>> p = converter.parse('tinynotation: 3/4 C4 D E 2/4 F G A B 1/4 c')\n>>> p\n<music21.stream.Part 0x104ce64e0>\n\n\n>>> p.show('t')\n{0.0} <music21.stream.Measure 1 offset=0.0>\n    {0.0} <music21.clef.BassClef>\n    {0.0} <music21.meter.TimeSignature 3/4>\n    {0.0} <music21.note.Note C>\n    {1.0} <music21.note.Note D>\n    {2.0} <music21.note.Note E>\n{3.0} <music21.stream.Measure 2 offset=3.0>\n    {0.0} <music21.meter.TimeSignature 2/4>\n    {0.0} <music21.note.Note F>\n    {1.0} <music21.note.Note G>\n{5.0} <music21.stream.Measure 3 offset=5.0>\n    {0.0} <music21.note.Note A>\n    {1.0} <music21.note.Note B>\n{7.0} <music21.stream.Measure 4 offset=7.0>\n    {0.0} <music21.meter.TimeSignature 1/4>\n    {0.0} <music21.note.Note C>\n    {1.0} <music21.bar.Barline type=final>\n\n\nLet's get the last two notes of the piece, the B and high c:\n>>> m4 = p.measure(4)\n>>> c = m4.notes.first()\n>>> c\n<music21.note.Note C>\n\n\n>>> m3 = p.measure(3)\n>>> b = m3.notes.last()\n>>> b\n<music21.note.Note B>\n\n\nNow when we run getContextByClass(meter.TimeSignature) on c, we get a\ntime signature of 1/4.\n>>> c.getContextByClass(meter.TimeSignature)\n<music21.meter.TimeSignature 1/4>\n\n\nDoing what we just did wouldn't be hard to do with other methods,\nthough getContextByClass makes it easier.  But the time signature\ncontext for b would be much harder to get without this method, since in\norder to do it, it searches backwards within the measure, finds that\nthere's nothing there.  It goes to the previous measure and searches\nthat one backwards until it gets the proper TimeSignature of 2/4:\n>>> b.getContextByClass(meter.TimeSignature)\n<music21.meter.TimeSignature 2/4>\n\n\nFor backwards compatibility you can also pass in a string of the\nclass name:\n>>> b.getContextByClass('TimeSignature')\n<music21.meter.TimeSignature 2/4>\n\n\nBut if you use Python typing or a typing-aware IDE, then the first call\n(with class name) will signal that it is returning a TimeSignature object\nand allow for error detection, autocomplete, etc.  The latter call\n(with string) will only know that some Music21Object was returned.\nThe method is smart enough to stop when it gets to the beginning of the\npart.  This is all you need to know for most uses.  The rest of the\ndocs are for advanced uses:\nThe method searches both Sites as well as associated objects to find a\nmatching class. Returns None if no match is found.\nA reference to the caller is required to find the offset of the object\nof the caller.\nThe caller may be a Sites reference from a lower-level object.  If so,\nwe can access the location of that lower-level object. However, if we\nneed a flat representation, the caller needs to be the source Stream,\nnot its Sites reference.\nThe getElementMethod is an enum value (new in v7) from\nElementSearch that selects which\nStream method is used to get elements for searching. (The historical form\nof supplying one of the following values as a string is also supported.)\n>>> from music21.common.enums import ElementSearch\n>>> [x for x in ElementSearch]\n[<ElementSearch.BEFORE>,\n <ElementSearch.AFTER>,\n <ElementSearch.AT_OR_BEFORE>,\n <ElementSearch.AT_OR_AFTER>,\n <ElementSearch.BEFORE_OFFSET>,\n <ElementSearch.AFTER_OFFSET>,\n <ElementSearch.AT_OR_BEFORE_OFFSET>,\n <ElementSearch.AT_OR_AFTER_OFFSET>,\n <ElementSearch.BEFORE_NOT_SELF>,\n <ElementSearch.AFTER_NOT_SELF>,\n <ElementSearch.ALL>]\n\n\nThe \u009cafter\u009d do forward contexts \u2014 looking ahead.\nDemonstrations of these keywords:\nBecause b is a Note, .getContextByClass(note.Note) will only find itself:\n>>> b.getContextByClass(note.Note) is b\nTrue\n\n\nTo get the previous Note, use getElementMethod=ElementSearch.BEFORE:\n>>> a = b.getContextByClass(note.Note, getElementMethod=ElementSearch.BEFORE)\n>>> a\n<music21.note.Note A>\n\n\nThis is similar to .previous(note.Note), though that method is a bit more\nsophisticated:\n>>> b.previous(note.Note)\n<music21.note.Note A>\n\n\nTo get the following Note use getElementMethod=ElementSearch.AFTER:\n>>> c = b.getContextByClass(note.Note, getElementMethod=ElementSearch.AFTER)\n>>> c\n<music21.note.Note C>\n\n\nThis is similar to .next(note.Note), though, again, that method is a bit more\nsophisticated:\n>>> b.next(note.Note)\n<music21.note.Note C>\n\n\nA Stream might contain several elements at the same offset, leading to\npotentially surprising results where searching by ElementSearch.AT_OR_BEFORE\ndoes not find an element that is technically the NEXT node but still at 0.0:\n>>> s = stream.Stream()\n>>> s.insert(0, clef.BassClef())\n>>> s.next()\n<music21.clef.BassClef>\n>>> s.getContextByClass(clef.Clef) is None\nTrue\n>>> s.getContextByClass(clef.Clef, getElementMethod=ElementSearch.AT_OR_AFTER)\n<music21.clef.BassClef>\n\n\nThis can be remedied by explicitly searching by offsets:\n>>> s.getContextByClass(clef.Clef, getElementMethod=ElementSearch.AT_OR_BEFORE_OFFSET)\n<music21.clef.BassClef>\n\n\nOr by not limiting the search by temporal position at all:\n>>> s.getContextByClass(clef.Clef, getElementMethod=ElementSearch.ALL)\n<music21.clef.BassClef>\n\n\nNotice that if searching for a Stream context, the element is not\nguaranteed to be in that Stream.  This is obviously true in this case:\n>>> p2 = stream.Part()\n>>> m = stream.Measure(number=1)\n>>> p2.insert(0, m)\n>>> n = note.Note('D')\n>>> m.insert(2.0, n)\n>>> try:\n...     n.getContextByClass(stream.Part).elementOffset(n)\n... except Music21Exception:\n...     print('not there')\nnot there\n\n\nBut it is less clear with something like this:\n>>> import copy\n>>> n2 = copy.deepcopy(n)\n>>> try:\n...     n2.getContextByClass(stream.Measure).elementOffset(n2)\n... except Music21Exception:\n...     print('not there')\nnot there\n\n\nA measure context is being found, but only through the derivation chain.\n>>> n2.getContextByClass(stream.Measure)\n<music21.stream.Measure 1 offset=0.0>\n\n\nTo prevent this error, use the followDerivation=False setting\n>>> print(n2.getContextByClass(stream.Measure, followDerivation=False))\nNone\n\n\nOr if you want the offset of the element following the derivation chain,\ncall getOffsetBySite() on the object:\n>>> n2.getOffsetBySite(n2.getContextByClass(stream.Measure))\n2.0\n\n\nRaises ValueError if getElementMethod is not a value in ElementSearch.\n>>> n2.getContextByClass(expressions.TextExpression, getElementMethod='invalid')\nTraceback (most recent call last):\nValueError: Invalid getElementMethod: invalid\n\n\nRaises ValueError for incompatible values followDerivation=True\nand priorityTargetOnly=True.\n\nChanged in v5.7: added followDerivation=False and made\neverything but the class keyword only\nNew in v6: added priorityTargetOnly \u2014 see contextSites for description.\nNew in v7: added getElementMethod all and ElementSearch enum.\nChanged in v8: class-based calls return properly typed items.  Putting\nmultiple types into className (never documented) is no longer allowed.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object.",
+        "type": "Title"
+    },
+    {
+        "text": "getOffsetBySite",
+        "type": "Title"
+    },
+    {
+        "text": "site",
+        "type": "Title"
+    },
+    {
+        "text": "stream.Stream | None",
+        "type": "Title"
+    },
+    {
+        "text": "returnSpecial",
+        "type": "Title"
+    },
+    {
+        "text": "Literal[False]",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 float | Fraction",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Music21Object.",
+        "type": "Title"
+    },
+    {
+        "text": "getOffsetBySite",
+        "type": "Title"
+    },
+    {
+        "text": "site",
+        "type": "Title"
+    },
+    {
+        "text": "stream.Stream | None",
+        "type": "Title"
+    },
+    {
+        "text": "returnSpecial",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 float | Fraction | OffsetSpecial",
+        "type": "Title"
+    },
+    {
+        "text": "If this class has been registered in a container such as a Stream,\nthat container can be provided here, and the offset in that object\ncan be returned.\n>>> n = note.Note('A-4')  # a Music21Object\n>>> n.offset = 30\n>>> n.getOffsetBySite(None)\n30.0\n\n\n>>> s1 = stream.Stream()\n>>> s1.id = 'containingStream'\n>>> s1.insert(20 / 3, n)\n>>> n.getOffsetBySite(s1)\nFraction(20, 3)\n>>> float(n.getOffsetBySite(s1))\n6.6666...\n\n\nn.getOffsetBySite(None) should still return 30.0\n>>> n.getOffsetBySite(None)\n30.0\n\n\nIf the Stream does not contain the element and the element is not derived from\nan element that does, then a SitesException is raised:\n>>> s2 = stream.Stream()\n>>> s2.id = 'notContainingStream'\n>>> n.getOffsetBySite(s2)\nTraceback (most recent call last):\nmusic21.sites.SitesException: an entry for this object <music21.note.Note A-> is not\n      stored in stream <music21.stream.Stream notContainingStream>\n\n\nConsider this use of derivations:\n>>> import copy\n>>> nCopy = copy.deepcopy(n)\n>>> nCopy.derivation\n<Derivation of <music21.note.Note A-> from <music21.note.Note A-> via '__deepcopy__'>\n>>> nCopy.getOffsetBySite(s1)\nFraction(20, 3)\n\n\nnCopy can still find the offset of n in s1!\nThis is the primary difference between element.getOffsetBySite(stream)\nand stream.elementOffset(element)\n>>> s1.elementOffset(nCopy)\nTraceback (most recent call last):\nmusic21.sites.SitesException: an entry for this object ... is not\n    stored in stream <music21.stream.Stream containingStream>\n\n\nIf the object is stored at the end of the Stream, then the highest time\nis usually returned:\n>>> s3 = stream.Stream()\n>>> n3 = note.Note(type='whole')\n>>> s3.append(n3)\n>>> rb = bar.Barline()\n>>> s3.storeAtEnd(rb)  # s3.rightBarline = rb would do the same...\n>>> rb.getOffsetBySite(s3)\n4.0\n\n\nHowever, setting returnSpecial to True will return OffsetSpecial.AT_END\n>>> rb.getOffsetBySite(s3, returnSpecial=True)\n<OffsetSpecial.AT_END>\n\n\nEven with returnSpecial normal offsets are still returned as a float or Fraction:\n>>> n3.getOffsetBySite(s3, returnSpecial=True)\n0.0\n\n\n\nChanged in v7: stringReturns renamed to returnSpecial.\nReturns an OffsetSpecial Enum.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object.",
+        "type": "Title"
+    },
+    {
+        "text": "getOffsetInHierarchy",
+        "type": "Title"
+    },
+    {
+        "text": "site",
+        "type": "Title"
+    },
+    {
+        "text": "stream.Stream | None",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 OffsetQL",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "For an element which may not be in site, but might be in a Stream in site (or further\nin streams), find the cumulative offset of the element in that site.\n>>> s = stream.Score(id='mainScore')\n>>> p = stream.Part()\n>>> m = stream.Measure()\n>>> n = note.Note()\n>>> m.insert(5.0, n)\n>>> p.insert(10.0, m)\n>>> s.insert(0.0, p)\n>>> n.getOffsetInHierarchy(s)\n15.0\n\n\nIf no hierarchy beginning with site contains the element\nand the element is not derived from\nan element that does, then a SitesException is raised:\n>>> s2 = stream.Score(id='otherScore')\n>>> n.getOffsetInHierarchy(s2)\nTraceback (most recent call last):\nmusic21.sites.SitesException: Element <music21.note.Note C>\n    is not in hierarchy of <music21.stream.Score otherScore>\n\n\nBut if the element is derived from an element in\na hierarchy then it can get the offset:\n>>> n2 = n.transpose('P5')\n>>> n2.derivation.origin is n\nTrue\n>>> n2.derivation.method\n'transpose'\n>>> n2.getOffsetInHierarchy(s)\n15.0\n\n\nThere is no corresponding .setOffsetInHierarchy()\nsince it's unclear what that would mean.\nSee also music21.stream.iterator.RecursiveIterator.currentHierarchyOffset()\nfor a method that is about 10x faster when running through a recursed stream.\n\nNew in v3.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object.",
+        "type": "Title"
+    },
+    {
+        "text": "getSpannerSites",
+        "type": "Title"
+    },
+    {
+        "text": "spannerClassList",
+        "type": "Title"
+    },
+    {
+        "text": "Iterable | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 list[spanner.Spanner]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a list of all Spanner objects\n(or Spanner subclasses) that contain\nthis element. This method provides a way for\nobjects to be aware of what Spanners they\nreside in. Note that Spanners are not Streams\nbut specialized Music21Objects that use a\nStream subclass, SpannerStorage, internally to keep track\nof the elements that are spanned.\n>>> c = note.Note('C4')\n>>> d = note.Note('D4')\n>>> slur1 = spanner.Slur(c, d)\n>>> c.getSpannerSites() == [slur1]\nTrue\n\n\nNote that not all Spanners are in the spanner module. They\ntend to reside in modules closer to their musical function:\n>>> cresc = dynamics.Crescendo(d, c)\n\n\nThe order that Spanners are returned is by sortTuple.  For spanners\ncreated the same way and in the same order, the order returned will\nbe consistent:\n>>> d.getSpannerSites() == [slur1, cresc]\nTrue\n\n\nOptionally a class name or list of class names (as Classes or strings)\ncan be specified and only Spanners of that class will be returned\n>>> dim = dynamics.Diminuendo(c, d)\n>>> d.getSpannerSites(dynamics.Diminuendo) == [dim]\nTrue\n\n\nA larger class name can be used to get all subclasses:\n>>> d.getSpannerSites(dynamics.DynamicWedge) == [cresc, dim]\nTrue\n>>> d.getSpannerSites(['Slur', 'Diminuendo']) == [slur1, dim]\nTrue\n\n\nNote that the order of spanners returned from this routine can vary, so\nchanging to a set is useful for comparisons\n>>> set(d.getSpannerSites(['Slur', 'Diminuendo'])) == {dim, slur1}\nTrue\n\n\nExample: see which pairs of notes are in the same slur.\n>>> e = note.Note('E4')\n>>> slur2 = spanner.Slur(c, e)\n\n\n>>> for n in [c, d, e]:\n...    nSlurs = n.getSpannerSites(spanner.Slur)\n...    for nOther in [c, d, e]:\n...        if n is nOther:\n...            continue\n...        nOtherSlurs = nOther.getSpannerSites(spanner.Slur)\n...        for thisSlur in nSlurs:\n...            if thisSlur in nOtherSlurs:\n...               print(f'{n.name} shares a slur with {nOther.name}')\nC shares a slur with D\nC shares a slur with E\nD shares a slur with C\nE shares a slur with C",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object.",
+        "type": "Title"
+    },
+    {
+        "text": "informSites",
+        "type": "Title"
+    },
+    {
+        "text": "changedInformation",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "trigger called whenever sites need to be informed of a change\nin the parameters of this object.\nchangedInformation is not used now, but it can be a dictionary\nof what has changed.\nsubclass this to do very interesting things.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object.",
+        "type": "Title"
+    },
+    {
+        "text": "mergeAttributes",
+        "type": "Title"
+    },
+    {
+        "text": "other",
+        "type": "Title"
+    },
+    {
+        "text": "Music21Object",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Merge all elementary, static attributes. Namely,\nid and groups attributes from another music21 object.\nCan be useful for copy-like operations.\n>>> m1 = base.Music21Object()\n>>> m2 = base.Music21Object()\n>>> m1.id = 'music21Object1'\n>>> m1.groups.append('group1')\n>>> m2.mergeAttributes(m1)\n>>> m2.id\n'music21Object1'\n>>> 'group1' in m2.groups\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object.",
+        "type": "Title"
+    },
+    {
+        "text": "next",
+        "type": "Title"
+    },
+    {
+        "text": "className",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "music21.base.Music21Object",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "activeSiteOnly",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get the next element found in the activeSite (or other Sites)\nof this Music21Object.\nThe className can be used to specify one or more classes to match.\n>>> s = corpus.parse('bwv66.6')\n>>> m3 = s.parts[0].measure(3)\n>>> m4 = s.parts[0].measure(4)\n>>> m3\n<music21.stream.Measure 3 offset=9.0>\n>>> m3.show('t')\n{0.0} <music21.layout.SystemLayout>\n{0.0} <music21.note.Note A>\n{0.5} <music21.note.Note B>\n{1.0} <music21.note.Note G#>\n{2.0} <music21.note.Note F#>\n{3.0} <music21.note.Note A>\n>>> m3.next()\n<music21.layout.SystemLayout>\n>>> nextM3 = m3.next('Measure')\n>>> nextM3 is m4\nTrue\n\n\nNote that calling next() repeatedly gives\u2026the same object.  You'll want to\ncall next on that object\u2026\n>>> m3.next('Measure') is s.parts[0].measure(4)\nTrue\n>>> m3.next('Measure') is s.parts[0].measure(4)\nTrue\n\n\nSo do this instead:\n>>> o = m3\n>>> for i in range(5):\n...     print(o)\n...     o = o.next('Measure')\n<music21.stream.Measure 3 offset=9.0>\n<music21.stream.Measure 4 offset=13.0>\n<music21.stream.Measure 5 offset=17.0>\n<music21.stream.Measure 6 offset=21.0>\n<music21.stream.Measure 7 offset=25.0>\n\n\nWe can find the next element given a certain class with the className:\n>>> n = m3.next('Note')\n>>> n\n<music21.note.Note A>\n>>> n.measureNumber\n3\n>>> n is m3.notes.first()\nTrue\n>>> n.next()\n<music21.note.Note B>\n\n\nNotice though that when we get to the end of the set of measures, something\ninteresting happens (maybe it shouldn't? don't count on this\u2026): we descend\ninto the last measure and give its elements instead.\nWe'll leave o where it is (m8 now) to demonstrate what happens, and also\nprint its Part for more information\u2026\n>>> while o is not None:\n...     print(o, o.getContextByClass(stream.Part))\n...     o = o.next()\n<music21.stream.Measure 8 offset=29.0> <music21.stream.Part Soprano>\n<music21.note.Note F#> <music21.stream.Part Soprano>\n<music21.note.Note F#> <music21.stream.Part Soprano>\n<music21.note.Note F#> <music21.stream.Part Soprano>\n<music21.stream.Measure 9 offset=33.0> <music21.stream.Part Soprano>\n<music21.note.Note F#> <music21.stream.Part Soprano>\n<music21.note.Note F#> <music21.stream.Part Soprano>\n<music21.note.Note E#> <music21.stream.Part Soprano>\n<music21.note.Note F#> <music21.stream.Part Soprano>\n<music21.bar.Barline type=final> <music21.stream.Part Soprano>\n\n\n\nChanged in v6: added activeSiteOnly \u2014 see description in .contextSites()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object.",
+        "type": "Title"
+    },
+    {
+        "text": "previous",
+        "type": "Title"
+    },
+    {
+        "text": "className",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "music21.base.Music21Object",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "activeSiteOnly",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get the previous element found in the activeSite or other .sites of this\nMusic21Object.\nThe className can be used to specify one or more classes to match.\n>>> s = corpus.parse('bwv66.6')\n>>> m2 = s.parts[0].getElementsByClass(stream.Measure)[2]  # pickup measure\n>>> m3 = s.parts[0].getElementsByClass(stream.Measure)[3]\n>>> m3\n<music21.stream.Measure 3 offset=9.0>\n>>> m3prev = m3.previous()\n>>> m3prev\n<music21.note.Note C#>\n>>> m3prev is m2.notes[-1]\nTrue\n>>> m3.previous('Measure') is m2\nTrue\n\n\nWe'll iterate backwards from the first note of the second measure of the Alto part.\n>>> o = s.parts[1].getElementsByClass(stream.Measure)[2][0]\n>>> while o:\n...    print(o)\n...    o = o.previous()\n<music21.note.Note E>\n<music21.stream.Measure 2 offset=5.0>\n<music21.note.Note E>\n<music21.note.Note E>\n<music21.note.Note E>\n<music21.note.Note F#>\n<music21.stream.Measure 1 offset=1.0>\n<music21.note.Note E>\n<music21.meter.TimeSignature 4/4>\nf# minor\n<music21.tempo.MetronomeMark Quarter=96 (playback only)>\n<music21.clef.TrebleClef>\n<music21.stream.Measure 0 offset=0.0>\nP2: Alto: Instrument 2\n<music21.stream.Part Alto>\n<music21.stream.Part Soprano>\n<music21.metadata.Metadata object at 0x11116d080>\n<music21.stream.Score bach/bwv66.6.mxl>\n\n\n\nChanged in v6: added activeSiteOnly \u2014 see description in .contextSites()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object.",
+        "type": "Title"
+    },
+    {
+        "text": "purgeLocations",
+        "type": "Title"
+    },
+    {
+        "text": "rescanIsDead",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Remove references to all locations in objects that no longer exist.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object.",
+        "type": "Title"
+    },
+    {
+        "text": "purgeOrphans",
+        "type": "Title"
+    },
+    {
+        "text": "excludeStorageStreams",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A Music21Object may, due to deep copying or other reasons,\nhave a site (with an offset) which\nno longer contains the Music21Object. These lingering sites\nare called orphans. This method gets rid of them.\nThe excludeStorageStreams are SpannerStorage and VariantStorage.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object.",
+        "type": "Title"
+    },
+    {
+        "text": "setOffsetBySite",
+        "type": "Title"
+    },
+    {
+        "text": "site",
+        "type": "Title"
+    },
+    {
+        "text": "stream.Stream | None",
+        "type": "Title"
+    },
+    {
+        "text": "value",
+        "type": "Title"
+    },
+    {
+        "text": "OffsetQLIn",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Change the offset for a site.  These are equivalent:\n\nn1.setOffsetBySite(stream1, 20)\n\nand\n\nstream1.setElementOffset(n1, 20)\n\nWhich you choose to use will depend on whether you are iterating over a list\nof notes (etc.) or streams.\n>>> import music21\n>>> aSite = stream.Stream()\n>>> aSite.id = 'aSite'\n>>> a = music21.Music21Object()\n>>> aSite.insert(0, a)\n>>> aSite.setElementOffset(a, 20)\n>>> a.setOffsetBySite(aSite, 30)\n>>> a.getOffsetBySite(aSite)\n30.0\n\n\nAnd if it isn't in a Stream? Raises an exception and the offset does not change.\n>>> b = note.Note('D')\n>>> b.setOffsetBySite(aSite, 40)\nTraceback (most recent call last):\nmusic21.exceptions21.StreamException: Cannot set the offset for element\n    <music21.note.Note D>, not in Stream <music21.stream.Stream aSite>.\n\n\n>>> b.offset\n0.0\n\n\nSetting offset for None changes the \u009cnaive offset\u009d of an object:\n>>> b.setOffsetBySite(None, 32)\n>>> b.offset\n32.0\n>>> b.activeSite is None\nTrue\n\n\nRunning setOffsetBySite also changes the activeSite of the object.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object.",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "fmt",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "app",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Displays an object in a format provided by the\nfmt argument or, if not provided, the format set in the user's Environment\nValid formats include (but are not limited to):\nmusicxml\ntext\nmidi\nlily (or lilypond)\nlily.png\nlily.pdf\nlily.svg\nbraille\nvexflow\nmusicxml.png\n\n\nN.B. score.write(\u0098lily') returns a bare lilypond file,\nscore.show(\u0098lily') runs it through lilypond and displays it as a png.\nSome formats, including .musicxml, create a copy of the stream, pack it into a well-formed\nscore if necessary, and run makeNotation(). To\navoid this when showing .musicxml, use makeNotation=False, an advanced option\nthat prioritizes speed but may not guarantee satisfactory notation.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object.",
+        "type": "Title"
+    },
+    {
+        "text": "sortTuple",
+        "type": "Title"
+    },
+    {
+        "text": "useSite",
+        "type": "Title"
+    },
+    {
+        "text": "t.Literal",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "stream.Stream",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "raiseExceptionOnMiss",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 SortTuple",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns a collections.namedtuple called SortTuple(atEnd, offset, priority, classSortOrder,\nisNotGrace, insertIndex)\nwhich contains the six elements necessary to determine the sort order of any set of\nobjects in a Stream.\n1) atEnd = {0, 1}; Elements specified to always stay at\nthe end of a stream (stream.storeAtEnd)\nsort after normal elements.\n2) offset = float; Offset (with respect to the active site) is the next and most\nimportant parameter in determining the order of elements in a stream (the note on beat 1\nhas offset 0.0, while the note on beat 2 might have offset 1.0).\n3) priority = int; Priority is a\nuser-specified property (default 0) that can set the order of\nelements which have the same\noffset (for instance, two Parts both at offset 0.0).\n4) classSortOrder = int or float; ClassSortOrder\nis the third level of comparison that gives an ordering to elements with different classes,\nensuring, for instance that Clefs (classSortOrder = 0) sort before Notes\n(classSortOrder = 20).\n\nisNotGrace = {0, 1}; 0 = grace, 1 = normal. Grace notes sort before normal notes\n\n6) The last tie-breaker is the creation time (insertIndex) of the site object\nrepresented by the activeSite.\nBy default, the site used will be the activeSite:\n>>> n = note.Note()\n>>> n.offset = 4.0\n>>> n.priority = -3\n>>> n.sortTuple()\nSortTuple(atEnd=0, offset=4.0, priority=-3, classSortOrder=20,\n            isNotGrace=1, insertIndex=0)\n\n\n>>> st = n.sortTuple()\n\n\nCheck that all these values are the same as above\u2026\n>>> st.offset == n.offset\nTrue\n>>> st.priority == n.priority\nTrue\n\n\nAn object's classSortOrder comes from the Class object itself:\n>>> st.classSortOrder == note.Note.classSortOrder\nTrue\n\n\nSortTuples have a few methods that are documented in SortTuple.\nThe most useful one for documenting is .shortRepr().\n>>> st.shortRepr()\n'4.0 <-3.20.0>'\n\n\nInserting the note into the Stream will set the insertIndex.  Most implementations of\nmusic21 will use a global counter rather than an actual timer.  Note that this is a\nlast resort, but useful for things such as multiple Parts inserted in order.  It changes\nwith each run, so we can't display it here\u2026\n>>> s = stream.Stream()\n>>> s.insert(n)\n>>> n.sortTuple()\nSortTuple(atEnd=0, offset=4.0, priority=-3, classSortOrder=20,\n             isNotGrace=1, insertIndex=...)\n\n\n>>> nInsertIndex = n.sortTuple().insertIndex\n\n\nIf we create another nearly identical note, the insertIndex will be different:\n>>> n2 = note.Note()\n>>> n2.offset = 4.0\n>>> n2.priority = -3\n>>> s.insert(n2)\n>>> n2InsertIndex = n2.sortTuple().insertIndex\n>>> n2InsertIndex > nInsertIndex\nTrue\n\n\n>>> rb = bar.Barline()\n>>> s.storeAtEnd(rb)\n>>> rb.sortTuple()\nSortTuple(atEnd=1, offset=0.0, priority=0, classSortOrder=-5,\n            isNotGrace=1, insertIndex=...)\n\n\nNormally if there's a site specified and the element is not in the site,\nthe offset of None will be used, but if raiseExceptionOnMiss is set to True\nthen a SitesException will be raised:\n>>> aloneNote = note.Note()\n>>> aloneNote.offset = 30\n>>> aloneStream = stream.Stream(id='aloneStream')  # no insert\n>>> aloneNote.sortTuple(aloneStream)\nSortTuple(atEnd=0, offset=30.0, priority=0, classSortOrder=20, isNotGrace=1, insertIndex=0)\n\n\n>>> aloneNote.sortTuple(aloneStream, raiseExceptionOnMiss=True)\nTraceback (most recent call last):\nmusic21.sites.SitesException: an entry for this object 0x... is not stored in\n    stream <music21.stream.Stream aloneStream>",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object.",
+        "type": "Title"
+    },
+    {
+        "text": "splitAtDurations",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 _SplitTuple",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Takes a Music21Object (e.g., a note.Note) and returns a list of similar\nobjects with only a single duration.DurationTuple in each.\nTies are added if the object supports ties.\nArticulations only appear on the first note.  Same with lyrics.\nFermatas should be on last note, but not done yet.\n>>> a = note.Note()\n>>> a.duration.clear()  # remove defaults\n>>> a.duration.addDurationTuple(duration.durationTupleFromTypeDots('half', 0))\n>>> a.duration.quarterLength\n2.0\n>>> a.duration.addDurationTuple(duration.durationTupleFromTypeDots('whole', 0))\n>>> a.duration.quarterLength\n6.0\n>>> b = a.splitAtDurations()\n>>> b\n(<music21.note.Note C>, <music21.note.Note C>)\n>>> b[0].pitch == b[1].pitch\nTrue\n>>> b[0].duration\n<music21.duration.Duration 2.0>\n>>> b[0].duration.type\n'half'\n>>> b[1].duration.type\n'whole'\n>>> b[0].quarterLength, b[1].quarterLength\n(2.0, 4.0)\n\n\n>>> c = note.Note()\n>>> c.quarterLength = 2.5\n>>> d, e = c.splitAtDurations()\n>>> d.duration.type\n'half'\n>>> e.duration.type\n'eighth'\n>>> d.tie.type\n'start'\n>>> print(e.tie)\n<music21.tie.Tie stop>\n\n\nAssume c is tied to the next note.  Then the last split note should also be tied\n>>> c.tie = tie.Tie('start')\n>>> d, e = c.splitAtDurations()\n>>> d.tie.type\n'start'\n>>> e.tie.type\n'continue'\n\n\nRests have no ties:\n>>> f = note.Rest()\n>>> f.quarterLength = 2.5\n>>> g, h = f.splitAtDurations()\n>>> (g.duration.type, h.duration.type)\n('half', 'eighth')\n>>> f.tie is None\nTrue\n>>> g.tie is None\nTrue\n\n\nIt should work for complex notes with tuplets.\n(this duration occurs in Modena A, Le greygnour bien, from the ars subtilior, c. 1380;\nhence how I discovered this bug)\n>>> n = note.Note()\n>>> n.duration.quarterLength = 0.5 + 0.0625  # eighth + 64th\n>>> tup = duration.Tuplet(4, 3)\n>>> n.duration.appendTuplet(tup)\n>>> first, last = n.splitAtDurations()\n>>> (first.duration, last.duration)\n(<music21.duration.Duration 0.375>, <music21.duration.Duration 0.046875>)\n\n\nNotice that this duration could have been done w/o tuplets, so no tuplets in output:\n>>> (first.duration.type, first.duration.dots, first.duration.tuplets)\n('16th', 1, ())\n>>> (last.duration.type, last.duration.dots, last.duration.tuplets)\n('128th', 1, ())\n\n\nTest of one with tuplets that cannot be split:\n>>> n = note.Note()\n>>> n.duration.quarterLength = 0.5 + 0.0625  # eighth + 64th\n>>> tup = duration.Tuplet(3, 2, 'eighth')\n>>> n.duration.appendTuplet(tup)\n>>> (n.duration.type, n.duration.dots, n.duration.tuplets)\n('complex', 0, (<music21.duration.Tuplet 3/2/eighth>,))\n\n\n>>> first, last = n.splitAtDurations()\n>>> (first.duration, last.duration)\n(<music21.duration.Duration 1/3>, <music21.duration.Duration 1/24>)\n\n\n>>> (first.duration.type, first.duration.dots, first.duration.tuplets)\n('eighth', 0, (<music21.duration.Tuplet 3/2/eighth>,))\n>>> (last.duration.type, last.duration.dots, last.duration.tuplets)\n('64th', 0, (<music21.duration.Tuplet 3/2/64th>,))\n\n\nTODO: unite this and other functions into a \u009csplit\u009d function \u2014 document obscure uses.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object.",
+        "type": "Title"
+    },
+    {
+        "text": "splitAtQuarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "quarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "retainOrigin",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "addTies",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "displayTiedAccidentals",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 _SplitTuple",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Split an Element into two Elements at a provided\nquarterLength (offset) into the Element.\nReturns a specialized tuple that also has\na .spannerList element which is a list of spanners\nthat were created during the split, such as by splitting a trill\nnote into more than one trill.\nTODO: unite into a \u009csplit\u009d function \u2014 document obscure uses.\n>>> a = note.Note('C#5')\n>>> a.duration.type = 'whole'\n>>> a.articulations = [articulations.Staccato()]\n>>> a.lyric = 'hi'\n>>> a.expressions = [expressions.Mordent(), expressions.Trill(), expressions.Fermata()]\n>>> st = a.splitAtQuarterLength(3)\n>>> b, c = st\n>>> b.duration.type\n'half'\n>>> b.duration.dots\n1\n>>> b.duration.quarterLength\n3.0\n>>> b.articulations\n[]\n>>> b.lyric\n'hi'\n>>> b.expressions\n[<music21.expressions.Mordent>, <music21.expressions.Trill>]\n>>> c.duration.type\n'quarter'\n>>> c.duration.dots\n0\n>>> c.duration.quarterLength\n1.0\n>>> c.articulations\n[<music21.articulations.Staccato>]\n>>> c.lyric\n>>> c.expressions\n[<music21.expressions.Fermata>]\n>>> c.getSpannerSites()\n[<music21.expressions.TrillExtension <music21.note.Note C#><music21.note.Note C#>>]\n\n\nst is a _SplitTuple which can get the spanners from it for inserting into a Stream.\n>>> st.spannerList\n[<music21.expressions.TrillExtension <music21.note.Note C#><music21.note.Note C#>>]\n\n\nMake sure that ties and accidentals remain as they should be:\n>>> d = note.Note('D#4')\n>>> d.duration.quarterLength = 3.0\n>>> d.tie = tie.Tie('start')\n>>> e, f = d.splitAtQuarterLength(2.0)\n>>> e.tie, f.tie\n(<music21.tie.Tie start>, <music21.tie.Tie continue>)\n>>> e.pitch.accidental.displayStatus is None\nTrue\n>>> f.pitch.accidental.displayStatus\nFalse\n\n\nShould be the same for chords\u2026\n>>> g = chord.Chord(['C4', 'E4', 'G#4'])\n>>> g.duration.quarterLength = 3.0\n>>> g[1].tie = tie.Tie('start')\n>>> h, i = g.splitAtQuarterLength(2.0)\n>>> for j in range(3):\n...   (h[j].tie, i[j].tie)\n(<music21.tie.Tie start>, <music21.tie.Tie stop>)\n(<music21.tie.Tie start>, <music21.tie.Tie continue>)\n(<music21.tie.Tie start>, <music21.tie.Tie stop>)\n\n\n>>> h[2].pitch.accidental.displayStatus, i[2].pitch.accidental.displayStatus\n(None, False)\n\n\nIf quarterLength == self.quarterLength then the second element will be None.\n>>> n = note.Note()\n>>> n.quarterLength = 0.5\n>>> firstPart, secondPart = n.splitAtQuarterLength(0.5)\n>>> secondPart is None\nTrue\n>>> firstPart is n\nTrue\n\n\n(same with retainOrigin off)\n>>> n = note.Note()\n>>> n.quarterLength = 0.5\n>>> firstPart, secondPart = n.splitAtQuarterLength(0.5, retainOrigin=False)\n>>> firstPart is n\nFalse\n\n\nIf quarterLength > self.quarterLength then a DurationException will be raised:\n>>> n = note.Note()\n>>> n.quarterLength = 0.5\n>>> first, second = n.splitAtQuarterLength(0.7)\nTraceback (most recent call last):\nmusic21.duration.DurationException: cannot split a duration (0.5)\n    at this quarterLength (7/10)\n\n\n\nChanged in v7: all but quarterLength are keyword only",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object.",
+        "type": "Title"
+    },
+    {
+        "text": "splitByQuarterLengths",
+        "type": "Title"
+    },
+    {
+        "text": "quarterLengthList",
+        "type": "Title"
+    },
+    {
+        "text": "list",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "float",
+        "type": "Title"
+    },
+    {
+        "text": "fractions.Fraction",
+        "type": "Title"
+    },
+    {
+        "text": "addTies",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "displayTiedAccidentals",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 _SplitTuple",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a list of quarter lengths, return a list of\nMusic21Object objects, copied from this Music21Object,\nthat are partitioned and tied with the specified quarter\nlength list durations.\nTODO: unite into a \u009csplit\u009d function \u2014 document obscure uses.\n>>> n = note.Note()\n>>> n.quarterLength = 3\n>>> post = n.splitByQuarterLengths([1, 1, 1])\n>>> [n.quarterLength for n in post]\n[1.0, 1.0, 1.0]",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object.",
+        "type": "Title"
+    },
+    {
+        "text": "write",
+        "type": "Title"
+    },
+    {
+        "text": "fmt",
+        "type": "Title"
+    },
+    {
+        "text": "str | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "fp",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "pathlib.Path",
+        "type": "Title"
+    },
+    {
+        "text": "IOBase",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 pathlib.Path",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Write out a file of music notation (or an image, etc.) in a given format.  If\nfp is specified as a file path then the file will be placed there.  If it is not\ngiven then a temporary file will be created.\nIf fmt is not given then the default of your Environment's \u0098writeFormat' will\nbe used.  For most people that is musicxml.\nReturns the full path to the file.\nSome formats, including .musicxml, create a copy of the stream, pack it into a well-formed\nscore if necessary, and run makeNotation(). To\navoid this when writing .musicxml, use makeNotation=False, an advanced option\nthat prioritizes speed but may not guarantee satisfactory notation.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Music21Object instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Music21Object.",
+        "type": "Title"
+    },
+    {
+        "text": "classSortOrder",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Property which returns an number (int or otherwise)\ndepending on the class of the Music21Object that\nrepresents a priority for an object based on its class alone \u2014\nused as a tie for stream sorting in case two objects have the\nsame offset and priority.  Lower numbers are sorted to the left\nof higher numbers.  For instance, Clef, KeySignature, TimeSignature\nall come (in that order) before Note.\nAll undefined classes have classSortOrder of 20 \u2014 same as note.Note\n>>> m21o = base.Music21Object()\n>>> m21o.classSortOrder\n20\n\n\n>>> tc = clef.TrebleClef()\n>>> tc.classSortOrder\n0\n\n\n>>> ks = key.KeySignature(3)\n>>> ks.classSortOrder\n2\n\n\nNew classes can define their own default classSortOrder\n>>> class ExampleClass(base.Music21Object):\n...     classSortOrder = 5\n...\n>>> ec1 = ExampleClass()\n>>> ec1.classSortOrder\n5",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object.",
+        "type": "Title"
+    },
+    {
+        "text": "groups",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "An instance of a Groups\nobject which describes\narbitrary Groups that this object belongs to.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object.",
+        "type": "Title"
+    },
+    {
+        "text": "isStream",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Boolean value for quickly identifying\nStream objects (False by default).",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object.",
+        "type": "Title"
+    },
+    {
+        "text": "sites",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "a Sites object that stores\nreferences to Streams that hold this object.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ElementWrapper\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.base.",
+        "type": "Title"
+    },
+    {
+        "text": "ElementWrapper",
+        "type": "Title"
+    },
+    {
+        "text": "obj",
+        "type": "Title"
+    },
+    {
+        "text": "Any",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "An ElementWrapper is a way of containing any object that is not a\nMusic21Object, so that that object can be positioned\nwithin a Stream.\nThe object stored within ElementWrapper is available from the\nobj attribute.  All the attributes of\nthe stored object (except .id and anything else that conflicts with a\nMusic21Object attribute) are gettable and settable by querying the\nElementWrapper.  This feature makes it possible easily to mix\nMusic21Objects and non-Music21Objects with similarly named attributes in\nthe same Stream.\nThis example inserts 10 random wave files into a music21 Stream and then\nreports their filename and number of audio channels (in this example, it's\nalways 2) if they fall on a strong beat in fast 6/8\n>>> import music21\n>>> import wave\n>>> import random\n\n\n>>> s = stream.Stream()\n>>> s.id = 'mainStream'\n>>> s.append(meter.TimeSignature('fast 6/8'))\n>>> for i in range(10):\n...    fileName = 'thisSound_' + str(random.randint(1, 20)) + '.wav'\n...    soundFile = wave.open(fileName)\n...    soundFile.fileName = fileName\n...    el = music21.ElementWrapper(soundFile)\n...    s.insert(i, el)\n\n\n>>> for j in s.getElementsByClass(base.ElementWrapper):\n...    if j.beatStrength > 0.4:\n...        (j.offset, j.beatStrength, j.getnchannels(), j.fileName)\n(0.0, 1.0, 2, 'thisSound_1.wav')\n(3.0, 1.0, 2, 'thisSound_16.wav')\n(6.0, 1.0, 2, 'thisSound_12.wav')\n(9.0, 1.0, 2, 'thisSound_8.wav')\n>>> for j in s.getElementsByClass(base.ElementWrapper):\n...    if j.beatStrength > 0.4:\n...        (j.offset, j.beatStrength, j.getnchannels() + 1, j.fileName)\n(0.0, 1.0, 3, 'thisSound_1.wav')\n(3.0, 1.0, 3, 'thisSound_16.wav')\n(6.0, 1.0, 3, 'thisSound_12.wav')\n(9.0, 1.0, 3, 'thisSound_8.wav')\n\n\nTest representation of an ElementWrapper\n>>> for i, j in enumerate(s.getElementsByClass(base.ElementWrapper)):\n...     if i == 2:\n...         j.id = None\n...     else:\n...         j.id = str(i) + '_wrapper'\n...     if i <=2:\n...         print(j)\n<music21.base.ElementWrapper id=0_wrapper offset=0.0 obj='<...Wave_read object...'>\n<music21.base.ElementWrapper id=1_wrapper offset=1.0 obj='<...Wave_read object...'>\n<music21.base.ElementWrapper offset=2.0 obj='<...Wave_read object...>'>\n\n\n\nEquality\u00c2\u00b6\nTwo ElementWrappers are equal if they would be equal as Music21Objects and they\nwrap objects that are equal.\n>>> list1 = ['a', 'b', 'c']\n>>> a = base.ElementWrapper(list1)\n>>> a.offset = 3.0\n\n\n>>> list2 = ['a', 'b', 'c']\n>>> b = base.ElementWrapper(list2)\n>>> b.offset = 3.0\n>>> a == b\nTrue\n>>> a is not b\nTrue\n\n\nOffset does not need to be equal for equality:\n>>> b.offset = 4.0\n>>> a == b\nTrue\n\n\nBut elements must compare equal\n>>> list2.append('d')\n>>> a == b\nFalse\n\n\n\nChanged in v9: completely different approach to equality, unified w/\nthe rest of music21.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ElementWrapper bases",
+        "type": "Title"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ElementWrapper read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "ElementWrapper read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "ElementWrapper methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "ElementWrapper instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "ElementWrapper.",
+        "type": "Title"
+    },
+    {
+        "text": "obj",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The object this wrapper wraps. It should not be a Music21Object, since\nif so, you might as well put that directly into the Stream itself.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "ContextSortTuple\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.base.",
+        "type": "Title"
+    },
+    {
+        "text": "ContextSortTuple",
+        "type": "Title"
+    },
+    {
+        "text": "site",
+        "type": "Title"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "recurseType",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "ContextTuple\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.base.",
+        "type": "Title"
+    },
+    {
+        "text": "ContextTuple",
+        "type": "Title"
+    },
+    {
+        "text": "site",
+        "type": "Title"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "recurseType",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "Groups\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.base.",
+        "type": "Title"
+    },
+    {
+        "text": "Groups",
+        "type": "Title"
+    },
+    {
+        "text": "iterable",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Groups is a list (subclass) of strings used to identify\nassociations that an element might have.\n(in the future, Groups will become a set subclass)\nThe Groups object enforces that all elements must be strings, and that\nthe same element cannot be provided more than once.\nNOTE: In the future, spaces will not be allowed in group names.\n>>> g = Groups()\n>>> g.append('hello')\n>>> g[0]\n'hello'\n\n\n>>> g.append('hello')  # not added as already present\n>>> len(g)\n1\n\n\n>>> g\n['hello']\n\n\n>>> g.append(5)  # type: ignore\nTraceback (most recent call last):\nmusic21.exceptions21.GroupException: Only strings can be used as group names, not 5",
+        "type": "ListItem"
+    },
+    {
+        "text": "Groups methods",
+        "type": "Title"
+    },
+    {
+        "text": "Groups.",
+        "type": "Title"
+    },
+    {
+        "text": "__eq__",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "other",
+        "type": "Title"
+    },
+    {
+        "text": "object",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Test Group equality. In normal lists, order matters; here it does not. More like a set.\n>>> a = base.Groups()\n>>> a.append('red')\n>>> a.append('green')\n>>> a\n['red', 'green']\n\n\n>>> b = base.Groups()\n>>> b.append('green')\n>>> a == b\nFalse\n\n\n>>> b.append('reD')  # case insensitive\n>>> a == b\nTrue\n\n\n>>> a == ['red', 'green']  # need both to be groups\nFalse\n\n\n>>> c = base.Groups()\n>>> c.append('black')\n>>> c.append('tuba')\n>>> a == c\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "Groups.",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "value",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Append object to the end of the list.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.base",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

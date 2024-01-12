@@ -1,0 +1,1338 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 8: Installing MusicXML Readers and File Formats (1)",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide, Chapter 7: Chords",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide, Chapter 9: Chordify",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide, Chapter 8: Installing MusicXML Readers and File Formats (1)\nParsing Files in General\nFile types available to music21\nGetting and working with MusicXML Files\nGetting and working with Humdrum Files\nGetting and working with ABC Files\nABC Opus files\nABC single-part Opus files\n\n\nParsing Musedata Files\nParsing MIDI Files\nConclusion",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide\nUser's Guide: Table of Contents\nUser's Guide, Chapter 1: Installing and Getting Started with music21\nUser's Guide, Chapter 2: Notes\nUser's Guide, Chapter 3: Pitches, Durations, and Notes again\nUser's Guide, Chapter 4: Lists, Streams (I) and Output\nUser's Guide, Chapter 5: Lists of Lists, Functions, and Recursion\nUser's Guide, Chapter 6: Streams (II): Hierarchies, Recursion, and Flattening\nUser's Guide, Chapter 7: Chords\nUser's Guide, Chapter 8: Installing MusicXML Readers and File Formats (1)\nUser's Guide, Chapter 9: Chordify\nUser's Guide, Chapter 10: Examples 1\nUser's Guide, Chapter 11: Corpus Searching\nUser's Guide, Chapter 12: Getting Back to Basics: The Music21Object\nUser's Guide, Chapter 13: More Music21Object Attributes and Properties\nUser's Guide: Chapter 14: Time Signatures and Beats\nUser's Guide, Chapter 15: Keys and KeySignatures\nUser's Guide, Chapter 16: TinyNotation\nUser's Guide: Chapter 17: Derivations\nUser's Guide: Chapter 18: Intervals\nUser's Guide, Chapter 19: Advanced Durations (Complex and Tuplets)\nUser's Guide, Chapter 20: Examples 2\nUser's Guide, Chapter 21: Ordering and Sorting of Stream Elements\nUser's Guide, Chapter 22: Graphing and plotting\nUser's Guide, Chapter 23: Roman Numeral Analysis\nUser's Guide, Chapter 24: Configuring Environment Settings\nUser's Guide, Chapter 25: Post-Tonal Tools (1)\nUser's Guide, Chapter 26: Stream Iteration and Filtering\nUser's Guide, Chapter 27: Grace Notes\nUser's Guide, Chapter 28: Lyric Searching\nUser's Guide, Chapter 29: Spanners 1 (Slurs)\nUser's Guide, Chapter 30: Examples 3\nUser's Guide, Chapter 31: Clefs, Ties, and Beams\nUser's Guide, Chapter 32: Articulations\nUser's Guide, Chapter 44: Advanced Graphing (Axes, Plots, and Graphs)\nUser's Guide, Chapter 53: Advanced Corpus and Metadata Searching\nUser's Guide, Chapter 54: Extending Converter with New Formats\nUser's Guide, Chapter 55: Advanced Meter Topics\nUser's Guide, Chapter 58: Understanding Sites and Contexts\nUser's Guide, Chapter 61: TimespanTrees and Verticalities",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 8: Installing MusicXML Readers and File Formats (1)\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Music21 can import and export many different musical data formats,\nincluding MusicXML and MIDI.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Pieces in many of these formats are distributed with music21 as part of\nthe corpus module (see music21.corpus); look at\nList of Works Found in the music21 Corpus to see them all.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "In general, to load a file from disk, call\nmusic21.converter.parse(), which can handle importing all\nsupported formats. (For complete documentation on file and data formats,\nsee music21.converter.) If you want to convert a file from the\ncorpus just use music21.corpus.parse():",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "from",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "import",
+        "type": "Title"
+    },
+    {
+        "text": "corpus",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "'bach/bwv66.6'",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "# I've altered this so it's much shorter than it should be...",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Okay, so say you're having some problems seeing things. The first things\nto ask are:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Do you have Finale, Sibelius, or MuseScore installed?",
+        "type": "ListItem"
+    },
+    {
+        "text": "Will you go to https://musescore.org/en and get a Free copy?",
+        "type": "ListItem"
+    },
+    {
+        "text": "Once you have one of these three (or others such as Dorico) installed,\nwe can move on. (It is possible to use music21 with Lilypond\nalone, but that's much harder to get configured properly, so please try\nthis first)",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Run this command (after the from music21 import *):",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "configure",
+        "type": "Title"
+    },
+    {
+        "text": "run",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "You can say \u009cno\u009d to everything that is \u009cYes/No\u009d, but make sure that it\nis finding your copy of MuseScore, Finale, or Sibelius.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Parsing Files in General\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "You can parse a file on your hard drive by calling\nmusic21.converter.parse(). This returns a\nScore usually, though sometimes\nPart (for a format that only handles single\nparts) or Opus (for multiple scores bound\ntogether) comes back instead. You won't do much with that unless you\nassign it to a variable, such as c:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "converter",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "'/Users/cuthbert/Desktop/myXML.xml'",
+        "type": "Title"
+    },
+    {
+        "text": "If you're on a PC, one of the things to notice is that you can use\nforward slashes, as in:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "converter",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "'C:/Users/cuthbert/Desktop/myXML.xml'",
+        "type": "Title"
+    },
+    {
+        "text": "Or you can use backslashes, as long as you put an r before the quote\nbefore the file name:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "converter",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "'C:\\Users\\cuthbert\\Desktop\\myXML.xml'",
+        "type": "Title"
+    },
+    {
+        "text": "If you're in the directory of the file, you can just use the local\nfilename (for instance if you start in /Users/cuthbert/ you could\njust use 'Desktop/myXML.xml'.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "If the file you want is on the web, we can give a URL to the\nmusic21.converter.parse() function that points to the desired\nfile. Assuming proper system configuration (which we will get to further\nin Chapter 24), the file will be\ndownloaded and parsed.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "url",
+        "type": "Title"
+    },
+    {
+        "text": "'https://kern.ccarh.org/cgi-bin/ksdata?l=cc/bach/cello&file=bwv1007-01.krn&f=xml'",
+        "type": "Title"
+    },
+    {
+        "text": "sAlt",
+        "type": "Title"
+    },
+    {
+        "text": "converter",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "url",
+        "type": "Title"
+    },
+    {
+        "text": "sAlt",
+        "type": "Title"
+    },
+    {
+        "text": "measures",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "# show first 5 measures",
+        "type": "Title"
+    },
+    {
+        "text": "Usually, the file format can be guessed from the filename, but if the\nfilename does not have a suffix (as sometimes happens on macOS!) or\nthe URL has the wrong suffix, you can give a format=\"FORMAT\"\nparameter to the file:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "converter",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "'/Users/cuthbert/Desktop/myXML'",
+        "type": "Title"
+    },
+    {
+        "text": "format",
+        "type": "Title"
+    },
+    {
+        "text": "'musicxml'",
+        "type": "Title"
+    },
+    {
+        "text": "One of the things you'll notice over time is that once you parse a file\ninto music21 once, the next time you parse it it'll be between 2 and\n5 times faster. That's because we save an optimized version of the file\nthe first time you create a file, and subsequent times you open it it\nwill check to see if the original file has changed, and if it hasn't, it\nwill read the optimized version instead.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "For most people, this will work 100% of the time. But if you've done\nsomething sneaky (like changed the file without changing its\nmodification time) or you've changed the format of the music21\nparser, or if something's not right, or if you just want to do things\nslower, you can put a forceSource=True keyword into the parse\nformat.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "converter",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "'/Users/cuthbert/Desktop/myXML.xml'",
+        "type": "Title"
+    },
+    {
+        "text": "forceSource",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "By the way\u2026if you've read any really old music21 publications, you\nmight see parseWork mentioned instead of parse. It's the same\nthing, so anywhere you see parseWork, type parse instead.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "File types available to music21\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Music21 can read and write a lot of different file formats. Some of\nthem are pretty obscure. Some of them are world standards. The\nconverter module's capital-c-Converter object can give a list of\nsome of them. Each tool to work with one format is called a\nsubConverter. Here are the formats that music21 can read:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "converter",
+        "type": "Title"
+    },
+    {
+        "text": "Converter",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "subConvertersList",
+        "type": "Title"
+    },
+    {
+        "text": "'input'",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "converter",
+        "type": "Title"
+    },
+    {
+        "text": "subConverters",
+        "type": "Title"
+    },
+    {
+        "text": "ConverterABC",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "converter",
+        "type": "Title"
+    },
+    {
+        "text": "subConverters",
+        "type": "Title"
+    },
+    {
+        "text": "ConverterCapella",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "converter",
+        "type": "Title"
+    },
+    {
+        "text": "subConverters",
+        "type": "Title"
+    },
+    {
+        "text": "ConverterClercqTemperley",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "converter",
+        "type": "Title"
+    },
+    {
+        "text": "subConverters",
+        "type": "Title"
+    },
+    {
+        "text": "ConverterHumdrum",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "converter",
+        "type": "Title"
+    },
+    {
+        "text": "subConverters",
+        "type": "Title"
+    },
+    {
+        "text": "ConverterMEI",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "converter",
+        "type": "Title"
+    },
+    {
+        "text": "subConverters",
+        "type": "Title"
+    },
+    {
+        "text": "ConverterMidi",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "converter",
+        "type": "Title"
+    },
+    {
+        "text": "subConverters",
+        "type": "Title"
+    },
+    {
+        "text": "ConverterMuseData",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "converter",
+        "type": "Title"
+    },
+    {
+        "text": "subConverters",
+        "type": "Title"
+    },
+    {
+        "text": "ConverterMusicXML",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "converter",
+        "type": "Title"
+    },
+    {
+        "text": "subConverters",
+        "type": "Title"
+    },
+    {
+        "text": "ConverterNoteworthy",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "converter",
+        "type": "Title"
+    },
+    {
+        "text": "subConverters",
+        "type": "Title"
+    },
+    {
+        "text": "ConverterNoteworthyBinary",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "converter",
+        "type": "Title"
+    },
+    {
+        "text": "subConverters",
+        "type": "Title"
+    },
+    {
+        "text": "ConverterRomanText",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "converter",
+        "type": "Title"
+    },
+    {
+        "text": "subConverters",
+        "type": "Title"
+    },
+    {
+        "text": "ConverterScala",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "converter",
+        "type": "Title"
+    },
+    {
+        "text": "subConverters",
+        "type": "Title"
+    },
+    {
+        "text": "ConverterTinyNotation",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "converter",
+        "type": "Title"
+    },
+    {
+        "text": "subConverters",
+        "type": "Title"
+    },
+    {
+        "text": "ConverterVolpiano",
+        "type": "Title"
+    },
+    {
+        "text": "And the formats that it can write:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "converter",
+        "type": "Title"
+    },
+    {
+        "text": "Converter",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "subConvertersList",
+        "type": "Title"
+    },
+    {
+        "text": "'output'",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "converter",
+        "type": "Title"
+    },
+    {
+        "text": "subConverters",
+        "type": "Title"
+    },
+    {
+        "text": "ConverterBraille",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "converter",
+        "type": "Title"
+    },
+    {
+        "text": "subConverters",
+        "type": "Title"
+    },
+    {
+        "text": "ConverterLilypond",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "converter",
+        "type": "Title"
+    },
+    {
+        "text": "subConverters",
+        "type": "Title"
+    },
+    {
+        "text": "ConverterMidi",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "converter",
+        "type": "Title"
+    },
+    {
+        "text": "subConverters",
+        "type": "Title"
+    },
+    {
+        "text": "ConverterMusicXML",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "converter",
+        "type": "Title"
+    },
+    {
+        "text": "subConverters",
+        "type": "Title"
+    },
+    {
+        "text": "ConverterRomanText",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "converter",
+        "type": "Title"
+    },
+    {
+        "text": "subConverters",
+        "type": "Title"
+    },
+    {
+        "text": "ConverterScala",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "converter",
+        "type": "Title"
+    },
+    {
+        "text": "subConverters",
+        "type": "Title"
+    },
+    {
+        "text": "ConverterText",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "converter",
+        "type": "Title"
+    },
+    {
+        "text": "subConverters",
+        "type": "Title"
+    },
+    {
+        "text": "ConverterTextLine",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "converter",
+        "type": "Title"
+    },
+    {
+        "text": "subConverters",
+        "type": "Title"
+    },
+    {
+        "text": "ConverterVexflow",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "converter",
+        "type": "Title"
+    },
+    {
+        "text": "subConverters",
+        "type": "Title"
+    },
+    {
+        "text": "ConverterVolpiano",
+        "type": "Title"
+    },
+    {
+        "text": "To output a file, either call .show(\"format\") on the stream (where\nformat can be musicxml, braille, midi, etc.) or to keep the\nfile on disk, use .write(\"format\", \"filename\").",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "braille",
+        "type": "Title"
+    },
+    {
+        "text": "lilypond",
+        "type": "Title"
+    },
+    {
+        "text": "midi",
+        "type": "Title"
+    },
+    {
+        "text": "musicxml",
+        "type": "Title"
+    },
+    {
+        "text": "scala",
+        "type": "Title"
+    },
+    {
+        "text": "text",
+        "type": "Title"
+    },
+    {
+        "text": "vexflow",
+        "type": "Title"
+    },
+    {
+        "text": "Some formats have sub-formats, for instance both musicxml and\nlilypond have a .png subformat which converts directly to a\n.png file. To use that, call .show(\"musicxml.png\").",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "musicxml",
+        "type": "Title"
+    },
+    {
+        "text": "xml",
+        "type": "Title"
+    },
+    {
+        "text": "lilypond",
+        "type": "Title"
+    },
+    {
+        "text": "lily",
+        "type": "Title"
+    },
+    {
+        "text": "text",
+        "type": "Title"
+    },
+    {
+        "text": "Getting and working with MusicXML Files\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "A whole bunch of MusicXML files can be found at the following URLs.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "https://musescore.com/",
+        "type": "ListItem"
+    },
+    {
+        "text": "https://www.gutenberg.org/",
+        "type": "ListItem"
+    },
+    {
+        "text": "MusicXML files sometimes have the extension .xml or \u0098.musicxml' or\n.mxl. The last is the suffix for a compressed MusicXML file; it\nloads in the same manner.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "The format for musicxml, is, of course, musicxml.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "defusedxml. To have",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "defusedxml",
+        "type": "Title"
+    },
+    {
+        "text": "import",
+        "type": "Title"
+    },
+    {
+        "text": "defusedxml;",
+        "type": "Title"
+    },
+    {
+        "text": "defusedxml.defuse_stdlib()",
+        "type": "Title"
+    },
+    {
+        "text": "Getting and working with Humdrum Files\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Humdrum is a file format developed by David Huron at Ohio State\nUniversity which is great at encoding works for computational analysis.\nThe Humdrum format includes many subformats (\u009cspine classes\u009d) of which\nmusic21 supports the general class, the kern format, and the\ndynam dynamics format.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Parsing Humdrum files is exactly as parsing other data formats. Simply\ncall the music21.converter.parse() function on the desired file path or\nURL.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "sBach",
+        "type": "Title"
+    },
+    {
+        "text": "converter",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "'https://kern.ccarh.org/cgi-bin/ksdata?'",
+        "type": "Title"
+    },
+    {
+        "text": "'l=users/craig/classical/bach/cello&file=bwv1007-01.krn&f=kern'",
+        "type": "Title"
+    },
+    {
+        "text": "Over one hundred thousand Kern files can be found at the following URL.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "https://kern.humdrum.org/",
+        "type": "Title"
+    },
+    {
+        "text": "Getting and working with ABC Files\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "ABC is a text-based format that can encode lots of musical types, but is\nespecially great for monophonic songs, such as folk songs. If you're in\nthe folk song world, you'll love working with ABC.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Parsing ABC files is exactly as parsing other data formats. Simply call\nthe music21.converter.parse() function on the desired file path\nor URL.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "converter",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "'/Users/cuthbert/Documents/Music21/praludium.abc'",
+        "type": "Title"
+    },
+    {
+        "text": "Large collections of ABC are available from numerous on-line\nrepositories. The following links are just a few of the many resources\navailable.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "https://abcnotation.com",
+        "type": "Title"
+    },
+    {
+        "text": "http://www.serpentpublications.org/drupal7/",
+        "type": "Title"
+    },
+    {
+        "text": "ABC Opus files\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Note that many ABC files define more than one complete musical work. If\nan ABC file defines more than one work, an\nOpus object is returned. Opus objects, a\nStream subclass, provide convenience methods for accessing multiple\nScore objects.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "You can get a whole bunch of pieces together just by parsing the file.\nFor instance, here's an Opus:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "corpus",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "'josquin/ovenusbant'",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Opus",
+        "type": "Title"
+    },
+    {
+        "text": "josquin",
+        "type": "Title"
+    },
+    {
+        "text": "oVenusBant",
+        "type": "Title"
+    },
+    {
+        "text": "abc",
+        "type": "Title"
+    },
+    {
+        "text": "Reference work numbers (e.g., the \u009cX:\u009d metadata tag in ABC) are stored\nin Metadata objects in each contained\nScore. Access to these numbers from the Opus is available with the\nmusic21.stream.Opus.getNumbers() method. Additionally, the\nScore object can be directly obtained with\nthe getScoreByNumber() method.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "corpus",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "'josquin/ovenusbant'",
+        "type": "Title"
+    },
+    {
+        "text": "getNumbers",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'1'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'2'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'3'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "getScoreByNumber",
+        "type": "Title"
+    },
+    {
+        "text": "metadata",
+        "type": "Title"
+    },
+    {
+        "text": "title",
+        "type": "Title"
+    },
+    {
+        "text": "'O Venus bant'",
+        "type": "Title"
+    },
+    {
+        "text": "Direct access to Score objects contained in an Opus by title is\navailable with the getScoreByTitle()\nmethod.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "corpus",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "'essenFolksong/erk5'",
+        "type": "Title"
+    },
+    {
+        "text": "getScoreByTitle",
+        "type": "Title"
+    },
+    {
+        "text": "'Vrienden, kommt alle gaere'",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Score",
+        "type": "Title"
+    },
+    {
+        "text": "0x119d22d50",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "metadata",
+        "type": "Title"
+    },
+    {
+        "text": "title",
+        "type": "Title"
+    },
+    {
+        "text": "'Vrienden, kommt alle gaere'",
+        "type": "Title"
+    },
+    {
+        "text": "Some ABC files, such as those in corpus/essenFolksong have hundreds\nor thousands of files. The way we've been doing things before is to\nparse all of them and then select the one we want. If you know the\nnumber of the file you want, however, you can pass to\nconverter.parse or corpus.parse a number=X attribute to get\njust that one. It will return a Score object",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "corpus",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "'essenFolksong/erk5'",
+        "type": "Title"
+    },
+    {
+        "text": "number",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Score",
+        "type": "Title"
+    },
+    {
+        "text": "essenFolksong",
+        "type": "Title"
+    },
+    {
+        "text": "erk5",
+        "type": "Title"
+    },
+    {
+        "text": "abc",
+        "type": "Title"
+    },
+    {
+        "text": "ABC single-part Opus files\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "In some cases an ABC file may define individual parts each as a separate\nscore, sort of like a Renaissance partbook. When parsed, these parts can\nbe combined from the Opus into a single Score with the\nmusic21.stream.Opus.mergeScores() method.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "For instance, here is Josquin's \u009cMille Regretz\u009d (spelled with an s)\nstored as four individual parts each as its own score:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "corpus",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "'josquin/milleRegrets'",
+        "type": "Title"
+    },
+    {
+        "text": "len",
+        "type": "Title"
+    },
+    {
+        "text": "scores",
+        "type": "Title"
+    },
+    {
+        "text": "len",
+        "type": "Title"
+    },
+    {
+        "text": "scores",
+        "type": "Title"
+    },
+    {
+        "text": "parts",
+        "type": "Title"
+    },
+    {
+        "text": "scores",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "So, that's not too helpful. We can run mergeScores to bring them\ninto a single score with four parts.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "mergeScores",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "metadata",
+        "type": "Title"
+    },
+    {
+        "text": "title",
+        "type": "Title"
+    },
+    {
+        "text": "'Mille regrets'",
+        "type": "Title"
+    },
+    {
+        "text": "len",
+        "type": "Title"
+    },
+    {
+        "text": "parts",
+        "type": "Title"
+    },
+    {
+        "text": "measures",
+        "type": "Title"
+    },
+    {
+        "text": "10",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Parsing Musedata Files\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Musedata is a format devised by Walter Hewlett (yes, of HP lineage) in\nthe 1980s that is highly memory efficient. Probably not the best format\nfor modern computers, but there's a huge collection of Musedata files\nout on the net of many standard repertory pieces.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Both stage 1 (limited encoding) and stage 2 (rich encoding) Musedata\nfile formats are supported by Music21. Multi-part Musedata (stage 2)\nfiles, zipped archives, and directories containing individual files for\neach part (stage 1 or stage 2) can be imported with the\nmusic21.converter.parse() function on the desired file path or\nURL.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Note that access restrictions prevent demonstrating Musedata conversion.\nDownloading or using Musedata files requires sending a written access\nagreement to the owners.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Parsing MIDI Files\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "MIDI input and output is handled in the same was other formats. Simply\ncall the music21.converter.parse() function on the desired file\npath or URL.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Remember (or learn if you haven't yet), that MIDI has no information\nabout enharmonic spelling (C# and Db are the same), and that detecting\nthe lengths of notes can be difficult. Music21 does very well with\nMIDI files that were created in notation software or sequencing\nsoftware, but has a harder time handling MIDI files created by recording\nlive input. For those files, we suggest converting the MIDI files in\nsoftware such as Finale that has a more sophisticated MIDI to MusicXML\nconversion routine.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Conclusion\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "One of music21's core strengths is the number of different file\nformats it handles. Some people who don't use music21 for anything\nelse use it as a format converter. We're happy about that, but think,\nhey, there's a lot more that you can do with it than that. Let's move on\nin the next chapter to one of the tools that music21 has for\nanalysis that almost nothing else out there has:\nChapter 9: Chordify which reduces\nscores to chordal collections.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 8: Installing MusicXML Readers and File Formats (1)",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 14, 2023.",
+        "type": "NarrativeText"
+    }
+]

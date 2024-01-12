@@ -1,0 +1,1470 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.musedata",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.midi.translate",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.musedata.base40",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.musedata\nMuseDataWork\nMuseDataWork\nMuseDataWork.addFile()\nMuseDataWork.addString()\nMuseDataWork.getParts()\n\n\n\n\nMuseDataDirectory\nMuseDataDirectory\nMuseDataDirectory.getPaths()\nMuseDataDirectory.isMusedataFile()\n\n\n\n\nMuseDataFile\nMuseDataFile\nMuseDataFile.close()\nMuseDataFile.open()\nMuseDataFile.read()\nMuseDataFile.readstr()\n\n\n\n\nMuseDataMeasure\nMuseDataMeasure\nMuseDataMeasure.getBarObject()\nMuseDataMeasure.getMeasureObject()\nMuseDataMeasure.getRecords()\nMuseDataMeasure.hasNotes()\nMuseDataMeasure.hasVoices()\n\n\n\n\nMuseDataMeasureIterator\nMuseDataMeasureIterator\n\n\nMuseDataPart\nMuseDataPart\nMuseDataPart.getClefObject()\nMuseDataPart.getDirective()\nMuseDataPart.getDivisionsPerQuarterNote()\nMuseDataPart.getGroupMembershipNumber()\nMuseDataPart.getGroupMemberships()\nMuseDataPart.getGroupMembershipsTotal()\nMuseDataPart.getKeyParameters()\nMuseDataPart.getKeySignature()\nMuseDataPart.getMeasures()\nMuseDataPart.getMovementNumber()\nMuseDataPart.getMovementTitle()\nMuseDataPart.getPartName()\nMuseDataPart.getSource()\nMuseDataPart.getTimeSignatureObject()\nMuseDataPart.getTimeSignatureParameters()\nMuseDataPart.getTranspositionIntervalObject()\nMuseDataPart.getWorkNumber()\nMuseDataPart.getWorkTitle()\nMuseDataPart.update()\n\n\n\n\nMuseDataRecord\nMuseDataRecord\nMuseDataRecord.getArticulationObjects()\nMuseDataRecord.getBeams()\nMuseDataRecord.getDots()\nMuseDataRecord.getDynamicObjects()\nMuseDataRecord.getExpressionObjects()\nMuseDataRecord.getLyrics()\nMuseDataRecord.getPitchObject()\nMuseDataRecord.getQuarterLength()\nMuseDataRecord.hasCautionaryAccidental()\nMuseDataRecord.isBack()\nMuseDataRecord.isChord()\nMuseDataRecord.isCueOrGrace()\nMuseDataRecord.isNote()\nMuseDataRecord.isRest()\nMuseDataRecord.isTied()\n\n\n\n\nMuseDataRecordIterator\nMuseDataRecordIterator",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.musedata\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "N.B. in Dec. 2014 MuseData access was removed from music21 because the rights conflicted with\naccess computationally from music21.  This module is retained for anyone who has such access,\nhowever it is completely untested now and errors cannot and will not be fixed.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Objects and resources for processing MuseData.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "MuseData conversion from a file or URL to a Stream is available through\nthe music21 converter module's parse() function.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "from",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "import",
+        "type": "Title"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "abcScore",
+        "type": "Title"
+    },
+    {
+        "text": "converter",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "'d:/data/musedata/myScore.stage2'",
+        "type": "Title"
+    },
+    {
+        "text": "Low level MuseData conversion is facilitated by the objects in this module and\nmusic21.musedata.translate.museDataToStreamScore().",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "MuseDataWork\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.musedata.",
+        "type": "Title"
+    },
+    {
+        "text": "MuseDataWork",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A work might consist of one or more files.",
+        "type": "ListItem"
+    },
+    {
+        "text": "MuseDataWork bases",
+        "type": "Title"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "MuseDataWork read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "MuseDataWork methods",
+        "type": "Title"
+    },
+    {
+        "text": "MuseDataWork.",
+        "type": "Title"
+    },
+    {
+        "text": "addFile",
+        "type": "Title"
+    },
+    {
+        "text": "fp",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Open and read this file path or list of paths as MuseDataFile objects\nand set self.files",
+        "type": "ListItem"
+    },
+    {
+        "text": "MuseDataWork.",
+        "type": "Title"
+    },
+    {
+        "text": "addString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "input_str",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Add a string representation acting like a part file\n>>> mdw = musedata.MuseDataWork()\n>>> mdw.addString('WK#:581       MV#:3c\\nBreitkopf & Hartel, Vol. 13\\n' +\n...               'Clarinet Quintet\\n' +\n...               'Trio II\\n' +\n...               '$  K:0   Q:6   T:3/4   X:-11   C:4\\n' +\n...               'C5     3        e     d  [     (&0p\\n' +\n...               'E5     3        e     d  ]')\n\n\n# TODO: Okay, so what? did we test this or demo anything?",
+        "type": "ListItem"
+    },
+    {
+        "text": "MuseDataWork.",
+        "type": "Title"
+    },
+    {
+        "text": "getParts",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get all parts contained in all files associated with this work.\nA list of MuseDataPart objects that were created in a MuseDataFile.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "MuseDataDirectory\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.musedata.",
+        "type": "Title"
+    },
+    {
+        "text": "MuseDataDirectory",
+        "type": "Title"
+    },
+    {
+        "text": "dirOrList",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "This class manages finding musedata files stored in a directory,\ncomparing file names and examining subdirectories to determine which files are parts.\nOnce found, a MuseDataWork, or a list of paths, can be returned\nA directory, or a list of file path stubs, such as that obtained within a zip file,\ncan both be provided.",
+        "type": "ListItem"
+    },
+    {
+        "text": "MuseDataDirectory bases",
+        "type": "Title"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "MuseDataDirectory read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "MuseDataDirectory methods",
+        "type": "Title"
+    },
+    {
+        "text": "MuseDataDirectory.",
+        "type": "Title"
+    },
+    {
+        "text": "getPaths",
+        "type": "Title"
+    },
+    {
+        "text": "group",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return sorted paths for a group, or None",
+        "type": "ListItem"
+    },
+    {
+        "text": "MuseDataDirectory.",
+        "type": "Title"
+    },
+    {
+        "text": "isMusedataFile",
+        "type": "Title"
+    },
+    {
+        "text": "fp",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "MuseDataFile\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.musedata.",
+        "type": "Title"
+    },
+    {
+        "text": "MuseDataFile",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A MuseDataFile file may describe one or more MuseDataPart;\na Score might need multiple files for complete definition.\nA MuseDataFile object can be created from a string.\nWhen read, one or more MuseDataPart objects are created and stored on self.parts.",
+        "type": "ListItem"
+    },
+    {
+        "text": "MuseDataFile bases",
+        "type": "Title"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "MuseDataFile read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "MuseDataFile methods",
+        "type": "Title"
+    },
+    {
+        "text": "MuseDataFile.",
+        "type": "Title"
+    },
+    {
+        "text": "close",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "MuseDataFile.",
+        "type": "Title"
+    },
+    {
+        "text": "open",
+        "type": "Title"
+    },
+    {
+        "text": "fp",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "MuseDataFile.",
+        "type": "Title"
+    },
+    {
+        "text": "read",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "MuseDataFile.",
+        "type": "Title"
+    },
+    {
+        "text": "readstr",
+        "type": "Title"
+    },
+    {
+        "text": "input_str",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Read a string, dividing it into individual parts.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "MuseDataMeasure\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.musedata.",
+        "type": "Title"
+    },
+    {
+        "text": "MuseDataMeasure",
+        "type": "Title"
+    },
+    {
+        "text": "src",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "parent",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A MuseDataMeasure is an abstraction of the data contained within a measure definitions.\nThis needs to be an object to gracefully handle the following cases.\nSome Measures do not have any notes, for example, and the end of encoding where a\nfinal bar line is defined. Some measures do not have numbers or barlin definitions,\nsuch as pickup notes. Some measures define barline characteristics.\nBackup and forward presumably only is contained within a measure.",
+        "type": "ListItem"
+    },
+    {
+        "text": "MuseDataMeasure bases",
+        "type": "Title"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "MuseDataMeasure read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "MuseDataMeasure methods",
+        "type": "Title"
+    },
+    {
+        "text": "MuseDataMeasure.",
+        "type": "Title"
+    },
+    {
+        "text": "getBarObject",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a configured music21 bar object. This can be used with the current\nMeasure or applied to a previous Measure.",
+        "type": "ListItem"
+    },
+    {
+        "text": "MuseDataMeasure.",
+        "type": "Title"
+    },
+    {
+        "text": "getMeasureObject",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a configured music21 Measure.",
+        "type": "ListItem"
+    },
+    {
+        "text": "MuseDataMeasure.",
+        "type": "Title"
+    },
+    {
+        "text": "getRecords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a list of all records stored in this measure as MuseDataRecord.",
+        "type": "ListItem"
+    },
+    {
+        "text": "MuseDataMeasure.",
+        "type": "Title"
+    },
+    {
+        "text": "hasNotes",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return True of if this Measure has Notes",
+        "type": "ListItem"
+    },
+    {
+        "text": "MuseDataMeasure.",
+        "type": "Title"
+    },
+    {
+        "text": "hasVoices",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return True of if this Measure defines one or more \u0098back' indication.\nNote: this does not instantiate MuseDataRecord instances.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "MuseDataMeasureIterator\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.musedata.",
+        "type": "Title"
+    },
+    {
+        "text": "MuseDataMeasureIterator",
+        "type": "Title"
+    },
+    {
+        "text": "src",
+        "type": "Title"
+    },
+    {
+        "text": "boundaries",
+        "type": "Title"
+    },
+    {
+        "text": "parent",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Create MuseDataMeasure objects on demand, in order",
+        "type": "ListItem"
+    },
+    {
+        "text": "MuseDataPart\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.musedata.",
+        "type": "Title"
+    },
+    {
+        "text": "MuseDataPart",
+        "type": "Title"
+    },
+    {
+        "text": "src",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "stage",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A MuseData part is defined by collection of lines",
+        "type": "ListItem"
+    },
+    {
+        "text": "MuseDataPart bases",
+        "type": "Title"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "MuseDataPart read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "MuseDataPart methods",
+        "type": "Title"
+    },
+    {
+        "text": "MuseDataPart.",
+        "type": "Title"
+    },
+    {
+        "text": "getClefObject",
+        "type": "Title"
+    },
+    {
+        "text": "voice",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a music21 clef object based on a two character clef definition.\n>>> fp1 = (common.getSourceFilePath() / 'musedata' / 'testPrimitive'\n...                    / 'test01' / '01.md')\n>>> mdw = musedata.MuseDataWork()\n>>> mdw.addFile(fp1)\n>>> mdw.getParts()[0].getClefObject().sign\n'G'",
+        "type": "ListItem"
+    },
+    {
+        "text": "MuseDataPart.",
+        "type": "Title"
+    },
+    {
+        "text": "getDirective",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The directive field is generally used to store tempo indications.\nThis indication, however, is frequently not provided.\n>>> fp1 = (common.getSourceFilePath() / 'musedata' / 'testPrimitive'\n...                    / 'test01' / '01.md')\n>>> mdw = musedata.MuseDataWork()\n>>> mdw.addFile(fp1)\n>>> mdw.getParts()[0].getDirective() is None\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "MuseDataPart.",
+        "type": "Title"
+    },
+    {
+        "text": "getDivisionsPerQuarterNote",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>> fp1 = (common.getSourceFilePath() / 'musedata' / 'testPrimitive'\n...                    / 'test01' / '01.md')\n>>> mdw = musedata.MuseDataWork()\n>>> mdw.addFile(fp1)\n>>> mdw.getParts()[0].getDivisionsPerQuarterNote()\n6",
+        "type": "ListItem"
+    },
+    {
+        "text": "MuseDataPart.",
+        "type": "Title"
+    },
+    {
+        "text": "getGroupMembershipNumber",
+        "type": "Title"
+    },
+    {
+        "text": "membership",
+        "type": "Title"
+    },
+    {
+        "text": "'score'",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>> fp1 = (common.getSourceFilePath() / 'musedata' / 'testPrimitive'\n...                    / 'test01' / '01.md')\n>>> mdw = musedata.MuseDataWork()\n>>> mdw.addFile(fp1)\n>>> mdw.getParts()[0].getGroupMembershipNumber()\n1",
+        "type": "ListItem"
+    },
+    {
+        "text": "MuseDataPart.",
+        "type": "Title"
+    },
+    {
+        "text": "getGroupMemberships",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>> fp1 = (common.getSourceFilePath() / 'musedata' / 'testPrimitive'\n...                    / 'test01' / '01.md')\n>>> mdw = musedata.MuseDataWork()\n>>> mdw.addFile(fp1)\n>>> mdw.getParts()[0].getGroupMemberships()\n['sound', 'score']",
+        "type": "ListItem"
+    },
+    {
+        "text": "MuseDataPart.",
+        "type": "Title"
+    },
+    {
+        "text": "getGroupMembershipsTotal",
+        "type": "Title"
+    },
+    {
+        "text": "membership",
+        "type": "Title"
+    },
+    {
+        "text": "'score'",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>> fp1 = str(common.getSourceFilePath() /'musedata' / 'testPrimitive'\n...                    / 'test01' / '01.md')\n>>> mdw = musedata.MuseDataWork()\n>>> mdw.addFile(fp1)\n>>> mdw.getParts()[0].getGroupMembershipsTotal()\n5",
+        "type": "ListItem"
+    },
+    {
+        "text": "MuseDataPart.",
+        "type": "Title"
+    },
+    {
+        "text": "getKeyParameters",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>> fp1 = (common.getSourceFilePath() / 'musedata' / 'testPrimitive'\n...                   / 'test01' / '01.md')\n>>> mdw = musedata.MuseDataWork()\n>>> mdw.addFile(fp1)\n>>> mdw.getParts()[0].getKeyParameters()\n0",
+        "type": "ListItem"
+    },
+    {
+        "text": "MuseDataPart.",
+        "type": "Title"
+    },
+    {
+        "text": "getKeySignature",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>> fp1 = (common.getSourceFilePath() / 'musedata' / 'testPrimitive'\n...                    / 'test01' / '01.md')\n>>> mdw = musedata.MuseDataWork()\n>>> mdw.addFile(fp1)\n>>> mdw.getParts()[0].getKeySignature()\n<music21.key.KeySignature of no sharps or flats>",
+        "type": "ListItem"
+    },
+    {
+        "text": "MuseDataPart.",
+        "type": "Title"
+    },
+    {
+        "text": "getMeasures",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a list of all measures stored in this part as MuseDataMeasure objects.",
+        "type": "ListItem"
+    },
+    {
+        "text": "MuseDataPart.",
+        "type": "Title"
+    },
+    {
+        "text": "getMovementNumber",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns a string, not an int.\n>>> fp1 = (common.getSourceFilePath() / 'musedata' / 'testPrimitive'\n...                    / 'test01' / '01.md')\n>>> mdw = musedata.MuseDataWork()\n>>> mdw.addFile(fp1)\n>>> mdw.getParts()[0].getMovementNumber()\n'3'",
+        "type": "ListItem"
+    },
+    {
+        "text": "MuseDataPart.",
+        "type": "Title"
+    },
+    {
+        "text": "getMovementTitle",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>> fp1 = (common.getSourceFilePath() / 'musedata' / 'testPrimitive'\n...                    / 'test01' / '01.md')\n>>> mdw = musedata.MuseDataWork()\n>>> mdw.addFile(fp1)\n>>> mdw.getParts()[0].getMovementTitle()\n'Trio II'",
+        "type": "ListItem"
+    },
+    {
+        "text": "MuseDataPart.",
+        "type": "Title"
+    },
+    {
+        "text": "getPartName",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>> fp1 = (common.getSourceFilePath() / 'musedata' / 'testPrimitive'\n...                    / 'test01' / '01.md')\n>>> mdw = musedata.MuseDataWork()\n>>> mdw.addFile(fp1)\n>>> mdw.getParts()[0].getPartName()\n'Clarinet in A'",
+        "type": "ListItem"
+    },
+    {
+        "text": "MuseDataPart.",
+        "type": "Title"
+    },
+    {
+        "text": "getSource",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>> fp1 = (common.getSourceFilePath() / 'musedata' / 'testPrimitive'\n...                    / 'test01' / '01.md')\n>>> mdw = musedata.MuseDataWork()\n>>> mdw.addFile(fp1)\n>>> mdw.getParts()[0].getSource()\n'Breitkopf & H...rtel, Vol. 13'",
+        "type": "ListItem"
+    },
+    {
+        "text": "MuseDataPart.",
+        "type": "Title"
+    },
+    {
+        "text": "getTimeSignatureObject",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>> fp1 = (common.getSourceFilePath() / 'musedata' / 'testPrimitive'\n...                    / 'test01' / '01.md')\n>>> mdw = musedata.MuseDataWork()\n>>> mdw.addFile(fp1)\n>>> mdw.getParts()[0].getTimeSignatureObject()\n<music21.meter.TimeSignature 3/4>",
+        "type": "ListItem"
+    },
+    {
+        "text": "MuseDataPart.",
+        "type": "Title"
+    },
+    {
+        "text": "getTimeSignatureParameters",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>> fp1 = (common.getSourceFilePath() / 'musedata' / 'testPrimitive'\n...                   / 'test01' / '01.md')\n>>> mdw = musedata.MuseDataWork()\n>>> mdw.addFile(fp1)\n>>> mdw.getParts()[0].getTimeSignatureParameters()\n'3/4'",
+        "type": "ListItem"
+    },
+    {
+        "text": "MuseDataPart.",
+        "type": "Title"
+    },
+    {
+        "text": "getTranspositionIntervalObject",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "If this part defines a transposition, return a corresponding Interval object.\n>>> fp1 = (common.getSourceFilePath() / 'musedata' / 'testPrimitive'\n...                    / 'test01' / '01.md')\n>>> fp2 = (common.getSourceFilePath() / 'musedata' / 'testPrimitive'\n...                    / 'test01' / '02.md')\n>>> mdw = musedata.MuseDataWork()\n>>> mdw.addFile(fp1)\n>>> mdw.addFile(fp2)\n>>> mdw.getParts()[0].getTranspositionIntervalObject()\n<music21.interval.Interval m-3>",
+        "type": "ListItem"
+    },
+    {
+        "text": "MuseDataPart.",
+        "type": "Title"
+    },
+    {
+        "text": "getWorkNumber",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns a String not an int, representing an opus number\n>>> fp1 = (common.getSourceFilePath() / 'musedata' / 'testPrimitive'\n...                    / 'test01' / '01.md')\n>>> mdw = musedata.MuseDataWork()\n>>> mdw.addFile(fp1)\n>>> mdw.getParts()[0].getWorkNumber()\n'581'",
+        "type": "ListItem"
+    },
+    {
+        "text": "MuseDataPart.",
+        "type": "Title"
+    },
+    {
+        "text": "getWorkTitle",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "For stage 1 just gets the catalogue number\n>>> fp1 = (common.getSourceFilePath() / 'musedata' / 'testPrimitive'\n...                    / 'test01' / '01.md')\n>>> mdw = musedata.MuseDataWork()\n>>> mdw.addFile(fp1)\n>>> mdw.getParts()[0].getWorkTitle()\n'Clarinet Quintet'",
+        "type": "ListItem"
+    },
+    {
+        "text": "MuseDataPart.",
+        "type": "Title"
+    },
+    {
+        "text": "update",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "After setting the source string, this method must be called to configure\nthe _measureNumberToLine method and set additional attributes.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "MuseDataRecord\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.musedata.",
+        "type": "Title"
+    },
+    {
+        "text": "MuseDataRecord",
+        "type": "Title"
+    },
+    {
+        "text": "src",
+        "type": "Title"
+    },
+    {
+        "text": "''",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "parent",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Object for extracting data from a Note or other related record, or a\nsingle line of musedata data.",
+        "type": "ListItem"
+    },
+    {
+        "text": "MuseDataRecord bases",
+        "type": "Title"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "MuseDataRecord read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "MuseDataRecord methods",
+        "type": "Title"
+    },
+    {
+        "text": "MuseDataRecord.",
+        "type": "Title"
+    },
+    {
+        "text": "getArticulationObjects",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a list of 0 or more music21 Articulation objects\n>>> mdr = musedata.MuseDataRecord('C4    12        e     u  [      .p')\n>>> mdr.getArticulationObjects()\n[<music21.articulations.Staccato>]\n\n\n>>> mdr = musedata.MuseDataRecord('C4    12        e     u  [      .p>')\n>>> mdr.getArticulationObjects()\n[<music21.articulations.Staccato>, <music21.articulations.Accent>]",
+        "type": "ListItem"
+    },
+    {
+        "text": "MuseDataRecord.",
+        "type": "Title"
+    },
+    {
+        "text": "getBeams",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return complete span of characters defining beams.\n>>> mdr = musedata.MuseDataRecord('E2     1        s     u  =')\n>>> mdr.getBeams()\n'='\n>>> mdr = musedata.MuseDataRecord('E2     1        s     u  ]')\n>>> mdr.getBeams()\n']'\n>>> mdr = musedata.MuseDataRecord('E2     4        q     u')\n>>> mdr.getBeams() is None\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "MuseDataRecord.",
+        "type": "Title"
+    },
+    {
+        "text": "getDots",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "MuseDataRecord.",
+        "type": "Title"
+    },
+    {
+        "text": "getDynamicObjects",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a list of 0 or more music21 Dynamic objects\n>>> mdr = musedata.MuseDataRecord('C5    12        e     u         ff')\n>>> mdr.getDynamicObjects()\n[<music21.dynamics.Dynamic ff>]\n\n\n>>> mdr = musedata.MuseDataRecord('E4    48        h     u        (pp')\n>>> mdr.getDynamicObjects()\n[<music21.dynamics.Dynamic pp>]",
+        "type": "ListItem"
+    },
+    {
+        "text": "MuseDataRecord.",
+        "type": "Title"
+    },
+    {
+        "text": "getExpressionObjects",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a list of 0 or more music21 Articulation objects\n>>> mdr = musedata.MuseDataRecord('C4    12        e     u  [      t')\n>>> mdr.getExpressionObjects()\n[<music21.expressions.Trill>]\n\n\n>>> mdr = musedata.MuseDataRecord('C4    12        e     u  [      .p>F')\n>>> mdr.getExpressionObjects()\n[<music21.expressions.Fermata>]",
+        "type": "ListItem"
+    },
+    {
+        "text": "MuseDataRecord.",
+        "type": "Title"
+    },
+    {
+        "text": "getLyrics",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return lyrics as a list.\n>>> mdr = musedata.MuseDataRecord('D4     2        e     u                    con-')\n>>> mdr.stage = 2\n>>> mdr.getLyrics()\n['con-']",
+        "type": "ListItem"
+    },
+    {
+        "text": "MuseDataRecord.",
+        "type": "Title"
+    },
+    {
+        "text": "getPitchObject",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get the Pitch object defined by this record. This may be a note, chord, or grace pitch.\n>>> mdr = musedata.MuseDataRecord('Ef4    1        s     d  ==')\n>>> p = mdr.getPitchObject()\n>>> p.nameWithOctave\n'E-4'\n>>> mdr = musedata.MuseDataRecord('F#4    1        s #   d  ==')\n>>> p = mdr.getPitchObject()\n>>> p.nameWithOctave\n'F#4'\n>>> p.accidental.displayStatus\nTrue\n\n\nDouble sharps were giving octave problems.\n>>> mdr = musedata.MuseDataRecord('F##5   2        e x   d')\n>>> p = mdr.getPitchObject()\n>>> p.nameWithOctave\n'F##5'",
+        "type": "ListItem"
+    },
+    {
+        "text": "MuseDataRecord.",
+        "type": "Title"
+    },
+    {
+        "text": "getQuarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "divisionsPerQuarterNote",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Gets the quarterLength of the note given the prevailing divisionsPerQuarterNote\nHere there is one division:\n>>> mdr = musedata.MuseDataRecord('Ef4    1        s     d  ==')\n>>> mdr.getQuarterLength(4)\n0.25\n>>> mdr.getQuarterLength(8)\n0.125\n\n\n>>> mdr = musedata.MuseDataRecord('Ef4    6        s     d  ==')\n>>> mdr.getQuarterLength(4)\n1.5\n\n\n>>> mdr = musedata.MuseDataRecord('back   4')\n>>> mdr.getQuarterLength(4)\n1.0",
+        "type": "ListItem"
+    },
+    {
+        "text": "MuseDataRecord.",
+        "type": "Title"
+    },
+    {
+        "text": "hasCautionaryAccidental",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a boolean if this note has a cautionary accidental.\n>>> mdr = musedata.MuseDataRecord('F5     3        t n   d  ==[   (+')\n>>> mdr.hasCautionaryAccidental()\nTrue\n\n\n>>> mdr = musedata.MuseDataRecord('C4    12        e     u  [')\n>>> mdr.hasCautionaryAccidental()\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "MuseDataRecord.",
+        "type": "Title"
+    },
+    {
+        "text": "isBack",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>> mdr = musedata.MuseDataRecord('back   4')\n>>> mdr.isBack()\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "MuseDataRecord.",
+        "type": "Title"
+    },
+    {
+        "text": "isChord",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Chords are specified as additional note records following a main chord tone.\nThe blank space defines this as chord tone.",
+        "type": "ListItem"
+    },
+    {
+        "text": "MuseDataRecord.",
+        "type": "Title"
+    },
+    {
+        "text": "isCueOrGrace",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "MuseDataRecord.",
+        "type": "Title"
+    },
+    {
+        "text": "isNote",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "MuseDataRecord.",
+        "type": "Title"
+    },
+    {
+        "text": "isRest",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a boolean if this record is a rest.\n>>> mdr = musedata.MuseDataRecord('D4     1        s     d  ]]')\n>>> mdr.isRest()\nFalse\n>>> mdr = musedata.MuseDataRecord('measure 1       A')\n>>> mdr.isRest()\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "MuseDataRecord.",
+        "type": "Title"
+    },
+    {
+        "text": "isTied",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a boolean if this record is tied.\n>>> mdr = musedata.MuseDataRecord('D4     8-       h     d        -')\n>>> mdr.isTied()\nTrue\n\n\n>>> mdr = musedata.MuseDataRecord('C4     1        s     u  [[')\n>>> mdr.isTied()\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "MuseDataRecordIterator\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.musedata.",
+        "type": "Title"
+    },
+    {
+        "text": "MuseDataRecordIterator",
+        "type": "Title"
+    },
+    {
+        "text": "src",
+        "type": "Title"
+    },
+    {
+        "text": "parent",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Create MuseDataRecord objects on demand, in order",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.musedata",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

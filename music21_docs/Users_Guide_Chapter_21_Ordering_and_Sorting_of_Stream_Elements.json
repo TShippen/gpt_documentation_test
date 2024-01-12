@@ -1,0 +1,3074 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 21: Ordering and Sorting of Stream Elements",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide, Chapter 20: Examples 2",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide, Chapter 22: Graphing and plotting",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide, Chapter 21: Ordering and Sorting of Stream Elements\nAdvanced Sorting and the sortTuple",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide\nUser's Guide: Table of Contents\nUser's Guide, Chapter 1: Installing and Getting Started with music21\nUser's Guide, Chapter 2: Notes\nUser's Guide, Chapter 3: Pitches, Durations, and Notes again\nUser's Guide, Chapter 4: Lists, Streams (I) and Output\nUser's Guide, Chapter 5: Lists of Lists, Functions, and Recursion\nUser's Guide, Chapter 6: Streams (II): Hierarchies, Recursion, and Flattening\nUser's Guide, Chapter 7: Chords\nUser's Guide, Chapter 8: Installing MusicXML Readers and File Formats (1)\nUser's Guide, Chapter 9: Chordify\nUser's Guide, Chapter 10: Examples 1\nUser's Guide, Chapter 11: Corpus Searching\nUser's Guide, Chapter 12: Getting Back to Basics: The Music21Object\nUser's Guide, Chapter 13: More Music21Object Attributes and Properties\nUser's Guide: Chapter 14: Time Signatures and Beats\nUser's Guide, Chapter 15: Keys and KeySignatures\nUser's Guide, Chapter 16: TinyNotation\nUser's Guide: Chapter 17: Derivations\nUser's Guide: Chapter 18: Intervals\nUser's Guide, Chapter 19: Advanced Durations (Complex and Tuplets)\nUser's Guide, Chapter 20: Examples 2\nUser's Guide, Chapter 21: Ordering and Sorting of Stream Elements\nUser's Guide, Chapter 22: Graphing and plotting\nUser's Guide, Chapter 23: Roman Numeral Analysis\nUser's Guide, Chapter 24: Configuring Environment Settings\nUser's Guide, Chapter 25: Post-Tonal Tools (1)\nUser's Guide, Chapter 26: Stream Iteration and Filtering\nUser's Guide, Chapter 27: Grace Notes\nUser's Guide, Chapter 28: Lyric Searching\nUser's Guide, Chapter 29: Spanners 1 (Slurs)\nUser's Guide, Chapter 30: Examples 3\nUser's Guide, Chapter 31: Clefs, Ties, and Beams\nUser's Guide, Chapter 32: Articulations\nUser's Guide, Chapter 44: Advanced Graphing (Axes, Plots, and Graphs)\nUser's Guide, Chapter 53: Advanced Corpus and Metadata Searching\nUser's Guide, Chapter 54: Extending Converter with New Formats\nUser's Guide, Chapter 55: Advanced Meter Topics\nUser's Guide, Chapter 58: Understanding Sites and Contexts\nUser's Guide, Chapter 61: TimespanTrees and Verticalities",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 21: Ordering and Sorting of Stream Elements\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Inside a stream, each object has a position and thus an order in the\nStream. Up until now we've seen two different\nways to describe the position of an element (such as a\nNote) in a stream. The first is the index of\nthe object in the stream (a number in square brackets) and the second is\nthe offset.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Let's take a simple Stream:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "from",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "import",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Measure",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "ts1",
+        "type": "Title"
+    },
+    {
+        "text": "meter",
+        "type": "Title"
+    },
+    {
+        "text": "TimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "'3/4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "insert",
+        "type": "Title"
+    },
+    {
+        "text": "ts1",
+        "type": "Title"
+    },
+    {
+        "text": "insert",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "KeySignature",
+        "type": "Title"
+    },
+    {
+        "text": "))",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "insert",
+        "type": "Title"
+    },
+    {
+        "text": "clef",
+        "type": "Title"
+    },
+    {
+        "text": "TrebleClef",
+        "type": "Title"
+    },
+    {
+        "text": "())",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "insert",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'C#4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "))",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "insert",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'D#4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "))",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "We have inserted three elements that take up no space (a TimeSignature,\nKeySignature, and a Clef) and two elements that take up 1.0 quarter\nnotes (the default length of a Note object). You might notice that the\nsignatures and clef were inserted in a strange order. Don't worry, we'll\nget to that in a bit.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "In addition to inserting elements at particular places in a Stream, we\ncan append an element to the end of the Stream:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'E4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Now we're pretty sure that the C# will be the fourth element in the\nStream, which is referred to as [3] and the D# will be the fifth, or\n[4]",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The E will be [5] but we can also get it by saying it's the last\nelement, or [-1]",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "The other way to describe the position of an element is by its offset.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "You may recall from previous discussions that the offset of an\nelement is its position within the last referenced Stream it was\nattached to. Thus, if you want to know the offset of an element within a\nparticular Stream, it is always safer to use one the following methods:\n.getOffsetBySite(stream):",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "getOffsetBySite",
+        "type": "Title"
+    },
+    {
+        "text": "2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "stream.elementOffset(element)",
+        "type": "Title"
+    },
+    {
+        "text": ".getOffsetBySite",
+        "type": "Title"
+    },
+    {
+        "text": ".derivation.chain()",
+        "type": "Title"
+    },
+    {
+        "text": "elementOffset",
+        "type": "Title"
+    },
+    {
+        "text": "2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "If you want to find all the elements at a particular offset, call\n.getElementsByOffset on the Stream. Note that if any elements are\nfound it returns a StreamIterator, so you will need to use the\nsquare bracket index to reference it:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "getElementsByOffset",
+        "type": "Title"
+    },
+    {
+        "text": "2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ")[",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "This description might seem a bit obnoxious, but it is necessary because\nyou can get multiple elements back, such as with an offset range:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "getElementsByOffset",
+        "type": "Title"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "3.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "],",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "])",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#>, <music21.note.Note E>)",
+        "type": "Title"
+    },
+    {
+        "text": "At this point, you might think that you know everything about how\nelements are positioned in a Stream, but there are a few more points\nthat are important and point to the power of music21. Let's show the\nStream as a text file:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "'text'",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "clef",
+        "type": "Title"
+    },
+    {
+        "text": "TrebleClef",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "KeySignature",
+        "type": "Title"
+    },
+    {
+        "text": "of",
+        "type": "Title"
+    },
+    {
+        "text": "sharps",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "meter",
+        "type": "Title"
+    },
+    {
+        "text": "TimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "Something has happened: the TrebleClef object which was inserted\nthird has now become the first element of the Stream. The\nKeySignature and TimeSignature objects have also switched\nposition. Now all three are in the order we'd expect to see them in a\nscore:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "],",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "],",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "])",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "clef",
+        "type": "Title"
+    },
+    {
+        "text": "TrebleClef",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "KeySignature",
+        "type": "Title"
+    },
+    {
+        "text": "of",
+        "type": "Title"
+    },
+    {
+        "text": "sharps",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "meter",
+        "type": "Title"
+    },
+    {
+        "text": "TimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "Even though they have the same .offset, each of these objects knows\nits place in the Stream, because of something called\n.classSortOrder. Each Class and each instance of the class has a\ndefault sort order so that if it is at the same offset as a member of a\ndifferent class, one will sort before the other:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder",
+        "type": "Title"
+    },
+    {
+        "text": "classSortOrder",
+        "type": "Title"
+    },
+    {
+        "text": "classSortOrder",
+        "type": "Title"
+    },
+    {
+        "text": "In fact, classSortOrder is present not just on objects but on\nclasses:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "clef",
+        "type": "Title"
+    },
+    {
+        "text": "Clef",
+        "type": "Title"
+    },
+    {
+        "text": "classSortOrder",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "KeySignature",
+        "type": "Title"
+    },
+    {
+        "text": "classSortOrder",
+        "type": "Title"
+    },
+    {
+        "text": "meter",
+        "type": "Title"
+    },
+    {
+        "text": "TimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "classSortOrder",
+        "type": "Title"
+    },
+    {
+        "text": "Notes have a higher classSortOrder and thus sort even later, hence\nwhy the C# appears after the clefs and signatures:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "classSortOrder",
+        "type": "Title"
+    },
+    {
+        "text": "base",
+        "type": "Title"
+    },
+    {
+        "text": "Music21Object",
+        "type": "Title"
+    },
+    {
+        "text": "classSortOrder",
+        "type": "Title"
+    },
+    {
+        "text": "20",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "20",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "There are a few elements that sort even lower than Clefs because they\nusually refer to the area of the composition that precedes the clef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "bar",
+        "type": "Title"
+    },
+    {
+        "text": "Barline",
+        "type": "Title"
+    },
+    {
+        "text": "classSortOrder",
+        "type": "Title"
+    },
+    {
+        "text": "instrument",
+        "type": "Title"
+    },
+    {
+        "text": "Instrument",
+        "type": "Title"
+    },
+    {
+        "text": "classSortOrder",
+        "type": "Title"
+    },
+    {
+        "text": "metadata",
+        "type": "Title"
+    },
+    {
+        "text": "Metadata",
+        "type": "Title"
+    },
+    {
+        "text": "classSortOrder",
+        "type": "Title"
+    },
+    {
+        "text": "25",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "30",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The numbers are actually completely arbitrary (it could be -6.432\ninstead of -5), only the order of numbers (-25 is less than -5) matters.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "If we put a second TimeSignature into the stream at offset 0 (like some\npieces do with multiple interpretations for meter), it will have a tie\nfor its .offset and .classSortOrder. Which one will come first? It's the\nfirst one inserted:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "ts2",
+        "type": "Title"
+    },
+    {
+        "text": "meter",
+        "type": "Title"
+    },
+    {
+        "text": "TimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "'6/8'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "insert",
+        "type": "Title"
+    },
+    {
+        "text": "ts2",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "'text'",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "clef",
+        "type": "Title"
+    },
+    {
+        "text": "TrebleClef",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "KeySignature",
+        "type": "Title"
+    },
+    {
+        "text": "of",
+        "type": "Title"
+    },
+    {
+        "text": "sharps",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "meter",
+        "type": "Title"
+    },
+    {
+        "text": "TimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "meter",
+        "type": "Title"
+    },
+    {
+        "text": "TimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "If we wanted to make sure that the two TimeSignatures appeared in a\nparticular order regardless of when they were inserted, there is one way\nto do so: set the .priority attribute on the TimeSignature. Every\nMusic21Object has a priority attribute, and the default is 0.\nNegative numbers make an element sort before a default element. Positive\nnumbers sort after.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Let us insert two more notes into the stream, at offsets 1 and 2, but\nwe'll make the note at offset 1 come before the D# and the one at offset\n2 come after the E, so we have a chromatic scale fragment:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'D'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "priority",
+        "type": "Title"
+    },
+    {
+        "text": "10",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "eis",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'E#'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "eis",
+        "type": "Title"
+    },
+    {
+        "text": "priority",
+        "type": "Title"
+    },
+    {
+        "text": "10",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "insert",
+        "type": "Title"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "insert",
+        "type": "Title"
+    },
+    {
+        "text": "2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "eis",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "'text'",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "clef",
+        "type": "Title"
+    },
+    {
+        "text": "TrebleClef",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "KeySignature",
+        "type": "Title"
+    },
+    {
+        "text": "of",
+        "type": "Title"
+    },
+    {
+        "text": "sharps",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "meter",
+        "type": "Title"
+    },
+    {
+        "text": "TimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "meter",
+        "type": "Title"
+    },
+    {
+        "text": "TimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Some things to note about priority:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Priority changes immediately affect the sorting of the Stream (in\nv.3 or above). Before that if you wanted to change the priority of\nan object, you'd need to remove it and then reinsert it.",
+        "type": "ListItem"
+    },
+    {
+        "text": "priority",
+        "type": "Title"
+    },
+    {
+        "text": "20",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "remove",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "insert",
+        "type": "Title"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "'text'",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "clef",
+        "type": "Title"
+    },
+    {
+        "text": "TrebleClef",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "KeySignature",
+        "type": "Title"
+    },
+    {
+        "text": "of",
+        "type": "Title"
+    },
+    {
+        "text": "sharps",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "meter",
+        "type": "Title"
+    },
+    {
+        "text": "TimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "meter",
+        "type": "Title"
+    },
+    {
+        "text": "TimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Priority is currently a global property that affects all Streams\nthat an object is in. This is behavior that may change in later\nversions.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Priority overrides classSortOrder. So if we wanted to move the\n6/8 TimeSignature (ts2) to sort before the 3/4 (ts1), it is\nnot enough to shift the priority of ts2 and reinsert it:",
+        "type": "ListItem"
+    },
+    {
+        "text": "ts2",
+        "type": "Title"
+    },
+    {
+        "text": "priority",
+        "type": "Title"
+    },
+    {
+        "text": "remove",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "ts2",
+        "type": "Title"
+    },
+    {
+        "text": "insert",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "ts2",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "'text'",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "meter",
+        "type": "Title"
+    },
+    {
+        "text": "TimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "clef",
+        "type": "Title"
+    },
+    {
+        "text": "TrebleClef",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "KeySignature",
+        "type": "Title"
+    },
+    {
+        "text": "of",
+        "type": "Title"
+    },
+    {
+        "text": "sharps",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "meter",
+        "type": "Title"
+    },
+    {
+        "text": "TimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Now the 6/8 TimeSignature appears before the clef and key signature. A\nfix for this would involve assigning some priority to each object\nconnected to its sort order:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "getElementsByOffset",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "priority",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "classSortOrder",
+        "type": "Title"
+    },
+    {
+        "text": "ts2",
+        "type": "Title"
+    },
+    {
+        "text": "priority",
+        "type": "Title"
+    },
+    {
+        "text": "# between KeySignature (priority = 2) and TimeSignature (priority = 4)",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "'text'",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "clef",
+        "type": "Title"
+    },
+    {
+        "text": "TrebleClef",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "KeySignature",
+        "type": "Title"
+    },
+    {
+        "text": "of",
+        "type": "Title"
+    },
+    {
+        "text": "sharps",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "meter",
+        "type": "Title"
+    },
+    {
+        "text": "TimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "meter",
+        "type": "Title"
+    },
+    {
+        "text": "TimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "This is enough about sorting for most of purposes, so feel free to move\non to\nChapter 22: Graphing Music21 Streams,\nbut for anyone who wants to go into more depth, there's a \u009cbehind the\nscenes\u009d tour below.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Advanced Sorting and the sortTuple\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "How does sorting actually work? Music21 uses six attributes to\ndetermine which elements go before or after each other. The six-element\ntuple that determines sort order can be accessed on any\nMusic21Object by calling the method .sortTuple():",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "ts1",
+        "type": "Title"
+    },
+    {
+        "text": "sortTuple",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "SortTuple",
+        "type": "Title"
+    },
+    {
+        "text": "atEnd",
+        "type": "Title"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "priority",
+        "type": "Title"
+    },
+    {
+        "text": "classSortOrder",
+        "type": "Title"
+    },
+    {
+        "text": "isNotGrace",
+        "type": "Title"
+    },
+    {
+        "text": "insertIndex",
+        "type": "Title"
+    },
+    {
+        "text": "ts2",
+        "type": "Title"
+    },
+    {
+        "text": "sortTuple",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "SortTuple",
+        "type": "Title"
+    },
+    {
+        "text": "atEnd",
+        "type": "Title"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "priority",
+        "type": "Title"
+    },
+    {
+        "text": "classSortOrder",
+        "type": "Title"
+    },
+    {
+        "text": "isNotGrace",
+        "type": "Title"
+    },
+    {
+        "text": "insertIndex",
+        "type": "Title"
+    },
+    {
+        "text": "118",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A SortTuple is a lightweight class derived\nfrom the NamedTuple object that can be compared using the > and\n< operators. Each of the elements is compared from left to right; if\nthere is a tie on one attribute then the next one becomes important:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "ts1",
+        "type": "Title"
+    },
+    {
+        "text": "sortTuple",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "ts2",
+        "type": "Title"
+    },
+    {
+        "text": "sortTuple",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "SortTuples live in their own module music21.sorting and have\na few cool features. Since the main point of comparison is offset,\nSortTuples can compare against plain integers or floats or Fractions by\ncomparing their offsets (and atEnd, which we'll get to in a second).",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "st",
+        "type": "Title"
+    },
+    {
+        "text": "sorting",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "SortTuple",
+        "type": "Title"
+    },
+    {
+        "text": "atEnd",
+        "type": "Title"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "10.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "priority",
+        "type": "Title"
+    },
+    {
+        "text": "classSortOrder",
+        "type": "Title"
+    },
+    {
+        "text": "isNotGrace",
+        "type": "Title"
+    },
+    {
+        "text": "insertIndex",
+        "type": "Title"
+    },
+    {
+        "text": "st",
+        "type": "Title"
+    },
+    {
+        "text": "8.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "Because they can be unwieldly to display, SortTuples have a\n.shortRepr() call which summarizes the main information in them: the\noffset, the priority, the classSortOrder, and the insertIndex.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "st",
+        "type": "Title"
+    },
+    {
+        "text": "shortRepr",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'10.0 <1.4.5>'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "In this case, the third element, priority, decides the order. The first\nattribute, atEnd, is 0 for normal elements, and 1 for an element stored\nat the end of a Stream. Let's add a courtesy KeySignature change at the\nend of s:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "ks2",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "KeySignature",
+        "type": "Title"
+    },
+    {
+        "text": "storeAtEnd",
+        "type": "Title"
+    },
+    {
+        "text": "ks2",
+        "type": "Title"
+    },
+    {
+        "text": "ks2",
+        "type": "Title"
+    },
+    {
+        "text": "sortTuple",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "SortTuple",
+        "type": "Title"
+    },
+    {
+        "text": "atEnd",
+        "type": "Title"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "priority",
+        "type": "Title"
+    },
+    {
+        "text": "classSortOrder",
+        "type": "Title"
+    },
+    {
+        "text": "isNotGrace",
+        "type": "Title"
+    },
+    {
+        "text": "insertIndex",
+        "type": "Title"
+    },
+    {
+        "text": "120",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Putting a rightBarline on a Measure has the same effect:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "rb",
+        "type": "Title"
+    },
+    {
+        "text": "bar",
+        "type": "Title"
+    },
+    {
+        "text": "Barline",
+        "type": "Title"
+    },
+    {
+        "text": "'double'",
+        "type": "Title"
+    },
+    {
+        "text": "rightBarline",
+        "type": "Title"
+    },
+    {
+        "text": "rb",
+        "type": "Title"
+    },
+    {
+        "text": "rb",
+        "type": "Title"
+    },
+    {
+        "text": "sortTuple",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "SortTuple",
+        "type": "Title"
+    },
+    {
+        "text": "atEnd",
+        "type": "Title"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "priority",
+        "type": "Title"
+    },
+    {
+        "text": "classSortOrder",
+        "type": "Title"
+    },
+    {
+        "text": "=-",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "isNotGrace",
+        "type": "Title"
+    },
+    {
+        "text": "insertIndex",
+        "type": "Title"
+    },
+    {
+        "text": "121",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "rb",
+        "type": "Title"
+    },
+    {
+        "text": "sortTuple",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "shortRepr",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'End <0.-5.121>'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The next three attributes (offset, priority, classSortOrder) have been\ndescribed. isNotGrace is 0 if the note is a grace note, 1 (default)\nif it is any other note or not a note. Grace notes sort before other\nnotes at the same offset and priority. The last attribute is an ever\nincreasing index of the number of elements that have had SiteReferences\nadded to it.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "(Advanced topic: the order that elements were inserted is used in order\nto make sure that elements do not shift around willy-nilly, but it's not\nsomething to use often or to rely on for complex calculations. For this\nreason, we have not exposed it as something easy to get, but if you need\nto access it, here's the formula:)",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "ts1",
+        "type": "Title"
+    },
+    {
+        "text": "sites",
+        "type": "Title"
+    },
+    {
+        "text": "siteDict",
+        "type": "Title"
+    },
+    {
+        "text": "id",
+        "type": "Title"
+    },
+    {
+        "text": ")]",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "globalSiteIndex",
+        "type": "Title"
+    },
+    {
+        "text": "ts2",
+        "type": "Title"
+    },
+    {
+        "text": "sites",
+        "type": "Title"
+    },
+    {
+        "text": "siteDict",
+        "type": "Title"
+    },
+    {
+        "text": "id",
+        "type": "Title"
+    },
+    {
+        "text": ")]",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "globalSiteIndex",
+        "type": "Title"
+    },
+    {
+        "text": "104",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Streams have an attribute to cache whether they have been sorted, so\nthat .sort() only needs to be called when a change has been made\nthat alters the sort order.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isSorted",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "Calling a command that needs a particular order (.show(),\n.getElementsByClass(), [x], etc.) automatically sorts the\nStream:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isSorted",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "There is one more way that elements in a Stream can be returned, for\nadvanced uses only. Each Stream has an autoSort property. By default\nit is On. But if you turn it off, then elements are returned in the\norder they are added regardless of offset, priority, or classSortOrder.\nHere is an example of that:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "autoSort",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "ts1",
+        "type": "Title"
+    },
+    {
+        "text": "setOffsetBySite",
+        "type": "Title"
+    },
+    {
+        "text": "20.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "'text'",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "clef",
+        "type": "Title"
+    },
+    {
+        "text": "TrebleClef",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "KeySignature",
+        "type": "Title"
+    },
+    {
+        "text": "of",
+        "type": "Title"
+    },
+    {
+        "text": "sharps",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "meter",
+        "type": "Title"
+    },
+    {
+        "text": "TimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "20.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "meter",
+        "type": "Title"
+    },
+    {
+        "text": "TimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "20.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "bar",
+        "type": "Title"
+    },
+    {
+        "text": "Barline",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "double",
+        "type": "Title"
+    },
+    {
+        "text": "20.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "KeySignature",
+        "type": "Title"
+    },
+    {
+        "text": "of",
+        "type": "Title"
+    },
+    {
+        "text": "flats",
+        "type": "Title"
+    },
+    {
+        "text": "autoSort",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "coreInsert()",
+        "type": "Title"
+    },
+    {
+        "text": "coreAppend()",
+        "type": "Title"
+    },
+    {
+        "text": "coreInsert()",
+        "type": "Title"
+    },
+    {
+        "text": "coreElementsChanged()",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "insert()",
+        "type": "Title"
+    },
+    {
+        "text": "append()",
+        "type": "Title"
+    },
+    {
+        "text": "coreInsert()",
+        "type": "Title"
+    },
+    {
+        "text": "coreAppend()",
+        "type": "Title"
+    },
+    {
+        "text": "coreElementsChanged()",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "If you want to get back to the sorted state, just turn\nautoSort = True:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "autoSort",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "isSorted",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "'text'",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "clef",
+        "type": "Title"
+    },
+    {
+        "text": "TrebleClef",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "KeySignature",
+        "type": "Title"
+    },
+    {
+        "text": "of",
+        "type": "Title"
+    },
+    {
+        "text": "sharps",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "meter",
+        "type": "Title"
+    },
+    {
+        "text": "TimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "20.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "meter",
+        "type": "Title"
+    },
+    {
+        "text": "TimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "20.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "bar",
+        "type": "Title"
+    },
+    {
+        "text": "Barline",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "double",
+        "type": "Title"
+    },
+    {
+        "text": "20.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "KeySignature",
+        "type": "Title"
+    },
+    {
+        "text": "of",
+        "type": "Title"
+    },
+    {
+        "text": "flats",
+        "type": "Title"
+    },
+    {
+        "text": "Note that this is a destructive operation. Turning autoSort back to\nFalse won't get you back the earlier order:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "autoSort",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "'text'",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "clef",
+        "type": "Title"
+    },
+    {
+        "text": "TrebleClef",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "KeySignature",
+        "type": "Title"
+    },
+    {
+        "text": "of",
+        "type": "Title"
+    },
+    {
+        "text": "sharps",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "meter",
+        "type": "Title"
+    },
+    {
+        "text": "TimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "20.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "meter",
+        "type": "Title"
+    },
+    {
+        "text": "TimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "20.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "bar",
+        "type": "Title"
+    },
+    {
+        "text": "Barline",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "double",
+        "type": "Title"
+    },
+    {
+        "text": "20.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "KeySignature",
+        "type": "Title"
+    },
+    {
+        "text": "of",
+        "type": "Title"
+    },
+    {
+        "text": "flats",
+        "type": "Title"
+    },
+    {
+        "text": "Now that you've gotten everything sorted out, let's move on to\nChapter 22: Graphing Music21 Streams",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 21: Ordering and Sorting of Stream Elements",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

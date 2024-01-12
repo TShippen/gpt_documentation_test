@@ -1,0 +1,282 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.tie",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.text",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.tinyNotation",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.tie\nTie\nTie\nTie.__eq__()\nTie.placement\nTie.style\nTie.type",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.tie\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "The tie module contains a single class, Tie that represents the visual and\nconceptual idea of tied notes.  They can be start or stop ties.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Tie\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.tie.",
+        "type": "Title"
+    },
+    {
+        "text": "Tie",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "'start'",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "An object added to Notes that are tied to other notes. The type value is one\nof start, stop, or continue.\n>>> note1 = note.Note()\n>>> note1.tie = tie.Tie('start')  # start, stop, or continue\n>>> note1.tie.style = 'normal'  # default; could also be 'dotted' or 'dashed' or 'hidden'\n>>> note1.tie.type\n'start'\n\n\n>>> note1.tie\n<music21.tie.Tie start>\n\n\nGenerally Ties have a placement of None, but if they are defined\nas \u0098above' or \u0098below' this will be retained.  (see: this discussion\nfor how orientation and placement in musicxml are essentially the same\ncontent).\n>>> note1.tie.placement is None\nTrue\n\n\nDifferences from MusicXML:\n\nnotes do not need to know if they are tied from a\nprevious note.  i.e., you can tie n1 to n2 just with\na tie start on n1.  However, if you want proper musicXML output\nyou need a tie stop on n2.\none tie with \u009ccontinue\u009d implies tied from and tied to.\n\nThe tie.style only applies to Tie objects of type \u0098start' or \u0098continue' (and then\nonly to the next part of the tie).  For instance, if there are two\ntied notes, and the first note has a \u0098dotted'-start tie, and the\nsecond note has a \u0098dashed'-stop tie, the graphical tie itself will be dotted.\nA type of tie that is unknown raises a ValueError:\n>>> tie.Tie('hello')\nTraceback (most recent call last):\nmusic21.tie.TieException: Type must be one of\n('start', 'stop', 'continue', 'let-ring', 'continue-let-ring'), not hello",
+        "type": "ListItem"
+    },
+    {
+        "text": "Tie bases",
+        "type": "Title"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "SlottedObjectMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "Tie read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "Tie methods",
+        "type": "Title"
+    },
+    {
+        "text": "Tie.",
+        "type": "Title"
+    },
+    {
+        "text": "__eq__",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "other",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Equality. Based entirely on Tie.type.\n>>> t1 = tie.Tie('start')\n>>> t2 = tie.Tie('start')\n>>> t3 = tie.Tie('stop')\n>>> t1 == t2\nTrue\n\n\n>>> t2 == t3, t3 == t1\n(False, False)\n\n\n>>> t2 == None\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Tie instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Tie.",
+        "type": "Title"
+    },
+    {
+        "text": "placement",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Whether the tie should go up or down. Can be None, meaning\nit is unknown or should be determined from context, or \u0098above' or \u0098below.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Tie.",
+        "type": "Title"
+    },
+    {
+        "text": "style",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The style of the tie.  Currently can be \u0098normal', \u0098dotted', \u0098dashed' or \u0098hidden'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Tie.",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The tie type, can be \u0098start', \u0098stop', \u0098continue', \u0098let-ring', or \u0098continue-let-ring'.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.tie",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

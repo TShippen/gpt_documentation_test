@@ -1,0 +1,522 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.corpus.manager",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.corpus.corpora",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.corpus.virtual",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.corpus.manager\nFunctions\ncacheMetadataBundleFromDisk()\nfromName()\ngetMetadataBundleByCorpus()\ngetWork()\niterateCorpora()\nlistLocalCorporaNames()\nlistSearchFields()\nparse()\nreadAllMetadataBundlesFromDisk()\nsearch()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.corpus.manager\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "The manager module handles requests across multiple corpora.  It should be the default\ninterface to searching corpora.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "New in v3 \u2014 previously most were static methods on corpus.corpora.Corpus, but that\nseemed inappropriate since these work across corpora.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.corpus.manager.",
+        "type": "Title"
+    },
+    {
+        "text": "cacheMetadataBundleFromDisk",
+        "type": "Title"
+    },
+    {
+        "text": "corpusObject",
+        "type": "Title"
+    },
+    {
+        "text": "Corpus",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Update a corpus' metadata bundle from its stored JSON file on disk.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.corpus.manager.",
+        "type": "Title"
+    },
+    {
+        "text": "fromName",
+        "type": "Title"
+    },
+    {
+        "text": "name",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Instantiate a specific corpus based on name:\n>>> corpus.manager.fromName('core')\n<music21.corpus.corpora.CoreCorpus>\n\n\n>>> corpus.manager.fromName('local')\n<music21.corpus.corpora.LocalCorpus: 'local'>\n\n\n>>> corpus.manager.fromName(None)\n<music21.corpus.corpora.LocalCorpus: 'local'>\n\n\nNote that this corpus probably does not exist on disk, but it's ready to have\npaths added to it and to be stored on disk.\n>>> corpus.manager.fromName('testDummy')\n<music21.corpus.corpora.LocalCorpus: 'testDummy'>",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.corpus.manager.",
+        "type": "Title"
+    },
+    {
+        "text": "getMetadataBundleByCorpus",
+        "type": "Title"
+    },
+    {
+        "text": "corpusObject",
+        "type": "Title"
+    },
+    {
+        "text": "corpora.Corpus",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bundles.MetadataBundle",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return the metadata bundle for a single Corpus object\n>>> cc = corpus.corpora.CoreCorpus()\n>>> mdb1 = corpus.manager.getMetadataBundleByCorpus(cc)\n>>> mdb1\n<music21.metadata.bundles.MetadataBundle 'core': {... entries}>\n\n\nThis is the same as calling metadataBundle on the corpus itself,\nbut this is the routine that actually does the work. In other words,\nit's the call on the object that is redundant, not this routine.\n>>> mdb1 is cc.metadataBundle\nTrue\n\n\nNon-existent corpus\u2026\n>>> lc = corpus.corpora.LocalCorpus('junk')\n>>> mdb1 = corpus.manager.getMetadataBundleByCorpus(lc)\n>>> mdb1\n<music21.metadata.bundles.MetadataBundle 'junk': {0 entries}>",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.corpus.manager.",
+        "type": "Title"
+    },
+    {
+        "text": "getWork",
+        "type": "Title"
+    },
+    {
+        "text": "workName",
+        "type": "Title"
+    },
+    {
+        "text": "str | Path",
+        "type": "Title"
+    },
+    {
+        "text": "movementNumber",
+        "type": "Title"
+    },
+    {
+        "text": "int | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "fileExtensions",
+        "type": "Title"
+    },
+    {
+        "text": "Iterable[str]",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u2192 Path | list[pathlib.Path]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "this parse function is called from corpus.parse() and does nothing differently from it.\nSearches all corpora for a file that matches the name and returns it parsed.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.corpus.manager.",
+        "type": "Title"
+    },
+    {
+        "text": "iterateCorpora",
+        "type": "Title"
+    },
+    {
+        "text": "returnObjects",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "a generator that iterates over the corpora (either as objects or as names)\nfor use in pan corpus searching.\nThis test will only show the first two, because it needs to run the same\non every system:\n>>> for i, corpusObject in enumerate(corpus.manager.iterateCorpora()):\n...     print(corpusObject)\n...     if i == 1:\n...        break\n<music21.corpus.corpora.CoreCorpus>\n<music21.corpus.corpora.LocalCorpus: 'local'>\n\n\nWe can also get names instead\u2026 Note that the name of the main local corpus is \u0098local' not\nNone\n>>> for i, corpusName in enumerate(corpus.manager.iterateCorpora(returnObjects=False)):\n...     print(corpusName)\n...     if i == 1:\n...        break\ncore\nlocal\n\n\n\nNew in v3.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.corpus.manager.",
+        "type": "Title"
+    },
+    {
+        "text": "listLocalCorporaNames",
+        "type": "Title"
+    },
+    {
+        "text": "skipNone",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "List the names of all user-defined local corpora.\nThe entry for None refers to the default local corpus.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.corpus.manager.",
+        "type": "Title"
+    },
+    {
+        "text": "listSearchFields",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "List all available search field names:\n>>> for field in corpus.manager.listSearchFields():\n...     field\n...\n'abstract'\n'accessRights'\n'accompanyingMaterialWriter'\n...\n'composer'\n'composerAlias'\n'composerCorporate'\n'conceptor'\n'conductor'\n...\n'dateCreated'\n'dateFirstPublished'\n'dateIssued'\n'dateModified'\n'dateSubmitted'\n'dateValid'\n...\n'tempoFirst'\n'tempos'\n'textLanguage'\n'textOriginalLanguage'\n'timeSignatureFirst'\n'timeSignatures'\n'title'\n...",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.corpus.manager.",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "workName",
+        "type": "Title"
+    },
+    {
+        "text": "str | pathlib.Path",
+        "type": "Title"
+    },
+    {
+        "text": "movementNumber",
+        "type": "Title"
+    },
+    {
+        "text": "int | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "number",
+        "type": "Title"
+    },
+    {
+        "text": "int | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "fileExtensions",
+        "type": "Title"
+    },
+    {
+        "text": "Iterable[str]",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "forceSource",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "format",
+        "type": "Title"
+    },
+    {
+        "text": "str | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 stream.Score | stream.Part | stream.Opus",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.corpus.manager.",
+        "type": "Title"
+    },
+    {
+        "text": "readAllMetadataBundlesFromDisk",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Read each corpus's metadata bundle and store it in memory.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.corpus.manager.",
+        "type": "Title"
+    },
+    {
+        "text": "search",
+        "type": "Title"
+    },
+    {
+        "text": "query",
+        "type": "Title"
+    },
+    {
+        "text": "str | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "field",
+        "type": "Title"
+    },
+    {
+        "text": "str | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "corpusNames",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "fileExtensions",
+        "type": "Title"
+    },
+    {
+        "text": "Iterable",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Search all stored metadata bundles and return a list of file paths.\nThis function uses stored metadata and thus, on first usage, will incur a\nperformance penalty during metadata loading.\n>>> corpus.search('china')\n<music21.metadata.bundles.MetadataBundle {1235 entries}>\n\n\n>>> corpus.search('china', fileExtensions=('.mid',))\n<music21.metadata.bundles.MetadataBundle {0 entries}>\n\n\n>>> corpus.search('bach', field='composer')\n<music21.metadata.bundles.MetadataBundle {363 entries}>\n\n\nNote the importance of good metadata \u2014 there's almost 400 pieces by\nBach in the corpus, but many do not have correct metadata entries.\nThis can also be specified as:\n>>> corpus.search(composer='bach')\n<music21.metadata.bundles.MetadataBundle {363 entries}>\n\n\nOr, to get all the chorales (without using corpus.chorales.Iterator):\n>>> corpus.search(sourcePath='bach', numberOfParts=4)\n<music21.metadata.bundles.MetadataBundle {368 entries}>\n\n\nThis function is implemented in corpus.manager as a method there but also directly\navailable in the corpus module for ease of use.\nThe corpusNames parameter can be used to specify which corpora to search,\nfor example:\n>>> corpus.manager.search(\n...     'bach',\n...     corpusNames=('core',),\n...     )\n<music21.metadata.bundles.MetadataBundle {564 entries}>\n\n\n>>> corpus.manager.search(\n...     'bach',\n...     corpusNames=('core',),\n...     fileExtensions=('xml',),\n...     )\n<music21.metadata.bundles.MetadataBundle {412 entries}>\n\n\nIf corpusNames is None, all corpora known to music21 will be searched.\nSee usersGuide (chapter 11) for more information on searching",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.corpus.manager",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

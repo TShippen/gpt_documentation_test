@@ -1,0 +1,3678 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 15: Keys and KeySignatures",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide: Chapter 14: Time Signatures and Beats",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide, Chapter 16: TinyNotation",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide, Chapter 15: Keys and KeySignatures\nExample: Adjusting notes to fit the Key Signature\nKey objects\nKey Context and Note Spelling\nExample: Prepare a vocal exercise in all major keys, ascending by step.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide\nUser's Guide: Table of Contents\nUser's Guide, Chapter 1: Installing and Getting Started with music21\nUser's Guide, Chapter 2: Notes\nUser's Guide, Chapter 3: Pitches, Durations, and Notes again\nUser's Guide, Chapter 4: Lists, Streams (I) and Output\nUser's Guide, Chapter 5: Lists of Lists, Functions, and Recursion\nUser's Guide, Chapter 6: Streams (II): Hierarchies, Recursion, and Flattening\nUser's Guide, Chapter 7: Chords\nUser's Guide, Chapter 8: Installing MusicXML Readers and File Formats (1)\nUser's Guide, Chapter 9: Chordify\nUser's Guide, Chapter 10: Examples 1\nUser's Guide, Chapter 11: Corpus Searching\nUser's Guide, Chapter 12: Getting Back to Basics: The Music21Object\nUser's Guide, Chapter 13: More Music21Object Attributes and Properties\nUser's Guide: Chapter 14: Time Signatures and Beats\nUser's Guide, Chapter 15: Keys and KeySignatures\nUser's Guide, Chapter 16: TinyNotation\nUser's Guide: Chapter 17: Derivations\nUser's Guide: Chapter 18: Intervals\nUser's Guide, Chapter 19: Advanced Durations (Complex and Tuplets)\nUser's Guide, Chapter 20: Examples 2\nUser's Guide, Chapter 21: Ordering and Sorting of Stream Elements\nUser's Guide, Chapter 22: Graphing and plotting\nUser's Guide, Chapter 23: Roman Numeral Analysis\nUser's Guide, Chapter 24: Configuring Environment Settings\nUser's Guide, Chapter 25: Post-Tonal Tools (1)\nUser's Guide, Chapter 26: Stream Iteration and Filtering\nUser's Guide, Chapter 27: Grace Notes\nUser's Guide, Chapter 28: Lyric Searching\nUser's Guide, Chapter 29: Spanners 1 (Slurs)\nUser's Guide, Chapter 30: Examples 3\nUser's Guide, Chapter 31: Clefs, Ties, and Beams\nUser's Guide, Chapter 32: Articulations\nUser's Guide, Chapter 44: Advanced Graphing (Axes, Plots, and Graphs)\nUser's Guide, Chapter 53: Advanced Corpus and Metadata Searching\nUser's Guide, Chapter 54: Extending Converter with New Formats\nUser's Guide, Chapter 55: Advanced Meter Topics\nUser's Guide, Chapter 58: Understanding Sites and Contexts\nUser's Guide, Chapter 61: TimespanTrees and Verticalities",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 15: Keys and KeySignatures\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Music21 has two main objects for working with keys: the\nKeySignature object, which handles the spelling\nof key signatures and the Key object which does\neverything a KeySignature object does but also knows more advanced\naspects of tonal harmony. We'll go through the basics of each one here.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "We start, like always, by importing music21:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "from",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "import",
+        "type": "Title"
+    },
+    {
+        "text": "Now let's get a couple of different key signatures, representing\ndifferent numbers of sharps:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "ks2",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "KeySignature",
+        "type": "Title"
+    },
+    {
+        "text": "ks2",
+        "type": "Title"
+    },
+    {
+        "text": "sharps",
+        "type": "Title"
+    },
+    {
+        "text": "ks7",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "KeySignature",
+        "type": "Title"
+    },
+    {
+        "text": "ks7",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "KeySignature",
+        "type": "Title"
+    },
+    {
+        "text": "of",
+        "type": "Title"
+    },
+    {
+        "text": "sharps",
+        "type": "Title"
+    },
+    {
+        "text": "We can get a list of which pitches (as Pitch\nobjects) are altered by the key signature with the .alteredPitches\nproperty:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "ks2",
+        "type": "Title"
+    },
+    {
+        "text": "alteredPitches",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "#>, <music21.pitch.Pitch C#>]",
+        "type": "Title"
+    },
+    {
+        "text": "There's also a method that lets us see what the accidental is for any\ngiven step:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "ks2",
+        "type": "Title"
+    },
+    {
+        "text": "accidentalByStep",
+        "type": "Title"
+    },
+    {
+        "text": "'C'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Accidental",
+        "type": "Title"
+    },
+    {
+        "text": "sharp",
+        "type": "Title"
+    },
+    {
+        "text": "ks2",
+        "type": "Title"
+    },
+    {
+        "text": "accidentalByStep",
+        "type": "Title"
+    },
+    {
+        "text": "'E'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "is",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "Notice that we give a string of just a letter name from C-B. This won't\nwork:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "ks2",
+        "type": "Title"
+    },
+    {
+        "text": "accidentalByStep",
+        "type": "Title"
+    },
+    {
+        "text": "'C#'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "We can create key signatures with absurd numbers of sharps and get\nstrange accidentals:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "ks12",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "KeySignature",
+        "type": "Title"
+    },
+    {
+        "text": "12",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "ks12",
+        "type": "Title"
+    },
+    {
+        "text": "accidentalByStep",
+        "type": "Title"
+    },
+    {
+        "text": "'F'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Accidental",
+        "type": "Title"
+    },
+    {
+        "text": "double",
+        "type": "Title"
+    },
+    {
+        "text": "sharp",
+        "type": "Title"
+    },
+    {
+        "text": "These absurd key signatures display in some programs (such as Lilypond)\nand are exported into MusicXML but do not display in most MusicXML\nreaders.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Key Signatures transpose like Pitches and Notes, taking each of the\nnotes and moving it:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "ks4",
+        "type": "Title"
+    },
+    {
+        "text": "ks2",
+        "type": "Title"
+    },
+    {
+        "text": "transpose",
+        "type": "Title"
+    },
+    {
+        "text": "'M2'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "ks4",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "KeySignature",
+        "type": "Title"
+    },
+    {
+        "text": "of",
+        "type": "Title"
+    },
+    {
+        "text": "sharps",
+        "type": "Title"
+    },
+    {
+        "text": "And the number of sharps can be changed after the fact:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "ks4",
+        "type": "Title"
+    },
+    {
+        "text": "sharps",
+        "type": "Title"
+    },
+    {
+        "text": "ks4",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "KeySignature",
+        "type": "Title"
+    },
+    {
+        "text": "of",
+        "type": "Title"
+    },
+    {
+        "text": "no",
+        "type": "Title"
+    },
+    {
+        "text": "sharps",
+        "type": "Title"
+    },
+    {
+        "text": "or",
+        "type": "Title"
+    },
+    {
+        "text": "flats",
+        "type": "Title"
+    },
+    {
+        "text": "We can get the Major or Minor scale corresponding to the Key Signature:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "ks2",
+        "type": "Title"
+    },
+    {
+        "text": "getScale",
+        "type": "Title"
+    },
+    {
+        "text": "'major'",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "scale",
+        "type": "Title"
+    },
+    {
+        "text": "MajorScale",
+        "type": "Title"
+    },
+    {
+        "text": "major",
+        "type": "Title"
+    },
+    {
+        "text": "ks2",
+        "type": "Title"
+    },
+    {
+        "text": "getScale",
+        "type": "Title"
+    },
+    {
+        "text": "'minor'",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "scale",
+        "type": "Title"
+    },
+    {
+        "text": "MinorScale",
+        "type": "Title"
+    },
+    {
+        "text": "minor",
+        "type": "Title"
+    },
+    {
+        "text": "We'll see what we can do with scales in a bit.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "If we put a KeySignature into a Stream, we can see it:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Measure",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "insert",
+        "type": "Title"
+    },
+    {
+        "text": "meter",
+        "type": "Title"
+    },
+    {
+        "text": "TimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "'3/4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "))",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "insert",
+        "type": "Title"
+    },
+    {
+        "text": "ks2",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'D'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'C'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "fis",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'F#'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "# German name",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "([",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "fis",
+        "type": "Title"
+    },
+    {
+        "text": "])",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Note that the Note \u0098C' is treated as C-natural and thus needs the\nnatural sign in front of it. The Note F# however does not need a natural\nsign to be displayed. The process of calling .show() on the stream\nmade a copy of the notes and set the .pitch.accidental.displayStatus\non the F# to False and created an accidental for the C note with a\nnatural and a displayStatus of True. Then the copies were discarded, so\nwe don't see them here:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "fis",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "accidental",
+        "type": "Title"
+    },
+    {
+        "text": "displayStatus",
+        "type": "Title"
+    },
+    {
+        "text": "But we could instead call .makeNotation(inPlace=True) or\n.makeAccidentals(inPlace=True) on the Measure to do this manually:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "makeAccidentals",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "fis",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "accidental",
+        "type": "Title"
+    },
+    {
+        "text": "displayStatus",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "accidental",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "accidental",
+        "type": "Title"
+    },
+    {
+        "text": "displayStatus",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Accidental",
+        "type": "Title"
+    },
+    {
+        "text": "natural",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "If we have a Measure (not just any Stream) we can also set the\nKeySignature for the beginning of the measure with the Measure object's\n.keySignature property:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "keySignature",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "KeySignature",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Of course life isn't all about sharps; it'd be a pretty terrible\nKeySignature object if we couldn't have flats. To do it, just specify\nthe number of flats as a negative number. So -1 = one flat, -2 = two\nflats. Or if you have the number as a positive already, just multiply by\n-1.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "eroicaFlats",
+        "type": "Title"
+    },
+    {
+        "text": "ksEroica",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "KeySignature",
+        "type": "Title"
+    },
+    {
+        "text": "eroicaFlats",
+        "type": "Title"
+    },
+    {
+        "text": "ksEroica",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "KeySignature",
+        "type": "Title"
+    },
+    {
+        "text": "of",
+        "type": "Title"
+    },
+    {
+        "text": "flats",
+        "type": "Title"
+    },
+    {
+        "text": "ksEroica",
+        "type": "Title"
+    },
+    {
+        "text": "sharps",
+        "type": "Title"
+    },
+    {
+        "text": "There is no .flats routine:",
+        "type": "ListItem"
+    },
+    {
+        "text": "There is no .flats routine:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "ksEroica",
+        "type": "Title"
+    },
+    {
+        "text": "flats",
+        "type": "Title"
+    },
+    {
+        "text": "---------------------------------------------------------------------------",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "AttributeError",
+        "type": "Title"
+    },
+    {
+        "text": "Traceback",
+        "type": "Title"
+    },
+    {
+        "text": "most",
+        "type": "Title"
+    },
+    {
+        "text": "recent",
+        "type": "Title"
+    },
+    {
+        "text": "call",
+        "type": "Title"
+    },
+    {
+        "text": "last",
+        "type": "Title"
+    },
+    {
+        "text": "Cell",
+        "type": "Title"
+    },
+    {
+        "text": "In",
+        "type": "Title"
+    },
+    {
+        "text": "20",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "],",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "line",
+        "type": "Title"
+    },
+    {
+        "text": "---->",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "ksEroica",
+        "type": "Title"
+    },
+    {
+        "text": "flats",
+        "type": "Title"
+    },
+    {
+        "text": "AttributeError",
+        "type": "Title"
+    },
+    {
+        "text": "'KeySignature'",
+        "type": "Title"
+    },
+    {
+        "text": "object",
+        "type": "Title"
+    },
+    {
+        "text": "has",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "no",
+        "type": "Title"
+    },
+    {
+        "text": "attribute",
+        "type": "Title"
+    },
+    {
+        "text": "'flats'",
+        "type": "Title"
+    },
+    {
+        "text": "Example: Adjusting notes to fit the Key Signature\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Here's a nice study, suppose you had a score like this:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "m1",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Measure",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "m1",
+        "type": "Title"
+    },
+    {
+        "text": "timeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "meter",
+        "type": "Title"
+    },
+    {
+        "text": "TimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "'2/4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "m1",
+        "type": "Title"
+    },
+    {
+        "text": "keySignature",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "KeySignature",
+        "type": "Title"
+    },
+    {
+        "text": "m1",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "([",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'D'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'A'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ")])",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "m2",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Measure",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "m2",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "([",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'B-'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'G#'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ")])",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Part",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "([",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "m1",
+        "type": "Title"
+    },
+    {
+        "text": "m2",
+        "type": "Title"
+    },
+    {
+        "text": "])",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Let's pretend that this was played by a young oboe player who was having\ntrouble with the strange key signature. She got the B-flat right, and\nremembered to play some accidental on the G, but didn't do very well\noverall. Let's fix these notes so that they fit with the key signature.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Now we could simply do something like this for each note:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "m1",
+        "type": "Title"
+    },
+    {
+        "text": "notes",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "accidental",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Accidental",
+        "type": "Title"
+    },
+    {
+        "text": "'flat'",
+        "type": "Title"
+    },
+    {
+        "text": "But that wouldn't be as great as getting the notes from the Key itself.\nLet's do that with the accidentalByStep routine:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "ks",
+        "type": "Title"
+    },
+    {
+        "text": "m1",
+        "type": "Title"
+    },
+    {
+        "text": "keySignature",
+        "type": "Title"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "recurse",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "notes",
+        "type": "Title"
+    },
+    {
+        "text": "# we need to recurse because the notes are in measures...",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "nStep",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "step",
+        "type": "Title"
+    },
+    {
+        "text": "rightAccidental",
+        "type": "Title"
+    },
+    {
+        "text": "ks",
+        "type": "Title"
+    },
+    {
+        "text": "accidentalByStep",
+        "type": "Title"
+    },
+    {
+        "text": "nStep",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "accidental",
+        "type": "Title"
+    },
+    {
+        "text": "rightAccidental",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Yep, now our student is ready to play the concert! Though wouldn't this\nbe an easier key?",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "transpose",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Key objects\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "A Key is a lot like a KeySignature, but much more powerful. Unlike a\nKeySignature, which we initialize with the number of sharps and flats,\nwe initialize a Key with a tonic string or Pitch:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "kD",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "Key",
+        "type": "Title"
+    },
+    {
+        "text": "'D'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "kD",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "Key",
+        "type": "Title"
+    },
+    {
+        "text": "of",
+        "type": "Title"
+    },
+    {
+        "text": "major",
+        "type": "Title"
+    },
+    {
+        "text": "bFlat",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "'B-'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "kBflat",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "Key",
+        "type": "Title"
+    },
+    {
+        "text": "bFlat",
+        "type": "Title"
+    },
+    {
+        "text": "kBflat",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "Key",
+        "type": "Title"
+    },
+    {
+        "text": "of",
+        "type": "Title"
+    },
+    {
+        "text": "major",
+        "type": "Title"
+    },
+    {
+        "text": "By default, keys are major, but we can make minor keys by specifying\n\u0098minor' as the second argument:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "kd",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "Key",
+        "type": "Title"
+    },
+    {
+        "text": "'D'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'minor'",
+        "type": "Title"
+    },
+    {
+        "text": "kd",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "Key",
+        "type": "Title"
+    },
+    {
+        "text": "of",
+        "type": "Title"
+    },
+    {
+        "text": "minor",
+        "type": "Title"
+    },
+    {
+        "text": "Note that the key is represented as lowercase (\u0098d minor' as opposed to\n\u0098D minor'). This is a clue as to a shortcut for making minor keys:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "kg",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "Key",
+        "type": "Title"
+    },
+    {
+        "text": "'g'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "kg",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "Key",
+        "type": "Title"
+    },
+    {
+        "text": "of",
+        "type": "Title"
+    },
+    {
+        "text": "minor",
+        "type": "Title"
+    },
+    {
+        "text": "We can also take KeySignatures and turn them into Keys by using the\nasKey(mode) method on them:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "ksEroica",
+        "type": "Title"
+    },
+    {
+        "text": "asKey",
+        "type": "Title"
+    },
+    {
+        "text": "'major'",
+        "type": "Title"
+    },
+    {
+        "text": "),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "ksEroica",
+        "type": "Title"
+    },
+    {
+        "text": "asKey",
+        "type": "Title"
+    },
+    {
+        "text": "'minor'",
+        "type": "Title"
+    },
+    {
+        "text": "))",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "Key",
+        "type": "Title"
+    },
+    {
+        "text": "of",
+        "type": "Title"
+    },
+    {
+        "text": "major",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "Key",
+        "type": "Title"
+    },
+    {
+        "text": "of",
+        "type": "Title"
+    },
+    {
+        "text": "minor",
+        "type": "Title"
+    },
+    {
+        "text": "(In the latter case we should probably have called the variable\nksFifthSymphony\u2026)",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "We can also make church modes:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "amixy",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "Key",
+        "type": "Title"
+    },
+    {
+        "text": "'a'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'mixolydian'",
+        "type": "Title"
+    },
+    {
+        "text": "amixy",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "Key",
+        "type": "Title"
+    },
+    {
+        "text": "of",
+        "type": "Title"
+    },
+    {
+        "text": "mixolydian",
+        "type": "Title"
+    },
+    {
+        "text": "If you've forgotten how many sharps or flats are in the key of A\nmixolydian, you'll be happy to know that all the properties and methods\nof KeySignatures are also available to Keys:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "amixy",
+        "type": "Title"
+    },
+    {
+        "text": "sharps",
+        "type": "Title"
+    },
+    {
+        "text": "amixy",
+        "type": "Title"
+    },
+    {
+        "text": "alteredPitches",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "#>, <music21.pitch.Pitch C#>]",
+        "type": "Title"
+    },
+    {
+        "text": "amixy",
+        "type": "Title"
+    },
+    {
+        "text": "transpose",
+        "type": "Title"
+    },
+    {
+        "text": "'M3'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "Key",
+        "type": "Title"
+    },
+    {
+        "text": "of",
+        "type": "Title"
+    },
+    {
+        "text": "# mixolydian>",
+        "type": "Title"
+    },
+    {
+        "text": "aDarkKey",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "Key",
+        "type": "Title"
+    },
+    {
+        "text": "'B--'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'locrian'",
+        "type": "Title"
+    },
+    {
+        "text": "aDarkKey",
+        "type": "Title"
+    },
+    {
+        "text": "alteredPitches",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": ">",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": ">",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": ">",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": ">",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": ">",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": ">",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": ">",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "-->",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "-->",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "-->",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "-->",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "-->",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "-->",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "-->",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "(as a music historian and someone who specializes in history of music\ntheory, I am contractually obliged to mention that \u009clocrian\u009d is not a\nhistoric mode and doesn't really exist in actual music before the 20th\nc.\u00c2\u00a0But it's fun to play with).",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Keys know their .mode:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "kg",
+        "type": "Title"
+    },
+    {
+        "text": "mode",
+        "type": "Title"
+    },
+    {
+        "text": "amixy",
+        "type": "Title"
+    },
+    {
+        "text": "mode",
+        "type": "Title"
+    },
+    {
+        "text": "'minor'",
+        "type": "Title"
+    },
+    {
+        "text": "'mixolydian'",
+        "type": "Title"
+    },
+    {
+        "text": "They also know their tonic pitches:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "kg",
+        "type": "Title"
+    },
+    {
+        "text": "tonic",
+        "type": "Title"
+    },
+    {
+        "text": "amixy",
+        "type": "Title"
+    },
+    {
+        "text": "tonic",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "For major and minor keys, we can get the relative (minor or major) and\nparallel (minor or major) keys simply:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "kg",
+        "type": "Title"
+    },
+    {
+        "text": "relative",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "Key",
+        "type": "Title"
+    },
+    {
+        "text": "of",
+        "type": "Title"
+    },
+    {
+        "text": "major",
+        "type": "Title"
+    },
+    {
+        "text": "kg",
+        "type": "Title"
+    },
+    {
+        "text": "parallel",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "Key",
+        "type": "Title"
+    },
+    {
+        "text": "of",
+        "type": "Title"
+    },
+    {
+        "text": "major",
+        "type": "Title"
+    },
+    {
+        "text": "And because two keys are equal if their modes and tonics are the same,\nthis is true:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "kg",
+        "type": "Title"
+    },
+    {
+        "text": "relative",
+        "type": "Title"
+    },
+    {
+        "text": "relative",
+        "type": "Title"
+    },
+    {
+        "text": "==",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "kg",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "This is pretty helpful from time to time:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "kg",
+        "type": "Title"
+    },
+    {
+        "text": "tonicPitchNameWithCase",
+        "type": "Title"
+    },
+    {
+        "text": "'g'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "kg",
+        "type": "Title"
+    },
+    {
+        "text": "parallel",
+        "type": "Title"
+    },
+    {
+        "text": "tonicPitchNameWithCase",
+        "type": "Title"
+    },
+    {
+        "text": "'G'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Some analysis routines produce keys:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "bach",
+        "type": "Title"
+    },
+    {
+        "text": "corpus",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "'bwv66.6'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "bach",
+        "type": "Title"
+    },
+    {
+        "text": "id",
+        "type": "Title"
+    },
+    {
+        "text": "'bach66'",
+        "type": "Title"
+    },
+    {
+        "text": "bach",
+        "type": "Title"
+    },
+    {
+        "text": "analyze",
+        "type": "Title"
+    },
+    {
+        "text": "'key'",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "Key",
+        "type": "Title"
+    },
+    {
+        "text": "of",
+        "type": "Title"
+    },
+    {
+        "text": "# minor>",
+        "type": "Title"
+    },
+    {
+        "text": "The keys from these routines have two extra cool features. They have a\ncertainty measure:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "fis",
+        "type": "Title"
+    },
+    {
+        "text": "bach",
+        "type": "Title"
+    },
+    {
+        "text": "analyze",
+        "type": "Title"
+    },
+    {
+        "text": "'key'",
+        "type": "Title"
+    },
+    {
+        "text": "fis",
+        "type": "Title"
+    },
+    {
+        "text": "correlationCoefficient",
+        "type": "Title"
+    },
+    {
+        "text": "0.9379555412471554",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "fis",
+        "type": "Title"
+    },
+    {
+        "text": "tonalCertainty",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "1.2642604260880534",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Here are some of the other keys that the Bach piece could have been in:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "fis",
+        "type": "Title"
+    },
+    {
+        "text": "alternateInterpretations",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "Key",
+        "type": "Title"
+    },
+    {
+        "text": "of",
+        "type": "Title"
+    },
+    {
+        "text": "major",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "Key",
+        "type": "Title"
+    },
+    {
+        "text": "of",
+        "type": "Title"
+    },
+    {
+        "text": "minor",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "Key",
+        "type": "Title"
+    },
+    {
+        "text": "of",
+        "type": "Title"
+    },
+    {
+        "text": "major",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "Key",
+        "type": "Title"
+    },
+    {
+        "text": "of",
+        "type": "Title"
+    },
+    {
+        "text": "# minor>]",
+        "type": "Title"
+    },
+    {
+        "text": "And the least likely:",
+        "type": "Title"
+    },
+    {
+        "text": "fis",
+        "type": "Title"
+    },
+    {
+        "text": "alternateInterpretations",
+        "type": "Title"
+    },
+    {
+        "text": ":]",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "Key",
+        "type": "Title"
+    },
+    {
+        "text": "of",
+        "type": "Title"
+    },
+    {
+        "text": "major",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "Key",
+        "type": "Title"
+    },
+    {
+        "text": "of",
+        "type": "Title"
+    },
+    {
+        "text": "major",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "Key",
+        "type": "Title"
+    },
+    {
+        "text": "of",
+        "type": "Title"
+    },
+    {
+        "text": "minor",
+        "type": "Title"
+    },
+    {
+        "text": "bach",
+        "type": "Title"
+    },
+    {
+        "text": "measures",
+        "type": "Title"
+    },
+    {
+        "text": "chordify",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "ch",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "recurse",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "getElementsByClass",
+        "type": "Title"
+    },
+    {
+        "text": "'Chord'",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "ch",
+        "type": "Title"
+    },
+    {
+        "text": "closedPosition",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "forceOctave",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Yeah, that passes the smell test to me!",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "So, how does it know what the key is? The key analysis routines are a\nvariation of the famous (well at least in the small world of\ncomputational music theory) algorithm developed by Carol Krumhansl and\nMark A. Schmuckler called probe-tone key finding. The distribution of\npitches used in the piece are compared to sample distributions of\npitches for major and minor keys and the closest matches are reported.\n(see http://rnhart.net/articles/key-finding/ for more details).\nMusic21 can be asked to use the sample distributions of several\nauthors, including Krumhansl and Schmuckler's original weights:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "bach",
+        "type": "Title"
+    },
+    {
+        "text": "analyze",
+        "type": "Title"
+    },
+    {
+        "text": "'key.krumhanslschmuckler'",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "Key",
+        "type": "Title"
+    },
+    {
+        "text": "of",
+        "type": "Title"
+    },
+    {
+        "text": "# minor>",
+        "type": "Title"
+    },
+    {
+        "text": "Though the key returned by .analyze('key') and\n.analyze('key.krumhanslschmuckler') are the same, the\ncorrelationCoefficient is somewhat different. fis is the analysis\nfrom .analyze('key').",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "fisNew",
+        "type": "Title"
+    },
+    {
+        "text": "bach",
+        "type": "Title"
+    },
+    {
+        "text": "analyze",
+        "type": "Title"
+    },
+    {
+        "text": "'key.krumhanslschmuckler'",
+        "type": "Title"
+    },
+    {
+        "text": "fisCC",
+        "type": "Title"
+    },
+    {
+        "text": "round",
+        "type": "Title"
+    },
+    {
+        "text": "fis",
+        "type": "Title"
+    },
+    {
+        "text": "correlationCoefficient",
+        "type": "Title"
+    },
+    {
+        "text": "fisNewCC",
+        "type": "Title"
+    },
+    {
+        "text": "round",
+        "type": "Title"
+    },
+    {
+        "text": "fisNew",
+        "type": "Title"
+    },
+    {
+        "text": "correlationCoefficient",
+        "type": "Title"
+    },
+    {
+        "text": "fisCC",
+        "type": "Title"
+    },
+    {
+        "text": "fisNewCC",
+        "type": "Title"
+    },
+    {
+        "text": "0.938",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "0.815",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Calling .analyze() on a Stream calls\nmusic21.analysis.discrete.analyzeStream() which then calls an\nappropriate Class there.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "There is another way of looking at the key of a piece and that is\nlooking at differently sized windows of analysis on the piece and seeing\nwhat happens every quarter note, every half note, every measure, every\ntwo measures, etc. to the top. This plot was created by Jared Sadoian\nand is explained in the analysis.windowed module:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "bach",
+        "type": "Title"
+    },
+    {
+        "text": "flatten",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "plot",
+        "type": "Title"
+    },
+    {
+        "text": "'pianoroll'",
+        "type": "Title"
+    },
+    {
+        "text": "A Key object is derived from a KeySignature object and also a Scale\nobject, which we will explain more about later.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "Key",
+        "type": "Title"
+    },
+    {
+        "text": "'E-'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "classes",
+        "type": "Title"
+    },
+    {
+        "text": "'Key'",
+        "type": "Title"
+    },
+    {
+        "text": "'KeySignature'",
+        "type": "Title"
+    },
+    {
+        "text": "'DiatonicScale'",
+        "type": "Title"
+    },
+    {
+        "text": "'ConcreteScale'",
+        "type": "Title"
+    },
+    {
+        "text": "'Scale'",
+        "type": "Title"
+    },
+    {
+        "text": "'Music21Object'",
+        "type": "Title"
+    },
+    {
+        "text": "'ProtoM21Object'",
+        "type": "Title"
+    },
+    {
+        "text": "'object'",
+        "type": "Title"
+    },
+    {
+        "text": "But for now, a few methods that are present on scales that might end up\nbeing useful for Keys as well include:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "pitchFromDegree",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "F4",
+        "type": "Title"
+    },
+    {
+        "text": "(octaves in 4 and 5 are chosen just to give some ordering to the\npitches)",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "solfeg",
+        "type": "Title"
+    },
+    {
+        "text": "'G'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'mi'",
+        "type": "Title"
+    },
+    {
+        "text": "Key Context and Note Spelling\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Key and KeySignature objects affect how notes are spelled in\nsome situations. Let's set up a simple situation of a F-natural whole\nnote in D major and then B-flat minor.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Stream",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "Key",
+        "type": "Title"
+    },
+    {
+        "text": "'D'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "))",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'F'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "'whole'",
+        "type": "Title"
+    },
+    {
+        "text": "))",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "Key",
+        "type": "Title"
+    },
+    {
+        "text": "'b-'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'minor'",
+        "type": "Title"
+    },
+    {
+        "text": "))",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'F'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "'whole'",
+        "type": "Title"
+    },
+    {
+        "text": "))",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "s2",
+        "type": "Title"
+    },
+    {
+        "text": "makeNotation",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "s2",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "When we transpose each note up a half step (n.transpose(1)), music21\nunderstands that the first F-natural should become F-sharp, while the\nsecond one will fit better as a G-flat.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "s2",
+        "type": "Title"
+    },
+    {
+        "text": "recurse",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "notes",
+        "type": "Title"
+    },
+    {
+        "text": "transpose",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "s2",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Example: Prepare a vocal exercise in all major keys, ascending by step.\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Let's create a simple exercise in playing or singing thirds. I think I\nremember this from the First Division Band\nMethod\n\u009cBlue Book\u009d:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "pitchStream",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Part",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "pitchStream",
+        "type": "Title"
+    },
+    {
+        "text": "insert",
+        "type": "Title"
+    },
+    {
+        "text": "meter",
+        "type": "Title"
+    },
+    {
+        "text": "TimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "'4/4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "))",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "step",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "'c'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'e'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'d'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'f'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'e'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'g'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'f'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'a'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'g'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'e'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'f'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'d'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'c'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'e'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'c'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "step",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "'eighth'",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "octave",
+        "type": "Title"
+    },
+    {
+        "text": "pitchStream",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "pitchStream",
+        "type": "Title"
+    },
+    {
+        "text": "notes",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "'quarter'",
+        "type": "Title"
+    },
+    {
+        "text": "pitchStream",
+        "type": "Title"
+    },
+    {
+        "text": "makeMeasures",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "pitchStream",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "This melody does not have a key associated with it. Let's put a Key of C\nMajor at the beginning of the piece:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "Key",
+        "type": "Title"
+    },
+    {
+        "text": "'C'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "pitchStream",
+        "type": "Title"
+    },
+    {
+        "text": "measure",
+        "type": "Title"
+    },
+    {
+        "text": "insert",
+        "type": "Title"
+    },
+    {
+        "text": "pitchStream",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Note that putting the key of C into the Stream doesn't change what it\nlooks like when we show the Stream, since there are no sharps or flats.\nBut what makes the difference between an instrumental and a vocal\nexercise is the act of transposition. When we transpose the Key\nobject up 1 semitone, to D-flat major, it will show up:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "transpose",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "pitchStream",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Now the key signature is D-flat, but the notes are still in C-major, so\nwe should transpose them also:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "pitchStream",
+        "type": "Title"
+    },
+    {
+        "text": "recurse",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "notes",
+        "type": "Title"
+    },
+    {
+        "text": "transpose",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "pitchStream",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Notice that we choose a semitone transposition and not a diatonic\ntransposition such as minor second (\"m2\"); minor second would work\njust as good in this case, but then to do another half-step up, we would\nneed to remember to transpose by an augmented unison (\"A1\") so that\nD-flat became D-natural and not E-double-flat. The semitone\ntransposition is smart enough to make sure that the Key object\nremains between six-flats and six-sharps. Not only that, but the notes\nwill match the best spelling for the current key signature.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "transpose",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "pitchStream",
+        "type": "Title"
+    },
+    {
+        "text": "recurse",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "notes",
+        "type": "Title"
+    },
+    {
+        "text": "transpose",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "pitchStream",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "transpose",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "pitchStream",
+        "type": "Title"
+    },
+    {
+        "text": "recurse",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "notes",
+        "type": "Title"
+    },
+    {
+        "text": "transpose",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "pitchStream",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "So, we can make a nice, ascending vocal exercise by varying the\ntransposition amount from 0 to 7 (or however high you can sing) and\nputting each of the two-measure excerpts together into one Part.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "We will introduce the tinyNotation format here, which will be described\nin the next chapter:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "out",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Part",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "range",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "pitchStream",
+        "type": "Title"
+    },
+    {
+        "text": "converter",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "\"tinyNotation: 4/4 c8 e d f e g f a g e f d c e c4\"",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "!=",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "# remove redundant clefs and time signature",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "trebleClef",
+        "type": "Title"
+    },
+    {
+        "text": "pitchStream",
+        "type": "Title"
+    },
+    {
+        "text": "recurse",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "getElementsByClass",
+        "type": "Title"
+    },
+    {
+        "text": "'Clef'",
+        "type": "Title"
+    },
+    {
+        "text": ")[",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "fourFour",
+        "type": "Title"
+    },
+    {
+        "text": "pitchStream",
+        "type": "Title"
+    },
+    {
+        "text": "recurse",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "getElementsByClass",
+        "type": "Title"
+    },
+    {
+        "text": "'TimeSignature'",
+        "type": "Title"
+    },
+    {
+        "text": ")[",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "pitchStream",
+        "type": "Title"
+    },
+    {
+        "text": "remove",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "trebleClef",
+        "type": "Title"
+    },
+    {
+        "text": "recurse",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "pitchStream",
+        "type": "Title"
+    },
+    {
+        "text": "remove",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "fourFour",
+        "type": "Title"
+    },
+    {
+        "text": "recurse",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "==",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "# add a line break at the beginning of every other line:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "pitchStream",
+        "type": "Title"
+    },
+    {
+        "text": "measure",
+        "type": "Title"
+    },
+    {
+        "text": "insert",
+        "type": "Title"
+    },
+    {
+        "text": "layout",
+        "type": "Title"
+    },
+    {
+        "text": "SystemLayout",
+        "type": "Title"
+    },
+    {
+        "text": "isNew",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "))",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "Key",
+        "type": "Title"
+    },
+    {
+        "text": "'C'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "pitchStream",
+        "type": "Title"
+    },
+    {
+        "text": "measure",
+        "type": "Title"
+    },
+    {
+        "text": "insert",
+        "type": "Title"
+    },
+    {
+        "text": "transpose",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "pitchStream",
+        "type": "Title"
+    },
+    {
+        "text": "recurse",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "notes",
+        "type": "Title"
+    },
+    {
+        "text": "transpose",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "pitchStream",
+        "type": "Title"
+    },
+    {
+        "text": "out",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "out",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "And we can listen to it as well:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "out",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "'midi'",
+        "type": "Title"
+    },
+    {
+        "text": "That's enough about keys for now, let's move on to a fast way of getting\nsmall amounts of music into music21, with\nChapter 16, Tiny Notation",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 15: Keys and KeySignatures",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

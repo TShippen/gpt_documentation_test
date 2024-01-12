@@ -1,0 +1,310 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.musicxml.helpers",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.musicxml.archiveTools",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.musicxml.lilypondTestSuite",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.musicxml.helpers\nFunctions\ndump()\ndumpString()\nindent()\ninsertBeforeElements()\nisFullMeasureRest()\nmeasureNumberComesBefore()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.musicxml.helpers\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.musicxml.helpers.",
+        "type": "Title"
+    },
+    {
+        "text": "dump",
+        "type": "Title"
+    },
+    {
+        "text": "obj",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "wrapper around xml.etree.ElementTree that prints a string\nin every case and indents tags and sorts attributes.  (Prints, does not return)\n>>> from music21.musicxml.helpers import dump\n>>> from xml.etree.ElementTree import Element\n>>> e = Element('accidental')\n\n\n>>> dump(e)\n<accidental />\n\n\n>>> e.text = '\u00e2\u0088\u0086'\n>>> e.text == '\u00e2\u0088\u0086'\nTrue\n>>> dump(e)\n<accidental>\u00e2\u0088\u0086</accidental>",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.musicxml.helpers.",
+        "type": "Title"
+    },
+    {
+        "text": "dumpString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "obj",
+        "type": "Title"
+    },
+    {
+        "text": "noCopy",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 str",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "wrapper around xml.etree.ElementTree that returns a string\nin every case and indents tags and sorts attributes.\n>>> from music21.musicxml.m21ToXml import Element\n>>> from music21.musicxml.helpers import dumpString\n>>> e = Element('accidental')\n\n\n>>> dumpString(e)\n'<accidental />'\n\n\n>>> e.text = '\u00e2\u0088\u0086'\n>>> e.text == '\u00e2\u0088\u0086'\nTrue\n>>> dumpString(e)\n'<accidental>\u00e2\u0088\u0086</accidental>'",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.musicxml.helpers.",
+        "type": "Title"
+    },
+    {
+        "text": "indent",
+        "type": "Title"
+    },
+    {
+        "text": "elem",
+        "type": "Title"
+    },
+    {
+        "text": "level",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "helper method, indent an element in place:",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.musicxml.helpers.",
+        "type": "Title"
+    },
+    {
+        "text": "insertBeforeElements",
+        "type": "Title"
+    },
+    {
+        "text": "root",
+        "type": "Title"
+    },
+    {
+        "text": "insert",
+        "type": "Title"
+    },
+    {
+        "text": "tagList",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Insert element insert into element root at the earliest position\nof any instance of a child tag given in tagList. Append the element\nif tagList is None.\n>>> from xml.etree.ElementTree import fromstring as El\n>>> from music21.musicxml.helpers import insertBeforeElements, dump\n>>> root = El('<clef><sign>G</sign><line>4</line></clef>')\n>>> insert = El('<foo/>')\n\n\n>>> insertBeforeElements(root, insert, tagList=['line'])\n>>> dump(root)\n<clef>\n    <sign>G</sign>\n    <foo />\n    <line>4</line>\n</clef>\n\n\nNow insert another element at the end by not specifying a tag list:\n>>> insert2 = El('<bar/>')\n>>> insertBeforeElements(root, insert2)\n>>> dump(root)\n<clef>\n    <sign>G</sign>\n    <foo />\n    <line>4</line>\n    <bar />\n</clef>",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.musicxml.helpers.",
+        "type": "Title"
+    },
+    {
+        "text": "isFullMeasureRest",
+        "type": "Title"
+    },
+    {
+        "text": "music21.note.Rest",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.musicxml.helpers.",
+        "type": "Title"
+    },
+    {
+        "text": "measureNumberComesBefore",
+        "type": "Title"
+    },
+    {
+        "text": "mNum1",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "mNum2",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Determine whether measureNumber1 strictly precedes\nmeasureNumber2 given that they could involve suffixes.\nEqual values return False.\n>>> from music21.musicxml.helpers import measureNumberComesBefore\n>>> measureNumberComesBefore('23', '24')\nTrue\n>>> measureNumberComesBefore('23', '23')\nFalse\n>>> measureNumberComesBefore('23', '23a')\nTrue\n>>> measureNumberComesBefore('23a', '23b')\nTrue\n>>> measureNumberComesBefore('23b', '23a')\nFalse\n>>> measureNumberComesBefore('23b', '24a')\nTrue\n>>> measureNumberComesBefore('23b', '23b')\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.musicxml.helpers",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

@@ -1,0 +1,1074 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.key",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.ipython21.converters",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.languageExcerpts.naturalLanguageObjects",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.key\nKeySignature\nKeySignature\nKeySignature.isNonTraditional\nKeySignature.alteredPitches\nKeySignature.sharps\nKeySignature.accidentalByStep()\nKeySignature.asKey()\nKeySignature.getScale()\nKeySignature.transpose()\nKeySignature.transposePitchFromC()\n\n\n\n\nKey\nKey\nKey.parallel\nKey.relative\nKey.tonicPitchNameWithCase\nKey.__eq__()\nKey.deriveByDegree()\nKey.tonalCertainty()\nKey.transpose()\n\n\n\n\nFunctions\nconvertKeyStringToMusic21KeyString()\npitchToSharps()\nsharpsToPitch()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.key\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "This module defines objects for representing key signatures as well as key\nareas. The KeySignature is used in\nMeasure objects for defining notated key signatures.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "The Key object is a fuller representation not just of\na key signature but also of the key of a region.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "KeySignature\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.key.",
+        "type": "Title"
+    },
+    {
+        "text": "KeySignature",
+        "type": "Title"
+    },
+    {
+        "text": "sharps",
+        "type": "Title"
+    },
+    {
+        "text": "int | None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A KeySignature object specifies the signature to be used for a piece; it normally\ntakes one argument: an int giving the number of sharps,\nor, if negative, the number of flats.\nIf you are starting with the name of a key, see the Key object.\n>>> A = key.KeySignature(3)\n>>> A\n<music21.key.KeySignature of 3 sharps>\n\n\n>>> Eflat = key.KeySignature(-3)\n>>> Eflat\n<music21.key.KeySignature of 3 flats>\n\n\nIf you want to get a real Key, then use the Key object instead:\n>>> illegal = key.KeySignature('c#')\nTraceback (most recent call last):\nmusic21.key.KeySignatureException: Cannot get a KeySignature from this\n    \"number\" of sharps: 'c#'; did you mean to use a key.Key() object instead?\n\n\n>>> legal = key.Key('c#')\n>>> legal.sharps\n4\n>>> legal\n<music21.key.Key of c# minor>\n\n\nTo set a non-traditional Key Signature, create a KeySignature object\nwith sharps=None, and then set the alteredPitches list:\n>>> unusual = key.KeySignature(sharps=None)\n>>> unusual.alteredPitches = ['E-', 'G#']\n>>> unusual\n<music21.key.KeySignature of pitches: [E-, G#]>\n>>> unusual.isNonTraditional\nTrue\n\n\nTo set a pitch as displayed in a particular octave, create a non-traditional\nKeySignature and then set pitches with octaves:\n>>> unusual = key.KeySignature(sharps=None)\n>>> unusual.alteredPitches = ['F#4']\n>>> unusual\n<music21.key.KeySignature of pitches: [F#4]>\n\n\nIf the accidental applies to all octaves but is being displayed differently\nthen you are done, but if you want them to apply only to the octave displayed\nin then set .accidentalsApplyOnlyToOctave to True:\n>>> unusual.accidentalsApplyOnlyToOctave\nFalse\n>>> unusual.accidentalsApplyOnlyToOctave = True\n\n\nEquality\nTwo KeySignatures are equal if they pass all super().__eq__ checks and\ntheir sharps are equal.  Currently, non-standard key signatures are not\nchecked (this may change).\n>>> sharp2 = key.KeySignature(2)\n>>> flat4 = key.KeySignature(-4)\n>>> sharp2 == flat4\nFalse\n>>> sharp2 == key.KeySignature(2)\nTrue\n\n\n\nChanged in v7: sharps defaults to 0 (key of no flats/sharps)\nrather than None for nontraditional keys.",
+        "type": "ListItem"
+    },
+    {
+        "text": "KeySignature bases",
+        "type": "Title"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "KeySignature read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "KeySignature.",
+        "type": "Title"
+    },
+    {
+        "text": "isNonTraditional",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns bool if this is a non-traditional KeySignature:\n>>> g = key.KeySignature(3)\n>>> g.isNonTraditional\nFalse\n\n\n>>> g = key.KeySignature(sharps=None)\n>>> g.alteredPitches = [pitch.Pitch('E`')]\n>>> g.isNonTraditional\nTrue\n\n\n>>> g\n<music21.key.KeySignature of pitches: [E`]>\n\n\n>>> g.accidentalByStep('E')\n<music21.pitch.Accidental half-flat>",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "KeySignature read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "KeySignature.",
+        "type": "Title"
+    },
+    {
+        "text": "alteredPitches",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return or set a list of music21.pitch.Pitch objects that are altered by this\nKeySignature. That is, all Pitch objects that will receive an accidental.\n>>> a = key.KeySignature(3)\n>>> a.alteredPitches\n[<music21.pitch.Pitch F#>, <music21.pitch.Pitch C#>, <music21.pitch.Pitch G#>]\n>>> b = key.KeySignature(1)\n>>> b.alteredPitches\n[<music21.pitch.Pitch F#>]\n\n\n>>> c = key.KeySignature(9)\n>>> [str(p) for p in c.alteredPitches]\n['F#', 'C#', 'G#', 'D#', 'A#', 'E#', 'B#', 'F##', 'C##']\n\n\n>>> d = key.KeySignature(-3)\n>>> d.alteredPitches\n[<music21.pitch.Pitch B->, <music21.pitch.Pitch E->, <music21.pitch.Pitch A->]\n\n\n>>> e = key.KeySignature(-1)\n>>> e.alteredPitches\n[<music21.pitch.Pitch B->]\n\n\n>>> f = key.KeySignature(-6)\n>>> [str(p) for p in f.alteredPitches]\n['B-', 'E-', 'A-', 'D-', 'G-', 'C-']\n\n\n>>> g = key.KeySignature(-8)\n>>> [str(p) for p in g.alteredPitches]\n['B-', 'E-', 'A-', 'D-', 'G-', 'C-', 'F-', 'B--']\n\n\nNon-standard, non-traditional key signatures can set their own\naltered pitches cache.\n>>> nonTrad = key.KeySignature(sharps=None)\n>>> nonTrad.alteredPitches = ['B-', 'F#', 'E-', 'G#']\n>>> nonTrad.alteredPitches\n[<music21.pitch.Pitch B->,\n <music21.pitch.Pitch F#>,\n <music21.pitch.Pitch E->,\n <music21.pitch.Pitch G#>]",
+        "type": "ListItem"
+    },
+    {
+        "text": "KeySignature.",
+        "type": "Title"
+    },
+    {
+        "text": "sharps",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get or set the number of sharps.  If the number is negative\nthen it sets the number of flats.  Equivalent to musicxml's \u0098fifths'\nattribute.\n>>> ks1 = key.KeySignature(2)\n>>> ks1.sharps\n2\n>>> ks1.sharps = -4\n>>> ks1\n<music21.key.KeySignature of 4 flats>\n\n\nCan be set to None for a non-traditional key signature",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "KeySignature methods",
+        "type": "Title"
+    },
+    {
+        "text": "KeySignature.",
+        "type": "Title"
+    },
+    {
+        "text": "accidentalByStep",
+        "type": "Title"
+    },
+    {
+        "text": "step",
+        "type": "Title"
+    },
+    {
+        "text": "Literal",
+        "type": "Title"
+    },
+    {
+        "text": "'C'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'D'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'E'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'F'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'G'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'A'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'B'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u2192 Accidental | None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a step (C, D, E, F, etc.) return the accidental\nfor that note in this key (using the natural minor for minor)\nor None if there is none.\n>>> g = key.KeySignature(1)\n>>> g.accidentalByStep('F')\n<music21.pitch.Accidental sharp>\n>>> g.accidentalByStep('G') is None\nTrue\n\n\n>>> f = key.KeySignature(-1)\n>>> bbNote = note.Note('B-5')\n>>> f.accidentalByStep(bbNote.step)\n<music21.pitch.Accidental flat>\n\n\nFix a wrong note in F-major:\n>>> wrongBNote = note.Note('B#4')\n>>> if f.accidentalByStep(wrongBNote.step) != wrongBNote.pitch.accidental:\n...    wrongBNote.pitch.accidental = f.accidentalByStep(wrongBNote.step)\n>>> wrongBNote\n<music21.note.Note B->\n\n\nSet all notes to the correct notes for a key using the\nnote's Key Context.  Before:\n>>> s1 = stream.Stream()\n>>> s1.append(key.KeySignature(4))  # E-major or C-sharp-minor\n>>> s1.append(note.Note('C', type='half'))\n>>> s1.append(note.Note('E-', type='half'))\n>>> s1.append(key.KeySignature(-4))  # A-flat-major or F-minor\n>>> s1.append(note.Note('A', type='whole'))\n>>> s1.append(note.Note('F#', type='whole'))\n>>> s1.show()\n\n\n\nAfter:\n>>> for n in s1.notes:\n...    n.pitch.accidental = n.getContextByClass(key.KeySignature).accidentalByStep(n.step)\n>>> s1.show()",
+        "type": "ListItem"
+    },
+    {
+        "text": "KeySignature.",
+        "type": "Title"
+    },
+    {
+        "text": "asKey",
+        "type": "Title"
+    },
+    {
+        "text": "mode",
+        "type": "Title"
+    },
+    {
+        "text": "str | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "tonic",
+        "type": "Title"
+    },
+    {
+        "text": "str | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a key.Key object representing this KeySignature object as a key in the\ngiven mode or in the given tonic. If mode is None, and tonic is not provided,\nmajor is assumed. If both mode and tonic are provided, the tonic is ignored.\n>>> ks = key.KeySignature(2)\n>>> ks.asKey()\n<music21.key.Key of D major>\n>>> ks.asKey(mode='minor')\n<music21.key.Key of b minor>\n\n\nIf mode is None, an attempt is made to solve for the mode:\n>>> ks.asKey(tonic='A')\n<music21.key.Key of A mixolydian>\n\n\nBut will raise KeyException if an impossible solution is requested:\n>>> ks.asKey(tonic='D#')\nTraceback (most recent call last):\nmusic21.key.KeyException: Could not solve for mode from sharps=2, tonic=D#\n\n\nIonian and Aeolian are supplied instead of major or minor when deriving mode in this way:\n>>> ks2 = key.KeySignature()\n>>> ks2.asKey()\n<music21.key.Key of C major>\n>>> ks2.asKey(tonic='C')\n<music21.key.Key of C ionian>\n\n\n\nNew in v7: tonic argument to solve for mode.",
+        "type": "ListItem"
+    },
+    {
+        "text": "KeySignature.",
+        "type": "Title"
+    },
+    {
+        "text": "getScale",
+        "type": "Title"
+    },
+    {
+        "text": "mode",
+        "type": "Title"
+    },
+    {
+        "text": "'major'",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a music21.scale.Scale object (or, actually, a subclass such as\nMajorScale or MinorScale) that is\nrepresentative of this key signature and mode.\nRaises KeySignatureException if mode is not in [None, \u0098major', \u0098minor'].\n>>> ks = key.KeySignature(3)\n>>> ks\n<music21.key.KeySignature of 3 sharps>\n>>> ks.getScale('major')\n<music21.scale.MajorScale A major>\n>>> ks.getScale('minor')\n<music21.scale.MinorScale F# minor>",
+        "type": "ListItem"
+    },
+    {
+        "text": "KeySignature.",
+        "type": "Title"
+    },
+    {
+        "text": "transpose",
+        "type": "Title"
+    },
+    {
+        "text": "value",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "Interval",
+        "type": "Title"
+    },
+    {
+        "text": "GenericInterval",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "Literal[False]",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 KeySignatureType",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "KeySignature.",
+        "type": "Title"
+    },
+    {
+        "text": "transpose",
+        "type": "Title"
+    },
+    {
+        "text": "value",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "Interval",
+        "type": "Title"
+    },
+    {
+        "text": "GenericInterval",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "Literal[True]",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "Transpose the KeySignature by the user-provided value.\nIf the value is an integer, the transposition is treated\nin half steps. If the value is a string, any Interval string\nspecification can be provided. Alternatively, a\nmusic21.interval.Interval object can be supplied.\n>>> a = key.KeySignature(2)\n>>> a\n<music21.key.KeySignature of 2 sharps>\n>>> a.asKey('major')\n<music21.key.Key of D major>\n\n\n>>> b = a.transpose('p5')\n>>> b\n<music21.key.KeySignature of 3 sharps>\n>>> b.asKey('major')\n<music21.key.Key of A major>\n>>> b.sharps\n3\n\n\n>>> c = b.transpose('-m2')\n>>> c.asKey('major')\n<music21.key.Key of G# major>\n>>> c.sharps\n8\n\n\n>>> d = c.transpose('-a3')\n>>> d.asKey('major')\n<music21.key.Key of E- major>\n>>> d.sharps\n-3\n\n\nTransposition by semitone (or other chromatic interval)\n>>> c = key.KeySignature(0)\n>>> dFlat = c.transpose(1)\n>>> dFlat\n<music21.key.KeySignature of 5 flats>\n>>> d = dFlat.transpose(1)\n>>> d\n<music21.key.KeySignature of 2 sharps>\n>>> eFlat = d.transpose(1)\n>>> eFlat\n<music21.key.KeySignature of 3 flats>",
+        "type": "ListItem"
+    },
+    {
+        "text": "KeySignature.",
+        "type": "Title"
+    },
+    {
+        "text": "transposePitchFromC",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 Pitch | None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Takes a pitch in C major and transposes it so that it has\nthe same step position in the current key signature.\nExample: B is the leading tone in C major, so given\na key signature of 3 flats, get the leading tone in E-flat major:\n>>> ks = key.KeySignature(-3)\n>>> p1 = pitch.Pitch('B')\n>>> p2 = ks.transposePitchFromC(p1)\n>>> p2.name\n'D'\n\n\nOriginal pitch is unchanged:\n>>> p1.name\n'B'\n\n\n>>> ks2 = key.KeySignature(2)\n>>> p2 = ks2.transposePitchFromC(p1)\n>>> p2.name\n'C#'\n\n\nFor out of scale pitches the relationship still works; note also that\noriginal octave is preserved.\n>>> p3 = pitch.Pitch('G-4')\n>>> p4 = ks.transposePitchFromC(p3)\n>>> p4.nameWithOctave\n'B--4'\n\n\nIf inPlace is True then the original pitch is\nmodified and nothing is returned.\n>>> p5 = pitch.Pitch('C5')\n>>> ks.transposePitchFromC(p5, inPlace=True)\n>>> p5.nameWithOctave\n'E-5'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "KeySignature instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "Key\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.key.",
+        "type": "Title"
+    },
+    {
+        "text": "Key",
+        "type": "Title"
+    },
+    {
+        "text": "tonic",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'C'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "mode",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Note that a key is a sort of hypothetical/conceptual object.\nIt probably has a scale (or scales) associated with it and a KeySignature,\nbut not necessarily.\nA Key object has all the attributes of a KeySignature and all the attributes of a\nDiatonicScale.\n>>> cm = key.Key('c')  # lowercase = c minor.\n>>> cm\n<music21.key.Key of c minor>\n>>> cm.mode\n'minor'\n>>> cm.tonic\n<music21.pitch.Pitch C>\n\n\n>>> cm.sharps\n-3\n>>> cm.pitchFromDegree(3)\n<music21.pitch.Pitch E-4>\n>>> cm.pitchFromDegree(7)\n<music21.pitch.Pitch B-4>\n\n\n>>> cSharpMaj = key.Key('C#')  # uppercase = C# major\n>>> cSharpMaj\n<music21.key.Key of C# major>\n>>> cSharpMaj.sharps\n7\n\n\n>>> fFlatMaj = key.Key('F-')\n>>> fFlatMaj\n<music21.key.Key of F- major>\n>>> fFlatMaj.sharps\n-8\n>>> fFlatMaj.accidentalByStep('B')\n<music21.pitch.Accidental double-flat>\n\n\n>>> eDor = key.Key('E', 'dorian')\n>>> eDor\n<music21.key.Key of E dorian>\n>>> eDor.sharps\n2\n>>> eDor.pitches\n[<music21.pitch.Pitch E4>,\n <music21.pitch.Pitch F#4>,\n <music21.pitch.Pitch G4>,\n <music21.pitch.Pitch A4>,\n <music21.pitch.Pitch B4>,\n <music21.pitch.Pitch C#5>,\n <music21.pitch.Pitch D5>,\n <music21.pitch.Pitch E5>]\n\n\nIf you prefer not to use uppercase and lowercase to distinguish major and minor,\nthe shorthand of CM or Cm can also be used:\n>>> key.Key('EM')\n<music21.key.Key of E major>\n>>> key.Key('F#m')\n<music21.key.Key of f# minor>\n\n\nEquality\nTwo Keys are equal if their tonics' names are equal, their sharps are equal,\nand their modes are equal (and they pass all superclass tests)\n>>> k = key.Key(pitch.Pitch('C4'))\n>>> k2 = key.Key(pitch.Pitch('C5'))\n>>> k == k2\nTrue\n>>> k.mode = 'minor'\n>>> k == k2\nFalse\n\n\n\nChanged in v8: keys now compare equal regardless of the octave of their tonics.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Key bases",
+        "type": "Title"
+    },
+    {
+        "text": "KeySignature",
+        "type": "ListItem"
+    },
+    {
+        "text": "DiatonicScale",
+        "type": "ListItem"
+    },
+    {
+        "text": "ConcreteScale",
+        "type": "ListItem"
+    },
+    {
+        "text": "Scale",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "Key read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Key.",
+        "type": "Title"
+    },
+    {
+        "text": "parallel",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "if the Key is major or minor, return the parallel minor or major.\nOtherwise, just returns self \u2014 this is the best way to not have random crashes\nin the middle of large datasets.\n>>> k = key.Key('D')\n>>> k\n<music21.key.Key of D major>\n>>> k.parallel\n<music21.key.Key of d minor>\n>>> k.parallel.parallel\n<music21.key.Key of D major>\n\n\n>>> key.Key('D', 'dorian').parallel\n<music21.key.Key of D dorian>",
+        "type": "ListItem"
+    },
+    {
+        "text": "Key.",
+        "type": "Title"
+    },
+    {
+        "text": "relative",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "if the Key is major or minor, return the relative minor or major.\nOtherwise, just returns self \u2014 this is the best way to not have random crashes\nin the middle of large datasets.\nNote that this uses .sharps as a speedup, so if that has been changed, there\nwill be a problem\u2026\n>>> k = key.Key('E-')\n>>> k\n<music21.key.Key of E- major>\n>>> k.relative\n<music21.key.Key of c minor>\n>>> k.relative.relative\n<music21.key.Key of E- major>\n\n\n>>> key.Key('D', 'dorian').relative\n<music21.key.Key of D dorian>",
+        "type": "ListItem"
+    },
+    {
+        "text": "Key.",
+        "type": "Title"
+    },
+    {
+        "text": "tonicPitchNameWithCase",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return the pitch name as a string with the proper case (upper = major; lower = minor)\nUseful, but simple:\n>>> k = key.Key('c#')\n>>> k.tonicPitchNameWithCase\n'c#'\n>>> k = key.Key('B')\n>>> k.tonicPitchNameWithCase\n'B'\n>>> k.mode = 'minor'\n>>> k.tonicPitchNameWithCase\n'b'\n\n\nAnything else will return the default (capital)\n>>> k.mode = 'dorian'\n>>> k.tonicPitchNameWithCase\n'B'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read-only properties inherited from KeySignature:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isNonTraditional",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ConcreteScale:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "chord isConcrete name pitches",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "Key read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from KeySignature:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "alteredPitches sharps",
+        "type": "Table"
+    },
+    {
+        "text": "Read/write properties inherited from ConcreteScale:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "abstract",
+        "type": "Table"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "Key methods",
+        "type": "Title"
+    },
+    {
+        "text": "Key.",
+        "type": "Title"
+    },
+    {
+        "text": "__eq__",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "other",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Define equality for Music21Objects.  See main class docs.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Key.",
+        "type": "Title"
+    },
+    {
+        "text": "deriveByDegree",
+        "type": "Title"
+    },
+    {
+        "text": "degree",
+        "type": "Title"
+    },
+    {
+        "text": "pitchRef",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a degree and pitchReference derive a new\nKey object that has the same mode but a different tonic\nExample: What minor key has scale degree 3 as B-flat?\n>>> minorKey = key.Key(mode='minor')\n>>> newMinor = minorKey.deriveByDegree(3, 'B-')\n>>> newMinor\n<music21.key.Key of g minor>\n\n\nNote that in minor, the natural form is used:\n>>> minorKey.deriveByDegree(7, 'E')\n<music21.key.Key of f# minor>\n>>> minorKey.deriveByDegree(6, 'G')\n<music21.key.Key of b minor>\n\n\nTo use the harmonic form, change .abstract on the key to\nanother abstract scale:\n>>> minorKey.abstract = scale.AbstractHarmonicMinorScale()\n>>> minorKey.deriveByDegree(7, 'E')\n<music21.key.Key of f minor>\n>>> minorKey.deriveByDegree(6, 'G')\n<music21.key.Key of b minor>\n\n\nCurrently because of a limitation in bidirectional scale\nsearching, melodic minor scales cannot be used as abstracts\nfor deriving by degree.\n\nNew in v6: preserve mode in key.Key.deriveByDegree",
+        "type": "ListItem"
+    },
+    {
+        "text": "Key.",
+        "type": "Title"
+    },
+    {
+        "text": "tonalCertainty",
+        "type": "Title"
+    },
+    {
+        "text": "method",
+        "type": "Title"
+    },
+    {
+        "text": "'correlationCoefficient'",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 float",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Provide a measure of tonal ambiguity for Key\ndetermined with one of many methods.\nThe correlationCoefficient assumes that the\nalternateInterpretations list has\nbeen filled from the use of a KeyWeightKeyAnalysis subclass.\n>>> littlePiece = converter.parse(\"tinyNotation: 4/4 c4 d e f g a b c' e' g' e' c'\")\n>>> k = littlePiece.analyze('key')\n>>> k\n<music21.key.Key of C major>\n>>> k.tonalCertainty()\n1.1648...\n\n\nThree most likely alternateInterpretations:\n>>> k.alternateInterpretations[0:3]\n[<music21.key.Key of a minor>, <music21.key.Key of F major>, <music21.key.Key of d minor>]\n>>> k.correlationCoefficient\n0.9068...\n>>> k.alternateInterpretations[0].correlationCoefficient\n0.7778...\n\n\nleast likely interpretation:\n>>> k.alternateInterpretations[-1]\n<music21.key.Key of F# major>\n\n\nNote that this method only exists if the key has come from an analysis method. Otherwise\nit raises a KeySignatureException\n>>> k2 = key.Key('b-')\n>>> k2.tonalCertainty()\nTraceback (most recent call last):\nmusic21.key.KeySignatureException: cannot process ambiguity without a\n    list of .alternateInterpretations\n\n\n>>> k2.alternateInterpretations\n[]",
+        "type": "ListItem"
+    },
+    {
+        "text": "Key.",
+        "type": "Title"
+    },
+    {
+        "text": "transpose",
+        "type": "Title"
+    },
+    {
+        "text": "value",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "Interval",
+        "type": "Title"
+    },
+    {
+        "text": "GenericInterval",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "Literal[False]",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 KeyType",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Key.",
+        "type": "Title"
+    },
+    {
+        "text": "transpose",
+        "type": "Title"
+    },
+    {
+        "text": "value",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "Interval",
+        "type": "Title"
+    },
+    {
+        "text": "GenericInterval",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "Literal[True]",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "Transpose the Key by the user-provided value.\nIf the value is an integer, the transposition is treated\nin half steps. If the value is a string, any Interval string\nspecification can be provided. Alternatively, a\nmusic21.interval.Interval object can be supplied.\n>>> dMajor = key.Key('D')\n>>> dMajor\n<music21.key.Key of D major>\n\n\n>>> aMaj = dMajor.transpose('p5')\n>>> aMaj\n<music21.key.Key of A major>\n>>> aMaj.sharps\n3\n>>> aMaj.tonic\n<music21.pitch.Pitch A>\n>>> aMaj.mode\n'major'\n\n\ninPlace=True works here and returns None while changing the Key itself.\n>>> changingKey = key.Key('g')\n>>> changingKey\n<music21.key.Key of g minor>\n>>> changingKey.sharps\n-2\n>>> changingKey.transpose('m-3', inPlace=True)\n>>> changingKey\n<music21.key.Key of e minor>\n>>> changingKey.sharps\n1\n\n\n>>> changingKey.transpose(1, inPlace=True)\n>>> changingKey\n<music21.key.Key of f minor>\n>>> changingKey.sharps\n-4\n>>> changingKey.transpose(1, inPlace=True)\n>>> changingKey\n<music21.key.Key of f# minor>\n>>> changingKey.transpose(1, inPlace=True)\n>>> changingKey\n<music21.key.Key of g minor>\n>>> changingKey.transpose(1, inPlace=True)\n>>> changingKey\n<music21.key.Key of g# minor>",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from KeySignature:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "accidentalByStep() asKey() getScale() transposePitchFromC()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from DiatonicScale:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "getDominant() getLeadingTone() getParallelMajor() getParallelMinor() getRelativeMajor() getRelativeMinor() getTonic()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ConcreteScale:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "derive() deriveAll() deriveRanked() findMissing() getChord() getDegreeMaxUnique() getPitches() getScalaData() getScaleDegreeAndAccidentalFromPitch() getScaleDegreeFromPitch() intervalBetweenDegrees() isNext() match() next() nextPitch() pitchFromDegree() pitchesFromScaleDegrees() romanNumeral() show() solfeg() tune() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Scale:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "extractPitchList()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() previous() purgeLocations() purgeOrphans() setOffsetBySite() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Key instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.key.",
+        "type": "Title"
+    },
+    {
+        "text": "convertKeyStringToMusic21KeyString",
+        "type": "Title"
+    },
+    {
+        "text": "textString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Utility function to change strings in the form of \u009cEb\u009d to\n\u009cE-\u009d (for E-flat major) and leaves alone proper music21 strings\n(like \u009cE-\u009d or \u009cf#\u009d).  A little bit complex because of parsing\nbb as B-flat minor and Bb as B-flat major.\n>>> key.convertKeyStringToMusic21KeyString('Eb')\n'E-'\n>>> key.convertKeyStringToMusic21KeyString('f#')\n'f#'\n>>> key.convertKeyStringToMusic21KeyString('bb')\n'b-'\n>>> key.convertKeyStringToMusic21KeyString('Bb')\n'B-'\n>>> key.convertKeyStringToMusic21KeyString('b#')\n'b#'\n>>> key.convertKeyStringToMusic21KeyString('c')\n'c'\n>>> key.convertKeyStringToMusic21KeyString('Bbb')\n'B--'\n>>> key.convertKeyStringToMusic21KeyString('bbb')\n'b--'\n>>> key.convertKeyStringToMusic21KeyString('Ebb')\n'E--'",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.key.",
+        "type": "Title"
+    },
+    {
+        "text": "pitchToSharps",
+        "type": "Title"
+    },
+    {
+        "text": "value",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "mode",
+        "type": "Title"
+    },
+    {
+        "text": "str | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 int",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a pitch string or music21.pitch.Pitch or\nmusic21.note.Note object,\nreturn the number of sharps found in that mode.\nThe mode parameter can be \u0098major', \u0098minor', or most\nof the common church/jazz modes (\u0098dorian', \u0098mixolydian', etc.)\nincluding Locrian.\nIf mode is omitted or not found, the default mode is major.\n(extra points to anyone who can find the earliest reference to\nthe Locrian mode in print.  David Cohen and I (MSAC) have been\nlooking for this for years).\n>>> key.pitchToSharps('c')\n0\n>>> key.pitchToSharps('c', 'minor')\n-3\n>>> key.pitchToSharps('a', 'minor')\n0\n>>> key.pitchToSharps('d')\n2\n>>> key.pitchToSharps('e-')\n-3\n>>> key.pitchToSharps('a')\n3\n>>> key.pitchToSharps('e', 'minor')\n1\n>>> key.pitchToSharps('f#', 'major')\n6\n>>> key.pitchToSharps('g-', 'major')\n-6\n>>> key.pitchToSharps('c#')\n7\n>>> key.pitchToSharps('g#')\n8\n>>> key.pitchToSharps('e', 'dorian')\n2\n>>> key.pitchToSharps('d', 'dorian')\n0\n>>> key.pitchToSharps('g', 'mixolydian')\n0\n>>> key.pitchToSharps('e-', 'lydian')\n-2\n>>> key.pitchToSharps('e-', 'lydian')\n-2\n>>> key.pitchToSharps('a', 'phrygian')\n-1\n>>> key.pitchToSharps('e', 'phrygian')\n0\n>>> key.pitchToSharps('f#')\n6\n>>> key.pitchToSharps(note.Note('f-'))\n-8\n>>> key.pitchToSharps(pitch.Pitch('f--'))\n-15\n>>> key.pitchToSharps('f--', 'locrian')\n-20\n>>> key.pitchToSharps('a', 'ionian')\n3\n>>> key.pitchToSharps('a', 'aeolian')\n0\n\n\nBut quarter tones don't work:\n>>> key.pitchToSharps('C~')\nTraceback (most recent call last):\nmusic21.key.KeyException: Cannot determine sharps for quarter-tone keys! silly!",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.key.",
+        "type": "Title"
+    },
+    {
+        "text": "sharpsToPitch",
+        "type": "Title"
+    },
+    {
+        "text": "sharpCount",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a positive/negative number of sharps, return a Pitch\nobject set to the appropriate major key value.\n>>> key.sharpsToPitch(1)\n<music21.pitch.Pitch G>\n>>> key.sharpsToPitch(2)\n<music21.pitch.Pitch D>\n>>> key.sharpsToPitch(-2)\n<music21.pitch.Pitch B->\n>>> key.sharpsToPitch(-6)\n<music21.pitch.Pitch G->\n\n\nNote that these are music21.pitch.Pitch objects not just names:\n>>> k1 = key.sharpsToPitch(6)\n>>> k1\n<music21.pitch.Pitch F#>\n>>> k1.step\n'F'\n>>> k1.accidental\n<music21.pitch.Accidental sharp>",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.key",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

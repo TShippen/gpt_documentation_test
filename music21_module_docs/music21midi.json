@@ -1,0 +1,1566 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.midi",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.meter.tools",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.midi.percussion",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.midi\nChannelModeMessages\nChannelModeMessages\n\n\nChannelVoiceMessages\nChannelVoiceMessages\n\n\nDeltaTime\nDeltaTime\nDeltaTime.getBytes()\nDeltaTime.readUntilLowByte()\n\n\n\n\nMetaEvents\nMetaEvents\n\n\nMidiEvent\nMidiEvent\nMidiEvent.sortOrder\nMidiEvent.data\nMidiEvent.pitch\nMidiEvent.velocity\nMidiEvent.getBytes()\nMidiEvent.isDeltaTime()\nMidiEvent.isNoteOff()\nMidiEvent.isNoteOn()\nMidiEvent.matchedNoteOff()\nMidiEvent.parseChannelVoiceMessage()\nMidiEvent.read()\nMidiEvent.setPitchBend()\n\n\n\n\nMidiFile\nMidiFile\nMidiFile.close()\nMidiFile.open()\nMidiFile.openFileLike()\nMidiFile.read()\nMidiFile.readstr()\nMidiFile.write()\nMidiFile.writeMThdStr()\nMidiFile.writestr()\n\n\n\n\nMidiTrack\nMidiTrack\nMidiTrack.length\nMidiTrack.getBytes()\nMidiTrack.getChannels()\nMidiTrack.getProgramChanges()\nMidiTrack.hasNotes()\nMidiTrack.processDataToEvents()\nMidiTrack.read()\nMidiTrack.setChannel()\nMidiTrack.updateEvents()\n\n\n\n\nSysExEvents\nSysExEvents\n\n\nFunctions\ncharToBinary()\ngetNumber()\ngetNumbersAsList()\ngetVariableLengthNumber()\nintsToHexBytes()\nputNumber()\nputNumbersAsList()\nputVariableLengthNumber()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.midi\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Objects and tools for processing MIDI data.  Converts from MIDI files to\nMidiEvent, MidiTrack, and\nMidiFile objects, and vice-versa.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Further conversion to-and-from MidiEvent/MidiTrack/MidiFile and music21 Stream,\nNote, etc., objects takes place in music21.midi.translate.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "This module originally used routines from Will Ware's public domain midi.py\nlibrary from 2001 which was once posted at (http link)\ngroups.google.com/g/alt.sources/msg/0c5fc523e050c35e",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "ChannelModeMessages\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.midi.",
+        "type": "Title"
+    },
+    {
+        "text": "ChannelModeMessages",
+        "type": "Title"
+    },
+    {
+        "text": "value",
+        "type": "Title"
+    },
+    {
+        "text": "names",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "module",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "qualname",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "start",
+        "type": "Title"
+    },
+    {
+        "text": "boundary",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "ChannelModeMessages bases",
+        "type": "Title"
+    },
+    {
+        "text": "_ContainsEnum",
+        "type": "ListItem"
+    },
+    {
+        "text": "ChannelVoiceMessages\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.midi.",
+        "type": "Title"
+    },
+    {
+        "text": "ChannelVoiceMessages",
+        "type": "Title"
+    },
+    {
+        "text": "value",
+        "type": "Title"
+    },
+    {
+        "text": "names",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "module",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "qualname",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "start",
+        "type": "Title"
+    },
+    {
+        "text": "boundary",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "ChannelVoiceMessages bases",
+        "type": "Title"
+    },
+    {
+        "text": "_ContainsEnum",
+        "type": "ListItem"
+    },
+    {
+        "text": "DeltaTime\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.midi.",
+        "type": "Title"
+    },
+    {
+        "text": "DeltaTime",
+        "type": "Title"
+    },
+    {
+        "text": "track",
+        "type": "Title"
+    },
+    {
+        "text": "time",
+        "type": "Title"
+    },
+    {
+        "text": "channel",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A MidiEvent subclass that stores the\ntime change (in ticks) since the start or since the last MidiEvent.\nPairs of DeltaTime and MidiEvent objects are the basic presentation of temporal data.\nThe track argument must be a MidiTrack object.\nTime values are in integers, representing ticks.\nThe channel attribute, inherited from MidiEvent is not used and set to None\nunless overridden (don't!).\n>>> mt = midi.MidiTrack(1)\n>>> dt = midi.DeltaTime(mt)\n>>> dt.time = 1\n>>> dt\n<music21.midi.DeltaTime t=1, track=1, channel=None>",
+        "type": "ListItem"
+    },
+    {
+        "text": "DeltaTime bases",
+        "type": "Title"
+    },
+    {
+        "text": "MidiEvent",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "DeltaTime read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from MidiEvent:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "sortOrder",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "DeltaTime read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from MidiEvent:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "data pitch velocity",
+        "type": "Table"
+    },
+    {
+        "text": "DeltaTime methods",
+        "type": "Title"
+    },
+    {
+        "text": "DeltaTime.",
+        "type": "Title"
+    },
+    {
+        "text": "getBytes",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bytes",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Convert the time integer into a set of bytes.\n>>> mt = midi.MidiTrack(1)\n>>> dt = midi.DeltaTime(mt)\n>>> dt.time = 1\n>>> dt.getBytes()\nb'\\x01'\n\n\n>>> dt.time = 128\n>>> dt.getBytes()\nb'\\x81\\x00'\n\n\n>>> dt.time = 257\n>>> dt.getBytes()\nb'\\x82\\x01'\n\n\n>>> dt.time = 16385\n>>> dt.getBytes()\nb'\\x81\\x80\\x01'",
+        "type": "ListItem"
+    },
+    {
+        "text": "DeltaTime.",
+        "type": "Title"
+    },
+    {
+        "text": "readUntilLowByte",
+        "type": "Title"
+    },
+    {
+        "text": "oldBytes",
+        "type": "Title"
+    },
+    {
+        "text": "bytes",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 tuple[int, bytes]",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Read a byte-string until hitting a character below 0x80\nand return the converted number and the rest of the bytes\n>>> mt = midi.MidiTrack(1)\n>>> dt = midi.DeltaTime(mt)\n>>> dt.readUntilLowByte(b'\\x20')\n(32, b'')\n>>> dt.readUntilLowByte(b'\\x20hello')\n(32, b'hello')\n\n\nhere the \u0098x82' is above 0x80 so the \u0098h' is read\nas part of the continuation.\n>>> dt.readUntilLowByte(b'\\x82hello')\n(360, b'ello')\n\n\nChanged in v9: was read() but had an incompatible signature with MidiEvent",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from MidiEvent:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isDeltaTime() isNoteOff() isNoteOn() matchedNoteOff() parseChannelVoiceMessage() read() setPitchBend()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "MetaEvents\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.midi.",
+        "type": "Title"
+    },
+    {
+        "text": "MetaEvents",
+        "type": "Title"
+    },
+    {
+        "text": "value",
+        "type": "Title"
+    },
+    {
+        "text": "names",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "module",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "qualname",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "start",
+        "type": "Title"
+    },
+    {
+        "text": "boundary",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "MetaEvents bases",
+        "type": "Title"
+    },
+    {
+        "text": "_ContainsEnum",
+        "type": "ListItem"
+    },
+    {
+        "text": "MidiEvent\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.midi.",
+        "type": "Title"
+    },
+    {
+        "text": "MidiEvent",
+        "type": "Title"
+    },
+    {
+        "text": "track",
+        "type": "Title"
+    },
+    {
+        "text": "MidiTrack | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "time",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "channel",
+        "type": "Title"
+    },
+    {
+        "text": "int | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A model of a MIDI event, including note-on, note-off, program change,\ncontroller change, any many others.\nMidiEvent objects are paired (preceded) by DeltaTime\nobjects in the list of events in a MidiTrack object.\nThe track argument must be a MidiTrack object.\nThe type attribute is an enumeration of a Midi event from the ChannelVoiceMessages\nor metaEvents enums.\nThe channel attribute is an integer channel id, from 1 to 16.\nThe time attribute is an integer duration of the event in ticks. This value\ncan be zero. This value is not essential, as ultimate time positioning is\ndetermined by DeltaTime objects.\nThe pitch attribute is only defined for note-on and note-off messages.\nThe attribute stores an integer representation (0-127, with 60 = middle C).\nThe velocity attribute is only defined for note-on and note-off messages.\nThe attribute stores an integer representation (0-127).  A note-on message with\nvelocity 0 is generally assumed to be the same as a note-off message.\nThe data attribute is used for storing other messages,\nsuch as SEQUENCE_TRACK_NAME string values.\n\nWarning\nThe attributes .midiProgram and .midiChannel on Instrument\nobjects are 0-indexed, just as they need to be in the written binary .mid.\nHowever, as a convenience, MidiEvent.channel is 1-indexed. No\nanalogous convenience is provided for program change data.\n\n>>> mt = midi.MidiTrack(1)\n>>> me1 = midi.MidiEvent(mt)\n>>> me1.type = midi.ChannelVoiceMessages.NOTE_ON\n>>> me1.channel = 3\n>>> me1.time = 200\n>>> me1.pitch = 60\n>>> me1.velocity = 120\n>>> me1\n<music21.midi.MidiEvent NOTE_ON, t=200, track=1, channel=3, pitch=60, velocity=120>\n\n\n>>> me2 = midi.MidiEvent(mt)\n>>> me2.type = midi.MetaEvents.SEQUENCE_TRACK_NAME\n>>> me2.data = 'guitar'\n>>> me2\n<music21.midi.MidiEvent SEQUENCE_TRACK_NAME, track=1, channel=None, data=b'guitar'>",
+        "type": "ListItem"
+    },
+    {
+        "text": "MidiEvent bases",
+        "type": "Title"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "MidiEvent read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "MidiEvent.",
+        "type": "Title"
+    },
+    {
+        "text": "sortOrder",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Ensure that for MidiEvents at the same \u009ctime\u009d, that order is\nNOTE_OFF, PITCH_BEND, all others.\n>>> CVM = midi.ChannelVoiceMessages\n>>> noteOn = midi.MidiEvent(type=CVM.NOTE_ON)\n>>> noteOff = midi.MidiEvent(type=CVM.NOTE_OFF)\n>>> pitchBend = midi.MidiEvent(type=CVM.PITCH_BEND)\n\n\n>>> sorted([noteOn, noteOff, pitchBend], key=lambda me: me.sortOrder)\n[<music21.midi.MidiEvent NOTE_OFF, track=None, channel=None>,\n <music21.midi.MidiEvent PITCH_BEND, track=None, channel=None>,\n <music21.midi.MidiEvent NOTE_ON, track=None, channel=None>]",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "MidiEvent read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "MidiEvent.",
+        "type": "Title"
+    },
+    {
+        "text": "data",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Read or set the data (.parameter1) for the object\nDoes some automatic conversions:\n>>> me = midi.MidiEvent(type=midi.ChannelModeMessages.LOCAL_CONTROL)\n>>> me.data = True\n>>> me.data\nb'\\x01'",
+        "type": "ListItem"
+    },
+    {
+        "text": "MidiEvent.",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "MidiEvent.",
+        "type": "Title"
+    },
+    {
+        "text": "velocity",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "MidiEvent methods",
+        "type": "Title"
+    },
+    {
+        "text": "MidiEvent.",
+        "type": "Title"
+    },
+    {
+        "text": "getBytes",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a set of bytes for this MIDI event.\n>>> noteOn = midi.MidiEvent(type=midi.ChannelVoiceMessages.NOTE_ON, channel=10)\n>>> noteOn.pitch = 60\n>>> noteOn.velocity = 127\n>>> noteOn.getBytes()\nb'\\x99<\\x7f'\n>>> noteOn.pitch = 62\n>>> noteOn.getBytes()\nb'\\x99>\\x7f'",
+        "type": "ListItem"
+    },
+    {
+        "text": "MidiEvent.",
+        "type": "Title"
+    },
+    {
+        "text": "isDeltaTime",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a boolean if this is a DeltaTime subclass.\n>>> mt = midi.MidiTrack(1)\n>>> dt = midi.DeltaTime(mt)\n>>> dt.isDeltaTime()\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "MidiEvent.",
+        "type": "Title"
+    },
+    {
+        "text": "isNoteOff",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a boolean if this should be interpreted as a note-off message,\neither as a real note-off or as a note-on with zero velocity.\n>>> mt = midi.MidiTrack(1)\n>>> me1 = midi.MidiEvent(mt)\n>>> me1.type = midi.ChannelVoiceMessages.NOTE_OFF\n>>> me1.isNoteOn()\nFalse\n>>> me1.isNoteOff()\nTrue\n\n\n>>> me2 = midi.MidiEvent(mt)\n>>> me2.type = midi.ChannelVoiceMessages.NOTE_ON\n>>> me2.velocity = 0\n>>> me2.isNoteOn()\nFalse\n>>> me2.isNoteOff()\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "MidiEvent.",
+        "type": "Title"
+    },
+    {
+        "text": "isNoteOn",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a boolean if this is a note-on message and velocity is not zero.\n>>> mt = midi.MidiTrack(1)\n>>> me1 = midi.MidiEvent(mt)\n>>> me1.type = midi.ChannelVoiceMessages.NOTE_ON\n>>> me1.velocity = 120\n>>> me1.isNoteOn()\nTrue\n>>> me1.isNoteOff()\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "MidiEvent.",
+        "type": "Title"
+    },
+    {
+        "text": "matchedNoteOff",
+        "type": "Title"
+    },
+    {
+        "text": "other",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if other is a MIDI event that specifies\na note-off message for this message.  That is, this event\nis a NOTE_ON message, and the other is a NOTE_OFF message\nfor this pitch on this channel.  Otherwise returns False\n>>> mt = midi.MidiTrack(1)\n>>> me1 = midi.MidiEvent(mt)\n>>> me1.type = midi.ChannelVoiceMessages.NOTE_ON\n>>> me1.velocity = 120\n>>> me1.pitch = 60\n\n\n>>> me2 = midi.MidiEvent(mt)\n>>> me2.type = midi.ChannelVoiceMessages.NOTE_ON\n>>> me2.velocity = 0\n>>> me2.pitch = 60\n\n\nme2 is a Note off for me1 because it has velocity 0 and matches\npitch.\n>>> me1.matchedNoteOff(me2)\nTrue\n\n\nNow the pitch does not match, so it does not work.\n>>> me2.pitch = 61\n>>> me1.matchedNoteOff(me2)\nFalse\n\n\n>>> me2.type = midi.ChannelVoiceMessages.NOTE_OFF\n>>> me1.matchedNoteOff(me2)\nFalse\n\n\n>>> me2.pitch = 60\n>>> me1.matchedNoteOff(me2)\nTrue\n\n\nChannels must match also:\n>>> me2.channel = 12\n>>> me1.matchedNoteOff(me2)\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "MidiEvent.",
+        "type": "Title"
+    },
+    {
+        "text": "parseChannelVoiceMessage",
+        "type": "Title"
+    },
+    {
+        "text": "midiBytes",
+        "type": "Title"
+    },
+    {
+        "text": "bytes",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bytes",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Take a set of bytes that represent a ChannelVoiceMessage and set the\nappropriate enumeration value and data, returning the remaining bytes.\nThese are started with messages from 0x80 to 0xEF\nDemonstration.  First let's create a helper function and a MidiEvent:\n>>> to_bytes = midi.intsToHexBytes\n>>> midBytes = to_bytes([0x90, 60, 120])\n>>> midBytes\nb'\\x90<x'\n>>> midBytes += b'hello'\n>>> mt = midi.MidiTrack(1)\n>>> me1 = midi.MidiEvent(mt)\n>>> me1\n<music21.midi.MidiEvent None, track=1, channel=None>\n\n\nNow show how the midiBytes changes the event:\n>>> remainder = me1.parseChannelVoiceMessage(midBytes)\n>>> me1\n<music21.midi.MidiEvent NOTE_ON, track=1, channel=1, pitch=60, velocity=120>\n\n\nThe remainder would probably contain a delta time and following\nevents, but here we'll just show that it passes through.\n>>> remainder\nb'hello'\n\n\nWe will ignore remainders from now on.\nAll attributes are set properly:\n>>> me1.type\n<ChannelVoiceMessages.NOTE_ON: 0x90>\n>>> me1.pitch  # 60 = middle C\n60\n>>> me1.velocity\n120\n>>> me1.channel\n1\n\n\nHere we send the message for a note on another channel (0x91 = channel 2):\n>>> rem = me1.parseChannelVoiceMessage(to_bytes([0x91, 60, 120]))\n>>> me1\n<music21.midi.MidiEvent NOTE_ON, track=1, channel=2, pitch=60, velocity=120>\n>>> me1.channel\n2\n\n\nNow let's make a program change\n>>> me2 = midi.MidiEvent(mt)\n>>> rem = me2.parseChannelVoiceMessage(to_bytes([0xC0, 71]))\n>>> me2\n<music21.midi.MidiEvent PROGRAM_CHANGE, track=1, channel=1, data=71>\n>>> me2.data  # 71 = clarinet (0-127 indexed)\n71\n\n\nProgram change and channel pressure only go to 127.  More than that is an error:\n>>> me2.parseChannelVoiceMessage(to_bytes([0xC0, 200]))\nTraceback (most recent call last):\nmusic21.midi.MidiException: Cannot have a\n    <ChannelVoiceMessages.PROGRAM_CHANGE: 0xC0> followed by a byte > 127: 200",
+        "type": "ListItem"
+    },
+    {
+        "text": "MidiEvent.",
+        "type": "Title"
+    },
+    {
+        "text": "read",
+        "type": "Title"
+    },
+    {
+        "text": "midiBytes",
+        "type": "Title"
+    },
+    {
+        "text": "bytes",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bytes",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Parse the bytes given and take the beginning\nsection and convert it into data for this event and return the\nnow truncated bytes.\n>>> channel = 0x2\n>>> noteOnMessage = midi.ChannelVoiceMessages.NOTE_ON | channel\n>>> hex(noteOnMessage)\n'0x92'\n\n\nThis is how the system reads note-on messages (0x90-0x9F) and channels\n>>> hex(0x91 & 0xF0)  # testing message type extraction\n'0x90'\n>>> hex(0x92 & 0xF0)  # testing message type extraction\n'0x90'\n>>> (0x90 & 0x0F) + 1  # getting the channel\n1\n>>> (0x9F & 0x0F) + 1  # getting the channel\n16",
+        "type": "ListItem"
+    },
+    {
+        "text": "MidiEvent.",
+        "type": "Title"
+    },
+    {
+        "text": "setPitchBend",
+        "type": "Title"
+    },
+    {
+        "text": "cents",
+        "type": "Title"
+    },
+    {
+        "text": "bendRange",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Treat this event as a pitch bend value, and set the .parameter1 and.parameter2 fields appropriately given a specified bend value in cents.\n\n\nAlso called Pitch Wheel\nThe bendRange parameter gives the number of half steps in the bend range.\n>>> mt = midi.MidiTrack(1)\n>>> me1 = midi.MidiEvent(mt)\n>>> me1.setPitchBend(50)\n>>> me1.parameter1, me1.parameter2\n(0, 80)\n>>> me1.setPitchBend(100)\n>>> me1.parameter1, me1.parameter2\n(0, 96)\n\n\nNeutral is 0, 64\n>>> me1.setPitchBend(0)\n>>> me1.parameter1, me1.parameter2\n(0, 64)\n\n\nParameter 2 is the most significant digit, not\nparameter 1.\n>>> me1.setPitchBend(101)\n>>> me1.parameter1, me1.parameter2\n(40, 96)\n\n\nExceeding maximum sets max\n>>> me1.setPitchBend(200)\n>>> me1.parameter1, me1.parameter2\n(127, 127)\n>>> me1.setPitchBend(300)\n>>> me1.parameter1, me1.parameter2\n(127, 127)\n\n\n>>> me1.setPitchBend(-50)\n>>> me1.parameter1, me1.parameter2\n(0, 48)\n>>> me1.setPitchBend(-100)\n>>> me1.parameter1, me1.parameter2\n(0, 32)\n>>> me1.setPitchBend(-196)\n>>> me1.parameter1, me1.parameter2\n(36, 1)\n>>> me1.setPitchBend(-200)\n>>> me1.parameter1, me1.parameter2\n(0, 0)\n\n\nAgain, excess trimmed\n>>> me1.setPitchBend(-300)\n>>> me1.parameter1, me1.parameter2\n(0, 0)\n\n\nBut a larger bendRange can be set in semitones for non-GM devices:\n>>> me1.setPitchBend(-300, bendRange=4)\n>>> me1.parameter1, me1.parameter2\n(0, 16)\n>>> me1.setPitchBend(-399, bendRange=4)\n>>> me1.parameter1, me1.parameter2\n(20, 0)",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "MidiFile\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.midi.",
+        "type": "Title"
+    },
+    {
+        "text": "MidiFile",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Low-level MIDI file writing, emulating methods from normal Python files.\nFor most users, do not go here, simply use:\n\nscore = converter.parse(\u0098path/to/file/in.mid')\nmidi_out = score.write(\u0098midi', fp='path/to/file/out.mid')\n\nThe ticksPerQuarterNote attribute must be set before writing. 1024 is a common value.\nThis object is returned by some properties for directly writing files of midi representations.\n>>> mf = midi.MidiFile()\n>>> mf\n<music21.midi.MidiFile 0 tracks>\n\n\nMusic21 can read format 0 and format 1, and writes format 1.  Format 2 files\nare not parsable.\n>>> mf.format\n1\n\n\nAfter loading or before writing, tracks are stored in this list.\n>>> mf.tracks\n[]\n\n\nMost midi files store ticksPerQuarterNote and not ticksPerSecond\n>>> mf.ticksPerQuarterNote\n10080\n>>> mf.ticksPerSecond is None\nTrue\n\n\nAll MidiFiles have the same headerId\n>>> midi.MidiFile.headerId\nb'MThd'",
+        "type": "ListItem"
+    },
+    {
+        "text": "MidiFile bases",
+        "type": "Title"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "MidiFile read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "MidiFile methods",
+        "type": "Title"
+    },
+    {
+        "text": "MidiFile.",
+        "type": "Title"
+    },
+    {
+        "text": "close",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Close the file.",
+        "type": "ListItem"
+    },
+    {
+        "text": "MidiFile.",
+        "type": "Title"
+    },
+    {
+        "text": "open",
+        "type": "Title"
+    },
+    {
+        "text": "filename",
+        "type": "Title"
+    },
+    {
+        "text": "attrib",
+        "type": "Title"
+    },
+    {
+        "text": "'rb'",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Open a MIDI file path for reading or writing.\nFor writing to a MIDI file, attrib should be \u009cwb\u009d.",
+        "type": "ListItem"
+    },
+    {
+        "text": "MidiFile.",
+        "type": "Title"
+    },
+    {
+        "text": "openFileLike",
+        "type": "Title"
+    },
+    {
+        "text": "fileLike",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Assign a file-like object, such as those provided by BytesIO, as an open file object.\n>>> from io import BytesIO\n>>> fileLikeOpen = BytesIO()\n>>> mf = midi.MidiFile()\n>>> mf.openFileLike(fileLikeOpen)\n>>> mf.close()",
+        "type": "ListItem"
+    },
+    {
+        "text": "MidiFile.",
+        "type": "Title"
+    },
+    {
+        "text": "read",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Read and parse MIDI data stored in a file.",
+        "type": "ListItem"
+    },
+    {
+        "text": "MidiFile.",
+        "type": "Title"
+    },
+    {
+        "text": "readstr",
+        "type": "Title"
+    },
+    {
+        "text": "midiBytes",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Read and parse MIDI data as a bytes, putting the\ndata in .ticksPerQuarterNote and a list of\nMidiTrack objects in the attribute .tracks.\nThe name readstr is a carryover from Python 2.  It works on bytes objects, not strings",
+        "type": "ListItem"
+    },
+    {
+        "text": "MidiFile.",
+        "type": "Title"
+    },
+    {
+        "text": "write",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Write MIDI data as a file to the file opened with .open().",
+        "type": "ListItem"
+    },
+    {
+        "text": "MidiFile.",
+        "type": "Title"
+    },
+    {
+        "text": "writeMThdStr",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bytes",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Convert the information in self.ticksPerQuarterNote\ninto MIDI data header and return it as bytes.\nThe name writeMThdStr is a carry-over from Python 2.  It works on bytes, not strings.",
+        "type": "ListItem"
+    },
+    {
+        "text": "MidiFile.",
+        "type": "Title"
+    },
+    {
+        "text": "writestr",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bytes",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Generate the MIDI data header and convert the list of\nMidiTrack objects in self.tracks into MIDI data and return it as bytes.\nThe name writestr is a carry-over from Python 2.  It works on bytes, not strings.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "MidiTrack\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.midi.",
+        "type": "Title"
+    },
+    {
+        "text": "MidiTrack",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A MIDI Track. Each track contains an index and a list of events.\nAll events are stored in the events list, in order.\nAn index is an integer identifier for this object.  It is often called\n\u009ctrackId\u009d though technically the id for a MidiTrack is always b'MTrk'\n>>> mt = midi.MidiTrack(index=3)\n>>> mt.events\n[]\n>>> mt.index\n3\n\n\nThe data consists of all the midi data after b'MTrk'\n>>> mt.data\nb''\n\n\nAnd the .length is the same as the data's length\n>>> mt.length\n0\n\n\nAfter reading a string\n>>> mt.read(b'MTrk\\x00\\x00\\x00\\x16\\x00\\xff\\x03\\x00\\x00'\n...         + b'\\xe0\\x00@\\x00\\x90CZ\\x88\\x00\\x80C\\x00\\x88\\x00\\xff/\\x00')\nb''\n\n\nThe returned value is what is left over after the track is read\n(for instance the data for another track)\n>>> mt.length\n22\n>>> mt.data[:8]\nb'\\x00\\xff\\x03\\x00\\x00\\xe0\\x00@'\n\n\nNote that the \u0098x16' got translated to ascii \u0098@'.\n>>> mt.events\n[<music21.midi.DeltaTime (empty) track=3, channel=None>,\n <music21.midi.MidiEvent SEQUENCE_TRACK_NAME, track=3, channel=None, data=b''>,\n <music21.midi.DeltaTime (empty) track=3, channel=None>,\n <music21.midi.MidiEvent PITCH_BEND, track=3, channel=1, parameter1=0, parameter2=64>,\n <music21.midi.DeltaTime (empty) track=3, channel=None>,\n <music21.midi.MidiEvent NOTE_ON, track=3, channel=1, pitch=67, velocity=90>,\n <music21.midi.DeltaTime t=1024, track=3, channel=None>,\n <music21.midi.MidiEvent NOTE_OFF, track=3, channel=1, pitch=67, velocity=0>,\n <music21.midi.DeltaTime t=1024, track=3, channel=None>,\n <music21.midi.MidiEvent END_OF_TRACK, track=3, channel=None, data=b''>]\n\n\n>>> mt\n<music21.midi.MidiTrack 3 -- 10 events>\n\n\nThere is a class attribute of the headerId which is the same for\nall MidiTrack objects\n>>> midi.MidiTrack.headerId\nb'MTrk'",
+        "type": "ListItem"
+    },
+    {
+        "text": "MidiTrack bases",
+        "type": "Title"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "MidiTrack read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "MidiTrack.",
+        "type": "Title"
+    },
+    {
+        "text": "length",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "MidiTrack methods",
+        "type": "Title"
+    },
+    {
+        "text": "MidiTrack.",
+        "type": "Title"
+    },
+    {
+        "text": "getBytes",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "returns bytes of midi-data from the .events in the object.\n>>> mt = midi.MidiTrack(index=2)\n>>> noteOn = midi.MidiEvent(mt, type=midi.ChannelVoiceMessages.NOTE_ON, channel=1)\n>>> noteOn.pitch = 60\n>>> noteOn.velocity = 20\n>>> dt = midi.DeltaTime(mt, time=1024)\n>>> noteOff = midi.MidiEvent(mt, type=midi.ChannelVoiceMessages.NOTE_OFF, channel=1)\n>>> noteOff.pitch = 60\n>>> noteOff.velocity = 0\n\n\n>>> mt.events = [noteOn, dt, noteOff]\n>>> mt.getBytes()\nb'MTrk\\x00\\x00\\x00\\x08\\x90<\\x14\\x88\\x00\\x80<\\x00'\n\n\nThe b'x08' indicates that there are 8 bytes to follow.",
+        "type": "ListItem"
+    },
+    {
+        "text": "MidiTrack.",
+        "type": "Title"
+    },
+    {
+        "text": "getChannels",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get all channels (excluding None) used in this Track (sorted)\n>>> mt = midi.MidiTrack(index=2)\n>>> noteOn = midi.MidiEvent(type=midi.ChannelVoiceMessages.NOTE_ON, channel=14)\n>>> noteOn2 = midi.MidiEvent(type=midi.ChannelVoiceMessages.NOTE_ON, channel=5)\n>>> noteOn3 = midi.MidiEvent(type=midi.ChannelVoiceMessages.NOTE_ON, channel=14)\n>>> noteOn4 = midi.MidiEvent(type=midi.ChannelVoiceMessages.PROGRAM_CHANGE, channel=None)\n\n\n>>> mt.events = [noteOn, noteOn2, noteOn3, noteOn4]\n\n\n>>> mt.getChannels()\n[5, 14]",
+        "type": "ListItem"
+    },
+    {
+        "text": "MidiTrack.",
+        "type": "Title"
+    },
+    {
+        "text": "getProgramChanges",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get all unique program changes used in this Track, in order they appear.\n>>> mt = midi.MidiTrack(index=2)\n>>> pc1 = midi.MidiEvent(type=midi.ChannelVoiceMessages.PROGRAM_CHANGE)\n>>> pc1.data = 14\n>>> noteOn = midi.MidiEvent(type=midi.ChannelVoiceMessages.NOTE_ON, channel=14)\n>>> pc2 = midi.MidiEvent(type=midi.ChannelVoiceMessages.PROGRAM_CHANGE)\n>>> pc2.data = 1\n\n\n>>> mt.events = [pc1, noteOn, pc2]\n>>> mt.getProgramChanges()\n[14, 1]",
+        "type": "ListItem"
+    },
+    {
+        "text": "MidiTrack.",
+        "type": "Title"
+    },
+    {
+        "text": "hasNotes",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return True/False if this track has any note-ons defined.\n>>> mt = midi.MidiTrack(index=2)\n>>> mt.hasNotes()\nFalse\n\n\n>>> noteOn = midi.MidiEvent(type=midi.ChannelVoiceMessages.NOTE_ON, channel=1)\n>>> mt.events = [noteOn]\n\n\n>>> mt.hasNotes()\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "MidiTrack.",
+        "type": "Title"
+    },
+    {
+        "text": "processDataToEvents",
+        "type": "Title"
+    },
+    {
+        "text": "trackData",
+        "type": "Title"
+    },
+    {
+        "text": "bytes",
+        "type": "Title"
+    },
+    {
+        "text": "b''",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Populate .events with trackData.  Called by .read()",
+        "type": "ListItem"
+    },
+    {
+        "text": "MidiTrack.",
+        "type": "Title"
+    },
+    {
+        "text": "read",
+        "type": "Title"
+    },
+    {
+        "text": "midiBytes",
+        "type": "Title"
+    },
+    {
+        "text": "bytes",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bytes",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Read as much of the bytes object (representing midi data) as necessary;\nreturn the remaining bytes object for reassignment and further processing.\nThe string should begin with MTrk, specifying a Midi Track\nCalls processDataToEvents which creates and stores\nDeltaTime\nand MidiEvent objects.",
+        "type": "ListItem"
+    },
+    {
+        "text": "MidiTrack.",
+        "type": "Title"
+    },
+    {
+        "text": "setChannel",
+        "type": "Title"
+    },
+    {
+        "text": "value",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Set the channel of all events in this Track.\n>>> mt = midi.MidiTrack(index=2)\n>>> noteOn = midi.MidiEvent(type=midi.ChannelVoiceMessages.NOTE_ON, channel=1)\n>>> mt.events = [noteOn]\n>>> mt.setChannel(11)\n>>> noteOn.channel\n11\n\n\nChannel must be a value from 1-16\n>>> mt.setChannel(22)\nTraceback (most recent call last):\nmusic21.midi.MidiException: bad channel value: 22",
+        "type": "ListItem"
+    },
+    {
+        "text": "MidiTrack.",
+        "type": "Title"
+    },
+    {
+        "text": "updateEvents",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "We may attach events to this track before setting their track parameter.\nThis method will move through all events and set their track to this track.\n>>> mt = midi.MidiTrack(index=2)\n>>> noteOn = midi.MidiEvent(type=midi.ChannelVoiceMessages.NOTE_ON, channel=1)\n>>> noteOn.pitch = 60\n>>> noteOn.velocity = 20\n>>> noteOn\n<music21.midi.MidiEvent NOTE_ON, track=None, channel=1, pitch=60, velocity=20>\n\n\n>>> mt.events = [noteOn]\n>>> mt.updateEvents()\n>>> noteOn\n<music21.midi.MidiEvent NOTE_ON, track=2, channel=1, pitch=60, velocity=20>\n>>> noteOn.track is mt\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "SysExEvents\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.midi.",
+        "type": "Title"
+    },
+    {
+        "text": "SysExEvents",
+        "type": "Title"
+    },
+    {
+        "text": "value",
+        "type": "Title"
+    },
+    {
+        "text": "names",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "module",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "qualname",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "start",
+        "type": "Title"
+    },
+    {
+        "text": "boundary",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "SysExEvents bases",
+        "type": "Title"
+    },
+    {
+        "text": "_ContainsEnum",
+        "type": "ListItem"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.midi.",
+        "type": "Title"
+    },
+    {
+        "text": "charToBinary",
+        "type": "Title"
+    },
+    {
+        "text": "char",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Convert a char into its binary representation. Useful for debugging.\n>>> midi.charToBinary('a')\n'01100001'",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.midi.",
+        "type": "Title"
+    },
+    {
+        "text": "getNumber",
+        "type": "Title"
+    },
+    {
+        "text": "midiStr",
+        "type": "Title"
+    },
+    {
+        "text": "length",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return the value of a string byte or bytes if length > 1\nfrom an 8-bit string or bytes object\nThen, return the remaining string or bytes object\nThe length is the number of chars to read.\nThis will sum a length greater than 1 if desired.\nNote that MIDI uses big-endian for everything.\nThis is the inverse of Python's chr() function.\n>>> midi.getNumber('test', 0)\n(0, 'test')\n\n\nGiven bytes, return bytes:\n>>> midi.getNumber(b'test', 0)\n(0, b'test')\n\n\n>>> midi.getNumber('test', 2)\n(29797, 'st')\n>>> midi.getNumber(b'test', 4)\n(1952805748, b'')",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.midi.",
+        "type": "Title"
+    },
+    {
+        "text": "getNumbersAsList",
+        "type": "Title"
+    },
+    {
+        "text": "midiBytes",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Translate each char into a number, return in a list.\nUsed for reading data messages where each byte encodes\na different discrete value.\n>>> midi.getNumbersAsList(b'\\x00\\x00\\x00\\x03')\n[0, 0, 0, 3]",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.midi.",
+        "type": "Title"
+    },
+    {
+        "text": "getVariableLengthNumber",
+        "type": "Title"
+    },
+    {
+        "text": "midiBytes",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a string or bytes of data, strip off the first character, or all high-byte characters\nterminating with one whose ord() function is < 0x80.  Thus, a variable number of bytes\nmight be read.\nAfter finding the appropriate termination,\nreturn the remaining string.\nThis is necessary as DeltaTime times are given with variable size,\nand thus may be of different numbers if characters are used.\n>>> midi.getVariableLengthNumber(b'A-u')\n(65, b'-u')\n>>> midi.getVariableLengthNumber(b'-u')\n(45, b'u')\n>>> midi.getVariableLengthNumber('u')\n(117, b'')\n\n\n>>> midi.getVariableLengthNumber(b'test')\n(116, b'est')\n>>> midi.getVariableLengthNumber(b'E@-E')\n(69, b'@-E')\n>>> midi.getVariableLengthNumber(b'@-E')\n(64, b'-E')\n>>> midi.getVariableLengthNumber(b'-E')\n(45, b'E')\n>>> midi.getVariableLengthNumber('E')\n(69, b'')\n\n\nTest that variable length characters work:\n>>> midi.getVariableLengthNumber(b'\\xff\\x7f')\n(16383, b'')\n>>> midi.getVariableLengthNumber('\u00e4\u00b8\u00adxy')\n(210638584, b'y')\n\n\nIf no low-byte character is encoded, raises an IndexError\n>>> midi.getVariableLengthNumber('\u00e4\u00b8\u00ad\u00e5\u009b\u00bd')\nTraceback (most recent call last):\nIndexError: index out of range",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.midi.",
+        "type": "Title"
+    },
+    {
+        "text": "intsToHexBytes",
+        "type": "Title"
+    },
+    {
+        "text": "intList",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Convert a list of integers into hex bytes, suitable for testing MIDI encoding.\nHere we take NOTE_ON message, Middle C, 120 velocity and translate it to bytes\n>>> midi.intsToHexBytes([0x90, 60, 120])\nb'\\x90<x'",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.midi.",
+        "type": "Title"
+    },
+    {
+        "text": "putNumber",
+        "type": "Title"
+    },
+    {
+        "text": "num",
+        "type": "Title"
+    },
+    {
+        "text": "length",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Put a single number as a hex number at the end of a string length bytes long.\n>>> midi.putNumber(3, 4)\nb'\\x00\\x00\\x00\\x03'\n>>> midi.putNumber(0, 1)\nb'\\x00'",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.midi.",
+        "type": "Title"
+    },
+    {
+        "text": "putNumbersAsList",
+        "type": "Title"
+    },
+    {
+        "text": "numList",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Translate a list of numbers (0-255) into bytes.\nUsed for encoding data messages where each byte encodes a different discrete value.\n>>> midi.putNumbersAsList([0, 0, 0, 3])\nb'\\x00\\x00\\x00\\x03'\n\n\nIf a number is < 0 then it wraps around from the top.\n>>> midi.putNumbersAsList([0, 0, 0, -3])\nb'\\x00\\x00\\x00\\xfd'\n>>> midi.putNumbersAsList([0, 0, 0, -1])\nb'\\x00\\x00\\x00\\xff'\n\n\nlist can be of any length\n>>> midi.putNumbersAsList([1, 16, 255])\nb'\\x01\\x10\\xff'\n\n\nAny number > 255 raises an exception:\n>>> midi.putNumbersAsList([256])\nTraceback (most recent call last):\nmusic21.midi.MidiException: Cannot place a number > 255 in a list: 256",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.midi.",
+        "type": "Title"
+    },
+    {
+        "text": "putVariableLengthNumber",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Turn a number into the smallest bytes object that can hold it for MIDI\n>>> midi.putVariableLengthNumber(4)\nb'\\x04'\n>>> midi.putVariableLengthNumber(127)\nb'\\x7f'\n>>> midi.putVariableLengthNumber(0)\nb'\\x00'\n\n\nNumbers > 7bit but < 255 need two characters, with the first character to 0x80\n+ n // 128\n>>> midi.putVariableLengthNumber(128)\nb'\\x81\\x00'\n>>> midi.putVariableLengthNumber(129)\nb'\\x81\\x01'\n>>> midi.putVariableLengthNumber(255)\nb'\\x81\\x7f'\n>>> midi.putVariableLengthNumber(256)\nb'\\x82\\x00'\n>>> midi.putVariableLengthNumber(1024)\nb'\\x88\\x00'\n>>> midi.putVariableLengthNumber(8193)\nb'\\xc0\\x01'\n>>> midi.putVariableLengthNumber(16383)\nb'\\xff\\x7f'\n\n\nNumbers > 16383 are not really MIDI numbers, but this is how they work:\n>>> midi.putVariableLengthNumber(16384)\nb'\\x81\\x80\\x00'\n>>> midi.putVariableLengthNumber(16384 + 128)\nb'\\x81\\x81\\x00'\n>>> midi.putVariableLengthNumber(16384 * 2)\nb'\\x82\\x80\\x00'\n>>> midi.putVariableLengthNumber(16384 ** 2)\nb'\\x81\\x80\\x80\\x80\\x00'\n\n\n>>> midi.putVariableLengthNumber(-1)\nTraceback (most recent call last):\nmusic21.midi.MidiException: cannot putVariableLengthNumber() when number is negative: -1",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.midi",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

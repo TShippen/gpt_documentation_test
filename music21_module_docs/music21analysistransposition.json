@@ -1,0 +1,274 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.analysis.transposition",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.analysis.segmentByRests",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.analysis.windowed",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.analysis.transposition\nTranspositionChecker\nTranspositionChecker\nTranspositionChecker.getChordsOfDistinctTranspositions()\nTranspositionChecker.getPitchesOfDistinctTranspositions()\nTranspositionChecker.getTranspositions()\nTranspositionChecker.listDistinctNormalOrders()\nTranspositionChecker.listNormalOrders()\nTranspositionChecker.numDistinctTranspositions()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.analysis.transposition\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "TranspositionChecker\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.analysis.transposition.",
+        "type": "Title"
+    },
+    {
+        "text": "TranspositionChecker",
+        "type": "Title"
+    },
+    {
+        "text": "pitches",
+        "type": "Title"
+    },
+    {
+        "text": "Iterable[Pitch]",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a list of pitches, checks for the number of distinct transpositions.\n>>> pList = [pitch.Pitch('C4'), pitch.Pitch('E4'), pitch.Pitch('G#4')]\n>>> tc = analysis.transposition.TranspositionChecker(pList)\n>>> tc.numDistinctTranspositions()\n4\n>>> allNormalOrderPitchTuples = tc.getPitchesOfDistinctTranspositions()\n>>> allNormalOrderPitchTuples\n[(<music21.pitch.Pitch C>, <music21.pitch.Pitch E>,\n                                     <music21.pitch.Pitch G#>),\n (<music21.pitch.Pitch C#>, <music21.pitch.Pitch F>,\n                                     <music21.pitch.Pitch A>),\n (<music21.pitch.Pitch D>, <music21.pitch.Pitch F#>,\n                                     <music21.pitch.Pitch A#>),\n (<music21.pitch.Pitch E->, <music21.pitch.Pitch G>,\n                                     <music21.pitch.Pitch B>)]\n>>> myChord = chord.Chord(['C', 'E-', 'F#', 'A'])\n>>> pList = myChord.pitches\n>>> tc = analysis.transposition.TranspositionChecker(pList)\n>>> allNormalOrderChords = tc.getChordsOfDistinctTranspositions()\n>>> allNormalOrderChords\n[<music21.chord.Chord C E- F# A>,\n <music21.chord.Chord C# E G A#>,\n <music21.chord.Chord D F G# B>]",
+        "type": "ListItem"
+    },
+    {
+        "text": "TranspositionChecker methods",
+        "type": "Title"
+    },
+    {
+        "text": "TranspositionChecker.",
+        "type": "Title"
+    },
+    {
+        "text": "getChordsOfDistinctTranspositions",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Outputs chords for each distinct transposition (normal order).\n>>> pList = [pitch.Pitch('C4'), pitch.Pitch('E4'), pitch.Pitch('G#4')]\n>>> tc = analysis.transposition.TranspositionChecker(pList)\n>>> tc.getChordsOfDistinctTranspositions()\n[<music21.chord.Chord C E G#>,\n <music21.chord.Chord C# F A>,\n <music21.chord.Chord D F# A#>,\n <music21.chord.Chord E- G B>]",
+        "type": "ListItem"
+    },
+    {
+        "text": "TranspositionChecker.",
+        "type": "Title"
+    },
+    {
+        "text": "getPitchesOfDistinctTranspositions",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Outputs pitch tuples for each distinct transposition (normal order).\n>>> pList = [pitch.Pitch('C4'), pitch.Pitch('E4'), pitch.Pitch('G#4')]\n>>> tc = analysis.transposition.TranspositionChecker(pList)\n>>> tc.getPitchesOfDistinctTranspositions()\n[(<music21.pitch.Pitch C>, <music21.pitch.Pitch E>, <music21.pitch.Pitch G#>),\n (<music21.pitch.Pitch C#>, <music21.pitch.Pitch F>, <music21.pitch.Pitch A>),\n (<music21.pitch.Pitch D>, <music21.pitch.Pitch F#>, <music21.pitch.Pitch A#>),\n (<music21.pitch.Pitch E->, <music21.pitch.Pitch G>, <music21.pitch.Pitch B>)]",
+        "type": "ListItem"
+    },
+    {
+        "text": "TranspositionChecker.",
+        "type": "Title"
+    },
+    {
+        "text": "getTranspositions",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Gets all 12 transpositions (distinct or otherwise).\n>>> p = [pitch.Pitch('D#')]\n>>> tc = analysis.transposition.TranspositionChecker(p)\n>>> tc.getTranspositions()\n[[<music21.pitch.Pitch E->],\n[<music21.pitch.Pitch E>],\n[<music21.pitch.Pitch F>],\n[<music21.pitch.Pitch F#>],\n[<music21.pitch.Pitch G>],\n[<music21.pitch.Pitch G#>],\n[<music21.pitch.Pitch A>],\n[<music21.pitch.Pitch B->],\n[<music21.pitch.Pitch B>],\n[<music21.pitch.Pitch C>],\n[<music21.pitch.Pitch C#>],\n[<music21.pitch.Pitch D>]]",
+        "type": "ListItem"
+    },
+    {
+        "text": "TranspositionChecker.",
+        "type": "Title"
+    },
+    {
+        "text": "listDistinctNormalOrders",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "List the distinct normal orders (without duplication).\n>>> pList = [pitch.Pitch('C4'), pitch.Pitch('E4'), pitch.Pitch('G#4')]\n>>> tc = analysis.transposition.TranspositionChecker(pList)\n>>> tc.listDistinctNormalOrders()\n[[0, 4, 8], [1, 5, 9], [2, 6, 10], [3, 7, 11]]",
+        "type": "ListItem"
+    },
+    {
+        "text": "TranspositionChecker.",
+        "type": "Title"
+    },
+    {
+        "text": "listNormalOrders",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "List the normal orders for all 12 transpositions\n>>> pList = [pitch.Pitch('C4'), pitch.Pitch('E4'), pitch.Pitch('G#4')]\n>>> tc = analysis.transposition.TranspositionChecker(pList)\n>>> tc.listNormalOrders()\n[[0, 4, 8], [1, 5, 9], [2, 6, 10], [3, 7, 11],\n [0, 4, 8], [1, 5, 9], [2, 6, 10], [3, 7, 11],\n [0, 4, 8], [1, 5, 9], [2, 6, 10], [3, 7, 11]]",
+        "type": "ListItem"
+    },
+    {
+        "text": "TranspositionChecker.",
+        "type": "Title"
+    },
+    {
+        "text": "numDistinctTranspositions",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Gives the number of distinct transpositions (normal orders).\n>>> pList = [pitch.Pitch('C4'), pitch.Pitch('E4'), pitch.Pitch('G#4')]\n>>> tc = analysis.transposition.TranspositionChecker(pList)\n>>> tc.numDistinctTranspositions()\n4",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.analysis.transposition",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

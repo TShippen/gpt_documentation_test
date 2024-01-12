@@ -1,0 +1,758 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.sites",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.sieve",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.sorting",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.sites\nSiteRef\nSiteRef\nSiteRef.site\n\n\n\n\nSites\nSites\nSites.add()\nSites.clear()\nSites.get()\nSites.getAttrByName()\nSites.getById()\nSites.getObjByClass()\nSites.getSiteCount()\nSites.getSiteIds()\nSites.getSitesByClass()\nSites.hasSiteId()\nSites.hasSpannerSite()\nSites.hasVariantSite()\nSites.purgeLocations()\nSites.remove()\nSites.removeById()\nSites.setAttrByName()\nSites.yieldSites()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.sites\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "sites.py \u2014 Objects for keeping track of relationships among Music21Objects",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "SiteRef\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.sites.",
+        "type": "Title"
+    },
+    {
+        "text": "SiteRef",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "a single Site (stream, container, parent, reference, etc.) stored inside the Sites object.\nA very simple object.\nThis site would be stored in the .sites.siteDict for, say a note.Note, if it were in\nst at offset 20.0\n>>> st = stream.Stream()\n>>> st.id = 'hi'\n\n\n>>> s = sites.SiteRef()\n>>> s.classString = st.classes[0]\n>>> s.site = st\n>>> s.isDead\nFalse\n\n\nIf you call s.site, you always get an object out, but internally, there's a .siteWeakref that\nstores a weakref to the site.\n>>> s.site\n<music21.stream.Stream hi>\n>>> s.siteWeakref\n<weakref at 0x123456; to 'Stream' at 0x111111>\n\n\nIf you turn sites.WEAKREF_ACTIVE to False then .siteWeakref just stores another reference to\nthe site.  Bad for memory. Good for debugging pickling.",
+        "type": "ListItem"
+    },
+    {
+        "text": "SiteRef bases",
+        "type": "Title"
+    },
+    {
+        "text": "SlottedObjectMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "SiteRef read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "SiteRef read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "SiteRef.",
+        "type": "Title"
+    },
+    {
+        "text": "site",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "SiteRef methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Sites\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.sites.",
+        "type": "Title"
+    },
+    {
+        "text": "Sites",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "An object, stored within a Music21Object, that stores (weak) references to\na collection of objects that may be contextually relevant to this object.\nMost of these objects are locations (also called sites), or Streams that\ncontain this object.\nAll defined contexts are stored as dictionaries in a dictionary. The\noutermost dictionary stores objects.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Sites bases",
+        "type": "Title"
+    },
+    {
+        "text": "SlottedObjectMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "Sites methods",
+        "type": "Title"
+    },
+    {
+        "text": "Sites.",
+        "type": "Title"
+    },
+    {
+        "text": "add",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "obj",
+        "type": "Title"
+    },
+    {
+        "text": "timeValue",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "idKey",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "classString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Add a reference to the Sites collection for this object.  Automatically\ncalled on stream.insert(n), etc.\nidKey stores the id() of the obj.  If None, then id(obj) is used.\nclassString stores the class of obj.  If None then obj.classes[0]\nis used.\nTODO: Tests.  Including updates.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Sites.",
+        "type": "Title"
+    },
+    {
+        "text": "clear",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Clear all stored data.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Sites.",
+        "type": "Title"
+    },
+    {
+        "text": "get",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "sortByCreationTime",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "priorityTarget",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "excludeNone",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get references; order, based on dictionary keys, is from most\nrecently added to least recently added.\nThe sortByCreationTime option will sort objects by creation time,\nwhere most-recently assigned objects are returned first.\nCan be [False, other], [True, 1] or [\u0098reverse', -1]\nIf priorityTarget is defined, this object will be placed first in the list of objects.\n>>> class Mock(base.Music21Object):\n...     pass\n>>> aObj = Mock()\n>>> bObj = Mock()\n>>> cObj = Mock()\n>>> aSites = sites.Sites()\n>>> aSites.add(cObj)\n>>> aSites.add(aObj)\n>>> aSites.add(bObj)\n\n\nArbitrary order, so we compare with sets:\n>>> set(aSites.get()) == {None, cObj, aObj, bObj}\nTrue\n\n\nParticular order, with None at the end.\n>>> aSites.get(sortByCreationTime=True) == [bObj, aObj, cObj, None]\nTrue\n\n\nPriority target\n>>> begotten = aSites.get(sortByCreationTime=True, priorityTarget=cObj, excludeNone=True)\n>>> begotten == [cObj, bObj, aObj]\nTrue\n\n\n\nChanged in v5.5: keyword only.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Sites.",
+        "type": "Title"
+    },
+    {
+        "text": "getAttrByName",
+        "type": "Title"
+    },
+    {
+        "text": "attrName",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given an attribute name, search all objects and find the first that\nmatches this attribute name; then return a reference to this attribute.\nWorks in reverse order, so most recent site is returned first.\n>>> class Mock(base.Music21Object):\n...     attr1 = 234\n>>> aObj = Mock()\n>>> aObj.attr1 = 234\n>>> bObj = Mock()\n>>> bObj.attr1 = 98\n>>> aSites = sites.Sites()\n>>> len(aSites)\n1\n>>> aSites.add(aObj)\n>>> len(aSites)\n2\n\n\n>>> aSites.getAttrByName('attr1') == 234\nTrue\n\n\n>>> aSites.remove(aObj)\n>>> aSites.add(bObj)\n>>> aSites.getAttrByName('attr1') == 98\nTrue\n\n\nAn incorrect attribute name will just give none:\n>>> aSites.getAttrByName('blah') is None\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "Sites.",
+        "type": "Title"
+    },
+    {
+        "text": "getById",
+        "type": "Title"
+    },
+    {
+        "text": "siteId",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return the object specified by an id.\nUsed for testing and debugging.  Should NOT be used in production code.\n>>> a = note.Note()\n>>> s = stream.Stream()\n>>> s.append(a)\n>>> a.sites.getById(id(s)) is s\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "Sites.",
+        "type": "Title"
+    },
+    {
+        "text": "getObjByClass",
+        "type": "Title"
+    },
+    {
+        "text": "className",
+        "type": "Title"
+    },
+    {
+        "text": "callerFirst",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "sortByCreationTime",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "priorityTarget",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "getElementMethod",
+        "type": "Title"
+    },
+    {
+        "text": "ElementSearch.AT_OR_BEFORE",
+        "type": "Title"
+    },
+    {
+        "text": "memo",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return the most recently added reference based on className.  Class\nname can be a string or the class name.\nThis will recursively search the sitesDicts of objects in Site objects in\nthe siteDict.\nThe callerFirst parameters is simply used to pass a reference of the\nfirst caller; this is necessary if we are looking within a Stream for a\nflat offset position.\nIf priorityTarget is specified, this location will be searched first. use\npriorityTarget=activeSite to prioritize that.\nThe getElementMethod is a string that selects which Stream method is\nused to get elements for searching with getElementsByClass() calls.\n>>> import time\n>>> class Mock(base.Music21Object):\n...     pass\n>>> aObj = Mock()\n>>> bObj = Mock()\n>>> aSites = sites.Sites()\n>>> aSites.add(aObj)\n>>> aSites.add(bObj)\n\n\nWe get the most recently added object first\n>>> aSites.getObjByClass('Mock', sortByCreationTime=True) == bObj\nTrue\n\n\n>>> aSites.getObjByClass(Mock, sortByCreationTime=True) == bObj\nTrue\n\n\n\nChanged in v5.5: all arguments except className are keyword only.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Sites.",
+        "type": "Title"
+    },
+    {
+        "text": "getSiteCount",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return the number of non-dead sites, excluding the None site.  This does not\nunwrap weakrefs for performance.\n>>> a = note.Note()\n>>> a.sites.getSiteCount()\n0\n>>> s = stream.Stream()\n>>> s.append(a)\n>>> a.sites.getSiteCount()\n1\n>>> sf = s.flatten()\n>>> a.sites.getSiteCount()\n2",
+        "type": "ListItem"
+    },
+    {
+        "text": "Sites.",
+        "type": "Title"
+    },
+    {
+        "text": "getSiteIds",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a set of all site Ids.\n>>> class Mock(base.Music21Object):\n...     pass\n>>> aSite = Mock()\n>>> dc = sites.Sites()\n>>> dc.add(aSite)\n>>> dc.getSiteIds() == {None, id(aSite)}\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "Sites.",
+        "type": "Title"
+    },
+    {
+        "text": "getSitesByClass",
+        "type": "Title"
+    },
+    {
+        "text": "className",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a list of unwrapped site from siteDict.site [SiteRef.site]\n(generally a Stream)\nthat matches the provided class.\nInput can be either a Class object or a string\n>>> class Mock(base.Music21Object):\n...     pass\n>>> aObj = Mock()\n>>> bObj = Mock()\n>>> cObj = stream.Stream()\n>>> aSites = sites.Sites()\n\n\n>>> aSites.add(aObj)\n>>> aSites.add(bObj)\n>>> aSites.add(cObj)\n\n\n>>> aSites.getSitesByClass(Mock) == [aObj, bObj]\nTrue\n\n\n>>> aSites.getSitesByClass('Stream') == [cObj]\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "Sites.",
+        "type": "Title"
+    },
+    {
+        "text": "hasSiteId",
+        "type": "Title"
+    },
+    {
+        "text": "siteId",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return True or False if this Sites object already has this site id.\n>>> class Mock(base.Music21Object):\n...     pass\n>>> aSite = Mock()\n>>> bSite = Mock()\n>>> dc = sites.Sites()\n>>> dc.add(aSite)\n>>> dc.hasSiteId(id(aSite))\nTrue\n>>> dc.hasSiteId(id(bSite))\nFalse\n\n\nNote that we use \u0098None' not id(None) as a key:\n>>> dc.hasSiteId(id(None))\nFalse\n>>> dc.hasSiteId(None)\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "Sites.",
+        "type": "Title"
+    },
+    {
+        "text": "hasSpannerSite",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return True if this object is found in any Spanner. This is determined\nby looking for a SpannerStorage Stream class as a Site.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Sites.",
+        "type": "Title"
+    },
+    {
+        "text": "hasVariantSite",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return True if this object is found in any Variant. This is determined\nby looking for a VariantStorage Stream class as a Site.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Sites.",
+        "type": "Title"
+    },
+    {
+        "text": "purgeLocations",
+        "type": "Title"
+    },
+    {
+        "text": "rescanIsDead",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Clean all locations that refer to objects that no longer exist.\nThe removeOrphanedSites option removes sites that may have been the\nresult of deepcopy: the element has the site, but the site does not\nhave the element. This results b/c Sites are shallow-copied, and then\nelements are re-added.\n>>> import gc\n>>> class Mock(base.Music21Object):\n...     pass\n>>> aStream = stream.Stream()\n>>> bStream = stream.Stream()\n>>> mySites = sites.Sites()\n>>> len(mySites)\n1\n>>> mySites.add(aStream)\n>>> mySites.add(bStream)\n>>> del aStream\n>>> numObjectsCollected = gc.collect()  # make sure to garbage collect\n\n\nWe still have 3 locations \u2014 just because aStream is gone, doesn't\nmake it disappear from sites\n>>> len(mySites)\n3\n\n\n>>> mySites.purgeLocations(rescanIsDead=True)\n>>> len(mySites)\n2",
+        "type": "ListItem"
+    },
+    {
+        "text": "Sites.",
+        "type": "Title"
+    },
+    {
+        "text": "remove",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "site",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Remove the object (a context or location site) specified from Sites.\nObject provided can be a location site (i.e., a Stream) or a pure\ncontext (like a Temperament).\nN.B. \u2014 like all .sites operations, this is an advanced tool not for\nstandard music21 usage.  Instead of:\n\nelObj.remove(streamObj)\n\nuse this command, which will take care of .sites.remove as well as\nremoving elObj from streamObj.elements:\n\nstreamObj.remove(elObj)\n\n>>> class Mock(base.Music21Object):\n...     pass\n>>> aSite = Mock()\n>>> bSite = Mock()\n>>> cSite = Mock()\n>>> aSites = sites.Sites()\n>>> len(aSites)\n1\n>>> aSites.add(aSite)\n>>> len(aSites)\n2\n\n\n>>> aSites.add(bSite)\n>>> len(aSites)\n3\n\n\n>>> aSites.add(cSite)\n>>> len(aSites)\n4\n\n\n>>> aSites.remove(aSite)\n>>> len(aSites)\n3",
+        "type": "ListItem"
+    },
+    {
+        "text": "Sites.",
+        "type": "Title"
+    },
+    {
+        "text": "removeById",
+        "type": "Title"
+    },
+    {
+        "text": "idKey",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Remove a site entry by id key,\nwhich is id() of the object.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Sites.",
+        "type": "Title"
+    },
+    {
+        "text": "setAttrByName",
+        "type": "Title"
+    },
+    {
+        "text": "attrName",
+        "type": "Title"
+    },
+    {
+        "text": "value",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given an attribute name, search all objects and find the first that\nmatches this attribute name; then return a reference to this attribute.\n>>> class Mock(base.Music21Object):\n...     attr1 = 234\n>>> aObj = Mock()\n>>> bObj = Mock()\n>>> bObj.attr1 = 98\n>>> aSites = sites.Sites()\n>>> aSites.add(aObj)\n>>> aSites.add(bObj)\n>>> aSites.setAttrByName('attr1', 'test')\n>>> aSites.getAttrByName('attr1') == 'test'\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "Sites.",
+        "type": "Title"
+    },
+    {
+        "text": "yieldSites",
+        "type": "Title"
+    },
+    {
+        "text": "excludeNone",
+        "type": "Title"
+    },
+    {
+        "text": "Literal[True]",
+        "type": "Title"
+    },
+    {
+        "text": "sortByCreationTime",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "Literal",
+        "type": "Title"
+    },
+    {
+        "text": "'reverse'",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "priorityTarget",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 Generator[stream.Stream, None, None]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Sites.",
+        "type": "Title"
+    },
+    {
+        "text": "yieldSites",
+        "type": "Title"
+    },
+    {
+        "text": "excludeNone",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "sortByCreationTime",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "Literal",
+        "type": "Title"
+    },
+    {
+        "text": "'reverse'",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "priorityTarget",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 Generator[stream.Stream | None, None, None]",
+        "type": "Title"
+    },
+    {
+        "text": "Yield references; order, based on dictionary keys, is from least\nrecently added to most recently added.\nThe sortByCreationTime option if set to True will sort objects by creation time,\nwhere most-recently assigned objects are returned first.\nNote that priorityTarget is searched only on id \u2014 this could be dangerous if the\ntarget has been garbage collected and the id is reused. Unlikely since you have to\npass in the priorityTarget itself, so therefore it still exists\u2026\nThis can be much faster than .get in the case where the sought-for site\nis earlier in the list.\n>>> class Mock(base.Music21Object):\n...     def __init__(self, idEl):\n...         self.id = idEl\n>>> aObj = Mock('a')\n>>> bObj = Mock('b')\n>>> cObj = Mock('c')\n>>> aSites = sites.Sites()\n>>> aSites.add(cObj)\n>>> aSites.add(aObj)\n>>> aSites.add(bObj)\n\n\nReturns a generator:\n>>> ys = aSites.yieldSites()\n>>> ys\n<generator object Sites.yieldSites at 0x1058085e8>\n\n\nThat's no help, so iterate over it instead:\n>>> for s in aSites.yieldSites(sortByCreationTime=True, excludeNone=True):\n...     print(s.id)\nb\na\nc\n\n\nWith priorityTarget\n>>> for s in aSites.yieldSites(sortByCreationTime=True, priorityTarget=cObj,\n...                            excludeNone=True):\n...     print(s.id)\nc\nb\na\n\n\n\nChanged in v3: changed dramatically from previously unused version\nsortByCreationTime='reverse' is removed, since the ordered dict takes\ncare of it and was not working.\nChanged in v8: arguments are keyword only",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.sites",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

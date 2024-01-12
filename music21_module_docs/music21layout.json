@@ -1,0 +1,3018 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.layout",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.languageExcerpts.naturalLanguageObjects",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.lily.lilyObjects",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.layout\nScoreLayout\nScoreLayout\nScoreLayout.tenthsToMillimeters()\n\n\n\n\nPageLayout\nPageLayout\n\n\nSystemLayout\nSystemLayout\n\n\nStaffLayout\nStaffLayout\nStaffLayout.staffType\n\n\n\n\nLayoutBase\nLayoutBase\n\n\nLayoutScore\nLayoutScore\nLayoutScore.pages\nLayoutScore.getAllMeasurePositionsInDocument()\nLayoutScore.getMarginsAndSizeForPageId()\nLayoutScore.getPageAndSystemNumberFromMeasureNumber()\nLayoutScore.getPositionForStaff()\nLayoutScore.getPositionForStaffMeasure()\nLayoutScore.getPositionForSystem()\nLayoutScore.getStaffDistanceFromPrevious()\nLayoutScore.getStaffHiddenAttribute()\nLayoutScore.getStaffSizeFromLayout()\nLayoutScore.getSystemBeforeThis()\nLayoutScore.measurePositionWithinSystem()\nLayoutScore.show()\n\n\n\n\nPage\nPage\nPage.systems\nPage.show()\n\n\n\n\nSystem\nSystem\nSystem.staves\n\n\n\n\nStaff\nStaff\n\n\nPageSize\nPageSize\n\n\nStaffGroup\nStaffGroup\nStaffGroup.barTogether\nStaffGroup.symbol\n\n\n\n\nSystemSize\nSystemSize\n\n\nFunctions\ndivideByPages()\ngetPageRegionMeasureNumbers()\ngetRegionMeasureNumbers()\ngetSystemRegionMeasureNumbers()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.layout\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "The layout.py module contains two types of objects that specify the layout on\npage (or screen) for Scores and other Stream objects.  There are two main types\nof Layout objects: (1) layout describing elements and (2) layout defining Streams.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "(1) ScoreLayout, PageLayout, SystemLayout, and StaffLayout objects describe the size of\npages, the geometry of page and system margins, the distance between staves, etc.\nThe model for these layout objects is taken directly (perhaps too directly?)\nfrom MusicXML.  These objects all inherit from a BaseLayout class, primarily\nas an aid to finding all of these objects as a group.  ScoreLayouts give defaults\nfor each page, system, and staff.  Thus, they contain PageLayout, SystemLayout, and\ncurrently one or more StaffLayout objects (but probably just one. MusicXML allows more than\nStaffLayout object because multiple staves can be in a Part.  Music21 uses\nthe concept of a PartStaff for a Part that is played by the same performer as another.\ne.g., the left hand of the Piano is a PartStaff paired with the right hand).",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "PageLayout and SystemLayout objects also have a property, \u0098isNew',\nwhich, if set to True, signifies that a new page\nor system should begin here.  In theory, one could define new dimensions for a page\nor system in the middle of the system or page without setting isNew to True, in\nwhich case these measurements would start applying on the next page.  In practice,\nthere's really one good place to use these Layout objects and that's in the first part\nin a score at offset 0 of the first measure on a page or system\n(or for ScoreLayout, at the beginning\nof a piece outside any parts).  But it's not an\nerror to put them in other places, such as at offset 0 of the first measure of a page\nor system in all the other parts.  In fact, MusicXML tends to do this, and it ends up\nnot being a waste if a program extracts a single part from the middle of a score.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "These objects are standard Music21Object types, but many\nproperties such as .duration, .beat, will probably not apply.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "When exporting to MusicXML (which is currently the only format in which music21 can and\ndoes preserve these markings), many MusicXML readers will ignore these tags (or worse,\nadd a new page or system when PageLayout and SystemLayout objects are found but also\nadd theme wherever they want).  In Finale, this behavior disappears if the MusicXML\ndocument notes that it <supports> new-page and new-system markings.  Music21 will add\nthe appropriate <supports> tags if the containing Stream has .definesExplicitPageBreaks\nand .definesExplicitSystemBreaks set to True.  When importing a score that has the\n<supports> tag set, music21 will set .definesExplicitXXXXBreaks to True for the\nouter score and the inner parts.  However, this means that if the score is manipulated\nenough that the prior layout information is obsolete, programs will need to set these\nproperties to False or move the Layout tags accordingly.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "(2) The second set of objects are Stream subclasses that can be employed when a program\nneeds to easily iterate around the systems and pages defined through the layout objects\njust described, or to get the exact position on a page (or a graphical representation\nof a page) for a particular measure or system.  (Individual notes coming soon).  Normal\nScore streams can be changed into LayoutStreams by calling divideByPages(s) on them.\nA Score that was organized: Score->Part->Measure would then become:\nLayoutScore->Page->System->Staff->Measure.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "The new LayoutScore has methods that enable querying what page or system a measure is in, and\nspecifically where on a page a measure is (or the dimensions\nof every measure in the piece).  However\ndo not call .show() on a LayoutScore \u2014 the normal score it's derived from will work just fine.\nNor does calling .show() on a Page or System work yet, but once the LayoutStream has been created,\ncode like this can be done:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "s = stream.Stream(\u2026)\nls = layout.divideByPages(s)\npg2sys3 = ls.pages[1].systems[2]  # n.b.! 1, 2\nmeasureStart, measureEnd = pg2sys3.measureStart, pg2sys3.measureEnd\nscoreExcerpt = s.measures(measureStart, measureEnd)\nscoreExcerpt.show()  # will show page 2, system 3",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Note that while the coordinates given by music21 for a musicxml score (based on margins,\nstaff size, etc.)\ngenerally reflect what is actually in a musicxml producer, unfortunately, x-positions are\nfar less accurately\nproduced by most editors.  For instance, Finale scores with measure sizes that have been\nmanually adjusted tend to show their\nunadjusted measure width and not their actual measure width in the MusicXML.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "SmartScore Pro tends to produce very good MusicXML layout data.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "ScoreLayout\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.layout.",
+        "type": "Title"
+    },
+    {
+        "text": "ScoreLayout",
+        "type": "Title"
+    },
+    {
+        "text": "scalingMillimeters",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "float",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "scalingTenths",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "float",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "musicFont",
+        "type": "Title"
+    },
+    {
+        "text": "str | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "wordFont",
+        "type": "Title"
+    },
+    {
+        "text": "str | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "pageLayout",
+        "type": "Title"
+    },
+    {
+        "text": "PageLayout | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "systemLayout",
+        "type": "Title"
+    },
+    {
+        "text": "SystemLayout | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "staffLayoutList",
+        "type": "Title"
+    },
+    {
+        "text": "list",
+        "type": "Title"
+    },
+    {
+        "text": "music21.layout.StaffLayout",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Parameters for configuring a score's layout.\nPageLayout objects may be found on Measure or Part Streams.\n>>> pl = layout.PageLayout(pageNumber=4, leftMargin=234, rightMargin=124,\n...                        pageHeight=4000, pageWidth=3000, isNew=True)\n>>> pl.pageNumber\n4\n>>> pl.rightMargin\n124\n>>> pl.leftMargin\n234\n>>> pl.isNew\nTrue\n\n\nThis object represents both <print new-page> and <page-layout>\nelements in musicxml.  The appearance tag is handled in the .style\nfor the stream (it was here in v7 and before, but did nothing).\nNote that the appearance and style elements are subject to change during\nand after the v8 releases.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ScoreLayout bases",
+        "type": "Title"
+    },
+    {
+        "text": "LayoutBase",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ScoreLayout read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "ScoreLayout read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "ScoreLayout methods",
+        "type": "Title"
+    },
+    {
+        "text": "ScoreLayout.",
+        "type": "Title"
+    },
+    {
+        "text": "tenthsToMillimeters",
+        "type": "Title"
+    },
+    {
+        "text": "tenths",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "given the scalingMillimeters and scalingTenths,\nreturn the value in millimeters of a number of\nmusicxml \u009ctenths\u009d where a tenth is a tenth of the distance\nfrom one staff line to another\nreturns 0.0 if either of scalingMillimeters or scalingTenths\nis undefined.\n>>> sl = layout.ScoreLayout(scalingMillimeters=2.0, scalingTenths=10)\n>>> print(sl.tenthsToMillimeters(10))\n2.0\n>>> print(sl.tenthsToMillimeters(17))  # printing to round\n3.4",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "ScoreLayout instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "PageLayout\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.layout.",
+        "type": "Title"
+    },
+    {
+        "text": "PageLayout",
+        "type": "Title"
+    },
+    {
+        "text": "pageNumber",
+        "type": "Title"
+    },
+    {
+        "text": "int | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "leftMargin",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "float",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "rightMargin",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "float",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "topMargin",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "float",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "bottomMargin",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "float",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "pageHeight",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "float",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "pageWidth",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "float",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "isNew",
+        "type": "Title"
+    },
+    {
+        "text": "bool | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Parameters for configuring a page's layout.\nPageLayout objects may be found on Measure or Part Streams.\n>>> pl = layout.PageLayout(pageNumber=4, leftMargin=234, rightMargin=124,\n...                        pageHeight=4000, pageWidth=3000, isNew=True)\n>>> pl.pageNumber\n4\n>>> pl.rightMargin\n124\n>>> pl.leftMargin\n234\n>>> pl.isNew\nTrue\n\n\nThis object represents both <print new-page> and <page-layout>\nelements in musicxml.",
+        "type": "ListItem"
+    },
+    {
+        "text": "PageLayout bases",
+        "type": "Title"
+    },
+    {
+        "text": "LayoutBase",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "PageLayout read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "PageLayout read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "PageLayout methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "PageLayout instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "SystemLayout\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.layout.",
+        "type": "Title"
+    },
+    {
+        "text": "SystemLayout",
+        "type": "Title"
+    },
+    {
+        "text": "leftMargin",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "float",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "rightMargin",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "float",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "distance",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "float",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "topDistance",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "float",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "isNew",
+        "type": "Title"
+    },
+    {
+        "text": "bool | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Object that configures or alters a system's layout.\nSystemLayout objects may be found on Measure or\nPart Streams.\nImportantly, if isNew is True then this object\nindicates that a new system should start here.\n>>> sl = layout.SystemLayout(leftMargin=234, rightMargin=124, distance=3, isNew=True)\n>>> sl.distance\n3\n>>> sl.rightMargin\n124\n>>> sl.leftMargin\n234\n>>> sl.isNew\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "SystemLayout bases",
+        "type": "Title"
+    },
+    {
+        "text": "LayoutBase",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "SystemLayout read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "SystemLayout read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "SystemLayout methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "SystemLayout instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "StaffLayout\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.layout.",
+        "type": "Title"
+    },
+    {
+        "text": "StaffLayout",
+        "type": "Title"
+    },
+    {
+        "text": "distance",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "float",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "staffNumber",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "float",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "staffSize",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "float",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "staffLines",
+        "type": "Title"
+    },
+    {
+        "text": "int | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "hidden",
+        "type": "Title"
+    },
+    {
+        "text": "bool | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "staffType",
+        "type": "Title"
+    },
+    {
+        "text": "StaffType",
+        "type": "Title"
+    },
+    {
+        "text": "StaffType.REGULAR",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Object that configures or alters the distance between\none staff and another in a system.\nStaffLayout objects may be found on Measure or\nPart Streams.\nThe musicxml equivalent <staff-layout> lives in\nthe <defaults> and in <print> attributes.\n>>> sl = layout.StaffLayout(distance=3, staffNumber=1, staffSize=113, staffLines=5)\n>>> sl.distance\n3\n\n\nThe \u009cnumber\u009d attribute refers to which staff number\nin a part group this refers to.  Thus, it's not\nnecessary in music21, but we store it if it's there.\n(defaults to None)\n>>> sl.staffNumber\n1\n\n\nstaffLines specifies the number of lines for a non 5-line staff.\n>>> sl.staffLines\n5\n\n\nstaffSize is a percentage of the base staff size, so\nthis defines a staff 13% larger than normal.  Note that it is always converted to\na floating point number.\n>>> sl.staffSize\n113.0\n>>> sl\n<music21.layout.StaffLayout distance 3, staffNumber 1, staffSize 113.0, staffLines 5>\n\n\nStaffLayout can also specify the staffType:\n>>> sl.staffType = stream.enums.StaffType.OSSIA\n\n\nThere is one other attribute, \u0098.hidden' which has three settings:\n\nNone - inherit from previous StaffLayout object, or False if no object exists\nFalse - not hidden \u2014 show as a default staff\nTrue - hidden \u2014 for playback only staves, or for a hidden/optimized-out staff\n\nNote: (TODO: .hidden None is not working; always gives False)",
+        "type": "ListItem"
+    },
+    {
+        "text": "StaffLayout bases",
+        "type": "Title"
+    },
+    {
+        "text": "LayoutBase",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "StaffLayout read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "StaffLayout read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "StaffLayout methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "StaffLayout instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "StaffLayout.",
+        "type": "Title"
+    },
+    {
+        "text": "staffType",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "What kind of staff is this as a stream.enums.StaffType.\n>>> sl = layout.StaffLayout()\n>>> sl.staffType\n<StaffType.REGULAR: 'regular'>\n>>> sl.staffType = stream.enums.StaffType.CUE\n>>> sl.staffType\n<StaffType.CUE: 'cue'>",
+        "type": "ListItem"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "LayoutBase\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.layout.",
+        "type": "Title"
+    },
+    {
+        "text": "LayoutBase",
+        "type": "Title"
+    },
+    {
+        "text": "id",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "groups",
+        "type": "Title"
+    },
+    {
+        "text": "Groups | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "sites",
+        "type": "Title"
+    },
+    {
+        "text": "Sites | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "Duration | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "activeSite",
+        "type": "Title"
+    },
+    {
+        "text": "stream.Stream | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "style",
+        "type": "Title"
+    },
+    {
+        "text": "Style | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "editorial",
+        "type": "Title"
+    },
+    {
+        "text": "Editorial | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "OffsetQL",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "quarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "OffsetQLIn | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A base class for all Layout objects, defining a classSortOrder\nand also an inheritance tree.\n>>> scoreLayout = layout.ScoreLayout()\n>>> isinstance(scoreLayout, layout.LayoutBase)\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "LayoutBase bases",
+        "type": "Title"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "LayoutBase read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "LayoutBase read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "LayoutBase methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "LayoutBase instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "LayoutScore\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.layout.",
+        "type": "Title"
+    },
+    {
+        "text": "LayoutScore",
+        "type": "Title"
+    },
+    {
+        "text": "givenElements",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Designation that this Score is\ndivided into Pages, Systems, Staves (=Parts),\nMeasures, etc.\nUsed for computing location of notes, etc.\nIf the score does not change between calls to the various getPosition calls,\nit is much faster as it uses a cache.",
+        "type": "ListItem"
+    },
+    {
+        "text": "LayoutScore bases",
+        "type": "Title"
+    },
+    {
+        "text": "Opus",
+        "type": "ListItem"
+    },
+    {
+        "text": "Stream",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamCore",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "LayoutScore read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "LayoutScore.",
+        "type": "Title"
+    },
+    {
+        "text": "pages",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read-only properties inherited from Opus:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "scores",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from Stream:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength flat highestOffset highestTime isGapless lowestOffset notes notesAndRests pitches secondsMap spanners voices",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from StreamCore:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "spannerBundle",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "LayoutScore read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Stream:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "atSoundingPitch clef duration elements finalBarline keySignature metadata seconds staffLines timeSignature",
+        "type": "Table"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation editorial id offset priority quarterLength style",
+        "type": "Table"
+    },
+    {
+        "text": "LayoutScore methods",
+        "type": "Title"
+    },
+    {
+        "text": "LayoutScore.",
+        "type": "Title"
+    },
+    {
+        "text": "getAllMeasurePositionsInDocument",
+        "type": "Title"
+    },
+    {
+        "text": "returnFormat",
+        "type": "Title"
+    },
+    {
+        "text": "'tenths'",
+        "type": "Title"
+    },
+    {
+        "text": "printUpdates",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "returns a list of dictionaries, where each dictionary gives the measure number\nand other information, etc. in the document.\n# >>> g = corpus.parse(\u0098luca/gloria')\n# >>> gl = layout.divideByPages(g)\n# >>> gl.getAllMeasurePositionsInDocument()",
+        "type": "ListItem"
+    },
+    {
+        "text": "LayoutScore.",
+        "type": "Title"
+    },
+    {
+        "text": "getMarginsAndSizeForPageId",
+        "type": "Title"
+    },
+    {
+        "text": "pageId",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "return a namedtuple of (top, left, bottom, right, width, height)\nmargins for a given pageId in tenths\nDefault of (100, 100, 100, 100, 850, 1100) if undefined\n>>> g = corpus.parse('luca/gloria')\n>>> m22 = g.parts[0].getElementsByClass(stream.Measure)[22]\n>>> m22.getElementsByClass(layout.PageLayout).first().leftMargin = 204.0\n>>> gl = layout.divideByPages(g)\n>>> gl.getMarginsAndSizeForPageId(1)\nPageSize(top=171.0, left=204.0, right=171.0, bottom=171.0, width=1457.0, height=1886.0)",
+        "type": "ListItem"
+    },
+    {
+        "text": "LayoutScore.",
+        "type": "Title"
+    },
+    {
+        "text": "getPageAndSystemNumberFromMeasureNumber",
+        "type": "Title"
+    },
+    {
+        "text": "measureNumber",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a layoutScore from divideByPages and a measureNumber returns a tuple\nof (pageId, systemId).  Note that pageId is probably one less than the page number,\nassuming that the first page number is 1, the pageId for the first page will be 0.\nSimilarly, the first systemId on each page will be 0\n>>> lt = corpus.parse('demos/layoutTest.xml')\n>>> l = layout.divideByPages(lt, fastMeasures=True)\n>>> l.getPageAndSystemNumberFromMeasureNumber(80)\n(3, 3)",
+        "type": "ListItem"
+    },
+    {
+        "text": "LayoutScore.",
+        "type": "Title"
+    },
+    {
+        "text": "getPositionForStaff",
+        "type": "Title"
+    },
+    {
+        "text": "pageId",
+        "type": "Title"
+    },
+    {
+        "text": "systemId",
+        "type": "Title"
+    },
+    {
+        "text": "staffId",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "return a tuple of (top, bottom) for a staff, specified by a given pageId,\nsystemId, and staffId in tenths of a staff-space.\nThis distance is specified with respect to the top of the system.\nStaff scaling (<staff-details> in musicxml inside an <attributes> object) is\ntaken into account, but not non-five-line staves.  Thus, a normally sized staff\nis always of height 40 (4 spaces of 10-tenths each)\n>>> lt = corpus.parse('demos/layoutTest.xml')\n>>> ls = layout.divideByPages(lt, fastMeasures=True)\n\n\nThe first staff (staff 0) of each page/system always begins at height 0 and should end at\nheight 40 if it is a 5-line staff (not taken into account) with no staffSize changes\n>>> ls.getPositionForStaff(0, 0, 0)\n(0.0, 40.0)\n>>> ls.getPositionForStaff(1, 0, 0)\n(0.0, 40.0)\n\n\nThe second staff (staff 1) begins at the end of staff 0 (40.0) +\nthe appropriate staffDistance\nand adds the height of the staff.  Staff 1 here has a size of 80 which means\n80% of the normal staff size.  40 * 0.8 = 32.0:\n>>> ls.getPositionForStaff(0, 0, 1)\n(133.0, 165.0)\n\n\nThe third staff (staff 2) begins after the second staff (staff 1) but is a normal\nsize staff\n>>> ls.getPositionForStaff(0, 0, 2)\n(266.0, 306.0)\n\n\nThe first staff (staff 0) of the second system (system 1) also begins at 0\nand as a normally-sized staff, has height of 40:\n>>> ls.getPositionForStaff(0, 1, 0)\n(0.0, 40.0)\n\n\nThe spacing between the staves has changed in the second system, but the\nstaff height has not:\n>>> ls.getPositionForStaff(0, 1, 1)\n(183.0, 215.0)\n>>> ls.getPositionForStaff(0, 1, 2)\n(356.0, 396.0)\n\n\nIn the third system (system 2), the staff distance reverts to the distance\nof system 0, but the staffSize is now 120 or 48 tenths (40 * 1.2 = 48)\n>>> ls.getPositionForStaff(0, 2, 1)\n(117.0, 165.0)\n\n\nPage 1 (0), System 4 (3), Staff 2 (1) is a hidden (\u009coptimized\u009d) system.\nThus, its staffLayout notes this:\n>>> staffLayout031 = ls.pages[0].systems[3].staves[1].staffLayout\n>>> staffLayout031\n<music21.layout.StaffLayout distance None, staffNumber None, staffSize 80, staffLines None>\n>>> staffLayout031.hidden\nTrue\n\n\nThus, the position for this staff will have the same top and bottom, and the\nposition for the next staff will have the same top as the previous staff:\n>>> ls.getPositionForStaff(0, 3, 0)\n(0.0, 40.0)\n>>> ls.getPositionForStaff(0, 3, 1)\n(40.0, 40.0)\n>>> ls.getPositionForStaff(0, 3, 2)\n(133.0, 173.0)\n\n\nTests for a score with PartStaff objects:\n>>> lt = corpus.parse(\u0098demos/layoutTestMore.xml')\n>>> ls = layout.divideByPages(lt, fastMeasures = True)\n>>> ls.getPositionForStaff(0, 0, 0)\n(0.0, 40.0)\n>>> ls.getPositionForStaff(0, 0, 1)\n(133.0, 173.0)\n>>> ls.getPositionForStaff(0, 0, 2)\n(235.0, 275.0)\n>>> ls.getPositionForStaff(0, 2, 0)\n(0.0, 40.0)\n>>> ls.getPositionForStaff(0, 2, 1)\n(40.0, 40.0)\n>>> ls.getPositionForStaff(0, 2, 2)\n(40.0, 40.0)\n\n\nSystem 4 has the top staff hidden, which has been causing problems:\n>>> ls.getPositionForStaff(0, 4, 0)\n(0.0, 0.0)\n>>> ls.getPositionForStaff(0, 4, 1)\n(0.0, 40.0)",
+        "type": "ListItem"
+    },
+    {
+        "text": "LayoutScore.",
+        "type": "Title"
+    },
+    {
+        "text": "getPositionForStaffMeasure",
+        "type": "Title"
+    },
+    {
+        "text": "staffId",
+        "type": "Title"
+    },
+    {
+        "text": "measureNumber",
+        "type": "Title"
+    },
+    {
+        "text": "returnFormat",
+        "type": "Title"
+    },
+    {
+        "text": "'tenths'",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a layoutScore from divideByPages, a staffId, and a measureNumber,\nreturns a tuple of ((top, left), (bottom, right), pageId)\nallowing an exact position for the measure on the page.\nIf returnFormat is \u009ctenths\u009d, then it will be returned in tenths.\nIf returnFormat is \u009cfloat\u009d, returns each as a number from 0 to 1 where 0 is the\ntop or left of the page, and 1 is the bottom or right of the page.\n>>> lt = corpus.parse('demos/layoutTest.xml')\n>>> ls = layout.divideByPages(lt, fastMeasures = True)\n\n\nThe first measure of staff one begins at 336 tenths from the top (125 for the\nmargin top and 211 for the top-staff-distance).  It begins 170.0 from the\nleft (100 for the page-margin-left, 70 for staff-margin-left).  It ends\n40.0 below that (staffHeight) and 247.0 to the right (measure width)\n>>> ls.getPositionForStaffMeasure(0, 1)\n((336.0, 170.0), (376.0, 417.0), 0)\n\n\nThe other staves for the same measure are below this one:\n>>> ls.getPositionForStaffMeasure(1, 1)\n((469.0, 170.0), (501.0, 417.0), 0)\n>>> ls.getPositionForStaffMeasure(2, 1)\n((602.0, 170.0), (642.0, 417.0), 0)\n\n\nIf float is requested for returning, then the numbers are the fraction of\nthe distance across the page.\n>>> ls.getPositionForStaffMeasure(0, 1, returnFormat='float')\n((0.152..., 0.0996...), (0.170..., 0.244...), 0)\n\n\nMoving over the page boundary:\n>>> ls.getPositionForStaffMeasure(0, 23)\n((1703.0, 1345.0), (1743.0, 1606.0), 0)\n>>> ls.getPositionForStaffMeasure(1, 23)  # hidden\n((1743.0, 1345.0), (1743.0, 1606.0), 0)\n>>> ls.getPositionForStaffMeasure(0, 24)\n((195.0, 100.0), (235.0, 431.0), 1)\n>>> ls.getPositionForStaffMeasure(1, 24)\n((328.0, 100.0), (360.0, 431.0), 1)",
+        "type": "ListItem"
+    },
+    {
+        "text": "LayoutScore.",
+        "type": "Title"
+    },
+    {
+        "text": "getPositionForSystem",
+        "type": "Title"
+    },
+    {
+        "text": "pageId",
+        "type": "Title"
+    },
+    {
+        "text": "systemId",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "first systems on a page use a different positioning.\nreturns a Named tuple of the (top, left, right, and bottom) where each unit is\nrelative to the page margins\nN.B. right is NOT the width \u2014 it is different.  It is the offset to the right margin.\nweird, inconsistent, but most useful\u2026bottom is the hard part to compute\u2026\n>>> lt = corpus.parse('demos/layoutTestMore.xml')\n>>> ls = layout.divideByPages(lt, fastMeasures = True)\n>>> ls.getPositionForSystem(0, 0)\nSystemSize(top=211.0, left=70.0, right=0.0, bottom=696.0)\n>>> ls.getPositionForSystem(0, 1)\nSystemSize(top=810.0, left=0.0, right=0.0, bottom=1173.0)\n>>> ls.getPositionForSystem(0, 2)\nSystemSize(top=1340.0, left=67.0, right=92.0, bottom=1610.0)\n>>> ls.getPositionForSystem(0, 3)\nSystemSize(top=1724.0, left=0.0, right=0.0, bottom=2030.0)\n>>> ls.getPositionForSystem(0, 4)\nSystemSize(top=2144.0, left=0.0, right=0.0, bottom=2583.0)",
+        "type": "ListItem"
+    },
+    {
+        "text": "LayoutScore.",
+        "type": "Title"
+    },
+    {
+        "text": "getStaffDistanceFromPrevious",
+        "type": "Title"
+    },
+    {
+        "text": "pageId",
+        "type": "Title"
+    },
+    {
+        "text": "systemId",
+        "type": "Title"
+    },
+    {
+        "text": "staffId",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "return the distance of this staff from the previous staff in the same system\nfor staffId = 0, this is always 0.0\nTODO:tests, now that this is out from previous",
+        "type": "ListItem"
+    },
+    {
+        "text": "LayoutScore.",
+        "type": "Title"
+    },
+    {
+        "text": "getStaffHiddenAttribute",
+        "type": "Title"
+    },
+    {
+        "text": "pageId",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "systemId",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "staffId",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "returns the staffLayout.hidden attribute for a staffId, or if it is not\ndefined, recursively search through previous staves until one is found.\n>>> lt = corpus.parse('demos/layoutTestMore.xml')\n>>> ls = layout.divideByPages(lt, fastMeasures = True)\n>>> ls.getStaffHiddenAttribute(0, 0, 0)\nFalse\n>>> ls.getStaffHiddenAttribute(0, 0, 1)\nFalse\n>>> ls.getStaffHiddenAttribute(0, 1, 1)\nTrue\n>>> ls.getStaffHiddenAttribute(0, 2, 1)\nTrue\n>>> ls.getStaffHiddenAttribute(0, 3, 1)\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "LayoutScore.",
+        "type": "Title"
+    },
+    {
+        "text": "getStaffSizeFromLayout",
+        "type": "Title"
+    },
+    {
+        "text": "pageId",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "systemId",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "staffId",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 float",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get the currently active staff-size for a given pageId, systemId, and staffId.\nNote that this does not take into account the hidden state of the staff, which,\nif True, makes the effective size 0.0 \u2014 see getStaffHiddenAttribute\n>>> lt = corpus.parse('demos/layoutTest.xml')\n>>> ls = layout.divideByPages(lt, fastMeasures=True)\n>>> ls.getStaffSizeFromLayout(0, 0, 0)\n40.0\n>>> ls.getStaffSizeFromLayout(0, 0, 1)\n32.0\n>>> ls.getStaffSizeFromLayout(0, 0, 2)\n40.0\n>>> ls.getStaffSizeFromLayout(0, 1, 1)\n32.0\n>>> ls.getStaffSizeFromLayout(0, 2, 1)\n48.0\n>>> ls.getStaffSizeFromLayout(0, 3, 1)\n32.0",
+        "type": "ListItem"
+    },
+    {
+        "text": "LayoutScore.",
+        "type": "Title"
+    },
+    {
+        "text": "getSystemBeforeThis",
+        "type": "Title"
+    },
+    {
+        "text": "pageId",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "systemId",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 tuple[int | None, int]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "given a pageId and systemId, get the (pageId, systemId) for the previous system.\nreturn (None, None) if it's the first system on the first page\nThis test score has five systems on the first page,\nthree on the second, and two on the third\n>>> lt = corpus.parse('demos/layoutTestMore.xml')\n>>> ls = layout.divideByPages(lt, fastMeasures = True)\n>>> systemId = 1\n>>> pageId = 2  # last system, last page\n>>> while pageId is not None:\n...    pageId, systemId = ls.getSystemBeforeThis(pageId, systemId)\n...    (pageId, systemId)\n(2, 0) (1, 2) (1, 1) (1, 0) (0, 4) (0, 3) (0, 2) (0, 1) (0, 0) (None, -1)",
+        "type": "ListItem"
+    },
+    {
+        "text": "LayoutScore.",
+        "type": "Title"
+    },
+    {
+        "text": "measurePositionWithinSystem",
+        "type": "Title"
+    },
+    {
+        "text": "measureNumber",
+        "type": "Title"
+    },
+    {
+        "text": "pageId",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "systemId",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a measure number, find the start and end X positions (with respect to\nthe system margins) for the measure.\nif pageId and systemId are given, then it will speed up the search. But not necessary\nno staffId is needed since (at least for now) all measures begin and end at the same\nX position\n>>> l = corpus.parse('demos/layoutTest.xml')\n>>> ls = layout.divideByPages(l, fastMeasures = True)\n>>> ls.measurePositionWithinSystem(1, 0, 0)\n(0.0, 247.0)\n>>> ls.measurePositionWithinSystem(2, 0, 0)\n(247.0, 544.0)\n>>> ls.measurePositionWithinSystem(3, 0, 0)\n(544.0, 841.0)\n\n\nMeasure positions reset at the start of a new system\n>>> ls.measurePositionWithinSystem(6)\n(0.0, 331.0)\n>>> ls.measurePositionWithinSystem(7)\n(331.0, 549.0)",
+        "type": "ListItem"
+    },
+    {
+        "text": "LayoutScore.",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "fmt",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "app",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Borrows stream.Score.show\n>>> lp = layout.Page()\n>>> ls = layout.LayoutScore()\n>>> ls.append(lp)\n>>> ls.show('text')\n{0.0} <music21.layout.Page p.1>",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from Opus:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "getNumbers() getScoreByNumber() getScoreByTitle() mergeScores() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Stream:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() __getitem__() activateVariants() addGroupForElements() allPlayingWhileSounding() analyze() append() attachIntervalsBetweenStreams() attachMelodicIntervals() augmentOrDiminish() beatAndMeasureFromOffset() chordify() clear() cloneEmpty() containerInHierarchy() elementOffset() expandRepeats() explode() extendDuration() extendTies() extractContext() findConsecutiveNotes() findGaps() first() flatten() flattenUnnecessaryVoices() getElementAfterElement() getElementAtOrBefore() getElementBeforeOffset() getElementById() getElementsByClass() getElementsByGroup() getElementsByOffset() getElementsNotOfClass() getInstrument() getInstruments() getOverlaps() getTimeSignatures() hasElement() hasElementOfClass() hasMeasures() hasPartLikeStreams() hasVoices() haveAccidentalsBeenMade() index() insert() insertAndShift() insertIntoNoteOrChord() invertDiatonic() isSequence() isTwelveTone() isWellFormedNotation() iter() last() lyrics() makeAccidentals() makeBeams() makeImmutable() makeMeasures() makeMutable() makeNotation() makeRests() makeTies() makeVoices() measure() measureOffsetMap() measures() melodicIntervals() mergeAttributes() mergeElements() metronomeMarkBoundaries() offsetMap() playingWhenAttacked() plot() pop() quantize() recurse() recurseRepr() remove() removeByClass() removeByNotOfClass() repeatAppend() repeatInsert() replace() scaleDurations() scaleOffsets() setDerivationMethod() setElementOffset() shiftElements() showVariantAsOssialikePart() simultaneousAttacks() sliceAtOffsets() sliceByBeat() sliceByGreatestDivisor() sliceByQuarterLengths() sort() sorted() splitAtDurations() splitAtQuarterLength() splitByClass() storeAtEnd() stripTies() template() toSoundingPitch() toWrittenPitch() transferOffsetToElements() transpose() voicesToParts()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from StreamCore:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "asTimespans() asTree() coreAppend() coreCopyAsDerivation() coreElementsChanged() coreGatherMissingSpanners() coreGetElementByMemoryLocation() coreGuardBeforeAddElement() coreHasElementByMemoryLocation() coreInsert() coreSelfActiveSite() coreSetElementOffset() coreStoreAtEnd()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() sortTuple() splitByQuarterLengths()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "LayoutScore instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from Stream:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "autoSort definesExplicitPageBreaks definesExplicitSystemBreaks isFlat isSorted recursionType",
+        "type": "Table"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "Page\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.layout.",
+        "type": "Title"
+    },
+    {
+        "text": "Page",
+        "type": "Title"
+    },
+    {
+        "text": "givenElements",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Designation that all the music in this Stream\nbelongs on a single notated page.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Page bases",
+        "type": "Title"
+    },
+    {
+        "text": "Opus",
+        "type": "ListItem"
+    },
+    {
+        "text": "Stream",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamCore",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "Page read-only properties",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Page.",
+        "type": "Title"
+    },
+    {
+        "text": "systems",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read-only properties inherited from Opus:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "scores",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from Stream:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength flat highestOffset highestTime isGapless lowestOffset notes notesAndRests pitches secondsMap spanners voices",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from StreamCore:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "spannerBundle",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "Page read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Stream:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "atSoundingPitch clef duration elements finalBarline keySignature metadata seconds staffLines timeSignature",
+        "type": "Table"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation editorial id offset priority quarterLength style",
+        "type": "Table"
+    },
+    {
+        "text": "Page methods",
+        "type": "Title"
+    },
+    {
+        "text": "Page.",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "fmt",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "app",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Borrows stream.Score.show\n>>> ls = layout.System()\n>>> lp = layout.Page()\n>>> lp.append(ls)\n>>> lp.show('text')\n{0.0} <music21.layout.System 0: p.0, sys.0>",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from Opus:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "getNumbers() getScoreByNumber() getScoreByTitle() mergeScores() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Stream:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() __getitem__() activateVariants() addGroupForElements() allPlayingWhileSounding() analyze() append() attachIntervalsBetweenStreams() attachMelodicIntervals() augmentOrDiminish() beatAndMeasureFromOffset() chordify() clear() cloneEmpty() containerInHierarchy() elementOffset() expandRepeats() explode() extendDuration() extendTies() extractContext() findConsecutiveNotes() findGaps() first() flatten() flattenUnnecessaryVoices() getElementAfterElement() getElementAtOrBefore() getElementBeforeOffset() getElementById() getElementsByClass() getElementsByGroup() getElementsByOffset() getElementsNotOfClass() getInstrument() getInstruments() getOverlaps() getTimeSignatures() hasElement() hasElementOfClass() hasMeasures() hasPartLikeStreams() hasVoices() haveAccidentalsBeenMade() index() insert() insertAndShift() insertIntoNoteOrChord() invertDiatonic() isSequence() isTwelveTone() isWellFormedNotation() iter() last() lyrics() makeAccidentals() makeBeams() makeImmutable() makeMeasures() makeMutable() makeNotation() makeRests() makeTies() makeVoices() measure() measureOffsetMap() measures() melodicIntervals() mergeAttributes() mergeElements() metronomeMarkBoundaries() offsetMap() playingWhenAttacked() plot() pop() quantize() recurse() recurseRepr() remove() removeByClass() removeByNotOfClass() repeatAppend() repeatInsert() replace() scaleDurations() scaleOffsets() setDerivationMethod() setElementOffset() shiftElements() showVariantAsOssialikePart() simultaneousAttacks() sliceAtOffsets() sliceByBeat() sliceByGreatestDivisor() sliceByQuarterLengths() sort() sorted() splitAtDurations() splitAtQuarterLength() splitByClass() storeAtEnd() stripTies() template() toSoundingPitch() toWrittenPitch() transferOffsetToElements() transpose() voicesToParts()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from StreamCore:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "asTimespans() asTree() coreAppend() coreCopyAsDerivation() coreElementsChanged() coreGatherMissingSpanners() coreGetElementByMemoryLocation() coreGuardBeforeAddElement() coreHasElementByMemoryLocation() coreInsert() coreSelfActiveSite() coreSetElementOffset() coreStoreAtEnd()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() sortTuple() splitByQuarterLengths()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Page instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from Stream:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "autoSort definesExplicitPageBreaks definesExplicitSystemBreaks isFlat isSorted recursionType",
+        "type": "Table"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "System\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.layout.",
+        "type": "Title"
+    },
+    {
+        "text": "System",
+        "type": "Title"
+    },
+    {
+        "text": "givenElements",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Designation that all the music in this Stream\nbelongs on a single notated system.\nAttribute systemNumbering says at what point the numbering of\nsystems resets.  It can be either \u009cScore\u009d (default), \u009cOpus\u009d, or \u009cPage\u009d.",
+        "type": "ListItem"
+    },
+    {
+        "text": "System bases",
+        "type": "Title"
+    },
+    {
+        "text": "Score",
+        "type": "ListItem"
+    },
+    {
+        "text": "Stream",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamCore",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "System read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "System.",
+        "type": "Title"
+    },
+    {
+        "text": "staves",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read-only properties inherited from Score:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "parts",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from Stream:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength flat highestOffset highestTime isGapless lowestOffset notes notesAndRests pitches secondsMap spanners voices",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from StreamCore:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "spannerBundle",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "System read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Stream:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "atSoundingPitch clef duration elements finalBarline keySignature metadata seconds staffLines timeSignature",
+        "type": "Table"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation editorial id offset priority quarterLength style",
+        "type": "Table"
+    },
+    {
+        "text": "System methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from Score:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "expandRepeats() implode() makeNotation() measure() measureOffsetMap() measures() partsToVoices() sliceByGreatestDivisor()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Stream:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() __getitem__() activateVariants() addGroupForElements() allPlayingWhileSounding() analyze() append() attachIntervalsBetweenStreams() attachMelodicIntervals() augmentOrDiminish() beatAndMeasureFromOffset() chordify() clear() cloneEmpty() containerInHierarchy() elementOffset() explode() extendDuration() extendTies() extractContext() findConsecutiveNotes() findGaps() first() flatten() flattenUnnecessaryVoices() getElementAfterElement() getElementAtOrBefore() getElementBeforeOffset() getElementById() getElementsByClass() getElementsByGroup() getElementsByOffset() getElementsNotOfClass() getInstrument() getInstruments() getOverlaps() getTimeSignatures() hasElement() hasElementOfClass() hasMeasures() hasPartLikeStreams() hasVoices() haveAccidentalsBeenMade() index() insert() insertAndShift() insertIntoNoteOrChord() invertDiatonic() isSequence() isTwelveTone() isWellFormedNotation() iter() last() lyrics() makeAccidentals() makeBeams() makeImmutable() makeMeasures() makeMutable() makeRests() makeTies() makeVoices() melodicIntervals() mergeAttributes() mergeElements() metronomeMarkBoundaries() offsetMap() playingWhenAttacked() plot() pop() quantize() recurse() recurseRepr() remove() removeByClass() removeByNotOfClass() repeatAppend() repeatInsert() replace() scaleDurations() scaleOffsets() setDerivationMethod() setElementOffset() shiftElements() show() showVariantAsOssialikePart() simultaneousAttacks() sliceAtOffsets() sliceByBeat() sliceByQuarterLengths() sort() sorted() splitAtDurations() splitAtQuarterLength() splitByClass() storeAtEnd() stripTies() template() toSoundingPitch() toWrittenPitch() transferOffsetToElements() transpose() voicesToParts() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from StreamCore:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "asTimespans() asTree() coreAppend() coreCopyAsDerivation() coreElementsChanged() coreGatherMissingSpanners() coreGetElementByMemoryLocation() coreGuardBeforeAddElement() coreHasElementByMemoryLocation() coreInsert() coreSelfActiveSite() coreSetElementOffset() coreStoreAtEnd()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() sortTuple() splitByQuarterLengths()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "System instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from Stream:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "autoSort definesExplicitPageBreaks definesExplicitSystemBreaks isFlat isSorted recursionType",
+        "type": "Table"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "Staff\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.layout.",
+        "type": "Title"
+    },
+    {
+        "text": "Staff",
+        "type": "Title"
+    },
+    {
+        "text": "givenElements",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Designation that all the music in this Stream\nbelongs on a single Staff.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Staff bases",
+        "type": "Title"
+    },
+    {
+        "text": "Part",
+        "type": "ListItem"
+    },
+    {
+        "text": "Stream",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamCore",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "Staff read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Stream:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength flat highestOffset highestTime isGapless lowestOffset notes notesAndRests pitches secondsMap spanners voices",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from StreamCore:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "spannerBundle",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "Staff read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Part:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "partAbbreviation partName",
+        "type": "Table"
+    },
+    {
+        "text": "Read/write properties inherited from Stream:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "atSoundingPitch clef duration elements finalBarline keySignature metadata seconds staffLines timeSignature",
+        "type": "Table"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation editorial id offset priority quarterLength style",
+        "type": "Table"
+    },
+    {
+        "text": "Staff methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from Part:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "makeAccidentals() mergeAttributes()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Stream:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() __getitem__() activateVariants() addGroupForElements() allPlayingWhileSounding() analyze() append() attachIntervalsBetweenStreams() attachMelodicIntervals() augmentOrDiminish() beatAndMeasureFromOffset() chordify() clear() cloneEmpty() containerInHierarchy() elementOffset() expandRepeats() explode() extendDuration() extendTies() extractContext() findConsecutiveNotes() findGaps() first() flatten() flattenUnnecessaryVoices() getElementAfterElement() getElementAtOrBefore() getElementBeforeOffset() getElementById() getElementsByClass() getElementsByGroup() getElementsByOffset() getElementsNotOfClass() getInstrument() getInstruments() getOverlaps() getTimeSignatures() hasElement() hasElementOfClass() hasMeasures() hasPartLikeStreams() hasVoices() haveAccidentalsBeenMade() index() insert() insertAndShift() insertIntoNoteOrChord() invertDiatonic() isSequence() isTwelveTone() isWellFormedNotation() iter() last() lyrics() makeBeams() makeImmutable() makeMeasures() makeMutable() makeNotation() makeRests() makeTies() makeVoices() measure() measureOffsetMap() measures() melodicIntervals() mergeElements() metronomeMarkBoundaries() offsetMap() playingWhenAttacked() plot() pop() quantize() recurse() recurseRepr() remove() removeByClass() removeByNotOfClass() repeatAppend() repeatInsert() replace() scaleDurations() scaleOffsets() setDerivationMethod() setElementOffset() shiftElements() show() showVariantAsOssialikePart() simultaneousAttacks() sliceAtOffsets() sliceByBeat() sliceByGreatestDivisor() sliceByQuarterLengths() sort() sorted() splitAtDurations() splitAtQuarterLength() splitByClass() storeAtEnd() stripTies() template() toSoundingPitch() toWrittenPitch() transferOffsetToElements() transpose() voicesToParts() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from StreamCore:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "asTimespans() asTree() coreAppend() coreCopyAsDerivation() coreElementsChanged() coreGatherMissingSpanners() coreGetElementByMemoryLocation() coreGuardBeforeAddElement() coreHasElementByMemoryLocation() coreInsert() coreSelfActiveSite() coreSetElementOffset() coreStoreAtEnd()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() sortTuple() splitByQuarterLengths()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Staff instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from Stream:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "autoSort definesExplicitPageBreaks definesExplicitSystemBreaks isFlat isSorted recursionType",
+        "type": "Table"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "PageSize\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.layout.",
+        "type": "Title"
+    },
+    {
+        "text": "PageSize",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "top",
+        "type": "Title"
+    },
+    {
+        "text": "left",
+        "type": "Title"
+    },
+    {
+        "text": "right",
+        "type": "Title"
+    },
+    {
+        "text": "bottom",
+        "type": "Title"
+    },
+    {
+        "text": "width",
+        "type": "Title"
+    },
+    {
+        "text": "height",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "StaffGroup\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.layout.",
+        "type": "Title"
+    },
+    {
+        "text": "StaffGroup",
+        "type": "Title"
+    },
+    {
+        "text": "spannedElements",
+        "type": "Title"
+    },
+    {
+        "text": "name",
+        "type": "Title"
+    },
+    {
+        "text": "str | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "barTogether",
+        "type": "Title"
+    },
+    {
+        "text": "Literal",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "'Mensurstrich'",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "abbreviation",
+        "type": "Title"
+    },
+    {
+        "text": "str | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "symbol",
+        "type": "Title"
+    },
+    {
+        "text": "Literal",
+        "type": "Title"
+    },
+    {
+        "text": "'bracket'",
+        "type": "Title"
+    },
+    {
+        "text": "'line'",
+        "type": "Title"
+    },
+    {
+        "text": "'brace'",
+        "type": "Title"
+    },
+    {
+        "text": "'square'",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A StaffGroup defines a collection of one or more\nPart objects,\nspecifying that they should be shown together with a bracket,\nbrace, or other symbol, and may have a common name.\n>>> p1 = stream.Part()\n>>> p2 = stream.Part()\n>>> p1.append(note.Note('C5', type='whole'))\n>>> p1.append(note.Note('D5', type='whole'))\n>>> p2.append(note.Note('C3', type='whole'))\n>>> p2.append(note.Note('D3', type='whole'))\n>>> p3 = stream.Part()\n>>> p3.append(note.Note('F#4', type='whole'))\n>>> p3.append(note.Note('G#4', type='whole'))\n>>> s = stream.Score()\n>>> s.insert(0, p1)\n>>> s.insert(0, p2)\n>>> s.insert(0, p3)\n>>> staffGroup1 = layout.StaffGroup([p1, p2],\n...      name='Marimba', abbreviation='Mba.', symbol='brace')\n>>> staffGroup1.barTogether = 'Mensurstrich'\n>>> s.insert(0, staffGroup1)\n>>> staffGroup2 = layout.StaffGroup([p3],\n...      name='Xylophone', abbreviation='Xyl.', symbol='bracket')\n>>> s.insert(0, staffGroup2)\n>>> s.show()",
+        "type": "ListItem"
+    },
+    {
+        "text": "StaffGroup bases",
+        "type": "Title"
+    },
+    {
+        "text": "Spanner",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "StaffGroup read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "StaffGroup read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "StaffGroup.",
+        "type": "Title"
+    },
+    {
+        "text": "barTogether",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get or set the barTogether value, with either Boolean values\nor yes or no strings.  Or the string \u0098Mensurstrich' which\nindicates barring between staves but not in staves.\nCurrently Mensurstrich is not supported by most exporters.\n>>> sg = layout.StaffGroup()\n>>> sg.barTogether = 'yes'\n>>> sg.barTogether\nTrue\n>>> sg.barTogether = 'Mensurstrich'\n>>> sg.barTogether\n'Mensurstrich'",
+        "type": "ListItem"
+    },
+    {
+        "text": "StaffGroup.",
+        "type": "Title"
+    },
+    {
+        "text": "symbol",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get or set the symbol value, with either Boolean values or yes or no strings.\n>>> sg = layout.StaffGroup()\n>>> sg.symbol = 'Brace'\n>>> sg.symbol\n'brace'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "StaffGroup methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from Spanner:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__getitem__() addSpannedElements() fill() getFirst() getLast() getSpannedElementIds() getSpannedElements() getSpannedElementsByClass() hasSpannedElement() isFirst() isLast() purgeLocations() purgeOrphans() replaceSpannedElement()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "StaffGroup instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "SystemSize\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.layout.",
+        "type": "Title"
+    },
+    {
+        "text": "SystemSize",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "top",
+        "type": "Title"
+    },
+    {
+        "text": "left",
+        "type": "Title"
+    },
+    {
+        "text": "right",
+        "type": "Title"
+    },
+    {
+        "text": "bottom",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.layout.",
+        "type": "Title"
+    },
+    {
+        "text": "divideByPages",
+        "type": "Title"
+    },
+    {
+        "text": "scoreIn",
+        "type": "Title"
+    },
+    {
+        "text": "Score",
+        "type": "Title"
+    },
+    {
+        "text": "printUpdates",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "fastMeasures",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 LayoutScore",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Divides a score into a series of smaller scores according to page\nbreaks.  Only searches for PageLayout.isNew or SystemLayout.isNew\non the first part.  Returns a new LayoutScore object.\nIf fastMeasures is True, then the newly created System objects\ndo not have Clef signs, Key Signatures, or necessarily all the\napplicable spanners in them.  On the other hand, the position\n(on the page) information will be just as correct with\nfastMeasures = True and it will run much faster on large scores\n(because our spanner gathering algorithm is currently O(n^2);\nsomething TODO: to fix.)\n>>> lt = corpus.parse('demos/layoutTest.xml')\n>>> len(lt.parts)\n3\n>>> len(lt.parts[0].getElementsByClass(stream.Measure))\n80\n\n\nDivide the score up into layout.Page objects\n>>> layoutScore = layout.divideByPages(lt, fastMeasures=True)\n>>> len(layoutScore.pages)\n4\n>>> lastPage = layoutScore.pages[-1]\n>>> lastPage.measureStart\n64\n>>> lastPage.measureEnd\n80\n\n\nthe layoutScore is a subclass of stream.Opus:\n>>> layoutScore\n<music21.layout.LayoutScore ...>\n>>> 'Opus' in layoutScore.classes\nTrue\n\n\nPages are subclasses of Opus also, since they contain Scores\n>>> lastPage\n<music21.layout.Page ...>\n>>> 'Opus' in lastPage.classes\nTrue\n\n\nEach page now has Systems not parts.\n>>> firstPage = layoutScore.pages[0]\n>>> len(firstPage.systems)\n4\n>>> firstSystem = firstPage.systems[0]\n>>> firstSystem.measureStart\n1\n>>> firstSystem.measureEnd\n5\n\n\nSystems are a subclass of Score:\n>>> firstSystem\n<music21.layout.System ...>\n>>> isinstance(firstSystem, stream.Score)\nTrue\n\n\nEach System has staves (layout.Staff objects) not parts, though Staff is a subclass of Part\n>>> secondStaff = firstSystem.staves[1]\n>>> print(len(secondStaff.getElementsByClass(stream.Measure)))\n5\n>>> secondStaff\n<music21.layout.Staff ...>\n>>> isinstance(secondStaff, stream.Part)\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.layout.",
+        "type": "Title"
+    },
+    {
+        "text": "getPageRegionMeasureNumbers",
+        "type": "Title"
+    },
+    {
+        "text": "scoreIn",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.layout.",
+        "type": "Title"
+    },
+    {
+        "text": "getRegionMeasureNumbers",
+        "type": "Title"
+    },
+    {
+        "text": "scoreIn",
+        "type": "Title"
+    },
+    {
+        "text": "region",
+        "type": "Title"
+    },
+    {
+        "text": "'Page'",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "get a list where each entry is a 2-tuplet whose first number\nrefers to the first measure on a page and whose second number\nis the last measure on the page.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.layout.",
+        "type": "Title"
+    },
+    {
+        "text": "getSystemRegionMeasureNumbers",
+        "type": "Title"
+    },
+    {
+        "text": "scoreIn",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.layout",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

@@ -1,0 +1,262 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.parallel",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.common.objects",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.common.pathTools",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.common.parallel\nFunctions\ncpus()\nrunNonParallel()\nrunParallel()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.parallel\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.common.parallel.",
+        "type": "Title"
+    },
+    {
+        "text": "cpus",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns the number of CPUs or if >= 3, one less (to leave something out for multiprocessing)",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.parallel.",
+        "type": "Title"
+    },
+    {
+        "text": "runNonParallel",
+        "type": "Title"
+    },
+    {
+        "text": "iterable",
+        "type": "Title"
+    },
+    {
+        "text": "parallelFunction",
+        "type": "Title"
+    },
+    {
+        "text": "updateFunction",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "updateMultiply",
+        "type": "Title"
+    },
+    {
+        "text": "unpackIterable",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "updateSendsIterable",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "This is intended to be a perfect drop in replacement for runParallel, except that\nit runs on one core only, and not in parallel.\nUsed automatically if we're already in a parallelized function.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.parallel.",
+        "type": "Title"
+    },
+    {
+        "text": "runParallel",
+        "type": "Title"
+    },
+    {
+        "text": "iterable",
+        "type": "Title"
+    },
+    {
+        "text": "parallelFunction",
+        "type": "Title"
+    },
+    {
+        "text": "updateFunction",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "updateMultiply",
+        "type": "Title"
+    },
+    {
+        "text": "unpackIterable",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "updateSendsIterable",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "runs parallelFunction over iterable in parallel, optionally calling updateFunction after\neach common.cpus * updateMultiply calls.\nSetting updateMultiply too small can make it so that cores wait around when they\ncould be working if one CPU has a particularly hard task.  Setting it too high\ncan make it seem like the job has hung.\nupdateFunction should take three arguments: the current position, the total to run,\nand the most recent results.  It does not need to be pickleable, and in fact,\na bound method might be very useful here.  Or updateFunction can be \u009cTrue\u009d\nwhich just prints a generic message.\nIf unpackIterable is True then each element in iterable is considered a list or\ntuple of different arguments to parallelFunction.\nIf updateSendsIterable is True then the update function will get the iterable\ncontent, after the output.\nAs of Python 3, partial functions are pickleable, so if you need to pass the same\narguments to parallelFunction each time, make it a partial function before passing\nit to runParallel.\nNote that parallelFunction, iterable's contents, and the results of calling parallelFunction\nmust all be pickleable, and that if pickling the contents or\nunpickling the results takes a lot of time, you won't get nearly the speedup\nfrom this function as you might expect.  The big culprit here is definitely\nmusic21 streams.\n>>> files = ['bach/bwv66.6', 'schoenberg/opus19', 'AcaciaReel']\n>>> def countNotes(fn):\n...     c = corpus.parse(fn)  # this is the slow call that is good to parallelize\n...     return len(c.recurse().notes)\n>>> outputs = common.runParallel(files, countNotes)\n>>> outputs\n[165, 50, 131]\n\n\nSet updateFunction=True to get an update every 3 * numCpus (-1 if > 2)\n>>> outputs = common.runParallel(files, countNotes, updateFunction=True)\nDone 0 tasks of 3\nDone 3 tasks of 3\n\n\nWith a custom updateFunction that gets each output:\n>>> def yak(position, length, output):\n...     print(\"%s:%s %s is a lot of notes!\" % (position, length, output))\n>>> outputs = common.runParallel(files, countNotes, updateFunction=yak)\n0:3 165 is a lot of notes!\n1:3 50 is a lot of notes!\n2:3 131 is a lot of notes!\n\n\nOr with updateSendsIterable, we can get the original files data as well:\n>>> def yik(position, length, output, fn):\n...     print(\"%s:%s (%s) %s is a lot of notes!\" % (position, length, fn, output))\n>>> outputs = common.runParallel(files, countNotes, updateFunction=yik,\n...             updateSendsIterable=True)\n0:3 (bach/bwv66.6) 165 is a lot of notes!\n1:3 (schoenberg/opus19) 50 is a lot of notes!\n2:3 (AcaciaReel) 131 is a lot of notes!\n\n\nunpackIterable is useful for when you need to send multiple values to your function\ncall as separate arguments.  For instance, something like:\n>>> def pitchesAbove(fn, minPitch):  # a two-argument function\n...     c = corpus.parse(fn)  # again, the slow call goes in the function\n...     return len([p for p in c.pitches if p.ps > minPitch])\n\n\n>>> inputs = [('bach/bwv66.6', 60),\n...           ('schoenberg/opus19', 72),\n...           ('AcaciaReel', 66)]\n>>> outputs = common.runParallel(inputs, pitchesAbove, unpackIterable=True)\n>>> outputs\n[99, 11, 123]",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.parallel",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

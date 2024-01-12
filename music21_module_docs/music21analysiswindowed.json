@@ -1,0 +1,338 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.analysis.windowed",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.analysis.transposition",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.articulations",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.analysis.windowed\nWindowedAnalysis\nWindowedAnalysis\nWindowedAnalysis.analyze()\nWindowedAnalysis.getMinimumWindowStream()\nWindowedAnalysis.process()\n\n\n\n\nTestMockProcessor\nTestMockProcessor\nTestMockProcessor.process()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.analysis.windowed\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "This module describes classes for performing windowed and overlapping windowed analysis.\nThe music21.analysis.windowed.WindowedAnalysis provides a reusable framework for\nsystematic overlapping window analysis at the starting at the level of the quarter note\nand moving to the size of an entire music21.stream.Stream.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Modular analysis procedures inherit from music21.analysis.discrete.DiscreteAnalysis.\nThe music21.analysis.discrete.KrumhanslSchmuckler (for algorithmic key detection)\nand music21.analysis.discrete.Ambitus (for pitch range analysis) classes provide examples.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "WindowedAnalysis\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.analysis.windowed.",
+        "type": "Title"
+    },
+    {
+        "text": "WindowedAnalysis",
+        "type": "Title"
+    },
+    {
+        "text": "streamObj",
+        "type": "Title"
+    },
+    {
+        "text": "analysisProcessor",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Create a WindowedAnalysis object.\nThe provided analysisProcessor must provide a process() method that,\nwhen given a windowed Stream (a Measure) returns two element tuple containing\n(a) a data value (implementation dependent) and (b) a color code.",
+        "type": "ListItem"
+    },
+    {
+        "text": "WindowedAnalysis methods",
+        "type": "Title"
+    },
+    {
+        "text": "WindowedAnalysis.",
+        "type": "Title"
+    },
+    {
+        "text": "analyze",
+        "type": "Title"
+    },
+    {
+        "text": "windowSize",
+        "type": "Title"
+    },
+    {
+        "text": "windowType",
+        "type": "Title"
+    },
+    {
+        "text": "'overlap'",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Calls, for a given window size, an analysis method across all windows in the source Stream.\nIf windowType is \u009coverlap\u009d, windows above size 1 are always overlapped, so if a window\nof size 2 is used, windows 1-2, then 2-3, then 3-4 are compared. If a window of size 3\nis used, windows 1-3, then 2-4, then 3-5 are compared.\nWindows are assumed to be partitioned by music21.stream.Measure objects.\nReturns two lists for results, each equal in size to the length of minimum windows\nminus the window size plus one. If we have 20 1/4 windows, then the results lists\nwill be of length 20 for window size 1, 19 for window size 2, 18 for window size 3, etc.\n>>> s = corpus.parse('bach/bwv66.6')\n>>> p = analysis.discrete.Ambitus()\n>>> wa = analysis.windowed.WindowedAnalysis(s.flatten(), p)\n>>> len(wa._windowedStream)\n36\n>>> a, b = wa.analyze(1)\n>>> len(a), len(b)\n(36, 36)\n\n\n>>> a, b = wa.analyze(4)\n>>> len(a), len(b)\n(33, 33)\n\n\n>>> a, b = wa.analyze(1, windowType='noOverlap')\n>>> len(a), len(b)\n(37, 37)\n\n\n>>> a, b = wa.analyze(4, windowType='noOverlap')\n>>> len(a), len(b)\n(10, 10)\n\n\n>>> a, b = wa.analyze(1, windowType='adjacentAverage')\n>>> len(a), len(b)\n(36, 36)",
+        "type": "ListItem"
+    },
+    {
+        "text": "WindowedAnalysis.",
+        "type": "Title"
+    },
+    {
+        "text": "getMinimumWindowStream",
+        "type": "Title"
+    },
+    {
+        "text": "timeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "'1/4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Take the loaded stream and restructure it into measures of 1 quarter note duration.\n>>> s = corpus.parse('bach/bwv324')\n>>> p = analysis.discrete.Ambitus()\n\n\nPlacing one part into analysis:\n>>> wa = analysis.windowed.WindowedAnalysis(s.parts[0], p)\n\n\n>>> post = wa.getMinimumWindowStream()\n>>> len(post.getElementsByClass(stream.Measure))\n42\n>>> post.getElementsByClass(stream.Measure).first()\n<music21.stream.Measure 1 offset=0.0>\n\n\nTime signature set to 1/4 time signature\n>>> post.getElementsByClass(stream.Measure).first().timeSignature\n<music21.meter.TimeSignature 1/4>\n\n\nleaves one note in this measure\n>>> len(post.getElementsByClass(stream.Measure)[1].notes)\n1\n\n\nPlacing a score with parts into analysis will automatically flatten\nthe stream.  So these two calls are equivalent:\n>>> wa1 = analysis.windowed.WindowedAnalysis(s, p)\n>>> wa2 = analysis.windowed.WindowedAnalysis(s.flatten(), p)",
+        "type": "ListItem"
+    },
+    {
+        "text": "WindowedAnalysis.",
+        "type": "Title"
+    },
+    {
+        "text": "process",
+        "type": "Title"
+    },
+    {
+        "text": "minWindow",
+        "type": "Title"
+    },
+    {
+        "text": "int | None",
+        "type": "Title"
+    },
+    {
+        "text": "maxWindow",
+        "type": "Title"
+    },
+    {
+        "text": "int | None",
+        "type": "Title"
+    },
+    {
+        "text": "windowStepSize",
+        "type": "Title"
+    },
+    {
+        "text": "int | str",
+        "type": "Title"
+    },
+    {
+        "text": "windowType",
+        "type": "Title"
+    },
+    {
+        "text": "'overlap'",
+        "type": "Title"
+    },
+    {
+        "text": "includeTotalWindow",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Main method for windowed analysis across one or more window sizes.\nCalls analyze() for\nthe number of different window sizes to be analyzed.\nThe minWindow and maxWindow set the range of window sizes in quarter lengths.\nThe windowStepSize parameter determines the increment between these window sizes,\nin quarter lengths.\nIf minWindow or maxWindow is None, the largest window size available will be set.\nIf includeTotalWindow is True, the largest window size will always be added.\n>>> s = corpus.parse('bach/bwv324')\n>>> ksAnalyzer = analysis.discrete.KrumhanslSchmuckler()\n\n\nplacing one part into analysis\n>>> sopr = s.parts[0]\n>>> wa = analysis.windowed.WindowedAnalysis(sopr, ksAnalyzer)\n>>> solutions, colors, meta = wa.process(1, 1, includeTotalWindow=False)\n>>> len(solutions)  # we only have one series of windows\n1\n\n\n>>> solutions, colors, meta = wa.process(1, 2, includeTotalWindow=False)\n>>> len(solutions)  # we have two series of windows\n2\n\n\n>>> solutions[1]\n[(<music21.pitch.Pitch B>, 'major', 0.6844...),\n (<music21.pitch.Pitch B>, 'minor', 0.8308...),\n (<music21.pitch.Pitch D>, 'major', 0.6844...),\n (<music21.pitch.Pitch B>, 'minor', 0.8308...),...]\n\n\n>>> colors[1]\n['#ffb5ff', '#9b519b', '#ffd752', '#9b519b', ...]\n\n\n>>> meta\n[{'windowSize': 1}, {'windowSize': 2}]",
+        "type": "ListItem"
+    },
+    {
+        "text": "TestMockProcessor\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.analysis.windowed.",
+        "type": "Title"
+    },
+    {
+        "text": "TestMockProcessor",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "TestMockProcessor methods",
+        "type": "Title"
+    },
+    {
+        "text": "TestMockProcessor.",
+        "type": "Title"
+    },
+    {
+        "text": "process",
+        "type": "Title"
+    },
+    {
+        "text": "subStream",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Simply count the number of notes found",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.analysis.windowed",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

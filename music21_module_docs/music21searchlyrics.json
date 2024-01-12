@@ -1,0 +1,666 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.search.lyrics",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.search.base",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.search.segment",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.search.lyrics\nLyricSearcher\nLyricSearcher\nLyricSearcher.indexText\nLyricSearcher.indexTuples\nLyricSearcher.index()\nLyricSearcher.search()\n\n\n\n\nIndexedLyric\nIndexedLyric\nIndexedLyric.modify()\nIndexedLyric.absoluteEnd\nIndexedLyric.absoluteStart\nIndexedLyric.el\nIndexedLyric.end\nIndexedLyric.identifier\nIndexedLyric.lyric\nIndexedLyric.measure\nIndexedLyric.start\nIndexedLyric.text\n\n\n\n\nSearchMatch\nSearchMatch\nSearchMatch.els\nSearchMatch.identifier\nSearchMatch.indices\nSearchMatch.mEnd\nSearchMatch.mStart\nSearchMatch.matchText",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.search.lyrics\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Classes for searching for Lyric objects.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "LyricSearcher\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.search.lyrics.",
+        "type": "Title"
+    },
+    {
+        "text": "LyricSearcher",
+        "type": "Title"
+    },
+    {
+        "text": "StreamType | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "An object that can find lyrics that match a certain regular expression\nand return relevant information about the match.\nConstruct the LyricSearcher by passing in a Stream object (it can be\na Score or Part or other nested item), and then call \u009c.search()\u009d on it.\nSee User's Guide, Chapter 28, Lyric Searching for\nfull details.\n\nTODO: Bug that occasionally the previous note will be included; Search luca/gloria for\u009criam tuam.\u009d (From Gloriam tuam).  For some reason, the whole \u009cGloria\u009d is included.\nDoes not occur if only \u009ciam tuam.\u009d is searched.\n\nTODO: allow for all intermediate notes during a search to be found.includeIntermediateElements.\n\n\nTODO: allow for trailing melismas to also be included.\n\nTODO: Note that because of recursive searching w/ voices, there may be \u009cphantom\u009d lyricsfound if a work contains multiple voices.",
+        "type": "ListItem"
+    },
+    {
+        "text": "LyricSearcher read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "LyricSearcher.",
+        "type": "Title"
+    },
+    {
+        "text": "indexText",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns the text that has been indexed (a la, assembleLyrics()):\n>>> p0 = corpus.parse('luca/gloria').parts[0]\n>>> ls = search.lyrics.LyricSearcher(p0)\n>>> ls.indexText[0:25]\n'Et in terra pax hominibus'",
+        "type": "ListItem"
+    },
+    {
+        "text": "LyricSearcher.",
+        "type": "Title"
+    },
+    {
+        "text": "indexTuples",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "LyricSearcher methods",
+        "type": "Title"
+    },
+    {
+        "text": "LyricSearcher.",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 list[music21.search.lyrics.IndexedLyric]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A method that indexes the Stream's lyrics and returns the list\nof IndexedLyric objects.\nThis does not actually need to be run, since calling .search() will call this if\nit hasn't already been called.\n>>> from pprint import pprint as pp\n\n\n>>> p0 = corpus.parse('luca/gloria').parts[0]\n>>> ls = search.lyrics.LyricSearcher(p0)\n>>> pp(ls.index()[0:5])\n[IndexedLyric(el=<music21.note.Note C>, start=0, end=2, measure=1,\n     lyric=<music21.note.Lyric number=1 syllabic=single text='Et'>, text='Et',\n     identifier=1),\n IndexedLyric(el=<music21.note.Note D>, start=3, end=5, measure=2,\n     lyric=<music21.note.Lyric number=1 syllabic=single text='in'>, text='in',\n     identifier=1),\n IndexedLyric(el=<music21.note.Note F>, start=6, end=9, measure=2,\n     lyric=<music21.note.Lyric number=1 syllabic=begin text='ter'>, text='ter',\n     identifier=1),\n IndexedLyric(el=<music21.note.Note F>, start=9, end=11, measure=3,\n     lyric=<music21.note.Lyric number=1 syllabic=end text='ra'>, text='ra',\n     identifier=1),\n IndexedLyric(el=<music21.note.Note A>, start=12, end=15, measure=3,\n     lyric=<music21.note.Lyric number=1 syllabic=single text='pax'>, text='pax',\n     identifier=1)]\n\n\n\nChanged in v6.7: indexed lyrics get an identifier.",
+        "type": "ListItem"
+    },
+    {
+        "text": "LyricSearcher.",
+        "type": "Title"
+    },
+    {
+        "text": "search",
+        "type": "Title"
+    },
+    {
+        "text": "textOrRe",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 list[music21.search.lyrics.SearchMatch]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a list of SearchMatch objects matching a string or regular expression.\n>>> import re\n\n\n>>> p0 = corpus.parse('luca/gloria').parts[0]\n>>> ls = search.lyrics.LyricSearcher(p0)\n>>> ls.search('pax')\n[SearchMatch(mStart=3, mEnd=3, matchText='pax', els=(<music21.note.Note A>,),\n                indices=[...], identifier=1)]\n\n\nSearch a regular expression that takes into account non-word characters such as commas\n>>> agnus = re.compile(r'agnus dei\\W+filius patris', re.IGNORECASE)\n>>> sm = ls.search(agnus)\n>>> sm\n[SearchMatch(mStart=49, mEnd=55, matchText='Agnus Dei, Filius Patris',\n                els=(<music21.note.Note G>,...<music21.note.Note G>), indices=[...],\n                identifier=1)]\n>>> sm[0].mStart, sm[0].mEnd\n(49, 55)",
+        "type": "ListItem"
+    },
+    {
+        "text": "IndexedLyric\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.search.lyrics.",
+        "type": "Title"
+    },
+    {
+        "text": "IndexedLyric",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "start",
+        "type": "Title"
+    },
+    {
+        "text": "end",
+        "type": "Title"
+    },
+    {
+        "text": "measure",
+        "type": "Title"
+    },
+    {
+        "text": "lyric",
+        "type": "Title"
+    },
+    {
+        "text": "text",
+        "type": "Title"
+    },
+    {
+        "text": "identifier",
+        "type": "Title"
+    },
+    {
+        "text": "absoluteStart",
+        "type": "Title"
+    },
+    {
+        "text": "absoluteEnd",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A Lyric that has been indexed to its attached element and position in a Stream.",
+        "type": "ListItem"
+    },
+    {
+        "text": "IndexedLyric bases",
+        "type": "Title"
+    },
+    {
+        "text": "IndexedLyric",
+        "type": "ListItem"
+    },
+    {
+        "text": "IndexedLyric methods",
+        "type": "Title"
+    },
+    {
+        "text": "IndexedLyric.",
+        "type": "Title"
+    },
+    {
+        "text": "modify",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "see docs for SortTuple for what this does",
+        "type": "ListItem"
+    },
+    {
+        "text": "IndexedLyric instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "IndexedLyric.",
+        "type": "Title"
+    },
+    {
+        "text": "absoluteEnd",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "the end position in all the lyrics",
+        "type": "ListItem"
+    },
+    {
+        "text": "IndexedLyric.",
+        "type": "Title"
+    },
+    {
+        "text": "absoluteStart",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "the position, not in the current identifier, but in all the lyrics",
+        "type": "ListItem"
+    },
+    {
+        "text": "IndexedLyric.",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "the element that the lyric is attached to",
+        "type": "ListItem"
+    },
+    {
+        "text": "IndexedLyric.",
+        "type": "Title"
+    },
+    {
+        "text": "end",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Suppose that the entire lyric for the stream were a single string:\nthis is the index of the position in the string that this\nlyric ends at.",
+        "type": "ListItem"
+    },
+    {
+        "text": "IndexedLyric.",
+        "type": "Title"
+    },
+    {
+        "text": "identifier",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The identifier of the lyric",
+        "type": "ListItem"
+    },
+    {
+        "text": "IndexedLyric.",
+        "type": "Title"
+    },
+    {
+        "text": "lyric",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The Lyric object itself",
+        "type": "ListItem"
+    },
+    {
+        "text": "IndexedLyric.",
+        "type": "Title"
+    },
+    {
+        "text": "measure",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The measureNumber of the measure that the element is in\nin the stream.  Same as .el.measureNumber",
+        "type": "ListItem"
+    },
+    {
+        "text": "IndexedLyric.",
+        "type": "Title"
+    },
+    {
+        "text": "start",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Suppose that the entire lyric for the stream were a single string:\nthis is the index of the position in the string that this\nlyric starts at.",
+        "type": "ListItem"
+    },
+    {
+        "text": "IndexedLyric.",
+        "type": "Title"
+    },
+    {
+        "text": "text",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The text of the lyric as a string.",
+        "type": "ListItem"
+    },
+    {
+        "text": "SearchMatch\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.search.lyrics.",
+        "type": "Title"
+    },
+    {
+        "text": "SearchMatch",
+        "type": "Title"
+    },
+    {
+        "text": "mStart",
+        "type": "Title"
+    },
+    {
+        "text": "mEnd",
+        "type": "Title"
+    },
+    {
+        "text": "matchText",
+        "type": "Title"
+    },
+    {
+        "text": "els",
+        "type": "Title"
+    },
+    {
+        "text": "indices",
+        "type": "Title"
+    },
+    {
+        "text": "identifier",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A lightweight object representing the match (if any) for a search.",
+        "type": "ListItem"
+    },
+    {
+        "text": "SearchMatch bases",
+        "type": "Title"
+    },
+    {
+        "text": "SearchMatch",
+        "type": "ListItem"
+    },
+    {
+        "text": "SearchMatch instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "SearchMatch.",
+        "type": "Title"
+    },
+    {
+        "text": "els",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A list of all lyric-containing elements that matched this text.",
+        "type": "ListItem"
+    },
+    {
+        "text": "SearchMatch.",
+        "type": "Title"
+    },
+    {
+        "text": "identifier",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The identifier of (presumably all, but at least the first) lyric to match.",
+        "type": "ListItem"
+    },
+    {
+        "text": "SearchMatch.",
+        "type": "Title"
+    },
+    {
+        "text": "indices",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A list of IndexedLyric objects that match.",
+        "type": "ListItem"
+    },
+    {
+        "text": "SearchMatch.",
+        "type": "Title"
+    },
+    {
+        "text": "mEnd",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The measureNumber of the measure that the last matching lyric is in.",
+        "type": "ListItem"
+    },
+    {
+        "text": "SearchMatch.",
+        "type": "Title"
+    },
+    {
+        "text": "mStart",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The measureNumber of the measure that the first matching lyric is in.",
+        "type": "ListItem"
+    },
+    {
+        "text": "SearchMatch.",
+        "type": "Title"
+    },
+    {
+        "text": "matchText",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The text of the lyric that matched the search.  For a\nplaintext search, this will be the same as the search\nterm, but for a regular expression\nsearch this will be the text that matched the regular\nexpression.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.search.lyrics",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

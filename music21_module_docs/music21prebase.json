@@ -1,0 +1,238 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.prebase",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.repeat",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.prebase\nProtoM21Object\nProtoM21Object\nProtoM21Object.classSet\nProtoM21Object.classes\nProtoM21Object.isClassOrSubclass()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.prebase\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Classes for pseudo-m21 objects to inherit from.  The most import attributes that nearly\neverything in music21 \u2014 not just things that live in streams \u2014\nshould inherit from are given below.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Concept borrowed from m21j.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "ProtoM21Object\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.prebase.",
+        "type": "Title"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A class for pseudo-m21 objects to inherit from.  Any object can inherit from\nProtoM21Object, and it makes sense for anything a user is likely to encounter\nto inherit from it.  Certain translators, etc. can choose to skip it.\n>>> class PitchCounter(prebase.ProtoM21Object):\n...     def _reprInternal(self):\n...         return 'no pitches'\n\n\n>>> pc = PitchCounter()\n>>> pc.classes\n('PitchCounter', 'ProtoM21Object', 'object')\n>>> PitchCounter in pc.classSet\nTrue\n>>> 'Note' in pc.classSet\nFalse\n\n\nFor a True/False intersection check against an iterable, use classSet.isdisjoint:\n>>> classList = ('music21.note.Note', 'music21.note.Rest')\n>>> pc.classSet.isdisjoint(classList)\nTrue\n>>> repr(pc)\n'<music21.PitchCounter no pitches>'\n\n\nProtoM21Objects, like other Python primitives, cannot be put into streams \u2014\nthis is what base.Music21Object does.\nA ProtoM21Object defines several methods relating to unified representation\nand keeping track of the classes of the object.  It has no instance attributes\nor properties, and thus adds a very small creation time impact: recent\ntests show that an empty object with an empty __init__() method can\nbe created in about 175ns while an empty object that subclasses ProtoM21Object\nwith the same empty __init__() takes only 180ns, or a 5ns impact.  On\nreal objects, the creation time percentage hit is usually much smaller.\nProtoM21Objects have no __init__() defined, so do not call super().__init__() on\nobjects that only inherit from ProtoM21Object unless you like wasting 200ns.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "ProtoM21Object.",
+        "type": "Title"
+    },
+    {
+        "text": "classSet",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns a set (that is, unordered, but indexed) of all classes that\nthis class belongs to, including\nstring names, fullyQualified string names, and objects themselves.\nIt's cached on a per-class basis, so makes for a really fast way of checking to\nsee if something belongs\nto a particular class when you don't know if the user has given a string,\na fully qualified string name, or an object.\nDid I mention it's fast?  It's a drop in substitute for the deprecated\n.isClassOrSubclass.  It's not as fast as x in n.classes or isinstance(n, x)\nif you know whether it's a string or class, but this is good and safe.\n>>> n = note.Note()\n>>> 'Note' in n.classSet\nTrue\n>>> 'music21.note.Note' in n.classSet\nTrue\n>>> note.Note in n.classSet\nTrue\n\n\n>>> 'Rest' in n.classSet\nFalse\n>>> note.Rest in n.classSet\nFalse\n\n\n>>> object in n.classSet\nTrue\n\n\n>>> sorted([s for s in n.classSet if isinstance(s, str)])\n['GeneralNote',\n 'Music21Object',\n 'NotRest',\n 'Note',\n 'ProtoM21Object',\n 'base.Music21Object',\n 'builtins.object',\n 'music21.base.Music21Object',\n 'music21.note.GeneralNote',\n 'music21.note.NotRest',\n 'music21.note.Note',\n 'music21.prebase.ProtoM21Object',\n 'note.GeneralNote',\n 'note.NotRest',\n 'note.Note',\n 'object',\n 'prebase.ProtoM21Object']\n\n\n>>> sorted([s for s in n.classSet if not isinstance(s, str)], key=lambda x: x.__name__)\n[<class 'music21.note.GeneralNote'>,\n <class 'music21.base.Music21Object'>,\n <class 'music21.note.NotRest'>,\n <class 'music21.note.Note'>,\n <class 'music21.prebase.ProtoM21Object'>,\n <class 'object'>]\n\n\n\nChanged in v8: partially qualified objects such as \u0098note.Note' have been added.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object.",
+        "type": "Title"
+    },
+    {
+        "text": "classes",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns a tuple containing the names (strings, not objects) of classes that this\nobject belongs to \u2014 starting with the object's class name and going up the mro()\nfor the object.\nNotes are Music21Objects:\n>>> n = note.Note('C#')\n>>> n.classes\n('Note', 'NotRest', 'GeneralNote', 'Music21Object', 'ProtoM21Object', 'object')\n\n\nDurations are not, but they inherit from ProtoM21Object\n>>> d = duration.Duration('half')\n>>> d.classes\n('Duration', 'ProtoM21Object', 'SlottedObjectMixin', 'object')\n\n\nHaving quick access to these things as strings makes it easier to do comparisons:\nExample: find GClefs that are not Treble clefs (or treble 8vb, etc.):\n>>> s = stream.Stream()\n>>> s.insert(10, clef.GClef())\n>>> s.insert(20, clef.TrebleClef())\n>>> s.insert(30, clef.FrenchViolinClef())\n>>> s.insert(40, clef.Treble8vbClef())\n>>> s.insert(50, clef.BassClef())\n>>> s2 = stream.Stream()\n>>> for thing in s:\n...    if isinstance(thing, clef.GClef) and not isinstance(thing, clef.TrebleClef):\n...        s2.insert(thing)\n>>> s2.show('text')\n{10.0} <music21.clef.GClef>\n{30.0} <music21.clef.FrenchViolinClef>\n\n\nChanged 2015 Sep: returns a tuple, not a list.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object methods",
+        "type": "Title"
+    },
+    {
+        "text": "ProtoM21Object.",
+        "type": "Title"
+    },
+    {
+        "text": "isClassOrSubclass",
+        "type": "Title"
+    },
+    {
+        "text": "classFilterList",
+        "type": "Title"
+    },
+    {
+        "text": "Sequence",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a class filter list (a list or tuple must be submitted),\nwhich may have strings or class objects, determine\nif this class is of the provided classes or a subclasses.\nNOTE: this is a performance critical operation\nfor performance, only accept lists or tuples\nDEPRECATED in v7 \u2014 prefer someClass in el.classSet or\nnot el.classSet.isdisjoint(classList) instead.\n>>> n = note.Note()\n>>> n.isClassOrSubclass(('Note',))\nTrue\n>>> n.isClassOrSubclass(('GeneralNote',))\nTrue\n>>> n.isClassOrSubclass((note.Note,))\nTrue\n>>> n.isClassOrSubclass((note.Rest,))\nFalse\n>>> n.isClassOrSubclass((note.Note, note.Rest))\nTrue\n>>> n.isClassOrSubclass(('Rest', 'Note'))\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.prebase",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

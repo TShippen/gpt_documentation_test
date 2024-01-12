@@ -1,0 +1,446 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.search.segment",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.search.lyrics",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.search.serial",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.search.segment\nFunctions\ngetDifflibOrPyLev()\nindexOnePath()\nindexScoreFilePaths()\nindexScoreParts()\nloadScoreDict()\nsaveScoreDict()\nscoreSimilarity()\ntranslateMonophonicPartToSegments()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.search.segment\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "tools for segmenting \u2014 that is, dividing up a score into small, possibly overlapping\nsections \u2014 for searching across pieces for similarity.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Speed notes:",
+        "type": "Title"
+    },
+    {
+        "text": "this module is definitely a case where running PyPy rather than cPython will\ngive you a 3-5x speedup.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "If you really want to do lots of comparisons, the scoreSimilarity method will\nuse python-Levenshtein if it is installed, unless forceDifflib is set to True.\npython-Levenshtein can be installed via pip install python-Levenshtein.\nThe ratios are very slightly different, but the speedup is between 10 and 100x!\n(But then PyPy probably won't work.)",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.search.segment.",
+        "type": "Title"
+    },
+    {
+        "text": "getDifflibOrPyLev",
+        "type": "Title"
+    },
+    {
+        "text": "seq2",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "junk",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "forceDifflib",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns either a difflib.SequenceMatcher or pyLevenshtein\nStringMatcher.StringMatcher object depending on what is installed.\nIf forceDifflib is True then use difflib even if pyLevenshtein is installed:",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.search.segment.",
+        "type": "Title"
+    },
+    {
+        "text": "indexOnePath",
+        "type": "Title"
+    },
+    {
+        "text": "filePath",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Index a single path.  Returns a scoreDictEntry",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.search.segment.",
+        "type": "Title"
+    },
+    {
+        "text": "indexScoreFilePaths",
+        "type": "Title"
+    },
+    {
+        "text": "scoreFilePaths",
+        "type": "Title"
+    },
+    {
+        "text": "giveUpdates",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "runMulticore",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns a dictionary of the lists from indexScoreParts for each score in\nscoreFilePaths\n>>> searchResults = corpus.search('bwv190')\n>>> fpsNamesOnly = sorted([searchResult.sourcePath for searchResult in searchResults])\n>>> len(fpsNamesOnly)\n2\n\n\n>>> scoreDict = search.segment.indexScoreFilePaths(fpsNamesOnly)\n>>> len(scoreDict['bwv190.7.mxl'])\n4\n\n\n>>> scoreDict['bwv190.7.mxl'][0]['measureList']\n[(0, 9), (6, 15), (11, 20), (17, 25), (22, 31), (27, 32)]\n\n\n>>> scoreDict['bwv190.7.mxl'][0]['segmentList'][0]\n'NNJLNOLLLJJIJLLLLNJJJIJLLJNNJL'",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.search.segment.",
+        "type": "Title"
+    },
+    {
+        "text": "indexScoreParts",
+        "type": "Title"
+    },
+    {
+        "text": "scoreFile",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Creates segment and measure lists for each part of a score\nReturns list of dictionaries of segment and measure lists\n>>> bach = corpus.parse('bwv66.6')\n>>> scoreList = search.segment.indexScoreParts(bach)\n>>> scoreList[1]['segmentList'][0]\n'@B@@@@ED@DBDA=BB@?==B@@EBBDBBA'\n>>> scoreList[1]['measureList'][0:3]\n[(0, 7), (4, 9), (8, 9)]",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.search.segment.",
+        "type": "Title"
+    },
+    {
+        "text": "loadScoreDict",
+        "type": "Title"
+    },
+    {
+        "text": "filePath",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Load the scoreDictionary from filePath.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.search.segment.",
+        "type": "Title"
+    },
+    {
+        "text": "saveScoreDict",
+        "type": "Title"
+    },
+    {
+        "text": "scoreDict",
+        "type": "Title"
+    },
+    {
+        "text": "filePath",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Save the score dict from indexScoreFilePaths as a .json file for quickly\nreloading\nReturns the filepath (assumes you'll probably be using a temporary file)\nas a pathlib.Path()",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.search.segment.",
+        "type": "Title"
+    },
+    {
+        "text": "scoreSimilarity",
+        "type": "Title"
+    },
+    {
+        "text": "scoreDict",
+        "type": "Title"
+    },
+    {
+        "text": "minimumLength",
+        "type": "Title"
+    },
+    {
+        "text": "20",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "giveUpdates",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "includeReverse",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "forceDifflib",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Find the level of similarity between each pair of segments in a scoreDict.\nThis takes twice as long as it should because it does not cache the\npairwise similarity.\n>>> filePaths = []\n>>> for p in ('bwv197.5.mxl', 'bwv190.7.mxl', 'bwv197.10.mxl'):\n...     source = corpus.search(p)[0].sourcePath\n...     filePaths.append(source)\n>>> scoreDict = search.segment.indexScoreFilePaths(filePaths)\n>>> scoreSim = search.segment.scoreSimilarity(scoreDict)\n>>> len(scoreSim)\n496\n\n\nReturns a list of tuples of first score name, first score voice number, first score\nmeasure number, second score name, second score voice number, second score\nmeasure number, and similarity score (0 to 1).\n>>> for result in scoreSim[133:137]:\n...     result\n('bwv197.5.mxl', 1, 1, (4, 10), 'bwv190.7.mxl', 3, 4, (22, 30), 0.13...)\n('bwv197.5.mxl', 1, 1, (4, 10), 'bwv197.10.mxl', 0, 0, (0, 8), 0.2)\n('bwv197.5.mxl', 1, 1, (4, 10), 'bwv197.10.mxl', 1, 0, (0, 7), 0.266...)\n('bwv197.5.mxl', 1, 1, (4, 10), 'bwv197.10.mxl', 1, 1, (4, 9), 0.307...)",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.search.segment.",
+        "type": "Title"
+    },
+    {
+        "text": "translateMonophonicPartToSegments",
+        "type": "Title"
+    },
+    {
+        "text": "inputStream",
+        "type": "Title"
+    },
+    {
+        "text": "segmentLengths",
+        "type": "Title"
+    },
+    {
+        "text": "30",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "overlap",
+        "type": "Title"
+    },
+    {
+        "text": "12",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "algorithm",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "jitter",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Translates a monophonic part with measures to a set of segments of length\nsegmentLengths (measured in number of notes) with an overlap of overlap notes\nusing a conversion algorithm of algorithm (default: search.translateStreamToStringNoRhythm).\nReturns two lists, a list of segments, and a list of tuples of measure start and end\nnumbers that match the segments.\nIf algorithm is None then a default algorithm of music21.search.translateStreamToStringNoRhythm\nis used\n>>> luca = corpus.parse('luca/gloria')\n>>> lucaCantus = luca.parts[0]\n>>> segments, measureLists = search.segment.translateMonophonicPartToSegments(lucaCantus)\n>>> segments[0:2]\n['HJHEAAEHHCE@JHGECA@A>@A><A@AAE', '@A>@A><A@AAEEECGHJHGH@CAE@FECA']\n\n\nSegment zero begins at measure 1 and ends in m. 12.  Segment 1 spans m.7 - m.18:\n>>> measureLists[0:2]\n[(1, 12), (7, 18)]\n\n\n>>> segments, measureLists = search.segment.translateMonophonicPartToSegments(\n...     lucaCantus,\n...     algorithm=search.translateDiatonicStreamToString)\n>>> segments[0:2]\n['CRJOMTHCQNALRQPAGFEFDLFDCFEMOO', 'EFDLFDCFEMOOONPJDCBJSNTHLBOGFE']\n\n\n>>> measureLists[0:2]\n[(1, 12), (7, 18)]",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.search.segment",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

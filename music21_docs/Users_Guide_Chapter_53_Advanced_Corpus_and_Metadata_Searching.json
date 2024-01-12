@@ -1,0 +1,1862 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 53: Advanced Corpus and Metadata Searching",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide, Chapter 44: Advanced Graphing (Axes, Plots, and Graphs)",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide, Chapter 54: Extending Converter with New Formats",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide, Chapter 53: Advanced Corpus and Metadata Searching\nThe Default Local Corpus\nCreating multiple corpus repositories via local corpora\nInspecting metadata bundle search results\nManipulating multiple metadata bundles\nGetting a metadata bundle\nCreating persistent metadata bundles",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide\nUser's Guide: Table of Contents\nUser's Guide, Chapter 1: Installing and Getting Started with music21\nUser's Guide, Chapter 2: Notes\nUser's Guide, Chapter 3: Pitches, Durations, and Notes again\nUser's Guide, Chapter 4: Lists, Streams (I) and Output\nUser's Guide, Chapter 5: Lists of Lists, Functions, and Recursion\nUser's Guide, Chapter 6: Streams (II): Hierarchies, Recursion, and Flattening\nUser's Guide, Chapter 7: Chords\nUser's Guide, Chapter 8: Installing MusicXML Readers and File Formats (1)\nUser's Guide, Chapter 9: Chordify\nUser's Guide, Chapter 10: Examples 1\nUser's Guide, Chapter 11: Corpus Searching\nUser's Guide, Chapter 12: Getting Back to Basics: The Music21Object\nUser's Guide, Chapter 13: More Music21Object Attributes and Properties\nUser's Guide: Chapter 14: Time Signatures and Beats\nUser's Guide, Chapter 15: Keys and KeySignatures\nUser's Guide, Chapter 16: TinyNotation\nUser's Guide: Chapter 17: Derivations\nUser's Guide: Chapter 18: Intervals\nUser's Guide, Chapter 19: Advanced Durations (Complex and Tuplets)\nUser's Guide, Chapter 20: Examples 2\nUser's Guide, Chapter 21: Ordering and Sorting of Stream Elements\nUser's Guide, Chapter 22: Graphing and plotting\nUser's Guide, Chapter 23: Roman Numeral Analysis\nUser's Guide, Chapter 24: Configuring Environment Settings\nUser's Guide, Chapter 25: Post-Tonal Tools (1)\nUser's Guide, Chapter 26: Stream Iteration and Filtering\nUser's Guide, Chapter 27: Grace Notes\nUser's Guide, Chapter 28: Lyric Searching\nUser's Guide, Chapter 29: Spanners 1 (Slurs)\nUser's Guide, Chapter 30: Examples 3\nUser's Guide, Chapter 31: Clefs, Ties, and Beams\nUser's Guide, Chapter 32: Articulations\nUser's Guide, Chapter 44: Advanced Graphing (Axes, Plots, and Graphs)\nUser's Guide, Chapter 53: Advanced Corpus and Metadata Searching\nUser's Guide, Chapter 54: Extending Converter with New Formats\nUser's Guide, Chapter 55: Advanced Meter Topics\nUser's Guide, Chapter 58: Understanding Sites and Contexts\nUser's Guide, Chapter 61: TimespanTrees and Verticalities",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 53: Advanced Corpus and Metadata Searching\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "We saw in Chapter 11 some ways\nto work with and search through the \u009ccore\u009d corpus. Not everything is in\nthe core corpus, of course, so the converter.parse() function is a\ngreat way of getting files from a local hard drive or the internet. But\nthe \u009ccore\u009d corpus also has many great search functions, and these can be\nhelpful for working with your own files and files on the web as well.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "In this chapter, we'll introduce the other \u009cCorpora\u009d in addition to the\n\u009ccore\u009d corpus and how they might be used.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "The Default Local Corpus\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "from",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "import",
+        "type": "Title"
+    },
+    {
+        "text": "localCorpus",
+        "type": "Title"
+    },
+    {
+        "text": "corpus",
+        "type": "Title"
+    },
+    {
+        "text": "corpora",
+        "type": "Title"
+    },
+    {
+        "text": "LocalCorpus",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "localCorpus",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "corpus",
+        "type": "Title"
+    },
+    {
+        "text": "corpora",
+        "type": "Title"
+    },
+    {
+        "text": "LocalCorpus",
+        "type": "Title"
+    },
+    {
+        "text": "'local'",
+        "type": "Title"
+    },
+    {
+        "text": "You can add and remove paths from a local corpus with the\naddPath() and removePath() methods:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Creating multiple corpus repositories via local corpora\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "In addition to the default local corpus, music21 allows users to create\nand save as many named local corpora as they like, which will persist\nfrom session to session.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Let's create a new local corpus, give it a directory to find music\nfiles in, and then save it:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "from",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "import",
+        "type": "Title"
+    },
+    {
+        "text": "aNewLocalCorpus",
+        "type": "Title"
+    },
+    {
+        "text": "corpus",
+        "type": "Title"
+    },
+    {
+        "text": "corpora",
+        "type": "Title"
+    },
+    {
+        "text": "LocalCorpus",
+        "type": "Title"
+    },
+    {
+        "text": "'newCorpus'",
+        "type": "Title"
+    },
+    {
+        "text": "aNewLocalCorpus",
+        "type": "Title"
+    },
+    {
+        "text": "existsInSettings",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "aNewLocalCorpus",
+        "type": "Title"
+    },
+    {
+        "text": "addPath",
+        "type": "Title"
+    },
+    {
+        "text": "'~/Desktop'",
+        "type": "Title"
+    },
+    {
+        "text": "aNewLocalCorpus",
+        "type": "Title"
+    },
+    {
+        "text": "directoryPaths",
+        "type": "Title"
+    },
+    {
+        "text": "'/Users/josiah/Desktop'",
+        "type": "Title"
+    },
+    {
+        "text": ",)",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "aNewLocalCorpus",
+        "type": "Title"
+    },
+    {
+        "text": "save",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "aNewLocalCorpus",
+        "type": "Title"
+    },
+    {
+        "text": "existsInSettings",
+        "type": "Title"
+    },
+    {
+        "text": "Users",
+        "type": "Title"
+    },
+    {
+        "text": "cuthbert",
+        "type": "Title"
+    },
+    {
+        "text": "git",
+        "type": "Title"
+    },
+    {
+        "text": "music21base",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "corpus",
+        "type": "Title"
+    },
+    {
+        "text": "corpora",
+        "type": "Title"
+    },
+    {
+        "text": "py",
+        "type": "Title"
+    },
+    {
+        "text": "WARNING",
+        "type": "Title"
+    },
+    {
+        "text": "newCorpus",
+        "type": "Title"
+    },
+    {
+        "text": "metadata",
+        "type": "Title"
+    },
+    {
+        "text": "cache",
+        "type": "Title"
+    },
+    {
+        "text": "starting",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "processing",
+        "type": "Title"
+    },
+    {
+        "text": "of",
+        "type": "Title"
+    },
+    {
+        "text": "paths",
+        "type": "Title"
+    },
+    {
+        "text": "Users",
+        "type": "Title"
+    },
+    {
+        "text": "cuthbert",
+        "type": "Title"
+    },
+    {
+        "text": "git",
+        "type": "Title"
+    },
+    {
+        "text": "music21base",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "corpus",
+        "type": "Title"
+    },
+    {
+        "text": "corpora",
+        "type": "Title"
+    },
+    {
+        "text": "py",
+        "type": "Title"
+    },
+    {
+        "text": "WARNING",
+        "type": "Title"
+    },
+    {
+        "text": "cache",
+        "type": "Title"
+    },
+    {
+        "text": "filename",
+        "type": "Title"
+    },
+    {
+        "text": "var",
+        "type": "Title"
+    },
+    {
+        "text": "folders",
+        "type": "Title"
+    },
+    {
+        "text": "qg",
+        "type": "Title"
+    },
+    {
+        "text": "klchy5t14bb2ty9pswk6c2bw0000gn",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "local",
+        "type": "Title"
+    },
+    {
+        "text": "newCorpus",
+        "type": "Title"
+    },
+    {
+        "text": "gz",
+        "type": "Title"
+    },
+    {
+        "text": "metadata",
+        "type": "Title"
+    },
+    {
+        "text": "bundles",
+        "type": "Title"
+    },
+    {
+        "text": "WARNING",
+        "type": "Title"
+    },
+    {
+        "text": "MetadataBundle",
+        "type": "Title"
+    },
+    {
+        "text": "Modification",
+        "type": "Title"
+    },
+    {
+        "text": "Time",
+        "type": "Title"
+    },
+    {
+        "text": "1686508943.60752",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "metadata",
+        "type": "Title"
+    },
+    {
+        "text": "bundles",
+        "type": "Title"
+    },
+    {
+        "text": "WARNING",
+        "type": "Title"
+    },
+    {
+        "text": "Skipped",
+        "type": "Title"
+    },
+    {
+        "text": "sources",
+        "type": "Title"
+    },
+    {
+        "text": "already",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "cache",
+        "type": "Title"
+    },
+    {
+        "text": "Users",
+        "type": "Title"
+    },
+    {
+        "text": "cuthbert",
+        "type": "Title"
+    },
+    {
+        "text": "git",
+        "type": "Title"
+    },
+    {
+        "text": "music21base",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "corpus",
+        "type": "Title"
+    },
+    {
+        "text": "corpora",
+        "type": "Title"
+    },
+    {
+        "text": "py",
+        "type": "Title"
+    },
+    {
+        "text": "WARNING",
+        "type": "Title"
+    },
+    {
+        "text": "cache",
+        "type": "Title"
+    },
+    {
+        "text": "writing",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "time",
+        "type": "Title"
+    },
+    {
+        "text": "0.202",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "md",
+        "type": "Title"
+    },
+    {
+        "text": "items",
+        "type": "Title"
+    },
+    {
+        "text": "Users",
+        "type": "Title"
+    },
+    {
+        "text": "cuthbert",
+        "type": "Title"
+    },
+    {
+        "text": "git",
+        "type": "Title"
+    },
+    {
+        "text": "music21base",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "corpus",
+        "type": "Title"
+    },
+    {
+        "text": "corpora",
+        "type": "Title"
+    },
+    {
+        "text": "py",
+        "type": "Title"
+    },
+    {
+        "text": "WARNING",
+        "type": "Title"
+    },
+    {
+        "text": "cache",
+        "type": "Title"
+    },
+    {
+        "text": "filename",
+        "type": "Title"
+    },
+    {
+        "text": "var",
+        "type": "Title"
+    },
+    {
+        "text": "folders",
+        "type": "Title"
+    },
+    {
+        "text": "qg",
+        "type": "Title"
+    },
+    {
+        "text": "klchy5t14bb2ty9pswk6c2bw0000gn",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "local",
+        "type": "Title"
+    },
+    {
+        "text": "newCorpus",
+        "type": "Title"
+    },
+    {
+        "text": "gz",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "We can see that our new local corpus is saved by checking for the\nnames of all saved local corpora using the corpus.manager list:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "corpus",
+        "type": "Title"
+    },
+    {
+        "text": "manager",
+        "type": "Title"
+    },
+    {
+        "text": "listLocalCorporaNames",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "'funk'",
+        "type": "Title"
+    },
+    {
+        "text": "'newCorpus'",
+        "type": "Title"
+    },
+    {
+        "text": "'bach'",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "When running listLocalCorporaNames(), you will see None -\nindicating the default local corpus - along with the names of any\nnon-default local corpora you've manually created yourself. In the above\nexample, a number of other corpora have already been created.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Finally, we can delete the local corpus we previously created like\nthis:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "aNewLocalCorpus",
+        "type": "Title"
+    },
+    {
+        "text": "delete",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "aNewLocalCorpus",
+        "type": "Title"
+    },
+    {
+        "text": "existsInSettings",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "Inspecting metadata bundle search results\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Let's take a closer look at some search results:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "bachBundle",
+        "type": "Title"
+    },
+    {
+        "text": "corpus",
+        "type": "Title"
+    },
+    {
+        "text": "corpora",
+        "type": "Title"
+    },
+    {
+        "text": "CoreCorpus",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "search",
+        "type": "Title"
+    },
+    {
+        "text": "'bach'",
+        "type": "Title"
+    },
+    {
+        "text": "'composer'",
+        "type": "Title"
+    },
+    {
+        "text": "bachBundle",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "metadata",
+        "type": "Title"
+    },
+    {
+        "text": "bundles",
+        "type": "Title"
+    },
+    {
+        "text": "MetadataBundle",
+        "type": "Title"
+    },
+    {
+        "text": "363",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "entries",
+        "type": "Title"
+    },
+    {
+        "text": "bachBundle",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "metadata",
+        "type": "Title"
+    },
+    {
+        "text": "bundles",
+        "type": "Title"
+    },
+    {
+        "text": "MetadataEntry",
+        "type": "Title"
+    },
+    {
+        "text": "'bach_bwv10_7_mxl'",
+        "type": "Title"
+    },
+    {
+        "text": "bachBundle",
+        "type": "Title"
+    },
+    {
+        "text": "sourcePath",
+        "type": "Title"
+    },
+    {
+        "text": "PosixPath",
+        "type": "Title"
+    },
+    {
+        "text": "'bach/bwv10.7.mxl'",
+        "type": "Title"
+    },
+    {
+        "text": "bachBundle",
+        "type": "Title"
+    },
+    {
+        "text": "metadata",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "metadata",
+        "type": "Title"
+    },
+    {
+        "text": "RichMetadata",
+        "type": "Title"
+    },
+    {
+        "text": "object",
+        "type": "Title"
+    },
+    {
+        "text": "at",
+        "type": "Title"
+    },
+    {
+        "text": "0x11804b950",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "bachBundle",
+        "type": "Title"
+    },
+    {
+        "text": "metadata",
+        "type": "Title"
+    },
+    {
+        "text": "all",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "((",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'ambitus'",
+        "type": "Title"
+    },
+    {
+        "text": "AmbitusShort",
+        "type": "Title"
+    },
+    {
+        "text": "semitones",
+        "type": "Title"
+    },
+    {
+        "text": "34",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "diatonic",
+        "type": "Title"
+    },
+    {
+        "text": "'m7'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "pitchLowest",
+        "type": "Title"
+    },
+    {
+        "text": "'G2'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "pitchHighest",
+        "type": "Title"
+    },
+    {
+        "text": "'F5'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ")),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'composer'",
+        "type": "Title"
+    },
+    {
+        "text": "'J.S. Bach'",
+        "type": "Title"
+    },
+    {
+        "text": "),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'fileFormat'",
+        "type": "Title"
+    },
+    {
+        "text": "'musicxml'",
+        "type": "Title"
+    },
+    {
+        "text": "),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'filePath'",
+        "type": "Title"
+    },
+    {
+        "text": "'/Users/cuthbert/git/music21base/music21/corpus/bach/bwv10.7.mxl'",
+        "type": "Title"
+    },
+    {
+        "text": "),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'keySignatureFirst'",
+        "type": "Title"
+    },
+    {
+        "text": "),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'keySignatures'",
+        "type": "Title"
+    },
+    {
+        "text": "]),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'movementName'",
+        "type": "Title"
+    },
+    {
+        "text": "'bwv10.7.mxl'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'noteCount'",
+        "type": "Title"
+    },
+    {
+        "text": "214",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'numberOfParts'",
+        "type": "Title"
+    },
+    {
+        "text": "),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'pitchHighest'",
+        "type": "Title"
+    },
+    {
+        "text": "'F5'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'pitchLowest'",
+        "type": "Title"
+    },
+    {
+        "text": "'G2'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'quarterLength'",
+        "type": "Title"
+    },
+    {
+        "text": "88.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'software'",
+        "type": "Title"
+    },
+    {
+        "text": "'MuseScore 2.1.0'",
+        "type": "Title"
+    },
+    {
+        "text": "),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'software'",
+        "type": "Title"
+    },
+    {
+        "text": "'music21 v.6.0.0a'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'software'",
+        "type": "Title"
+    },
+    {
+        "text": "'music21 v.9.1.0'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'sourcePath'",
+        "type": "Title"
+    },
+    {
+        "text": "'bach/bwv10.7.mxl'",
+        "type": "Title"
+    },
+    {
+        "text": "),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'tempoFirst'",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'tempos'",
+        "type": "Title"
+    },
+    {
+        "text": "[]),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'timeSignatureFirst'",
+        "type": "Title"
+    },
+    {
+        "text": "'4/4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'timeSignatures'",
+        "type": "Title"
+    },
+    {
+        "text": "'4/4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "]))",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "mdpl",
+        "type": "Title"
+    },
+    {
+        "text": "bachBundle",
+        "type": "Title"
+    },
+    {
+        "text": "metadata",
+        "type": "Title"
+    },
+    {
+        "text": "mdpl",
+        "type": "Title"
+    },
+    {
+        "text": "noteCount",
+        "type": "Title"
+    },
+    {
+        "text": "214",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "bachAnalysis0",
+        "type": "Title"
+    },
+    {
+        "text": "bachBundle",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "bachAnalysis0",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Manipulating multiple metadata bundles\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Another useful feature of music21's metadata bundles is that they\ncan be operated on as though they were sets, allowing you to union,\nintersect and difference multiple metadata bundles, thereby creating\nmore complex search results:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "corelliBundle",
+        "type": "Title"
+    },
+    {
+        "text": "corpus",
+        "type": "Title"
+    },
+    {
+        "text": "search",
+        "type": "Title"
+    },
+    {
+        "text": "'corelli'",
+        "type": "Title"
+    },
+    {
+        "text": "field",
+        "type": "Title"
+    },
+    {
+        "text": "'composer'",
+        "type": "Title"
+    },
+    {
+        "text": "corelliBundle",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "metadata",
+        "type": "Title"
+    },
+    {
+        "text": "bundles",
+        "type": "Title"
+    },
+    {
+        "text": "MetadataBundle",
+        "type": "Title"
+    },
+    {
+        "text": "entry",
+        "type": "Title"
+    },
+    {
+        "text": "bachBundle",
+        "type": "Title"
+    },
+    {
+        "text": "union",
+        "type": "Title"
+    },
+    {
+        "text": "corelliBundle",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "metadata",
+        "type": "Title"
+    },
+    {
+        "text": "bundles",
+        "type": "Title"
+    },
+    {
+        "text": "MetadataBundle",
+        "type": "Title"
+    },
+    {
+        "text": "364",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "entries",
+        "type": "Title"
+    },
+    {
+        "text": "Consult the API for MetadataBundle\nfor a more in depth look at how this works.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Getting a metadata bundle\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "In music21, metadata is information about a score, such as its\ncomposer, title, initial key signature or ambitus. A metadata bundle\nis a collection of metadata pulled from an arbitrarily large group of\ndifferent scores. Users can search through metadata bundles to find\nscores with certain qualities, such as all scores in a given corpus with\na time signature of 6/8, or all scores composed by Monteverdi.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "There are a number of different ways to acquire a metadata bundle. The\neasiest way to get the metadataBundle for the core corpus is simply to\ndownload music21: we include a pre-made metadataBundle (in\ncorpus/metadataCache/core.json) so that this step is unnecessary for\nthe core corpus unless you're contributing to the project. But you may\nwant to create metadata bundles for your own local corpora. Access the\nmetadataBundle attribute of any Corpus instance to get its\ncorresponding metadata bundle:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "coreCorpus",
+        "type": "Title"
+    },
+    {
+        "text": "corpus",
+        "type": "Title"
+    },
+    {
+        "text": "corpora",
+        "type": "Title"
+    },
+    {
+        "text": "CoreCorpus",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "coreCorpus",
+        "type": "Title"
+    },
+    {
+        "text": "metadataBundle",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "metadata",
+        "type": "Title"
+    },
+    {
+        "text": "bundles",
+        "type": "Title"
+    },
+    {
+        "text": "MetadataBundle",
+        "type": "Title"
+    },
+    {
+        "text": "'core'",
+        "type": "Title"
+    },
+    {
+        "text": "15111",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "entries",
+        "type": "Title"
+    },
+    {
+        "text": "Music21 also provides a handful of convenience methods for getting\nmetadata bundles associated with the virtual, local or core\ncorpora:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "coreBundle",
+        "type": "Title"
+    },
+    {
+        "text": "corpus",
+        "type": "Title"
+    },
+    {
+        "text": "corpora",
+        "type": "Title"
+    },
+    {
+        "text": "CoreCorpus",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "metadataBundle",
+        "type": "Title"
+    },
+    {
+        "text": "localBundle",
+        "type": "Title"
+    },
+    {
+        "text": "corpus",
+        "type": "Title"
+    },
+    {
+        "text": "corpora",
+        "type": "Title"
+    },
+    {
+        "text": "LocalCorpus",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "metadataBundle",
+        "type": "Title"
+    },
+    {
+        "text": "otherLocalBundle",
+        "type": "Title"
+    },
+    {
+        "text": "corpus",
+        "type": "Title"
+    },
+    {
+        "text": "corpora",
+        "type": "Title"
+    },
+    {
+        "text": "LocalCorpus",
+        "type": "Title"
+    },
+    {
+        "text": "'blah'",
+        "type": "Title"
+    },
+    {
+        "text": "metadataBundle",
+        "type": "Title"
+    },
+    {
+        "text": "But really advanced users can also make metadata bundles manually, by\npassing in the name of the corpus you want the bundle to refer to, or,\nequivalently, an actual Corpus instance itself:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "coreBundle",
+        "type": "Title"
+    },
+    {
+        "text": "metadata",
+        "type": "Title"
+    },
+    {
+        "text": "bundles",
+        "type": "Title"
+    },
+    {
+        "text": "MetadataBundle",
+        "type": "Title"
+    },
+    {
+        "text": "'core'",
+        "type": "Title"
+    },
+    {
+        "text": "coreBundle",
+        "type": "Title"
+    },
+    {
+        "text": "metadata",
+        "type": "Title"
+    },
+    {
+        "text": "bundles",
+        "type": "Title"
+    },
+    {
+        "text": "MetadataBundle",
+        "type": "Title"
+    },
+    {
+        "text": "corpus",
+        "type": "Title"
+    },
+    {
+        "text": "corpora",
+        "type": "Title"
+    },
+    {
+        "text": "CoreCorpus",
+        "type": "Title"
+    },
+    {
+        "text": "())",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "However, you'll need to read the bundle's saved data from disk before\nyou can do anything useful with the bundle. Bundles don't read their\nassociated JSON files automatically when they're manually instantiated.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "coreBundle",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "metadata",
+        "type": "Title"
+    },
+    {
+        "text": "bundles",
+        "type": "Title"
+    },
+    {
+        "text": "MetadataBundle",
+        "type": "Title"
+    },
+    {
+        "text": "'core'",
+        "type": "Title"
+    },
+    {
+        "text": "entries",
+        "type": "Title"
+    },
+    {
+        "text": "coreBundle",
+        "type": "Title"
+    },
+    {
+        "text": "read",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "metadata",
+        "type": "Title"
+    },
+    {
+        "text": "bundles",
+        "type": "Title"
+    },
+    {
+        "text": "MetadataBundle",
+        "type": "Title"
+    },
+    {
+        "text": "'core'",
+        "type": "Title"
+    },
+    {
+        "text": "15111",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "entries",
+        "type": "Title"
+    },
+    {
+        "text": "Creating persistent metadata bundles\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Metadata bundles can take a long time to create. So it'd be nice if they\ncould be written to and read from disk. Unfortunately we never got\naround to\u2026nah, just kidding. Of course you can. Just call .write()\non one:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "coreBundle",
+        "type": "Title"
+    },
+    {
+        "text": "metadata",
+        "type": "Title"
+    },
+    {
+        "text": "bundles",
+        "type": "Title"
+    },
+    {
+        "text": "MetadataBundle",
+        "type": "Title"
+    },
+    {
+        "text": "'core'",
+        "type": "Title"
+    },
+    {
+        "text": "coreBundle",
+        "type": "Title"
+    },
+    {
+        "text": "read",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "metadata",
+        "type": "Title"
+    },
+    {
+        "text": "bundles",
+        "type": "Title"
+    },
+    {
+        "text": "MetadataBundle",
+        "type": "Title"
+    },
+    {
+        "text": "'core'",
+        "type": "Title"
+    },
+    {
+        "text": "15111",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "entries",
+        "type": "Title"
+    },
+    {
+        "text": "coreBundle",
+        "type": "Title"
+    },
+    {
+        "text": "write",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "They can also be completely rebuilt, as you will want to do for local\ncorpora. To add information to a bundle, use the addFromPaths()\nmethod:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "newBundle",
+        "type": "Title"
+    },
+    {
+        "text": "metadata",
+        "type": "Title"
+    },
+    {
+        "text": "bundles",
+        "type": "Title"
+    },
+    {
+        "text": "MetadataBundle",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "paths",
+        "type": "Title"
+    },
+    {
+        "text": "corpus",
+        "type": "Title"
+    },
+    {
+        "text": "corpora",
+        "type": "Title"
+    },
+    {
+        "text": "CoreCorpus",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "search",
+        "type": "Title"
+    },
+    {
+        "text": "'corelli'",
+        "type": "Title"
+    },
+    {
+        "text": "failedPaths",
+        "type": "Title"
+    },
+    {
+        "text": "newBundle",
+        "type": "Title"
+    },
+    {
+        "text": "addFromPaths",
+        "type": "Title"
+    },
+    {
+        "text": "paths",
+        "type": "Title"
+    },
+    {
+        "text": "failedPaths",
+        "type": "Title"
+    },
+    {
+        "text": "[]",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "then call .write() to save to disk",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "newBundle",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "metadata",
+        "type": "Title"
+    },
+    {
+        "text": "bundles",
+        "type": "Title"
+    },
+    {
+        "text": "MetadataBundle",
+        "type": "Title"
+    },
+    {
+        "text": "entry",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "Building metadata information can be an incredibly intensive process. For\nexample, building the core metadata bundle can easily take as long as an\nhour! And this is even though the building process uses multiple cores.\nPlease use caution, and be patient, when building metadata bundles\nfrom large corpora. To monitor the corpus-building progress, make sure to\nset \u0098debug' to True in your user settings:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "environment",
+        "type": "Title"
+    },
+    {
+        "text": "UserSettings",
+        "type": "Title"
+    },
+    {
+        "text": "()[",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'debug'",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "You can delete, rebuild and save a metadata bundle in one go with the\nrebuildMetadataCache() method:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "localBundle",
+        "type": "Title"
+    },
+    {
+        "text": "corpus",
+        "type": "Title"
+    },
+    {
+        "text": "corpora",
+        "type": "Title"
+    },
+    {
+        "text": "LocalCorpus",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "metadataBundle",
+        "type": "Title"
+    },
+    {
+        "text": "localBundle",
+        "type": "Title"
+    },
+    {
+        "text": "rebuildMetadataCache",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The process of rebuilding will store the file as it goes (for safety) so\nat the end there is no need to call .write().",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "To delete a metadata bundle's cached-to-disk JSON file, use the\ndelete() method:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "localBundle",
+        "type": "Title"
+    },
+    {
+        "text": "delete",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Deleting a metadata bundle's JSON file won't empty the in-memory\ncontents of that bundle. For that, use clear():",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "localBundle",
+        "type": "Title"
+    },
+    {
+        "text": "clear",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "With local corpora you will be able to develop your own collections of\npieces to analyze, work on a new self-contained project with, and index\nand search through them.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "But what if some of your music is in a file format that music21 does\nnot yet support? Maybe it's time to write your own converter or notation\nformat. To learn how to do that, go to the next chapter,\nChapter 54: Extending Converter with New Formats.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 53: Advanced Corpus and Metadata Searching",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

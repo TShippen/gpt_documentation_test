@@ -1,0 +1,258 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.formats",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.common.fileTools",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.common.misc",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.common.formats\nFunctions\nfindFormat()\nfindFormatExtFile()\nfindFormatExtURL()\nfindFormatFile()\nfindSubConverterForFormat()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.formats\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Utilities for working with file formats.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "almost everything here is deprecated.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.common.formats.",
+        "type": "Title"
+    },
+    {
+        "text": "findFormat",
+        "type": "Title"
+    },
+    {
+        "text": "fmt",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a format defined either by a format name, abbreviation, or\nan extension, return the regularized format name as well as\nthe output extensions.\nDEPRECATED May 2014 \u2014 moving to converter\nAll but the first element of the tuple are deprecated for use, since\nthe extension can vary by subConverter (e.g., lily.png)\n>>> common.findFormat('.mxl')\n('musicxml', '.musicxml')\n>>> common.findFormat('musicxml')\n('musicxml', '.musicxml')\n>>> common.findFormat('lily')\n('lilypond', '.ly')\n>>> common.findFormat('lily.png')\n('lilypond', '.ly')\n>>> common.findFormat('humdrum')\n('humdrum', '.krn')\n>>> common.findFormat('txt')\n('text', '.txt')\n>>> common.findFormat('textline')\n('textline', '.txt')\n>>> common.findFormat('midi')\n('midi', '.mid')\n>>> common.findFormat('abc')\n('abc', '.abc')\n>>> common.findFormat('scl')\n('scala', '.scl')\n>>> common.findFormat('braille')\n('braille', '.txt')\n>>> common.findFormat('vexflow')\n('vexflow', '.html')\n>>> common.findFormat('capx')\n('capella', '.capx')\n\n\nWorks the same whether you have a leading dot or not:\n>>> common.findFormat('md')\n('musedata', '.md')\n>>> common.findFormat('.md')\n('musedata', '.md')\n\n\nIf you give something we can't deal with, returns a Tuple of None, None:\n>>> common.findFormat('wpd')\n(None, None)\n\n\nThese don't work but should eventually:\n# >>> common.findFormat(\u0098png')\n# (\u0098musicxml.png', \u0098.png')\n# >>> common.findFormat(\u0098ipython')\n# (\u0098ipython', \u0098.png')\n# >>> common.findFormat(\u0098ipython.png')\n# (\u0098ipython', \u0098.png')\n# >>> common.findFormat(\u0098musicxml.png')\n# (\u0098musicxml.png', \u0098.png')",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.formats.",
+        "type": "Title"
+    },
+    {
+        "text": "findFormatExtFile",
+        "type": "Title"
+    },
+    {
+        "text": "fp",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a file path (relative or absolute)\nfind format and extension used (not the output extension)\nDEPRECATED May 2014 \u2014 moving to converter\n>>> common.findFormatExtFile('test.mxl')\n('musicxml', '.mxl')\n>>> common.findFormatExtFile('long/file/path/test-2009.03.02.xml')\n('musicxml', '.xml')\n>>> common.findFormatExtFile('long/file/path.intermediate.png/test-2009.03.xml')\n('musicxml', '.xml')\n\n\n>>> common.findFormatExtFile('test')\n(None, None)\n\n\nWindows drive\n>>> common.findFormatExtFile(\u0098d:/long/file/path/test.xml')\n(\u0098musicxml', \u0098.xml')\nOn a windows networked filesystem\n>>> common.findFormatExtFile(r'\\longfilepathtest.krn')\n(\u0098humdrum', \u0098.krn')",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.formats.",
+        "type": "Title"
+    },
+    {
+        "text": "findFormatExtURL",
+        "type": "Title"
+    },
+    {
+        "text": "url",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a URL, attempt to find the extension.\nThis may scrub arguments in a URL, or simply look at the last characters.\nDEPRECATED May 2014 \u2014 moving to converter\n>>> urlA = 'http://somesite.com/?l=cc/schubert/piano/d0576&file=d0576-06.krn&f=xml'\n>>> urlB = 'http://somesite.com/cgi-bin/ksdata?l=cc/schubert/d0576&file=d0576-06.krn&f=kern'\n>>> urlC = 'http://somesite.com/cgi-bin/ksdata?l=cc/bach/cello&file=bwv1007-01.krn&f=xml'\n>>> urlF = 'https://junk'\n>>> urlM = 'http://somesite.com/files/mid001.mid'\n\n\n>>> common.findFormatExtURL(urlA)\n('musicxml', '.xml')\n>>> common.findFormatExtURL(urlB)\n('humdrum', '.krn')\n>>> common.findFormatExtURL(urlC)\n('musicxml', '.xml')\n>>> common.findFormatExtURL(urlF)\n(None, None)\n>>> common.findFormatExtURL(urlM)\n('midi', '.mid')",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.formats.",
+        "type": "Title"
+    },
+    {
+        "text": "findFormatFile",
+        "type": "Title"
+    },
+    {
+        "text": "fp",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a file path (relative or absolute) return the format\nDEPRECATED May 2014 \u2014 moving to converter\n>>> common.findFormatFile('test.xml')\n'musicxml'\n>>> common.findFormatFile('long/file/path/test-2009.03.02.xml')\n'musicxml'\n>>> common.findFormatFile('long/file/path.intermediate.png/test-2009.03.xml')\n'musicxml'\n\n\nOn a windows networked filesystem\n>>> common.findFormatFile(r'\\longfilepathtest.krn')\n\u0098humdrum'",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.formats.",
+        "type": "Title"
+    },
+    {
+        "text": "findSubConverterForFormat",
+        "type": "Title"
+    },
+    {
+        "text": "fmt",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 type[SubConverter] | None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "return a converter.subConverter.SubConverter subclass\nfor a given format \u2014 this is a music21 format name,\nnot a file extension. Or returns None\n>>> common.findSubConverterForFormat('musicxml')\n<class 'music21.converter.subConverters.ConverterMusicXML'>\n\n\n>>> common.findSubConverterForFormat('text')\n<class 'music21.converter.subConverters.ConverterText'>\n\n\n>>> common.findSubConverterForFormat('romantext')\n<class 'music21.converter.subConverters.ConverterRomanText'>\n\n\nSome subConverters have format aliases\n>>> common.findSubConverterForFormat('t')\n<class 'music21.converter.subConverters.ConverterText'>",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.formats",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

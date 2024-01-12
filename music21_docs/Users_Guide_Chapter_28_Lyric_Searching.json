@@ -1,0 +1,1502 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 28: Lyric Searching",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide, Chapter 27: Grace Notes",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide, Chapter 29: Spanners 1 (Slurs)",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide\nUser's Guide: Table of Contents\nUser's Guide, Chapter 1: Installing and Getting Started with music21\nUser's Guide, Chapter 2: Notes\nUser's Guide, Chapter 3: Pitches, Durations, and Notes again\nUser's Guide, Chapter 4: Lists, Streams (I) and Output\nUser's Guide, Chapter 5: Lists of Lists, Functions, and Recursion\nUser's Guide, Chapter 6: Streams (II): Hierarchies, Recursion, and Flattening\nUser's Guide, Chapter 7: Chords\nUser's Guide, Chapter 8: Installing MusicXML Readers and File Formats (1)\nUser's Guide, Chapter 9: Chordify\nUser's Guide, Chapter 10: Examples 1\nUser's Guide, Chapter 11: Corpus Searching\nUser's Guide, Chapter 12: Getting Back to Basics: The Music21Object\nUser's Guide, Chapter 13: More Music21Object Attributes and Properties\nUser's Guide: Chapter 14: Time Signatures and Beats\nUser's Guide, Chapter 15: Keys and KeySignatures\nUser's Guide, Chapter 16: TinyNotation\nUser's Guide: Chapter 17: Derivations\nUser's Guide: Chapter 18: Intervals\nUser's Guide, Chapter 19: Advanced Durations (Complex and Tuplets)\nUser's Guide, Chapter 20: Examples 2\nUser's Guide, Chapter 21: Ordering and Sorting of Stream Elements\nUser's Guide, Chapter 22: Graphing and plotting\nUser's Guide, Chapter 23: Roman Numeral Analysis\nUser's Guide, Chapter 24: Configuring Environment Settings\nUser's Guide, Chapter 25: Post-Tonal Tools (1)\nUser's Guide, Chapter 26: Stream Iteration and Filtering\nUser's Guide, Chapter 27: Grace Notes\nUser's Guide, Chapter 28: Lyric Searching\nUser's Guide, Chapter 29: Spanners 1 (Slurs)\nUser's Guide, Chapter 30: Examples 3\nUser's Guide, Chapter 31: Clefs, Ties, and Beams\nUser's Guide, Chapter 32: Articulations\nUser's Guide, Chapter 44: Advanced Graphing (Axes, Plots, and Graphs)\nUser's Guide, Chapter 53: Advanced Corpus and Metadata Searching\nUser's Guide, Chapter 54: Extending Converter with New Formats\nUser's Guide, Chapter 55: Advanced Meter Topics\nUser's Guide, Chapter 58: Understanding Sites and Contexts\nUser's Guide, Chapter 61: TimespanTrees and Verticalities",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 28: Lyric Searching\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Lyrics can be difficult to search through for various reasons. Let me\ngive an example: you might want to find all instances of, say, the word\n\u009cDomine\u009d (latin: Lord) to see if, perhaps, they're higher in pitch than\nthe average notes in the piece.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Let's start by taking a piece that will be a good example, a Gloria by\nthe otherwise unknown 15th-century musician, \u009cD. Luca,\u009d found in the\nmusic21 corpus.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "from",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "import",
+        "type": "Title"
+    },
+    {
+        "text": "luca",
+        "type": "Title"
+    },
+    {
+        "text": "corpus",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "'luca/gloria'",
+        "type": "Title"
+    },
+    {
+        "text": "cantus",
+        "type": "Title"
+    },
+    {
+        "text": "luca",
+        "type": "Title"
+    },
+    {
+        "text": "parts",
+        "type": "Title"
+    },
+    {
+        "text": "cantus",
+        "type": "Title"
+    },
+    {
+        "text": "measures",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "This code is unlikely to work:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "dominePS",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "cantus",
+        "type": "Title"
+    },
+    {
+        "text": "recurse",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "getElementsByClass",
+        "type": "Title"
+    },
+    {
+        "text": "'Note'",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "lyric",
+        "type": "Title"
+    },
+    {
+        "text": "==",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'Domine'",
+        "type": "Title"
+    },
+    {
+        "text": "dominePS",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "ps",
+        "type": "Title"
+    },
+    {
+        "text": "Did we get anything?",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "dominePS",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "Why? Because \u009cdomine\u009d is three syllables long. Thus, it is not going to\nbe found on a single note. You can check to see if \u009cDomine\u009d appears in\nthe piece at all using the music21.text.assembleLyrics()\nfunction:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "allText",
+        "type": "Title"
+    },
+    {
+        "text": "text",
+        "type": "Title"
+    },
+    {
+        "text": "assembleLyrics",
+        "type": "Title"
+    },
+    {
+        "text": "cantus",
+        "type": "Title"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "'Domine'",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "allText",
+        "type": "Title"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "\"Yup!\"",
+        "type": "Title"
+    },
+    {
+        "text": "Yup!",
+        "type": "Title"
+    },
+    {
+        "text": "Well, now we know that the Gloria of the Mass, contains the word\n\u009cDomine\u009d. Except we already knew that, and we're no closer to figuring\nout what pitches are used by \u009cDomine\u009d.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "music21.search.lyrics.LyricSearcher will come to your rescue.\nWe can create a new LyricSearcher object and attach the Stream to\nit:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "ls",
+        "type": "Title"
+    },
+    {
+        "text": "search",
+        "type": "Title"
+    },
+    {
+        "text": "lyrics",
+        "type": "Title"
+    },
+    {
+        "text": "LyricSearcher",
+        "type": "Title"
+    },
+    {
+        "text": "cantus",
+        "type": "Title"
+    },
+    {
+        "text": "Now let's search for \u009cDomine\u009d:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "domineResults",
+        "type": "Title"
+    },
+    {
+        "text": "ls",
+        "type": "Title"
+    },
+    {
+        "text": "search",
+        "type": "Title"
+    },
+    {
+        "text": "\"Domine\"",
+        "type": "Title"
+    },
+    {
+        "text": "How many times did it appear?",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "len",
+        "type": "Title"
+    },
+    {
+        "text": "domineResults",
+        "type": "Title"
+    },
+    {
+        "text": "Three times. Let's look more closely at the results to see where:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "domineResults",
+        "type": "Title"
+    },
+    {
+        "text": "SearchMatch",
+        "type": "Title"
+    },
+    {
+        "text": "mStart",
+        "type": "Title"
+    },
+    {
+        "text": "28",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "mEnd",
+        "type": "Title"
+    },
+    {
+        "text": "29",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "matchText",
+        "type": "Title"
+    },
+    {
+        "text": "'Domine'",
+        "type": "Title"
+    },
+    {
+        "text": "els",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "indices",
+        "type": "Title"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "],",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "identifier",
+        "type": "Title"
+    },
+    {
+        "text": "),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "SearchMatch",
+        "type": "Title"
+    },
+    {
+        "text": "mStart",
+        "type": "Title"
+    },
+    {
+        "text": "38",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "mEnd",
+        "type": "Title"
+    },
+    {
+        "text": "39",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "matchText",
+        "type": "Title"
+    },
+    {
+        "text": "'Domine'",
+        "type": "Title"
+    },
+    {
+        "text": "els",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "indices",
+        "type": "Title"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "],",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "identifier",
+        "type": "Title"
+    },
+    {
+        "text": "),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "SearchMatch",
+        "type": "Title"
+    },
+    {
+        "text": "mStart",
+        "type": "Title"
+    },
+    {
+        "text": "48",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "mEnd",
+        "type": "Title"
+    },
+    {
+        "text": "48",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "matchText",
+        "type": "Title"
+    },
+    {
+        "text": "'Domine'",
+        "type": "Title"
+    },
+    {
+        "text": "els",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "indices",
+        "type": "Title"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "],",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "identifier",
+        "type": "Title"
+    },
+    {
+        "text": ")]",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "We'll get to the meaning of this soon, but we can see that the three\nmatches appear (probably coincidentally) ten measures apart, at measures\n28-29, 38-39, and 48, and are part of the first lyric (identifier=1)\nof the text. Let's check that:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "cantus",
+        "type": "Title"
+    },
+    {
+        "text": "measures",
+        "type": "Title"
+    },
+    {
+        "text": "24",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "48",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Yep, there they are. There's something interesting in that all three\ntimes the word follows a double-bar or rest. Clearly it's an important\nword at an important place in the sentence. Let's look at the first\nSearchMatch object in some detail. It\nis a kind of namedtuple that knows something about where the match took\nplace.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "sm0",
+        "type": "Title"
+    },
+    {
+        "text": "domineResults",
+        "type": "Title"
+    },
+    {
+        "text": "sm0",
+        "type": "Title"
+    },
+    {
+        "text": "mStart",
+        "type": "Title"
+    },
+    {
+        "text": "sm0",
+        "type": "Title"
+    },
+    {
+        "text": "mEnd",
+        "type": "Title"
+    },
+    {
+        "text": "28",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "29",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "It knows which notes contained the syllables making up \u009cDomine\u009d:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "sm0",
+        "type": "Title"
+    },
+    {
+        "text": "els",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "Notice that the second \u009cA\u009d (after the tie) is not included in the search\nresults. This has nothing to do with the fact that it is tied \u2014 melismas\ndo not include all the notes. For instance, take \u009c[Glo-]riam tuam.\u009d\nfound at the beginning of the excerpt above (measure 25). There are\nthree notes on \u009cri\u009d (B-flat, A, G) but only the B-flat will be included\nin this search:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "smGloriam",
+        "type": "Title"
+    },
+    {
+        "text": "ls",
+        "type": "Title"
+    },
+    {
+        "text": "search",
+        "type": "Title"
+    },
+    {
+        "text": "'iam tuam.'",
+        "type": "Title"
+    },
+    {
+        "text": "smGloriam",
+        "type": "Title"
+    },
+    {
+        "text": "els",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#>,",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "Future work should make it possible to return the intermediate notes or\nrests in between, etc. For now you could do something like this instead:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "firstNote",
+        "type": "Title"
+    },
+    {
+        "text": "smGloriam",
+        "type": "Title"
+    },
+    {
+        "text": "els",
+        "type": "Title"
+    },
+    {
+        "text": "lastNote",
+        "type": "Title"
+    },
+    {
+        "text": "smGloriam",
+        "type": "Title"
+    },
+    {
+        "text": "els",
+        "type": "Title"
+    },
+    {
+        "text": "allRelevantNotes",
+        "type": "Title"
+    },
+    {
+        "text": "firstNote",
+        "type": "Title"
+    },
+    {
+        "text": "currentNote",
+        "type": "Title"
+    },
+    {
+        "text": "firstNote",
+        "type": "Title"
+    },
+    {
+        "text": "while",
+        "type": "Title"
+    },
+    {
+        "text": "currentNote",
+        "type": "Title"
+    },
+    {
+        "text": "is",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "not",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "currentNote",
+        "type": "Title"
+    },
+    {
+        "text": "currentNote",
+        "type": "Title"
+    },
+    {
+        "text": "next",
+        "type": "Title"
+    },
+    {
+        "text": "'Note'",
+        "type": "Title"
+    },
+    {
+        "text": "allRelevantNotes",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "currentNote",
+        "type": "Title"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "currentNote",
+        "type": "Title"
+    },
+    {
+        "text": "is",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "lastNote",
+        "type": "Title"
+    },
+    {
+        "text": "break",
+        "type": "Title"
+    },
+    {
+        "text": "allRelevantNotes",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#>,",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "Okay, that's enough of an aside, let's get back to the Domine pitch\nquestion, and what's in a SearchMatch object. It has a\n.matchText attribute. It tells you what matched:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "sm0",
+        "type": "Title"
+    },
+    {
+        "text": "matchText",
+        "type": "Title"
+    },
+    {
+        "text": "'Domine'",
+        "type": "Title"
+    },
+    {
+        "text": "Well, that's pretty useless here. We knew that. But what I haven't\nmentioned is that you can pass in regular expressions. Let's find the\nmain-stem's vowel combination, o followed by i, with one letter in\nbetween:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "import",
+        "type": "Title"
+    },
+    {
+        "text": "re",
+        "type": "Title"
+    },
+    {
+        "text": "reSearchVowels",
+        "type": "Title"
+    },
+    {
+        "text": "re",
+        "type": "Title"
+    },
+    {
+        "text": "compile",
+        "type": "Title"
+    },
+    {
+        "text": "'\\w+o\\wi\\w+'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "re",
+        "type": "Title"
+    },
+    {
+        "text": "IGNORECASE",
+        "type": "Title"
+    },
+    {
+        "text": "foundVowels",
+        "type": "Title"
+    },
+    {
+        "text": "ls",
+        "type": "Title"
+    },
+    {
+        "text": "search",
+        "type": "Title"
+    },
+    {
+        "text": "reSearchVowels",
+        "type": "Title"
+    },
+    {
+        "text": "len",
+        "type": "Title"
+    },
+    {
+        "text": "foundVowels",
+        "type": "Title"
+    },
+    {
+        "text": "11",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Well, that matched 11 times. But who knows WHAT it matched?! Oh, wait,\n.matchText knows.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "result",
+        "type": "Title"
+    },
+    {
+        "text": "matchText",
+        "type": "Title"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "result",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "foundVowels",
+        "type": "Title"
+    },
+    {
+        "text": "'hominibus'",
+        "type": "Title"
+    },
+    {
+        "text": "'Glorificamus'",
+        "type": "Title"
+    },
+    {
+        "text": "'gloriam'",
+        "type": "Title"
+    },
+    {
+        "text": "'Domine'",
+        "type": "Title"
+    },
+    {
+        "text": "'Domine'",
+        "type": "Title"
+    },
+    {
+        "text": "'Domine'",
+        "type": "Title"
+    },
+    {
+        "text": "'nobis'",
+        "type": "Title"
+    },
+    {
+        "text": "'nobis'",
+        "type": "Title"
+    },
+    {
+        "text": "'Quoniam'",
+        "type": "Title"
+    },
+    {
+        "text": "'Dominus'",
+        "type": "Title"
+    },
+    {
+        "text": "'gloria'",
+        "type": "Title"
+    },
+    {
+        "text": "The last thing that a SearchMatch has is a .indices list, which\nis a list of the IndexedLyric objects\nthat are the hidden secret-sauce that makes all this work so well. This\nis too low-level to need describing here, but look at the docs to the\nmodule to see why it might be helpful.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Darn it, we're distracted again from the main problem: is \u009cDomine\u009d\nhigher than average? Let's get back to that. domineResults is still\nour list of search results containing \u009cDomine\u009d. We'll look at the\naverage .ps or pitch space (MIDI number) for the pitches:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "dominePitchPSes",
+        "type": "Title"
+    },
+    {
+        "text": "[]",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "thisMatch",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "domineResults",
+        "type": "Title"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "thisNote",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "thisMatch",
+        "type": "Title"
+    },
+    {
+        "text": "els",
+        "type": "Title"
+    },
+    {
+        "text": "dominePitchPSes",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "thisNote",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "ps",
+        "type": "Title"
+    },
+    {
+        "text": "dominePitchPSes",
+        "type": "Title"
+    },
+    {
+        "text": "72.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "69.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "65.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "72.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "69.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "71.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "69.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "71.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "72.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Python gives us a nice set of functions for the mean and median:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "from",
+        "type": "Title"
+    },
+    {
+        "text": "statistics",
+        "type": "Title"
+    },
+    {
+        "text": "import",
+        "type": "Title"
+    },
+    {
+        "text": "mean",
+        "type": "Title"
+    },
+    {
+        "text": "median",
+        "type": "Title"
+    },
+    {
+        "text": "mean",
+        "type": "Title"
+    },
+    {
+        "text": "dominePitchPSes",
+        "type": "Title"
+    },
+    {
+        "text": "),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "median",
+        "type": "Title"
+    },
+    {
+        "text": "dominePitchPSes",
+        "type": "Title"
+    },
+    {
+        "text": "70.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "71.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "And for the piece as a whole?",
+        "type": "Title"
+    },
+    {
+        "text": "allPitchPSes",
+        "type": "Title"
+    },
+    {
+        "text": "[]",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "thisNote",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "cantus",
+        "type": "Title"
+    },
+    {
+        "text": "recurse",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "notes",
+        "type": "Title"
+    },
+    {
+        "text": "allPitchPSes",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "thisNote",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "ps",
+        "type": "Title"
+    },
+    {
+        "text": "mean",
+        "type": "Title"
+    },
+    {
+        "text": "allPitchPSes",
+        "type": "Title"
+    },
+    {
+        "text": "),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "median",
+        "type": "Title"
+    },
+    {
+        "text": "allPitchPSes",
+        "type": "Title"
+    },
+    {
+        "text": "67.41100323624596",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "67.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "It is a little bit higher. The mean is 2.6 semitones higher and the\nmedian is 4 semitones higher. Is this statistically significant? We'll\nneed to perform more tests to be sure! (My guess is NOT! but hey, it's\nworth investigating)",
+        "type": "NarrativeText"
+    },
+    {
+        "text": ".getElementsByClass('Note')",
+        "type": "Title"
+    },
+    {
+        "text": ".notes",
+        "type": "Title"
+    },
+    {
+        "text": ".notes",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": ".pitch",
+        "type": "Title"
+    },
+    {
+        "text": ".pitches",
+        "type": "Title"
+    },
+    {
+        "text": "Hope that this was a good introduction to searching through lyrics! I've\nused this technique to find lots of small fragments of music. I'll write\nmore about that later. For now, let's slide on over to slurs and\nglissandi in Chapter 29, Spanners",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 28: Lyric Searching",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

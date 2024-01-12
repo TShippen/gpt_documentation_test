@@ -1,0 +1,658 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.tree.core",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.tree.analysis",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.tree.fromStream",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.tree.core\nAVLNode\nAVLNode\nAVLNode.debug()\nAVLNode.moveAttributes()\nAVLNode.rebalance()\nAVLNode.rotateLeftLeft()\nAVLNode.rotateLeftRight()\nAVLNode.rotateRightLeft()\nAVLNode.rotateRightRight()\nAVLNode.update()\nAVLNode.balance\nAVLNode.height\nAVLNode.leftChild\nAVLNode.payload\nAVLNode.position\nAVLNode.rightChild\n\n\n\n\nAVLTree\nAVLTree\nAVLTree.createNodeAtPosition()\nAVLTree.debug()\nAVLTree.getNodeAfter()\nAVLTree.getNodeBefore()\nAVLTree.getNodeByPosition()\nAVLTree.getPositionAfter()\nAVLTree.getPositionBefore()\nAVLTree.populateFromSortedList()\nAVLTree.removeNode()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.tree.core\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "These are the lowest level tools for working with self-balancing AVL trees.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "There's an overhead to creating an AVL tree, but for a large score it is\nabsolutely balanced by having O(log n) search times.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "AVLNode\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.tree.core.",
+        "type": "Title"
+    },
+    {
+        "text": "AVLNode",
+        "type": "Title"
+    },
+    {
+        "text": "position",
+        "type": "Title"
+    },
+    {
+        "text": "payload",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "An AVL Tree Node, not specialized in any way, just contains positions.\n>>> position = 1.0\n>>> node = tree.core.AVLNode(position)\n>>> node\n<AVLNode: Start:1.0 Height:0 L:None R:None>\n>>> n2 = tree.core.AVLNode(2.0)\n>>> node.rightChild = n2\n>>> node.update()\n>>> node\n<AVLNode: Start:1.0 Height:1 L:None R:0>\n\n\nNodes can rebalance themselves, but they work best in a Tree\u2026\nPlease consult the Wikipedia entry on AVL trees\n(https://en.wikipedia.org/wiki/AVL_tree) for a very detailed\ndescription of how this data structure works.",
+        "type": "ListItem"
+    },
+    {
+        "text": "AVLNode bases",
+        "type": "Title"
+    },
+    {
+        "text": "SlottedObjectMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "AVLNode methods",
+        "type": "Title"
+    },
+    {
+        "text": "AVLNode.",
+        "type": "Title"
+    },
+    {
+        "text": "debug",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get a debug of the Node:\n>>> score = tree.makeExampleScore()\n>>> scoreTree = tree.fromStream.asTimespans(score, flatten=True,\n...              classList=(note.Note, chord.Chord))\n>>> rn = scoreTree.rootNode\n>>> print(rn.debug())\n<OffsetNode 3.0 Indices:0,5,6,12 Length:1>\n    L: <OffsetNode 1.0 Indices:0,2,3,5 Length:1>\n        L: <OffsetNode 0.0 Indices:0,0,2,2 Length:2>\n        R: <OffsetNode 2.0 Indices:3,3,5,5 Length:2>\n    R: <OffsetNode 5.0 Indices:6,8,9,12 Length:1>\n        L: <OffsetNode 4.0 Indices:6,6,8,8 Length:2>\n        R: <OffsetNode 6.0 Indices:9,9,11,12 Length:2>\n            R: <OffsetNode 7.0 Indices:11,11,12,12 Length:1>",
+        "type": "ListItem"
+    },
+    {
+        "text": "AVLNode.",
+        "type": "Title"
+    },
+    {
+        "text": "moveAttributes",
+        "type": "Title"
+    },
+    {
+        "text": "other",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "move attributes from this node to another in case \u009cremoval\u009d actually\nmeans substituting one node for another in the tree.\nSubclass this in derived classes\nDo not copy anything about height, balance, left or right\nchildren, etc.  By default just moves position and payload.",
+        "type": "ListItem"
+    },
+    {
+        "text": "AVLNode.",
+        "type": "Title"
+    },
+    {
+        "text": "rebalance",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Rebalances the subtree rooted on this node.\nReturns the new central node.",
+        "type": "ListItem"
+    },
+    {
+        "text": "AVLNode.",
+        "type": "Title"
+    },
+    {
+        "text": "rotateLeftLeft",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Rotates a node left twice.\nMakes this node the rightChild of\nthe former leftChild and makes the former leftChild's rightChild\nbe the leftChild of this node.\nUsed during tree rebalancing.\nReturns the prior leftChild node as the new central node.",
+        "type": "ListItem"
+    },
+    {
+        "text": "AVLNode.",
+        "type": "Title"
+    },
+    {
+        "text": "rotateLeftRight",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Rotates a node left, then right.\nMakes this note the rightChild of the former rightChild of the former leftChild node\nUsed during tree rebalancing.\nReturns the former rightChild of the former leftChild node as the new central node.",
+        "type": "ListItem"
+    },
+    {
+        "text": "AVLNode.",
+        "type": "Title"
+    },
+    {
+        "text": "rotateRightLeft",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Rotates a node right, then left.\nMakes this note the leftChild of the former leftChild of the former rightChild node\nUsed during tree rebalancing.\nReturns the former leftChild of the former rightChild node as the new central node.",
+        "type": "ListItem"
+    },
+    {
+        "text": "AVLNode.",
+        "type": "Title"
+    },
+    {
+        "text": "rotateRightRight",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Rotates a node right twice.\nMakes this node the leftChild of\nthe former rightChild and makes the former rightChild's leftChild\nbe the rightChild of this node.\nUsed during tree rebalancing.\nReturns the prior rightChild node as the new central node.",
+        "type": "ListItem"
+    },
+    {
+        "text": "AVLNode.",
+        "type": "Title"
+    },
+    {
+        "text": "update",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Updates the height and balance attributes of the nodes.\nMust be called whenever .leftChild or .rightChild are changed.\nUsed for the next balancing operation \u2014 does not rebalance itself.\nNote that it only looks at its children's height and balance attributes\nnot their children's. So if they are wrong, this will be too.\nReturns None\nWe create a score with everything correct.\n>>> score = tree.makeExampleScore()\n>>> scoreTree = tree.fromStream.asTimespans(score, flatten=True,\n...             classList=(note.Note, chord.Chord))\n>>> n = scoreTree.rootNode\n>>> n\n<OffsetNode 3.0 Indices:0,5,6,12 Length:1>\n>>> n.height, n.balance\n(3, 1)\n\n\nNow let's screw up the height and balance\n>>> n.height = 100\n>>> n.balance = -2\n>>> n.height, n.balance\n(100, -2)\n\n\nBut we can fix it with .update()\n>>> n.update()\n>>> n.height, n.balance\n(3, 1)\n\n\nNote that if we were to screw up the balance/height of one of the\nchild notes of n then this would not fix that node's balance/height.\nThis method assumes that children have the correct information and only\nupdates the information for this node.",
+        "type": "ListItem"
+    },
+    {
+        "text": "AVLNode instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "AVLNode.",
+        "type": "Title"
+    },
+    {
+        "text": "balance",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns the current state of the difference in heights of the\ntwo subtrees rooted on this node.\nThis attribute is used to help balance the AVL tree.\n>>> score = tree.makeExampleScore()\n>>> scoreTree = tree.fromStream.asTimespans(score, flatten=True,\n...                    classList=(note.Note, chord.Chord))\n>>> print(scoreTree.debug())\n<OffsetNode 3.0 Indices:0,5,6,12 Length:1>\nL: <OffsetNode 1.0 Indices:0,2,3,5 Length:1>\nL: <OffsetNode 0.0 Indices:0,0,2,2 Length:2>\nR: <OffsetNode 2.0 Indices:3,3,5,5 Length:2>\nR: <OffsetNode 5.0 Indices:6,8,9,12 Length:1>\nL: <OffsetNode 4.0 Indices:6,6,8,8 Length:2>\nR: <OffsetNode 6.0 Indices:9,9,11,12 Length:2>\nR: <OffsetNode 7.0 Indices:11,11,12,12 Length:1>\n\n\nThis tree has one more depth on the right than on the left\n>>> scoreTree.rootNode.balance\n1\n\n\nThe leftChild of the rootNote is perfectly balanced, while the rightChild is off by\none (acceptable).\n>>> scoreTree.rootNode.leftChild.balance\n0\n>>> scoreTree.rootNode.rightChild.balance\n1\n\n\nThe rightChild's children are also (acceptably) unbalanced:\n>>> scoreTree.rootNode.rightChild.leftChild.balance\n0\n>>> scoreTree.rootNode.rightChild.rightChild.balance\n1\n\n\nYou should never see a balance other than 1, -1, or 0.  If you do then\nsomething has gone wrong.",
+        "type": "ListItem"
+    },
+    {
+        "text": "AVLNode.",
+        "type": "Title"
+    },
+    {
+        "text": "height",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The height of the subtree rooted on this node.\nThis property is used to help balance the AVL tree.\n>>> score = tree.makeExampleScore()\n>>> scoreTree = tree.fromStream.asTimespans(score, flatten=True,\n...              classList=(note.Note, chord.Chord))\n>>> print(scoreTree.debug())\n<OffsetNode 3.0 Indices:0,5,6,12 Length:1>\nL: <OffsetNode 1.0 Indices:0,2,3,5 Length:1>\nL: <OffsetNode 0.0 Indices:0,0,2,2 Length:2>\nR: <OffsetNode 2.0 Indices:3,3,5,5 Length:2>\nR: <OffsetNode 5.0 Indices:6,8,9,12 Length:1>\nL: <OffsetNode 4.0 Indices:6,6,8,8 Length:2>\nR: <OffsetNode 6.0 Indices:9,9,11,12 Length:2>\nR: <OffsetNode 7.0 Indices:11,11,12,12 Length:1>\n\n\n>>> scoreTree.rootNode.height\n3\n\n\n>>> scoreTree.rootNode.rightChild.height\n2\n\n\n>>> scoreTree.rootNode.rightChild.rightChild.height\n1\n\n\n>>> scoreTree.rootNode.rightChild.rightChild.rightChild.height\n0\n\n\nOnce you hit a height of zero, then the next child on either size should be None\n>>> print(scoreTree.rootNode.rightChild.rightChild.rightChild.rightChild)\nNone",
+        "type": "ListItem"
+    },
+    {
+        "text": "AVLNode.",
+        "type": "Title"
+    },
+    {
+        "text": "leftChild",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The left child of this node.\nAfter setting the left child you need to do a node update. with node.update()\n>>> score = tree.makeExampleScore()\n>>> scoreTree = tree.fromStream.asTimespans(score, flatten=True,\n...           classList=(note.Note, chord.Chord))\n>>> print(scoreTree.rootNode.debug())\n<OffsetNode 3.0 Indices:0,5,6,12 Length:1>\nL: <OffsetNode 1.0 Indices:0,2,3,5 Length:1>\nL: <OffsetNode 0.0 Indices:0,0,2,2 Length:2>\nR: <OffsetNode 2.0 Indices:3,3,5,5 Length:2>\nR: <OffsetNode 5.0 Indices:6,8,9,12 Length:1>\nL: <OffsetNode 4.0 Indices:6,6,8,8 Length:2>\nR: <OffsetNode 6.0 Indices:9,9,11,12 Length:2>\nR: <OffsetNode 7.0 Indices:11,11,12,12 Length:1>\n\n\n>>> print(scoreTree.rootNode.leftChild.debug())\n<OffsetNode 1.0 Indices:0,2,3,5 Length:1>\nL: <OffsetNode 0.0 Indices:0,0,2,2 Length:2>\nR: <OffsetNode 2.0 Indices:3,3,5,5 Length:2>",
+        "type": "ListItem"
+    },
+    {
+        "text": "AVLNode.",
+        "type": "Title"
+    },
+    {
+        "text": "payload",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The content of the node at this point.  Usually a Music21Object.",
+        "type": "ListItem"
+    },
+    {
+        "text": "AVLNode.",
+        "type": "Title"
+    },
+    {
+        "text": "position",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The position of this node \u2014 this is often the same as the offset of\nthe node in a containing score, but does not need to be. It could be the .sortTuple\n>>> score = tree.makeExampleScore()\n>>> scoreTree = tree.fromStream.asTimespans(score, flatten=True,\n...            classList=(note.Note, chord.Chord))\n>>> print(scoreTree.rootNode.debug())\n<OffsetNode 3.0 Indices:0,5,6,12 Length:1>\nL: <OffsetNode 1.0 Indices:0,2,3,5 Length:1>\nL: <OffsetNode 0.0 Indices:0,0,2,2 Length:2>\nR: <OffsetNode 2.0 Indices:3,3,5,5 Length:2>\nR: <OffsetNode 5.0 Indices:6,8,9,12 Length:1>\nL: <OffsetNode 4.0 Indices:6,6,8,8 Length:2>\nR: <OffsetNode 6.0 Indices:9,9,11,12 Length:2>\nR: <OffsetNode 7.0 Indices:11,11,12,12 Length:1>\n\n\n>>> scoreTree.rootNode.position\n3.0\n\n\n>>> scoreTree.rootNode.leftChild.position\n1.0\n\n\n>>> scoreTree.rootNode.rightChild.position\n5.0",
+        "type": "ListItem"
+    },
+    {
+        "text": "AVLNode.",
+        "type": "Title"
+    },
+    {
+        "text": "rightChild",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The right child of this node.\nAfter setting the right child you need to do a node update. with node.update()\n>>> score = tree.makeExampleScore()\n>>> scoreTree = tree.fromStream.asTimespans(score, flatten=True,\n...             classList=(note.Note, chord.Chord))\n>>> print(scoreTree.rootNode.debug())\n<OffsetNode 3.0 Indices:0,5,6,12 Length:1>\nL: <OffsetNode 1.0 Indices:0,2,3,5 Length:1>\nL: <OffsetNode 0.0 Indices:0,0,2,2 Length:2>\nR: <OffsetNode 2.0 Indices:3,3,5,5 Length:2>\nR: <OffsetNode 5.0 Indices:6,8,9,12 Length:1>\nL: <OffsetNode 4.0 Indices:6,6,8,8 Length:2>\nR: <OffsetNode 6.0 Indices:9,9,11,12 Length:2>\nR: <OffsetNode 7.0 Indices:11,11,12,12 Length:1>\n\n\n>>> print(scoreTree.rootNode.rightChild.debug())\n<OffsetNode 5.0 Indices:6,8,9,12 Length:1>\nL: <OffsetNode 4.0 Indices:6,6,8,8 Length:2>\nR: <OffsetNode 6.0 Indices:9,9,11,12 Length:2>\nR: <OffsetNode 7.0 Indices:11,11,12,12 Length:1>\n\n\n>>> print(scoreTree.rootNode.rightChild.rightChild.debug())\n<OffsetNode 6.0 Indices:9,9,11,12 Length:2>\nR: <OffsetNode 7.0 Indices:11,11,12,12 Length:1>\n\n\n>>> print(scoreTree.rootNode.rightChild.rightChild.rightChild.debug())\n<OffsetNode 7.0 Indices:11,11,12,12 Length:1>",
+        "type": "ListItem"
+    },
+    {
+        "text": "AVLTree\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.tree.core.",
+        "type": "Title"
+    },
+    {
+        "text": "AVLTree",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Data structure for working with tree.node.AVLNode objects.\nTo be subclassed in order to do anything useful with music21 objects.",
+        "type": "ListItem"
+    },
+    {
+        "text": "AVLTree bases",
+        "type": "Title"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "AVLTree read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "AVLTree methods",
+        "type": "Title"
+    },
+    {
+        "text": "AVLTree.",
+        "type": "Title"
+    },
+    {
+        "text": "createNodeAtPosition",
+        "type": "Title"
+    },
+    {
+        "text": "position",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "creates a new node at position and sets the rootNode\nappropriately\n>>> avl = tree.core.AVLTree()\n>>> avl.createNodeAtPosition(20)\n>>> avl.rootNode\n<AVLNode: Start:20 Height:0 L:None R:None>\n\n\n>>> avl.createNodeAtPosition(10)\n>>> avl.rootNode\n<AVLNode: Start:20 Height:1 L:0 R:None>\n\n\n>>> avl.createNodeAtPosition(5)\n>>> avl.rootNode\n<AVLNode: Start:10 Height:1 L:0 R:0>\n\n\n>>> avl.createNodeAtPosition(30)\n>>> avl.rootNode\n<AVLNode: Start:10 Height:2 L:0 R:1>\n>>> avl.rootNode.leftChild\n<AVLNode: Start:5 Height:0 L:None R:None>\n>>> avl.rootNode.rightChild\n<AVLNode: Start:20 Height:1 L:None R:0>\n\n\n>>> avl.rootNode.rightChild.rightChild\n<AVLNode: Start:30 Height:0 L:None R:None>",
+        "type": "ListItem"
+    },
+    {
+        "text": "AVLTree.",
+        "type": "Title"
+    },
+    {
+        "text": "debug",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Gets string representation of the node tree.\nUseful only for debugging its internal node structure.\n>>> tsList = [(0, 2), (0, 9), (1, 1), (2, 3), (3, 4),\n...           (4, 9), (5, 6), (5, 8), (6, 8), (7, 7)]\n>>> tss = [tree.spans.Timespan(x, y) for x, y in tsList]\n>>> tsTree = tree.timespanTree.TimespanTree()\n>>> tsTree.insert(tss)\n\n\n>>> print(tsTree.debug())\n<OffsetNode 3.0 Indices:0,4,5,10 Length:1>\n    L: <OffsetNode 1.0 Indices:0,2,3,4 Length:1>\n        L: <OffsetNode 0.0 Indices:0,0,2,2 Length:2>\n        R: <OffsetNode 2.0 Indices:3,3,4,4 Length:1>\n    R: <OffsetNode 5.0 Indices:5,6,8,10 Length:2>\n        L: <OffsetNode 4.0 Indices:5,5,6,6 Length:1>\n        R: <OffsetNode 6.0 Indices:8,8,9,10 Length:1>\n            R: <OffsetNode 7.0 Indices:9,9,10,10 Length:1>",
+        "type": "ListItem"
+    },
+    {
+        "text": "AVLTree.",
+        "type": "Title"
+    },
+    {
+        "text": "getNodeAfter",
+        "type": "Title"
+    },
+    {
+        "text": "position",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Gets the first node after position.\n>>> score = corpus.parse('bwv66.6')\n>>> scoreTree = score.asTree(flatten=True)\n>>> node1 = scoreTree.getNodeAfter(0.5)\n>>> node1\n<ElementNode: Start:1.0 <0.20...> Indices:(l:27 *29* r:33) Payload:<music21.note.Note A>>\n>>> node2 = scoreTree.getNodeAfter(0.6)\n>>> node2 is node1\nTrue\n\n\n>>> endNode = scoreTree.getNodeAfter(9999)\n>>> endNode\n<ElementNode: Start:End <0.-5...> Indices:(l:191 *195* r:199)\n       Payload:<music21.bar.Barline type=final>>\n\n\n>>> while endNode is not None:\n...     print(endNode)\n...     endNodePosition = endNode.position\n...     endNode = scoreTree.getNodeAfter(endNodePosition)\n<ElementNode: Start:End <0.-5...> Indices:(l:191 *195* r:199)\n    Payload:<music21.bar.Barline type=final>>\n<ElementNode: Start:End <0.-5...> Indices:(l:196 *196* r:197)\n    Payload:<music21.bar.Barline type=final>>\n<ElementNode: Start:End <0.-5...> Indices:(l:196 *197* r:199)\n    Payload:<music21.bar.Barline type=final>>\n<ElementNode: Start:End <0.-5...> Indices:(l:198 *198* r:199)\n    Payload:<music21.bar.Barline type=final>>\n\n\n>>> note1 = score.flatten().notes[30]\n\n\nWorks with sortTuple positions as well\u2026\n>>> st = note1.sortTuple()\n>>> st\nSortTuple(atEnd=0, offset=6.0, priority=0, classSortOrder=20, isNotGrace=1, insertIndex=...)\n\n\n>>> scoreTree.getNodeAfter(st)\n<ElementNode: Start:6.5 <0.20...> Indices:(l:55 *56* r:57)\n    Payload:<music21.note.Note D>>",
+        "type": "ListItem"
+    },
+    {
+        "text": "AVLTree.",
+        "type": "Title"
+    },
+    {
+        "text": "getNodeBefore",
+        "type": "Title"
+    },
+    {
+        "text": "position",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Finds the node immediately before position.\n>>> score = corpus.parse('bwv66.6')\n>>> scoreTree = score.asTimespans()\n\n\n100 is beyond the end, so it will get the last node in piece.\n>>> scoreTree.getNodeBefore(100)\n<OffsetNode 36.0 Indices:195,195,199,199 Length:4>\n\n\n>>> scoreTree.getNodeBefore(0) is None\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "AVLTree.",
+        "type": "Title"
+    },
+    {
+        "text": "getNodeByPosition",
+        "type": "Title"
+    },
+    {
+        "text": "position",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Searches for a node whose position is position in the subtree\nrooted on node.\nReturns a Node object or None",
+        "type": "ListItem"
+    },
+    {
+        "text": "AVLTree.",
+        "type": "Title"
+    },
+    {
+        "text": "getPositionAfter",
+        "type": "Title"
+    },
+    {
+        "text": "position",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Gets start position after position.\n>>> score = corpus.parse('bwv66.6')\n>>> scoreTree = score.asTree(flatten=True)\n>>> scoreTree.getPositionAfter(0.5).offset\n1.0\n\n\nReturns None if no succeeding position exists.\n>>> endPosition = scoreTree.getPositionAfter(9999)\n>>> while endPosition is not None:\n...     print(endPosition)\n...     endPosition = scoreTree.getPositionAfter(endPosition)\nSortTuple(atEnd=1, offset=36.0, priority=0, classSortOrder=-5, ...)\nSortTuple(atEnd=1, offset=36.0, priority=0, classSortOrder=-5, ...)\nSortTuple(atEnd=1, offset=36.0, priority=0, classSortOrder=-5, ...)\nSortTuple(atEnd=1, offset=36.0, priority=0, classSortOrder=-5, ...)\n\n\nGenerally speaking, negative positions will usually return 0.0\n>>> scoreTree.getPositionAfter(-999).offset\n0.0\n\n\nUnless the Tree is empty in which case, None is returned:\n>>> at = tree.core.AVLTree()\n>>> at.getPositionAfter(-999) is None\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "AVLTree.",
+        "type": "Title"
+    },
+    {
+        "text": "getPositionBefore",
+        "type": "Title"
+    },
+    {
+        "text": "position",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Gets the start position immediately preceding position in this\nposition-tree.\n>>> score = corpus.parse('bwv66.6')\n>>> scoreTree = score.asTimespans()\n>>> scoreTree.getPositionBefore(100)\n36.0\n\n\nReturn None if no preceding position exists.\n>>> scoreTree.getPositionBefore(0) is None\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "AVLTree.",
+        "type": "Title"
+    },
+    {
+        "text": "populateFromSortedList",
+        "type": "Title"
+    },
+    {
+        "text": "listOfTuples",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Populate this tree from a sorted list of two-tuples of (position, payload).\nThis is about an order of magnitude faster (3ms vs 21ms for 1000 items;\n31 vs. 300ms for 10,000 items) than running createNodeAtPosition()\nfor each element in a list if it is\nalready sorted.  Thus, it should be used when converting a\nStream where .isSorted is True into a tree.\nThis method assumes that the current tree is empty (or will be wiped) and\nthat listOfTuples is a non-empty\nlist where the first element is a unique position to insert,\nand the second is the complete payload for that node, and\nthat the positions are strictly increasing in order.\nIf any of the conditions is not true, expect to get a dangerously\nbadly sorted tree that will be useless.\n>>> listOfTuples = [(i, str(i)) for i in range(1000)]\n>>> listOfTuples[10]\n(10, '10')\n>>> avlTree = tree.core.AVLTree()\n>>> avlTree.rootNode is None\nTrue\n>>> avlTree.populateFromSortedList(listOfTuples)\n>>> avlTree.rootNode\n<AVLNode: Start:500 Height:9 L:8 R:8>\n\n\n>>> n = avlTree.rootNode\n>>> while n is not None:\n...    print(n, repr(n.payload))\n...    n = n.leftChild\n<AVLNode: Start:500 Height:9 L:8 R:8> '500'\n<AVLNode: Start:250 Height:8 L:7 R:7> '250'\n<AVLNode: Start:125 Height:7 L:6 R:6> '125'\n<AVLNode: Start:62 Height:6 L:5 R:5> '62'\n<AVLNode: Start:31 Height:5 L:4 R:4> '31'\n<AVLNode: Start:15 Height:4 L:3 R:3> '15'\n<AVLNode: Start:7 Height:3 L:2 R:2> '7'\n<AVLNode: Start:3 Height:2 L:1 R:1> '3'\n<AVLNode: Start:1 Height:1 L:0 R:0> '1'\n<AVLNode: Start:0 Height:0 L:None R:None> '0'",
+        "type": "ListItem"
+    },
+    {
+        "text": "AVLTree.",
+        "type": "Title"
+    },
+    {
+        "text": "removeNode",
+        "type": "Title"
+    },
+    {
+        "text": "position",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Removes a node at position and rebalances the tree\nUsed internally by TimespanTree.\n>>> avl = tree.core.AVLTree()\n>>> avl.createNodeAtPosition(20)\n>>> avl.createNodeAtPosition(10)\n>>> avl.createNodeAtPosition(5)\n>>> avl.createNodeAtPosition(30)\n>>> avl.rootNode\n<AVLNode: Start:10 Height:2 L:0 R:1>\n\n\nRemove node at 30\n>>> avl.removeNode(30)\n>>> avl.rootNode\n<AVLNode: Start:10 Height:1 L:0 R:0>\n\n\nRemoving a node eliminates its payload:\n>>> ten = avl.getNodeByPosition(10)\n>>> ten.payload = 'ten'\n>>> twenty = avl.getNodeByPosition(20)\n>>> twenty.payload = 'twenty'\n\n\n>>> avl.removeNode(10)\n>>> avl.rootNode\n<AVLNode: Start:20 Height:1 L:0 R:None>\n>>> avl.rootNode.payload\n'twenty'\n\n\nRemoving a non-existent node does nothing.\n>>> avl.removeNode(9.5)\n>>> avl.rootNode\n<AVLNode: Start:20 Height:1 L:0 R:None>\n\n\n>>> for n in avl:\n...     print(n, n.payload)\n<AVLNode: Start:5 Height:0 L:None R:None> None\n<AVLNode: Start:20 Height:1 L:0 R:None> twenty",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.tree.core",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

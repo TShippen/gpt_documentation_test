@@ -1,0 +1,358 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.audioSearch.scoreFollower",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.audioSearch.recording",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.audioSearch.transcriber",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.audioSearch.scoreFollower\nScoreFollower\nScoreFollower\nScoreFollower.getFirstSlotOnScreen()\nScoreFollower.matchingNotes()\nScoreFollower.predictNextNotePosition()\nScoreFollower.repeatTranscription()\nScoreFollower.runScoreFollower()\nScoreFollower.silencePeriodDetection()\nScoreFollower.updatePosition()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.audioSearch.scoreFollower\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "ScoreFollower\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.audioSearch.scoreFollower.",
+        "type": "Title"
+    },
+    {
+        "text": "ScoreFollower",
+        "type": "Title"
+    },
+    {
+        "text": "scoreStream",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "ScoreFollower methods",
+        "type": "Title"
+    },
+    {
+        "text": "ScoreFollower.",
+        "type": "Title"
+    },
+    {
+        "text": "getFirstSlotOnScreen",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns the index of the first element on the screen right now.\nDoesn't work. (maybe it's not necessary)",
+        "type": "ListItem"
+    },
+    {
+        "text": "ScoreFollower.",
+        "type": "Title"
+    },
+    {
+        "text": "matchingNotes",
+        "type": "Title"
+    },
+    {
+        "text": "scoreStream",
+        "type": "Title"
+    },
+    {
+        "text": "transcribedScore",
+        "type": "Title"
+    },
+    {
+        "text": "notePrediction",
+        "type": "Title"
+    },
+    {
+        "text": "lastNotePosition",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "ScoreFollower.",
+        "type": "Title"
+    },
+    {
+        "text": "predictNextNotePosition",
+        "type": "Title"
+    },
+    {
+        "text": "totalLengthPeriod",
+        "type": "Title"
+    },
+    {
+        "text": "totalSeconds",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "It predicts the position in which the first note of the following\nrecording note should start, taking into account the processing time of\nthe computer.  It has two inputs: totalLengthPeriod, that is the number\nof pulses or beats in the recorded audio, and totalSeconds, that is the\nlength in seconds of the processing time.\nIt returns a number with the position of the predicted note in the\nscore.\n>>> from time import time\n>>> from music21.audioSearch import scoreFollower\n>>> scNotes = corpus.parse('luca/gloria').parts[0].flatten().notes.stream()\n>>> ScF = scoreFollower.ScoreFollower(scoreStream=scNotes)\n>>> ScF.scoreNotesOnly = ScF.scoreStream.flatten().notesAndRests\n>>> ScF.lastNotePosition = 14\n>>> ScF.seconds_recording = 10.0\n>>> totalLengthPeriod = 8\n>>> totalSeconds = 2.0\n>>> predictedStartPosition = ScF.predictNextNotePosition(\n...     totalLengthPeriod, totalSeconds)\n>>> print(predictedStartPosition)\n18",
+        "type": "ListItem"
+    },
+    {
+        "text": "ScoreFollower.",
+        "type": "Title"
+    },
+    {
+        "text": "repeatTranscription",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "First, it records from the microphone (or from a file if is used for\ntest). Later, it processes the signal in order to detect the pitches.\nIt converts them into music21 objects and compares them with the score.\nIt finds the best matching position of the recorded signal with the\nscore, and decides, depending on matching accuracy, the last note\npredicted and some other parameters, in which position the recorded\nsignal is.\nIt returns a value that is False if the song has not finished, or true\nif there has been a problem like some consecutive bad matchings or the\nscore has finished.\n>>> from music21.audioSearch import scoreFollower\n>>> scoreNotes = ' '.join(['c4', 'd', 'e', 'f', 'g', 'a', 'b', \"c'\", 'c', 'e',\n...     'g', \"c'\", 'a', 'f', 'd', 'c#', 'd#', 'f#', 'c', 'e', 'g', \"c'\",\n...     'a', 'f', 'd', 'c#', 'd#', 'f#'])\n>>> scNotes = converter.parse('tinynotation: 4/4 ' + scoreNotes, makeNotation=False)\n>>> ScF = scoreFollower.ScoreFollower(scoreStream=scNotes)\n>>> ScF.useMic = False\n>>> ScF.waveFile = 'test_audio.wav'\n>>> ScF.seconds_recording = 10\n>>> ScF.useScale = scale.ChromaticScale('C4')\n>>> ScF.currentSample = 0\n>>> exitType = ScF.repeatTranscription()\n>>> print(exitType)\nFalse\n>>> print(ScF.lastNotePosition)\n10",
+        "type": "ListItem"
+    },
+    {
+        "text": "ScoreFollower.",
+        "type": "Title"
+    },
+    {
+        "text": "runScoreFollower",
+        "type": "Title"
+    },
+    {
+        "text": "plot",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "useMic",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "seconds",
+        "type": "Title"
+    },
+    {
+        "text": "15.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "useScale",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The main program. It runs the \u0098repeatTranscription' until the\nperformance ends.\nIf useScale is none, then it uses a scale.ChromaticScale",
+        "type": "ListItem"
+    },
+    {
+        "text": "ScoreFollower.",
+        "type": "Title"
+    },
+    {
+        "text": "silencePeriodDetection",
+        "type": "Title"
+    },
+    {
+        "text": "notesList",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Detection of consecutive periods of silence.\nUseful if the musician has some consecutive measures of silence.\n>>> from music21.audioSearch import scoreFollower\n>>> scNotes = corpus.parse('luca/gloria').parts[0].flatten().notes.stream()\n>>> ScF = scoreFollower.ScoreFollower(scoreStream=scNotes)\n>>> notesList = []\n>>> notesList.append(note.Rest())\n>>> ScF.notesCounter = 3\n>>> ScF.silencePeriodCounter = 0\n>>> ScF.silencePeriodDetection(notesList)\n>>> ScF.notesCounter\n0\n>>> ScF.silencePeriodCounter\n1\n\n\n>>> ScF = scoreFollower.ScoreFollower(scoreStream=scNotes)\n>>> notesList = []\n>>> notesList.append(note.Rest())\n>>> notesList.append(note.Note())\n>>> ScF.notesCounter = 1\n>>> ScF.silencePeriodCounter = 3\n>>> ScF.silencePeriodDetection(notesList)\n>>> ScF.notesCounter\n2\n>>> ScF.silencePeriodCounter\n0",
+        "type": "ListItem"
+    },
+    {
+        "text": "ScoreFollower.",
+        "type": "Title"
+    },
+    {
+        "text": "updatePosition",
+        "type": "Title"
+    },
+    {
+        "text": "prob",
+        "type": "Title"
+    },
+    {
+        "text": "totalLengthPeriod",
+        "type": "Title"
+    },
+    {
+        "text": "time_start",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "It updates the position in which the scoreFollower starts to search at,\nand the predicted position in which the new fragment of the score\nshould start.  It updates these positions taking into account the value\nof the \u009ccountdown\u009d, and if is the beginning of the song or not.\nIt returns the exitType, which determines whether the scoreFollower has\nto stop (and why) or not.\nSee example of a bad prediction at the beginning of the song:\n>>> from time import time\n>>> from music21.audioSearch import scoreFollower\n>>> scNotes = corpus.parse('luca/gloria').parts[0].flatten().notes.stream()\n>>> ScF = scoreFollower.ScoreFollower(scoreStream=scNotes)\n>>> ScF.begins = True\n>>> ScF.startSearchAtSlot = 15\n>>> ScF.countdown = 0\n>>> prob = 0.5  # bad prediction\n>>> totalLengthPeriod = 15\n>>> time_start = time()\n>>> exitType = ScF.updatePosition(prob, totalLengthPeriod, time_start)\n>>> print(ScF.startSearchAtSlot)\n0\n\n\nDifferent examples for different countdowns:\nCountdown = 0:\nThe last matching was good, so it calculates the position in which it\nstarts to search at, and the position in which the music should start.\n>>> ScF = scoreFollower.ScoreFollower(scoreStream=scNotes)\n>>> ScF.scoreNotesOnly = scNotes.flatten().notesAndRests\n>>> ScF.begins = False\n>>> ScF.countdown = 0\n>>> ScF.startSearchAtSlot = 15\n>>> ScF.lastNotePosition = 38\n>>> ScF.predictedNotePosition = 19\n>>> ScF.seconds_recording = 10\n>>> prob = 0.8\n>>> totalLengthPeriod = 25\n>>> time_start = time()\n>>> exitType = ScF.updatePosition(prob, totalLengthPeriod, time_start)\n>>> print(ScF.startSearchAtSlot)\n38\n\n\n>>> ScF.predictedNotePosition >=38\nTrue\n\n\nCountdown = 1:\nNow it doesn't change the slot in which it starts to search at.\nIt also predicts the position in which the music should start.\n>>> ScF = scoreFollower.ScoreFollower(scoreStream=scNotes)\n>>> ScF.begins = False\n>>> ScF.countdown = 1\n>>> ScF.startSearchAtSlot = 15\n>>> ScF.lastNotePosition = 15\n>>> ScF.predictedNotePosition = 19\n>>> ScF.seconds_recording = 10\n>>> prob = 0.8\n>>> totalLengthPeriod = 25\n>>> time_start = time()\n>>> exitType = ScF.updatePosition(prob, totalLengthPeriod, time_start)\n>>> print(ScF.startSearchAtSlot)\n15\n\n\n>>> ScF.predictedNotePosition > 15\nTrue\n\n\nCountdown = 2:\nNow it starts searching at the beginning of the page of the screen.\nThe note prediction is also the beginning of the page.\n>>> ScF = scoreFollower.ScoreFollower(scoreStream=scNotes)\n>>> ScF.begins = False\n>>> ScF.countdown = 2\n>>> ScF.startSearchAtSlot = 15\n>>> ScF.lastNotePosition = 15\n>>> ScF.predictedNotePosition = 19\n>>> ScF.seconds_recording = 10\n>>> prob = 0.8\n>>> totalLengthPeriod = 25\n>>> time_start = time()\n>>> exitType = ScF.updatePosition(prob, totalLengthPeriod, time_start)\n>>> print(ScF.startSearchAtSlot)\n15\n\n\n>>> print(ScF.predictedNotePosition)\n39\n\n\nCountdown = 4:\nNow it starts searching at the beginning of the page of the screen.\nThe note prediction is also the beginning of the page.\n>>> ScF = scoreFollower.ScoreFollower(scoreStream=scNotes)\n>>> ScF.begins = False\n>>> ScF.countdown = 4\n>>> ScF.startSearchAtSlot = 15\n>>> ScF.lastNotePosition = 15\n>>> ScF.predictedNotePosition = 19\n>>> ScF.seconds_recording = 10\n>>> prob = 0.8\n>>> totalLengthPeriod = 25\n>>> time_start = time()\n>>> exitType = ScF.updatePosition(prob, totalLengthPeriod, time_start)\n>>> print(ScF.startSearchAtSlot)\n0\n\n\n>>> print(ScF.predictedNotePosition)\n0\n\n\nCountdown = 5:\nNow it stops the program.\n>>> ScF = scoreFollower.ScoreFollower(scoreStream=scNotes)\n>>> ScF.begins = False\n>>> ScF.countdown = 5\n>>> ScF.startSearchAtSlot = 15\n>>> ScF.lastNotePosition = 15\n>>> ScF.predictedNotePosition = 19\n>>> ScF.seconds_recording = 10\n>>> prob = 0.8\n>>> totalLengthPeriod = 25\n>>> time_start = time()\n>>> exitType = ScF.updatePosition(prob, totalLengthPeriod, time_start)\n>>> print(exitType)\ncountdownExceeded",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.audioSearch.scoreFollower",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

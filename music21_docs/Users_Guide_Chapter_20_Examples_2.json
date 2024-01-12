@@ -1,0 +1,3722 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 20: Examples 2",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide, Chapter 19: Advanced Durations (Complex and Tuplets)",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide, Chapter 21: Ordering and Sorting of Stream Elements",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide, Chapter 20: Examples 2\nPicardy-less Bach endings\nGap-Fill analysis",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide\nUser's Guide: Table of Contents\nUser's Guide, Chapter 1: Installing and Getting Started with music21\nUser's Guide, Chapter 2: Notes\nUser's Guide, Chapter 3: Pitches, Durations, and Notes again\nUser's Guide, Chapter 4: Lists, Streams (I) and Output\nUser's Guide, Chapter 5: Lists of Lists, Functions, and Recursion\nUser's Guide, Chapter 6: Streams (II): Hierarchies, Recursion, and Flattening\nUser's Guide, Chapter 7: Chords\nUser's Guide, Chapter 8: Installing MusicXML Readers and File Formats (1)\nUser's Guide, Chapter 9: Chordify\nUser's Guide, Chapter 10: Examples 1\nUser's Guide, Chapter 11: Corpus Searching\nUser's Guide, Chapter 12: Getting Back to Basics: The Music21Object\nUser's Guide, Chapter 13: More Music21Object Attributes and Properties\nUser's Guide: Chapter 14: Time Signatures and Beats\nUser's Guide, Chapter 15: Keys and KeySignatures\nUser's Guide, Chapter 16: TinyNotation\nUser's Guide: Chapter 17: Derivations\nUser's Guide: Chapter 18: Intervals\nUser's Guide, Chapter 19: Advanced Durations (Complex and Tuplets)\nUser's Guide, Chapter 20: Examples 2\nUser's Guide, Chapter 21: Ordering and Sorting of Stream Elements\nUser's Guide, Chapter 22: Graphing and plotting\nUser's Guide, Chapter 23: Roman Numeral Analysis\nUser's Guide, Chapter 24: Configuring Environment Settings\nUser's Guide, Chapter 25: Post-Tonal Tools (1)\nUser's Guide, Chapter 26: Stream Iteration and Filtering\nUser's Guide, Chapter 27: Grace Notes\nUser's Guide, Chapter 28: Lyric Searching\nUser's Guide, Chapter 29: Spanners 1 (Slurs)\nUser's Guide, Chapter 30: Examples 3\nUser's Guide, Chapter 31: Clefs, Ties, and Beams\nUser's Guide, Chapter 32: Articulations\nUser's Guide, Chapter 44: Advanced Graphing (Axes, Plots, and Graphs)\nUser's Guide, Chapter 53: Advanced Corpus and Metadata Searching\nUser's Guide, Chapter 54: Extending Converter with New Formats\nUser's Guide, Chapter 55: Advanced Meter Topics\nUser's Guide, Chapter 58: Understanding Sites and Contexts\nUser's Guide, Chapter 61: TimespanTrees and Verticalities",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 20: Examples 2\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "Chapter 10, we have covered the\ndeeper features of the",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Music21Object, looked at",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "KeySignature (and",
+        "type": "Title"
+    },
+    {
+        "text": "Key)\nand",
+        "type": "Title"
+    },
+    {
+        "text": "TimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "Interval objects are modeled. This chapter\ngives us a chance to put some of our knowledge together by analyzing\npieces and repertories of music using this information.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Picardy-less Bach endings\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "J.S. Bach usually ends pieces in minor with a major chord, generally\ncalled a \u009cPicardy third,\u009d but does he ever end pieces in minor? Let's\nlook through the chorales to find out. We'll start by using the\ncorpus.search method to get all the pieces by Bach:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "from",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "import",
+        "type": "Title"
+    },
+    {
+        "text": "corpus",
+        "type": "Title"
+    },
+    {
+        "text": "search",
+        "type": "Title"
+    },
+    {
+        "text": "'bach'",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "metadata",
+        "type": "Title"
+    },
+    {
+        "text": "bundles",
+        "type": "Title"
+    },
+    {
+        "text": "MetadataBundle",
+        "type": "Title"
+    },
+    {
+        "text": "564",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "entries",
+        "type": "Title"
+    },
+    {
+        "text": "Hmmm\u2026 that's too many pieces \u2014 there are actually several examples in\nthe corpus that are reductions of Bach pieces. So, since I happen to\nknow that all the Bach pieces are .musicxml or compressed .mxl\nfiles, we can limit just to those:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "corpus",
+        "type": "Title"
+    },
+    {
+        "text": "search",
+        "type": "Title"
+    },
+    {
+        "text": "'bach'",
+        "type": "Title"
+    },
+    {
+        "text": "fileExtensions",
+        "type": "Title"
+    },
+    {
+        "text": "'musicxml'",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "metadata",
+        "type": "Title"
+    },
+    {
+        "text": "bundles",
+        "type": "Title"
+    },
+    {
+        "text": "MetadataBundle",
+        "type": "Title"
+    },
+    {
+        "text": "412",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "entries",
+        "type": "Title"
+    },
+    {
+        "text": "That's closer to the exact number of Bach chorales, so we'll work with\nit. In a few chapters, we'll show some neat ways to work with the\nchorales as a repository, but for now, we'll go with that.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "But before we work on a whole repertory, let's work with a single piece,\nthe first one from the search, which should be the Chorale for Cantata 1\n(we'll also make fileExtensions be a tuple):",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "chorales",
+        "type": "Title"
+    },
+    {
+        "text": "corpus",
+        "type": "Title"
+    },
+    {
+        "text": "search",
+        "type": "Title"
+    },
+    {
+        "text": "'bach'",
+        "type": "Title"
+    },
+    {
+        "text": "fileExtensions",
+        "type": "Title"
+    },
+    {
+        "text": "'musicxml'",
+        "type": "Title"
+    },
+    {
+        "text": ",))",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "chorales",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "metadata",
+        "type": "Title"
+    },
+    {
+        "text": "bundles",
+        "type": "Title"
+    },
+    {
+        "text": "MetadataEntry",
+        "type": "Title"
+    },
+    {
+        "text": "'bach_bwv1_6_mxl'",
+        "type": "Title"
+    },
+    {
+        "text": "To review, the .parse() method converts a MetadataEntry to an actual\nScore object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "bwv1",
+        "type": "Title"
+    },
+    {
+        "text": "chorales",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "bwv1",
+        "type": "Title"
+    },
+    {
+        "text": "measures",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Hmmm\u2026 that looks like it's going to be in major\u2026let's check to be\nreasonably sure:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "bwv1",
+        "type": "Title"
+    },
+    {
+        "text": "analyze",
+        "type": "Title"
+    },
+    {
+        "text": "'key'",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "Key",
+        "type": "Title"
+    },
+    {
+        "text": "of",
+        "type": "Title"
+    },
+    {
+        "text": "major",
+        "type": "Title"
+    },
+    {
+        "text": "Okay, so this won't be relevant to us. Let's parse a few pieces and find\none in minor:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "chorale",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "enumerate",
+        "type": "Title"
+    },
+    {
+        "text": "chorales",
+        "type": "Title"
+    },
+    {
+        "text": "[:",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "20",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "]):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "cScore",
+        "type": "Title"
+    },
+    {
+        "text": "chorale",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "cScore",
+        "type": "Title"
+    },
+    {
+        "text": "analyze",
+        "type": "Title"
+    },
+    {
+        "text": "'key'",
+        "type": "Title"
+    },
+    {
+        "text": "mode",
+        "type": "Title"
+    },
+    {
+        "text": "==",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'minor'",
+        "type": "Title"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "chorale",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "metadata",
+        "type": "Title"
+    },
+    {
+        "text": "bundles",
+        "type": "Title"
+    },
+    {
+        "text": "MetadataEntry",
+        "type": "Title"
+    },
+    {
+        "text": "'bach_bwv10_7_mxl'",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "metadata",
+        "type": "Title"
+    },
+    {
+        "text": "bundles",
+        "type": "Title"
+    },
+    {
+        "text": "MetadataEntry",
+        "type": "Title"
+    },
+    {
+        "text": "'bach_bwv101_7_mxl'",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "metadata",
+        "type": "Title"
+    },
+    {
+        "text": "bundles",
+        "type": "Title"
+    },
+    {
+        "text": "MetadataEntry",
+        "type": "Title"
+    },
+    {
+        "text": "'bach_bwv102_7_mxl'",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "metadata",
+        "type": "Title"
+    },
+    {
+        "text": "bundles",
+        "type": "Title"
+    },
+    {
+        "text": "MetadataEntry",
+        "type": "Title"
+    },
+    {
+        "text": "'bach_bwv103_6_mxl'",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "metadata",
+        "type": "Title"
+    },
+    {
+        "text": "bundles",
+        "type": "Title"
+    },
+    {
+        "text": "MetadataEntry",
+        "type": "Title"
+    },
+    {
+        "text": "'bach_bwv108_6_mxl'",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "metadata",
+        "type": "Title"
+    },
+    {
+        "text": "bundles",
+        "type": "Title"
+    },
+    {
+        "text": "MetadataEntry",
+        "type": "Title"
+    },
+    {
+        "text": "'bach_bwv110_7_mxl'",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "metadata",
+        "type": "Title"
+    },
+    {
+        "text": "bundles",
+        "type": "Title"
+    },
+    {
+        "text": "MetadataEntry",
+        "type": "Title"
+    },
+    {
+        "text": "'bach_bwv111_6_mxl'",
+        "type": "Title"
+    },
+    {
+        "text": "12",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "metadata",
+        "type": "Title"
+    },
+    {
+        "text": "bundles",
+        "type": "Title"
+    },
+    {
+        "text": "MetadataEntry",
+        "type": "Title"
+    },
+    {
+        "text": "'bach_bwv113_8_mxl'",
+        "type": "Title"
+    },
+    {
+        "text": "13",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "metadata",
+        "type": "Title"
+    },
+    {
+        "text": "bundles",
+        "type": "Title"
+    },
+    {
+        "text": "MetadataEntry",
+        "type": "Title"
+    },
+    {
+        "text": "'bach_bwv114_7_mxl'",
+        "type": "Title"
+    },
+    {
+        "text": "Ah, good ol' Bach has quite a bit in minor. And now we know how to\nfilter for the types of pieces we'll be interested in. Let's grab BWV\n10:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "bwv10",
+        "type": "Title"
+    },
+    {
+        "text": "corpus",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "'bwv10'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "bwv10",
+        "type": "Title"
+    },
+    {
+        "text": "measures",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Looks like it's in G minor with a first cadence on B-flat. Perfect.\nLet's look at the end also:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "soprano",
+        "type": "Title"
+    },
+    {
+        "text": "bwv10",
+        "type": "Title"
+    },
+    {
+        "text": "parts",
+        "type": "Title"
+    },
+    {
+        "text": "len",
+        "type": "Title"
+    },
+    {
+        "text": "soprano",
+        "type": "Title"
+    },
+    {
+        "text": "getElementsByClass",
+        "type": "Title"
+    },
+    {
+        "text": "'Measure'",
+        "type": "Title"
+    },
+    {
+        "text": "))",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "22",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Okay, there are 22 measures, so let's grab just measures 21 and 22:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "bwv10",
+        "type": "Title"
+    },
+    {
+        "text": "measures",
+        "type": "Title"
+    },
+    {
+        "text": "21",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "22",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Looks like a nice Picardy third here. Jean-Luc would be proud! But let's\nsee if music21 can figure out that it's a major chord. We could\nchordify the last measure, but let's instead get the last pitch from\neach part:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "lastPitches",
+        "type": "Title"
+    },
+    {
+        "text": "[]",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "part",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "bwv10",
+        "type": "Title"
+    },
+    {
+        "text": "parts",
+        "type": "Title"
+    },
+    {
+        "text": "lastPitch",
+        "type": "Title"
+    },
+    {
+        "text": "part",
+        "type": "Title"
+    },
+    {
+        "text": "pitches",
+        "type": "Title"
+    },
+    {
+        "text": "lastPitches",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "lastPitch",
+        "type": "Title"
+    },
+    {
+        "text": "lastPitches",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "G4",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "D4",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "B3",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "G2",
+        "type": "Title"
+    },
+    {
+        "text": "This only works because Bach doesn't tend to end parts early and have\nrests at the end, but it wouldn't be too hard to compensate for\nsomething like that \u2014 see the docs for\nmeasure() method on Score\nobjects.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Okay, so let's make a chord out of those pitches, and lets make it a\nwhole note",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "lastPitches",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "'whole'",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "This could get ugly fast if the bass were any lower and the soprano were\nany higher, so let's put it in closed position:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "cClosed",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "closedPosition",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "cClosed",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Well, that looks like a G-major chord to me. But can music21 tell what\nit is?",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "cClosed",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isMajorTriad",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "cClosed",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "root",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "G2",
+        "type": "Title"
+    },
+    {
+        "text": "Let's say that we're only interested in chords that end on the same root\npitched as the analyzed key, so we can test for that too:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "bwv10",
+        "type": "Title"
+    },
+    {
+        "text": "analyze",
+        "type": "Title"
+    },
+    {
+        "text": "'key'",
+        "type": "Title"
+    },
+    {
+        "text": "tonic",
+        "type": "Title"
+    },
+    {
+        "text": "name",
+        "type": "Title"
+    },
+    {
+        "text": "'G'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "cClosed",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "root",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "name",
+        "type": "Title"
+    },
+    {
+        "text": "'G'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "So we've figured out that BWV 10's chorale does what we generally expect\nBach to do. But where are the exceptions? Let's look through the whole\nrepertory and look for them.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Let's take some of the things that we've already done and make them into\nlittle functions. First the function to get the last chord from a score:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "def",
+        "type": "Title"
+    },
+    {
+        "text": "getLastChord",
+        "type": "Title"
+    },
+    {
+        "text": "score",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "lastPitches",
+        "type": "Title"
+    },
+    {
+        "text": "[]",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "part",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "score",
+        "type": "Title"
+    },
+    {
+        "text": "parts",
+        "type": "Title"
+    },
+    {
+        "text": "lastPitch",
+        "type": "Title"
+    },
+    {
+        "text": "part",
+        "type": "Title"
+    },
+    {
+        "text": "pitches",
+        "type": "Title"
+    },
+    {
+        "text": "lastPitches",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "lastPitch",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "lastPitches",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "'whole'",
+        "type": "Title"
+    },
+    {
+        "text": "cClosed",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "closedPosition",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "return",
+        "type": "Title"
+    },
+    {
+        "text": "cClosed",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Let's check that we've coded that properly, by trying it on BWV 10:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "getLastChord",
+        "type": "Title"
+    },
+    {
+        "text": "bwv10",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "G2",
+        "type": "Title"
+    },
+    {
+        "text": "B2",
+        "type": "Title"
+    },
+    {
+        "text": "D3",
+        "type": "Title"
+    },
+    {
+        "text": "Okay, now let's write a routine that takes in a score and sees if it is\nrelevant. It needs to be:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "in minor",
+        "type": "ListItem"
+    },
+    {
+        "text": "have a major last chord",
+        "type": "ListItem"
+    },
+    {
+        "text": "have the root of the last chord be the same as the tonic of the\nanalyzed key.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Let's try that, and return False if the piece is not relevant, but\nreturn the last chord if it is.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "def",
+        "type": "Title"
+    },
+    {
+        "text": "isRelevant",
+        "type": "Title"
+    },
+    {
+        "text": "score",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "analyzedKey",
+        "type": "Title"
+    },
+    {
+        "text": "score",
+        "type": "Title"
+    },
+    {
+        "text": "analyze",
+        "type": "Title"
+    },
+    {
+        "text": "'key'",
+        "type": "Title"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "analyzedKey",
+        "type": "Title"
+    },
+    {
+        "text": "mode",
+        "type": "Title"
+    },
+    {
+        "text": "!=",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'minor'",
+        "type": "Title"
+    },
+    {
+        "text": "return",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "lastChord",
+        "type": "Title"
+    },
+    {
+        "text": "getLastChord",
+        "type": "Title"
+    },
+    {
+        "text": "score",
+        "type": "Title"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "lastChord",
+        "type": "Title"
+    },
+    {
+        "text": "isMinorTriad",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "is",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "return",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "lastChord",
+        "type": "Title"
+    },
+    {
+        "text": "root",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "name",
+        "type": "Title"
+    },
+    {
+        "text": "!=",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "analyzedKey",
+        "type": "Title"
+    },
+    {
+        "text": "tonic",
+        "type": "Title"
+    },
+    {
+        "text": "name",
+        "type": "Title"
+    },
+    {
+        "text": "return",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "else",
+        "type": "Title"
+    },
+    {
+        "text": "return",
+        "type": "Title"
+    },
+    {
+        "text": "lastChord",
+        "type": "Title"
+    },
+    {
+        "text": "Note that I've stored the result of the key analysis as a variable so\nthat I don't need to run the same analysis twice. Little things like\nthis can speed up working with music21 substantially.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Now let's look through some pieces and see which are relevant. We'll\nstore each chord in a Stream to show later, and we will add a lyric to\nthe chord with the name of the piece:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "relevantStream",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Stream",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "relevantStream",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "meter",
+        "type": "Title"
+    },
+    {
+        "text": "TimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "'4/4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "))",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "chorale",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "chorales",
+        "type": "Title"
+    },
+    {
+        "text": "score",
+        "type": "Title"
+    },
+    {
+        "text": "chorale",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "falseOrChord",
+        "type": "Title"
+    },
+    {
+        "text": "isRelevant",
+        "type": "Title"
+    },
+    {
+        "text": "score",
+        "type": "Title"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "falseOrChord",
+        "type": "Title"
+    },
+    {
+        "text": "is",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "not",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "title",
+        "type": "Title"
+    },
+    {
+        "text": "score",
+        "type": "Title"
+    },
+    {
+        "text": "metadata",
+        "type": "Title"
+    },
+    {
+        "text": "corpusFilePath",
+        "type": "Title"
+    },
+    {
+        "text": "replace",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "'bach/'",
+        "type": "Title"
+    },
+    {
+        "text": "''",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "replace",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "'.mxl'",
+        "type": "Title"
+    },
+    {
+        "text": "''",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "theChord",
+        "type": "Title"
+    },
+    {
+        "text": "falseOrChord",
+        "type": "Title"
+    },
+    {
+        "text": "# rename for clarity",
+        "type": "Title"
+    },
+    {
+        "text": "theChord",
+        "type": "Title"
+    },
+    {
+        "text": "lyric",
+        "type": "Title"
+    },
+    {
+        "text": "title",
+        "type": "Title"
+    },
+    {
+        "text": "relevantStream",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "theChord",
+        "type": "Title"
+    },
+    {
+        "text": "relevantStream",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "This is fun information to know about, but it's only here that the real\nresearch begins. What about these pieces makes them special? Well, BWV\n111 was a cantata that was missing its chorale, so this has been\ntraditionally added, but it's not definitively by Bach (the same chorale\nmelody in the St.\u00c2\u00a0Matthew Passion has a Picardy third). In fact, when we\nshow the Chorale iterator later, it is a piece automatically skipped for\nthat reason. BWV 248 is the Christmas oratorio (in the music21\ncorpus twice, with and without continuo). It definitely is a minor triad\nin the original manuscript, possibly because it does not end a section\nand instead goes back to the chorus da capo.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "But what about the remaining seven examples? They all have BWV numbers\nabove 250, so they are part of the settings of chorales that were not\nconnected to cantatas, sometimes called \u009corphan chorales.\u009d Their\npossible use (as composition exercises? as studies for a proposed second\nSchemelli chorale aria collection?) and even their authenticity has been\ncalled into question before. But the data from the music21\ncollection argues against one hypothesis, that they were parts of\notherwise lost cantatas that would have been similar to the existing\nones. No surviving cantata ends like these chorales do, so the evidence\npoints to the idea that the orphan chorales were different in some other\nway than just being orphans, either as evidence that Bach's style had\nchanged by the time he wrote them, or that they are not by Bach.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Gap-Fill analysis\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "In a remarkable set of articles and other works from 1998-2000, Paul von\nHippel explored the concept of \u009cGap-Fill,\u009d or the supposed idea that\nafter a large leap in the melody, the listener expects that the\nfollowing motion will be in the opposite direction, thereby filling the\ngap that was just created. Hippel's work compared melodic motion to the\naverage note height in a melody. When the melody leaps up it is often\nabove the mean so there are more pitches available below the current\nnote than above. Similarly, when it leaps down, it is often below the\nmean, so there are more pitches above the current note than below.\nHippel's work showed that much or all of what we perceive to be gap-fill\ncan be explained by \u009cregression to the mean.\u009d (The work is summarized\nbeautifully in chapters 5 & 6 of David Huron's book Sweet\nAnticipation). But there are many repertories that have not yet been\nexplored. Let us see if there is a real Gap Fill or just regression to\nthe mean in one piece of early fifteenth century music, using\nInterval objects as a guide.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "First let's parse a piece that has been unedited except in the music21\ncorpus, a Gloria in the manuscript Bologna Q15 (image available on\nf.45v) by a composer named \u009cD.\nLuca\u009d.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "from",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "import",
+        "type": "Title"
+    },
+    {
+        "text": "luca",
+        "type": "Title"
+    },
+    {
+        "text": "corpus",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "'luca/gloria'",
+        "type": "Title"
+    },
+    {
+        "text": "luca",
+        "type": "Title"
+    },
+    {
+        "text": "measures",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "For now, let's look at the top part alone:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "cantus",
+        "type": "Title"
+    },
+    {
+        "text": "luca",
+        "type": "Title"
+    },
+    {
+        "text": "parts",
+        "type": "Title"
+    },
+    {
+        "text": "'Cantus'",
+        "type": "Title"
+    },
+    {
+        "text": "cantus",
+        "type": "Title"
+    },
+    {
+        "text": "measures",
+        "type": "Title"
+    },
+    {
+        "text": "20",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Let us figure out the average pitch height in the excerpt by recursing\nthrough all the Note objects and finding getting the average of the\n.ps value, where Middle C = 60. (Similar to the .midi value)",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "totalNotes",
+        "type": "Title"
+    },
+    {
+        "text": "totalHeight",
+        "type": "Title"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "cantus",
+        "type": "Title"
+    },
+    {
+        "text": "recurse",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "getElementsByClass",
+        "type": "Title"
+    },
+    {
+        "text": "'Note'",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "totalNotes",
+        "type": "Title"
+    },
+    {
+        "text": "+=",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "totalHeight",
+        "type": "Title"
+    },
+    {
+        "text": "+=",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "ps",
+        "type": "Title"
+    },
+    {
+        "text": "averageHeight",
+        "type": "Title"
+    },
+    {
+        "text": "totalHeight",
+        "type": "Title"
+    },
+    {
+        "text": "totalNotes",
+        "type": "Title"
+    },
+    {
+        "text": "averageHeight",
+        "type": "Title"
+    },
+    {
+        "text": "67.41100323624596",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "We can figure out approximately what note that is by creating a new\nNote object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "averageNote",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "averageNote",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "ps",
+        "type": "Title"
+    },
+    {
+        "text": "round",
+        "type": "Title"
+    },
+    {
+        "text": "averageHeight",
+        "type": "Title"
+    },
+    {
+        "text": "averageNote",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "(It's possible to get a more exact average pitch, if we care about such\nthings, when we get to microtones later\u2026)",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "exactAveragePitch",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "ps",
+        "type": "Title"
+    },
+    {
+        "text": "averageHeight",
+        "type": "Title"
+    },
+    {
+        "text": "exactAveragePitch",
+        "type": "Title"
+    },
+    {
+        "text": "step",
+        "type": "Title"
+    },
+    {
+        "text": "'G'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "exactAveragePitch",
+        "type": "Title"
+    },
+    {
+        "text": "accidental",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Accidental",
+        "type": "Title"
+    },
+    {
+        "text": "half",
+        "type": "Title"
+    },
+    {
+        "text": "sharp",
+        "type": "Title"
+    },
+    {
+        "text": "exactAveragePitch",
+        "type": "Title"
+    },
+    {
+        "text": "microtone",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Microtone",
+        "type": "Title"
+    },
+    {
+        "text": "Python has some even easier ways to get the average pitch, using the\nmean or the median:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "import",
+        "type": "Title"
+    },
+    {
+        "text": "statistics",
+        "type": "Title"
+    },
+    {
+        "text": "statistics",
+        "type": "Title"
+    },
+    {
+        "text": "mean",
+        "type": "Title"
+    },
+    {
+        "text": "([",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "ps",
+        "type": "Title"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "cantus",
+        "type": "Title"
+    },
+    {
+        "text": "pitches",
+        "type": "Title"
+    },
+    {
+        "text": "])",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "67.41100323624596",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "statistics",
+        "type": "Title"
+    },
+    {
+        "text": "median",
+        "type": "Title"
+    },
+    {
+        "text": "([",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "ps",
+        "type": "Title"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "cantus",
+        "type": "Title"
+    },
+    {
+        "text": "pitches",
+        "type": "Title"
+    },
+    {
+        "text": "])",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "67.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Medians are usually more useful than means in doing statistical\nanalysis, so we'll use medians for our remaining analyses:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "medianHeight",
+        "type": "Title"
+    },
+    {
+        "text": "statistics",
+        "type": "Title"
+    },
+    {
+        "text": "median",
+        "type": "Title"
+    },
+    {
+        "text": "([",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "ps",
+        "type": "Title"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "cantus",
+        "type": "Title"
+    },
+    {
+        "text": "pitches",
+        "type": "Title"
+    },
+    {
+        "text": "])",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Okay, now let us get all the intervals in a piece. We'll do this in an\ninefficient but easy to follow manner first and then later we can talk\nabout adding efficiencies. We'll recurse through the Part object and\nget the .next() Note object each time and\ncreate an interval for it.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "allIntervals",
+        "type": "Title"
+    },
+    {
+        "text": "[]",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "cantus",
+        "type": "Title"
+    },
+    {
+        "text": "recurse",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "getElementsByClass",
+        "type": "Title"
+    },
+    {
+        "text": "'Note'",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "nextNote",
+        "type": "Title"
+    },
+    {
+        "text": "next",
+        "type": "Title"
+    },
+    {
+        "text": "'Note'",
+        "type": "Title"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "nextNote",
+        "type": "Title"
+    },
+    {
+        "text": "is",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "# last note of the piece",
+        "type": "Title"
+    },
+    {
+        "text": "continue",
+        "type": "Title"
+    },
+    {
+        "text": "thisInterval",
+        "type": "Title"
+    },
+    {
+        "text": "interval",
+        "type": "Title"
+    },
+    {
+        "text": "Interval",
+        "type": "Title"
+    },
+    {
+        "text": "nextNote",
+        "type": "Title"
+    },
+    {
+        "text": "allIntervals",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "thisInterval",
+        "type": "Title"
+    },
+    {
+        "text": "Let's look at some of the intervals and also make sure that the length\nof our list makes sense:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "allIntervals",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "interval",
+        "type": "Title"
+    },
+    {
+        "text": "Interval",
+        "type": "Title"
+    },
+    {
+        "text": "M2",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "interval",
+        "type": "Title"
+    },
+    {
+        "text": "Interval",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "interval",
+        "type": "Title"
+    },
+    {
+        "text": "Interval",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "interval",
+        "type": "Title"
+    },
+    {
+        "text": "Interval",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "interval",
+        "type": "Title"
+    },
+    {
+        "text": "Interval",
+        "type": "Title"
+    },
+    {
+        "text": "P1",
+        "type": "Title"
+    },
+    {
+        "text": "len",
+        "type": "Title"
+    },
+    {
+        "text": "allIntervals",
+        "type": "Title"
+    },
+    {
+        "text": "308",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "len",
+        "type": "Title"
+    },
+    {
+        "text": "cantus",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "])",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "309",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Yes, it makes sense that if there are 309 notes there would be 308\nintervals. So we're on the right track.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Let's look at that first Interval object in a bit more detail to see\nsome of the things that might be useful:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "firstInterval",
+        "type": "Title"
+    },
+    {
+        "text": "allIntervals",
+        "type": "Title"
+    },
+    {
+        "text": "firstInterval",
+        "type": "Title"
+    },
+    {
+        "text": "noteStart",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "firstInterval",
+        "type": "Title"
+    },
+    {
+        "text": "noteEnd",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "firstInterval",
+        "type": "Title"
+    },
+    {
+        "text": "direction",
+        "type": "Title"
+    },
+    {
+        "text": "Direction",
+        "type": "Title"
+    },
+    {
+        "text": "ASCENDING",
+        "type": "Title"
+    },
+    {
+        "text": "We are only going to be interested in intervals of a third or larger, so\nlet's review how to find generic interval size:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "firstInterval",
+        "type": "Title"
+    },
+    {
+        "text": "generic",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "interval",
+        "type": "Title"
+    },
+    {
+        "text": "GenericInterval",
+        "type": "Title"
+    },
+    {
+        "text": "firstInterval",
+        "type": "Title"
+    },
+    {
+        "text": "generic",
+        "type": "Title"
+    },
+    {
+        "text": "directed",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "secondInterval",
+        "type": "Title"
+    },
+    {
+        "text": "allIntervals",
+        "type": "Title"
+    },
+    {
+        "text": "secondInterval",
+        "type": "Title"
+    },
+    {
+        "text": "generic",
+        "type": "Title"
+    },
+    {
+        "text": "directed",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "secondInterval.generic.undirected",
+        "type": "ListItem"
+    },
+    {
+        "text": "secondInterval",
+        "type": "Title"
+    },
+    {
+        "text": "generic",
+        "type": "Title"
+    },
+    {
+        "text": "undirected",
+        "type": "Title"
+    },
+    {
+        "text": "In order to see whether gap-fill or regression to the mean is happening\nat any given moment, we need to only look at leaps up that after the\nleap are still below the mean or leaps down that finish above the mean.\nFor instance, if a line leaps up and is above the mean then both the\ngap-fill and the regression to the mean hypothesis would predict a\ndownward motion for the next interval, so no knowledge would be gained.\nBut if the line leaps up and is below the mean then the gap-fill\nhypothesis would predict downward motion, but the regression to the mean\nhypothesis would predict upward motion for the next interval. So motion\nlike this is what we want to see.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Let's define a function called relevant() that takes in an interval\nand says whether it is big enough to matter and whether the gap-fill and\nregression hypotheses predict different motions:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "def",
+        "type": "Title"
+    },
+    {
+        "text": "relevant",
+        "type": "Title"
+    },
+    {
+        "text": "thisInterval",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "thisInterval",
+        "type": "Title"
+    },
+    {
+        "text": "generic",
+        "type": "Title"
+    },
+    {
+        "text": "undirected",
+        "type": "Title"
+    },
+    {
+        "text": "return",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "noteEndPs",
+        "type": "Title"
+    },
+    {
+        "text": "thisInterval",
+        "type": "Title"
+    },
+    {
+        "text": "noteEnd",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "ps",
+        "type": "Title"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "thisInterval",
+        "type": "Title"
+    },
+    {
+        "text": "direction",
+        "type": "Title"
+    },
+    {
+        "text": "==",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "interval",
+        "type": "Title"
+    },
+    {
+        "text": "Direction",
+        "type": "Title"
+    },
+    {
+        "text": "ASCENDING",
+        "type": "Title"
+    },
+    {
+        "text": "and",
+        "type": "Title"
+    },
+    {
+        "text": "noteEndPs",
+        "type": "Title"
+    },
+    {
+        "text": "medianHeight",
+        "type": "Title"
+    },
+    {
+        "text": "return",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "elif",
+        "type": "Title"
+    },
+    {
+        "text": "thisInterval",
+        "type": "Title"
+    },
+    {
+        "text": "direction",
+        "type": "Title"
+    },
+    {
+        "text": "==",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "interval",
+        "type": "Title"
+    },
+    {
+        "text": "Direction",
+        "type": "Title"
+    },
+    {
+        "text": "DESCENDING",
+        "type": "Title"
+    },
+    {
+        "text": "and",
+        "type": "Title"
+    },
+    {
+        "text": "noteEndPs",
+        "type": "Title"
+    },
+    {
+        "text": "medianHeight",
+        "type": "Title"
+    },
+    {
+        "text": "return",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "else",
+        "type": "Title"
+    },
+    {
+        "text": "return",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "There won't be too many relevant intervals in the piece:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "relevant",
+        "type": "Title"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "allIntervals",
+        "type": "Title"
+    },
+    {
+        "text": "count",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "22",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "relevant",
+        "type": "Title"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "allIntervals",
+        "type": "Title"
+    },
+    {
+        "text": "10",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "]]",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "The third interval is relevant. Let's review what that interval is. It's\nthe C5 descending to A4, still above the average note G4. Gap-fill\npredicts that the next note should be higher, regression predicts that\nit should be lower.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "cantus",
+        "type": "Title"
+    },
+    {
+        "text": "measures",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "In this case, the regression to the mean hypothesis is correct and the\ngap-fill hypothesis is wrong. But that's just one case, and these sorts\nof tests need to take in many data points. So let us write a function\nthat takes in a relevant interval and the following interval and says\nwhether gap-fill or regression is correct. We will return 1 if gap-fill\nis correct, 2 if regression is correct, or 0 if the next interval is the\nsame as the current.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "def",
+        "type": "Title"
+    },
+    {
+        "text": "whichHypothesis",
+        "type": "Title"
+    },
+    {
+        "text": "firstInterval",
+        "type": "Title"
+    },
+    {
+        "text": "secondInterval",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "secondInterval",
+        "type": "Title"
+    },
+    {
+        "text": "direction",
+        "type": "Title"
+    },
+    {
+        "text": "==",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "interval",
+        "type": "Title"
+    },
+    {
+        "text": "Direction",
+        "type": "Title"
+    },
+    {
+        "text": "OBLIQUE",
+        "type": "Title"
+    },
+    {
+        "text": "return",
+        "type": "Title"
+    },
+    {
+        "text": "elif",
+        "type": "Title"
+    },
+    {
+        "text": "secondInterval",
+        "type": "Title"
+    },
+    {
+        "text": "direction",
+        "type": "Title"
+    },
+    {
+        "text": "!=",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "firstInterval",
+        "type": "Title"
+    },
+    {
+        "text": "direction",
+        "type": "Title"
+    },
+    {
+        "text": "return",
+        "type": "Title"
+    },
+    {
+        "text": "else",
+        "type": "Title"
+    },
+    {
+        "text": "return",
+        "type": "Title"
+    },
+    {
+        "text": "whichHypothesis",
+        "type": "Title"
+    },
+    {
+        "text": "allIntervals",
+        "type": "Title"
+    },
+    {
+        "text": "],",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "allIntervals",
+        "type": "Title"
+    },
+    {
+        "text": "])",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "We can run this analysis on the small dataset of 32 relevant intervals\nin the cantus part. We will store our results in a three-element list\ncontaining the number of oblique intervals, the number that fit the\ngap-fill hypothesis, and the number which fit the regression hypothesis:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "obliqueGapRegression",
+        "type": "Title"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "range",
+        "type": "Title"
+    },
+    {
+        "text": "len",
+        "type": "Title"
+    },
+    {
+        "text": "allIntervals",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "thisInterval",
+        "type": "Title"
+    },
+    {
+        "text": "allIntervals",
+        "type": "Title"
+    },
+    {
+        "text": "nextInterval",
+        "type": "Title"
+    },
+    {
+        "text": "allIntervals",
+        "type": "Title"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "not",
+        "type": "Title"
+    },
+    {
+        "text": "relevant",
+        "type": "Title"
+    },
+    {
+        "text": "thisInterval",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "continue",
+        "type": "Title"
+    },
+    {
+        "text": "hypothesis",
+        "type": "Title"
+    },
+    {
+        "text": "whichHypothesis",
+        "type": "Title"
+    },
+    {
+        "text": "thisInterval",
+        "type": "Title"
+    },
+    {
+        "text": "nextInterval",
+        "type": "Title"
+    },
+    {
+        "text": "obliqueGapRegression",
+        "type": "Title"
+    },
+    {
+        "text": "hypothesis",
+        "type": "Title"
+    },
+    {
+        "text": "+=",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "obliqueGapRegression",
+        "type": "Title"
+    },
+    {
+        "text": "obliqueGapRegression",
+        "type": "Title"
+    },
+    {
+        "text": "obliqueGapRegression",
+        "type": "Title"
+    },
+    {
+        "text": "([",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "10",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "],",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "So for this small set of data, gap-fill is more predictive than\nregression. Let's run it on the whole piece. First we will need to\nredefine relevant to take the average pitch height as a parameter.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "def",
+        "type": "Title"
+    },
+    {
+        "text": "relevant2",
+        "type": "Title"
+    },
+    {
+        "text": "thisInterval",
+        "type": "Title"
+    },
+    {
+        "text": "medianHeight",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "thisInterval",
+        "type": "Title"
+    },
+    {
+        "text": "generic",
+        "type": "Title"
+    },
+    {
+        "text": "undirected",
+        "type": "Title"
+    },
+    {
+        "text": "return",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "noteEndPs",
+        "type": "Title"
+    },
+    {
+        "text": "thisInterval",
+        "type": "Title"
+    },
+    {
+        "text": "noteEnd",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "ps",
+        "type": "Title"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "thisInterval",
+        "type": "Title"
+    },
+    {
+        "text": "direction",
+        "type": "Title"
+    },
+    {
+        "text": "==",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "interval",
+        "type": "Title"
+    },
+    {
+        "text": "Direction",
+        "type": "Title"
+    },
+    {
+        "text": "ASCENDING",
+        "type": "Title"
+    },
+    {
+        "text": "and",
+        "type": "Title"
+    },
+    {
+        "text": "noteEndPs",
+        "type": "Title"
+    },
+    {
+        "text": "medianHeight",
+        "type": "Title"
+    },
+    {
+        "text": "return",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "elif",
+        "type": "Title"
+    },
+    {
+        "text": "thisInterval",
+        "type": "Title"
+    },
+    {
+        "text": "direction",
+        "type": "Title"
+    },
+    {
+        "text": "==",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "interval",
+        "type": "Title"
+    },
+    {
+        "text": "Direction",
+        "type": "Title"
+    },
+    {
+        "text": "DESCENDING",
+        "type": "Title"
+    },
+    {
+        "text": "and",
+        "type": "Title"
+    },
+    {
+        "text": "noteEndPs",
+        "type": "Title"
+    },
+    {
+        "text": "medianHeight",
+        "type": "Title"
+    },
+    {
+        "text": "return",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "else",
+        "type": "Title"
+    },
+    {
+        "text": "return",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "And let's define a function that computes hypothesisTotal for a single\npart.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "def",
+        "type": "Title"
+    },
+    {
+        "text": "onePartHypothesis",
+        "type": "Title"
+    },
+    {
+        "text": "part",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "obliqueGapRegression",
+        "type": "Title"
+    },
+    {
+        "text": "medianHeight",
+        "type": "Title"
+    },
+    {
+        "text": "statistics",
+        "type": "Title"
+    },
+    {
+        "text": "median",
+        "type": "Title"
+    },
+    {
+        "text": "([",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "ps",
+        "type": "Title"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "part",
+        "type": "Title"
+    },
+    {
+        "text": "pitches",
+        "type": "Title"
+    },
+    {
+        "text": "])",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "allIntervals",
+        "type": "Title"
+    },
+    {
+        "text": "[]",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "part",
+        "type": "Title"
+    },
+    {
+        "text": "recurse",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "getElementsByClass",
+        "type": "Title"
+    },
+    {
+        "text": "'Note'",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "nextNote",
+        "type": "Title"
+    },
+    {
+        "text": "next",
+        "type": "Title"
+    },
+    {
+        "text": "'Note'",
+        "type": "Title"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "nextNote",
+        "type": "Title"
+    },
+    {
+        "text": "is",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "# last note of the piece",
+        "type": "Title"
+    },
+    {
+        "text": "continue",
+        "type": "Title"
+    },
+    {
+        "text": "thisInterval",
+        "type": "Title"
+    },
+    {
+        "text": "interval",
+        "type": "Title"
+    },
+    {
+        "text": "Interval",
+        "type": "Title"
+    },
+    {
+        "text": "nextNote",
+        "type": "Title"
+    },
+    {
+        "text": "allIntervals",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "thisInterval",
+        "type": "Title"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "range",
+        "type": "Title"
+    },
+    {
+        "text": "len",
+        "type": "Title"
+    },
+    {
+        "text": "allIntervals",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "thisInterval",
+        "type": "Title"
+    },
+    {
+        "text": "allIntervals",
+        "type": "Title"
+    },
+    {
+        "text": "nextInterval",
+        "type": "Title"
+    },
+    {
+        "text": "allIntervals",
+        "type": "Title"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "not",
+        "type": "Title"
+    },
+    {
+        "text": "relevant2",
+        "type": "Title"
+    },
+    {
+        "text": "thisInterval",
+        "type": "Title"
+    },
+    {
+        "text": "medianHeight",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "continue",
+        "type": "Title"
+    },
+    {
+        "text": "hypothesis",
+        "type": "Title"
+    },
+    {
+        "text": "whichHypothesis",
+        "type": "Title"
+    },
+    {
+        "text": "thisInterval",
+        "type": "Title"
+    },
+    {
+        "text": "nextInterval",
+        "type": "Title"
+    },
+    {
+        "text": "obliqueGapRegression",
+        "type": "Title"
+    },
+    {
+        "text": "hypothesis",
+        "type": "Title"
+    },
+    {
+        "text": "+=",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "return",
+        "type": "Title"
+    },
+    {
+        "text": "obliqueGapRegression",
+        "type": "Title"
+    },
+    {
+        "text": "When I refactor, I always make sure that everything is still working as\nbefore:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "onePartHypothesis",
+        "type": "Title"
+    },
+    {
+        "text": "cantus",
+        "type": "Title"
+    },
+    {
+        "text": "10",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Looks good! Now we're ready to go:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "obliqueGapRegression",
+        "type": "Title"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "luca",
+        "type": "Title"
+    },
+    {
+        "text": "parts",
+        "type": "Title"
+    },
+    {
+        "text": "onePartTotals",
+        "type": "Title"
+    },
+    {
+        "text": "onePartHypothesis",
+        "type": "Title"
+    },
+    {
+        "text": "obliqueGapRegression",
+        "type": "Title"
+    },
+    {
+        "text": "+=",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "onePartTotals",
+        "type": "Title"
+    },
+    {
+        "text": "obliqueGapRegression",
+        "type": "Title"
+    },
+    {
+        "text": "+=",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "onePartTotals",
+        "type": "Title"
+    },
+    {
+        "text": "obliqueGapRegression",
+        "type": "Title"
+    },
+    {
+        "text": "+=",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "onePartTotals",
+        "type": "Title"
+    },
+    {
+        "text": "obliqueGapRegression",
+        "type": "Title"
+    },
+    {
+        "text": "obliqueGapRegression",
+        "type": "Title"
+    },
+    {
+        "text": "obliqueGapRegression",
+        "type": "Title"
+    },
+    {
+        "text": "([",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "20",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "28",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "],",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The lower two parts overwhelm the first part and it is looking like\nregression to the mean is ahead. But it's only one piece! Let's see if\nthere are other similar pieces in the corpus. There's a collection of\nworks from the 14th century, mostly Italian works:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "corpus",
+        "type": "Title"
+    },
+    {
+        "text": "search",
+        "type": "Title"
+    },
+    {
+        "text": "'trecento'",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "metadata",
+        "type": "Title"
+    },
+    {
+        "text": "bundles",
+        "type": "Title"
+    },
+    {
+        "text": "MetadataBundle",
+        "type": "Title"
+    },
+    {
+        "text": "103",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "entries",
+        "type": "Title"
+    },
+    {
+        "text": "Let's run 20 of them through this search and see how they work!",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "obliqueGapRegression",
+        "type": "Title"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "trecentoPieceEntry",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "corpus",
+        "type": "Title"
+    },
+    {
+        "text": "search",
+        "type": "Title"
+    },
+    {
+        "text": "'trecento'",
+        "type": "Title"
+    },
+    {
+        "text": ")[:",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "20",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "]:",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "parsedPiece",
+        "type": "Title"
+    },
+    {
+        "text": "trecentoPieceEntry",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "parsedPiece",
+        "type": "Title"
+    },
+    {
+        "text": "parts",
+        "type": "Title"
+    },
+    {
+        "text": "onePartTotals",
+        "type": "Title"
+    },
+    {
+        "text": "onePartHypothesis",
+        "type": "Title"
+    },
+    {
+        "text": "obliqueGapRegression",
+        "type": "Title"
+    },
+    {
+        "text": "+=",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "onePartTotals",
+        "type": "Title"
+    },
+    {
+        "text": "obliqueGapRegression",
+        "type": "Title"
+    },
+    {
+        "text": "+=",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "onePartTotals",
+        "type": "Title"
+    },
+    {
+        "text": "obliqueGapRegression",
+        "type": "Title"
+    },
+    {
+        "text": "+=",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "onePartTotals",
+        "type": "Title"
+    },
+    {
+        "text": "obliqueGapRegression",
+        "type": "Title"
+    },
+    {
+        "text": "obliqueGapRegression",
+        "type": "Title"
+    },
+    {
+        "text": "obliqueGapRegression",
+        "type": "Title"
+    },
+    {
+        "text": "([",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "27",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "86",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "84",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "],",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "So it looks like neither the gap-fill hypothesis or the regression to\nthe mean hypothesis are sufficient in themselves to explain melodic\nmotion in this repertory. In fact, a study of the complete encoded works\nof Palestrina (replace \u0098trecento' with \u0098palestrina' in the search and\nremove the limitation of only looking at the first 20, and wait half an\nhour) showed that there were 19,012 relevant instances, with 3817\nfollowed by a unison, but 7751 exhibiting gap-fill behavior and only\n7444 following regression to the mean, with a difference of 2.1%. This\nshows that regression to the mean cannot explain all of the reversion\nafter a leap behavior that is going on in this repertory. I'm\ndisappointed because I loved this article, but it'll come as a relief to\nmost teachers of modal counterpoint.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Whew! There's a lot here in these two examples, and I hope that they\npoint to the power of corpus analysis with music21, but we still\nhave quite a lot to sort through, so we might as well continue by\nunderstanding how music21 sorts objects in\nChapter 21: : Ordering and Sorting of Stream Elements.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 20: Examples 2",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

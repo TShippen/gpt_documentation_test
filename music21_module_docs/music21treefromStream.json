@@ -1,0 +1,466 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.tree.fromStream",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.tree.core",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.tree.node",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.tree.fromStream\nFunctions\nasTimespans()\nasTree()\nlistOfTreesByClass()\nmakeFastShallowTreeFromSortedStream()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.tree.fromStream\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Tools for creating timespans (fast, manipulable objects) from Streams",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.tree.fromStream.",
+        "type": "Title"
+    },
+    {
+        "text": "asTimespans",
+        "type": "Title"
+    },
+    {
+        "text": "inputStream",
+        "type": "Title"
+    },
+    {
+        "text": "flatten",
+        "type": "Title"
+    },
+    {
+        "text": "str | bool",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "classList",
+        "type": "Title"
+    },
+    {
+        "text": "Sequence",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "music21.base.Music21Object",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 TimespanTree",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Recurses through a score and constructs a\nTimespanTree.  Use Stream.asTimespans() generally\nsince that caches the TimespanTree.\n>>> score = corpus.parse('bwv66.6')\n>>> scoreTree = tree.fromStream.asTimespans(score, flatten=True,\n...                                         classList=(note.Note, chord.Chord))\n>>> scoreTree\n<TimespanTree {165} (0.0 to 36.0) <music21.stream.Score ...>>\n>>> for x in scoreTree[:5]:\n...     x\n...\n<PitchedTimespan (0.0 to 0.5) <music21.note.Note C#>>\n<PitchedTimespan (0.0 to 0.5) <music21.note.Note A>>\n<PitchedTimespan (0.0 to 0.5) <music21.note.Note A>>\n<PitchedTimespan (0.0 to 1.0) <music21.note.Note E>>\n<PitchedTimespan (0.5 to 1.0) <music21.note.Note B>>\n\n\n>>> scoreTree = tree.fromStream.asTimespans(score, flatten=False, classList=())\n\n\nEach of these has 11 elements \u2014 mainly the Measures\n>>> for x in scoreTree:\n...     x\n...\n<ElementTimespan (0.0 to 0.0) <music21.metadata.Metadata object at 0x...>>\n<ElementTimespan (0.0 to 0.0) <music21.layout.StaffGroup ...>>\n<TimespanTree {11} (0.0 to 36.0) <music21.stream.Part Soprano>>\n<TimespanTree {11} (0.0 to 36.0) <music21.stream.Part Alto>>\n<TimespanTree {11} (0.0 to 36.0) <music21.stream.Part Tenor>>\n<TimespanTree {11} (0.0 to 36.0) <music21.stream.Part Bass>>\n\n\n>>> tenorElements = scoreTree[4]\n>>> tenorElements\n<TimespanTree {11} (0.0 to 36.0) <music21.stream.Part Tenor>>\n\n\n>>> tenorElements.source\n<music21.stream.Part Tenor>\n\n\n>>> tenorElements.source is score[3]\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.tree.fromStream.",
+        "type": "Title"
+    },
+    {
+        "text": "asTree",
+        "type": "Title"
+    },
+    {
+        "text": "inputStream",
+        "type": "Title"
+    },
+    {
+        "text": "StreamType",
+        "type": "Title"
+    },
+    {
+        "text": "flatten",
+        "type": "Title"
+    },
+    {
+        "text": "Literal",
+        "type": "Title"
+    },
+    {
+        "text": "'semiFlat'",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "classList",
+        "type": "Title"
+    },
+    {
+        "text": "Sequence",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "useTimespans",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "groupOffsets",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 OffsetTree | ElementTree | TimespanTree",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Converts a Stream and constructs an ElementTree based on this.\nUse Stream.asTree() generally since that caches the ElementTree.\n>>> score = tree.makeExampleScore()\n>>> elementTree = tree.fromStream.asTree(score)\n>>> elementTree\n<ElementTree {2} (0.0 <0.-20...> to 8.0) <music21.stream.Score exampleScore>>\n>>> for x in elementTree.iterNodes():\n...     x\n<ElementNode: Start:0.0 <0.-20...> Indices:(l:0 *0* r:1) Payload:<music21.stream.Part ...>>\n<ElementNode: Start:0.0 <0.-20...> Indices:(l:0 *1* r:2) Payload:<music21.stream.Part ...>>\n\n\n>>> etFlat = tree.fromStream.asTree(score, flatten=True)\n>>> etFlat\n<ElementTree {20} (0.0 <0.-25...> to 8.0) <music21.stream.Score exampleScore>>\n\n\nThe elementTree's classSortOrder has changed to -25 to match the lowest positioned element\nin the score, which is an Instrument object (classSortOrder=-25)\n>>> for x in etFlat.iterNodes():\n...     x\n<ElementNode: Start:0.0 <0.-25...> Indices:(l:0 *0* r:2)\n    Payload:<music21.instrument.Instrument 'PartA: : '>>\n<ElementNode: Start:0.0 <0.-25...> Indices:(l:1 *1* r:2)\n    Payload:<music21.instrument.Instrument 'PartB: : '>>\n<ElementNode: Start:0.0 <0.0...> Indices:(l:0 *2* r:4) Payload:<music21.clef.BassClef>>\n<ElementNode: Start:0.0 <0.0...> Indices:(l:3 *3* r:4) Payload:<music21.clef.BassClef>>\n...\n<ElementNode: Start:0.0 <0.20...> Indices:(l:5 *6* r:8) Payload:<music21.note.Note C>>\n<ElementNode: Start:0.0 <0.20...> Indices:(l:7 *7* r:8) Payload:<music21.note.Note C#>>\n<ElementNode: Start:1.0 <0.20...> Indices:(l:0 *8* r:20) Payload:<music21.note.Note D>>\n...\n<ElementNode: Start:7.0 <0.20...> Indices:(l:15 *17* r:20) Payload:<music21.note.Note C>>\n<ElementNode: Start:End <0.-5...> Indices:(l:18 *18* r:20)\n    Payload:<music21.bar.Barline type=final>>\n<ElementNode: Start:End <0.-5...> Indices:(l:19 *19* r:20)\n    Payload:<music21.bar.Barline type=final>>\n\n\n>>> etFlat.getPositionAfter(0.5)\nSortTuple(atEnd=0, offset=1.0, priority=0, classSortOrder=20, isNotGrace=1, insertIndex=...)\n\n\n>>> etFlatNotes = tree.fromStream.asTree(score, flatten=True, classList=(note.Note,))\n>>> etFlatNotes\n<ElementTree {12} (0.0 <0.20...> to 8.0) <music21.stream.Score exampleScore>>",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.tree.fromStream.",
+        "type": "Title"
+    },
+    {
+        "text": "listOfTreesByClass",
+        "type": "Title"
+    },
+    {
+        "text": "inputStream",
+        "type": "Title"
+    },
+    {
+        "text": "StreamType",
+        "type": "Title"
+    },
+    {
+        "text": "classLists",
+        "type": "Title"
+    },
+    {
+        "text": "Sequence",
+        "type": "Title"
+    },
+    {
+        "text": "Sequence",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "M21ObjType",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "currentParentage",
+        "type": "Title"
+    },
+    {
+        "text": "tuple",
+        "type": "Title"
+    },
+    {
+        "text": "stream.Stream",
+        "type": "Title"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "initialOffset",
+        "type": "Title"
+    },
+    {
+        "text": "float",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "flatten",
+        "type": "Title"
+    },
+    {
+        "text": "bool | str",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "useTimespans",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 list[trees.OffsetTree | timespanTree.TimespanTree]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "To be DEPRECATED in v8: this is no faster than calling streamToTimespanTree\nmultiple times with different classLists.\nRecurses through inputStream, and constructs TimespanTrees for each\nencountered substream and PitchedTimespan for each encountered non-stream\nelement.\nclassLists should be a sequence of elements contained in classSet. One\nTimespanTree will be constructed for each element in classLists, in\na single optimized pass through the inputStream.\nThis is used internally by streamToTimespanTree.\n>>> score = tree.makeExampleScore()\n\n\nGet everything in the score\n>>> treeList = tree.fromStream.listOfTreesByClass(score, useTimespans=True)\n>>> treeList\n[<TimespanTree {2} (-inf to inf) <music21.stream.Score ...>>]\n>>> tl0 = treeList[0]\n>>> for t in tl0:\n...     print(t)\n<TimespanTree {4} (-inf to inf) <music21.stream.Part ...>>\n    <TimespanTree {0} (-inf to inf) <music21.stream.Measure 1 offset=0.0>>\n    <TimespanTree {0} (-inf to inf) <music21.stream.Measure 2 offset=2.0>>\n    <TimespanTree {0} (-inf to inf) <music21.stream.Measure 3 offset=4.0>>\n    <TimespanTree {0} (-inf to inf) <music21.stream.Measure 4 offset=6.0>>\n<TimespanTree {4} (-inf to inf) <music21.stream.Part ...>>\n    <TimespanTree {0} (-inf to inf) <music21.stream.Measure 1 offset=0.0>>\n    <TimespanTree {0} (-inf to inf) <music21.stream.Measure 2 offset=2.0>>\n    <TimespanTree {0} (-inf to inf) <music21.stream.Measure 3 offset=4.0>>\n    <TimespanTree {0} (-inf to inf) <music21.stream.Measure 4 offset=6.0>>\n\n\nNow filter the Notes and the Clefs & TimeSignatures of the score\n(flattened) into a list of two TimespanTrees\n>>> classLists = ((note.Note,), (clef.Clef, meter.TimeSignature))\n>>> treeList = tree.fromStream.listOfTreesByClass(score, useTimespans=True,\n...                                               classLists=classLists, flatten=True)\n>>> treeList\n[<TimespanTree {12} (0.0 to 8.0) <music21.stream.Score ...>>,\n <TimespanTree {4} (0.0 to 0.0) <music21.stream.Score ...>>]\n\n\n\n\nChanged in v8: it is now a stickler that classLists must be sequences of sequences,such as tuples of tuples.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.tree.fromStream.",
+        "type": "Title"
+    },
+    {
+        "text": "makeFastShallowTreeFromSortedStream",
+        "type": "Title"
+    },
+    {
+        "text": "inputStream",
+        "type": "Title"
+    },
+    {
+        "text": "stream.Stream",
+        "type": "Title"
+    },
+    {
+        "text": "outputTree",
+        "type": "Title"
+    },
+    {
+        "text": "trees.OffsetTree | trees.ElementTree",
+        "type": "Title"
+    },
+    {
+        "text": "classList",
+        "type": "Title"
+    },
+    {
+        "text": "Sequence",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 trees.OffsetTree | trees.ElementTree",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Use populateFromSortedList to quickly make a tree from a stream.\nThis only works if the stream is flat (or we are not flattening) and\nsorts have already been run, and we are not making an OffsetTree.\nReturns the same outputTree that was put in, only with elements in it.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.tree.fromStream",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

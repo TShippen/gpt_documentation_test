@@ -1,0 +1,430 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.omr.evaluators",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.omr.correctors",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.percussion",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.omr.evaluators\nOmrGroundTruthPair\nOmrGroundTruthPair\nOmrGroundTruthPair.debug\nOmrGroundTruthPair.deleteCost()\nOmrGroundTruthPair.getDifferences()\nOmrGroundTruthPair.getGroundScore()\nOmrGroundTruthPair.getOmrScore()\nOmrGroundTruthPair.hashAll()\nOmrGroundTruthPair.insertCost()\nOmrGroundTruthPair.minEditDist()\nOmrGroundTruthPair.parseAll()\nOmrGroundTruthPair.substCost()\n\n\n\n\nFunctions\nautoCorrelationBestMeasure()\nevaluateCorrectingModel()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.omr.evaluators\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "This module takes two XML files and displays the number of measures that\ndiffer between the two before and after running the combined correction models",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "OmrGroundTruthPair\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.omr.evaluators.",
+        "type": "Title"
+    },
+    {
+        "text": "OmrGroundTruthPair",
+        "type": "Title"
+    },
+    {
+        "text": "omr",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "ground",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Object for making comparisons between an OMR score and the GroundTruth\nTakes in a path to the OMR and a path to the groundTruth\n(or a pair of music21.stream.Score objects).\nSee below for examples.",
+        "type": "ListItem"
+    },
+    {
+        "text": "OmrGroundTruthPair read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "OmrGroundTruthPair.",
+        "type": "Title"
+    },
+    {
+        "text": "debug",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns either the debug value set for this\nevaluator, or globalDebug",
+        "type": "ListItem"
+    },
+    {
+        "text": "OmrGroundTruthPair methods",
+        "type": "Title"
+    },
+    {
+        "text": "OmrGroundTruthPair.",
+        "type": "Title"
+    },
+    {
+        "text": "deleteCost",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "define the deletion cost for x and y (1)",
+        "type": "ListItem"
+    },
+    {
+        "text": "OmrGroundTruthPair.",
+        "type": "Title"
+    },
+    {
+        "text": "getDifferences",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns the total edit distance as an Int between\nthe two scores\nThis function is based on James H. Martin's minimum edit distance.\n>>> omrPath = omr.correctors.K525omrShortPath\n>>> ground = omr.correctors.K525groundTruthShortPath\n>>> omrGTP = omr.evaluators.OmrGroundTruthPair(omr=omrPath, ground=ground)\n>>> differences = omrGTP.getDifferences()\n>>> differences\n32",
+        "type": "ListItem"
+    },
+    {
+        "text": "OmrGroundTruthPair.",
+        "type": "Title"
+    },
+    {
+        "text": "getGroundScore",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns a ScoreCorrector object of the Ground truth score\n>>> omrPath = omr.correctors.K525omrShortPath\n>>> ground = omr.correctors.K525groundTruthShortPath\n>>> omrGTP = omr.evaluators.OmrGroundTruthPair(omr=omrPath, ground=ground)\n>>> ssGT = omrGTP.getGroundScore()\n>>> ssGT\n<music21.omr.correctors.ScoreCorrector object at 0x...>",
+        "type": "ListItem"
+    },
+    {
+        "text": "OmrGroundTruthPair.",
+        "type": "Title"
+    },
+    {
+        "text": "getOmrScore",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns a ScoreCorrector object of the OMR score. does NOT store it anywhere\u2026\n>>> omrPath = omr.correctors.K525omrShortPath\n>>> ground = omr.correctors.K525groundTruthShortPath\n>>> omrGTP = omr.evaluators.OmrGroundTruthPair(omr=omrPath, ground=ground)\n>>> ssOMR = omrGTP.getOmrScore()\n>>> ssOMR\n<music21.omr.correctors.ScoreCorrector object at 0x...>",
+        "type": "ListItem"
+    },
+    {
+        "text": "OmrGroundTruthPair.",
+        "type": "Title"
+    },
+    {
+        "text": "hashAll",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "store the Hashes for both scores.",
+        "type": "ListItem"
+    },
+    {
+        "text": "OmrGroundTruthPair.",
+        "type": "Title"
+    },
+    {
+        "text": "insertCost",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "define the insertion cost for x and y (1)",
+        "type": "ListItem"
+    },
+    {
+        "text": "OmrGroundTruthPair.",
+        "type": "Title"
+    },
+    {
+        "text": "minEditDist",
+        "type": "Title"
+    },
+    {
+        "text": "target",
+        "type": "Title"
+    },
+    {
+        "text": "source",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Computes the min edit distance from target to source. Figure 3.25",
+        "type": "ListItem"
+    },
+    {
+        "text": "OmrGroundTruthPair.",
+        "type": "Title"
+    },
+    {
+        "text": "parseAll",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Parse both scores.",
+        "type": "ListItem"
+    },
+    {
+        "text": "OmrGroundTruthPair.",
+        "type": "Title"
+    },
+    {
+        "text": "substCost",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "define the substitution cost for x and y (2 if x and y are unequal else 0)",
+        "type": "ListItem"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.omr.evaluators.",
+        "type": "Title"
+    },
+    {
+        "text": "autoCorrelationBestMeasure",
+        "type": "Title"
+    },
+    {
+        "text": "inputScore",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Essentially it's the ratio of amount of rhythmic similarity within a piece, which\ngives an upper bound on what the omr.corrector.prior measure should be able to\nachieve for the flagged measures. If a piece has low rhythmic similarity in general, then\nthere's no way for a correct match to be found within the unflagged measures in the piece.\nReturns a tuple of the total number of NON-flagged measures and the total number\nof those measures that have a rhythmic match.\nTakes in a stream.Score.\n>>> c = converter.parse(omr.correctors.K525omrShortPath)  # first 21 measures\n>>> totalUnflagged, totalUnflaggedWithMatches = omr.evaluators.autoCorrelationBestMeasure(c)\n>>> (totalUnflagged, totalUnflaggedWithMatches)\n(71, 64)\n>>> print( float(totalUnflaggedWithMatches) / totalUnflagged )\n0.901...\n\n\nSchoenberg has low autoCorrelation.\n>>> c = corpus.parse('schoenberg/opus19/movement6')\n>>> totalUnflagged, totalUnflaggedWithMatches = omr.evaluators.autoCorrelationBestMeasure(c)\n>>> (totalUnflagged, totalUnflaggedWithMatches)\n(18, 6)\n>>> print( float(totalUnflaggedWithMatches) / totalUnflagged )\n0.333...",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.omr.evaluators.",
+        "type": "Title"
+    },
+    {
+        "text": "evaluateCorrectingModel",
+        "type": "Title"
+    },
+    {
+        "text": "omrPath",
+        "type": "Title"
+    },
+    {
+        "text": "groundTruthPath",
+        "type": "Title"
+    },
+    {
+        "text": "debug",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "originalDifferences",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "runOnePart",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get a dictionary showing the efficacy of the omr.correctors.ScoreCorrector on an OMR Score\nby comparing it to the GroundTruth.\nSet debug to True to see a lot of intermediary steps.\n>>> omrFilePath = omr.correctors.K525omrShortPath\n>>> groundTruthFilePath = omr.correctors.K525groundTruthShortPath\n>>> returnDict = omr.evaluators.evaluateCorrectingModel(omrFilePath, groundTruthFilePath)\n>>> for name in sorted(list(returnDict.keys())):\n...     (name, returnDict[name])\n('newEditDistance', 20)\n('numberOfFlaggedMeasures', 13)\n('originalEditDistance', 32)\n('totalNumberOfMeasures', 84)",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.omr.evaluators",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

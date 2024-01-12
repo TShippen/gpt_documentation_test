@@ -1,0 +1,322 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.derivation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.corpus.work",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.duration",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.derivation\nDerivation\nDerivation\nDerivation.originId\nDerivation.rootDerivation\nDerivation.client\nDerivation.method\nDerivation.origin\nDerivation.chain()\n\n\n\n\nFunctions\nderivationMethod()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.derivation\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "This module defines objects for tracking the derivation of one\nStream from another.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Derivation\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.derivation.",
+        "type": "Title"
+    },
+    {
+        "text": "Derivation",
+        "type": "Title"
+    },
+    {
+        "text": "client",
+        "type": "Title"
+    },
+    {
+        "text": "base.Music21Object | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A Derivation object keeps track of which Streams (or perhaps other Music21Objects)\na Stream or other music21 object has come from and how.\nDerivation is automatically updated by many methods:\n>>> import copy\n>>> sOrig = stream.Stream(id='orig')\n>>> sNew = copy.deepcopy(sOrig)\n>>> sNew.id = 'copy'\n>>> sNew.derivation\n<Derivation of <music21.stream.Stream copy>\n    from <music21.stream.Stream orig> via '__deepcopy__'>\n\n\n>>> sNew.derivation.client\n<music21.stream.Stream copy>\n>>> sNew.derivation.client is sNew\nTrue\n>>> sNew.derivation.origin\n<music21.stream.Stream orig>\n>>> sNew.derivation.method\n'__deepcopy__'\n\n\n>>> s1 = stream.Stream()\n>>> s1.id = 'DerivedStream'\n>>> d1 = derivation.Derivation(s1)\n\n\n>>> s2 = stream.Stream()\n>>> s2.id = 'OriginalStream'\n\n\n>>> d1.method = 'manual'\n>>> d1.origin = s2\n>>> d1\n<Derivation of <music21.stream.Stream DerivedStream> from\n    <music21.stream.Stream OriginalStream> via 'manual'>\n>>> d1.origin is s2\nTrue\n\n\n>>> d1.client is s1\nTrue\n\n\n>>> import copy\n>>> d2 = copy.deepcopy(d1)\n>>> d2.origin is s2\nTrue\n\n\n>>> d1.method = 'measure'\n>>> d1.method\n'measure'\n\n\nDeleting the origin stream does not change the Derivation, since origin is held by strong ref:\n>>> import gc  # Garbage collection...\n>>> del s2\n>>> unused = gc.collect()  # ensure Garbage collection is run\n>>> d1\n<Derivation of <music21.stream.Stream DerivedStream>\n    from <music21.stream.Stream OriginalStream> via 'measure'>\n\n\nBut deleting the client stream changes the Derivation, since client is held by weak ref,\nand will also delete the origin (so long as client was ever set)\n>>> del s1\n>>> unused = gc.collect()  # ensure Garbage collection is run\n>>> d1\n<Derivation of None from None via 'measure'>",
+        "type": "ListItem"
+    },
+    {
+        "text": "Derivation bases",
+        "type": "Title"
+    },
+    {
+        "text": "SlottedObjectMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "Derivation read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Derivation.",
+        "type": "Title"
+    },
+    {
+        "text": "originId",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return the Python id (=memory location) of the origin.\n(Same as id(derivation.origin).  Not the same as derivation.origin.ind)",
+        "type": "ListItem"
+    },
+    {
+        "text": "Derivation.",
+        "type": "Title"
+    },
+    {
+        "text": "rootDerivation",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a reference to the oldest source of this Stream; that is, chain\ncalls to derivesFrom until we get to a\nStream that cannot be further derived.\n>>> s1 = stream.Stream()\n>>> s1.repeatAppend(note.Note(), 10)\n>>> s1.repeatAppend(note.Rest(), 10)\n>>> s2 = s1.notesAndRests.stream()\n>>> s3 = s2.getElementsByClass(note.Note).stream()\n>>> s3.derivation.rootDerivation is s1\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "Derivation read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Derivation.",
+        "type": "Title"
+    },
+    {
+        "text": "client",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "Derivation.",
+        "type": "Title"
+    },
+    {
+        "text": "method",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns or sets the string of the method that was used to generate this\nStream.\n>>> s = stream.Stream()\n>>> s.derivation.method is None\nTrue\n\n\n>>> sNotes = s.notes.stream()\n>>> sNotes.derivation.method\n'notes'\n\n\nSome examples are \u0098getElementsByClass' etc.\n>>> s = stream.Stream()\n>>> s.id = 'lonelyStream'\n>>> s.append(clef.TrebleClef())\n>>> s.append(note.Note())\n>>> sNotes = s.notes.stream()\n>>> sNotes.derivation\n<Derivation of <music21.stream.Stream lonelyStream>\n    from <music21.stream.Stream lonelyStream> via 'notes'>\n\n\n>>> derived = sNotes.derivation\n>>> derived.method\n'notes'\n\n\n>>> derived.method = 'blah'\n>>> derived.method\n'blah'\n\n\n>>> derived is sNotes.derivation\nTrue\n>>> sNotes.derivation.method\n'blah'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Derivation.",
+        "type": "Title"
+    },
+    {
+        "text": "origin",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "Derivation methods",
+        "type": "Title"
+    },
+    {
+        "text": "Derivation.",
+        "type": "Title"
+    },
+    {
+        "text": "chain",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 Generator[base.Music21Object, None, None]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Iterator/Generator\nYields the Streams which this Derivation's client Stream was derived\nfrom. This provides a way to obtain all Streams that the client passed\nthrough, such as those created by\ngetElementsByClass() or\nflatten().\n>>> s1 = stream.Stream()\n>>> s1.id = 's1'\n>>> s1.repeatAppend(note.Note(), 10)\n>>> s1.repeatAppend(note.Rest(), 10)\n>>> s2 = s1.notesAndRests.stream()\n>>> s2.id = 's2'\n>>> s3 = s2.getElementsByClass(note.Note).stream()\n>>> s3.id = 's3'\n>>> for y in s3.derivation.chain():\n...     print(y)\n<music21.stream.Stream s2>\n<music21.stream.Stream s1>\n\n\n>>> list(s3.derivation.chain()) == [s2, s1]\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.derivation.",
+        "type": "Title"
+    },
+    {
+        "text": "derivationMethod",
+        "type": "Title"
+    },
+    {
+        "text": "function",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "This decorator can be used for creating a function that returns a new\nderivation.  But is currently unused, since it does not take into account inPlace=True.\nStream.cloneEmpty(derivationMethod='derivationMethod') is preferred for\nStreams.\n>>> from copy import deepcopy\n>>> @derivation.derivationMethod\n... def allGreen(n):\n...     n2 = deepcopy(n)\n...     n2.style.color = 'green'\n...     return n2\n\n\n>>> n = note.Note('C#')\n>>> n2 = allGreen(n)\n>>> n2.style.color\n'green'\n\n\n>>> n2.name = 'D-'\n>>> n2.derivation\n<Derivation of <music21.note.Note D-> from <music21.note.Note C#> via 'allGreen'>",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.derivation",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

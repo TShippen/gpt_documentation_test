@@ -1,0 +1,3406 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 26: Stream Iteration and Filtering",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide, Chapter 25: Post-Tonal Tools (1)",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide, Chapter 27: Grace Notes",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide, Chapter 26: Stream Iteration and Filtering\nFiltering elements in iteration\nFilter Shortcuts\nCustom Filters\n\n\nRecursive and Offset Iterators\nFrom Iterator to Stream",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide\nUser's Guide: Table of Contents\nUser's Guide, Chapter 1: Installing and Getting Started with music21\nUser's Guide, Chapter 2: Notes\nUser's Guide, Chapter 3: Pitches, Durations, and Notes again\nUser's Guide, Chapter 4: Lists, Streams (I) and Output\nUser's Guide, Chapter 5: Lists of Lists, Functions, and Recursion\nUser's Guide, Chapter 6: Streams (II): Hierarchies, Recursion, and Flattening\nUser's Guide, Chapter 7: Chords\nUser's Guide, Chapter 8: Installing MusicXML Readers and File Formats (1)\nUser's Guide, Chapter 9: Chordify\nUser's Guide, Chapter 10: Examples 1\nUser's Guide, Chapter 11: Corpus Searching\nUser's Guide, Chapter 12: Getting Back to Basics: The Music21Object\nUser's Guide, Chapter 13: More Music21Object Attributes and Properties\nUser's Guide: Chapter 14: Time Signatures and Beats\nUser's Guide, Chapter 15: Keys and KeySignatures\nUser's Guide, Chapter 16: TinyNotation\nUser's Guide: Chapter 17: Derivations\nUser's Guide: Chapter 18: Intervals\nUser's Guide, Chapter 19: Advanced Durations (Complex and Tuplets)\nUser's Guide, Chapter 20: Examples 2\nUser's Guide, Chapter 21: Ordering and Sorting of Stream Elements\nUser's Guide, Chapter 22: Graphing and plotting\nUser's Guide, Chapter 23: Roman Numeral Analysis\nUser's Guide, Chapter 24: Configuring Environment Settings\nUser's Guide, Chapter 25: Post-Tonal Tools (1)\nUser's Guide, Chapter 26: Stream Iteration and Filtering\nUser's Guide, Chapter 27: Grace Notes\nUser's Guide, Chapter 28: Lyric Searching\nUser's Guide, Chapter 29: Spanners 1 (Slurs)\nUser's Guide, Chapter 30: Examples 3\nUser's Guide, Chapter 31: Clefs, Ties, and Beams\nUser's Guide, Chapter 32: Articulations\nUser's Guide, Chapter 44: Advanced Graphing (Axes, Plots, and Graphs)\nUser's Guide, Chapter 53: Advanced Corpus and Metadata Searching\nUser's Guide, Chapter 54: Extending Converter with New Formats\nUser's Guide, Chapter 55: Advanced Meter Topics\nUser's Guide, Chapter 58: Understanding Sites and Contexts\nUser's Guide, Chapter 61: TimespanTrees and Verticalities",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 26: Stream Iteration and Filtering\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "We learned enough about streams in\nChapter 6 to be able to get started,\nbut you've preservered and hopefully are ready to learn more about how\nto get the most out of getting through a score. So this chapter will\ndelve deeper into the concept of iteration, that is, going through an\nobject one step at a time, and filtering out elements so only those in\nclasses or areas you want are found. Let's review and describe the\nconcept of iteration in Python (or most programming languages) for a\nsecond.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Suppose you had a list like this:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "letterList",
+        "type": "Title"
+    },
+    {
+        "text": "'a'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'b'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'c'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Now you could get your ABCs out of it in this way:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "alphabet",
+        "type": "Title"
+    },
+    {
+        "text": "''",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "alphabet",
+        "type": "Title"
+    },
+    {
+        "text": "+=",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "letterList",
+        "type": "Title"
+    },
+    {
+        "text": "alphabet",
+        "type": "Title"
+    },
+    {
+        "text": "+=",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "letterList",
+        "type": "Title"
+    },
+    {
+        "text": "alphabet",
+        "type": "Title"
+    },
+    {
+        "text": "+=",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "letterList",
+        "type": "Title"
+    },
+    {
+        "text": "alphabet",
+        "type": "Title"
+    },
+    {
+        "text": "'abc'",
+        "type": "Title"
+    },
+    {
+        "text": "But it's far easier, especially for a big list, to iterate over it\nusing a for loop:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "alphabet",
+        "type": "Title"
+    },
+    {
+        "text": "''",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "letter",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "letterList",
+        "type": "Title"
+    },
+    {
+        "text": "alphabet",
+        "type": "Title"
+    },
+    {
+        "text": "+=",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "letter",
+        "type": "Title"
+    },
+    {
+        "text": "alphabet",
+        "type": "Title"
+    },
+    {
+        "text": "'abc'",
+        "type": "Title"
+    },
+    {
+        "text": "We can iterate over a list because lists are iterable (or,\nconversely, for the tautology department, because we can iterate over\na list, we call it iterable) and there are some functions and methods\nthat do great things on iterable objects, such as join them:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "''",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "join",
+        "type": "Title"
+    },
+    {
+        "text": "letterList",
+        "type": "Title"
+    },
+    {
+        "text": "'abc'",
+        "type": "Title"
+    },
+    {
+        "text": "Or give the minimum value from a numeric list:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "min",
+        "type": "Title"
+    },
+    {
+        "text": "([",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "10",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "20",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "30",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "3423",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "40",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "])",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Or give the length of an iterable:",
+        "type": "ListItem"
+    },
+    {
+        "text": "3423",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Or give the length of an iterable:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "len",
+        "type": "Title"
+    },
+    {
+        "text": "letterList",
+        "type": "Title"
+    },
+    {
+        "text": "In Python, there's a special type of iterable object called a\ngenerator which gives out objects as they are needed. One generator\nthat we have seen already is the range() function:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "zeroToFifty",
+        "type": "Title"
+    },
+    {
+        "text": "range",
+        "type": "Title"
+    },
+    {
+        "text": "51",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "zeroToFifty",
+        "type": "Title"
+    },
+    {
+        "text": "range",
+        "type": "Title"
+    },
+    {
+        "text": "51",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "We can find the first number in that range that is divisible by 5:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "zeroToFifty",
+        "type": "Title"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "!=",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "and",
+        "type": "Title"
+    },
+    {
+        "text": "==",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "break",
+        "type": "Title"
+    },
+    {
+        "text": "At this point we've stopped going through the range object and no\nmore numbers are ever made or stored in memory \u2014 this point doesn't\nmatter to much for a set of numbers up to 50, but for numbers up to\nmillions, or, as we will see, a repertory of scores of hundreds of\nthousands of notes, saving a few seconds here and there really adds up.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Streams, as we have seen, are iterable:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "from",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "import",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Part",
+        "type": "Title"
+    },
+    {
+        "text": "id",
+        "type": "Title"
+    },
+    {
+        "text": "'restyStream'",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'C#'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "))",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Rest",
+        "type": "Title"
+    },
+    {
+        "text": "quarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "))",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'D'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "quarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "1.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "))",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Rest",
+        "type": "Title"
+    },
+    {
+        "text": "quarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "))",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "thing",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "thing",
+        "type": "Title"
+    },
+    {
+        "text": "thing",
+        "type": "Title"
+    },
+    {
+        "text": "quarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#> 1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Rest",
+        "type": "Title"
+    },
+    {
+        "text": "half",
+        "type": "Title"
+    },
+    {
+        "text": "2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "1.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Rest",
+        "type": "Title"
+    },
+    {
+        "text": "quarter",
+        "type": "Title"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "When you iterate over a Stream, it is actually creating a lightweight\nobject called a StreamIterator to help make things easier. We can\ncreate one directly by calling .iter() on any stream:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "sIter",
+        "type": "Title"
+    },
+    {
+        "text": "iter",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "sIter",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "iterator",
+        "type": "Title"
+    },
+    {
+        "text": "StreamIterator",
+        "type": "Title"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "Part",
+        "type": "Title"
+    },
+    {
+        "text": "restyStream",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "Prior to v.7, a StreamIterator was a property .iter.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "This information tells us that sIter is an iterator going over the\nPart object with id restyStream and it is currently ready to\ngive out the first object, number 0. We can get the next thing in the\nStream by calling next() on the Stream.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "next",
+        "type": "Title"
+    },
+    {
+        "text": "sIter",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "next",
+        "type": "Title"
+    },
+    {
+        "text": "sIter",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Rest",
+        "type": "Title"
+    },
+    {
+        "text": "half",
+        "type": "Title"
+    },
+    {
+        "text": "sIter",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "iterator",
+        "type": "Title"
+    },
+    {
+        "text": "StreamIterator",
+        "type": "Title"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "Part",
+        "type": "Title"
+    },
+    {
+        "text": "restyStream",
+        "type": "Title"
+    },
+    {
+        "text": "But for the most part, you'll want to use the built in way of going\nthrough an iterable, that is, with a for loop:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "sIter",
+        "type": "Title"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "quarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#> 1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Rest",
+        "type": "Title"
+    },
+    {
+        "text": "half",
+        "type": "Title"
+    },
+    {
+        "text": "2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "1.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Rest",
+        "type": "Title"
+    },
+    {
+        "text": "quarter",
+        "type": "Title"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Filtering elements in iteration\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "So this does exactly what iterating directly on the Stream does \u2014 but\nit's good to know that a StreamIterator is silently being generated\nso that you can see what else these Iterators do. Most importantly, a\nStreamIterator can add filters to it. Let's add a ClassFilter\nfrom the music21.stream.filters module:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "restFilter",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "filters",
+        "type": "Title"
+    },
+    {
+        "text": "ClassFilter",
+        "type": "Title"
+    },
+    {
+        "text": "'Rest'",
+        "type": "Title"
+    },
+    {
+        "text": "restIterator",
+        "type": "Title"
+    },
+    {
+        "text": "sIter",
+        "type": "Title"
+    },
+    {
+        "text": "addFilter",
+        "type": "Title"
+    },
+    {
+        "text": "restFilter",
+        "type": "Title"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "restIterator",
+        "type": "Title"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "quarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Rest",
+        "type": "Title"
+    },
+    {
+        "text": "half",
+        "type": "Title"
+    },
+    {
+        "text": "2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Rest",
+        "type": "Title"
+    },
+    {
+        "text": "quarter",
+        "type": "Title"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Now when we go through sIter, we are only getting those objects that\nmatch all of the filters on it. We can also filter by offset. Let's\ncreate a new iterator and add an\nOffsetFilter to it.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "sIter2",
+        "type": "Title"
+    },
+    {
+        "text": "iter",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "offsetFilter",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "filters",
+        "type": "Title"
+    },
+    {
+        "text": "OffsetFilter",
+        "type": "Title"
+    },
+    {
+        "text": "offsetStart",
+        "type": "Title"
+    },
+    {
+        "text": "0.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "offsetEnd",
+        "type": "Title"
+    },
+    {
+        "text": "4.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "offsetIterator",
+        "type": "Title"
+    },
+    {
+        "text": "sIter2",
+        "type": "Title"
+    },
+    {
+        "text": "addFilter",
+        "type": "Title"
+    },
+    {
+        "text": "offsetFilter",
+        "type": "Title"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "offsetIterator",
+        "type": "Title"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Rest",
+        "type": "Title"
+    },
+    {
+        "text": "half",
+        "type": "Title"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "3.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "prior to Music21 v.6, sIter.addFilter() would modify sIter in place and not return a new iterator.\nThus in v.5, you would have written the last three lines of the code as:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "sIter2",
+        "type": "Title"
+    },
+    {
+        "text": "addFilter",
+        "type": "Title"
+    },
+    {
+        "text": "offsetFilter",
+        "type": "Title"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "sIter2",
+        "type": "Title"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "The changed behavior in v.6 did not affect most users, but it was one of the\nbiggest backward incompatible changes \u2014 it was worth breaking code to finally\nget this right.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Multiple filters can be chained together to get something more powerful:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "iter",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "addFilter",
+        "type": "Title"
+    },
+    {
+        "text": "restFilter",
+        "type": "Title"
+    },
+    {
+        "text": "addFilter",
+        "type": "Title"
+    },
+    {
+        "text": "offsetFilter",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Rest",
+        "type": "Title"
+    },
+    {
+        "text": "half",
+        "type": "Title"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Other filters that music21 has in the music21.stream.filters\ninclude:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "IsFilter which returns elements\nthat are exactly the same as the objects passed in (useful for\ngetting the context of an object in a stream)",
+        "type": "ListItem"
+    },
+    {
+        "text": "IsNotFilter, even more useful, for\ngetting everything but an object or list of objects",
+        "type": "ListItem"
+    },
+    {
+        "text": "IdFilter for finding items by Id.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ClassNotFilter for finding items\nother than a list of classes.",
+        "type": "ListItem"
+    },
+    {
+        "text": "and GroupFilter for finding\nelements which have a particular group name.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Filter Shortcuts\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Filtering elements by offset or by class is so common, that music21\nhas some shortcuts for adding filters to it, like this:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "sIter4",
+        "type": "Title"
+    },
+    {
+        "text": "iter",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "restIterator",
+        "type": "Title"
+    },
+    {
+        "text": "sIter4",
+        "type": "Title"
+    },
+    {
+        "text": "getElementsByClass",
+        "type": "Title"
+    },
+    {
+        "text": "'Rest'",
+        "type": "Title"
+    },
+    {
+        "text": "restOffsetIterator",
+        "type": "Title"
+    },
+    {
+        "text": "restIterator",
+        "type": "Title"
+    },
+    {
+        "text": "getElementsByOffset",
+        "type": "Title"
+    },
+    {
+        "text": "0.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "4.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "restOffsetIterator",
+        "type": "Title"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Rest",
+        "type": "Title"
+    },
+    {
+        "text": "half",
+        "type": "Title"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Easier still, since each of these methods returns a new filter object,\nyou can chain them right in the for loop:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "iter",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "getElementsByClass",
+        "type": "Title"
+    },
+    {
+        "text": "'Rest'",
+        "type": "Title"
+    },
+    {
+        "text": "getElementsByOffset",
+        "type": "Title"
+    },
+    {
+        "text": "0.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "4.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Rest",
+        "type": "Title"
+    },
+    {
+        "text": "half",
+        "type": "Title"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "And you can even skip the s.iter() step for getting an iterator for\nthe most common of these filters, and music21 will recognize what\nyou want to do and create the iterator for you:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "getElementsByClass",
+        "type": "Title"
+    },
+    {
+        "text": "'Rest'",
+        "type": "Title"
+    },
+    {
+        "text": "getElementsByOffset",
+        "type": "Title"
+    },
+    {
+        "text": "0.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "4.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Rest",
+        "type": "Title"
+    },
+    {
+        "text": "half",
+        "type": "Title"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The shortcut methods that music21 exposes on Iterators include:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "getElementById()\nwhich adds an IdFilter",
+        "type": "ListItem"
+    },
+    {
+        "text": "getElementsByClass()\nwhich adds a ClassFilter",
+        "type": "ListItem"
+    },
+    {
+        "text": "getElementsByGroup()\nwhich adds a GroupFilter",
+        "type": "ListItem"
+    },
+    {
+        "text": "getElementsByOffset()\nwhich adds an OffsetFilter",
+        "type": "ListItem"
+    },
+    {
+        "text": "And there are also properties (that is, written without parentheses)\nwhich add certain filters:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "notes which filters\nout everything but Note and Chord objects",
+        "type": "ListItem"
+    },
+    {
+        "text": "notesAndRests which\nfilters out everything except GeneralNote objects",
+        "type": "ListItem"
+    },
+    {
+        "text": "parts which returns\nall the Part objects",
+        "type": "ListItem"
+    },
+    {
+        "text": "voices which\nreturns all the Voice objects",
+        "type": "ListItem"
+    },
+    {
+        "text": "spanners which\nreturns all the Spanner objects",
+        "type": "ListItem"
+    },
+    {
+        "text": "Custom Filters\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Creating your own filter is pretty easy too. The easiest way is to\ncreate a function that takes in an element and returns True or False\ndepending on whether the object matches the filter.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "We will create a filter to see if the element has a .pitch attribute\nand then if that pitch attribute has a sharp on it:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "def",
+        "type": "Title"
+    },
+    {
+        "text": "sharpFilter",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "hasattr",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "'pitch'",
+        "type": "Title"
+    },
+    {
+        "text": "and",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "accidental",
+        "type": "Title"
+    },
+    {
+        "text": "is",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "not",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "and",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "accidental",
+        "type": "Title"
+    },
+    {
+        "text": "alter",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "return",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "else",
+        "type": "Title"
+    },
+    {
+        "text": "return",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "sharpIterator",
+        "type": "Title"
+    },
+    {
+        "text": "iter",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "addFilter",
+        "type": "Title"
+    },
+    {
+        "text": "sharpFilter",
+        "type": "Title"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "sharpIterator",
+        "type": "Title"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Recursive and Offset Iterators\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Music21 comes with two other iterators that let you do powerful\noperations. The most commonly used is the\nRecursiveIterator which burrows\ndown into nested Streams to get whatever you want. Let's load in a\nnested stream:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "bach",
+        "type": "Title"
+    },
+    {
+        "text": "corpus",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "'bwv66.6'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "thing",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "bach",
+        "type": "Title"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "thing",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "metadata",
+        "type": "Title"
+    },
+    {
+        "text": "Metadata",
+        "type": "Title"
+    },
+    {
+        "text": "object",
+        "type": "Title"
+    },
+    {
+        "text": "at",
+        "type": "Title"
+    },
+    {
+        "text": "0x10f4cb6d0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Part",
+        "type": "Title"
+    },
+    {
+        "text": "Soprano",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Part",
+        "type": "Title"
+    },
+    {
+        "text": "Alto",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Part",
+        "type": "Title"
+    },
+    {
+        "text": "Tenor",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Part",
+        "type": "Title"
+    },
+    {
+        "text": "Bass",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "layout",
+        "type": "Title"
+    },
+    {
+        "text": "StaffGroup",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Part",
+        "type": "Title"
+    },
+    {
+        "text": "Soprano",
+        "type": "Title"
+    },
+    {
+        "text": "><",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Part",
+        "type": "Title"
+    },
+    {
+        "text": "Alto",
+        "type": "Title"
+    },
+    {
+        "text": "><",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Part",
+        "type": "Title"
+    },
+    {
+        "text": "Tenor",
+        "type": "Title"
+    },
+    {
+        "text": "><",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Part",
+        "type": "Title"
+    },
+    {
+        "text": "Bass",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Right, we remember that often the actual notes of a piece can be hidden\ninside Parts, Measures, and Voices. A recursive iterator gets to them,\nand they're created by calling recurse() on a stream.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "recurseIter",
+        "type": "Title"
+    },
+    {
+        "text": "bach",
+        "type": "Title"
+    },
+    {
+        "text": "recurse",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "recurseIter",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "iterator",
+        "type": "Title"
+    },
+    {
+        "text": "RecursiveIterator",
+        "type": "Title"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "Score",
+        "type": "Title"
+    },
+    {
+        "text": "bach",
+        "type": "Title"
+    },
+    {
+        "text": "bwv66",
+        "type": "Title"
+    },
+    {
+        "text": ".6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "mxl",
+        "type": "Title"
+    },
+    {
+        "text": "Let's add a filter for only E#s to it, and look into it. Instead of\nchecking to see if each element has a .name attribute we'll put a\ntry...except clause around it, and if it does not have the .name\nattribute (and thus raises and AttributeError we will return False.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "def",
+        "type": "Title"
+    },
+    {
+        "text": "eSharpFilter",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "try",
+        "type": "Title"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "name",
+        "type": "Title"
+    },
+    {
+        "text": "==",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'E#'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "return",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "else",
+        "type": "Title"
+    },
+    {
+        "text": "return",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "except",
+        "type": "Title"
+    },
+    {
+        "text": "AttributeError",
+        "type": "Title"
+    },
+    {
+        "text": "return",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "eSharpIterator",
+        "type": "Title"
+    },
+    {
+        "text": "recurseIter",
+        "type": "Title"
+    },
+    {
+        "text": "addFilter",
+        "type": "Title"
+    },
+    {
+        "text": "eSharpFilter",
+        "type": "Title"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "eSharpIterator",
+        "type": "Title"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "measureNumber",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#> 9",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#> 3",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#> 7",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#> 7",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#> 2",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#> 6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Note that the measure numbers don't keep increasing. That's because the\nrecurse iterator finishes one part before returning to the next. We can\nuse the fancy .getContextByClass to figure out what part it is in:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "eSharpIterator",
+        "type": "Title"
+    },
+    {
+        "text": "pId",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "getContextByClass",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Part",
+        "type": "Title"
+    },
+    {
+        "text": "id",
+        "type": "Title"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "measureNumber",
+        "type": "Title"
+    },
+    {
+        "text": "pId",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#> 9 Soprano",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#> 3 Alto",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#> 7 Alto",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#> 7 Tenor",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#> 2 Bass",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#> 6 Bass",
+        "type": "Title"
+    },
+    {
+        "text": "(as an aside, .measureNumber is just a shortcut for\n.getContextByClass(stream.Measure).number, so we are actually\nlooking up two contexts)",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "If you want to recurse into a stream and get elements of a certain\nclass, you can do s.recurse().getElementsByClass(chord.Chord) but\nthere's another simpler way of doing it: s[chord.Chord] (with square\nbrackets). As this example shows:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "chopin",
+        "type": "Title"
+    },
+    {
+        "text": "corpus",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "'chopin/mazurka06-2'",
+        "type": "Title"
+    },
+    {
+        "text": "chopinExcerpt",
+        "type": "Title"
+    },
+    {
+        "text": "chopin",
+        "type": "Title"
+    },
+    {
+        "text": "measures",
+        "type": "Title"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "ch",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "chopinExcerpt",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "]:",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "ch",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "#2 D#3>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "#2 D#3>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "#2 D#3>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "#2 D#3>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "#2 D#3>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "#2 D#3>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "#2 D#3>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "#2 D#3>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "#2 D#3>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "#2 D#3>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "#2 D#3>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "(when Chopin likes a chord, he really likes a chord!). Note that\neach of these is a chord in one voice in one hand of the piano. To see\nhow to get chords between both hands, turn back to the chordify()\nchapter.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Another great iterator is the OffsetIterator, which returns lists of\nelements grouped by offset. Let's add some more things to our Stream\nbefore we see how it works.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "insert",
+        "type": "Title"
+    },
+    {
+        "text": "clef",
+        "type": "Title"
+    },
+    {
+        "text": "TrebleClef",
+        "type": "Title"
+    },
+    {
+        "text": "())",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "insert",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "KeySignature",
+        "type": "Title"
+    },
+    {
+        "text": "))",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "insert",
+        "type": "Title"
+    },
+    {
+        "text": "instrument",
+        "type": "Title"
+    },
+    {
+        "text": "Trumpet",
+        "type": "Title"
+    },
+    {
+        "text": "())",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "# normal iterator",
+        "type": "Title"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "clef",
+        "type": "Title"
+    },
+    {
+        "text": "TrebleClef",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "KeySignature",
+        "type": "Title"
+    },
+    {
+        "text": "of",
+        "type": "Title"
+    },
+    {
+        "text": "sharps",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#> 0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Trumpet",
+        "type": "Title"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Rest",
+        "type": "Title"
+    },
+    {
+        "text": "half",
+        "type": "Title"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "3.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Rest",
+        "type": "Title"
+    },
+    {
+        "text": "quarter",
+        "type": "Title"
+    },
+    {
+        "text": "4.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Unlike with the normal StreamIterator or the RecursiveIterator,\nthere is no method on Stream to create an offset iterator, so we\nwill create one directly:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "oIter",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "iterator",
+        "type": "Title"
+    },
+    {
+        "text": "OffsetIterator",
+        "type": "Title"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "elementGroup",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "oIter",
+        "type": "Title"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "elementGroup",
+        "type": "Title"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "elementGroup",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "clef",
+        "type": "Title"
+    },
+    {
+        "text": "TrebleClef",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "KeySignature",
+        "type": "Title"
+    },
+    {
+        "text": "of",
+        "type": "Title"
+    },
+    {
+        "text": "sharps",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#>]",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "instrument",
+        "type": "Title"
+    },
+    {
+        "text": "Trumpet",
+        "type": "Title"
+    },
+    {
+        "text": "'Trumpet'",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Rest",
+        "type": "Title"
+    },
+    {
+        "text": "half",
+        "type": "Title"
+    },
+    {
+        "text": "3.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "4.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Rest",
+        "type": "Title"
+    },
+    {
+        "text": "quarter",
+        "type": "Title"
+    },
+    {
+        "text": "From Iterator to Stream\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "From either a StreamIterator or a RecursiveIterator a new\nStream object can be generated by calling .stream() on it. On a\nRecursiveIterator, this does not put the elements into substreams.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "onlyESharps",
+        "type": "Title"
+    },
+    {
+        "text": "bach",
+        "type": "Title"
+    },
+    {
+        "text": "recurse",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "addFilter",
+        "type": "Title"
+    },
+    {
+        "text": "eSharpFilter",
+        "type": "Title"
+    },
+    {
+        "text": "esharpStream",
+        "type": "Title"
+    },
+    {
+        "text": "onlyESharps",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "esharpStream",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "'text'",
+        "type": "Title"
+    },
+    {
+        "text": "8.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "10.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "23.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "25.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "27.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "34.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "esharpStream",
+        "type": "Title"
+    },
+    {
+        "text": "derivation",
+        "type": "Title"
+    },
+    {
+        "text": "Derivation",
+        "type": "Title"
+    },
+    {
+        "text": "of",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Score",
+        "type": "Title"
+    },
+    {
+        "text": "bach",
+        "type": "Title"
+    },
+    {
+        "text": "bwv66",
+        "type": "Title"
+    },
+    {
+        "text": ".6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "mxl",
+        "type": "Title"
+    },
+    {
+        "text": "from",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Score",
+        "type": "Title"
+    },
+    {
+        "text": "bach",
+        "type": "Title"
+    },
+    {
+        "text": "bwv66",
+        "type": "Title"
+    },
+    {
+        "text": ".6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "mxl",
+        "type": "Title"
+    },
+    {
+        "text": "via",
+        "type": "Title"
+    },
+    {
+        "text": "'eSharpFilter'",
+        "type": "Title"
+    },
+    {
+        "text": "This can be useful if you'd like to do plots on the resulting stream,\nthough this one is a bit too obvious\u2026",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "esharpStream",
+        "type": "Title"
+    },
+    {
+        "text": "plot",
+        "type": "Title"
+    },
+    {
+        "text": "'pitchclass'",
+        "type": "Title"
+    },
+    {
+        "text": "But maybe this one could tell someone something:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "esharpStream",
+        "type": "Title"
+    },
+    {
+        "text": "plot",
+        "type": "Title"
+    },
+    {
+        "text": "'pianoroll'",
+        "type": "Title"
+    },
+    {
+        "text": "Perhaps not. But iterators are not the main point \u2014 what you can do with\nthem is more important, so we will return to working with actual musical\nobjects in Chapter 27 when we talk\nabout Grace Notes.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 26: Stream Iteration and Filtering",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

@@ -1,0 +1,3842 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.converter.subConverters",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.converter.qmConverter",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.corpus",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.converter.subConverters\nConverterABC\nConverterABC\nConverterABC.parseData()\nConverterABC.parseFile()\n\n\n\n\nConverterBraille\nConverterBraille\nConverterBraille.show()\nConverterBraille.write()\n\n\n\n\nConverterCapella\nConverterCapella\nConverterCapella.parseData()\nConverterCapella.parseFile()\n\n\n\n\nConverterClercqTemperley\nConverterClercqTemperley\nConverterClercqTemperley.parseData()\nConverterClercqTemperley.parseFile()\n\n\n\n\nConverterHumdrum\nConverterHumdrum\nConverterHumdrum.parseData()\nConverterHumdrum.parseFile()\n\n\n\n\nConverterIPython\nConverterIPython\nConverterIPython.show()\n\n\n\n\nConverterLilypond\nConverterLilypond\nConverterLilypond.show()\nConverterLilypond.write()\n\n\n\n\nConverterMEI\nConverterMEI\nConverterMEI.checkShowAbility()\nConverterMEI.parseData()\nConverterMEI.parseFile()\nConverterMEI.show()\nConverterMEI.write()\n\n\n\n\nConverterMidi\nConverterMidi\nConverterMidi.parseData()\nConverterMidi.parseFile()\nConverterMidi.write()\n\n\n\n\nConverterMuseData\nConverterMuseData\nConverterMuseData.parseData()\nConverterMuseData.parseFile()\n\n\n\n\nConverterMusicXML\nConverterMusicXML\nConverterMusicXML.parseData()\nConverterMusicXML.parseFile()\nConverterMusicXML.show()\nConverterMusicXML.write()\nConverterMusicXML.writeDataStream()\n\n\n\n\nConverterNoteworthy\nConverterNoteworthy\nConverterNoteworthy.parseData()\nConverterNoteworthy.parseFile()\n\n\n\n\nConverterNoteworthyBinary\nConverterNoteworthyBinary\nConverterNoteworthyBinary.parseData()\nConverterNoteworthyBinary.parseFile()\n\n\n\n\nConverterRomanText\nConverterRomanText\nConverterRomanText.parseData()\nConverterRomanText.parseFile()\nConverterRomanText.write()\n\n\n\n\nConverterScala\nConverterScala\n\n\nConverterText\nConverterText\nConverterText.show()\nConverterText.write()\n\n\n\n\nConverterTextLine\nConverterTextLine\nConverterTextLine.show()\nConverterTextLine.write()\n\n\n\n\nConverterTinyNotation\nConverterTinyNotation\nConverterTinyNotation.parseData()\n\n\n\n\nConverterVexflow\nConverterVexflow\nConverterVexflow.write()\n\n\n\n\nConverterVolpiano\nConverterVolpiano\nConverterVolpiano.getDataStr()\nConverterVolpiano.parseData()\nConverterVolpiano.show()\nConverterVolpiano.write()\n\n\n\n\nSubConverter\nSubConverter\nSubConverter.stream\nSubConverter.checkShowAbility()\nSubConverter.getExtensionForSubformats()\nSubConverter.getTemporaryFile()\nSubConverter.launch()\nSubConverter.parseData()\nSubConverter.parseFile()\nSubConverter.show()\nSubConverter.toData()\nSubConverter.write()\nSubConverter.writeDataStream()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.converter.subConverters\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "SubConverters parse or display a single format.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Each subConverter should inherit from the base SubConverter object and have at least a\nparseData method that sets self.stream.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "ConverterABC\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.converter.subConverters.",
+        "type": "Title"
+    },
+    {
+        "text": "ConverterABC",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Simple class wrapper for parsing ABC.\nInput only",
+        "type": "ListItem"
+    },
+    {
+        "text": "ConverterABC bases",
+        "type": "Title"
+    },
+    {
+        "text": "SubConverter",
+        "type": "ListItem"
+    },
+    {
+        "text": "ConverterABC read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from SubConverter:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "stream",
+        "type": "Table"
+    },
+    {
+        "text": "ConverterABC methods",
+        "type": "Title"
+    },
+    {
+        "text": "ConverterABC.",
+        "type": "Title"
+    },
+    {
+        "text": "parseData",
+        "type": "Title"
+    },
+    {
+        "text": "strData",
+        "type": "Title"
+    },
+    {
+        "text": "number",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get ABC data, as token list, from a string representation.\nIf more than one work is defined in the ABC data, a\nOpus object will be returned;\notherwise, a Score is returned.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ConverterABC.",
+        "type": "Title"
+    },
+    {
+        "text": "parseFile",
+        "type": "Title"
+    },
+    {
+        "text": "filePath",
+        "type": "Title"
+    },
+    {
+        "text": "Path | str",
+        "type": "Title"
+    },
+    {
+        "text": "number",
+        "type": "Title"
+    },
+    {
+        "text": "int | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get ABC data from a file path. If more than one work is defined in the ABC\ndata, a  Opus object will be returned;\notherwise, a Score is returned.\nIf number is provided, and this ABC file defines multiple works\nwith an X: tag, just the specified work will be returned.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from SubConverter:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "checkShowAbility() getExtensionForSubformats() getTemporaryFile() launch() show() toData() write() writeDataStream()",
+        "type": "Table"
+    },
+    {
+        "text": "ConverterBraille\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.converter.subConverters.",
+        "type": "Title"
+    },
+    {
+        "text": "ConverterBraille",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "ConverterBraille bases",
+        "type": "Title"
+    },
+    {
+        "text": "SubConverter",
+        "type": "ListItem"
+    },
+    {
+        "text": "ConverterBraille read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from SubConverter:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "stream",
+        "type": "Table"
+    },
+    {
+        "text": "ConverterBraille methods",
+        "type": "Title"
+    },
+    {
+        "text": "ConverterBraille.",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "obj",
+        "type": "Title"
+    },
+    {
+        "text": "fmt",
+        "type": "Title"
+    },
+    {
+        "text": "app",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "subformats",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Write the data, then show the generated data, using .launch() or printing\nto a console.\nSome simple formats that do not need launching, may skip .launch() and\nsimply return the output.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ConverterBraille.",
+        "type": "Title"
+    },
+    {
+        "text": "write",
+        "type": "Title"
+    },
+    {
+        "text": "obj",
+        "type": "Title"
+    },
+    {
+        "text": "fmt",
+        "type": "Title"
+    },
+    {
+        "text": "fp",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "subformats",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Calls .writeDataStream on the repr of obj, and returns the fp returned by it.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from SubConverter:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "checkShowAbility() getExtensionForSubformats() getTemporaryFile() launch() parseData() parseFile() toData() writeDataStream()",
+        "type": "Table"
+    },
+    {
+        "text": "ConverterCapella\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.converter.subConverters.",
+        "type": "Title"
+    },
+    {
+        "text": "ConverterCapella",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Simple class wrapper for parsing Capella .capx XML files.  See capella/fromCapellaXML.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ConverterCapella bases",
+        "type": "Title"
+    },
+    {
+        "text": "SubConverter",
+        "type": "ListItem"
+    },
+    {
+        "text": "ConverterCapella read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from SubConverter:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "stream",
+        "type": "Table"
+    },
+    {
+        "text": "ConverterCapella methods",
+        "type": "Title"
+    },
+    {
+        "text": "ConverterCapella.",
+        "type": "Title"
+    },
+    {
+        "text": "parseData",
+        "type": "Title"
+    },
+    {
+        "text": "strData",
+        "type": "Title"
+    },
+    {
+        "text": "number",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "parse a data stream of uncompressed capella xml\nN.B. for web parsing, it gets more complex.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ConverterCapella.",
+        "type": "Title"
+    },
+    {
+        "text": "parseFile",
+        "type": "Title"
+    },
+    {
+        "text": "filePath",
+        "type": "Title"
+    },
+    {
+        "text": "str | Path",
+        "type": "Title"
+    },
+    {
+        "text": "number",
+        "type": "Title"
+    },
+    {
+        "text": "int | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Parse a Capella file",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from SubConverter:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "checkShowAbility() getExtensionForSubformats() getTemporaryFile() launch() show() toData() write() writeDataStream()",
+        "type": "Table"
+    },
+    {
+        "text": "ConverterClercqTemperley\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.converter.subConverters.",
+        "type": "Title"
+    },
+    {
+        "text": "ConverterClercqTemperley",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Wrapper for parsing harmonic definitions in Trevor de Clercq and\nDavid Temperley's format.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ConverterClercqTemperley bases",
+        "type": "Title"
+    },
+    {
+        "text": "SubConverter",
+        "type": "ListItem"
+    },
+    {
+        "text": "ConverterClercqTemperley read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from SubConverter:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "stream",
+        "type": "Table"
+    },
+    {
+        "text": "ConverterClercqTemperley methods",
+        "type": "Title"
+    },
+    {
+        "text": "ConverterClercqTemperley.",
+        "type": "Title"
+    },
+    {
+        "text": "parseData",
+        "type": "Title"
+    },
+    {
+        "text": "strData",
+        "type": "Title"
+    },
+    {
+        "text": "str | Path",
+        "type": "Title"
+    },
+    {
+        "text": "number",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Called when a string (or binary) data is encountered.\nThis method MUST be implemented to do anything in parsing.\nReturn self.stream in the end",
+        "type": "ListItem"
+    },
+    {
+        "text": "ConverterClercqTemperley.",
+        "type": "Title"
+    },
+    {
+        "text": "parseFile",
+        "type": "Title"
+    },
+    {
+        "text": "filePath",
+        "type": "Title"
+    },
+    {
+        "text": "Path | str",
+        "type": "Title"
+    },
+    {
+        "text": "number",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Called when a file is encountered. If all that needs to be done is\nloading the file and putting the data into parseData then there is no need\nto implement this method.  Just set self.readBinary to True | False.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from SubConverter:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "checkShowAbility() getExtensionForSubformats() getTemporaryFile() launch() show() toData() write() writeDataStream()",
+        "type": "Table"
+    },
+    {
+        "text": "ConverterHumdrum\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.converter.subConverters.",
+        "type": "Title"
+    },
+    {
+        "text": "ConverterHumdrum",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Simple class wrapper for parsing Humdrum data provided in a file or in a string.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ConverterHumdrum bases",
+        "type": "Title"
+    },
+    {
+        "text": "SubConverter",
+        "type": "ListItem"
+    },
+    {
+        "text": "ConverterHumdrum read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from SubConverter:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "stream",
+        "type": "Table"
+    },
+    {
+        "text": "ConverterHumdrum methods",
+        "type": "Title"
+    },
+    {
+        "text": "ConverterHumdrum.",
+        "type": "Title"
+    },
+    {
+        "text": "parseData",
+        "type": "Title"
+    },
+    {
+        "text": "humdrumString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "number",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Open Humdrum data from a string \u2014 calls\nparse().\n>>> humData = ('**kern\\n*M2/4\\n=1\\n24r\\n24g#\\n24f#\\n24e\\n24c#\\n' +\n...     '24f\\n24r\\n24dn\\n24e-\\n24gn\\n24e-\\n24dn\\n*-')\n>>> c = converter.subConverters.ConverterHumdrum()\n>>> s = c.parseData(humData)\n>>> c.stream.show('text')\n{0.0} <music21.metadata.Metadata object at 0x7f33545027b8>\n{0.0} <music21.stream.Part spine_0>\n    {0.0} <music21.humdrum.spineParser.MiscTandem **kern>\n    {0.0} <music21.stream.Measure 1 offset=0.0>\n        {0.0} <music21.meter.TimeSignature 2/4>\n        {0.0} <music21.note.Rest 1/6ql>\n        {0.1667} <music21.note.Note G#>\n        {0.3333} <music21.note.Note F#>\n        {0.5} <music21.note.Note E>\n        {0.6667} <music21.note.Note C#>\n        {0.8333} <music21.note.Note F>\n        {1.0} <music21.note.Rest 1/6ql>\n        {1.1667} <music21.note.Note D>\n        {1.3333} <music21.note.Note E->\n        {1.5} <music21.note.Note G>\n        {1.6667} <music21.note.Note E->\n        {1.8333} <music21.note.Note D>",
+        "type": "ListItem"
+    },
+    {
+        "text": "ConverterHumdrum.",
+        "type": "Title"
+    },
+    {
+        "text": "parseFile",
+        "type": "Title"
+    },
+    {
+        "text": "filePath",
+        "type": "Title"
+    },
+    {
+        "text": "Path | str",
+        "type": "Title"
+    },
+    {
+        "text": "number",
+        "type": "Title"
+    },
+    {
+        "text": "int | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Open Humdrum data from a file path.\nCalls humdrum.parseFile on filepath.\nNumber is ignored here.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from SubConverter:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "checkShowAbility() getExtensionForSubformats() getTemporaryFile() launch() show() toData() write() writeDataStream()",
+        "type": "Table"
+    },
+    {
+        "text": "ConverterIPython\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.converter.subConverters.",
+        "type": "Title"
+    },
+    {
+        "text": "ConverterIPython",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Meta-subConverter for displaying image data in a Notebook\nusing either png (via MuseScore or LilyPond) or directly via\nVexflow/music21j, or MIDI using music21j.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ConverterIPython bases",
+        "type": "Title"
+    },
+    {
+        "text": "SubConverter",
+        "type": "ListItem"
+    },
+    {
+        "text": "ConverterIPython read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from SubConverter:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "stream",
+        "type": "Table"
+    },
+    {
+        "text": "ConverterIPython methods",
+        "type": "Title"
+    },
+    {
+        "text": "ConverterIPython.",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "obj",
+        "type": "Title"
+    },
+    {
+        "text": "fmt",
+        "type": "Title"
+    },
+    {
+        "text": "app",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "subformats",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "show a specialized for Jupyter Notebook using the appropriate subformat.\nFor MusicXML runs it through MuseScore and returns the PNG data.\n(use multipageWidget to get an experimental interactive page display).\nFor MIDI: loads a music21j-powered MIDI player in to the Notebook.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from SubConverter:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "checkShowAbility() getExtensionForSubformats() getTemporaryFile() launch() parseData() parseFile() toData() write() writeDataStream()",
+        "type": "Table"
+    },
+    {
+        "text": "ConverterLilypond\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.converter.subConverters.",
+        "type": "Title"
+    },
+    {
+        "text": "ConverterLilypond",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Convert to Lilypond and from there usually to png, pdf, or svg.\nNote: that the proper format for displaying Lilypond in Jupyter\nnotebook in v9 is ipython.lily.png and not lily.ipython.png",
+        "type": "ListItem"
+    },
+    {
+        "text": "ConverterLilypond bases",
+        "type": "Title"
+    },
+    {
+        "text": "SubConverter",
+        "type": "ListItem"
+    },
+    {
+        "text": "ConverterLilypond read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from SubConverter:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "stream",
+        "type": "Table"
+    },
+    {
+        "text": "ConverterLilypond methods",
+        "type": "Title"
+    },
+    {
+        "text": "ConverterLilypond.",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "obj",
+        "type": "Title"
+    },
+    {
+        "text": "fmt",
+        "type": "Title"
+    },
+    {
+        "text": "app",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "subformats",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Call .write (write out the lilypond (.ly) file; convert to .png/.pdf, etc.)\nthen launch the appropriate viewer for .png/.pdf (graphicsPath) or .svg\n(vectorPath)",
+        "type": "ListItem"
+    },
+    {
+        "text": "ConverterLilypond.",
+        "type": "Title"
+    },
+    {
+        "text": "write",
+        "type": "Title"
+    },
+    {
+        "text": "obj",
+        "type": "Title"
+    },
+    {
+        "text": "fmt",
+        "type": "Title"
+    },
+    {
+        "text": "fp",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "subformats",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "coloredVariants",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Calls .writeDataStream on the repr of obj, and returns the fp returned by it.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from SubConverter:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "checkShowAbility() getExtensionForSubformats() getTemporaryFile() launch() parseData() parseFile() toData() writeDataStream()",
+        "type": "Table"
+    },
+    {
+        "text": "ConverterMEI\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.converter.subConverters.",
+        "type": "Title"
+    },
+    {
+        "text": "ConverterMEI",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Converter for MEI. You must use an \u009c.mei\u009d file extension for MEI files because music21 will\nparse \u009c.xml\u009d files as MusicXML.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ConverterMEI bases",
+        "type": "Title"
+    },
+    {
+        "text": "SubConverter",
+        "type": "ListItem"
+    },
+    {
+        "text": "ConverterMEI read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from SubConverter:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "stream",
+        "type": "Table"
+    },
+    {
+        "text": "ConverterMEI methods",
+        "type": "Title"
+    },
+    {
+        "text": "ConverterMEI.",
+        "type": "Title"
+    },
+    {
+        "text": "checkShowAbility",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "MEI export is not yet implemented.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ConverterMEI.",
+        "type": "Title"
+    },
+    {
+        "text": "parseData",
+        "type": "Title"
+    },
+    {
+        "text": "dataString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "number",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 Stream",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Convert a string with an MEI document into its corresponding music21 elements.\n\ndataString: The string with XML to convert.\nnumber: Unused in this class. Default is None.\n\nReturns the music21 objects corresponding to the MEI file.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ConverterMEI.",
+        "type": "Title"
+    },
+    {
+        "text": "parseFile",
+        "type": "Title"
+    },
+    {
+        "text": "filePath",
+        "type": "Title"
+    },
+    {
+        "text": "str | Path",
+        "type": "Title"
+    },
+    {
+        "text": "number",
+        "type": "Title"
+    },
+    {
+        "text": "int | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 Stream",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Convert a file with an MEI document into its corresponding music21 elements.\n\nfilePath: Full pathname to the file containing MEI data as a string or Path.\nnumber: Unused in this class. Default is None.\n\nReturns the music21 objects corresponding to the MEI file.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ConverterMEI.",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "obj",
+        "type": "Title"
+    },
+    {
+        "text": "fmt",
+        "type": "Title"
+    },
+    {
+        "text": "app",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "subformats",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Write the data, then show the generated data, using .launch() or printing\nto a console.\nSome simple formats that do not need launching, may skip .launch() and\nsimply return the output.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ConverterMEI.",
+        "type": "Title"
+    },
+    {
+        "text": "write",
+        "type": "Title"
+    },
+    {
+        "text": "obj",
+        "type": "Title"
+    },
+    {
+        "text": "fmt",
+        "type": "Title"
+    },
+    {
+        "text": "fp",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "subformats",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Calls .writeDataStream on the repr of obj, and returns the fp returned by it.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from SubConverter:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "getExtensionForSubformats() getTemporaryFile() launch() toData() writeDataStream()",
+        "type": "Table"
+    },
+    {
+        "text": "ConverterMidi\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.converter.subConverters.",
+        "type": "Title"
+    },
+    {
+        "text": "ConverterMidi",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Simple class wrapper for parsing MIDI and sending MIDI data out.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ConverterMidi bases",
+        "type": "Title"
+    },
+    {
+        "text": "SubConverter",
+        "type": "ListItem"
+    },
+    {
+        "text": "ConverterMidi read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from SubConverter:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "stream",
+        "type": "Table"
+    },
+    {
+        "text": "ConverterMidi methods",
+        "type": "Title"
+    },
+    {
+        "text": "ConverterMidi.",
+        "type": "Title"
+    },
+    {
+        "text": "parseData",
+        "type": "Title"
+    },
+    {
+        "text": "strData",
+        "type": "Title"
+    },
+    {
+        "text": "number",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get MIDI data from a binary string representation.\nCalls midi.translate.midiStringToStream.\nKeywords to control quantization:\nquantizePost controls whether to quantize the output. (Default: True)\nquarterLengthDivisors allows for overriding the default quantization units\nin defaults.quantizationQuarterLengthDivisors. (Default: (4, 3)).",
+        "type": "ListItem"
+    },
+    {
+        "text": "ConverterMidi.",
+        "type": "Title"
+    },
+    {
+        "text": "parseFile",
+        "type": "Title"
+    },
+    {
+        "text": "filePath",
+        "type": "Title"
+    },
+    {
+        "text": "Path | str",
+        "type": "Title"
+    },
+    {
+        "text": "number",
+        "type": "Title"
+    },
+    {
+        "text": "int | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get MIDI data from a file path.\nCalls midi.translate.midiFilePathToStream.\nKeywords to control quantization:\nquantizePost controls whether to quantize the output. (Default: True)\nquarterLengthDivisors allows for overriding the default quantization units\nin defaults.quantizationQuarterLengthDivisors. (Default: (4, 3)).",
+        "type": "ListItem"
+    },
+    {
+        "text": "ConverterMidi.",
+        "type": "Title"
+    },
+    {
+        "text": "write",
+        "type": "Title"
+    },
+    {
+        "text": "obj",
+        "type": "Title"
+    },
+    {
+        "text": "fmt",
+        "type": "Title"
+    },
+    {
+        "text": "fp",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "subformats",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "addStartDelay",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Calls .writeDataStream on the repr of obj, and returns the fp returned by it.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from SubConverter:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "checkShowAbility() getExtensionForSubformats() getTemporaryFile() launch() show() toData() writeDataStream()",
+        "type": "Table"
+    },
+    {
+        "text": "ConverterMuseData\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.converter.subConverters.",
+        "type": "Title"
+    },
+    {
+        "text": "ConverterMuseData",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Simple class wrapper for parsing MuseData.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ConverterMuseData bases",
+        "type": "Title"
+    },
+    {
+        "text": "SubConverter",
+        "type": "ListItem"
+    },
+    {
+        "text": "ConverterMuseData read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from SubConverter:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "stream",
+        "type": "Table"
+    },
+    {
+        "text": "ConverterMuseData methods",
+        "type": "Title"
+    },
+    {
+        "text": "ConverterMuseData.",
+        "type": "Title"
+    },
+    {
+        "text": "parseData",
+        "type": "Title"
+    },
+    {
+        "text": "strData",
+        "type": "Title"
+    },
+    {
+        "text": "number",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get musedata from a string representation.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ConverterMuseData.",
+        "type": "Title"
+    },
+    {
+        "text": "parseFile",
+        "type": "Title"
+    },
+    {
+        "text": "filePath",
+        "type": "Title"
+    },
+    {
+        "text": "str | Path",
+        "type": "Title"
+    },
+    {
+        "text": "number",
+        "type": "Title"
+    },
+    {
+        "text": "int | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "parse fp (a pathlib.Path()) and number",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from SubConverter:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "checkShowAbility() getExtensionForSubformats() getTemporaryFile() launch() show() toData() write() writeDataStream()",
+        "type": "Table"
+    },
+    {
+        "text": "ConverterMusicXML\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.converter.subConverters.",
+        "type": "Title"
+    },
+    {
+        "text": "ConverterMusicXML",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Converter for MusicXML using the 2015 ElementTree system.\nUsers should not need this Object.  Call converter.parse directly",
+        "type": "ListItem"
+    },
+    {
+        "text": "ConverterMusicXML bases",
+        "type": "Title"
+    },
+    {
+        "text": "SubConverter",
+        "type": "ListItem"
+    },
+    {
+        "text": "ConverterMusicXML read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from SubConverter:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "stream",
+        "type": "Table"
+    },
+    {
+        "text": "ConverterMusicXML methods",
+        "type": "Title"
+    },
+    {
+        "text": "ConverterMusicXML.",
+        "type": "Title"
+    },
+    {
+        "text": "parseData",
+        "type": "Title"
+    },
+    {
+        "text": "xmlString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "number",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Open MusicXML data from a string.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ConverterMusicXML.",
+        "type": "Title"
+    },
+    {
+        "text": "parseFile",
+        "type": "Title"
+    },
+    {
+        "text": "filePath",
+        "type": "Title"
+    },
+    {
+        "text": "str | Path",
+        "type": "Title"
+    },
+    {
+        "text": "number",
+        "type": "Title"
+    },
+    {
+        "text": "int | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Open from a file path; check to see if there is a pickled\nversion available and up to date; if so, open that, otherwise\nopen source.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ConverterMusicXML.",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "obj",
+        "type": "Title"
+    },
+    {
+        "text": "fmt",
+        "type": "Title"
+    },
+    {
+        "text": "app",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "subformats",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Override to do something with png\u2026",
+        "type": "ListItem"
+    },
+    {
+        "text": "ConverterMusicXML.",
+        "type": "Title"
+    },
+    {
+        "text": "write",
+        "type": "Title"
+    },
+    {
+        "text": "obj",
+        "type": "Title"
+    },
+    {
+        "text": "music21.Music21Object",
+        "type": "Title"
+    },
+    {
+        "text": "fmt",
+        "type": "Title"
+    },
+    {
+        "text": "fp",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "subformats",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "makeNotation",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "compress",
+        "type": "Title"
+    },
+    {
+        "text": "bool | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Write to a .musicxml file.\nSet makeNotation=False to prevent fixing up the notation, and where possible,\nto prevent making additional deepcopies. (This option cannot be used if obj is not a\nScore.) makeNotation=True generally solves common notation\nissues, whereas makeNotation=False is intended for advanced users facing\nspecial cases where speed is a priority or making notation reverses user choices.\nSet compress=True to immediately compress the output to a .mxl file.  Set\nto True automatically if format='mxl' or if fp is given and ends with .mxl",
+        "type": "ListItem"
+    },
+    {
+        "text": "ConverterMusicXML.",
+        "type": "Title"
+    },
+    {
+        "text": "writeDataStream",
+        "type": "Title"
+    },
+    {
+        "text": "fp",
+        "type": "Title"
+    },
+    {
+        "text": "dataStr",
+        "type": "Title"
+    },
+    {
+        "text": "str | bytes",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 Path",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Writes dataStr which must be bytes to fp.\nAdds .musicxml suffix to fp if it does not already contain some suffix.\n\nChanged in v7: returns a pathlib.Path",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from SubConverter:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "checkShowAbility() getExtensionForSubformats() getTemporaryFile() launch() toData()",
+        "type": "Table"
+    },
+    {
+        "text": "ConverterNoteworthy\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.converter.subConverters.",
+        "type": "Title"
+    },
+    {
+        "text": "ConverterNoteworthy",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Simple class wrapper for parsing NoteworthyComposer data provided in a\nfile or in a string.\nGets data with the file format .nwctxt\nUsers should not need this routine.  The basic format is converter.parse(\u0098file.nwctxt')\n>>> paertPath = converter.parse(r'd:/desktop/arvo_part_o_weisheit.nwctxt')\n>>> paertStream = converter.parse(paertPath)\n>>> len(paertStream.parts)\n4\n\n\nFor developers: see the documentation for parseData() and parseFile()\nto see the low-level usage.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ConverterNoteworthy bases",
+        "type": "Title"
+    },
+    {
+        "text": "SubConverter",
+        "type": "ListItem"
+    },
+    {
+        "text": "ConverterNoteworthy read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from SubConverter:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "stream",
+        "type": "Table"
+    },
+    {
+        "text": "ConverterNoteworthy methods",
+        "type": "Title"
+    },
+    {
+        "text": "ConverterNoteworthy.",
+        "type": "Title"
+    },
+    {
+        "text": "parseData",
+        "type": "Title"
+    },
+    {
+        "text": "nwcData",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Open Noteworthy data from a string or list\n>>> nwcData = ('!NoteWorthyComposer(2.0)\\n|AddStaff\\n|Clef|' +\n...     'Type:Treble\\n|Note|Dur:Whole|Pos:1^')\n>>> c = converter.subConverters.ConverterNoteworthy()\n>>> c.parseData(nwcData)\n>>> c.stream.show('text')\n{0.0} <music21.stream.Part ...>\n    {0.0} <music21.stream.Measure 0 offset=0.0>\n        {0.0} <music21.clef.TrebleClef>\n        {0.0} <music21.note.Note C>",
+        "type": "ListItem"
+    },
+    {
+        "text": "ConverterNoteworthy.",
+        "type": "Title"
+    },
+    {
+        "text": "parseFile",
+        "type": "Title"
+    },
+    {
+        "text": "filePath",
+        "type": "Title"
+    },
+    {
+        "text": "Path | str",
+        "type": "Title"
+    },
+    {
+        "text": "number",
+        "type": "Title"
+    },
+    {
+        "text": "int | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Open Noteworthy data (as nwctxt) from a file path.\n>>> paertPath = converter.parse('d:/desktop/arvo_part_o_weisheit.nwctxt')\n>>> c = converter.subConverters.ConverterNoteworthy()\n>>> c.parseFile(filePath)\n>>> c.stream.show()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from SubConverter:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "checkShowAbility() getExtensionForSubformats() getTemporaryFile() launch() show() toData() write() writeDataStream()",
+        "type": "Table"
+    },
+    {
+        "text": "ConverterNoteworthyBinary\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.converter.subConverters.",
+        "type": "Title"
+    },
+    {
+        "text": "ConverterNoteworthyBinary",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Simple class wrapper for parsing NoteworthyComposer binary data\nprovided in a file or in a string.\nGets data with the file format .nwc\nUsers should not need this routine.  Call converter.parse directly",
+        "type": "ListItem"
+    },
+    {
+        "text": "ConverterNoteworthyBinary bases",
+        "type": "Title"
+    },
+    {
+        "text": "SubConverter",
+        "type": "ListItem"
+    },
+    {
+        "text": "ConverterNoteworthyBinary read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from SubConverter:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "stream",
+        "type": "Table"
+    },
+    {
+        "text": "ConverterNoteworthyBinary methods",
+        "type": "Title"
+    },
+    {
+        "text": "ConverterNoteworthyBinary.",
+        "type": "Title"
+    },
+    {
+        "text": "parseData",
+        "type": "Title"
+    },
+    {
+        "text": "nwcData",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Called when a string (or binary) data is encountered.\nThis method MUST be implemented to do anything in parsing.\nReturn self.stream in the end",
+        "type": "ListItem"
+    },
+    {
+        "text": "ConverterNoteworthyBinary.",
+        "type": "Title"
+    },
+    {
+        "text": "parseFile",
+        "type": "Title"
+    },
+    {
+        "text": "filePath",
+        "type": "Title"
+    },
+    {
+        "text": "Path | str",
+        "type": "Title"
+    },
+    {
+        "text": "number",
+        "type": "Title"
+    },
+    {
+        "text": "int | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Called when a file is encountered. If all that needs to be done is\nloading the file and putting the data into parseData then there is no need\nto implement this method.  Just set self.readBinary to True | False.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from SubConverter:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "checkShowAbility() getExtensionForSubformats() getTemporaryFile() launch() show() toData() write() writeDataStream()",
+        "type": "Table"
+    },
+    {
+        "text": "ConverterRomanText\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.converter.subConverters.",
+        "type": "Title"
+    },
+    {
+        "text": "ConverterRomanText",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Simple class wrapper for parsing roman text harmonic definitions.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ConverterRomanText bases",
+        "type": "Title"
+    },
+    {
+        "text": "SubConverter",
+        "type": "ListItem"
+    },
+    {
+        "text": "ConverterRomanText read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from SubConverter:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "stream",
+        "type": "Table"
+    },
+    {
+        "text": "ConverterRomanText methods",
+        "type": "Title"
+    },
+    {
+        "text": "ConverterRomanText.",
+        "type": "Title"
+    },
+    {
+        "text": "parseData",
+        "type": "Title"
+    },
+    {
+        "text": "strData",
+        "type": "Title"
+    },
+    {
+        "text": "number",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Called when a string (or binary) data is encountered.\nThis method MUST be implemented to do anything in parsing.\nReturn self.stream in the end",
+        "type": "ListItem"
+    },
+    {
+        "text": "ConverterRomanText.",
+        "type": "Title"
+    },
+    {
+        "text": "parseFile",
+        "type": "Title"
+    },
+    {
+        "text": "filePath",
+        "type": "Title"
+    },
+    {
+        "text": "Path | str",
+        "type": "Title"
+    },
+    {
+        "text": "number",
+        "type": "Title"
+    },
+    {
+        "text": "int | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Called when a file is encountered. If all that needs to be done is\nloading the file and putting the data into parseData then there is no need\nto implement this method.  Just set self.readBinary to True | False.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ConverterRomanText.",
+        "type": "Title"
+    },
+    {
+        "text": "write",
+        "type": "Title"
+    },
+    {
+        "text": "obj",
+        "type": "Title"
+    },
+    {
+        "text": "fmt",
+        "type": "Title"
+    },
+    {
+        "text": "fp",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "subformats",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Writes \u0098RomanText' files (using the extension .rntxt) from a music21.stream.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from SubConverter:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "checkShowAbility() getExtensionForSubformats() getTemporaryFile() launch() show() toData() writeDataStream()",
+        "type": "Table"
+    },
+    {
+        "text": "ConverterScala\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.converter.subConverters.",
+        "type": "Title"
+    },
+    {
+        "text": "ConverterScala",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "ConverterScala bases",
+        "type": "Title"
+    },
+    {
+        "text": "SubConverter",
+        "type": "ListItem"
+    },
+    {
+        "text": "ConverterScala read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from SubConverter:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "stream",
+        "type": "Table"
+    },
+    {
+        "text": "ConverterScala methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from SubConverter:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "checkShowAbility() getExtensionForSubformats() getTemporaryFile() launch() parseData() parseFile() show() toData() write() writeDataStream()",
+        "type": "Table"
+    },
+    {
+        "text": "ConverterText\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.converter.subConverters.",
+        "type": "Title"
+    },
+    {
+        "text": "ConverterText",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "standard text presentation has line breaks, is printed.\nTwo keyword options are allowed: addEndTimes=Boolean and useMixedNumerals=Boolean",
+        "type": "ListItem"
+    },
+    {
+        "text": "ConverterText bases",
+        "type": "Title"
+    },
+    {
+        "text": "SubConverter",
+        "type": "ListItem"
+    },
+    {
+        "text": "ConverterText read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from SubConverter:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "stream",
+        "type": "Table"
+    },
+    {
+        "text": "ConverterText methods",
+        "type": "Title"
+    },
+    {
+        "text": "ConverterText.",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "obj",
+        "type": "Title"
+    },
+    {
+        "text": "fmt",
+        "type": "Title"
+    },
+    {
+        "text": "app",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "subformats",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Write the data, then show the generated data, using .launch() or printing\nto a console.\nSome simple formats that do not need launching, may skip .launch() and\nsimply return the output.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ConverterText.",
+        "type": "Title"
+    },
+    {
+        "text": "write",
+        "type": "Title"
+    },
+    {
+        "text": "obj",
+        "type": "Title"
+    },
+    {
+        "text": "fmt",
+        "type": "Title"
+    },
+    {
+        "text": "fp",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "subformats",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Calls .writeDataStream on the repr of obj, and returns the fp returned by it.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from SubConverter:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "checkShowAbility() getExtensionForSubformats() getTemporaryFile() launch() parseData() parseFile() toData() writeDataStream()",
+        "type": "Table"
+    },
+    {
+        "text": "ConverterTextLine\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.converter.subConverters.",
+        "type": "Title"
+    },
+    {
+        "text": "ConverterTextLine",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "a text line compacts the complete recursive representation into a\nsingle line of text; most for debugging. returned, not printed\n>>> s = corpus.parse('bwv66.6')\n>>> s.measures(1, 4).show('textline')\n\"{0.0} <music21.stream.Part Soprano> / {0.0} <music21.instrument.Instrument '... 1'>...\"",
+        "type": "ListItem"
+    },
+    {
+        "text": "ConverterTextLine bases",
+        "type": "Title"
+    },
+    {
+        "text": "SubConverter",
+        "type": "ListItem"
+    },
+    {
+        "text": "ConverterTextLine read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from SubConverter:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "stream",
+        "type": "Table"
+    },
+    {
+        "text": "ConverterTextLine methods",
+        "type": "Title"
+    },
+    {
+        "text": "ConverterTextLine.",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "obj",
+        "type": "Title"
+    },
+    {
+        "text": "fmt",
+        "type": "Title"
+    },
+    {
+        "text": "app",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "subformats",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Write the data, then show the generated data, using .launch() or printing\nto a console.\nSome simple formats that do not need launching, may skip .launch() and\nsimply return the output.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ConverterTextLine.",
+        "type": "Title"
+    },
+    {
+        "text": "write",
+        "type": "Title"
+    },
+    {
+        "text": "obj",
+        "type": "Title"
+    },
+    {
+        "text": "fmt",
+        "type": "Title"
+    },
+    {
+        "text": "fp",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "subformats",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Calls .writeDataStream on the repr of obj, and returns the fp returned by it.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from SubConverter:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "checkShowAbility() getExtensionForSubformats() getTemporaryFile() launch() parseData() parseFile() toData() writeDataStream()",
+        "type": "Table"
+    },
+    {
+        "text": "ConverterTinyNotation\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.converter.subConverters.",
+        "type": "Title"
+    },
+    {
+        "text": "ConverterTinyNotation",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Simple class wrapper for parsing TinyNotation data provided in a file or\nin a string.\nInput only for now.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ConverterTinyNotation bases",
+        "type": "Title"
+    },
+    {
+        "text": "SubConverter",
+        "type": "ListItem"
+    },
+    {
+        "text": "ConverterTinyNotation read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from SubConverter:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "stream",
+        "type": "Table"
+    },
+    {
+        "text": "ConverterTinyNotation methods",
+        "type": "Title"
+    },
+    {
+        "text": "ConverterTinyNotation.",
+        "type": "Title"
+    },
+    {
+        "text": "parseData",
+        "type": "Title"
+    },
+    {
+        "text": "tnData",
+        "type": "Title"
+    },
+    {
+        "text": "number",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Open TinyNotation data from a string\n>>> tnData = \"3/4 E4 r f# g=lastG trip{b-8 a g} c\"\n>>> c = converter.subConverters.ConverterTinyNotation()\n>>> s = c.parseData(tnData)\n>>> c.stream.show('text')\n{0.0} <music21.stream.Measure 1 offset=0.0>\n    {0.0} <music21.clef.TrebleClef>\n    {0.0} <music21.meter.TimeSignature 3/4>\n    {0.0} <music21.note.Note E>\n    {1.0} <music21.note.Rest quarter>\n    {2.0} <music21.note.Note F#>\n{3.0} <music21.stream.Measure 2 offset=3.0>\n    {0.0} <music21.note.Note G>\n    {1.0} <music21.note.Note B->\n    {1.3333} <music21.note.Note A>\n    {1.6667} <music21.note.Note G>\n    {2.0} <music21.note.Note C>\n    {2.5} <music21.bar.Barline type=final>",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from SubConverter:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "checkShowAbility() getExtensionForSubformats() getTemporaryFile() launch() parseFile() show() toData() write() writeDataStream()",
+        "type": "Table"
+    },
+    {
+        "text": "ConverterVexflow\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.converter.subConverters.",
+        "type": "Title"
+    },
+    {
+        "text": "ConverterVexflow",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "ConverterVexflow bases",
+        "type": "Title"
+    },
+    {
+        "text": "SubConverter",
+        "type": "ListItem"
+    },
+    {
+        "text": "ConverterVexflow read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from SubConverter:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "stream",
+        "type": "Table"
+    },
+    {
+        "text": "ConverterVexflow methods",
+        "type": "Title"
+    },
+    {
+        "text": "ConverterVexflow.",
+        "type": "Title"
+    },
+    {
+        "text": "write",
+        "type": "Title"
+    },
+    {
+        "text": "obj",
+        "type": "Title"
+    },
+    {
+        "text": "fmt",
+        "type": "Title"
+    },
+    {
+        "text": "fp",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "subformats",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "local",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Calls .writeDataStream on the repr of obj, and returns the fp returned by it.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from SubConverter:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "checkShowAbility() getExtensionForSubformats() getTemporaryFile() launch() parseData() parseFile() show() toData() writeDataStream()",
+        "type": "Table"
+    },
+    {
+        "text": "ConverterVolpiano\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.converter.subConverters.",
+        "type": "Title"
+    },
+    {
+        "text": "ConverterVolpiano",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Reads or writes volpiano (Chant encoding).\nNormally, just use \u0098converter' and .show()/.write()\n>>> p = converter.parse('volpiano: 1---c-d-ef----4')\n>>> p.show('text')\n{0.0} <music21.stream.Measure 0 offset=0.0>\n    {0.0} <music21.clef.TrebleClef>\n    {0.0} <music21.note.Note C>\n    {1.0} <music21.note.Note D>\n    {2.0} <music21.note.Note E>\n    {3.0} <music21.note.Note F>\n    {4.0} <music21.volpiano.Neume <music21.note.Note E><music21.note.Note F>>\n    {4.0} <music21.bar.Barline type=double>\n>>> p.show('volpiano')\n1---c-d-ef----4",
+        "type": "ListItem"
+    },
+    {
+        "text": "ConverterVolpiano bases",
+        "type": "Title"
+    },
+    {
+        "text": "SubConverter",
+        "type": "ListItem"
+    },
+    {
+        "text": "ConverterVolpiano read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from SubConverter:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "stream",
+        "type": "Table"
+    },
+    {
+        "text": "ConverterVolpiano methods",
+        "type": "Title"
+    },
+    {
+        "text": "ConverterVolpiano.",
+        "type": "Title"
+    },
+    {
+        "text": "getDataStr",
+        "type": "Title"
+    },
+    {
+        "text": "obj",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get the raw data, for storing as a variable.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ConverterVolpiano.",
+        "type": "Title"
+    },
+    {
+        "text": "parseData",
+        "type": "Title"
+    },
+    {
+        "text": "dataString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "number",
+        "type": "Title"
+    },
+    {
+        "text": "int | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "breaksToLayout",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Called when a string (or binary) data is encountered.\nThis method MUST be implemented to do anything in parsing.\nReturn self.stream in the end",
+        "type": "ListItem"
+    },
+    {
+        "text": "ConverterVolpiano.",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "obj",
+        "type": "Title"
+    },
+    {
+        "text": "fmt",
+        "type": "Title"
+    },
+    {
+        "text": "app",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "subformats",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Write the data, then show the generated data, using .launch() or printing\nto a console.\nSome simple formats that do not need launching, may skip .launch() and\nsimply return the output.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ConverterVolpiano.",
+        "type": "Title"
+    },
+    {
+        "text": "write",
+        "type": "Title"
+    },
+    {
+        "text": "obj",
+        "type": "Title"
+    },
+    {
+        "text": "fmt",
+        "type": "Title"
+    },
+    {
+        "text": "fp",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "subformats",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Calls .writeDataStream on the repr of obj, and returns the fp returned by it.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from SubConverter:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "checkShowAbility() getExtensionForSubformats() getTemporaryFile() launch() parseFile() toData() writeDataStream()",
+        "type": "Table"
+    },
+    {
+        "text": "SubConverter\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.converter.subConverters.",
+        "type": "Title"
+    },
+    {
+        "text": "SubConverter",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Class wrapper for parsing data or outputting data.\nAll other Converter types should inherit from this and\nhave ways of dealing with various data formats.\nAttributes that should be set:\nreadBinary = True or False (default False)\nregisterFormats = tuple of formats that can be handled; eg: ('musicxml',)\nregisterShowFormats = tuple of format calls that can be handled in .show() and .write()\nregisterInputExtensions = tuple of input extensions that should be handled in converter\nregisterOutputExtensions = tuple of output extensions that can be written. Order matters:\n    the first will be used in calls to .write()\ncanBePickled = True or False (default True; does not do anything yet)\ncodecWrite = True or False (default False) if encodings need to be used to write\nstringEncoding = string (default 'utf-8'). If codecWrite is True, this specifies what\n    encoding to use",
+        "type": "ListItem"
+    },
+    {
+        "text": "SubConverter read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "SubConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns or sets the stream in the converter.  Must be defined for subConverter to work.",
+        "type": "ListItem"
+    },
+    {
+        "text": "SubConverter methods",
+        "type": "Title"
+    },
+    {
+        "text": "SubConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "checkShowAbility",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "return bool on whether the system is\nequipped to show in this format.\nDefault True. Might be False if, say\na Lilypond converter is used and Lilypond\nis not installed.",
+        "type": "ListItem"
+    },
+    {
+        "text": "SubConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "getExtensionForSubformats",
+        "type": "Title"
+    },
+    {
+        "text": "subformats",
+        "type": "Title"
+    },
+    {
+        "text": "Iterable[str]",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u2192 str",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a default format or subformats, give the file extension it should have:\n>>> c = converter.subConverters.ConverterMidi()\n>>> c.getExtensionForSubformats()\n'.mid'",
+        "type": "ListItem"
+    },
+    {
+        "text": "SubConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "getTemporaryFile",
+        "type": "Title"
+    },
+    {
+        "text": "subformats",
+        "type": "Title"
+    },
+    {
+        "text": "Iterable[str]",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u2192 pathlib.Path",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a temporary file with an extension appropriate for the format.\n>>> c = corpus.parse('bwv66.6')\n>>> lpConverter = converter.subConverters.ConverterLilypond()\n>>> tf = str(lpConverter.getTemporaryFile(subformats=['png']))\n>>> tf.endswith('.png')\nTrue\n\n\n\nChanged in v6: returns pathlib.Path",
+        "type": "ListItem"
+    },
+    {
+        "text": "SubConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "launch",
+        "type": "Title"
+    },
+    {
+        "text": "filePath",
+        "type": "Title"
+    },
+    {
+        "text": "Path",
+        "type": "Title"
+    },
+    {
+        "text": "fmt",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "options",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "''",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "app",
+        "type": "Title"
+    },
+    {
+        "text": "str | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "launchKey",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Opens the appropriate viewer for the file generated by .write()\napp is the path to an application to launch.  Specify it and/or a launchKey.\nlaunchKey is the specific key in .music21rc (such as graphicsPath), etc.\nto search for the application.  If it's not specified then there might be\na default one for the converter in self.launchKey.  If it can't find it\nthere then environLocal.formatToApp(fmt) will be used.\nNot needed for formats for which .show() just prints to the console.",
+        "type": "ListItem"
+    },
+    {
+        "text": "SubConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "parseData",
+        "type": "Title"
+    },
+    {
+        "text": "dataString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "number",
+        "type": "Title"
+    },
+    {
+        "text": "int | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Called when a string (or binary) data is encountered.\nThis method MUST be implemented to do anything in parsing.\nReturn self.stream in the end",
+        "type": "ListItem"
+    },
+    {
+        "text": "SubConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "parseFile",
+        "type": "Title"
+    },
+    {
+        "text": "filePath",
+        "type": "Title"
+    },
+    {
+        "text": "str | Path",
+        "type": "Title"
+    },
+    {
+        "text": "number",
+        "type": "Title"
+    },
+    {
+        "text": "int | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Called when a file is encountered. If all that needs to be done is\nloading the file and putting the data into parseData then there is no need\nto implement this method.  Just set self.readBinary to True | False.",
+        "type": "ListItem"
+    },
+    {
+        "text": "SubConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "obj",
+        "type": "Title"
+    },
+    {
+        "text": "fmt",
+        "type": "Title"
+    },
+    {
+        "text": "str | None",
+        "type": "Title"
+    },
+    {
+        "text": "app",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "subformats",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Write the data, then show the generated data, using .launch() or printing\nto a console.\nSome simple formats that do not need launching, may skip .launch() and\nsimply return the output.",
+        "type": "ListItem"
+    },
+    {
+        "text": "SubConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "toData",
+        "type": "Title"
+    },
+    {
+        "text": "obj",
+        "type": "Title"
+    },
+    {
+        "text": "fmt",
+        "type": "Title"
+    },
+    {
+        "text": "str | None",
+        "type": "Title"
+    },
+    {
+        "text": "subformats",
+        "type": "Title"
+    },
+    {
+        "text": "Iterable[str]",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 str | bytes",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Write the object out in the given format and then read it back in\nand return the object (str or bytes) returned.",
+        "type": "ListItem"
+    },
+    {
+        "text": "SubConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "write",
+        "type": "Title"
+    },
+    {
+        "text": "obj",
+        "type": "Title"
+    },
+    {
+        "text": "music21.base.Music21Object",
+        "type": "Title"
+    },
+    {
+        "text": "fmt",
+        "type": "Title"
+    },
+    {
+        "text": "str | None",
+        "type": "Title"
+    },
+    {
+        "text": "fp",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "pathlib.Path",
+        "type": "Title"
+    },
+    {
+        "text": "IOBase",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "subformats",
+        "type": "Title"
+    },
+    {
+        "text": "Iterable[str]",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Calls .writeDataStream on the repr of obj, and returns the fp returned by it.",
+        "type": "ListItem"
+    },
+    {
+        "text": "SubConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "writeDataStream",
+        "type": "Title"
+    },
+    {
+        "text": "fp",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "Path",
+        "type": "Title"
+    },
+    {
+        "text": "IOBase",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "dataStr",
+        "type": "Title"
+    },
+    {
+        "text": "str | bytes",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 Path",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Writes the data stream to fp or to a temporary file and returns the\nPath object of the filename written.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.converter.subConverters",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

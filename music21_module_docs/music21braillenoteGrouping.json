@@ -1,0 +1,466 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.braille.noteGrouping",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.braille.examples",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.braille.objects",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.braille.noteGrouping\nNoteGroupingTranscriber\nNoteGroupingTranscriber\nNoteGroupingTranscriber.showClefSigns\nNoteGroupingTranscriber.upperFirstInFingering\nNoteGroupingTranscriber.optionallyAddDotToPrevious()\nNoteGroupingTranscriber.reset()\nNoteGroupingTranscriber.transcribeGroup()\nNoteGroupingTranscriber.transcribeOneElement()\nNoteGroupingTranscriber.translateBarline()\nNoteGroupingTranscriber.translateChord()\nNoteGroupingTranscriber.translateClef()\nNoteGroupingTranscriber.translateDynamic()\nNoteGroupingTranscriber.translateNote()\nNoteGroupingTranscriber.translateRest()\nNoteGroupingTranscriber.translateTextExpression()\n\n\n\n\nFunctions\ntranscribeNoteGrouping()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.braille.noteGrouping\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "NoteGroupingTranscriber\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.braille.noteGrouping.",
+        "type": "Title"
+    },
+    {
+        "text": "NoteGroupingTranscriber",
+        "type": "Title"
+    },
+    {
+        "text": "brailleElementGrouping",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Object that can transcribe note groupings\u2026",
+        "type": "ListItem"
+    },
+    {
+        "text": "NoteGroupingTranscriber read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "NoteGroupingTranscriber.",
+        "type": "Title"
+    },
+    {
+        "text": "showClefSigns",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Generally, in Braille, clef signs are not used.  However, they\ncan be shown for pedagogical purposes or to make a facsimile\ntranscription of the sighted text.\nIf not set but self.brailleElementGrouping.showClefSigns\nis set, uses that instead.\n>>> ngt = braille.noteGrouping.NoteGroupingTranscriber()\n>>> ngt.showClefSigns\nFalse\n>>> beg = braille.segment.BrailleElementGrouping()\n>>> ngt.brailleElementGrouping = beg\n>>> ngt.showClefSigns\nFalse\n>>> beg.showClefSigns = True\n>>> ngt.showClefSigns\nTrue\n>>> ngt.showClefSigns = False\n>>> ngt.showClefSigns\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "NoteGroupingTranscriber.",
+        "type": "Title"
+    },
+    {
+        "text": "upperFirstInFingering",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "When there are multiple fingering patterns listed at the same time,\nshould the highest be listed first (default True) or last?\nIf not set but self.brailleElementGrouping.upperFirstInNoteFingering\nis set, uses that instead. (note the slight difference in names\u2026 NoteFingering)\n>>> ngt = braille.noteGrouping.NoteGroupingTranscriber()\n>>> ngt.upperFirstInFingering\nTrue\n>>> beg = braille.segment.BrailleElementGrouping()\n>>> ngt.brailleElementGrouping = beg\n>>> ngt.upperFirstInFingering\nTrue\n>>> beg.upperFirstInNoteFingering = False\n>>> ngt.upperFirstInFingering\nFalse\n>>> ngt.upperFirstInFingering = True\n>>> ngt.upperFirstInFingering\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "NoteGroupingTranscriber methods",
+        "type": "Title"
+    },
+    {
+        "text": "NoteGroupingTranscriber.",
+        "type": "Title"
+    },
+    {
+        "text": "optionallyAddDotToPrevious",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "if el is None or not a Dynamic or TextExpression, add a dot-3 Dot\nbefore the current transcription\nunder certain circumstances:\n\nself.previousElement exists\nthe last character in the current transcription (self.trans) fits the criteria for\nbasic.yieldDots()\n\none of these three.  PreviousElement was\u2026:\na Dynamic.\na Clef and clef signs are being transcribed\na TextExpression not ending in \u009c.\u009d\n\n\n\n\n\nReturns True if a dot as added, or False otherwise.",
+        "type": "ListItem"
+    },
+    {
+        "text": "NoteGroupingTranscriber.",
+        "type": "Title"
+    },
+    {
+        "text": "reset",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "NoteGroupingTranscriber.",
+        "type": "Title"
+    },
+    {
+        "text": "transcribeGroup",
+        "type": "Title"
+    },
+    {
+        "text": "brailleElementGrouping",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "transcribe a group of notes, possibly excluding certain attributes.\nReturns a (unicode) string of brailleElementGrouping transcribed.",
+        "type": "ListItem"
+    },
+    {
+        "text": "NoteGroupingTranscriber.",
+        "type": "Title"
+    },
+    {
+        "text": "transcribeOneElement",
+        "type": "Title"
+    },
+    {
+        "text": "el",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Transcribe a single element and add it to self.trans, setting self.previousElement\nalong the way.\n>>> ngt = braille.noteGrouping.NoteGroupingTranscriber()\n>>> n = note.Note('C4')\n>>> ngt.transcribeOneElement(n)\n>>> ''.join(ngt.trans)\n'\u00e2\u00a0\u0090\u00e2\u00a0\u00b9'\n>>> ngt.previousElement\n<music21.note.Note C>",
+        "type": "ListItem"
+    },
+    {
+        "text": "NoteGroupingTranscriber.",
+        "type": "Title"
+    },
+    {
+        "text": "translateBarline",
+        "type": "Title"
+    },
+    {
+        "text": "currentBarline",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "NoteGroupingTranscriber.",
+        "type": "Title"
+    },
+    {
+        "text": "translateChord",
+        "type": "Title"
+    },
+    {
+        "text": "currentChord",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "NoteGroupingTranscriber.",
+        "type": "Title"
+    },
+    {
+        "text": "translateClef",
+        "type": "Title"
+    },
+    {
+        "text": "currentClef",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "translate Clefs to braille IF self.showClefSigns is True",
+        "type": "ListItem"
+    },
+    {
+        "text": "NoteGroupingTranscriber.",
+        "type": "Title"
+    },
+    {
+        "text": "translateDynamic",
+        "type": "Title"
+    },
+    {
+        "text": "currentDynamic",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "NoteGroupingTranscriber.",
+        "type": "Title"
+    },
+    {
+        "text": "translateNote",
+        "type": "Title"
+    },
+    {
+        "text": "currentNote",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "NoteGroupingTranscriber.",
+        "type": "Title"
+    },
+    {
+        "text": "translateRest",
+        "type": "Title"
+    },
+    {
+        "text": "currentRest",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "NoteGroupingTranscriber.",
+        "type": "Title"
+    },
+    {
+        "text": "translateTextExpression",
+        "type": "Title"
+    },
+    {
+        "text": "currentExpression",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.braille.noteGrouping.",
+        "type": "Title"
+    },
+    {
+        "text": "transcribeNoteGrouping",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "brailleElementGrouping",
+        "type": "Title"
+    },
+    {
+        "text": "showLeadingOctave",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "transcribe a group of notes, possibly excluding certain attributes.\nTo be DEPRECATED \u2014 called only by BrailleGrandSegment now.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.braille.noteGrouping",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

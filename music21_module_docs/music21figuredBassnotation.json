@@ -1,0 +1,626 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.figuredBass.notation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.figuredBass.examples",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.figuredBass.possibility",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.figuredBass.notation\nNotation\nNotation\nNotation.figureStrings\nNotation.figures\nNotation.modifierStrings\nNotation.modifiers\nNotation.notationColumn\nNotation.numbers\nNotation.origModStrings\nNotation.origNumbers\n\n\n\n\nFigure\nFigure\nFigure.modifier\nFigure.modifierString\nFigure.number\n\n\n\n\nModifier\nModifier\nModifier.modifyPitch()\nModifier.modifyPitchName()\nModifier.accidental\nModifier.modifierString\n\n\n\n\nFunctions\nconvertToPitch()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.figuredBass.notation\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Notation\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.figuredBass.notation.",
+        "type": "Title"
+    },
+    {
+        "text": "Notation",
+        "type": "Title"
+    },
+    {
+        "text": "notationColumn",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Breaks apart and stores the information in a figured bass notation\ncolumn, which is a string of figures, each associated with a number\nand an optional modifier. The figures are delimited using commas.\nExamples include \u00987,5,#3', \u00986,4', and \u00986,4+,2'.\nValid modifiers include those accepted by Accidental,\nsuch as #, -, and n, as well as those which can correspond to one, such as +,\n/, and b.\n\nNote\nIf a figure has a modifier but no number, the number is\nassumed to be 3.\n\nNotation also translates many forms of shorthand notation into longhand. It understands\nall the forms of shorthand notation listed below. This is true even if a number is accompanied\nby a modifier, or if a stand-alone modifier implies a 3.\n\nNone, \u0098' or \u00985' -> \u00985,3'\n\u00986' -> \u00986,3'\n\u00987' -> \u00987,5,3'\n\u00986,5' -> \u00986,5,3'\n\u00984,3' -> \u00986,4,3'\n\u00984,2' or \u00982' -> \u00986,4,2'\n\u00989' -> \u00989,7,5,3'\n\u009811' -> \u009811,9,7,5,3'\n\u009813' -> \u009813,11,9,7,5,3'\n\nFigures are saved in order from left to right as found in the notationColumn.\n>>> from music21.figuredBass import notation\n>>> n1 = notation.Notation('4+,2')\n>>> n1\n<music21.figuredBass.notation.Notation 4+,2>\n\n\n>>> n1.notationColumn\n'4+,2'\n>>> n1.figureStrings\n['4+', '2']\n>>> n1.origNumbers\n(4, 2)\n>>> n1.origModStrings\n('+', None)\n>>> n1.numbers\n(6, 4, 2)\n>>> n1.modifierStrings\n(None, '+', None)\n>>> n1.modifiers\n(<music21.figuredBass.notation.Modifier None None>,\n <music21.figuredBass.notation.Modifier + sharp>,\n <music21.figuredBass.notation.Modifier None None>)\n>>> n1.figures[0]\n<music21.figuredBass.notation.Figure 6 <Modifier None None>>\n>>> n1.figures[1]\n<music21.figuredBass.notation.Figure 4 <Modifier + sharp>>\n>>> n1.figures[2]\n<music21.figuredBass.notation.Figure 2 <Modifier None None>>\n\n\nHere, a stand-alone \u0098#' is being passed to Notation.\n>>> n2 = notation.Notation('#')\n>>> n2.numbers\n(5, 3)\n>>> n2.modifiers\n(<music21.figuredBass.notation.Modifier None None>,\n <music21.figuredBass.notation.Modifier # sharp>)\n>>> n2.figures[0]\n<music21.figuredBass.notation.Figure 5 <Modifier None None>>\n>>> n2.figures[1]\n<music21.figuredBass.notation.Figure 3 <Modifier # sharp>>\n\n\nNow, a stand-alone b is being passed to Notation as part of a larger notationColumn.\n>>> n3 = notation.Notation('b6,b')\n>>> n3.numbers\n(6, 3)\n>>> n3.modifiers\n(<music21.figuredBass.notation.Modifier b flat>,\n <music21.figuredBass.notation.Modifier b flat>)\n>>> n3.figures[0]\n<music21.figuredBass.notation.Figure 6 <Modifier b flat>>\n>>> n3.figures[1]\n<music21.figuredBass.notation.Figure 3 <Modifier b flat>>",
+        "type": "ListItem"
+    },
+    {
+        "text": "Notation bases",
+        "type": "Title"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "Notation read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "Notation methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Notation instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Notation.",
+        "type": "Title"
+    },
+    {
+        "text": "figureStrings",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A list of figures derived from the original\nnotationColumn.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Notation.",
+        "type": "Title"
+    },
+    {
+        "text": "figures",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A list of Figure objects\nassociated with figures in the expanded\nnotationColumn.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Notation.",
+        "type": "Title"
+    },
+    {
+        "text": "modifierStrings",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The modifiers associated with the expanded\nnotationColumn, as strings.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Notation.",
+        "type": "Title"
+    },
+    {
+        "text": "modifiers",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A list of Modifier\nobjects associated with the expanded\nnotationColumn.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Notation.",
+        "type": "Title"
+    },
+    {
+        "text": "notationColumn",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A string of figures delimited by commas,\neach associated with a number and an optional modifier.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Notation.",
+        "type": "Title"
+    },
+    {
+        "text": "numbers",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The numbers associated with the expanded\nnotationColumn.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Notation.",
+        "type": "Title"
+    },
+    {
+        "text": "origModStrings",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The modifiers associated with the original\nnotationColumn, as strings.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Notation.",
+        "type": "Title"
+    },
+    {
+        "text": "origNumbers",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The numbers associated with the original\nnotationColumn.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Figure\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.figuredBass.notation.",
+        "type": "Title"
+    },
+    {
+        "text": "Figure",
+        "type": "Title"
+    },
+    {
+        "text": "number",
+        "type": "Title"
+    },
+    {
+        "text": "modifierString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A Figure is created by providing a number and a modifierString. The\nmodifierString is turned into a Modifier,\nand a ModifierException is raised if the modifierString is not valid.\n>>> from music21.figuredBass import notation\n>>> f1 = notation.Figure(4, '+')\n>>> f1\n<music21.figuredBass.notation.Figure 4 <Modifier + sharp>>\n\n\n>>> f1.number\n4\n>>> f1.modifierString\n'+'\n>>> f1.modifier\n<music21.figuredBass.notation.Modifier + sharp>",
+        "type": "ListItem"
+    },
+    {
+        "text": "Figure bases",
+        "type": "Title"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "Figure read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "Figure methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Figure instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Figure.",
+        "type": "Title"
+    },
+    {
+        "text": "modifier",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A Modifier\nassociated with an expanded\nnotationColumn.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Figure.",
+        "type": "Title"
+    },
+    {
+        "text": "modifierString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A modifier string associated with an\nexpanded notationColumn.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Figure.",
+        "type": "Title"
+    },
+    {
+        "text": "number",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A number associated with an expanded\nnotationColumn.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Modifier\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.figuredBass.notation.",
+        "type": "Title"
+    },
+    {
+        "text": "Modifier",
+        "type": "Title"
+    },
+    {
+        "text": "modifierString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Turns a modifierString (a modifier in a\nnotationColumn)\nto an Accidental. A ModifierException\nis raised if the modifierString is not valid.\nAccepted inputs are those accepted by Accidental, as well as the following:\n\n\u0098+' or \u0098' -> \u0098#'\n\u0098b' or \u0098/' -> \u0098-'\n\n>>> from music21.figuredBass import notation\n>>> m1a = notation.Modifier('#')\n>>> m1a\n<music21.figuredBass.notation.Modifier # sharp>\n>>> m1a.modifierString\n'#'\n>>> m1a.accidental\n<music21.pitch.Accidental sharp>\n\n\nProviding a + in place of a sharp, we get the same result for the accidental.\n>>> m2a = notation.Modifier('+')\n>>> m2a\n<music21.figuredBass.notation.Modifier + sharp>\n>>> m2a.accidental\n<music21.pitch.Accidental sharp>\n\n\nIf None or \u0098' is provided for modifierString, then the accidental is None.\n>>> m3a = notation.Modifier(None)\n>>> m3a\n<music21.figuredBass.notation.Modifier None None>\n>>> m3a.accidental is None\nTrue\n>>> m3b = notation.Modifier('')\n>>> m3b\n<music21.figuredBass.notation.Modifier  None>\n>>> m3b.accidental is None\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "Modifier bases",
+        "type": "Title"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "Modifier read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "Modifier methods",
+        "type": "Title"
+    },
+    {
+        "text": "Modifier.",
+        "type": "Title"
+    },
+    {
+        "text": "modifyPitch",
+        "type": "Title"
+    },
+    {
+        "text": "pitchToAlter",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a Pitch, modify its accidental\ngiven the Modifier's accidental.\n>>> from music21.figuredBass import notation\n>>> m1 = notation.Modifier('#')\n>>> m2 = notation.Modifier('-')\n>>> m3 = notation.Modifier('n')\n>>> p1a = pitch.Pitch('D5')\n>>> m1.modifyPitch(p1a)  # Sharp\n<music21.pitch.Pitch D#5>\n>>> m2.modifyPitch(p1a)  # Flat\n<music21.pitch.Pitch D-5>\n>>> p1b = pitch.Pitch('D#5')\n>>> m3.modifyPitch(p1b)\n<music21.pitch.Pitch D5>",
+        "type": "ListItem"
+    },
+    {
+        "text": "Modifier.",
+        "type": "Title"
+    },
+    {
+        "text": "modifyPitchName",
+        "type": "Title"
+    },
+    {
+        "text": "pitchNameToAlter",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a pitch name, modify its accidental given the Modifier's\naccidental.\n>>> from music21.figuredBass import notation\n>>> m1 = notation.Modifier('#')\n>>> m2 = notation.Modifier('-')\n>>> m3 = notation.Modifier('n')\n>>> m1.modifyPitchName('D')  # Sharp\n'D#'\n>>> m2.modifyPitchName('F')  # Flat\n'F-'\n>>> m3.modifyPitchName('C#')  # Natural\n'C'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Modifier instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Modifier.",
+        "type": "Title"
+    },
+    {
+        "text": "accidental",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A Accidental corresponding to\nmodifierString.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Modifier.",
+        "type": "Title"
+    },
+    {
+        "text": "modifierString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A modifier string associated with an\nexpanded notationColumn.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.figuredBass.notation.",
+        "type": "Title"
+    },
+    {
+        "text": "convertToPitch",
+        "type": "Title"
+    },
+    {
+        "text": "pitchString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Converts a pitchString to a Pitch, only if necessary.\n>>> from music21.figuredBass import notation\n>>> pitchStr = 'C5'\n>>> notation.convertToPitch(pitchStr)\n<music21.pitch.Pitch C5>\n>>> notation.convertToPitch(pitch.Pitch('E4'))  # does nothing\n<music21.pitch.Pitch E4>",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.figuredBass.notation",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

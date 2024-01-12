@@ -1,0 +1,1386 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.lily.translate",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.lily.lilyObjects",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.mei.base",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.lily.translate\nLilypondConverter\nLilypondConverter\nLilypondConverter.appendBeamCode()\nLilypondConverter.appendContextFromChord()\nLilypondConverter.appendContextFromNoteOrRest()\nLilypondConverter.appendContextFromVariant()\nLilypondConverter.appendM21ObjectToContext()\nLilypondConverter.appendObjectsToContextFromStream()\nLilypondConverter.appendStemCode()\nLilypondConverter.baseNameFromPitch()\nLilypondConverter.closeMeasure()\nLilypondConverter.createPDF()\nLilypondConverter.createPNG()\nLilypondConverter.createSVG()\nLilypondConverter.findLilyExec()\nLilypondConverter.getLySpacersFromStream()\nLilypondConverter.getSchemeForPadding()\nLilypondConverter.loadFromMusic21Object()\nLilypondConverter.loadObjectFromOpus()\nLilypondConverter.loadObjectFromScore()\nLilypondConverter.lyEmbeddedScmFromClef()\nLilypondConverter.lyEmbeddedScmFromKeySignature()\nLilypondConverter.lyEmbeddedScmFromTimeSignature()\nLilypondConverter.lyGroupedMusicListFromScoreWithParts()\nLilypondConverter.lyLyricElementFromM21Lyric()\nLilypondConverter.lyMultipliedDurationFromDuration()\nLilypondConverter.lyNewLyricsFromStream()\nLilypondConverter.lyOssiaMusicFromVariant()\nLilypondConverter.lyPartsAndOssiaInitFromScore()\nLilypondConverter.lyPitchFromPitch()\nLilypondConverter.lyPrefixCompositeMusicFromRelatedVariants()\nLilypondConverter.lyPrefixCompositeMusicFromStream()\nLilypondConverter.lyPrefixCompositeMusicFromVariant()\nLilypondConverter.lyScoreBlockFromScore()\nLilypondConverter.lySequentialMusicFromStream()\nLilypondConverter.lySimpleMusicFromChord()\nLilypondConverter.lySimpleMusicFromNoteOrRest()\nLilypondConverter.newContext()\nLilypondConverter.octaveCharactersFromPitch()\nLilypondConverter.postEventsFromObject()\nLilypondConverter.restoreContext()\nLilypondConverter.runThroughLily()\nLilypondConverter.setContextForTimeFraction()\nLilypondConverter.setContextForTupletStart()\nLilypondConverter.setContextForTupletStop()\nLilypondConverter.setHeaderFromMetadata()\nLilypondConverter.setupTools()\nLilypondConverter.showPDF()\nLilypondConverter.showPNG()\nLilypondConverter.showSVG()\nLilypondConverter.textFromMusic21Object()\nLilypondConverter.writeLyFile()\n\n\n\n\nFunctions\nmakeLettersOnlyId()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.lily.translate\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21 translates to Lilypond format and if Lilypond is installed on the\nlocal computer, can automatically generate .pdf, .png, and .svg versions\nof musical files using Lilypond.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "LilypondConverter\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.lily.translate.",
+        "type": "Title"
+    },
+    {
+        "text": "LilypondConverter",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "LilypondConverter methods",
+        "type": "Title"
+    },
+    {
+        "text": "LilypondConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "appendBeamCode",
+        "type": "Title"
+    },
+    {
+        "text": "noteOrChord",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Adds an LyEmbeddedScm object to the context's contents if the object's has a .beams\nattribute.\n>>> lpc = lily.translate.LilypondConverter()\n>>> lpMusicList = lily.lilyObjects.LyMusicList()\n>>> lpc.context = lpMusicList\n>>> lpc.context.contents\n[]\n>>> n1 = note.Note(quarterLength=0.25)\n>>> n2 = note.Note(quarterLength=0.25)\n>>> n1.beams.fill(2, 'start')\n>>> n2.beams.fill(2, 'stop')\n\n\n>>> lpc.appendBeamCode(n1)\n>>> print(lpc.context.contents)\n[<music21.lily.lilyObjects.LyEmbeddedScm \\set stemR...>]\n>>> print(lpc.context)\n\\set stemRightBeamCount = #2\n\n\n>>> lpc = lily.translate.LilypondConverter()\n>>> lpMusicList = lily.lilyObjects.LyMusicList()\n>>> lpc.context = lpMusicList\n>>> lpc.context.contents\n[]\n>>> lpc.appendBeamCode(n2)\n>>> print(lpc.context.contents)\n[<music21.lily.lilyObjects.LyEmbeddedScm \\set stemL...>]\n>>> print(lpc.context)\n\\set stemLeftBeamCount = #2",
+        "type": "ListItem"
+    },
+    {
+        "text": "LilypondConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "appendContextFromChord",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "appends lySimpleMusicFromChord to the\ncurrent context.\n>>> c = chord.Chord(['C4', 'E4', 'G4'])\n>>> lpc = lily.translate.LilypondConverter()\n>>> lpMusicList = lily.lilyObjects.LyMusicList()\n>>> lpc.context = lpMusicList\n>>> lpc.appendContextFromChord(c)\n>>> print(lpMusicList)\n< c' e' g'  > 4\n\n\n>>> c2 = chord.Chord(['D4', 'F#4', 'A4'])\n>>> c2.duration.quarterLength = 1/3\n>>> c2.duration.tuplets[0].type = 'start'\n>>> c3 = chord.Chord(['D4', 'F4', 'G4'])\n>>> c3.duration.quarterLength = 1/3\n>>> c4 = chord.Chord(['C4', 'E4', 'G4', 'C5'])\n>>> c4.duration.quarterLength = 1/3\n>>> c4.duration.tuplets[0].type = 'stop'\n\n\n>>> c5 = chord.Chord(['C4', 'F4', 'A-4'])\n\n\n>>> lpc.appendContextFromChord(c2)\n>>> lpc.appendContextFromChord(c3)\n>>> lpc.appendContextFromChord(c4)\n>>> lpc.appendContextFromChord(c5)\n\n\n>>> print(lpc.context)\n< c'  e'  g'  > 4\n\\times 2/3 { < d'  fis'  a'  > 8\n   < d'  f'  g'  > 8\n   < c'  e'  g'  c''  > 8\n    }\n\n< c'  f'  aes'  > 4",
+        "type": "ListItem"
+    },
+    {
+        "text": "LilypondConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "appendContextFromNoteOrRest",
+        "type": "Title"
+    },
+    {
+        "text": "noteOrRest",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "appends lySimpleMusicFromNoteOrRest to the\ncurrent context.\n>>> n = note.Note('C#4')\n>>> lpc = lily.translate.LilypondConverter()\n>>> lpMusicList = lily.lilyObjects.LyMusicList()\n>>> lpc.context = lpMusicList\n>>> lpc.appendContextFromNoteOrRest(n)\n>>> print(lpMusicList)\ncis' 4\n\n\n>>> n2 = note.Note('D#4')\n>>> n2.duration.quarterLength = 1/3\n>>> n2.duration.tuplets[0].type = 'start'\n>>> n3 = note.Note('E4')\n>>> n3.duration.quarterLength = 1/3\n>>> n4 = note.Note('F4')\n>>> n4.duration.quarterLength = 1/3\n>>> n4.duration.tuplets[0].type = 'stop'\n\n\n>>> n5 = note.Note('F#4')\n\n\n>>> lpc.appendContextFromNoteOrRest(n2)\n>>> lpc.appendContextFromNoteOrRest(n3)\n>>> lpc.appendContextFromNoteOrRest(n4)\n>>> lpc.appendContextFromNoteOrRest(n5)\n\n\n>>> print(lpc.context)\ncis' 4\n\\times 2/3 { dis' 8\n   e' 8\n   f' 8\n    }\n\nfis' 4",
+        "type": "ListItem"
+    },
+    {
+        "text": "LilypondConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "appendContextFromVariant",
+        "type": "Title"
+    },
+    {
+        "text": "variantObjectOrList",
+        "type": "Title"
+    },
+    {
+        "text": "activeSite",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "coloredVariants",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Create a new context from the variant object or a list of variants and append.",
+        "type": "ListItem"
+    },
+    {
+        "text": "LilypondConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "appendM21ObjectToContext",
+        "type": "Title"
+    },
+    {
+        "text": "thisObject",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "converts any type of object into a lilyObject of LyMusic (\nLySimpleMusic, LyEmbeddedScm etc.) type",
+        "type": "ListItem"
+    },
+    {
+        "text": "LilypondConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "appendObjectsToContextFromStream",
+        "type": "Title"
+    },
+    {
+        "text": "streamObject",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "takes a Stream and appends all the elements in it to the current\ncontext's .contents list, and deals with creating Voices in it. It also deals with\nvariants in it.\n(should eventually replace the main Score parts finding tools)\n>>> lpc = lily.translate.LilypondConverter()\n>>> lpMusicList = lily.lilyObjects.LyMusicList()\n>>> lpc.context = lpMusicList\n>>> lpc.context.contents\n[]\n>>> c = converter.parse('tinynotation: 3/4 b4 d- e#')\n>>> lpc.appendObjectsToContextFromStream(c)\n>>> print(lpc.context.contents)\n[<music21.lily.lilyObjects.LyEmbeddedScm...>,\n <music21.lily.lilyObjects.LySimpleMusic...>,\n <music21.lily.lilyObjects.LySimpleMusic...>,\n <music21.lily.lilyObjects.LySimpleMusic...]\n>>> print(lpc.context)\n\\clef \"treble\"\n\\time 3/4\nb' 4\ndes' 4\neis' 4\n\n\n>>> v1 = stream.Voice()\n>>> v1.append(note.Note('C5', quarterLength = 4.0))\n>>> v2 = stream.Voice()\n>>> v2.append(note.Note('C#5', quarterLength = 4.0))\n>>> m = stream.Measure()\n>>> m.insert(0, v1)\n>>> m.insert(0, v2)\n>>> lpMusicList = lily.lilyObjects.LyMusicList()\n>>> lpc.context = lpMusicList\n>>> lpc.appendObjectsToContextFromStream(m)\n>>> print(lpc.context)  # internal spaces removed...\n  << \\new Voice { c'' 1\n            \\bar \"|.\"  %{ end measure 1 %}\n          }\n   \\new Voice { cis'' 1\n          }\n    >>",
+        "type": "ListItem"
+    },
+    {
+        "text": "LilypondConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "appendStemCode",
+        "type": "Title"
+    },
+    {
+        "text": "noteOrChord",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Adds an LyEmbeddedScm object to the context's contents if the object's stem direction\nis set (currently, only \u009cup\u009d and \u009cdown\u009d are supported).\n>>> lpc = lily.translate.LilypondConverter()\n>>> lpMusicList = lily.lilyObjects.LyMusicList()\n>>> lpc.context = lpMusicList\n>>> lpc.context.contents\n[]\n>>> n = note.Note()\n>>> n.stemDirection = 'up'\n>>> lpc.appendStemCode(n)\n>>> print(lpc.context.contents)\n[<music21.lily.lilyObjects.LyEmbeddedScm \\once \\ove...>]\n>>> print(lpc.context.contents[0])\n\\once \\override Stem #'direction = #UP",
+        "type": "ListItem"
+    },
+    {
+        "text": "LilypondConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "baseNameFromPitch",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "returns a string of the base name (including accidental)\nfor a music21 pitch",
+        "type": "ListItem"
+    },
+    {
+        "text": "LilypondConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "closeMeasure",
+        "type": "Title"
+    },
+    {
+        "text": "barChecksOnly",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "return a LyObject or None for the end of the previous Measure\nuses self.currentMeasure\n>>> lpc = lily.translate.LilypondConverter()\n>>> m = stream.Measure()\n>>> m.number = 2\n>>> m.rightBarline = 'double'\n>>> lpc.currentMeasure = m\n>>> lyObj = lpc.closeMeasure()\n>>> lpc.currentMeasure is None\nTrue\n>>> print(lyObj)\n\\bar \"||\"  %{ end measure 2 %}",
+        "type": "ListItem"
+    },
+    {
+        "text": "LilypondConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "createPDF",
+        "type": "Title"
+    },
+    {
+        "text": "fileName",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "create a PDF file from self.topLevelObject and return the filepath of the file.\nmost users will just call stream.write(\u0098lily.pdf') on a stream.",
+        "type": "ListItem"
+    },
+    {
+        "text": "LilypondConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "createPNG",
+        "type": "Title"
+    },
+    {
+        "text": "fileName",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "create a PNG file from self.topLevelObject and return the filepath of the file.\nmost users will just call stream.write(\u0098lily.png') on a stream.\nif PIL is installed then a small white border is created around the score",
+        "type": "ListItem"
+    },
+    {
+        "text": "LilypondConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "createSVG",
+        "type": "Title"
+    },
+    {
+        "text": "fileName",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "create an SVG file from self.topLevelObject and return the filepath of the file.\nmost users will just call stream.Stream.write(\u0098lily.svg') on a stream.",
+        "type": "ListItem"
+    },
+    {
+        "text": "LilypondConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "findLilyExec",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "LilypondConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "getLySpacersFromStream",
+        "type": "Title"
+    },
+    {
+        "text": "streamIn",
+        "type": "Title"
+    },
+    {
+        "text": "measuresOnly",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Creates a series of Spacer objects for the measures in a Stream Part.\n>>> m1 = stream.Measure(converter.parse('tinynotation: 3/4 a2.'))\n>>> m2 = stream.Measure(converter.parse('tinynotation: 3/4 b2.'))\n>>> m3 = stream.Measure(converter.parse('tinynotation: 4/4 a1'))\n>>> m4 = stream.Measure(converter.parse('tinynotation: 4/4 b1'))\n>>> m5 = stream.Measure(converter.parse('tinynotation: 4/4 c1'))\n>>> m6 = stream.Measure(converter.parse('tinynotation: 5/4 a4 b1'))\n>>> streamIn = stream.Stream([m1, m2, m3, m4, m5, m6])\n>>> lpc = lily.translate.LilypondConverter()\n>>> print(lpc.getLySpacersFromStream(streamIn))\ns2. s2. s1 s1 s1 s1 s4\n\n\nTODO: Low-priority\u2026 rare, but possible: tuplet time signatures (3/10)\u2026",
+        "type": "ListItem"
+    },
+    {
+        "text": "LilypondConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "getSchemeForPadding",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "measureObject",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "lilypond partial durations are very strange and are really of\ntype LyMultipliedDuration.  You notate how many\nnotes are left in the measure, for a quarter note, write \u009c4\u009d\nfor an eighth, write \u009c8\u009d, but for 3 eighths, write \u009c8*3\u009d !\nso we will measure in 32nd notes always\u2026 won't work for tuplets\nof course.\nreturns a scheme object or None if not needed\n>>> m = stream.Measure()\n>>> m.append(meter.TimeSignature('3/4'))\n>>> m.paddingLeft = 2.0\n>>> lpc = lily.translate.LilypondConverter()\n>>> outScheme = lpc.getSchemeForPadding(m)\n>>> print(outScheme)\n\\partial 32*8",
+        "type": "ListItem"
+    },
+    {
+        "text": "LilypondConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "loadFromMusic21Object",
+        "type": "Title"
+    },
+    {
+        "text": "m21ObjectIn",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Create a Lilypond object hierarchy in self.topLevelObject from an\narbitrary music21 object.\nTODO: make lilypond automatically run makeNotation.makeTupletBrackets(s)\nTODO: Add tests\u2026",
+        "type": "ListItem"
+    },
+    {
+        "text": "LilypondConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "loadObjectFromOpus",
+        "type": "Title"
+    },
+    {
+        "text": "opusIn",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "makeNotation",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "creates a filled topLevelObject (lily.lilyObjects.LyLilypondTop)\nwhose string representation accurately reflects all the Score objects\nin this Opus object.\n>>> fifeOpus = corpus.parse('miscFolk/americanfifeopus.abc')\n>>> lpc = lily.translate.LilypondConverter()\n>>> lpc.loadObjectFromOpus(fifeOpus, makeNotation=False)\n>>> lpc.showPDF()",
+        "type": "ListItem"
+    },
+    {
+        "text": "LilypondConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "loadObjectFromScore",
+        "type": "Title"
+    },
+    {
+        "text": "scoreIn",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "makeNotation",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "creates a filled topLevelObject (lily.lilyObjects.LyLilypondTop)\nwhose string representation accurately reflects this Score object.\n>>> lpc = lily.translate.LilypondConverter()\n>>> b = corpus.parse('bach/bwv66.6')\n>>> lpc.loadObjectFromScore(b)",
+        "type": "ListItem"
+    },
+    {
+        "text": "LilypondConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "lyEmbeddedScmFromClef",
+        "type": "Title"
+    },
+    {
+        "text": "clefObj",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "converts a Clef object to a\nlilyObjects.LyEmbeddedScm object\n>>> tc = clef.TrebleClef()\n>>> conv = lily.translate.LilypondConverter()\n>>> lpEmbeddedScm = conv.lyEmbeddedScmFromClef(tc)\n>>> print(lpEmbeddedScm)\n\\clef \"treble\"\n\n\n>>> t8c = clef.Treble8vbClef()\n>>> lpEmbeddedScm = conv.lyEmbeddedScmFromClef(t8c)\n>>> print(lpEmbeddedScm)\n\\clef \"treble_8\"",
+        "type": "ListItem"
+    },
+    {
+        "text": "LilypondConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "lyEmbeddedScmFromKeySignature",
+        "type": "Title"
+    },
+    {
+        "text": "keyObj",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "converts a Key or KeySignature object\nto a lilyObjects.LyEmbeddedScm object\n>>> d = key.Key('d')\n>>> conv = lily.translate.LilypondConverter()\n>>> lpEmbeddedScm = conv.lyEmbeddedScmFromKeySignature(d)\n>>> print(lpEmbeddedScm)\n\\key d \\minor\n\n\nMajor is assumed:\n>>> fSharp = key.KeySignature(6)\n>>> print(conv.lyEmbeddedScmFromKeySignature(fSharp))\n\\key fis \\major",
+        "type": "ListItem"
+    },
+    {
+        "text": "LilypondConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "lyEmbeddedScmFromTimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "ts",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "convert a TimeSignature object\nto a lilyObjects.LyEmbeddedScm object\n>>> ts = meter.TimeSignature('3/4')\n>>> conv = lily.translate.LilypondConverter()\n>>> print(conv.lyEmbeddedScmFromTimeSignature(ts))\n\\time 3/4",
+        "type": "ListItem"
+    },
+    {
+        "text": "LilypondConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "lyGroupedMusicListFromScoreWithParts",
+        "type": "Title"
+    },
+    {
+        "text": "scoreIn",
+        "type": "Title"
+    },
+    {
+        "text": "scoreInit",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "More complex example showing how the score can be set up with ossia parts\u2026\n>>> lpc = lily.translate.LilypondConverter()\n>>> b = corpus.parse('bach/bwv66.6')\n>>> lpPartsAndOssiaInit = lpc.lyPartsAndOssiaInitFromScore(b)\n>>> lpGroupedMusicList = lpc.lyGroupedMusicListFromScoreWithParts(b,\n...                scoreInit=lpPartsAndOssiaInit)\n>>> print(lpGroupedMusicList)\n\n << \\new Staff  = Soprano { \\stopStaff s4 s1 s1 s1 s1 s1 s1 s1 s1 s2. }\n   \\new Staff  = Alto { \\stopStaff s4 s1 s1 s1 s1 s1 s1 s1 s1 s2. }\n   \\new Staff  = Tenor { \\stopStaff s4 s1 s1 s1 s1 s1 s1 s1 s1 s2. }\n   \\new Staff  = Bass { \\stopStaff s4 s1 s1 s1 s1 s1 s1 s1 s1 s2. }\n\n  \\context Staff  = Soprano \\with {\n      \\autoBeamOff\n  }\n  { \\startStaff \\partial 32*8\n        \\clef \"treble\"\n        \\key fis \\minor\n        \\time 4/4\n        \\set stemRightBeamCount = #1\n        \\once \\override Stem #'direction = #DOWN\n        cis'' 8 [\n        \\set stemLeftBeamCount = #1\n        \\once \\override Stem #'direction = #DOWN\n        b... 8 ]\n        \\bar \"|\"  %{ end measure 0 %}\n        \\once \\override Stem #'direction = #UP\n        a' 4\n        \\once \\override Stem #'direction = #DOWN\n        b... 4\n        \\once \\override Stem #'direction = #DOWN\n        cis'' 4  \\fermata\n        \\once \\override Stem #'direction = #DOWN\n        e'' 4\n        \\bar \"|\"  %{ end measure 1 %}\n        \\once \\override Stem #'direction = #DOWN\n        cis'' 4\n        ...\n}\n\n\n\\context Staff  = Alto \\with  {\n    \\autoBeamOff\n }\n { \\startStaff \\partial 32*8\n    \\clef \"treble\"...\n    \\once \\override Stem #'direction = #UP\n    e' 4\n    \\bar \"|\"  %{ end measure 0 %}\n    \\once \\override Stem #'direction = #UP\n    fis' 4\n    \\once \\override Stem #'direction = #UP\n    e' 4\n...\n}\n\n\n>>",
+        "type": "ListItem"
+    },
+    {
+        "text": "LilypondConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "lyLyricElementFromM21Lyric",
+        "type": "Title"
+    },
+    {
+        "text": "m21Lyric",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns a LyLyricElement object\nfrom a Lyric object.\nUses self.inWord to keep track of whether we're in the middle of\na word.\n>>> s = converter.parse('tinyNotation: 4/4 c4_hel- d4_-lo r2 e2 f2_world')\n>>> s.makeMeasures(inPlace=True)\n>>> lyrics = s.lyrics()[1]  # get first verse (yes, 1 = first, not 0!)\n\n\n>>> lpc = lily.translate.LilypondConverter()\n>>> lpc.lyLyricElementFromM21Lyric(lyrics[0])\n<music21.lily.lilyObjects.LyLyricElement \"hel\" -->\n>>> lpc.inWord\nTrue\n>>> lpc.lyLyricElementFromM21Lyric(lyrics[1])\n<music21.lily.lilyObjects.LyLyricElement \"lo\"__>\n>>> lpc.lyLyricElementFromM21Lyric(lyrics[2])\n<music21.lily.lilyObjects.LyLyricElement _>\n>>> lpc.lyLyricElementFromM21Lyric(lyrics[3])\n<music21.lily.lilyObjects.LyLyricElement \"world\">\n>>> lpc.inWord\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "LilypondConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "lyMultipliedDurationFromDuration",
+        "type": "Title"
+    },
+    {
+        "text": "durationObj",
+        "type": "Title"
+    },
+    {
+        "text": "Duration | DurationTuple",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "take a simple Duration (that is, one with one DurationTuple)\nobject and return a LyMultipliedDuration object:\n>>> d = duration.Duration(3)\n>>> lpc = lily.translate.LilypondConverter()\n>>> lyMultipliedDuration = lpc.lyMultipliedDurationFromDuration(d)\n>>> str(lyMultipliedDuration)\n'2. '\n\n\n>>> str(lpc.lyMultipliedDurationFromDuration(duration.Duration(8.0)))\n'\\\\breve '\n>>> str(lpc.lyMultipliedDurationFromDuration(duration.Duration(16.0)))\n'\\\\longa '\n\n\nDoes not work with zero duration notes:\n>>> d = duration.Duration(0.0)\n>>> str(lpc.lyMultipliedDurationFromDuration(d))\nTraceback (most recent call last):\nmusic21.lily.translate.LilyTranslateException: Cannot translate an object of\n    zero duration <music21.duration.Duration 0.0>\n\n\nDoes not work with complex durations:\n>>> d = duration.Duration(5.0)\n>>> str(lpc.lyMultipliedDurationFromDuration(d))\nTraceback (most recent call last):\nmusic21.lily.translate.LilyTranslateException: DurationException for durationObject\n    <music21.duration.Duration 5.0>: Could not determine durationNumber from complex\n\n\nInstead, split by components:\n>>> components = d.components\n>>> [str(lpc.lyMultipliedDurationFromDuration(c)) for c in components]\n['1 ', '4 ']",
+        "type": "ListItem"
+    },
+    {
+        "text": "LilypondConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "lyNewLyricsFromStream",
+        "type": "Title"
+    },
+    {
+        "text": "streamIn",
+        "type": "Title"
+    },
+    {
+        "text": "streamId",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "alignment",
+        "type": "Title"
+    },
+    {
+        "text": "'alignBelowContext'",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "returns a LyNewLyrics object\nThis is a bit of a hack. This should be switched over to using a\nprefixed context thing with new Lyric = \u009cid\u009d with { } {}\n>>> s = converter.parse('tinyNotation: 4/4 c4_hel- d4_-lo r4 e4_world')\n>>> s.makeMeasures(inPlace=True)\n>>> s.id = 'helloWorld'\n\n\n>>> lpc = lily.translate.LilypondConverter()\n>>> lyNewLyrics = lpc.lyNewLyricsFromStream(s)\n>>> print(lyNewLyrics)\n\\addlyrics { \\set alignBelowContext = #\"helloWorld\"\n   \"hel\" --\n   \"lo\"__\n   \"world\"\n    }",
+        "type": "ListItem"
+    },
+    {
+        "text": "LilypondConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "lyOssiaMusicFromVariant",
+        "type": "Title"
+    },
+    {
+        "text": "variantIn",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "returns a LyOssiaMusic object from a stream\n>>> c = converter.parse('tinynotation: 3/4 C4 D E F2.')\n>>> v = variant.Variant(c.elements)\n>>> lpc = lily.translate.LilypondConverter()\n>>> lySequentialMusicOut = lpc.lySequentialMusicFromStream(v)\n>>> lySequentialMusicOut\n<music21.lily.lilyObjects.LySequentialMusic { \\clef \"b...>\n>>> print(lySequentialMusicOut)\n{ \\clef \"bass\"\n \\time 3/4\n c 4\n d 4\n e 4\n \\bar \"|\"  %{ end measure 1 %}\n f 2.\n \\bar \"|.\"  %{ end measure 2 %}\n  }",
+        "type": "ListItem"
+    },
+    {
+        "text": "LilypondConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "lyPartsAndOssiaInitFromScore",
+        "type": "Title"
+    },
+    {
+        "text": "scoreIn",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Takes in a score and returns a block that starts each part context and variant context\nwith an identifier and {stopStaff s1*n} (or s, whatever is needed for the duration)\nwhere n is the number of measures in the score.\n>>> import copy\n\n\nSet up score:\n>>> s = stream.Score()\n>>> p1,p2 = stream.Part(), stream.Part()\n>>> p1.insert(0, meter.TimeSignature('4/4'))\n>>> p2.insert(0, meter.TimeSignature('4/4'))\n>>> p1.append(variant.Variant(name='london'))\n>>> p2.append(variant.Variant(name='london'))\n>>> p1.append(variant.Variant(name='rome'))\n>>> p2.append(variant.Variant(name='rome'))\n>>> for i in range(4):\n...    m = stream.Measure()\n...    n = note.Note('D4', type='whole')\n...    m.append(n)\n...    p1.append(m)\n...    p2.append(copy.deepcopy(m))\n>>> p1.id = 'pa'\n>>> p2.id = 'pb'\n>>> s.append(p1)\n>>> s.append(p2)\n\n\nRun method\n>>> lpc = lily.translate.LilypondConverter()\n>>> print(lpc.lyPartsAndOssiaInitFromScore(s))\n\\new Staff  = pa { \\stopStaff s1 s1 s1 s1 }\n\\new Staff  = londonpa\n            \\with {\n                  \\remove \"Time_signature_engraver\"\n                  alignAboveContext = #\"pa\"\n                  fontSize = #-3\n                  \\override StaffSymbol #'staff-space = #(magstep -3)\n                  \\override StaffSymbol #'thickness = #(magstep -3)\n                  \\override TupletBracket #'bracket-visibility = ##f\n                  \\override TupletNumber #'stencil = ##f\n                  \\override Clef #'transparent = ##t\n                  \\override OctavateEight #'transparent = ##t\n                  \\consists \"Default_bar_line_engraver\"\n                }\n         { \\stopStaff s1 s1 s1 s1 }\n\\new Staff  = romepa\n            \\with {\n                  \\remove \"Time_signature_engraver\"\n                  alignAboveContext = #\"pa\"\n                  fontSize = #-3\n                  \\override StaffSymbol #'staff-space = #(magstep -3)\n                  \\override StaffSymbol #'thickness = #(magstep -3)\n                  \\override TupletBracket #'bracket-visibility = ##f\n                  \\override TupletNumber #'stencil = ##f\n                  \\override Clef #'transparent = ##t\n                  \\override OctavateEight #'transparent = ##t\n                  \\consists \"Default_bar_line_engraver\"\n                }\n         { \\stopStaff s1 s1 s1 s1 }\n\\new Staff  = pb { \\stopStaff s1 s1 s1 s1 }\n\\new Staff  = londonpb\n            \\with {\n                  \\remove \"Time_signature_engraver\"\n                  alignAboveContext = #\"pb...\n                  fontSize = #-3\n                  \\override StaffSymbol #'staff-space = #(magstep -3)\n                  \\override StaffSymbol #'thickness = #(magstep -3)\n                  \\override TupletBracket #'bracket-visibility = ##f\n                  \\override TupletNumber #'stencil = ##f\n                  \\override Clef #'transparent = ##t\n                  \\override OctavateEight #'transparent = ##t\n                  \\consists \"Default_bar_line_engraver\"\n                }\n         { \\stopStaff s1 s1 s1 s1 }\n\\new Staff  = romepb\n            \\with {\n                  \\remove \"Time_signature_engraver\"\n                  alignAboveContext = #\"pb...\n                  fontSize = #-3\n                  \\override StaffSymbol #'staff-space = #(magstep -3)\n                  \\override StaffSymbol #'thickness = #(magstep -3)\n                  \\override TupletBracket #'bracket-visibility = ##f\n                  \\override TupletNumber #'stencil = ##f\n                  \\override Clef #'transparent = ##t\n                  \\override OctavateEight #'transparent = ##t\n                  \\consists \"Default_bar_line_engraver\"\n                }\n         { \\stopStaff s1 s1 s1 s1 }",
+        "type": "ListItem"
+    },
+    {
+        "text": "LilypondConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "lyPitchFromPitch",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "converts a music21.pitch.Pitch object to a lily.lilyObjects.LyPitch\nobject.",
+        "type": "ListItem"
+    },
+    {
+        "text": "LilypondConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "lyPrefixCompositeMusicFromRelatedVariants",
+        "type": "Title"
+    },
+    {
+        "text": "variantList",
+        "type": "Title"
+    },
+    {
+        "text": "activeSite",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "coloredVariants",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>> s1 = converter.parse('tinynotation: 4/4 a4 a a a  a1')\n>>> s2 = converter.parse('tinynotation: 4/4 b4 b b b')\n>>> s3 = converter.parse('tinynotation: 4/4 c4 c c c')\n>>> s4 = converter.parse('tinynotation: 4/4 d4 d d d')\n>>> s5 = converter.parse('tinynotation: 4/4 e4 e e e  f f f f  g g g g  a a a a  b b b b')\n\n\n>>> for s in [ s1, s2, s3, s4, s5]:\n...     s.makeMeasures(inPlace=True)\n\n\n>>> activeSite = stream.Part(s5.elements)\n\n\n>>> v1 = variant.Variant()\n>>> for el in s1:\n...     v1.append(el)\n>>> v1.replacementDuration = 4.0\n\n\n>>> v2 = variant.Variant()\n>>> sp2 = note.Rest()\n>>> sp2.style.hideObjectOnPrint = True\n>>> sp2.duration.quarterLength = 4.0\n>>> v2.replacementDuration = 4.0\n>>> v2.append(sp2)\n>>> for el in s2:\n...     v2.append(el)\n\n\n>>> v3 = variant.Variant()\n>>> sp3 = note.Rest()\n>>> sp3.style.hideObjectOnPrint = True\n>>> sp3.duration.quarterLength = 8.0\n>>> v3.replacementDuration = 4.0\n>>> v3.append(sp3)\n>>> for el in s3:\n...     v3.append(el)\n\n\n>>> v4 = variant.Variant()\n>>> sp4 = note.Rest()\n>>> sp4.style.hideObjectOnPrint = True\n>>> sp4.duration.quarterLength = 16.0\n>>> v4.replacementDuration = 4.0\n>>> v4.append(sp4)\n>>> for el in s4:\n...     v4.append(el)\n\n\n>>> variantList = [v4, v1, v3, v2]\n>>> for v in variantList :\n...     v.groups = ['london']\n...     activeSite.insert(0.0, v)\n\n\n>>> lpc = lily.translate.LilypondConverter()\n\n\n>>> print(lpc.lyPrefixCompositeMusicFromRelatedVariants(variantList,\n...                activeSite=activeSite)[0])\n\\new Staff  = london... { { \\times 1/2 {\\startStaff \\clef \"treble\"\n      a' 4\n      a' 4\n      a' 4\n      a' 4\n      \\clef \"treble\"\n      | %{ end measure 1 %}\n      a' 1\n      | %{ end measure 2 %}\n       \\stopStaff}\n       }\n\n  {\\startStaff \\clef \"treble\"\n    b... 4\n    b... 4\n    b... 4\n    b... 4\n    | %{ end measure 1 %}\n     \\stopStaff}\n\n  {\\startStaff \\clef \"treble\"\n    c' 4\n    c' 4\n    c' 4\n    c' 4\n    | %{ end measure 1 %}\n     \\stopStaff}\n\n  s 1\n  {\\startStaff \\clef \"treble\"\n    d' 4\n    d' 4\n    d' 4\n    d' 4\n    | %{ end measure 1 %}\n     \\stopStaff}\n\n   }",
+        "type": "ListItem"
+    },
+    {
+        "text": "LilypondConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "lyPrefixCompositeMusicFromStream",
+        "type": "Title"
+    },
+    {
+        "text": "streamIn",
+        "type": "Title"
+    },
+    {
+        "text": "contextType",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "beforeMatter",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "returns an LyPrefixCompositeMusic object from\na stream (generally a part, but who knows\u2026)\n>>> c = converter.parse('tinynotation: 3/4 C4 D E F2.')\n>>> c.staffLines = 4\n\n\n>>> lpc = lily.translate.LilypondConverter()\n>>> lyPrefixCompositeMusicOut = lpc.lyPrefixCompositeMusicFromStream(c, contextType='Staff')\n>>> lyPrefixCompositeMusicOut\n<music21.lily.lilyObjects.LyPrefixCompositeMusic \\new Staff...>\n>>> print(lyPrefixCompositeMusicOut)\n\\new Staff = ... \\with {\n \\override StaffSymbol #'line-count = #4\n}\n{ \\clef \"bass\"\n     \\time 3/4\n     c 4\n     d 4\n     e 4\n     \\bar \"|\"  %{ end measure 1 %}\n     f 2.\n     \\bar \"|.\"  %{ end measure 2 %}\n      }",
+        "type": "ListItem"
+    },
+    {
+        "text": "LilypondConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "lyPrefixCompositeMusicFromVariant",
+        "type": "Title"
+    },
+    {
+        "text": "variantObject",
+        "type": "Title"
+    },
+    {
+        "text": "replacedElements",
+        "type": "Title"
+    },
+    {
+        "text": "coloredVariants",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>> pStream = converter.parse('tinynotation: 4/4 a4 b c d   e4 f g a')\n>>> pStream.makeMeasures(inPlace=True)\n>>> p = stream.Part(pStream.elements)\n>>> p.id = 'p1'\n>>> vStream = converter.parse('tinynotation: 4/4 a4. b8 c4 d')\n>>> vStream.makeMeasures(inPlace=True)\n>>> v = variant.Variant(vStream.elements)\n>>> v.groups = ['london']\n>>> p.insert(0.0, v)\n>>> lpc = lily.translate.LilypondConverter()\n>>> replacedElements = v.replacedElements()\n>>> lpPrefixCompositeMusicVariant = lpc.lyPrefixCompositeMusicFromVariant(v,\n...                                                            replacedElements)\n>>> print(lpPrefixCompositeMusicVariant)  # ellipses are for non-byte fix-ups\n\\new Staff  = londonpx { {\\startStaff \\clef \"treble\"\n    a' 4.\n    b...\n    c' 4\n    d' 4\n    | %{ end measure 1 %}\n     \\stopStaff}\n   }\n\n\n>>> replacedElements.show('text')\n{0.0} <music21.stream.Measure 1 offset=0.0>\n    {0.0} <music21.clef.TrebleClef>\n    {0.0} <music21.meter.TimeSignature 4/4>\n    {0.0} <music21.note.Note A>\n    {1.0} <music21.note.Note B>\n    {2.0} <music21.note.Note C>\n    {3.0} <music21.note.Note D>\n\n\n>>> print(lpc.addedVariants)\n['london']",
+        "type": "ListItem"
+    },
+    {
+        "text": "LilypondConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "lyScoreBlockFromScore",
+        "type": "Title"
+    },
+    {
+        "text": "scoreIn",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "LilypondConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "lySequentialMusicFromStream",
+        "type": "Title"
+    },
+    {
+        "text": "streamIn",
+        "type": "Title"
+    },
+    {
+        "text": "beforeMatter",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "returns a LySequentialMusic object from a stream\n>>> c = converter.parse('tinynotation: 3/4 C4 D E F2.')\n>>> lpc = lily.translate.LilypondConverter()\n>>> lySequentialMusicOut = lpc.lySequentialMusicFromStream(c)\n>>> lySequentialMusicOut\n<music21.lily.lilyObjects.LySequentialMusic { \\clef \"b...>\n>>> print(lySequentialMusicOut)\n{ \\clef \"bass\"\n \\time 3/4\n c 4\n d 4\n e 4\n \\bar \"|\"  %{ end measure 1 %}\n f 2.\n \\bar \"|.\"  %{ end measure 2 %}\n  }",
+        "type": "ListItem"
+    },
+    {
+        "text": "LilypondConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "lySimpleMusicFromChord",
+        "type": "Title"
+    },
+    {
+        "text": "chordObj",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>> conv = lily.translate.LilypondConverter()\n>>> c1 = chord.Chord(['C#2', 'E4', 'D#5'])\n>>> c1.quarterLength = 3.5\n>>> c1.pitches[2].accidental.displayType = 'always'\n>>> print(conv.lySimpleMusicFromChord(c1))\n < cis, e' dis''  !  > 2..\n\n\ntest hidden chord:\n>>> c1.style.hideObjectOnPrint = True\n>>> print(conv.lySimpleMusicFromChord(c1))\ns 2..",
+        "type": "ListItem"
+    },
+    {
+        "text": "LilypondConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "lySimpleMusicFromNoteOrRest",
+        "type": "Title"
+    },
+    {
+        "text": "noteOrRest",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "returns a lilyObjects.LySimpleMusic object for the generalNote containing\u2026\n\nLyEventChord   containing\nLySimpleChordElements containing\nLySimpleElement containing\nLyPitch  AND\nLyMultipliedDuration containing:\n\nLyMultipliedDuration containing\nLyStenoDuration\n\n\ndoes not check for tuplets.  That's in\nappendContextFromNoteOrRest\nread-only property that returns a string of the lilypond representation of\na note (or via subclassing, rest or chord)\n>>> conv = lily.translate.LilypondConverter()\n\n\n>>> n0 = note.Note('D#5')\n>>> n0.pitch.accidental.displayType = 'always'\n>>> n0.pitch.accidental.displayStyle = 'parentheses'\n>>> n0.style.color = 'blue'\n>>> sm = conv.lySimpleMusicFromNoteOrRest(n0)\n>>> print(sm)\n\\override NoteHead.color = \"blue\"\n\\override Stem.color = \"blue\"\ndis'' ! ? 4\n\n\nNow make the note disappear\u2026\n>>> n0.style.hideObjectOnPrint = True\n>>> sm = conv.lySimpleMusicFromNoteOrRest(n0)\n>>> print(sm)\ns 4",
+        "type": "ListItem"
+    },
+    {
+        "text": "LilypondConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "newContext",
+        "type": "Title"
+    },
+    {
+        "text": "newContext",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "LilypondConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "octaveCharactersFromPitch",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "returns a string of single-quotes or commas or \u0098' representing\nthe octave of a Pitch object",
+        "type": "ListItem"
+    },
+    {
+        "text": "LilypondConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "postEventsFromObject",
+        "type": "Title"
+    },
+    {
+        "text": "generalNote",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "attaches events that apply to notes and chords (and some other things) equally",
+        "type": "ListItem"
+    },
+    {
+        "text": "LilypondConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "restoreContext",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "LilypondConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "runThroughLily",
+        "type": "Title"
+    },
+    {
+        "text": "format",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "backend",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "fileName",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "skipWriting",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "creates a .ly file from self.topLevelObject via .writeLyFile\nthen runs the file through Lilypond.\nReturns the full path of the file produced by lilypond including the format extension.\nIf skipWriting is True and a fileName is given then it will run\nthat file through lilypond instead",
+        "type": "ListItem"
+    },
+    {
+        "text": "LilypondConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "setContextForTimeFraction",
+        "type": "Title"
+    },
+    {
+        "text": "numerator",
+        "type": "Title"
+    },
+    {
+        "text": "denominator",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Explicitly starts a new context for scaled music (tuplets, etc.)\nfor the given numerator and denominator (either an int or a string or unicode)\nReturns an lpMusicList object contained in an lpSequentialMusic object\nin an lpPrefixCompositeMusic object which sets the times object to a particular\nfraction.\n>>> lpc = lily.translate.LilypondConverter()\n>>> lpc.context\n<music21.lily.lilyObjects.LyLilypondTop>\n>>> lyTop = lpc.context\n>>> lyoMusicList = lpc.setContextForTimeFraction(5, 4)\n>>> lyoMusicList\n<music21.lily.lilyObjects.LyMusicList>\n>>> lpc.context\n<music21.lily.lilyObjects.LyMusicList>\n>>> lpc.context is lyoMusicList\nTrue\n>>> lpc.context.getParent()\n<music21.lily.lilyObjects.LySequentialMusic {  }>\n>>> lpc.context.getParent().getParent()\n<music21.lily.lilyObjects.LyPrefixCompositeMusic \\times 5/4...>\n>>> lpc.context.getParent().getParent().fraction\n'5/4'\n>>> lpc.context.getParent().getParent().type\n'times'\n>>> lpc.context.getParent().getParent().getParent()\n<music21.lily.lilyObjects.LyLilypondTop \\times 5/4...>\n>>> lpc.context.getParent().getParent().getParent() is lyTop\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "LilypondConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "setContextForTupletStart",
+        "type": "Title"
+    },
+    {
+        "text": "inObj",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "if the inObj has tuplets then we set a new context\nfor the tuplets and anything up till a tuplet stop.\nNote that a broken tuplet (\u00c3\u00a0 la Michael Gordon)\nwill not work.\nIf there are no tuplets, this routine does\nnothing.  If there are tuplets, and they have type \u009cstart\u009d, then\nit returns an lpMusicList object, which is the new context\nFor now, no support for nested tuplets.  They're an\neasy extension, but there's too much\nelse that is missing to do it now\u2026",
+        "type": "ListItem"
+    },
+    {
+        "text": "LilypondConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "setContextForTupletStop",
+        "type": "Title"
+    },
+    {
+        "text": "inObj",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Reverse of setContextForTupletStart",
+        "type": "ListItem"
+    },
+    {
+        "text": "LilypondConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "setHeaderFromMetadata",
+        "type": "Title"
+    },
+    {
+        "text": "metadataObject",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "lpHeader",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns a lilypond.lilyObjects.LyLilypondHeader object\nset with data from the metadata object\n>>> md = metadata.Metadata()\n>>> md.title = 'My Title'\n>>> md.alternativeTitle = 'My \"sub\"-title'\n\n\n>>> lpc = lily.translate.LilypondConverter()\n>>> lpHeader = lpc.setHeaderFromMetadata(md)\n>>> print(lpHeader)\n\\header { title = \"My Title\"\nsubtitle = \"My \\\"sub\\\"-title\"\n}",
+        "type": "ListItem"
+    },
+    {
+        "text": "LilypondConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "setupTools",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "LilypondConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "showPDF",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "create an SVG file from self.topLevelObject, show it with your pdf reader\n(often Adobe Acrobat/Adobe Reader or Apple Preview)\nand return the filepath of the file.\nmost users will just call stream.Stream.show(\u0098lily.pdf') on a stream.",
+        "type": "ListItem"
+    },
+    {
+        "text": "LilypondConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "showPNG",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Take the object, run it through LilyPond, and then show it as a PNG file.\nOn Windows, the PNG file will not be deleted, so you  will need to clean out\nTEMP every once in a while.\nMost users will just want to call stream.Stream.show(\u0098lily.png') instead.",
+        "type": "ListItem"
+    },
+    {
+        "text": "LilypondConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "showSVG",
+        "type": "Title"
+    },
+    {
+        "text": "fileName",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "create an SVG file from self.topLevelObject, show it with your\nsvg reader (often Internet Explorer on PC)\nand return the filepath of the file.\nmost users will just call stream.Stream.show(\u0098lily.png') on a stream.",
+        "type": "ListItem"
+    },
+    {
+        "text": "LilypondConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "textFromMusic21Object",
+        "type": "Title"
+    },
+    {
+        "text": "m21ObjectIn",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "get a proper lilypond text file for writing from a music21 object\n>>> n = note.Note()\n>>> print(lily.translate.LilypondConverter().textFromMusic21Object(n))\n\\version \"2...\"\n\\include \"lilypond-book-preamble.ly\"\ncolor = #(define-music-function (parser location color) (string?) #{\n        \\once \\override NoteHead #'color = #(x11-color color)\n        \\once \\override Stem #'color = #(x11-color color)\n        \\once \\override Rest #'color = #(x11-color color)\n        \\once \\override Beam #'color = #(x11-color color)\n     #})\n\\header { }\n\\score  {\n      << \\new Staff  = ... { c' 4\n              }\n        >>\n  }\n\\paper { }\n...",
+        "type": "ListItem"
+    },
+    {
+        "text": "LilypondConverter.",
+        "type": "Title"
+    },
+    {
+        "text": "writeLyFile",
+        "type": "Title"
+    },
+    {
+        "text": "ext",
+        "type": "Title"
+    },
+    {
+        "text": "''",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "fp",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "writes the contents of the self.topLevelObject to a file.\nThe extension should be ly.  If fp is None then a named temporary\nfile is created by environment.getTempFile.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.lily.translate.",
+        "type": "Title"
+    },
+    {
+        "text": "makeLettersOnlyId",
+        "type": "Title"
+    },
+    {
+        "text": "inputString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Takes an id and makes it purely letters by substituting\nletters for all other characters.\n>>> print(lily.translate.makeLettersOnlyId('rainbow123@@dfas'))\nrainbowxyzmmdfas",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.lily.translate",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

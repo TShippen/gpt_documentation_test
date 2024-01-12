@@ -1,0 +1,442 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.figuredBass.checker",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.features.outputFormats",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.figuredBass.examples",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.figuredBass.checker\nFunctions\nextractHarmonies()\ngetVoiceLeadingMoments()\ncheckConsecutivePossibilities()\ncheckSinglePossibilities()\ncorrelateHarmonies()\ncreateOffsetMapping()\ngeneralNoteToPitch()\nhiddenFifth()\nhiddenOctave()\nparallelFifths()\nparallelOctaves()\nvoiceCrossing()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.figuredBass.checker\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.figuredBass.checker.",
+        "type": "Title"
+    },
+    {
+        "text": "extractHarmonies",
+        "type": "Title"
+    },
+    {
+        "text": "music21Stream",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Takes in a Stream and returns a dictionary whose values\nare the voice leading moments of the Stream and whose\nkeys are (offset, endTime) pairs delimiting their duration. The voice leading\nmoments are spelled out from the first or highest Part\nto the lowest one.\n>>> score = corpus.parse('corelli/opus3no1/1grave').measures(1, 3)\n>>> score.show()\n\n\n\n>>> from music21.figuredBass import checker\n>>> allHarmonies = checker.extractHarmonies(score)\n>>> for (offsets, notes) in sorted(allHarmonies.items()):\n...    print('{0!s:15}[{1!s:23}{2!s:23}{3!s:22}]'.format(offsets, notes[0], notes[1], notes[2]))\n(0.0, 1.5)     [<music21.note.Note C>  <music21.note.Note A>  <music21.note.Note F> ]\n(1.5, 2.0)     [<music21.note.Note C>  <music21.note.Note A>  <music21.note.Note F> ]\n(2.0, 3.0)     [<music21.note.Note B-> <music21.note.Note G>  <music21.note.Note G> ]\n(3.0, 3.5)     [<music21.note.Note A>  <music21.note.Note F>  <music21.note.Note A> ]\n(3.5, 4.0)     [<music21.note.Note A>  <music21.note.Note F>  <music21.note.Note B->]\n(4.0, 6.0)     [<music21.note.Note G>  <music21.note.Note E>  <music21.note.Note C> ]\n(6.0, 6.5)     [<music21.note.Note A>  <music21.note.Note F>  <music21.note.Note A> ]\n(6.5, 7.0)     [<music21.note.Note B-> <music21.note.Note F>  <music21.note.Note A> ]\n(7.0, 7.5)     [<music21.note.Note C>  <music21.note.Note F>  <music21.note.Note A> ]\n(7.5, 8.0)     [<music21.note.Note C>  <music21.note.Note E>  <music21.note.Note A> ]\n(8.0, 8.5)     [<music21.note.Note C>  <music21.note.Note D>  <music21.note.Note B->]\n(8.5, 9.0)     [<music21.note.Note F>  <music21.note.Note D>  <music21.note.Note B->]\n(9.0, 9.5)     [<music21.note.Note B-> <music21.note.Note D>  <music21.note.Note B->]\n(9.5, 10.0)    [<music21.note.Note B-> <music21.note.Note G>  <music21.note.Note B->]\n(10.0, 10.5)   [<music21.note.Note B-> <music21.note.Note E>  <music21.note.Note C> ]\n(10.5, 11.0)   [<music21.note.Note B-> <music21.note.Note C>  <music21.note.Note C> ]\n(11.0, 11.5)   [<music21.note.Note A>  <music21.note.Note F>  <music21.note.Note D> ]\n(11.5, 12.0)   [<music21.note.Note A>  <music21.note.Note F>  <music21.note.Note A> ]",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.figuredBass.checker.",
+        "type": "Title"
+    },
+    {
+        "text": "getVoiceLeadingMoments",
+        "type": "Title"
+    },
+    {
+        "text": "music21Stream",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Takes in a Stream and returns a Score\nof the Stream broken up into its voice leading moments.\n>>> score = corpus.parse('corelli/opus3no1/1grave').measures(1, 3)\n>>> score.show()\n\n\n\n>>> from music21.figuredBass import checker\n>>> vlMoments = checker.getVoiceLeadingMoments(score)\n>>> vlMoments.show()",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.figuredBass.checker.",
+        "type": "Title"
+    },
+    {
+        "text": "checkConsecutivePossibilities",
+        "type": "Title"
+    },
+    {
+        "text": "music21Stream",
+        "type": "Title"
+    },
+    {
+        "text": "functionToApply",
+        "type": "Title"
+    },
+    {
+        "text": "color",
+        "type": "Title"
+    },
+    {
+        "text": "'#FF0000'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "debug",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Takes in a Score and a functionToApply which takes in two consecutive\npossibility instances, each a tuple with pitches or rests comprising a vertical sonority.\nChanges the color of notes in the Score which comprise rule violations\nas determined by functionToApply.\n\nNote\nColored notes are NOT supported in Finale.\n\n>>> music21Stream = corpus.parse('theoryExercises/checker_demo.xml')\n>>> music21Stream.show()\n\n\n\n>>> from music21.figuredBass import checker\n>>> functionToApply = checker.parallelOctaves\n>>> checker.checkConsecutivePossibilities(music21Stream, functionToApply, debug=True)\nFunction To Apply: parallelOctaves\n(Offset A, End Time A):  (Offset B, End Time B):  Part Numbers:\n(1.0, 2.0)               (2.0, 3.0)               (2, 4)\n(2.0, 3.0)               (3.0, 5.0)               (2, 4)\n(8.0, 9.0)               (9.0, 11.0)              (1, 3)\n\n\nParallel octaves can be found in the first measure, between the first two measures,\nand between the third and the fourth measure. The notes in question are highlighted\nin the music21Stream, as shown below.\n>>> music21Stream.show()",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.figuredBass.checker.",
+        "type": "Title"
+    },
+    {
+        "text": "checkSinglePossibilities",
+        "type": "Title"
+    },
+    {
+        "text": "music21Stream",
+        "type": "Title"
+    },
+    {
+        "text": "functionToApply",
+        "type": "Title"
+    },
+    {
+        "text": "color",
+        "type": "Title"
+    },
+    {
+        "text": "'#FF0000'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "debug",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Takes in a Score and a functionToApply which takes in a possibility\ninstance, a tuple with pitches or rests comprising a vertical sonority. Changes the color of\nnotes in the Score which comprise rule violations as determined by\nfunctionToApply.\n\nNote\nColored notes are NOT supported in Finale.\n\n>>> music21Stream = corpus.parse('corelli/opus3no1/1grave').measures(1, 6)\n>>> music21Stream.show()\n\n\n\n>>> from music21.figuredBass import checker\n>>> functionToApply = checker.voiceCrossing\n>>> checker.checkSinglePossibilities(music21Stream, functionToApply, debug=True)\nFunction To Apply: voiceCrossing\n(Offset, End Time):      Part Numbers:\n(16.0, 16.5)             (1, 2)\n(16.5, 17.0)             (1, 2)\n\n\nVoice Crossing is present in the fifth measure between the first and second voices,\nand the notes in question are highlighted in the music21Stream.\n>>> music21Stream.show()",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.figuredBass.checker.",
+        "type": "Title"
+    },
+    {
+        "text": "correlateHarmonies",
+        "type": "Title"
+    },
+    {
+        "text": "currentMapping",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "music21Part",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Adds a new Part to an existing offset mapping.\n>>> from music21.figuredBass import checker\n>>> score = corpus.parse('corelli/opus3no1/1grave').measures(1, 3)\n>>> v0 = score[0]\n>>> offsetMapping = checker.createOffsetMapping(v0)\n>>> v1 = score[1]\n>>> newMapping = checker.correlateHarmonies(offsetMapping, v1)\n>>> for (offsets, notes) in sorted(newMapping.items()):\n...    print('{0!s:15}[{1!s:23}{2!s:21}]'.format(offsets, notes[0], notes[1]))\n(0.0, 1.5)     [<music21.note.Note C>  <music21.note.Note A>]\n(1.5, 2.0)     [<music21.note.Note C>  <music21.note.Note A>]\n(2.0, 3.0)     [<music21.note.Note B-> <music21.note.Note G>]\n(3.0, 4.0)     [<music21.note.Note A>  <music21.note.Note F>]\n(4.0, 6.0)     [<music21.note.Note G>  <music21.note.Note E>]\n(6.0, 6.5)     [<music21.note.Note A>  <music21.note.Note F>]\n(6.5, 7.0)     [<music21.note.Note B-> <music21.note.Note F>]\n(7.0, 7.5)     [<music21.note.Note C>  <music21.note.Note F>]\n(7.5, 8.0)     [<music21.note.Note C>  <music21.note.Note E>]\n(8.0, 8.5)     [<music21.note.Note C>  <music21.note.Note D>]\n(8.5, 9.0)     [<music21.note.Note F>  <music21.note.Note D>]\n(9.0, 9.5)     [<music21.note.Note B-> <music21.note.Note D>]\n(9.5, 10.0)    [<music21.note.Note B-> <music21.note.Note G>]\n(10.0, 10.5)   [<music21.note.Note B-> <music21.note.Note E>]\n(10.5, 11.0)   [<music21.note.Note B-> <music21.note.Note C>]\n(11.0, 12.0)   [<music21.note.Note A>  <music21.note.Note F>]",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.figuredBass.checker.",
+        "type": "Title"
+    },
+    {
+        "text": "createOffsetMapping",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "music21Part",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Creates an initial offset mapping of a Part.\n>>> from music21.figuredBass import checker\n>>> score = corpus.parse('corelli/opus3no1/1grave').measures(1, 3)\n>>> v0 = score[0]\n>>> offsetMapping = checker.createOffsetMapping(v0)\n>>> for (offsets, notes) in sorted(offsetMapping.items()):\n...    print('{0!s:15}[{1!s:22}]'.format(offsets, notes[0]))\n(0.0, 1.5)     [<music21.note.Note C> ]\n(1.5, 2.0)     [<music21.note.Note C> ]\n(2.0, 3.0)     [<music21.note.Note B->]\n(3.0, 4.0)     [<music21.note.Note A> ]\n(4.0, 6.0)     [<music21.note.Note G> ]\n(6.0, 6.5)     [<music21.note.Note A> ]\n(6.5, 7.0)     [<music21.note.Note B->]\n(7.0, 8.0)     [<music21.note.Note C> ]\n(8.0, 8.5)     [<music21.note.Note C> ]\n(8.5, 9.0)     [<music21.note.Note F> ]\n(9.0, 11.0)    [<music21.note.Note B->]\n(11.0, 12.0)   [<music21.note.Note A> ]",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.figuredBass.checker.",
+        "type": "Title"
+    },
+    {
+        "text": "generalNoteToPitch",
+        "type": "Title"
+    },
+    {
+        "text": "music21GeneralNote",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Takes a GeneralNote. If it is a Note,\nreturns its pitch. Otherwise, returns the string \u009cRT\u009d, a rest placeholder.\n>>> n1 = note.Note('G5')\n>>> c1 = chord.Chord(['C3', 'E3', 'G3'])\n\n\n>>> figuredBass.checker.generalNoteToPitch(n1)\n<music21.pitch.Pitch G5>\n>>> figuredBass.checker.generalNoteToPitch(c1)\n'RT'",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.figuredBass.checker.",
+        "type": "Title"
+    },
+    {
+        "text": "hiddenFifth",
+        "type": "Title"
+    },
+    {
+        "text": "possibA",
+        "type": "Title"
+    },
+    {
+        "text": "possibB",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns a list with a (highestPart, lowestPart) pair which represents\na hidden fifth between shared outer parts of possibA and possibB. The\nouter parts here are the first and last elements of each possibility.\nIf sopranoPitchA and bassPitchA in possibA move to a sopranoPitchB\nand bassPitchB in possibB in similar motion, and the simple interval\nbetween sopranoPitchB and bassPitchB is that of a perfect fifth,\nthen this constitutes a hidden octave between the two possibilities.\n>>> from music21.figuredBass import checker\n>>> C3 = pitch.Pitch('C3')\n>>> D3 = pitch.Pitch('D3')\n>>> E3 = pitch.Pitch('E3')\n>>> F3 = pitch.Pitch('F3')\n>>> E5 = pitch.Pitch('E5')\n>>> A5 = pitch.Pitch('A5')\n\n\nHere, the bass part moves up from C3 to D3 and the soprano part moves\nup from E5 to A5. The simple interval between D3 and A5 is a perfect\nfifth. Therefore, there is a hidden fifth between the two possibilities.\n>>> possibA1 = (E5, E3, C3)\n>>> possibB1 = (A5, F3, D3)\n>>> checker.hiddenFifth(possibA1, possibB1)\n[(1, 3)]\n\n\nHere, the soprano and bass parts also move in similar motion, but the\nsimple interval between D3 and Ab5 is a diminished fifth. Consequently,\nthere is no hidden fifth.\n>>> Ab5 = pitch.Pitch('A-5')\n>>> possibA2 = (E5, E3, C3)\n>>> possibB2 = (Ab5, F3, D3)\n>>> checker.hiddenFifth(possibA2, possibB2)\n[]\n\n\nNow, we have the soprano and bass parts again moving to A5 and D3, whose\nsimple interval is a perfect fifth. However, the bass moves up while the\nsoprano moves down. Therefore, there is no hidden fifth.\n>>> E6 = pitch.Pitch('E6')\n>>> possibA3 = (E6, E3, C3)\n>>> possibB3 = (A5, F3, D3)\n>>> checker.hiddenFifth(possibA3, possibB3)\n[]",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.figuredBass.checker.",
+        "type": "Title"
+    },
+    {
+        "text": "hiddenOctave",
+        "type": "Title"
+    },
+    {
+        "text": "possibA",
+        "type": "Title"
+    },
+    {
+        "text": "possibB",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns a list with a (highestPart, lowestPart) pair which represents\na hidden octave between shared outer parts of possibA and possibB. The\nouter parts here are the first and last elements of each possibility.\nIf sopranoPitchA and bassPitchA in possibA move to a sopranoPitchB\nand bassPitchB in possibB in similar motion, and the simple interval\nbetween sopranoPitchB and bassPitchB is that of a perfect octave,\nthen this constitutes a hidden octave between the two possibilities.\n>>> from music21.figuredBass import checker\n>>> C3 = pitch.Pitch('C3')\n>>> D3 = pitch.Pitch('D3')\n>>> E3 = pitch.Pitch('E3')\n>>> F3 = pitch.Pitch('F3')\n>>> A5 = pitch.Pitch('A5')\n>>> D6 = pitch.Pitch('D6')\n\n\nHere, the bass part moves up from C3 to D3 and the soprano part moves\nup from A5 to D6. The simple interval between D3 and D6 is a perfect\noctave. Therefore, there is a hidden octave between the two possibilities.\n>>> possibA1 = (A5, E3, C3)\n>>> possibB1 = (D6, F3, D3)  # Perfect octave between soprano and bass.\n>>> checker.hiddenOctave(possibA1, possibB1)\n[(1, 3)]\n\n\nHere, the bass part moves up from C3 to D3 but the soprano part moves\ndown from A6 to D6. There is no hidden octave since the parts move in\ncontrary motion.\n>>> A6 = pitch.Pitch('A6')\n>>> possibA2 = (A6, E3, C3)\n>>> possibB2 = (D6, F3, D3)\n>>> checker.hiddenOctave(possibA2, possibB2)\n[]",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.figuredBass.checker.",
+        "type": "Title"
+    },
+    {
+        "text": "parallelFifths",
+        "type": "Title"
+    },
+    {
+        "text": "possibA",
+        "type": "Title"
+    },
+    {
+        "text": "possibB",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns a list of (partNumberA, partNumberB) pairs, each representing\ntwo voices which form parallel fifths.\nIf pitchA1 and pitchA2 in possibA are separated by\na simple interval of a perfect fifth, and they move\nto a pitchB1 and pitchB2 in possibB also separated\nby the simple interval of a perfect fifth, then this\nconstitutes parallel fifths between these two parts.\n>>> from music21.figuredBass import checker\n>>> C3 = pitch.Pitch('C3')\n>>> D3 = pitch.Pitch('D3')\n>>> G3 = pitch.Pitch('G3')\n>>> A3 = pitch.Pitch('A3')\n>>> A4 = pitch.Pitch('A4')\n>>> B4 = pitch.Pitch('B4')\n\n\nHere, the bass moves from C3 to D3 and the tenor moves\nfrom G3 to A3. The interval between C3 and G3, as well\nas between D3 and A3, is a perfect fifth. These two\nparts, and therefore the two possibilities, have\nparallel fifths.\n>>> possibA1 = (B4, G3, C3)\n>>> possibB1 = (A4, A3, D3)\n>>> checker.parallelFifths(possibA1, possibB1)\n[(2, 3)]\n\n\nNow, the tenor moves instead to F3. The interval between\nD3 and F3 is a minor third. The bass and tenor parts\ndon't form parallel fifths. The soprano part forms parallel\nfifths with neither the bass nor tenor parts. The\ntwo possibilities, therefore, have no parallel fifths.\n>>> F3 = pitch.Pitch('F3')\n>>> possibA2 = (B4, G3, C3)\n>>> possibB2 = (A4, F3, D3)\n>>> checker.parallelFifths(possibA2, possibB2)\n[]",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.figuredBass.checker.",
+        "type": "Title"
+    },
+    {
+        "text": "parallelOctaves",
+        "type": "Title"
+    },
+    {
+        "text": "possibA",
+        "type": "Title"
+    },
+    {
+        "text": "possibB",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns a list of (partNumberA, partNumberB) pairs, each representing\ntwo voices which form parallel octaves.\nIf pitchA1 and pitchA2 in possibA are separated by\na simple interval of a perfect octave, and they move\nto a pitchB1 and pitchB2 in possibB also separated\nby the simple interval of a perfect octave, then this\nconstitutes parallel octaves between these two parts.\n>>> from music21.figuredBass import checker\n>>> C3 = pitch.Pitch('C3')\n>>> D3 = pitch.Pitch('D3')\n>>> G3 = pitch.Pitch('G3')\n>>> A3 = pitch.Pitch('A3')\n>>> C4 = pitch.Pitch('C4')\n>>> D4 = pitch.Pitch('D4')\n\n\nHere, the soprano moves from C4 to D4 and the bass moves\nfrom C3 to D3. The interval between C3 and C4, as well as\nbetween D3 and D4, is a parallel octave. The two parts,\nand therefore the two possibilities, have parallel octaves.\n>>> possibA1 = (C4, G3, C3)\n>>> possibB1 = (D4, A3, D3)\n>>> checker.parallelOctaves(possibA1, possibB1)\n[(1, 3)]\n\n\nNow, the soprano moves down to B3. The interval between\nD3 and B3 is a major sixth. The soprano and bass parts\nno longer have parallel octaves. The tenor part forms\na parallel octave with neither the bass nor soprano,\nso the two possibilities do not have parallel octaves.\n(Notice, however, the parallel fifth between the bass\nand tenor!)\n>>> B3 = pitch.Pitch('B3')\n>>> possibA2 = (C4, G3, C3)\n>>> possibB2 = (B3, A3, D3)\n>>> checker.parallelOctaves(possibA2, possibB2)\n[]",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.figuredBass.checker.",
+        "type": "Title"
+    },
+    {
+        "text": "voiceCrossing",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "possibA",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns a list of (partNumberA, partNumberB) pairs, each representing\ntwo voices which form a voice crossing. The parts from the lowest part to\nthe highest part (right to left) must correspond to increasingly higher\npitches in order for there to be no voice crossing. Comparisons between\npitches are done using pitch comparison methods, which are based on pitch\nspace values (see Pitch).\n>>> from music21.figuredBass import checker\n>>> C4 = pitch.Pitch('C4')\n>>> E4 = pitch.Pitch('E4')\n>>> C5 = pitch.Pitch('C5')\n>>> G5 = pitch.Pitch('G5')\n>>> possibA1 = (C5, G5, E4)\n>>> checker.voiceCrossing(possibA1)  # G5 > C5\n[(1, 2)]\n>>> possibA2 = (C5, E4, C4)\n>>> checker.voiceCrossing(possibA2)\n[]",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.figuredBass.checker",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

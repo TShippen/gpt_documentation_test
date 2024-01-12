@@ -1,0 +1,246 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.graph",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.freezeThaw",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.graph.axis",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.graph\nFunctions\nplotStream()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.graph\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Tools for graphing, plotting, or otherwise visualizing Stream objects.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "The easiest and most common way of using plotting functions is to call\n.plot(\u0098typeOfGraph') on a Stream.  See plot().\nThat method uses tools from the music21.graph.findPlot module to map between\nnames of plots and classes that can show them.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "The PlotStream\nsubclasses in the music21.graph.plot module give easy to use\nand configurable ways of graphing data and structures in\nStream objects.  These Plot objects use classes from\nthe music21.graph.axis module to automatically extract relevant data for you.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "At a lower level, the Graph subclasses\nin the music21.graph.primitives modules give abstract fundamental\ngraphing archetypes using the matplotlib library.  They are to be used when\nyou already have data extracted on your own but still want to take advantage\nof musically-aware axes and scaling.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "From highest level to lowest level usage, ways of graphing are as follows:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "streamObj.plot(\u0098graphName')",
+        "type": "ListItem"
+    },
+    {
+        "text": "graph.plot.Class(streamObj).run()",
+        "type": "ListItem"
+    },
+    {
+        "text": "plotter = graph.primitives.Class(); plotter.data = \u2026; plotter.process()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Use matplotlib directly to create any graph, musical or non-musical.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.graph.",
+        "type": "Title"
+    },
+    {
+        "text": "plotStream",
+        "type": "Title"
+    },
+    {
+        "text": "streamObj",
+        "type": "Title"
+    },
+    {
+        "text": "stream.Stream",
+        "type": "Title"
+    },
+    {
+        "text": "graphFormat",
+        "type": "Title"
+    },
+    {
+        "text": "str | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "xValue",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "yValue",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "zValue",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a stream and any keyword configuration arguments, create and display a plot.\nNote: plots require matplotlib to be installed.\nPlot methods can be specified as additional arguments or by keyword.\nTwo keyword arguments can be given: format and values.\nIf positional arguments are given, the first is taken as format\nand the rest are collected as values. If format is the class\nname, that class is collected. Additionally, every\nPlotStream subclass defines one format\nstring and a list of values strings. The format parameter\ndefines the type of Graph (e.g. scatter, histogram, colorGrid). The\nvalues list defines what values are graphed\n(e.g. quarterLength, pitch, pitchClass).\nIf a user provides a format and one or more values strings, a plot with\nthe corresponding profile, if found, will be generated. If not, the first\nPlot to match any of the defined specifiers will be created.\nIn the case of PlotWindowedAnalysis subclasses,\nthe DiscreteAnalysis\nsubclass identifiers list\nis added to the Plot's values list.\nAvailable plots include the following:\n\nHistogramPitchSpace\nHistogramPitchClass\nHistogramQuarterLength\nScatterPitchSpaceQuarterLength\nScatterPitchClassQuarterLength\nScatterPitchClassOffset\nScatterPitchSpaceDynamicSymbol\nHorizontalBarPitchSpaceOffset\nHorizontalBarPitchClassOffset\nScatterWeightedPitchSpaceQuarterLength\nScatterWeightedPitchClassQuarterLength\nScatterWeightedPitchSpaceDynamicSymbol\nPlot3DBarsPitchSpaceQuarterLength\nWindowedKey\nWindowedAmbitus\nDolan\n\n>>> s = corpus.parse('bach/bwv57.8')\n>>> thePlot = s.plot('histogram', 'pitch')\n\n\n\n>>> s = corpus.parse('bach/bwv57.8')\n>>> thePlot = s.plot('pianoroll')",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.graph",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

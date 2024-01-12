@@ -1,0 +1,482 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.stringTools",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.common.pathTools",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.common.weakrefTools",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.common.stringTools\nFunctions\ncamelCaseToHyphen()\nformatStr()\ngetMd5()\ngetNumFromStr()\nhyphenToCamelCase()\nnormalizeFilename()\nremovePunctuation()\nspaceCamelCase()\nstripAccents()\nwhitespaceEqual()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.stringTools\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Tools for working with strings",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.common.stringTools.",
+        "type": "Title"
+    },
+    {
+        "text": "camelCaseToHyphen",
+        "type": "Title"
+    },
+    {
+        "text": "usrStr",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "replacement",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "'-'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u2192 str",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a camel-cased string, or a mixture of numbers and characters,\ncreate a space separated string.\nThe replacement can be specified to be something besides a hyphen, but only\na single character and not (for internal reasons) an uppercase character.\ncode from https://stackoverflow.com/questions/1175208/elegant-python-function-to-convert-camelcase-to-snake-case\n>>> common.camelCaseToHyphen('movementName')\n'movement-name'\n\n\nFirst letter can be uppercase as well:\n>>> common.camelCaseToHyphen('MovementName')\n'movement-name'\n\n\n>>> common.camelCaseToHyphen('movementNameName')\n'movement-name-name'\n\n\n>>> common.camelCaseToHyphen('fileName', replacement='_')\n'file_name'\n\n\nSome things you cannot do:\n>>> common.camelCaseToHyphen('fileName', replacement='NotFound')\nTraceback (most recent call last):\nValueError: Replacement must be a single character.\n\n\n>>> common.camelCaseToHyphen('fileName', replacement='A')\nTraceback (most recent call last):\nValueError: Replacement cannot be an uppercase character.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.stringTools.",
+        "type": "Title"
+    },
+    {
+        "text": "formatStr",
+        "type": "Title"
+    },
+    {
+        "text": "msg",
+        "type": "Title"
+    },
+    {
+        "text": "rest_of_message",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 str",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "DEPRECATED: do not use.  May be removed at any time.\nFormat one or more data elements into string suitable for printing\nstraight to stderr or other outputs\n>>> a = common.formatStr('test', '1', 2, 3)\n>>> print(a)\ntest 1 2 3",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.stringTools.",
+        "type": "Title"
+    },
+    {
+        "text": "getMd5",
+        "type": "Title"
+    },
+    {
+        "text": "value",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 str",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return an md5 hash from a string.  If no value is given then\nthe current time plus a random number is encoded.\n>>> common.getMd5('test')\n'098f6bcd4621d373cade4e832627b4f6'",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.stringTools.",
+        "type": "Title"
+    },
+    {
+        "text": "getNumFromStr",
+        "type": "Title"
+    },
+    {
+        "text": "usrStr",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "numbers",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "'0123456789'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u2192 tuple[str, str]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a string, extract any numbers.\nReturn two strings, the numbers (as strings) and the remaining characters.\n>>> common.getNumFromStr('23a')\n('23', 'a')\n>>> common.getNumFromStr('23a954Hello')\n('23954', 'aHello')\n>>> common.getNumFromStr('')\n('', '')",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.stringTools.",
+        "type": "Title"
+    },
+    {
+        "text": "hyphenToCamelCase",
+        "type": "Title"
+    },
+    {
+        "text": "usrStr",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "replacement",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "'-'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u2192 str",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a hyphen-connected-string, change it to\na camelCaseConnectedString.\nThe replacement can be specified to be something besides a hyphen.\n>>> common.hyphenToCamelCase('movement-name')\n'movementName'\n\n\n>>> common.hyphenToCamelCase('movement_name', replacement='_')\n'movementName'\n\n\nSafe to call on a string lacking the replacement character:\n>>> common.hyphenToCamelCase('voice')\n'voice'\n\n\nAnd on \u009cwords\u009d beginning with numbers:\n>>> common.hyphenToCamelCase('music-21')\n'music21'",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.stringTools.",
+        "type": "Title"
+    },
+    {
+        "text": "normalizeFilename",
+        "type": "Title"
+    },
+    {
+        "text": "name",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 str",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "take a name that might contain unicode characters, punctuation,\nor spaces and\nnormalize it so that it is POSIX compliant (except for the limit\non length).\nTakes in a string or unicode string and returns a string (unicode in Py3)\nwithout any accented characters.\n>>> common.normalizeFilename('03-Niccol\u00c3\u00b2 all'lessandra.not really.xml')\n'03-Niccolo_alllessandra_not_really.xml'",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.stringTools.",
+        "type": "Title"
+    },
+    {
+        "text": "removePunctuation",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 str",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Remove all punctuation from a string.\n>>> common.removePunctuation('This, is! my (face).')\n'This is my face'",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.stringTools.",
+        "type": "Title"
+    },
+    {
+        "text": "spaceCamelCase",
+        "type": "Title"
+    },
+    {
+        "text": "usrStr",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "replaceUnderscore",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "fixMeList",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 str",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a camel-cased string, or a mixture of numbers and characters,\ncreate a space separated string.\nIf replaceUnderscore is True (default) then underscores also become spaces (but without the _)\n>>> common.spaceCamelCase('thisIsATest')\n'this Is A Test'\n>>> common.spaceCamelCase('ThisIsATest')\n'This Is A Test'\n>>> common.spaceCamelCase('movement3')\n'movement 3'\n>>> common.spaceCamelCase('opus41no1')\n'opus 41 no 1'\n>>> common.spaceCamelCase('opus23402no219235')\n'opus 23402 no 219235'\n>>> common.spaceCamelCase('opus23402no219235').title()\n'Opus 23402 No 219235'\n\n\nThere is a small list called fixMeList that can fix mistakes.\n>>> common.spaceCamelCase('PMFC22')\n'PMFC 22'\n\n\n>>> common.spaceCamelCase('hello_myke')\n'hello myke'\n>>> common.spaceCamelCase('hello_myke', replaceUnderscore=False)\n'hello_myke'",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.stringTools.",
+        "type": "Title"
+    },
+    {
+        "text": "stripAccents",
+        "type": "Title"
+    },
+    {
+        "text": "inputString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 str",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "removes accents from unicode strings.\n>>> s = 'tr\u00c3\u00a9s vite'\n>>> '\u00c3\u00a9' in s\nTrue\n>>> common.stripAccents(s)\n'tres vite'\n\n\nAlso handles the German Eszett\n>>> common.stripAccents('Mu\u00c3\u009f')\n'Muss'",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.stringTools.",
+        "type": "Title"
+    },
+    {
+        "text": "whitespaceEqual",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "returns True if a and b are equal except for whitespace differences\n>>> a = '    hello \\n there '\n>>> b = 'hello there'\n>>> c = ' bye there '\n>>> common.whitespaceEqual(a, b)\nTrue\n>>> common.whitespaceEqual(a, c)\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.common.stringTools",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

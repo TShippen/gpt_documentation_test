@@ -1,0 +1,206 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.midi.percussion",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.midi",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.midi.realtime",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.midi.percussion\nPercussionMapper\nPercussionMapper\nPercussionMapper.midiInstrumentToPitch()\nPercussionMapper.midiPitchToInstrument()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.midi.percussion\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "PercussionMapper\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.midi.percussion.",
+        "type": "Title"
+    },
+    {
+        "text": "PercussionMapper",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "PercussionMapper provides tools to convert between 0-indexed MIDI pitches\nand music21 instruments, based on the official General MIDI Level 1 Percussion Key Map.\nThis mapping is conventionally applied to MIDI channel 10;\nsee https://www.midi.org/specifications/item/gm-level-1-sound-set for more info.\nGive me the instrument that corresponds to MIDI note 58!\n>>> pm = midi.percussion.PercussionMapper()\n>>> pm.reverseInstrumentMapping[58]\n<class 'music21.instrument.Vibraslap'>\n\n\nThat's right, vibraslap.\nBut you're better off using the midiPitchToInstrument() method below!",
+        "type": "ListItem"
+    },
+    {
+        "text": "PercussionMapper methods",
+        "type": "Title"
+    },
+    {
+        "text": "PercussionMapper.",
+        "type": "Title"
+    },
+    {
+        "text": "midiInstrumentToPitch",
+        "type": "Title"
+    },
+    {
+        "text": "midiInstrument",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Takes an instrument.Instrument object and returns a pitch object\nwith the corresponding 1-indexed MIDI note, according to the GM Percussion Map.\n>>> pm = midi.percussion.PercussionMapper()\n>>> myCow = instrument.Cowbell()\n>>> cowPitch = pm.midiInstrumentToPitch(myCow)\n>>> cowPitch.midi\n56\n\n\nNote that cowPitch is an actual pitch.Pitch object\neven though it's meaningless!\n>>> cowPitch\n<music21.pitch.Pitch G#3>\n\n\nIf the instrument does not have an equivalent in the GM Percussion Map,\nreturn an Exception:\n>>> myBagpipes = instrument.Bagpipes()\n>>> pipePitch = pm.midiInstrumentToPitch(myBagpipes)\nTraceback (most recent call last):\nmusic21.midi.percussion.MIDIPercussionException: <music21.instrument.Bagpipes 'Bagpipes'>\n    is not in the GM Percussion Map!",
+        "type": "ListItem"
+    },
+    {
+        "text": "PercussionMapper.",
+        "type": "Title"
+    },
+    {
+        "text": "midiPitchToInstrument",
+        "type": "Title"
+    },
+    {
+        "text": "midiPitch",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Takes a pitch.Pitch object or int ranging from 0-127 and returns\nthe corresponding instrument in the GM Percussion Map.\n>>> pm = midi.percussion.PercussionMapper()\n>>> cowPitch = pitch.Pitch(56)\n>>> cowbell = pm.midiPitchToInstrument(cowPitch)\n>>> cowbell\n<music21.instrument.Cowbell 'Cowbell'>\n\n\nOr it can just take an integer (representing MIDI note) for the pitch instead\u2026\n>>> moreCowbell = pm.midiPitchToInstrument(56)\n>>> moreCowbell\n<music21.instrument.Cowbell 'Cowbell'>\n\n\nThe standard GM Percussion list goes from 35 to 81;\npitches outside this range raise an exception.\n>>> bassDrum1Pitch = pitch.Pitch('B-1')\n>>> pm.midiPitchToInstrument(bassDrum1Pitch)\nTraceback (most recent call last):\nmusic21.midi.percussion.MIDIPercussionException: 34 does not map to a valid instrument!\n\n\nAlso, certain GM instruments do not have corresponding music21 instruments,\nso at present they also raise an exception.\n>>> cabasaPitch = 69\n>>> pm.midiPitchToInstrument(cabasaPitch)\nTraceback (most recent call last):\nmusic21.midi.percussion.MIDIPercussionException: 69 does not map to a valid instrument!\n\n\nSome music21 Instruments have more than one MidiPitch.  In this case you'll\nget the same Instrument object but with a different modifier\n>>> acousticBassDrumPitch = pitch.Pitch(35)\n>>> acousticBDInstrument = pm.midiPitchToInstrument(acousticBassDrumPitch)\n>>> acousticBDInstrument\n<music21.instrument.BassDrum 'Bass Drum'>\n>>> acousticBDInstrument.modifier\n'acoustic'\n\n\n>>> oneBassDrumPitch = pitch.Pitch(36)\n>>> oneBDInstrument = pm.midiPitchToInstrument(oneBassDrumPitch)\n>>> oneBDInstrument\n<music21.instrument.BassDrum 'Bass Drum'>\n>>> oneBDInstrument.modifier\n'1'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.midi.percussion",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

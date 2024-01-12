@@ -1,0 +1,434 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.analysis.neoRiemannian",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.analysis.metrical",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.analysis.patel",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.analysis.neoRiemannian\nFunctions\nL()\nR()\nP()\nS()\nN()\nisNeoR()\nLRP_combinations()\ncompleteHexatonic()\nhexatonicSystem()\nchromaticMediants()\nisChromaticMediant()\ndisjunctMediants()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.analysis.neoRiemannian\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "This module defines the L, P, and R objects and their\nrelated transformations as called on a Chord,\naccording to Neo-Riemannian theory.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.analysis.neoRiemannian.",
+        "type": "Title"
+    },
+    {
+        "text": "raiseException",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "L transforms a major or minor triad through the \u0098Leading-Tone exchange'.\nA C major chord, under L, will return an E minor chord, by transforming the root\nto its leading tone, B.\n>>> c1 = chord.Chord('C4 E4 G4')\n>>> c2 = analysis.neoRiemannian.L(c1)\n>>> c2.pitches\n(<music21.pitch.Pitch B3>, <music21.pitch.Pitch E4>, <music21.pitch.Pitch G4>)\n\n\nChords must be major or minor triads:\n>>> c3 = chord.Chord('C4 D4 E4')\n>>> analysis.neoRiemannian.L(c3)\nTraceback (most recent call last):\nmusic21.analysis.neoRiemannian.LRPException: Cannot perform L on this chord:\n    not a major or minor triad\n\n\nIf raiseException is False then the original chord is returned.\n>>> c4 = analysis.neoRiemannian.L(c3, raiseException=False)\n>>> c4 is c3\nTrue\n\n\nAccepts any music21 chord, with or without octave specified:\n>>> noOctaveChord = chord.Chord([0, 3, 7])\n>>> chordL = analysis.neoRiemannian.L(noOctaveChord)\n>>> chordL.pitches\n(<music21.pitch.Pitch C>, <music21.pitch.Pitch E->, <music21.pitch.Pitch A->)",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.analysis.neoRiemannian.",
+        "type": "Title"
+    },
+    {
+        "text": "raiseException",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "R transforms a major or minor triad to its relative, i.e. if\nmajor, to its relative minor and if minor, to its relative major.\nExample 1: A C major chord, under R, will return an A minor chord\n>>> c1 = chord.Chord('C4 E4 G4')\n>>> c2 = analysis.neoRiemannian.R(c1)\n>>> c2.pitches\n(<music21.pitch.Pitch C4>, <music21.pitch.Pitch E4>, <music21.pitch.Pitch A4>)\n\n\nSee L() for further details about error handling.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.analysis.neoRiemannian.",
+        "type": "Title"
+    },
+    {
+        "text": "raiseException",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "P transforms a major or minor triad chord to its \u0098parallel':\ni.e. to the chord of the same diatonic name but opposite model.\nExample: A C major chord, under P, will return an C minor chord\n>>> c2 = chord.Chord('C4 E4 G4')\n>>> c3 = analysis.neoRiemannian.P(c2)\n>>> c3.pitches\n(<music21.pitch.Pitch C4>, <music21.pitch.Pitch E-4>, <music21.pitch.Pitch G4>)\n\n\nSee L() for further details about error handling.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.analysis.neoRiemannian.",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Slide transform connecting major and minor triads with the third as the single common tone\n(i.e. with the major triad root a semi-tone below the minor). So:\nroot motion by a semi-tone;\nmode-change;\none common-tones.\nSlide is equivalent to \u0098LPR'.\n>>> cMaj = chord.Chord('C5 E5 G5')\n>>> slideUp = analysis.neoRiemannian.S(cMaj)\n>>> [x.name for x in slideUp.pitches]\n['C#', 'E', 'G#']\n\n\n>>> aMin = chord.Chord('A4 C5 E5')\n>>> slideDown = analysis.neoRiemannian.S(aMin)\n>>> [x.name for x in slideDown.pitches]\n['A-', 'C', 'E-']",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.analysis.neoRiemannian.",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The \u0098Neberverwandt' (\u0098fifth-change') transform connects\na minor triad with its major dominant, and so also\na major triad with its minor sub-dominant,\nwith one common tone in each case.\nThis is equivalent to \u0098RLP'.\n>>> cMaj = chord.Chord('C5 E5 G5')\n>>> n1 = analysis.neoRiemannian.N(cMaj)\n>>> [x.name for x in n1.pitches]\n['C', 'F', 'A-']\n\n\n>>> aMin = chord.Chord('A4 C5 E5')\n>>> n2 = analysis.neoRiemannian.N(aMin)\n>>> [x.name for x in n2.pitches]\n['G#', 'B', 'E']",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.analysis.neoRiemannian.",
+        "type": "Title"
+    },
+    {
+        "text": "isNeoR",
+        "type": "Title"
+    },
+    {
+        "text": "c1",
+        "type": "Title"
+    },
+    {
+        "text": "c2",
+        "type": "Title"
+    },
+    {
+        "text": "transforms",
+        "type": "Title"
+    },
+    {
+        "text": "'LRP'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Tests if two chords are related by a single L, P, R transformation,\nand returns that transform if so (otherwise, False).\n>>> c1 = chord.Chord('C4 E4 G4')\n>>> c2 = chord.Chord('B3 E4 G4')\n>>> analysis.neoRiemannian.isNeoR(c1, c2)\n'L'\n\n\n>>> c1 = chord.Chord('C4 E4 G4')\n>>> c2 = chord.Chord('C4 E-4 G4')\n>>> analysis.neoRiemannian.isNeoR(c1, c2)\n'P'\n\n\n>>> c1 = chord.Chord('C4 E4 G4')\n>>> c2 = chord.Chord('C4 E4 A4')\n>>> analysis.neoRiemannian.isNeoR(c1, c2)\n'R'\n\n\n>>> c1 = chord.Chord('C4 E4 G4')\n>>> c2 = chord.Chord('C-4 E-4 A-4')\n>>> analysis.neoRiemannian.isNeoR(c1, c2)\nFalse\n\n\nOption to limit to the search to only 1-2 transforms (\u0098L', \u0098R', \u0098P', \u0098LR', \u0098LP', \u0098RP'). So:\n>>> c3 = chord.Chord('C4 E-4 G4')\n>>> analysis.neoRiemannian.isNeoR(c1, c3)\n'P'\n\n\n\u2026 but not if P is excluded \u2026\n>>> analysis.neoRiemannian.isNeoR(c1, c3, transforms='LR')\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.analysis.neoRiemannian.",
+        "type": "Title"
+    },
+    {
+        "text": "LRP_combinations",
+        "type": "Title"
+    },
+    {
+        "text": "transformationString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "raiseException",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "leftOrdered",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "simplifyEnharmonics",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "eachOne",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "LRP_combinations takes a major or minor triad, transforms it according to the\nlist of L, R, and P transformations in the given transformationString, and\nreturns the result in triad.\nCertain combinations, such as LPLPLP, are cyclical, and therefore\nwill return a copy of the original chord if simplifyEnharmonics = True (see\ncompleteHexatonic(), below).\nleftOrdered allows a user to work with their preferred function notation (left or right\northography).\nBy default, leftOrdered is False, so transformations progress towards the right.\nThus, \u0098LPR' will start by transforming the chord by L, then P, then R.\nIf leftOrdered is True, the operations work in the opposite direction (right to left), so\n\u0098LPR' indicates the result of the chord transformed by R, then P, then L.\nsimplifyEnharmonics replaces multiple sharps and flats where they arise from\ncombined transformations with the simpler enharmonic equivalent (e.g. C for D\u2014).\nIf simplifyEnharmonics is True, the resulting chord will be simplified\nto a collection of notes with at most 1 flat or 1 sharp, in their most common form.\n>>> c1 = chord.Chord('C4 E4 G4')\n>>> c2 = analysis.neoRiemannian.LRP_combinations(c1, 'LP')\n>>> c2\n<music21.chord.Chord B3 E4 G#4>\n\n\n>>> c2b = analysis.neoRiemannian.LRP_combinations(c1, 'LP', leftOrdered=True)\n>>> c2b\n<music21.chord.Chord C4 E-4 A-4>\n\n\n>>> c3 = chord.Chord('C4 E4 G4 C5 E5')\n>>> c4 = analysis.neoRiemannian.LRP_combinations(c3, 'RLP')\n>>> c4\n<music21.chord.Chord C4 F4 A-4 C5 F5>\n\n\n>>> c5 = chord.Chord('B4 D#5 F#5')\n>>> c6 = analysis.neoRiemannian.LRP_combinations(c5,\n...                        'LPLPLP', leftOrdered=True, simplifyEnharmonics=True)\n>>> c6\n<music21.chord.Chord B4 D#5 F#5>\n>>> c5 = chord.Chord('C4 E4 G4')\n>>> c6 = analysis.neoRiemannian.LRP_combinations(c5, 'LPLPLP', leftOrdered=True)\n>>> c6\n<music21.chord.Chord D--4 F-4 A--4>\n>>> c5 = chord.Chord('A-4 C4 E-5')\n>>> c6 = analysis.neoRiemannian.LRP_combinations(c5, 'LPLPLP')\n>>> c6\n<music21.chord.Chord G#4 B#3 D#5>\n\n\nOptionally: return all chords creating by the given string in order.\n>>> c7 = chord.Chord('C4 E4 G4')\n>>> c8 = analysis.neoRiemannian.LRP_combinations(\n...            c7, 'LPLPLP', simplifyEnharmonics=True, eachOne=True)\n>>> c8\n[<music21.chord.Chord B3 E4 G4>,\n<music21.chord.Chord B3 E4 G#4>,\n<music21.chord.Chord B3 D#4 G#4>,\n<music21.chord.Chord C4 E-4 A-4>,\n<music21.chord.Chord C4 E-4 G4>,\n<music21.chord.Chord C4 E4 G4>]\n\n\nOn that particular case of LPLPLP, see more in\ncompleteHexatonic().",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.analysis.neoRiemannian.",
+        "type": "Title"
+    },
+    {
+        "text": "completeHexatonic",
+        "type": "Title"
+    },
+    {
+        "text": "simplifyEnharmonics",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "raiseException",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "completeHexatonic returns the list of six triads generated by the operation PLPLPL.\nThis six-part operation cycles between major and minor triads, ultimately returning to the\ninput triad (or its enharmonic equivalent).\nThis functions returns those six triads, ending with the original triad.\nsimplifyEnharmonics is False, by default, giving double flats at the end.\n>>> c1 = chord.Chord('C4 E4 G4')\n>>> analysis.neoRiemannian.completeHexatonic(c1)\n[<music21.chord.Chord C4 E-4 G4>,\n <music21.chord.Chord C4 E-4 A-4>,\n <music21.chord.Chord C-4 E-4 A-4>,\n <music21.chord.Chord C-4 F-4 A-4>,\n <music21.chord.Chord C-4 F-4 A--4>,\n <music21.chord.Chord D--4 F-4 A--4>]\n\n\nsimplifyEnharmonics can be set to True in order to avoid this.\n>>> c2 = chord.Chord('C4 E4 G4')\n>>> analysis.neoRiemannian.completeHexatonic(c2, simplifyEnharmonics=True)\n[<music21.chord.Chord C4 E-4 G4>,\n <music21.chord.Chord C4 E-4 A-4>,\n <music21.chord.Chord B3 D#4 G#4>,\n <music21.chord.Chord B3 E4 G#4>,\n <music21.chord.Chord B3 E4 G4>,\n <music21.chord.Chord C4 E4 G4>]",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.analysis.neoRiemannian.",
+        "type": "Title"
+    },
+    {
+        "text": "hexatonicSystem",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns a lowercase string representing the\n\u009chexatonic system\u009d that the chord c belongs to\nas classified by Richard Cohn, \u009cMaximally Smooth Cycles,\nHexatonic Systems, and the Analysis of Late-Romantic\nTriadic Progressions,\u009d Music Analysis, 15.1 (1996), 9-40,\nat p. 17.  Possible values are \u0098northern', \u0098western', \u0098eastern', or \u0098southern'\n>>> cMaj = chord.Chord('C E G')\n>>> analysis.neoRiemannian.hexatonicSystem(cMaj)\n'northern'\n\n\n>>> gMin = chord.Chord('G B- D')\n>>> analysis.neoRiemannian.hexatonicSystem(gMin)\n'western'\n\n\nEach chord in the completeHexatonic() of that chord\nis in the same hexatonic system, by definition or tautology.\n>>> for ch in analysis.neoRiemannian.completeHexatonic(cMaj):\n...     print(analysis.neoRiemannian.hexatonicSystem(ch))\nnorthern\nnorthern\nnorthern\nnorthern\nnorthern\nnorthern\n\n\nNote that the classification looks only at the\npitch class of the root of the chord.  Seventh chords,\ndiminished triads, etc. will also be classified.\n>>> dDom65 = chord.Chord('F#4 D5 A5 C6')\n>>> analysis.neoRiemannian.hexatonicSystem(dDom65)\n'southern'",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.analysis.neoRiemannian.",
+        "type": "Title"
+    },
+    {
+        "text": "chromaticMediants",
+        "type": "Title"
+    },
+    {
+        "text": "transformation",
+        "type": "Title"
+    },
+    {
+        "text": "'UFM'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Transforms a chord into the given chromatic mediant. Options:\nUFM = Upper Flat Mediant;\nUSM = Upper Sharp Mediant;\nLFM = Lower Flat Mediant ;\nLSM = Lower Sharp Mediant;\nEach of these transformations\nis mode-preserving;\ninvolves root motion by a third;\nentails exactly one common-tone.\n>>> cMaj = chord.Chord('C5 E5 G5')\n>>> UFMcMaj = analysis.neoRiemannian.chromaticMediants(cMaj, transformation='UFM')\n>>> UFMcMaj.normalOrder\n[3, 7, 10]\n\n\n>>> USMcMaj = analysis.neoRiemannian.chromaticMediants(cMaj, transformation='USM')\n>>> USMcMaj.normalOrder\n[4, 8, 11]\n\n\n>>> LFMcMaj = analysis.neoRiemannian.chromaticMediants(cMaj, transformation='LFM')\n>>> [x.nameWithOctave for x in LFMcMaj.pitches]\n['C5', 'E-5', 'A-5']\n\n\n>>> LSMcMaj = analysis.neoRiemannian.chromaticMediants(cMaj, transformation='LSM')\n>>> [x.nameWithOctave for x in LSMcMaj.pitches]\n['C#5', 'E5', 'A5']\n\n\nFine to call on a chord with multiple enharmonics,\nbut will always simplify the output chromatic mediant.\n>>> cMajEnh = chord.Chord('D--5 F-5 A--5')\n>>> USM = analysis.neoRiemannian.chromaticMediants(cMaj, transformation='USM')\n>>> [x.nameWithOctave for x in USM.pitches]\n['B4', 'E5', 'G#5']\n>>> USM.normalOrder == USMcMaj.normalOrder\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.analysis.neoRiemannian.",
+        "type": "Title"
+    },
+    {
+        "text": "isChromaticMediant",
+        "type": "Title"
+    },
+    {
+        "text": "c1",
+        "type": "Title"
+    },
+    {
+        "text": "c2",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Tests if there is a chromatic mediant relation between two chords\nand returns the type if so (otherwise, False).\n>>> c1 = chord.Chord('C4 E4 G4')\n>>> c2 = chord.Chord('A-3 C4 E-4')\n>>> analysis.neoRiemannian.isChromaticMediant(c1, c2)\n'LFM'\n\n\n>>> c3 = chord.Chord('C4 E4 G4')\n>>> c4 = chord.Chord('C-4 E-4 A-4')\n>>> analysis.neoRiemannian.isChromaticMediant(c3, c4)\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.analysis.neoRiemannian.",
+        "type": "Title"
+    },
+    {
+        "text": "disjunctMediants",
+        "type": "Title"
+    },
+    {
+        "text": "upperOrLower",
+        "type": "Title"
+    },
+    {
+        "text": "'upper'",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Transforms a chord into the upper or lower disjunct mediant.\nThese transformations involve:\nroot motion by a non-diatonic third;\nmode-change;\nno common-tones.\n>>> cMaj = chord.Chord('C5 E5 G5')\n>>> upr = analysis.neoRiemannian.disjunctMediants(cMaj, upperOrLower='upper')\n>>> [x.name for x in upr.pitches]\n['B-', 'E-', 'G-']\n>>> lwr = analysis.neoRiemannian.disjunctMediants(cMaj, upperOrLower='lower')\n>>> [x.name for x in lwr.pitches]\n['B', 'D#', 'G#']",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.analysis.neoRiemannian",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

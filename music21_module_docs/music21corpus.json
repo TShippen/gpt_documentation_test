@@ -1,0 +1,630 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.corpus",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.converter.subConverters",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.corpus.chorales",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.corpus\nFunctions\naddPath()\ncacheMetadata()\ngetComposer()\ngetCorePaths()\ngetLocalPaths()\ngetPaths()\ngetWork()\nnoCorpus()\nparse()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.corpus\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "The music21 corpus includes a collection of freely distributable\nmusic in MusicXML, Humdrum, and other representations. The corpus\npackage is an interface for easily working with this data.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "To see a complete listing of the works in the music21 corpus,\nvisit  List of Works Found in the music21 Corpus.  Note that music21 does not own\nmost of the music in the corpus \u2014 it has been licensed to us (or\nin a free license).  It may not be free in all parts of the world,\nbut to the best of our knowledge is true for the US.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Use corpus.parse if you know the name of a file in the corpus:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "corpus",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "'bwv66.6'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "<music21.stream.Score bach/bwv66.6.mxl>",
+        "type": "Title"
+    },
+    {
+        "text": "And use corpus.search if you do not:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "cb",
+        "type": "Title"
+    },
+    {
+        "text": "corpus",
+        "type": "Title"
+    },
+    {
+        "text": "search",
+        "type": "Title"
+    },
+    {
+        "text": "'shandy'",
+        "type": "Title"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "cb",
+        "type": "Title"
+    },
+    {
+        "text": "<music21.metadata.bundles.MetadataBundle {1 entry}>",
+        "type": "Title"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "cb",
+        "type": "Title"
+    },
+    {
+        "text": "<music21.metadata.bundles.MetadataEntry 'airdsAirs_book1_abc_191'>",
+        "type": "Title"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "cb",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "<music21.stream.Score airdsAirs/book1.abc>",
+        "type": "Title"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.corpus.",
+        "type": "Title"
+    },
+    {
+        "text": "addPath",
+        "type": "Title"
+    },
+    {
+        "text": "filePath",
+        "type": "Title"
+    },
+    {
+        "text": "corpusName",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Add a directory path to the Local Corpus on a temporary basis, i.e., just\nfor the current Python session.\nAll directories contained within the provided directory will be searched\nfor files with file extensions matching the currently readable file types.\nAny number of file paths can be added one at a time.\nAn error will be raised if the file path does not exist, is already defined\nas a temporary, or is already being searched by being defined with the\nEnvironment \u0098localCorpusSettings' setting.\nTo permanently add a path to the list of stored local corpus paths,\nset the \u0098localCorpusPath' or \u0098localCorpusSettings' setting of\nthe UserSettings object.\n>>> corpus.addPath('~/Documents')\n\n\nAlternatively, add a directory permanently (see link above\nfor more details):\n>>> us = environment.UserSettings()\n>>> us['localCorpusPath'] = 'd:/desktop/'\n\n\nRestart music21 after adding paths.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.corpus.",
+        "type": "Title"
+    },
+    {
+        "text": "cacheMetadata",
+        "type": "Title"
+    },
+    {
+        "text": "corpusNames",
+        "type": "Title"
+    },
+    {
+        "text": "('local',)",
+        "type": "Title"
+    },
+    {
+        "text": "verbose",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Rebuild the metadata cache.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.corpus.",
+        "type": "Title"
+    },
+    {
+        "text": "getComposer",
+        "type": "Title"
+    },
+    {
+        "text": "composerName",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "fileExtensions",
+        "type": "Title"
+    },
+    {
+        "text": "Iterable[str]",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return all filenames in the corpus that match a composer's or a\ncollection's name. An fileExtensions, if provided, defines which\nextensions are returned. An fileExtensions of None (default) returns all\nextensions.\nNote that xml and mxl are treated equivalently.\n>>> a = corpus.getComposer('schoenberg')\n>>> len(a) > 1\nTrue\n\n\n>>> a = corpus.getComposer('bach', fileExtensions=('krn',))\n>>> len(a) < 10\nTrue\n\n\n>>> a = corpus.getComposer('bach', fileExtensions=('xml',))\n>>> len(a) > 10\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.corpus.",
+        "type": "Title"
+    },
+    {
+        "text": "getCorePaths",
+        "type": "Title"
+    },
+    {
+        "text": "fileExtensions",
+        "type": "Title"
+    },
+    {
+        "text": "Iterable[str]",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "expandExtensions",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 list[pathlib.Path]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get all paths in the corpus that match a known extension, or an extenion\nprovided by an argument.\nIf expandExtensions is True, a format for an extension, and related\nextensions, will be replaced by all known input extensions.\nThis is convenient when an input format might match for multiple\nextensions.\n>>> corpusFilePaths = corpus.getCorePaths()\n>>> cpl = len(corpusFilePaths)\n>>> 3000 < cpl < 4000\nTrue\n\n\n>>> kernFilePaths = corpus.getCorePaths(fileExtensions=('krn',))\n>>> len(kernFilePaths) >= 500\nTrue\n\n\n>>> abcFilePaths = corpus.getCorePaths(fileExtensions=('abc',))\n>>> len(abcFilePaths) >= 100\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.corpus.",
+        "type": "Title"
+    },
+    {
+        "text": "getLocalPaths",
+        "type": "Title"
+    },
+    {
+        "text": "fileExtensions",
+        "type": "Title"
+    },
+    {
+        "text": "Iterable[str]",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "expandExtensions",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 list[pathlib.Path]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Access files in additional directories supplied by the user and defined in\nenvironment settings in the \u0098localCorpusSettings' list.\nIf additional paths are added on a per-session basis with the\naddPath() function, these paths are also returned\nwith this method.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.corpus.",
+        "type": "Title"
+    },
+    {
+        "text": "getPaths",
+        "type": "Title"
+    },
+    {
+        "text": "fileExtensions",
+        "type": "Title"
+    },
+    {
+        "text": "Iterable[str]",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "expandExtensions",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "name",
+        "type": "Title"
+    },
+    {
+        "text": "Iterable[str]",
+        "type": "Title"
+    },
+    {
+        "text": "('local', 'core')",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get paths from core and/or local corpora.\nThis is the public interface for getting all corpus\npaths with one function.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.corpus.",
+        "type": "Title"
+    },
+    {
+        "text": "getWork",
+        "type": "Title"
+    },
+    {
+        "text": "workName",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "movementNumber",
+        "type": "Title"
+    },
+    {
+        "text": "int | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "fileExtensions",
+        "type": "Title"
+    },
+    {
+        "text": "Iterable[str]",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u2192 pathlib.Path | list[pathlib.Path]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Search all Corpora for a work, and return a file path.\nN.B. does not parse the work: but it's suitable for passing\nto converter.parse.\nThis method will return either a list of file paths or, if there is a\nsingle match, a single file path. If no matches are found an Exception is\nraised.\n>>> import os, pathlib\n>>> luca = corpus.getWork('luca/gloria')\n>>> isinstance(luca, pathlib.Path)\nTrue\n>>> luca.name\n'gloria.xml'\n>>> luca.parent.name\n'luca'\n\n\nMultiple works give multiple paths.\n>>> trecentoFiles = corpus.getWork('trecento')\n>>> isinstance(trecentoFiles, list)\nTrue\n>>> isinstance(trecentoFiles[0], pathlib.Path)\nTrue\n>>> 100 < len(trecentoFiles) < 200\nTrue\n\n\nNote: if the Virtual corpus is ever brought back, it may return a URL.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.corpus.",
+        "type": "Title"
+    },
+    {
+        "text": "noCorpus",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return True or False if this is a corpus or noCorpus distribution.\n>>> corpus.noCorpus()\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.corpus.",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "workName",
+        "type": "Title"
+    },
+    {
+        "text": "str | pathlib.Path",
+        "type": "Title"
+    },
+    {
+        "text": "movementNumber",
+        "type": "Title"
+    },
+    {
+        "text": "int | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "number",
+        "type": "Title"
+    },
+    {
+        "text": "int | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "fileExtensions",
+        "type": "Title"
+    },
+    {
+        "text": "Iterable[str]",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "forceSource",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "format",
+        "type": "Title"
+    },
+    {
+        "text": "str | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The most important method call for corpus.\nSimilar to the parse() function of converter (which\ntakes in a filepath on the local hard drive), this function searches the\ncorpus (including local corpora) for a work fitting the workName\ndescription and returns a music21.stream.Stream.\nIf movementNumber is defined, and a movement is included in the corpus,\nthat movement will be returned.\nIf number is defined, and the work is a collection with multiple\ncomponents, that work number will be returned.  For instance, some of our\nABC documents contain dozens of folk songs within a single file.\nAdvanced: if forceSource is True, the original file will always be loaded\nfreshly and pickled (e.g., pre-parsed) files will be ignored.  This should\nnot be needed if the file has been changed, since the filetime of the file\nand the filetime of the pickled version are compared.  But it might be\nneeded if the music21 parsing routine has changed.\nExample, get a chorale by Bach.  Note that the source type does not need to\nbe specified, nor does the name Bach even (since it's the only piece with\nthe title BWV 66.6)\n>>> bachChorale = corpus.parse('bwv66.6')\n>>> len(bachChorale.parts)\n4\n\n\nAfter parsing, the file path within the corpus is stored as\n.metadata.corpusFilePath\n>>> bachChorale.metadata.corpusFilePath\n'bach/bwv66.6.mxl'\n\n\nChanged in v9: corpusFilePath is stored in metadata and now has a capital \u0098P'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.corpus",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

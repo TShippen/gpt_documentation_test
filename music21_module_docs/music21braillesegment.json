@@ -1,0 +1,1654 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.braille.segment",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.braille.runAllBrailleTests",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.braille.text",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.braille.segment\nAffinity\nAffinity\n\n\nBrailleElementGrouping\nBrailleElementGrouping\nBrailleElementGrouping.__getitem__()\nBrailleElementGrouping.descendingChords\nBrailleElementGrouping.keySignature\nBrailleElementGrouping.numRepeats\nBrailleElementGrouping.showClefSigns\nBrailleElementGrouping.timeSignature\nBrailleElementGrouping.withHyphen\n\n\n\n\nBrailleGrandSegment\nBrailleGrandSegment\nBrailleGrandSegment.brailleText\nBrailleGrandSegment.extractHeading()\nBrailleGrandSegment.extractNoteGrouping()\nBrailleGrandSegment.transcribe()\nBrailleGrandSegment.yieldCombinedGroupingKeys()\n\n\n\n\nBrailleSegment\nBrailleSegment\nBrailleSegment.brailleText\nBrailleSegment.__getitem__()\nBrailleSegment.addDummyRests()\nBrailleSegment.addGroupingAttributes()\nBrailleSegment.addRepeatSymbols()\nBrailleSegment.consolidate()\nBrailleSegment.extractHeading()\nBrailleSegment.extractInaccordGrouping()\nBrailleSegment.extractLongExpressionGrouping()\nBrailleSegment.extractMeasureNumber()\nBrailleSegment.extractNoteGrouping()\nBrailleSegment.extractSignatureGrouping()\nBrailleSegment.extractTempoTextGrouping()\nBrailleSegment.fixArticulations()\nBrailleSegment.needsSplitToFit()\nBrailleSegment.showLeadingOctaveFromNoteGrouping()\nBrailleSegment.splitNoteGroupingAndTranscribe()\nBrailleSegment.transcribe()\nBrailleSegment.beginsMidMeasure\nBrailleSegment.cancelOutgoingKeySig\nBrailleSegment.dummyRestLength\nBrailleSegment.endHyphen\nBrailleSegment.lineLength\nBrailleSegment.showFirstMeasureNumber\nBrailleSegment.showHand\nBrailleSegment.showHeading\nBrailleSegment.suppressOctaveMarks\n\n\n\n\nGroupingGlobals\nGroupingGlobals\n\n\nSegmentKey\nSegmentKey\n\n\nFunctions\nareGroupingsIdentical()\nextractBrailleElements()\nfindSegments()\ngetRawSegments()\nprepareBeamedNotes()\nprepareSlurredNotes()\nsetAffinityCode()\nsetGroupingGlobals()\nsplitMeasure()\nsplitNoteGrouping()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.braille.segment\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Inner classes and functions for transcribing musical segments into braille.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "This module was made in consultation with the manual \u009cIntroduction to Braille\nMusic Transcription, Second Edition\u009d by Mary Turner De Garmo, 2005. It is\navailable from the Library of Congress\nhere,\nand will henceforth be referred to as BMTM.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Affinity\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.braille.segment.",
+        "type": "Title"
+    },
+    {
+        "text": "Affinity",
+        "type": "Title"
+    },
+    {
+        "text": "value",
+        "type": "Title"
+    },
+    {
+        "text": "names",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "module",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "qualname",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "start",
+        "type": "Title"
+    },
+    {
+        "text": "boundary",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "BrailleElementGrouping\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.braille.segment.",
+        "type": "Title"
+    },
+    {
+        "text": "BrailleElementGrouping",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "listElements",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A BrailleElementGrouping mimics a list of objects which should be displayed\nwithout a space in braille.\n>>> from music21.braille import segment\n>>> bg = segment.BrailleElementGrouping()\n>>> bg.append(note.Note('C4'))\n>>> bg.append(note.Note('D4'))\n>>> bg.append(note.Rest())\n>>> bg.append(note.Note('F4'))\n>>> bg\n<music21.braille.segment.BrailleElementGrouping [<music21.note.Note C>,\n    <music21.note.Note D>, <music21.note.Rest quarter>, <music21.note.Note F>]>\n>>> print(bg)\n<music21.note.Note C>\n<music21.note.Note D>\n<music21.note.Rest quarter>\n<music21.note.Note F>\n\n\nThese are the defaults, and they are shared across all objects\u2026\n>>> bg.keySignature\n<music21.key.KeySignature of no sharps or flats>\n>>> bg.timeSignature\n<music21.meter.TimeSignature 4/4>\n\n\n>>> bg.descendingChords\nTrue\n\n\n>>> bg.showClefSigns\nFalse\n\n\n>>> bg.upperFirstInNoteFingering\nTrue\n\n\n>>> bg.withHyphen\nFalse\n\n\n>>> bg.numRepeats\n0",
+        "type": "ListItem"
+    },
+    {
+        "text": "BrailleElementGrouping bases",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "BrailleElementGrouping read-only properties",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "BrailleElementGrouping methods",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "BrailleElementGrouping.",
+        "type": "Title"
+    },
+    {
+        "text": "__getitem__",
+        "type": "Title"
+    },
+    {
+        "text": "item",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "BrailleElementGrouping instance variables",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "BrailleElementGrouping.",
+        "type": "Title"
+    },
+    {
+        "text": "descendingChords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "True if a Chord should be spelled\nfrom highest to lowest pitch\nin braille, False if the opposite is the case.",
+        "type": "ListItem"
+    },
+    {
+        "text": "BrailleElementGrouping.",
+        "type": "Title"
+    },
+    {
+        "text": "keySignature",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The last KeySignature preceding the grouping.",
+        "type": "ListItem"
+    },
+    {
+        "text": "BrailleElementGrouping.",
+        "type": "Title"
+    },
+    {
+        "text": "numRepeats",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The number of times this grouping is repeated.",
+        "type": "ListItem"
+    },
+    {
+        "text": "BrailleElementGrouping.",
+        "type": "Title"
+    },
+    {
+        "text": "showClefSigns",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "If True, clef signs are shown in braille.\nRepresentation of music in braille is not\ndependent upon clefs and staves, so the clef signs would be displayed\nfor referential or historical purposes.",
+        "type": "ListItem"
+    },
+    {
+        "text": "BrailleElementGrouping.",
+        "type": "Title"
+    },
+    {
+        "text": "timeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The last TimeSignature preceding the grouping.",
+        "type": "ListItem"
+    },
+    {
+        "text": "BrailleElementGrouping.",
+        "type": "Title"
+    },
+    {
+        "text": "withHyphen",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "If True, this grouping will end with a music hyphen.",
+        "type": "ListItem"
+    },
+    {
+        "text": "BrailleGrandSegment\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.braille.segment.",
+        "type": "Title"
+    },
+    {
+        "text": "BrailleGrandSegment",
+        "type": "Title"
+    },
+    {
+        "text": "lineLength",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "40",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A BrailleGrandSegment represents a pair of segments (rightSegment, leftSegment)\nrepresenting the right and left hands of a piano staff (or other two-staff object).\n>>> bgs = braille.segment.BrailleGrandSegment(lineLength=36)\n>>> bgs.lineLength\n36",
+        "type": "ListItem"
+    },
+    {
+        "text": "BrailleGrandSegment bases",
+        "type": "Title"
+    },
+    {
+        "text": "BrailleSegment",
+        "type": "ListItem"
+    },
+    {
+        "text": "BrailleKeyboard",
+        "type": "ListItem"
+    },
+    {
+        "text": "BrailleText",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "BrailleGrandSegment read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "BrailleGrandSegment.",
+        "type": "Title"
+    },
+    {
+        "text": "brailleText",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "BrailleGrandSegment read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from BrailleText:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "showHand",
+        "type": "Table"
+    },
+    {
+        "text": "BrailleGrandSegment methods",
+        "type": "Title"
+    },
+    {
+        "text": "BrailleGrandSegment.",
+        "type": "Title"
+    },
+    {
+        "text": "extractHeading",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Finds KeySignatures, TimeSignatures, TempoText, and Metronome Marks\nwithin the keyPairs, and removes some from allKeyPairs.",
+        "type": "ListItem"
+    },
+    {
+        "text": "BrailleGrandSegment.",
+        "type": "Title"
+    },
+    {
+        "text": "extractNoteGrouping",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Fundamentally important method that adds a noteGrouping to the braille line.",
+        "type": "ListItem"
+    },
+    {
+        "text": "BrailleGrandSegment.",
+        "type": "Title"
+    },
+    {
+        "text": "transcribe",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns the BrailleText from the combined grouping keys",
+        "type": "ListItem"
+    },
+    {
+        "text": "BrailleGrandSegment.",
+        "type": "Title"
+    },
+    {
+        "text": "yieldCombinedGroupingKeys",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "yields all the keys in order as a tuple of (rightKey, leftKey) where\ntwo keys are grouped if they have the same segmentKey except for the hand.\n>>> bgs = braille.segment.BrailleGrandSegment()\n>>> SegmentKey = braille.segment.SegmentKey  # namedtuple\n>>> bgs[SegmentKey(1, 1, 1, 'right')] = '1r'\n>>> bgs[SegmentKey(1, 1, 1, 'left')]  = '1l'\n>>> bgs[SegmentKey(1, 2, 3, 'right')] = '2r'\n>>> bgs[SegmentKey(1, 2, 4, 'left')] = '3l'\n>>> bgs[SegmentKey(2, 1, 9, 'left')] = '4l'\n>>> bgs[SegmentKey(2, 1, 9, 'right')] = '4r'\n>>> bgs[SegmentKey(3, 1, 9, 'right')] = '5r'\n>>> for l, r in bgs.yieldCombinedGroupingKeys():\n...     (bgs[l], bgs[r])\n('1r', '1l')\n('2r', <music21.braille.segment.BrailleElementGrouping []>)\n(<music21.braille.segment.BrailleElementGrouping []>, '3l')\n('4r', '4l')\n('5r', <music21.braille.segment.BrailleElementGrouping []>)\n\n\n\nKnown Bug:Because this puts None elements into the defaultDict,\nit makes the assumption that all of .keys() will be SegmentKeys\nincorrect.  In fact, if you run this method twice, the second time\nit will crash.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from BrailleSegment:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__getitem__() addDummyRests() addGroupingAttributes() addRepeatSymbols() consolidate() extractInaccordGrouping() extractLongExpressionGrouping() extractMeasureNumber() extractSignatureGrouping() extractTempoTextGrouping() fixArticulations() needsSplitToFit() showLeadingOctaveFromNoteGrouping() splitNoteGroupingAndTranscribe()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from BrailleKeyboard:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "addNoteGroupings() makeNewLines()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from BrailleText:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "addHeading() addInaccord() addLongExpression() addMeasureNumber() addSignatures() addToNewLine() appendOrInsertCurrent() makeNewLine() optionalAddKeyboardSymbolsAndDots() recenterHeadings()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "BrailleGrandSegment instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from BrailleSegment:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beginsMidMeasure cancelOutgoingKeySig dummyRestLength endHyphen lineLength showFirstMeasureNumber showHand showHeading suppressOctaveMarks",
+        "type": "Table"
+    },
+    {
+        "text": "BrailleSegment\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.braille.segment.",
+        "type": "Title"
+    },
+    {
+        "text": "BrailleSegment",
+        "type": "Title"
+    },
+    {
+        "text": "lineLength",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "40",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "BrailleSegment bases",
+        "type": "Title"
+    },
+    {
+        "text": "BrailleText",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "BrailleSegment read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "BrailleSegment.",
+        "type": "Title"
+    },
+    {
+        "text": "brailleText",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns the string from the BrailleText object",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "BrailleSegment read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from BrailleText:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "showHand",
+        "type": "Table"
+    },
+    {
+        "text": "BrailleSegment methods",
+        "type": "Title"
+    },
+    {
+        "text": "BrailleSegment.",
+        "type": "Title"
+    },
+    {
+        "text": "__getitem__",
+        "type": "Title"
+    },
+    {
+        "text": "item",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "BrailleSegment.",
+        "type": "Title"
+    },
+    {
+        "text": "addDummyRests",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Adds as many dummy rests as self.dummyRestLength to the signatures of\nbrailleText\n>>> seg = braille.segment.BrailleSegment()\n>>> seg.dummyRestLength = 4\n\n\n>>> print(braille.lookup.rests['dummy'])\n\u00e2\u00a0\u0084\n>>> seg.addDummyRests()\n>>> print(seg.brailleText)\n\u00e2\u00a0\u0084\u00e2\u00a0\u0084\u00e2\u00a0\u0084\u00e2\u00a0\u0084",
+        "type": "ListItem"
+    },
+    {
+        "text": "BrailleSegment.",
+        "type": "Title"
+    },
+    {
+        "text": "addGroupingAttributes",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Modifies the attributes of all BrailleElementGrouping\ninstances in a list of BrailleSegment instances. The\nnecessary information is retrieved from the segment and from the found clef, if any.",
+        "type": "ListItem"
+    },
+    {
+        "text": "BrailleSegment.",
+        "type": "Title"
+    },
+    {
+        "text": "addRepeatSymbols",
+        "type": "Title"
+    },
+    {
+        "text": "repeatTimes",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Adds the appropriate number of repeat symbols, following DeGarmo chapter 17.\n>>> seg = braille.segment.BrailleSegment()\n>>> seg.addRepeatSymbols(0)\n>>> print(seg.brailleText)\n>>> seg.addRepeatSymbols(1)\n>>> print(seg.brailleText)\n\u00e2\u00a0\u00b6\n\n\n>>> seg = braille.segment.BrailleSegment()\n>>> seg.addRepeatSymbols(2)\n>>> print(seg.brailleText)\n\u00e2\u00a0\u00b6\u00e2\u00a0\u0080\u00e2\u00a0\u00b6\n\n\n>>> seg = braille.segment.BrailleSegment()\n>>> seg.addRepeatSymbols(3)\n>>> print(seg.brailleText)\n\u00e2\u00a0\u00b6\u00e2\u00a0\u00bc\u00e2\u00a0\u0089\n\n\nDoes not yet handle situations beginning with Example 17-6 (repeats at\ndifferent octaves), and further",
+        "type": "ListItem"
+    },
+    {
+        "text": "BrailleSegment.",
+        "type": "Title"
+    },
+    {
+        "text": "consolidate",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Puts together certain types of elements according to the last digit of their key\n(if it is the same as Affinity.NOTEGROUP or not.\n>>> SK = braille.segment.SegmentKey\n>>> BS1 = braille.segment.BrailleSegment()\n>>> BS1[SK(ordinal=0, affinity=2)] = ['hi', 'hello', 'there']\n>>> BS1[SK(ordinal=1, affinity=9)] = ['these', 'get']\n>>> BS1[SK(ordinal=2, affinity=9)] = ['put', 'together']\n>>> BS1[SK(ordinal=3, affinity=4)] = ['in', 'new', 'group']\n>>> BS1[SK(ordinal=4, affinity=9)] = ['with', 'the', 'previous']\n>>> BS2 = BS1.consolidate()\n>>> for (groupingKey, groupingList) in sorted(BS2.items()):\n...     print(groupingKey, groupingList)\nSegmentKey(measure=0, ordinal=0, affinity=2, hand=None) ['hi', 'hello', 'there']\nSegmentKey(measure=0, ordinal=1, affinity=9, hand=None) these\nget\nput\ntogether\nSegmentKey(measure=0, ordinal=3, affinity=4, hand=None) ['in', 'new', 'group']\nSegmentKey(measure=0, ordinal=4, affinity=9, hand=None) with\nthe\nprevious",
+        "type": "ListItem"
+    },
+    {
+        "text": "BrailleSegment.",
+        "type": "Title"
+    },
+    {
+        "text": "extractHeading",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Extract a KeySignature, TempoText and MetronomeMark and\nadd an appropriate braille heading to the brailleText object inputted.",
+        "type": "ListItem"
+    },
+    {
+        "text": "BrailleSegment.",
+        "type": "Title"
+    },
+    {
+        "text": "extractInaccordGrouping",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "BrailleSegment.",
+        "type": "Title"
+    },
+    {
+        "text": "extractLongExpressionGrouping",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Extract the Long Expression that is in the ElementGrouping in cgk\nand add it to brailleText.",
+        "type": "ListItem"
+    },
+    {
+        "text": "BrailleSegment.",
+        "type": "Title"
+    },
+    {
+        "text": "extractMeasureNumber",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Adds a measure number from the segmentKey needing processing\n>>> segKey = braille.segment.SegmentKey(measure=4, ordinal=1, affinity=9)\n>>> seg = braille.segment.BrailleSegment()\n\n\nInitialize a new Key\n>>> type(seg[segKey])\n<class 'music21.braille.segment.BrailleElementGrouping'>\n>>> seg.extractMeasureNumber()\n>>> print(seg.brailleText)\n\u00e2\u00a0\u00bc\u00e2\u00a0\u0099\n\n\nAdd a dot to the measure number if the segment begins mid-measure\n>>> seg = braille.segment.BrailleSegment()\n>>> seg[segKey]\n<music21.braille.segment.BrailleElementGrouping []>\n\n\n>>> seg.beginsMidMeasure = True\n>>> seg.extractMeasureNumber()\n>>> print(seg.brailleText)\n\u00e2\u00a0\u00bc\u00e2\u00a0\u0099\u00e2\u00a0\u0084",
+        "type": "ListItem"
+    },
+    {
+        "text": "BrailleSegment.",
+        "type": "Title"
+    },
+    {
+        "text": "extractNoteGrouping",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Fundamentally important method that adds a noteGrouping to the braille line.",
+        "type": "ListItem"
+    },
+    {
+        "text": "BrailleSegment.",
+        "type": "Title"
+    },
+    {
+        "text": "extractSignatureGrouping",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Extracts a key signature, time signature, and possibly an outgoing key signature\nfrom the currentGroupingKey and adds it to the BrailleText object.",
+        "type": "ListItem"
+    },
+    {
+        "text": "BrailleSegment.",
+        "type": "Title"
+    },
+    {
+        "text": "extractTempoTextGrouping",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "extracts a tempo text and processes it\u2026",
+        "type": "ListItem"
+    },
+    {
+        "text": "BrailleSegment.",
+        "type": "Title"
+    },
+    {
+        "text": "fixArticulations",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Goes through each BrailleSegment and modifies the\nlist of articulations of a Note\nif appropriate. In particular, two rules are applied:\n\nDoubling rule => If four or more of the same Articulation\nare found in a row, the first instance of the articulation is doubled and the rest are\nomitted.\nIt is permissible (not mandatory) to observe this doubling with bowings. (BMTM, 114)\nFor this reason, any TechnicalIndication but for bowings\n(e.g. fingering, harmonic) is skipped, because it does not braille as an articulation.\n\nStaccato, Tenuto rule => \u009cIf two repeated notes appear to be tied, but either is marked\nstaccato or tenuto, they are treated as slurred instead of tied.\u009d (BMTM, 112)",
+        "type": "ListItem"
+    },
+    {
+        "text": "BrailleSegment.",
+        "type": "Title"
+    },
+    {
+        "text": "needsSplitToFit",
+        "type": "Title"
+    },
+    {
+        "text": "brailleNoteGrouping",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns boolean on whether a note grouping needs to be split in order to fit.\nGenerally a noteGrouping will need to be split if the amount of space left\nis more than 1/4 of the line length and the brailleNoteGrouping cannot fit.\n>>> n1 = note.Note('C1')\n>>> n2 = note.Note('D1')\n>>> n3 = note.Note('E1')\n\n\n>>> beg1 = braille.segment.BrailleElementGrouping([n1, n2, n3])\n>>> seg = braille.segment.BrailleSegment()\n>>> seg.needsSplitToFit(beg1)\nFalse\n>>> seg.lineLength = 10\n>>> seg.needsSplitToFit(beg1)\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "BrailleSegment.",
+        "type": "Title"
+    },
+    {
+        "text": "showLeadingOctaveFromNoteGrouping",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "noteGrouping",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "BrailleElementGrouping",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a noteGrouping, should we show the octave symbol?\n>>> n1 = note.Note('C1')\n>>> n2 = note.Note('D1')\n>>> n3 = note.Note('E1')\n\n\n>>> beg1 = braille.segment.BrailleElementGrouping([n1, n2, n3])\n>>> bs1 = braille.segment.BrailleSegment()\n\n\nThis is True because last note is None\n>>> bs1.lastNote is None\nTrue\n>>> bs1.showLeadingOctaveFromNoteGrouping(beg1)\nTrue\n\n\nBut if we run it again, now we have a note within a fourth, so we do not\nneed to show the octave:\n>>> bs1.lastNote\n<music21.note.Note E>\n>>> bs1.showLeadingOctaveFromNoteGrouping(beg1)\nFalse\n\n\nAnd that is true no matter how many times we call it on the same\nBrailleElementGrouping:\n>>> bs1.showLeadingOctaveFromNoteGrouping(beg1)\nFalse\n\n\nBut if we give a new, much higher BrailleElementGrouping, we\nwill see octave marks again.\n>>> nHigh1 = note.Note('C6')\n>>> nHigh2 = note.Note('D6')\n>>> beg2 = braille.segment.BrailleElementGrouping([nHigh1, nHigh2])\n>>> bs1.showLeadingOctaveFromNoteGrouping(beg2)\nTrue\n\n\nBut if we set self.suppressOctaveMarks to True, we won't see any\nwhen we switch back to beg1:\n>>> bs1.suppressOctaveMarks = True\n>>> bs1.showLeadingOctaveFromNoteGrouping(beg2)\nFalse\n\n\nWe also show octaves if for some reason two noteGroups in the same measure have\ndifferent BrailleElementGroupings keyed to consecutive ordinals.  The code simulates\nthat situation.\n>>> bs1.suppressOctaveMarks = False\n>>> bs1.previousGroupingKey = braille.segment.SegmentKey(measure=3, ordinal=1,\n...                                          affinity=braille.segment.Affinity.NOTEGROUP)\n>>> bs1.currentGroupingKey = braille.segment.SegmentKey(measure=3, ordinal=2,\n...                                          affinity=braille.segment.Affinity.NOTEGROUP)\n>>> bs1.showLeadingOctaveFromNoteGrouping(beg2)\nTrue\n>>> bs1.showLeadingOctaveFromNoteGrouping(beg1)\nTrue\n>>> bs1.showLeadingOctaveFromNoteGrouping(beg1)\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "BrailleSegment.",
+        "type": "Title"
+    },
+    {
+        "text": "splitNoteGroupingAndTranscribe",
+        "type": "Title"
+    },
+    {
+        "text": "noteGrouping",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "showLeadingOctaveOnFirst",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "addSpaceToFirst",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Take a noteGrouping and split it at a logical place,\nreturning braille transcriptions of each section.",
+        "type": "ListItem"
+    },
+    {
+        "text": "BrailleSegment.",
+        "type": "Title"
+    },
+    {
+        "text": "transcribe",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Transcribes all noteGroupings in this dict by:\n\nFirst transcribes the Heading (if applicable)\nthen the Measure Number\nthen adds appropriate numbers of dummyRests\nthen adds the Rest of the Note Groupings\n\nReturns brailleText",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from BrailleText:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "addHeading() addInaccord() addLongExpression() addMeasureNumber() addSignatures() addToNewLine() appendOrInsertCurrent() makeNewLine() optionalAddKeyboardSymbolsAndDots() recenterHeadings()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "BrailleSegment instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "BrailleSegment.",
+        "type": "Title"
+    },
+    {
+        "text": "beginsMidMeasure",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "If True, then the initial measure number of this\nsegment should be followed by a dot. This segment\nis starting in the middle of a measure.",
+        "type": "ListItem"
+    },
+    {
+        "text": "BrailleSegment.",
+        "type": "Title"
+    },
+    {
+        "text": "cancelOutgoingKeySig",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "If True, the previous key signature should be\ncancelled immediately before a new key signature is encountered.",
+        "type": "ListItem"
+    },
+    {
+        "text": "BrailleSegment.",
+        "type": "Title"
+    },
+    {
+        "text": "dummyRestLength",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "For a given positive integer n, adds n \u009cdummy rests\u009d\nnear the beginning of a segment. Designed for test purposes, as they\nare used to demonstrate measure division at the end of braille lines.",
+        "type": "ListItem"
+    },
+    {
+        "text": "BrailleSegment.",
+        "type": "Title"
+    },
+    {
+        "text": "endHyphen",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "If True, then the last\nBrailleElementGrouping of this\nsegment will be followed by a music hyphen.\nThe last grouping is incomplete, because a segment\nbreak occurred in the middle of a measure.",
+        "type": "ListItem"
+    },
+    {
+        "text": "BrailleSegment.",
+        "type": "Title"
+    },
+    {
+        "text": "lineLength",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The maximum amount of braille characters that should be\npresent in a line. The standard is 40 characters.",
+        "type": "ListItem"
+    },
+    {
+        "text": "BrailleSegment.",
+        "type": "Title"
+    },
+    {
+        "text": "showFirstMeasureNumber",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "If True, then a measure number is shown\nfollowing the heading (if applicable) and preceding the music.",
+        "type": "ListItem"
+    },
+    {
+        "text": "BrailleSegment.",
+        "type": "Title"
+    },
+    {
+        "text": "showHand",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "If set to \u009cright\u009d or \u009cleft\u009d, shows the corresponding\nhand sign at the beginning of the first line.",
+        "type": "ListItem"
+    },
+    {
+        "text": "BrailleSegment.",
+        "type": "Title"
+    },
+    {
+        "text": "showHeading",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "If True, then a braille heading is displayed.\nSee transcribeHeading()\nfor more details on headings.",
+        "type": "ListItem"
+    },
+    {
+        "text": "BrailleSegment.",
+        "type": "Title"
+    },
+    {
+        "text": "suppressOctaveMarks",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "If True, then all octave marks are suppressed.\nDesigned for test purposes, as octave marks were not presented\nuntil Chapter 7 of BMTM.",
+        "type": "ListItem"
+    },
+    {
+        "text": "GroupingGlobals\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.braille.segment.",
+        "type": "Title"
+    },
+    {
+        "text": "GroupingGlobals",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "SegmentKey\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.braille.segment.",
+        "type": "Title"
+    },
+    {
+        "text": "SegmentKey",
+        "type": "Title"
+    },
+    {
+        "text": "measure",
+        "type": "Title"
+    },
+    {
+        "text": "ordinal",
+        "type": "Title"
+    },
+    {
+        "text": "affinity",
+        "type": "Title"
+    },
+    {
+        "text": "hand",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.braille.segment.",
+        "type": "Title"
+    },
+    {
+        "text": "areGroupingsIdentical",
+        "type": "Title"
+    },
+    {
+        "text": "noteGroupingA",
+        "type": "Title"
+    },
+    {
+        "text": "noteGroupingB",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Takes in two note groupings, noteGroupingA and noteGroupingB. Returns True\nif both groupings have identical contents. False otherwise.\nHelper for numRepeats\u2026\nNeeds two identical length groupings.\n>>> a = [note.Note('C4'), note.Note('D4')]\n>>> b = [note.Note('C4'), note.Note('D4')]\n>>> braille.segment.areGroupingsIdentical(a, b)\nTrue\n\n\n>>> d = b.pop()\n>>> braille.segment.areGroupingsIdentical(a, b)\nFalse\n>>> c = [note.Rest(), note.Note('D4')]\n>>> braille.segment.areGroupingsIdentical(a, c)\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.braille.segment.",
+        "type": "Title"
+    },
+    {
+        "text": "extractBrailleElements",
+        "type": "Title"
+    },
+    {
+        "text": "music21MeasureOrVoice",
+        "type": "Title"
+    },
+    {
+        "text": "Measure | Voice",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 BrailleElementGrouping",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Takes in a Measure or Voice\nand returns a BrailleElementGrouping of correctly ordered\nMusic21Object instances which can be directly transcribed to\nbraille.\n>>> from music21.braille import segment\n>>> tn = converter.parse('tinynotation: 2/4 c16 c c c d d d d', makeNotation=False)\n>>> tn = tn.makeNotation(cautionaryNotImmediateRepeat=False)\n>>> measure = tn[0]\n>>> measure.append(spanner.Slur(measure.notes[0],measure.notes[-1]))\n>>> measure.show('text')\n{0.0} <music21.clef.TrebleClef>\n{0.0} <music21.meter.TimeSignature 2/4>\n{0.0} <music21.note.Note C>\n{0.25} <music21.note.Note C>\n{0.5} <music21.note.Note C>\n{0.75} <music21.note.Note C>\n{1.0} <music21.note.Note D>\n{1.25} <music21.note.Note D>\n{1.5} <music21.note.Note D>\n{1.75} <music21.note.Note D>\n{2.0} <music21.spanner.Slur <music21.note.Note C><music21.note.Note D>>\n{2.0} <music21.bar.Barline type=final>\n\n\nSpanners are dealt with in prepareSlurredNotes(),\nso they are not returned by this function, as seen below.\n>>> print(segment.extractBrailleElements(measure))\n<music21.meter.TimeSignature 2/4>\n<music21.clef.TrebleClef>\n<music21.note.Note C>\n<music21.note.Note C>\n<music21.note.Note C>\n<music21.note.Note C>\n<music21.note.Note D>\n<music21.note.Note D>\n<music21.note.Note D>\n<music21.note.Note D>\n<music21.bar.Barline type=final>",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.braille.segment.",
+        "type": "Title"
+    },
+    {
+        "text": "findSegments",
+        "type": "Title"
+    },
+    {
+        "text": "music21Part",
+        "type": "Title"
+    },
+    {
+        "text": "setHand",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "cancelOutgoingKeySig",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "descendingChords",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "dummyRestLength",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "maxLineLength",
+        "type": "Title"
+    },
+    {
+        "text": "40",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "segmentBreaks",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "showClefSigns",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "showFirstMeasureNumber",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "showHand",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "showHeading",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "showLongSlursAndTiesTogether",
+        "type": "Title"
+    },
+    {
+        "text": "bool | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "showShortSlursAndTiesTogether",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "slurLongPhraseWithBrackets",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "suppressOctaveMarks",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "upperFirstInNoteFingering",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Takes in a Part.\nReturns a list of BrailleSegment instances.\nFive functions or methods get called in the generation of segments:\n\nprepareSlurredNotes()\ngetRawSegments()\naddGroupingAttributes()\naddSegmentAttributes()\nfixArticulations()\n\n>>> from music21.braille import test\n>>> example = test.example11_2()\n>>> allSegments = braille.segment.findSegments(example)\n\n\n>>> print(str(allSegments[0]))\n---begin segment---\n<music21.braille.segment BrailleSegment>\nMeasure 0, Signature Grouping 1:\n<music21.key.KeySignature of 3 flats>\n<music21.meter.TimeSignature 4/4>\n===\nMeasure 0, Note Grouping 1:\n<music21.clef.TrebleClef>\n<music21.note.Note B->\n===\nMeasure 1, Note Grouping 1:\n<music21.note.Note G>\n<music21.note.Note E->\n<music21.note.Note D>\n<music21.note.Note E->\n===\nMeasure 2, Note Grouping 1:\n<music21.note.Note G>\n<music21.note.Note F>\n<music21.note.Note E->\n===\nMeasure 3, Note Grouping 1:\n<music21.note.Note A->\n<music21.note.Note G>\n<music21.note.Note C>\n<music21.note.Note C>\n===\nMeasure 4, Note Grouping 1:\n<music21.note.Note B->\n<music21.note.Note B->\n===\nMeasure 5, Note Grouping 1:\n<music21.note.Note E->\n<music21.note.Note B->\n<music21.note.Note A->\n<music21.note.Note G>\n===\nMeasure 6, Note Grouping 1:\n<music21.note.Note G>\n<music21.note.Note F>\n<music21.note.Note C>\n===\nMeasure 7, Note Grouping 1:\n<music21.note.Note C>\n<music21.note.Note F>\n<music21.note.Note A->\n<music21.note.Note D>\n===\nMeasure 8, Note Grouping 1:\n<music21.note.Note E->\nmusic hyphen \u00e2\u00a0\u0090\n===\n---end segment---\n\n\nSecond segment\n>>> print(str(allSegments[1]))\n---begin segment---\n<music21.braille.segment BrailleSegment>\nMeasure 8, Note Grouping 2:\n<music21.note.Note G>\n===\nMeasure 9, Note Grouping 1:\n<music21.note.Note G>\n<music21.note.Note F>\n<music21.note.Note F>\n<music21.note.Note F>\n===\nMeasure 10, Note Grouping 1:\n<music21.note.Note A->\n<music21.note.Note G>\n<music21.note.Note B->\n===\nMeasure 11, Note Grouping 1:\n<music21.note.Note B->\n<music21.note.Note A>\n<music21.note.Note A>\n<music21.note.Note C>\n===\nMeasure 12, Note Grouping 1:\n<music21.note.Note B->\n<music21.note.Note B->\n===\nMeasure 13, Note Grouping 1:\n<music21.note.Note E->\n<music21.note.Note B->\n<music21.note.Note A->\n<music21.note.Note G>\n===\nMeasure 14, Note Grouping 1:\n<music21.note.Note G>\n<music21.note.Note F>\n<music21.note.Note C>\n===\nMeasure 15, Note Grouping 1:\n<music21.note.Note C>\n<music21.note.Rest quarter>\n<music21.note.Note F>\n<music21.note.Rest quarter>\n===\nMeasure 16, Note Grouping 1:\n<music21.note.Note A->\n<music21.note.Note D>\n===\nMeasure 17, Note Grouping 1:\n<music21.note.Note E->\n<music21.bar.Barline type=final>\n===\n---end segment---",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.braille.segment.",
+        "type": "Title"
+    },
+    {
+        "text": "getRawSegments",
+        "type": "Title"
+    },
+    {
+        "text": "music21Part",
+        "type": "Title"
+    },
+    {
+        "text": "setHand",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "maxLineLength",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "40",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Takes in a Part, divides it up into segments (i.e. instances of\nBrailleSegment). This function assumes\nthat the Part is already divided up into measures\n(see Measure). An acceptable input is shown below.\nThis will automatically find appropriate segment breaks at\nBrailleSegmentDivision\nor BrailleOptionalSegmentDivision\nor after 48 elements if a double bar or repeat sign is encountered.\nTwo functions are called for each measure during the creation of segments:\n\nprepareBeamedNotes()\nextractBrailleElements()\n\n>>> tn = converter.parse(\"tinynotation: 3/4 c4 c c e e e g g g c'2.\")\n>>> tn = tn.makeNotation(cautionaryNotImmediateRepeat=False)\n>>> tn.show('text')\n{0.0} <music21.stream.Measure 1 offset=0.0>\n    {0.0} <music21.clef.TrebleClef>\n    {0.0} <music21.meter.TimeSignature 3/4>\n    {0.0} <music21.note.Note C>\n    {1.0} <music21.note.Note C>\n    {2.0} <music21.note.Note C>\n{3.0} <music21.stream.Measure 2 offset=3.0>\n    {0.0} <music21.note.Note E>\n    {1.0} <music21.note.Note E>\n    {2.0} <music21.note.Note E>\n{6.0} <music21.stream.Measure 3 offset=6.0>\n    {0.0} <music21.note.Note G>\n    {1.0} <music21.note.Note G>\n    {2.0} <music21.note.Note G>\n{9.0} <music21.stream.Measure 4 offset=9.0>\n    {0.0} <music21.note.Note C>\n    {3.0} <music21.bar.Barline type=final>\n\n\nBy default, there is no break anywhere within the Part,\nand a segmentList of size 1 is returned.\n>>> import copy\n>>> from music21.braille import segment\n>>> tnA = copy.deepcopy(tn)\n>>> rawSegments = segment.getRawSegments(tnA)\n>>> len(rawSegments)\n1\n>>> rawSegments[0]\n<music21.braille.segment.BrailleSegment 1 line, 0 headings, 40 cols>\n\n\n>>> print(rawSegments[0])\n---begin segment---\n<music21.braille.segment BrailleSegment>\nMeasure 1, Signature Grouping 1:\n<music21.meter.TimeSignature 3/4>\n===\nMeasure 1, Note Grouping 1:\n<music21.clef.TrebleClef>\n<music21.note.Note C>\n<music21.note.Note C>\n<music21.note.Note C>\n===\nMeasure 2, Note Grouping 1:\n<music21.note.Note E>\n<music21.note.Note E>\n<music21.note.Note E>\n===\nMeasure 3, Note Grouping 1:\n<music21.note.Note G>\n<music21.note.Note G>\n<music21.note.Note G>\n===\nMeasure 4, Note Grouping 1:\n<music21.note.Note C>\n<music21.bar.Barline type=final>\n===\n---end segment---\n\n\nNow, a segment break occurs at measure 2, offset 1.0 within that measure.\nThe two segments are shown below.\n>>> tnB = copy.deepcopy(tn)\n>>> tnB.measure(2).insert(1.0, braille.objects.BrailleSegmentDivision())\n>>> allSegments = segment.getRawSegments(tnB)\n>>> len(allSegments)\n2\n\n\n>>> allSegments[0]\n<music21.braille.segment.BrailleSegment 1 line, 0 headings, 40 cols>\n\n\n>>> print(allSegments[0])\n---begin segment---\n<music21.braille.segment BrailleSegment>\nMeasure 1, Signature Grouping 1:\n<music21.meter.TimeSignature 3/4>\n===\nMeasure 1, Note Grouping 1:\n<music21.clef.TrebleClef>\n<music21.note.Note C>\n<music21.note.Note C>\n<music21.note.Note C>\n===\nMeasure 2, Note Grouping 1:\n<music21.note.Note E>\n===\n---end segment---\n\n\n>>> allSegments[1]\n<music21.braille.segment.BrailleSegment 1 line, 0 headings, 40 cols>\n\n\n>>> print(allSegments[1])\n---begin segment---\n<music21.braille.segment BrailleSegment>\nMeasure 2, Note Grouping 2:\n<music21.note.Note E>\n<music21.note.Note E>\n===\nMeasure 3, Note Grouping 1:\n<music21.note.Note G>\n<music21.note.Note G>\n<music21.note.Note G>\n===\nMeasure 4, Note Grouping 1:\n<music21.note.Note C>\n<music21.bar.Barline type=final>\n===\n---end segment---\n\n\nIf we insert an optional division, the division\nonly appears if there are 48 elements in the current segment:\n>>> tnC = copy.deepcopy(tn)\n>>> tnC.measure(1).insert(1.0, braille.objects.BrailleOptionalSegmentDivision())\n>>> allSegments = segment.getRawSegments(tnC)\n>>> len(allSegments)\n1\n\n\nIf by happenstance a segment division object is encountered where a division\nhas just been created (or the very beginning),\nno unnecessary empty segment will be created:\n>>> tnD = copy.deepcopy(tn)\n>>> tnD.measure(1).insert(0, braille.objects.BrailleSegmentDivision())\n>>> allSegments = segment.getRawSegments(tnD)\n>>> len(allSegments)\n1",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.braille.segment.",
+        "type": "Title"
+    },
+    {
+        "text": "prepareBeamedNotes",
+        "type": "Title"
+    },
+    {
+        "text": "music21Measure",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Takes in a Measure and labels beamed notes\nof smaller value than an 8th with beamStart and beamContinue keywords\nin accordance with beaming rules in braille music.\nA more in-depth explanation of beaming in braille can be found in\nChapter 15 of Introduction to Braille Music Transcription, Second\nEdition, by Mary Turner De Garmo.\n>>> from music21.braille import segment\n>>> tn = converter.parse('tinynotation: 2/4 c16 c c c d d d d')\n>>> tn = tn.makeNotation(cautionaryNotImmediateRepeat=False)\n>>> tn.show('text')\n{0.0} <music21.stream.Measure 1 offset=0.0>\n    {0.0} <music21.clef.TrebleClef>\n    {0.0} <music21.meter.TimeSignature 2/4>\n    {0.0} <music21.note.Note C>\n    {0.25} <music21.note.Note C>\n    {0.5} <music21.note.Note C>\n    {0.75} <music21.note.Note C>\n    {1.0} <music21.note.Note D>\n    {1.25} <music21.note.Note D>\n    {1.5} <music21.note.Note D>\n    {1.75} <music21.note.Note D>\n    {2.0} <music21.bar.Barline type=final>\n>>> measure = tn[0]\n>>> segment.prepareBeamedNotes(measure)\n>>> measure.notes[0].beamStart\nTrue\n>>> measure.notes[1].beamContinue\nTrue\n>>> measure.notes[2].beamContinue\nTrue\n>>> measure.notes[3].beamContinue\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.braille.segment.",
+        "type": "Title"
+    },
+    {
+        "text": "prepareSlurredNotes",
+        "type": "Title"
+    },
+    {
+        "text": "music21Part",
+        "type": "Title"
+    },
+    {
+        "text": "slurLongPhraseWithBrackets",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "showShortSlursAndTiesTogether",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "showLongSlursAndTiesTogether",
+        "type": "Title"
+    },
+    {
+        "text": "bool | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Takes in a Part and three keywords:\n\nslurLongPhraseWithBrackets\nshowShortSlursAndTiesTogether\nshowLongSlursAndTiesTogether\n\nFor any slurs present in the Part, the appropriate notes are labeled\nwith attributes indicating where to put the symbols that represent\nslurring in braille. For purposes of slurring in braille, there is\na distinction between short and long phrases. In a short phrase, a\nslur covers up to four notes. A short slur symbol should follow each\nnote except the last.\n>>> import copy\n>>> from music21.braille import segment\n>>> short = converter.parse('tinynotation: 3/4 c4 d e')\n>>> s1 = spanner.Slur(short.recurse().notes.first(), short.recurse().notes.last())\n>>> short.append(s1)\n>>> short.show('text')\n{0.0} <music21.stream.Measure 1 offset=0.0>\n    {0.0} <music21.clef.TrebleClef>\n    {0.0} <music21.meter.TimeSignature 3/4>\n    {0.0} <music21.note.Note C>\n    {1.0} <music21.note.Note D>\n    {2.0} <music21.note.Note E>\n    {3.0} <music21.bar.Barline type=final>\n{3.0} <music21.spanner.Slur <music21.note.Note C><music21.note.Note E>>\n>>> shortA = copy.deepcopy(short)\n>>> segment.prepareSlurredNotes(shortA)\n>>> shortA.recurse().notes[0].shortSlur\nTrue\n>>> shortA.recurse().notes[1].shortSlur\nTrue\n\n\nIn a long phrase, a slur covers more than four notes. There are two\noptions for slurring long phrases. The first is by using the bracket\nslur. By default, slurLongPhraseWithBrackets is True. The opening\nbracket sign is put before the first note, and the closing bracket\nsign is put before the last note.\n>>> long = converter.parse('tinynotation: 3/4 c8 d e f g a')\n>>> s2 = spanner.Slur(long[note.Note].first(), long[note.Note].last())\n>>> long.append(s2)\n>>> long.show('text')\n{0.0} <music21.stream.Measure 1 offset=0.0>\n    {0.0} <music21.clef.TrebleClef>\n    {0.0} <music21.meter.TimeSignature 3/4>\n    {0.0} <music21.note.Note C>\n    {0.5} <music21.note.Note D>\n    {1.0} <music21.note.Note E>\n    {1.5} <music21.note.Note F>\n    {2.0} <music21.note.Note G>\n    {2.5} <music21.note.Note A>\n    {3.0} <music21.bar.Barline type=final>\n{3.0} <music21.spanner.Slur <music21.note.Note C><music21.note.Note A>>\n>>> longA = copy.deepcopy(long)\n>>> segment.prepareSlurredNotes(longA)\n>>> longA[note.Note].first().beginLongBracketSlur\nTrue\n>>> longA[note.Note].last().endLongBracketSlur\nTrue\n\n\nThe other way is by using the double slur, setting slurLongPhraseWithBrackets\nto False. The opening sign of the double slur is put after the first note\n(i.e. before the second note) and the closing sign is put before the last\nnote (i.e. before the second to last note).\nIf a value is not supplied for showLongSlursAndTiesTogether, it will take the\nvalue set for slurLongPhraseWithBrackets, which defaults True.\n>>> longB = copy.deepcopy(long)\n>>> segment.prepareSlurredNotes(longB, slurLongPhraseWithBrackets=False)\n>>> longB.recurse().notes[1].beginLongDoubleSlur\nTrue\n>>> longB.recurse().notes[-2].endLongDoubleSlur\nTrue\n\n\nIn the event that slurs and ties are shown together in print, the slur is\nredundant. Examples are shown for slurring a short phrase; the process is\nidentical for slurring a long phrase.\nBelow, a tie has been added between the first two notes of the short phrase\ndefined above. If showShortSlursAndTiesTogether is set to its default value of\nFalse, then the slur on either side of the phrase is reduced by the amount that\nties are present, as shown below.\n>>> short.recurse().notes[0].tie = tie.Tie('start')\n>>> shortB = copy.deepcopy(short)\n>>> segment.prepareSlurredNotes(shortB)\n>>> shortB.recurse().notes[0].shortSlur\nTraceback (most recent call last):\nAttributeError: 'Note' object has no attribute 'shortSlur'\n>>> shortB.recurse().notes[0].tie\n<music21.tie.Tie start>\n>>> shortB.recurse().notes[1].shortSlur\nTrue\n\n\nIf showShortSlursAndTiesTogether is set to True, then the slurs and ties are\nshown together (i.e. the note has both a shortSlur and a tie).\n>>> shortC = copy.deepcopy(short)\n>>> segment.prepareSlurredNotes(shortC, showShortSlursAndTiesTogether=True)\n>>> shortC.recurse().notes[0].shortSlur\nTrue\n>>> shortC.recurse().notes[0].tie\n<music21.tie.Tie start>\n\n\nTODO: This should not add attributes to Note objects but instead return a collection\nof sets of notes that have each element applied to it.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.braille.segment.",
+        "type": "Title"
+    },
+    {
+        "text": "setAffinityCode",
+        "type": "Title"
+    },
+    {
+        "text": "music21Object",
+        "type": "Title"
+    },
+    {
+        "text": "Music21Object",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Takes in a Music21Object, and does two things:\n\nModifies the classSortOrder attribute of the\nobject to fit the slightly modified ordering of objects in braille music.\nAdds an affinity code to the Editorial for the object.\nThis code indicates which surrounding objects the object should be grouped with.\n\nA BrailleSegmentException is raised if an affinity code cannot be assigned to\nthe object.\nAs seen in the following example, the affinity code of a Note\nand a TrebleClef are the same, because they should be grouped\ntogether. However, the classSortOrder indicates that the TrebleClef should come first\nin the braille.\n>>> n1 = note.Note('D5')\n>>> braille.segment.setAffinityCode(n1)\n>>> n1.editorial.affinityCode\n<Affinity.NOTEGROUP: 9>\n>>> n1.classSortOrder\n10\n>>> c1 = clef.TrebleClef()\n>>> braille.segment.setAffinityCode(c1)\n>>> c1.editorial.affinityCode\n<Affinity.NOTEGROUP: 9>\n>>> c1.classSortOrder\n7",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.braille.segment.",
+        "type": "Title"
+    },
+    {
+        "text": "setGroupingGlobals",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "sets defaults for grouping globals.  Called first time anything\nin Braille is run, but saves creating two expensive objects if never run",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.braille.segment.",
+        "type": "Title"
+    },
+    {
+        "text": "splitMeasure",
+        "type": "Title"
+    },
+    {
+        "text": "music21Measure",
+        "type": "Title"
+    },
+    {
+        "text": "beatDivisionOffset",
+        "type": "Title"
+    },
+    {
+        "text": "useTimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Takes a Measure, divides it in two parts, and returns a\ntwo-tuple of (leftMeasure, rightMeasure). The parameters are as\nfollows:\n\nbeatDivisionOffset => Adjusts the end offset of the first partition by a certain amount\nof beats to the left.\nuseTimeSignature => In the event that the Measure comes from the middle of a Part\nand thus does not define an explicit TimeSignature. If not\nprovided, a TimeSignature is retrieved by\nusing bestTimeSignature().\n\n>>> m = stream.Measure()\n>>> m.append(note.Note('C4'))\n>>> m.append(note.Note('D4'))\n>>> left, right = braille.segment.splitMeasure(m)\n>>> left.show('text')\n{0.0} <music21.note.Note C>\n>>> right.show('text')\n{1.0} <music21.note.Note D>",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.braille.segment.",
+        "type": "Title"
+    },
+    {
+        "text": "splitNoteGrouping",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "noteGrouping",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beatDivisionOffset",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Almost identical to splitMeasure(), but\nfunctions on a BrailleElementGrouping\ninstead.\n>>> from music21.braille import segment\n>>> bg = segment.BrailleElementGrouping()\n>>> bg.timeSignature = meter.TimeSignature('2/2')\n>>> s = converter.parse('tinyNotation: 2/2 c4 d r e')\n>>> for n in s.recurse().notesAndRests:\n...     bg.append(n)\n>>> left, right = segment.splitNoteGrouping(bg)\n>>> left\n<music21.braille.segment.BrailleElementGrouping\n    [<music21.note.Note C>, <music21.note.Note D>]>\n\n\n>>> print(left)\n<music21.note.Note C>\n<music21.note.Note D>\n\n\n>>> right\n<music21.braille.segment.BrailleElementGrouping\n    [<music21.note.Rest quarter>, <music21.note.Note E>]>\n\n\nNow split one beat division earlier than it should be.  For 2/2 that means\none half of a beat, or one quarter note earlier:\n>>> left, right = segment.splitNoteGrouping(bg, beatDivisionOffset=1)\n>>> left\n<music21.braille.segment.BrailleElementGrouping\n    [<music21.note.Note C>]>\n>>> right\n<music21.braille.segment.BrailleElementGrouping\n    [<music21.note.Note D>, <music21.note.Rest quarter>, <music21.note.Note E>]>",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.braille.segment",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

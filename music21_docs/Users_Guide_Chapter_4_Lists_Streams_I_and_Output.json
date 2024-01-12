@@ -1,0 +1,2722 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 4: Lists, Streams (I) and Output",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide, Chapter 3: Pitches, Durations, and Notes again",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide, Chapter 5: Lists of Lists, Functions, and Recursion",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide, Chapter 4: Lists, Streams (I) and Output\nWorking with multiple objects via Lists\nIntroduction to Streams\nCreating simple Streams\nAccessing Streams\nSeparating out elements by class with .getElementsByClass()\nSeparating out elements by offset with .getElementsByOffset()\n\n\nMore Stream Features\nStreams within Streams",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide\nUser's Guide: Table of Contents\nUser's Guide, Chapter 1: Installing and Getting Started with music21\nUser's Guide, Chapter 2: Notes\nUser's Guide, Chapter 3: Pitches, Durations, and Notes again\nUser's Guide, Chapter 4: Lists, Streams (I) and Output\nUser's Guide, Chapter 5: Lists of Lists, Functions, and Recursion\nUser's Guide, Chapter 6: Streams (II): Hierarchies, Recursion, and Flattening\nUser's Guide, Chapter 7: Chords\nUser's Guide, Chapter 8: Installing MusicXML Readers and File Formats (1)\nUser's Guide, Chapter 9: Chordify\nUser's Guide, Chapter 10: Examples 1\nUser's Guide, Chapter 11: Corpus Searching\nUser's Guide, Chapter 12: Getting Back to Basics: The Music21Object\nUser's Guide, Chapter 13: More Music21Object Attributes and Properties\nUser's Guide: Chapter 14: Time Signatures and Beats\nUser's Guide, Chapter 15: Keys and KeySignatures\nUser's Guide, Chapter 16: TinyNotation\nUser's Guide: Chapter 17: Derivations\nUser's Guide: Chapter 18: Intervals\nUser's Guide, Chapter 19: Advanced Durations (Complex and Tuplets)\nUser's Guide, Chapter 20: Examples 2\nUser's Guide, Chapter 21: Ordering and Sorting of Stream Elements\nUser's Guide, Chapter 22: Graphing and plotting\nUser's Guide, Chapter 23: Roman Numeral Analysis\nUser's Guide, Chapter 24: Configuring Environment Settings\nUser's Guide, Chapter 25: Post-Tonal Tools (1)\nUser's Guide, Chapter 26: Stream Iteration and Filtering\nUser's Guide, Chapter 27: Grace Notes\nUser's Guide, Chapter 28: Lyric Searching\nUser's Guide, Chapter 29: Spanners 1 (Slurs)\nUser's Guide, Chapter 30: Examples 3\nUser's Guide, Chapter 31: Clefs, Ties, and Beams\nUser's Guide, Chapter 32: Articulations\nUser's Guide, Chapter 44: Advanced Graphing (Axes, Plots, and Graphs)\nUser's Guide, Chapter 53: Advanced Corpus and Metadata Searching\nUser's Guide, Chapter 54: Extending Converter with New Formats\nUser's Guide, Chapter 55: Advanced Meter Topics\nUser's Guide, Chapter 58: Understanding Sites and Contexts\nUser's Guide, Chapter 61: TimespanTrees and Verticalities",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 4: Lists, Streams (I) and Output\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "In the last two chapters, I introduced the concept of\nNote objects which are made up of\nPitch and\nDuration objects, and we even displayed a\nNote on a staff and played it via MIDI. But unless you're challenging\nCage and Webern for the status of least musical material, you will\nprobably want to analyze, manipulate, or create more than one Note.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Python has ways of working with multiple objects and music21 extends\nthose ways to be more musical. Let's look at how Python does it first\nand then see how music21 extends these ways. (If you've been\nprogramming for a bit, or especially if you have Python experience, skip\nto the section on Streams below after creating the objects note1,\nnote2 and note3 described below).",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Say you have two notes, a C and an F# in the middle of the treble staff.\n(If the concept of working with a tritone bothers you, go ahead and make\nthe second note a G; we won't mind; we'll just call you Pope Gregory\nfrom now on). Lets create those notes:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Working with multiple objects via Lists\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "from",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "import",
+        "type": "Title"
+    },
+    {
+        "text": "note1",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "\"C4\"",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "note2",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "\"F#4\"",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Let's make the first note a half note by modifying its duration (by\ndefault all Note objects are quarter notes):",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "note1",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "'half'",
+        "type": "Title"
+    },
+    {
+        "text": "note1",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "quarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "note2",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "quarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "To print the step (that is, the name without any octave or\naccidental information) of each of these notes, you could do something\nlike this:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "note1",
+        "type": "Title"
+    },
+    {
+        "text": "step",
+        "type": "Title"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "note2",
+        "type": "Title"
+    },
+    {
+        "text": "step",
+        "type": "Title"
+    },
+    {
+        "text": "But suppose you had thirty notes? Then it'd be a pain to type\n\u009cprint(noteX.step)\u009d thirty times. Fortunately, there's a solution:\nwe can put each of the note objects into a List which is a built in\nPython object that stores multiple other objects (like Notes or Chords,\nor even things like numbers). To create a list in Python, put square\nbrackets ([]) around the things that you want to put in the list,\nseparated by commas. Let's create a list called noteList that\ncontains note1 and note2:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "noteList",
+        "type": "Title"
+    },
+    {
+        "text": "note1",
+        "type": "Title"
+    },
+    {
+        "text": "note2",
+        "type": "Title"
+    },
+    {
+        "text": "We can check that noteList contains our Notes by printing it:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "noteList",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#>]",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The list is represented by the square brackets around the end with the\ncomma in between them, just like how they were created originally. The\nact of creation is mirrored in the representation. That's nice. Medieval\nphilosophers would approve.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Now we can write a two-line program that will print the step of each\nnote in noteList. Most modern languages have a way of doing some action\nfor each member (\u009celement\u009d) in a list (also called an \u009carray\u009d or\nsometimes \u009crow\u009d). In Python this is the \u009cfor\u009d command. When you type\nthese lines, make sure to type the spaces at the start of the second\nline. (When you're done typing print(thisNote.step), you'll probably\nhave to hit enter twice to see the results.)",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "thisNote",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "noteList",
+        "type": "Title"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "thisNote",
+        "type": "Title"
+    },
+    {
+        "text": "step",
+        "type": "Title"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "thisNote",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "noteList:",
+        "type": "Title"
+    },
+    {
+        "text": "thisNote",
+        "type": "Title"
+    },
+    {
+        "text": "myNote",
+        "type": "Title"
+    },
+    {
+        "text": "currentNote",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "Loops don't save much time here, but imagine if noteList had dozens or\nhundreds of Notes in it? Then the ability to do something to each object\nbecomes more and more important.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Let's add another note to noteList. First let's create another note, a\nlow B-flat:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "note3",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "\"B-2\"",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Then we'll append that note to the end of noteList:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "noteList",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "note3",
+        "type": "Title"
+    },
+    {
+        "text": "Lists can be manipulated or changed. They are called \u009cmutable\u009d objects\n(we'll learn about immutable objects later). Streams, as we will see,\ncan be manipulated the same way through .append().",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "We can see that the length of noteList is now 3 using the len()\nfunction:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "len",
+        "type": "Title"
+    },
+    {
+        "text": "noteList",
+        "type": "Title"
+    },
+    {
+        "text": "And if we write our looping function again, we will get a third note:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "thisNote",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "noteList",
+        "type": "Title"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "thisNote",
+        "type": "Title"
+    },
+    {
+        "text": "step",
+        "type": "Title"
+    },
+    {
+        "text": "We can find out what the first note of noteList is by writing:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "noteList",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "Notice that in a list, the first element is [0], not [1]. There\nare all sorts of historical reasons why computers start counting lists\nwith zero rather than one\u2014some good, some obsolete\u2014but we need to live\nwith this if we're going to get any work done. Think of it like how\nfloors are numbered in European buildings compared to American\nbuildings. If we go forward one note, to the second note, we write:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "noteList",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "We can also ask noteList where is note2 within it, using the\nindex() method:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "noteList",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "Title"
+    },
+    {
+        "text": "note2",
+        "type": "Title"
+    },
+    {
+        "text": "If we want to get the last element of a list, we can write:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "noteList",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">",
+        "type": "ListItem"
+    },
+    {
+        "text": "Which is how basements are numbered in Europe as well. This is the same\nelement as noteList[2] (our third Note), as we can have Python\nprove:`",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "noteList",
+        "type": "Title"
+    },
+    {
+        "text": "is",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "noteList",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "Lists will become important tools in your programming, but they don't\nknow anything about music. To get some intelligence into our music we'll\nneed to know about a music21 object similar to lists, called a\nStream.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Introduction to Streams\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "The Stream object and its subclasses (Score,\nPart, Measure) are the fundamental containers for music21 objects such\nas Note, Chord,\nClef, TimeSignature\nobjects.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "A container is like a Python list (or an array in some languages).",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Objects stored in a Stream are generally spaced in time; each stored\nobject has an offset usually representing how many quarter notes it lies\nfrom the beginning of the Stream. For instance in a 4/4 measure of two\nhalf notes, the first note will be at offset 0.0, and the second at\noffset 2.0.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Streams, further, can store other Streams, permitting a wide variety of\nnested, ordered, and timed structures. These stored streams also have\noffsets. So if we put two 4/4 Measure objects (subclasses of Stream)\ninto a Part (also a type of Stream), then the first measure will be at\noffset 0.0 and the second measure will be at offset 4.0.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Commonly used subclasses of Streams include the\nScore, Part, and\nMeasure. It is important to grasp that any\ntime we want to collect and contain a group of music21 objects, we put\nthem into a Stream. Streams can also be used for less conventional\norganizational structures. We frequently will build and pass around\nshort-lived, temporary Streams, since doing this opens up a wide variety\nof tools for extracting, processing, and manipulating objects on the\nStream. For instance, if you are looking at only notes on beat 2 of any\nmeasure, you'll probably want to put them into a Stream as well.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "A critical feature of music21's design that distinguishes it from other\nmusic analysis frameworks is that one music21 object can be\nsimultaneously stored (or, more accurately, referenced) in more than one\nStream. For examples, we might have numerous\nMeasure Streams contained in a\nPart Stream. If we extract a region of this\nPart (using the measures() method), we\nget a new Stream containing the specified Measures and the contained\nnotes. We have not actually created new notes within these extracted\nmeasures; the output Stream simply has references to the same objects.\nChanges made to Notes in this output Stream will be simultaneously\nreflected in Notes in the source Part. There is one limitation though:\nthe same object should not appear twice in one hierarchical structure of\nStreams. For instance, you should not put a note object in both measure\n3 and measure 5 of the same piece \u2014 it can appear in measure 3 of one\npiece and measure 5 of another piece. (For instance, if you wanted to\ntrack a particular note's context in an original version of a score and\nan arrangement). Most users will never need to worry about these\ndetails: just know that this feature lets music21 do some things that no\nother software package can do.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Creating simple Streams\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Objects stored in Streams are called elements and must be some type of\nMusic21Object (don't worry, almost everything in music21 is a\nMusic21Object, such as Note, Chord, TimeSignature, etc.).",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "(If you want to put an object that's not a Music21Object in a Stream,\nput it in an ElementWrapper.)",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Streams are similar to Python lists in that they hold individual\nelements in order. They're different in that they can only hold\nmusic21 objects such as Notes or Clef\nobjects. But they're a lot smarter and more powerful.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "To create a Stream you'll need to type stream.Stream() and assign it\nto a variable using the equal sign. Let's call our Stream stream1:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "stream1",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Stream",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Notice that just like how the (capital) ",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Stream",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "stream1",
+        "type": "Title"
+    },
+    {
+        "text": "noteList",
+        "type": "Title"
+    },
+    {
+        "text": "The most common use of Streams is as places to store Notes. So let\u00e2\u0080\u0099s\ndo just that: we can add the three ",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "Stream",
+        "type": "Title"
+    },
+    {
+        "text": "stream1",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "note1",
+        "type": "Title"
+    },
+    {
+        "text": "stream1",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "note2",
+        "type": "Title"
+    },
+    {
+        "text": "stream1",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "note3",
+        "type": "Title"
+    },
+    {
+        "text": "Of course, this would be a pain to type for hundreds of Notes, so we\ncould also use the Stream method\nrepeatAppend() to add a number of\nindependent, unique copies of the same Note. This creates independent\ncopies (using Python's copy.deepcopy function) of the supplied\nobject, not references.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "stream2",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Stream",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "n3",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'D#5'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "# octave values can be included in creation arguments",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "stream2",
+        "type": "Title"
+    },
+    {
+        "text": "repeatAppend",
+        "type": "Title"
+    },
+    {
+        "text": "n3",
+        "type": "Title"
+    },
+    {
+        "text": "stream2",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "But let's worry about that later. Going back to our first stream, we can\nsee that it has three notes using the same len() function that we\nused before:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "len",
+        "type": "Title"
+    },
+    {
+        "text": "stream1",
+        "type": "Title"
+    },
+    {
+        "text": "Alternatively, we can use the show()\nmethod called as show('text') to see what is in the Stream and what\nits offset is (here 0.0, since we put it at the end of an empty stream).",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "stream1",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "'text'",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "3.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">",
+        "type": "ListItem"
+    },
+    {
+        "text": "If you've setup your environment properly, then calling show with the\nmusicxml argument should open up Finale, or Sibelius, or MuseScore\nor some music notation software and display the notes below.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "stream1",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Accessing Streams\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "We can also dive deeper into streams. Let's get the step of each\nNote using the for thisNote in ...: command. But now we'll use\nstream1 instead of noteList:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "thisNote",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "stream1",
+        "type": "Title"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "thisNote",
+        "type": "Title"
+    },
+    {
+        "text": "step",
+        "type": "Title"
+    },
+    {
+        "text": "And we can get the first and the last Note in a Stream by using\nthe [X] form, just like other Python list-like objects:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "stream1",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "stream1",
+        "type": "Title"
+    },
+    {
+        "text": "nameWithOctave",
+        "type": "Title"
+    },
+    {
+        "text": "'B-2'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "While full list-like functionality of the Stream isn't there, some\nadditional methods familiar to users of Python lists are also available.\nThe Stream index() method can be used to\nget the first-encountered index of a supplied object.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "note3Index",
+        "type": "Title"
+    },
+    {
+        "text": "stream1",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "Title"
+    },
+    {
+        "text": "note3",
+        "type": "Title"
+    },
+    {
+        "text": "note3Index",
+        "type": "Title"
+    },
+    {
+        "text": "Given an index, an element from the Stream can be removed with the\npop() method.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "stream1",
+        "type": "Title"
+    },
+    {
+        "text": "pop",
+        "type": "Title"
+    },
+    {
+        "text": "note3Index",
+        "type": "Title"
+    },
+    {
+        "text": "stream1",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "note3",
+        "type": "Title"
+    },
+    {
+        "text": "stream1",
+        "type": "Title"
+    },
+    {
+        "text": "pop()",
+        "type": "Title"
+    },
+    {
+        "text": "note3",
+        "type": "Title"
+    },
+    {
+        "text": "stream1",
+        "type": "Title"
+    },
+    {
+        "text": "stream1",
+        "type": "Title"
+    },
+    {
+        "text": "stream1",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "note3",
+        "type": "Title"
+    },
+    {
+        "text": "stream1",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Separating out elements by class with .getElementsByClass()\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "We can also gather elements based on the class (object type) of the\nelement, by offset range, or by specific identifiers attached to the\nelement. Gathering elements from a Stream based on the class of the\nelement provides a way to filter the Stream for desired types of\nobjects. The getElementsByClass() method\niterates over a Stream of elements that are instances or subclasses of\nthe provided classes. The example below gathers all\nNote objects and then all\nRest objects. The easiest way to do this is to\nuse for loops with .getElementsByClass():",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "thisNote",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "stream1",
+        "type": "Title"
+    },
+    {
+        "text": "getElementsByClass",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "thisNote",
+        "type": "Title"
+    },
+    {
+        "text": "thisNote",
+        "type": "Title"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#> 2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">",
+        "type": "ListItem"
+    },
+    {
+        "text": "3.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "If you want instead of passing the class note.Note you could instead\npass the string \"Note\".",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "thisNote",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "stream1",
+        "type": "Title"
+    },
+    {
+        "text": "getElementsByClass",
+        "type": "Title"
+    },
+    {
+        "text": "'Note'",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "thisNote",
+        "type": "Title"
+    },
+    {
+        "text": "thisNote",
+        "type": "Title"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#> 2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">",
+        "type": "ListItem"
+    },
+    {
+        "text": "3.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "It is also possible to pass in a list of classes or strings of class\nnames to .getElementsByClass() which will return anything that\nmatches any of the classes. Notice the [] marks in the next call,\nindicating that we are creating a list to pass to\n.getElementsByClass():",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "thisNote",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "stream1",
+        "type": "Title"
+    },
+    {
+        "text": "getElementsByClass",
+        "type": "Title"
+    },
+    {
+        "text": "([",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'Note'",
+        "type": "Title"
+    },
+    {
+        "text": "'Rest'",
+        "type": "Title"
+    },
+    {
+        "text": "]):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "thisNote",
+        "type": "Title"
+    },
+    {
+        "text": "thisNote",
+        "type": "Title"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#> 2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">",
+        "type": "ListItem"
+    },
+    {
+        "text": "3.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Since there are no note.Rest objects, it's the same as above. Oh\nwell\u2026",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "music21 has a couple of shortcuts that are equivalent to\n.getElementsByClass. For instance .notes is equivalent to\n.getElementsByClass(['Note', 'Chord']) (we'll get to chords soon):",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "thisNote",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "stream1",
+        "type": "Title"
+    },
+    {
+        "text": "notes",
+        "type": "Title"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "thisNote",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">",
+        "type": "ListItem"
+    },
+    {
+        "text": "And .notesAndRests is equivalent to\n.getElementsByClass(['Note', 'Chord', 'Rest']).",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "thisNote",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "stream1",
+        "type": "Title"
+    },
+    {
+        "text": "notesAndRests",
+        "type": "Title"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "thisNote",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">",
+        "type": "ListItem"
+    },
+    {
+        "text": "Finally, there's something slightly different. .pitches begins with\na call to .notes, but then returns a list of all the pitches from\nevery Note or Chord in the Stream:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "listOut",
+        "type": "Title"
+    },
+    {
+        "text": "stream1",
+        "type": "Title"
+    },
+    {
+        "text": "pitches",
+        "type": "Title"
+    },
+    {
+        "text": "listOut",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "C4",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "#4>,",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "The result of a .getElementsByClass are not technically streams, but\nyou can convert it to a stream with .stream() and then call\n.show() on it:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "sIterator",
+        "type": "Title"
+    },
+    {
+        "text": "stream1",
+        "type": "Title"
+    },
+    {
+        "text": "getElementsByClass",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "sOut",
+        "type": "Title"
+    },
+    {
+        "text": "sIterator",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "sOut",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "'text'",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "3.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">",
+        "type": "ListItem"
+    },
+    {
+        "text": "Separating out elements by offset with .getElementsByOffset()\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "The getElementsByOffset() method returns\na Stream of all elements that fall either at a single offset or within a\nrange of two offsets provided as an argument. In both cases a Stream is\nreturned.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "sOut",
+        "type": "Title"
+    },
+    {
+        "text": "stream1",
+        "type": "Title"
+    },
+    {
+        "text": "getElementsByOffset",
+        "type": "Title"
+    },
+    {
+        "text": "len",
+        "type": "Title"
+    },
+    {
+        "text": "sOut",
+        "type": "Title"
+    },
+    {
+        "text": "sOut",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">",
+        "type": "ListItem"
+    },
+    {
+        "text": "Like with .getElementsByClass() if you want a Stream from\n.getElementsByOffset(), add .stream() to the end of it.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "sOut",
+        "type": "Title"
+    },
+    {
+        "text": "stream1",
+        "type": "Title"
+    },
+    {
+        "text": "getElementsByOffset",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "sOut",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "'text'",
+        "type": "Title"
+    },
+    {
+        "text": "2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "3.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">",
+        "type": "ListItem"
+    },
+    {
+        "text": "We will do more with .getElementsByOffset() later when we also talk\nabout getElementAtOrBefore() and\ngetElementAfterElement()",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "More Stream Features\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Okay, so far we've seen that Streams can do the same things as\nlists, but can they do more? Let's call the analyze method on stream to\nget the ambitus (that is, the range from the lowest note to the highest\nnote) of the Notes in the Stream:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "stream1",
+        "type": "Title"
+    },
+    {
+        "text": "analyze",
+        "type": "Title"
+    },
+    {
+        "text": "'ambitus'",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "interval",
+        "type": "Title"
+    },
+    {
+        "text": "Interval",
+        "type": "Title"
+    },
+    {
+        "text": "A12",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Let's take a second to check this. Our lowest note is note3 (B-flat\nin octave 2) and our highest note is note2 (F-sharp in octave 4).\nFrom B-flat to the F-sharp above it, is an augmented fifth. An augmented\nfifth plus an octave is an augmented twelfth. So we're doing well so\nfar. (We'll get to other things we can analyze in chapter 18 and we'll\nsee what an Interval object can do in\nchapter 15).",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "As we mentioned earlier, when placed in a Stream, Notes and other\nelements also have an offset (stored in .offset) that describes their\nposition from the beginning of the stream. These offset values are also\ngiven in quarter-lengths (QLs).",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Once a Note is in a Stream, we can ask for the offset of the\nNotes (or anything else) in it. The offset is the position of a\nNote relative to the start of the Stream measured in quarter notes.\nSo note1's offset will be 0.0, since it's at the start of the Stream:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "note1",
+        "type": "Title"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "note2's offset will be 2.0, since note1 is a half note, worth\ntwo quarter notes:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "note2",
+        "type": "Title"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "And note3, which follows the quarter note note2 will be at\noffset 3.0:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "note3",
+        "type": "Title"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "3.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "(If we made note2 an eighth note, then note3's offset would be\nthe floating point [decimal] value 2.5. But we didn't.) So now when\nwe're looping we can see the offset of each note. Let's print the note's\noffset followed by its name by putting .offset and .name in the same\nline, separated by a comma:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "thisNote",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "stream1",
+        "type": "Title"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "thisNote",
+        "type": "Title"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "thisNote",
+        "type": "Title"
+    },
+    {
+        "text": "name",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "3.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "(Digression: It's probably not too early to learn that a safer form\nof .offset is .getOffsetBySite(stream1):",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "note2",
+        "type": "Title"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "note2",
+        "type": "Title"
+    },
+    {
+        "text": "getOffsetBySite",
+        "type": "Title"
+    },
+    {
+        "text": "stream1",
+        "type": "Title"
+    },
+    {
+        "text": "2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ".offset",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "Stream",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "Streams",
+        "type": "Title"
+    },
+    {
+        "text": ".getOffsetBySite(X)",
+        "type": "Title"
+    },
+    {
+        "text": "As a final note about offsets, the\nlowestOffset property returns the\nminimum of all offsets for all elements on the Stream.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "stream1",
+        "type": "Title"
+    },
+    {
+        "text": "lowestOffset",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "So, what else can we do with Streams? Like Note objects, we can\nshow() them in a couple of different ways. Let's hear these three\nNotes as a MIDI file:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "stream1",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "'midi'",
+        "type": "Title"
+    },
+    {
+        "text": "Or let's see them as a score:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "stream1",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "You might ask why is the piece in common-time (4/4)? This is just the\ndefault for new pieces, which is in the defaults module:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "defaults",
+        "type": "Title"
+    },
+    {
+        "text": "meterNumerator",
+        "type": "Title"
+    },
+    {
+        "text": "defaults",
+        "type": "Title"
+    },
+    {
+        "text": "meterDenominator",
+        "type": "Title"
+    },
+    {
+        "text": "'quarter'",
+        "type": "Title"
+    },
+    {
+        "text": "(Some of these examples use a system that automatically tries to get an\nappropriate time signature and appropriate clef; in this case,\nmusic21 figured out that that low B-flat would be easier to see in\nbass clef than treble.)",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "We'll learn how to switch the TimeSignature\nsoon enough.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "If you don't have MIDI or MusicXML configured yet (we'll get to it in a\nsecond) and you don't want to have other programs open up, you can show\na Stream in text in your editor:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "stream1",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "'text'",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "3.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">",
+        "type": "ListItem"
+    },
+    {
+        "text": "This display shows the offset for each element (that is, each object\nin the Stream) along with what class it is, and a little bit more\nhelpful information. The information is the same as what's called the\n__repr__ (representation) of the object, which is what you get if\nyou type its variable name at the prompt:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "note1",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "By the way, Streams have a __repr__ as well:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "stream1",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Stream",
+        "type": "Title"
+    },
+    {
+        "text": "0x116b27dc0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "that number at the end is the hex form of the .id of the Stream,\nwhich is a way of identifying it. Often the .id of a Stream will be\nthe name of the Part (\u009cViolin II\u009d), but if it's undefined then a\nsomewhat random number is used (actually the location of the Stream in\nyour computer's memory). We can change the .id of a Stream:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "stream1",
+        "type": "Title"
+    },
+    {
+        "text": "id",
+        "type": "Title"
+    },
+    {
+        "text": "'some_notes'",
+        "type": "Title"
+    },
+    {
+        "text": "stream1",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Stream",
+        "type": "Title"
+    },
+    {
+        "text": "some_notes",
+        "type": "Title"
+    },
+    {
+        "text": "We could have also changed the .id of any of our Note objects,\nbut it doesn't show up in the Note's __repr__:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "note1",
+        "type": "Title"
+    },
+    {
+        "text": "id",
+        "type": "Title"
+    },
+    {
+        "text": "'my_favorite_C'",
+        "type": "Title"
+    },
+    {
+        "text": "note1",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "Now, a Stream is a Music21Object just like\na Note is. This is why it has an .id attribute and, more\nimportantly, why you can call .show() on it.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "What else makes a Music21Object what it is? It has a .duration\nattribute which stores a Duration object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "stream1",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "Duration",
+        "type": "Title"
+    },
+    {
+        "text": "4.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "stream1",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "'whole'",
+        "type": "Title"
+    },
+    {
+        "text": "stream1",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "quarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "4.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "(Notice that the len() of a Stream, which stands for \u009clength\u009d,\nis not the same as the duration. the len() of a Stream is the number\nof objects stored in it, so len(stream1) is 3).",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "A related concept to the .duration of a Stream is its\n.highestTime, which is the time at which the latest element in the\nStream ends. Usually this is the last element of the stream's\n.offset plus its .quarterLength.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "stream1",
+        "type": "Title"
+    },
+    {
+        "text": "highestTime",
+        "type": "Title"
+    },
+    {
+        "text": "4.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Streams within Streams\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "And, as a Music21Object, a Stream can be placed inside of\nanother Stream object. Let's create a stream, called biggerStream\n(for reasons that will become obvious), that holds a Note D# at the\nbeginning",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "biggerStream",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Stream",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "note2",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "\"D#5\"",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "biggerStream",
+        "type": "Title"
+    },
+    {
+        "text": "insert",
+        "type": "Title"
+    },
+    {
+        "text": "note2",
+        "type": "Title"
+    },
+    {
+        "text": "Now we use the .append functionality to put stream1 at the end\nof biggerStream:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "biggerStream",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "stream1",
+        "type": "Title"
+    },
+    {
+        "text": "Notice that when we call .show('text') on biggerStream, we see not\nonly the presence of note2 and stream1 but also all the contents\nof stream1 as well:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "biggerStream",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "'text'",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Stream",
+        "type": "Title"
+    },
+    {
+        "text": "some_notes",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "3.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">",
+        "type": "ListItem"
+    },
+    {
+        "text": "stream1",
+        "type": "Title"
+    },
+    {
+        "text": "stream1",
+        "type": "Title"
+    },
+    {
+        "text": "biggerStream",
+        "type": "Title"
+    },
+    {
+        "text": "Music21Object",
+        "type": "Title"
+    },
+    {
+        "text": "Stream",
+        "type": "Title"
+    },
+    {
+        "text": "Stream",
+        "type": "Title"
+    },
+    {
+        "text": "Stream",
+        "type": "Title"
+    },
+    {
+        "text": "Also notice that note1 knows that it is in stream1 but doesn't\nknow that it is somewhere inside biggerStream:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "note1",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "stream1",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "note1",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "biggerStream",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "Scores",
+        "type": "Title"
+    },
+    {
+        "text": "Streams",
+        "type": "Title"
+    },
+    {
+        "text": "Streams",
+        "type": "Title"
+    },
+    {
+        "text": "Streams",
+        "type": "Title"
+    },
+    {
+        "text": "Stream",
+        "type": "Title"
+    },
+    {
+        "text": "Stream",
+        "type": "Title"
+    },
+    {
+        "text": "Stream",
+        "type": "Title"
+    },
+    {
+        "text": "Stream",
+        "type": "Title"
+    },
+    {
+        "text": "Stream",
+        "type": "Title"
+    },
+    {
+        "text": "Stream",
+        "type": "Title"
+    },
+    {
+        "text": "Stream",
+        "type": "Title"
+    },
+    {
+        "text": "Streams",
+        "type": "Title"
+    },
+    {
+        "text": "Score",
+        "type": "Title"
+    },
+    {
+        "text": "Part",
+        "type": "Title"
+    },
+    {
+        "text": "Measure",
+        "type": "Title"
+    },
+    {
+        "text": "Voice",
+        "type": "Title"
+    },
+    {
+        "text": "Streams",
+        "type": "Title"
+    },
+    {
+        "text": "So how do we find note1 inside biggerStream? That's what the\nnext two chapters are about.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Chapter 5 covers Lists of Lists.\nThose with programming experience who have familiarity with lists of\nlists and defining functions might want to skip to\nChapter 6 Streams of Streams.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 4: Lists, Streams (I) and Output",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

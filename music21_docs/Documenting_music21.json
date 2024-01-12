@@ -1,0 +1,1478 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documenting music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "Testing music21",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "Building Documentation",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "Documenting music21\n.rst format files\nJupyter Notebook (.ipynb) files",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documenting modules and classes\nDisplaying only some of the test code in the documentation\nOrdering Module-Level Class Names and Module-Level Functions\nOrdering Class-Level Names\nDocumenting Class-Level Properties\nDocumenting Class-Level Attributes\nDocumenting Class-Level Methods",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference\nTesting music21\nDocumenting music21\nDocumenting modules and classes\nBuilding Documentation\nUsing music21 with the Jupyter (iPython) Notebook\nUsing music21 with Git\nUnofficial MusicXML Test Suite\nMusic21's Mistakes",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documenting music21\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Music21's documentation system uses a combination of a few handwritten documentation pages (like this one),\na lot of Jupyter notebooks (mainly in the User's Guide sections),\nand documentation automatically generated from the documentation found in modules (in moduleReference).",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "The handwritten pages and Jupyter notebooks are found in the /documentation/source/ directories.  The\nautomatically generated documentation is found in each .py module.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "To build music21 documentation, go to the /documentation/ folder and run:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "python3",
+        "type": "Title"
+    },
+    {
+        "text": "make",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "py",
+        "type": "Title"
+    },
+    {
+        "text": "(At present, only MIT affiliates can run the upload.py script.)",
+        "type": "NarrativeText"
+    },
+    {
+        "text": ".rst format files\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "The handwritten .rst files are written using the reStructuredText format,\nwhich is a pretty simple way of defining structure of documents with things such as hyperlinks, emphasis,\netc.  It is somewhat similar to Markdown format.   These files should not contain code examples, since\nthey will not be tested. (You may find some older files that do contain code; we should be translating these\nin the future).",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "These files get converted to .html when you run /documentation/make.py so long as the excellent module\nSphinx has been installed.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "You can also edit these .rst files directly in Jupyter notebook, which will make them show the\nlayout as well.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Jupyter Notebook (.ipynb) files\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Since 2013, the majority of new documentation should be written in Jupyter Notebook (formerly\nIPython Notebook) format.  These files should never be edited directly, but instead should be\nedited using Jupyter Notebook running Python 3.7 or higher.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "A lot of the music21 documentation is automatically generated from the documentation strings\nfound in music21 modules.  We strongly encourage other module\nwriters to create documentation that works\nthe same way.  In fact, we won't add your module to the music21 repository without documentation\nin this form \u2014 there's a test that ensures that code coverage increases with each build \u2014 but\nwe'll help you learn the ropes.  This doc explains some of the main features (and potential Gotchas!)\nof our automatic documentation system.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Install Jupyter with:",
+        "type": "Title"
+    },
+    {
+        "text": "pip3",
+        "type": "Title"
+    },
+    {
+        "text": "install",
+        "type": "Title"
+    },
+    {
+        "text": "jupyter",
+        "type": "Title"
+    },
+    {
+        "text": "And then run it by changing directory to the one you want to edit and run:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "jupyter",
+        "type": "Title"
+    },
+    {
+        "text": "notebook",
+        "type": "Title"
+    },
+    {
+        "text": "When editing examples with code be sure, at least the first time, to run each code excerpt individually\nand pay attention to changes in output and unexpected errors.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Documenting modules and classes\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21 documentation for modules is found inside the module itself, at the very top and before the import statements.\nThis module-level documentation, usually in triple-quoted strings, might look like this:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "'''",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "I am documentation for this module!",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "'''",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The buildDoc/build.py script creates RST files for modules, which are processed\nby Sphinx.   Place all documentation for public modules, module-level\nfunctions, classes, and class-level attributes, properties, and methods\nas close to the relevant code as possible.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "If you're going to edit docs you'll need the latest version of Sphinx.  Go to the command line and type:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "pip3",
+        "type": "Title"
+    },
+    {
+        "text": "install",
+        "type": "Title"
+    },
+    {
+        "text": "sphinx",
+        "type": "Title"
+    },
+    {
+        "text": "Sphinx uses special characters to identify formatting styles in documentation.\nHelpful tips on Sphinx formatting may be found here:  Sphinx Cheat Sheet",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "For example, the heading of this section was created by writing:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Documenting",
+        "type": "Title"
+    },
+    {
+        "text": "modules",
+        "type": "Title"
+    },
+    {
+        "text": "and",
+        "type": "Title"
+    },
+    {
+        "text": "classes",
+        "type": "Title"
+    },
+    {
+        "text": "===============================",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "To write boldface you would write:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "This",
+        "type": "Title"
+    },
+    {
+        "text": "is",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "bold",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The documentation looks like this:\nThis is bold",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "To italicize, you would write:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "The documentation looks like this:\nThis is italics",
+        "type": "ListItem"
+    },
+    {
+        "text": "This",
+        "type": "Title"
+    },
+    {
+        "text": "is",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "italics",
+        "type": "Title"
+    },
+    {
+        "text": "The documentation looks like this:\nThis is italics",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "This is a one-line code sample:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "``print variableName``",
+        "type": "Title"
+    },
+    {
+        "text": "The documentation looks like this:\nprint variableName",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "You may also use links in your documentation. For example, if in one method you'd like to link to\nanother method's documentation, write:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": ":meth:`~music21.note.GeneralNote.addLyric`",
+        "type": "Title"
+    },
+    {
+        "text": "The documentation looks like this:\naddLyric()",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Or to link to another class, write:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": ":class:`~music21.note.Note`",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "The documentation looks like this: Note",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Sometimes pictures are useful to visually describe code to readers or to show the results of a .show() method call, etc.\nThis is easy with sphinx. Just copy and paste the picture you'd like to use into the buildDoc/rst/images folder,\nand reference it in your documentation like this:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "..",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "image",
+        "type": "Title"
+    },
+    {
+        "text": "::",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "images",
+        "type": "Title"
+    },
+    {
+        "text": "completebach",
+        "type": "Title"
+    },
+    {
+        "text": ".*",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "width",
+        "type": "Title"
+    },
+    {
+        "text": "300",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The documentation looks like this:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Finally, if there is a section of your documentation that you'd rather Sphinx\nnot format at all, append two colons to the last line of formatted text,\nfollowed by a space, followed by the indented text block, followed by a\nspace. Text written after this space will be formatted. This is useful for\nblock-quoting example code. For example, in your code write:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "...blah blah blah this text is formatted. Now I want to block-quote\nsome example code, so I put two colons::\n\n    this text IS NOT formatted\n    it must be indented\n\n    line breaks AND spacing will be preserved\n    **bold** sphinx formatting unobserved\n\nNow I am back to Sphinx formatting, outside the block. **now this is bold!**",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "The documentation looks like this:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "\u2026blah blah blah this text is formatted. Now I want to block-quote\nsome example code, so I put two colons:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "this",
+        "type": "Title"
+    },
+    {
+        "text": "text",
+        "type": "Title"
+    },
+    {
+        "text": "IS",
+        "type": "Title"
+    },
+    {
+        "text": "NOT",
+        "type": "Title"
+    },
+    {
+        "text": "formatted",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "it",
+        "type": "Title"
+    },
+    {
+        "text": "must",
+        "type": "Title"
+    },
+    {
+        "text": "be",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "indented",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "line",
+        "type": "Title"
+    },
+    {
+        "text": "breaks",
+        "type": "Title"
+    },
+    {
+        "text": "AND",
+        "type": "Title"
+    },
+    {
+        "text": "spacing",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "will",
+        "type": "Title"
+    },
+    {
+        "text": "be",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "preserved",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "bold",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "sphinx",
+        "type": "Title"
+    },
+    {
+        "text": "formatting",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "unobserved",
+        "type": "Title"
+    },
+    {
+        "text": "Now I am back to Sphinx formatting, outside the block. now this is bold!",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Displaying only some of the test code in the documentation\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "We use doctests a lot in music21 \u2014 if you run /music21/test/test.py, it will\nrun not only all the code in class Test() but also all the code in the\ndocumentation preceded by \u0098>>>' marks.  This way our documentation and our\ntest code doesn't get out of sync with each other.  Pretty cool, eh?",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Here's the thing: good programming means that you test as much as possible in\nthe code, but good documentation means showing enough example code that the\nreaders get it, but not so much that they want to claw out their own eyeballs.\nSo how to proceed?  Simply add the line \u009cOMIT_FROM_Docs\u009d  in ALL CAPS\ninstead of lowercase. (I can't write it in all caps here or nothing else will display!)",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Anything after that line in your documentation code won't display.  For instance,\nsay we wanted to demonstrate the difference between note.name and note.step, but also wanted\nto test to make sure that flats and sharps both were equally eliminated.  We\ncould write documentation/test-code like this (but with all caps)",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "'''",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>> from music21 import *",
+        "type": "Title"
+    },
+    {
+        "text": ">>> c1 = note.Note('C#')",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>> c1.step",
+        "type": "Title"
+    },
+    {
+        "text": "'C'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "OMIT_FROM_Docs",
+        "type": "Title"
+    },
+    {
+        "text": "(N.B. That should be capital DOCS above...)",
+        "type": "NarrativeText"
+    },
+    {
+        "text": ">>> c2 = note.Note('C-')",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>> c2.step",
+        "type": "Title"
+    },
+    {
+        "text": "'C'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'''",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "and what you'll get in your documentation is:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "from",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "import",
+        "type": "Title"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "c1",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'C#'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "c1",
+        "type": "Title"
+    },
+    {
+        "text": "step",
+        "type": "Title"
+    },
+    {
+        "text": "'C'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Lines can be omitted on an individual basis by adding the expression\n\u009c#_DOCS_Hide\u009d (again in all caps) somewhere on the line.  On the other hand, the text\n\u009c#_DOCS_Show\u009d (again in all caps) is removed from any line before it appears in the\ndocumentation.  So you could use some of the same lines to test\ncode and also to give an example like so:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "d1",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "\"D-\"",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "assert",
+        "type": "Title"
+    },
+    {
+        "text": "d1",
+        "type": "Title"
+    },
+    {
+        "text": "name",
+        "type": "Title"
+    },
+    {
+        "text": "==",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'D-'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "#_DOCS_Hide",
+        "type": "Title"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "#_DOCS_Show d1.show('lily.png')",
+        "type": "Title"
+    },
+    {
+        "text": "in this case, the assertion code is omitted from the documentation\ngenerated from the module, while the lilypond file is not generated\nduring doctests.  It will look to your users like:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "d1",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "\"D-\"",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "d1",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "'lily.png'",
+        "type": "Title"
+    },
+    {
+        "text": "Together with OMIT_FROM_Docs, it's a great way to\nhave your cake and eat it too. (remember that these need to be in all caps)",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Ordering Module-Level Class Names and Module-Level Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Classes are by default presented in the order in which they appear in the module. Module-level functions\nare by default sorted alphabetically. If that's not what you want, then create a list called _DOC_ORDER\nwhich is a list of the class and/or function names in the module. These values are given as evaluated names, not strings.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Since this list uses classes and not strings, this list must come at the end of the module, after the Test classes\nand before calling music21.mainTest()",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "At the end of note.py for instance, we write:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "_DOC_ORDER",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "Rest",
+        "type": "Title"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "__name__",
+        "type": "Title"
+    },
+    {
+        "text": "==",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\"__main__\"",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "mainTest",
+        "type": "Title"
+    },
+    {
+        "text": "Test",
+        "type": "Title"
+    },
+    {
+        "text": "Ordering Class-Level Names\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Classes can define a _DOC_ORDER attribute which functions the same as the module-level\n_DOC_ORDER, that is it defines the order of attributes, properties, and/or methods in the class.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Unlike for top-level names, these values are given as strings, not evaluated names.\nThe _DOC_ORDER attribute must be defined outside of the __init__() method to ensure that\nthese values can be read from a Class object and not just instances.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "The following abbreviated example is from pitch.py:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "Music21Object",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'''Class doc strings.",
+        "type": "Title"
+    },
+    {
+        "text": "'''",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "# define order to present names in documentation; use strings",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "_DOC_ORDER",
+        "type": "Title"
+    },
+    {
+        "text": "'name'",
+        "type": "Title"
+    },
+    {
+        "text": "'nameWithOctave'",
+        "type": "Title"
+    },
+    {
+        "text": "'step'",
+        "type": "Title"
+    },
+    {
+        "text": "'pitchClass'",
+        "type": "Title"
+    },
+    {
+        "text": "'octave'",
+        "type": "Title"
+    },
+    {
+        "text": "'midi'",
+        "type": "Title"
+    },
+    {
+        "text": "def",
+        "type": "Title"
+    },
+    {
+        "text": "__init__",
+        "type": "Title"
+    },
+    {
+        "text": "self",
+        "type": "Title"
+    },
+    {
+        "text": "name",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "pass",
+        "type": "Title"
+    },
+    {
+        "text": "Documenting Class-Level Properties\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "To document a property do something like this:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "def",
+        "type": "Title"
+    },
+    {
+        "text": "_getName",
+        "type": "Title"
+    },
+    {
+        "text": "self",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "return",
+        "type": "Title"
+    },
+    {
+        "text": "self",
+        "type": "Title"
+    },
+    {
+        "text": "_storedName",
+        "type": "Title"
+    },
+    {
+        "text": "def",
+        "type": "Title"
+    },
+    {
+        "text": "_setName",
+        "type": "Title"
+    },
+    {
+        "text": "self",
+        "type": "Title"
+    },
+    {
+        "text": "newName",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "newName",
+        "type": "Title"
+    },
+    {
+        "text": "==",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'Cuthbert'",
+        "type": "Title"
+    },
+    {
+        "text": "raise",
+        "type": "Title"
+    },
+    {
+        "text": "ValueError",
+        "type": "Title"
+    },
+    {
+        "text": "\"what a dumb name!\"",
+        "type": "Title"
+    },
+    {
+        "text": "else",
+        "type": "Title"
+    },
+    {
+        "text": "self",
+        "type": "Title"
+    },
+    {
+        "text": "_storedName",
+        "type": "Title"
+    },
+    {
+        "text": "newName",
+        "type": "Title"
+    },
+    {
+        "text": "name",
+        "type": "Title"
+    },
+    {
+        "text": "property",
+        "type": "Title"
+    },
+    {
+        "text": "_getName",
+        "type": "Title"
+    },
+    {
+        "text": "_setName",
+        "type": "Title"
+    },
+    {
+        "text": "doc",
+        "type": "Title"
+    },
+    {
+        "text": "'''",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The name property stores a name for the object",
+        "type": "Title"
+    },
+    {
+        "text": "unless the name is something truly idiotic.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "'''",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Documenting Class-Level Attributes\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Class-level attributes, names that are neither properties not methods,\ncan place their documentation in a dictionary called _DOC_ATTR.  The keys of the dictionary\nare strings (not evaluated names) corresponding to the name of the attribute, and the value\nis the documentation.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Like _DOC_ORDER, don't put this in __init__().",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Here's an example from note.py:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "NotRest",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'''",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Class doc string goes here.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "'''",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "isNote",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "isRest",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "# define order to present names in documentation; use strings",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "_DOC_ORDER",
+        "type": "Title"
+    },
+    {
+        "text": "'duration'",
+        "type": "Title"
+    },
+    {
+        "text": "'quarterLength'",
+        "type": "Title"
+    },
+    {
+        "text": "'nameWithOctave'",
+        "type": "Title"
+    },
+    {
+        "text": "'pitchClass'",
+        "type": "Title"
+    },
+    {
+        "text": "# documentation for all attributes (that are not properties or methods)",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "_DOC_ATTR",
+        "type": "Title"
+    },
+    {
+        "text": "'isNote'",
+        "type": "Title"
+    },
+    {
+        "text": "'Boolean read-only value describing if this object is a Note.'",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "'isRest'",
+        "type": "Title"
+    },
+    {
+        "text": "'Boolean read-only value describing if this is a Rest.'",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "'beams'",
+        "type": "Title"
+    },
+    {
+        "text": "'A :class:`music21.note.Beams` object.'",
+        "type": "Title"
+    },
+    {
+        "text": "'pitch'",
+        "type": "Title"
+    },
+    {
+        "text": "'A :class:`music21.pitch.Pitch` object.'",
+        "type": "Title"
+    },
+    {
+        "text": "def",
+        "type": "Title"
+    },
+    {
+        "text": "__init__",
+        "type": "Title"
+    },
+    {
+        "text": "self",
+        "type": "Title"
+    },
+    {
+        "text": "arguments",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "pass",
+        "type": "Title"
+    },
+    {
+        "text": "If a _DOC_ATTR attribute is not defined, the most-recently inherited _DOC_ATTR\nattribute will be used.  To explicitly merge an inherited _DOC_ATTR attribute with\na locally defined _DOC_ATTR, use the dictionary's update() method.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "The following abbreviated example, showing the updating of the _DOC_ATTR inherited from NotRest,\nis from chord.py:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "NotRest",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'''",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Class doc strings.",
+        "type": "Title"
+    },
+    {
+        "text": "'''",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "isChord",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "isNote",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "isRest",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "# define order to present names in documentation; use strings",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "_DOC_ORDER",
+        "type": "Title"
+    },
+    {
+        "text": "'pitches'",
+        "type": "Title"
+    },
+    {
+        "text": "# documentation for all attributes (not properties or methods)",
+        "type": "Title"
+    },
+    {
+        "text": "_DOC_ATTR",
+        "type": "Title"
+    },
+    {
+        "text": "'isNote'",
+        "type": "Title"
+    },
+    {
+        "text": "'Boolean read-only value describing if this object is a Chord.'",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "'isRest'",
+        "type": "Title"
+    },
+    {
+        "text": "'Boolean read-only value describing if this is a Rest.'",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "'beams'",
+        "type": "Title"
+    },
+    {
+        "text": "'A :class:`music21.note.Beams` object.'",
+        "type": "Title"
+    },
+    {
+        "text": "# update inherited _DOC_ATTR dictionary",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "_DOC_ATTR",
+        "type": "Title"
+    },
+    {
+        "text": "update",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "NotRest",
+        "type": "Title"
+    },
+    {
+        "text": "_DOC_ATTR",
+        "type": "Title"
+    },
+    {
+        "text": "def",
+        "type": "Title"
+    },
+    {
+        "text": "__init__",
+        "type": "Title"
+    },
+    {
+        "text": "self",
+        "type": "Title"
+    },
+    {
+        "text": "notes",
+        "type": "Title"
+    },
+    {
+        "text": "[],",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "pass",
+        "type": "Title"
+    },
+    {
+        "text": "However, you will rarely need to do this, since the documentation will point to\nthe inherited docs automatically.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Documenting Class-Level Methods\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "This is the most common type of documentation, and it ensures both excellent\ndocumentation and doctests. A typical example of source code might look like this:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "ClassName",
+        "type": "Title"
+    },
+    {
+        "text": "base",
+        "type": "Title"
+    },
+    {
+        "text": "Music21Object",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "instance",
+        "type": "Title"
+    },
+    {
+        "text": "variables",
+        "type": "Title"
+    },
+    {
+        "text": "__init__",
+        "type": "Title"
+    },
+    {
+        "text": "etc",
+        "type": "Title"
+    },
+    {
+        "text": "def",
+        "type": "Title"
+    },
+    {
+        "text": "myNewMethod",
+        "type": "Title"
+    },
+    {
+        "text": "self",
+        "type": "Title"
+    },
+    {
+        "text": "parameters",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'''",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "This is documentation for this method",
+        "type": "NarrativeText"
+    },
+    {
+        "text": ">>> myInstance = ClassName()",
+        "type": "Title"
+    },
+    {
+        "text": ">>> myInstance.myNewMethod(someParameters)",
+        "type": "Title"
+    },
+    {
+        "text": ">>> myUnicorn.someInstanceVariable",
+        "type": "Title"
+    },
+    {
+        "text": "'value'",
+        "type": "Title"
+    },
+    {
+        "text": "'''",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "method",
+        "type": "Title"
+    },
+    {
+        "text": "code",
+        "type": "Title"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documenting music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

@@ -1,0 +1,514 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.analysis.reduction",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.analysis.reduceChordsOld",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.analysis.segmentByRests",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.analysis.reduction\nPartReduction\nPartReduction\nPartReduction.getGraphHorizontalBarWeightedData()\nPartReduction.process()\n\n\n\n\nReductiveNote\nReductiveNote\nReductiveNote.__getitem__()\nReductiveNote.getNoteAndTextExpression()\nReductiveNote.isParsed()\n\n\n\n\nScoreReduction\nScoreReduction\nScoreReduction.chordReduction\nScoreReduction.score\nScoreReduction.reduce()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.analysis.reduction\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Tools for generation reduction displays, showing a score and or a chord reduction,\nand one or more reductive representation lines.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Used by graph.PlotHorizontalBarWeighted()",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "PartReduction\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.analysis.reduction.",
+        "type": "Title"
+    },
+    {
+        "text": "PartReduction",
+        "type": "Title"
+    },
+    {
+        "text": "srcScore",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "partGroups",
+        "type": "Title"
+    },
+    {
+        "text": "list",
+        "type": "Title"
+    },
+    {
+        "text": "dict",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "Any",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "fillByMeasure",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "segmentByTarget",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "normalize",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "normalizeByPart",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A part reduction reduces a Score into one or more parts.\nParts are combined based on a part group dictionary.\nEach resulting part is then segmented by an object.\nThis object is assigned as floating-point value.\nThis reduction is designed to work with the GraphHorizontalBarWeighted and related Plot\nsubclasses.\nIf the fillByMeasure parameter is True, and if measures are available,\neach part will segment by Measure divisions, and look for the target activity only\nonce per Measure.\nIf more than one target is found in the Measure, values will be averaged.\nIf fillByMeasure is False, the part will be segmented by each Note.\nThe segmentByTarget parameter is True, segments, which may be Notes or Measures,\nwill be divided if necessary to show changes that occur over the duration of the\nsegment by a target object.\nIf the normalizeByPart parameter is True, each part will be normalized within\nthe range only of that part. If False, all parts will be normalized by the max\nof all parts. The default is True.\nIf the normalize parameter is False, no normalization will take place. The default is True.",
+        "type": "ListItem"
+    },
+    {
+        "text": "PartReduction methods",
+        "type": "Title"
+    },
+    {
+        "text": "PartReduction.",
+        "type": "Title"
+    },
+    {
+        "text": "getGraphHorizontalBarWeightedData",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get all data organized into bar span specifications.",
+        "type": "ListItem"
+    },
+    {
+        "text": "PartReduction.",
+        "type": "Title"
+    },
+    {
+        "text": "process",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Core processing routines.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ReductiveNote\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.analysis.reduction.",
+        "type": "Title"
+    },
+    {
+        "text": "ReductiveNote",
+        "type": "Title"
+    },
+    {
+        "text": "specification",
+        "type": "Title"
+    },
+    {
+        "text": "inputNote",
+        "type": "Title"
+    },
+    {
+        "text": "measureIndex",
+        "type": "Title"
+    },
+    {
+        "text": "measureOffset",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The extraction of an event from a score and specification of where\nand how it should be presented in a reductive score.\nA specification string, as well as Note, must be provided for parsing.\nA specification must be created when access the Measure that the source note\nis found in. Storing the measure and index position provides significant\nperformance optimization, as we do no have to search\nevery note when generated the reduction.\nThe measureIndex is the index of measure where this is found, not\nthe measure number. The measureOffset is the position in the measure\nspecified by the index.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ReductiveNote bases",
+        "type": "Title"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ReductiveNote read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "ReductiveNote methods",
+        "type": "Title"
+    },
+    {
+        "text": "ReductiveNote.",
+        "type": "Title"
+    },
+    {
+        "text": "__getitem__",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "ReductiveNote.",
+        "type": "Title"
+    },
+    {
+        "text": "getNoteAndTextExpression",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Produce a new note, a deep copy of the supplied note\nand with the specified modifications.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ReductiveNote.",
+        "type": "Title"
+    },
+    {
+        "text": "isParsed",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "ScoreReduction\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.analysis.reduction.",
+        "type": "Title"
+    },
+    {
+        "text": "ScoreReduction",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "An object to reduce a score.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ScoreReduction read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "ScoreReduction.",
+        "type": "Title"
+    },
+    {
+        "text": "chordReduction",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get or set a Chord reduction as a Stream or Score. Setting the this values\nset a deepcopy of the reduction; the reduction set here will not be altered.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ScoreReduction.",
+        "type": "Title"
+    },
+    {
+        "text": "score",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get or set the Score. Setting the score set a deepcopy of the score; the score\nset here will not be altered.\n>>> s = corpus.parse('bwv66.6')\n>>> sr = analysis.reduction.ScoreReduction()\n>>> sr.score = s",
+        "type": "ListItem"
+    },
+    {
+        "text": "ScoreReduction methods",
+        "type": "Title"
+    },
+    {
+        "text": "ScoreReduction.",
+        "type": "Title"
+    },
+    {
+        "text": "reduce",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a score, populate this Score reduction",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.analysis.reduction",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

@@ -1,0 +1,4638 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 31: Clefs, Ties, and Beams",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide, Chapter 30: Examples 3",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide, Chapter 32: Articulations",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide, Chapter 31: Clefs, Ties, and Beams\nAutomatic Clef Generation\nTies\nTies and chords\nMaking and Stripping Ties from a Stream\n\n\nBeams\nBeams the easy way",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide\nUser's Guide: Table of Contents\nUser's Guide, Chapter 1: Installing and Getting Started with music21\nUser's Guide, Chapter 2: Notes\nUser's Guide, Chapter 3: Pitches, Durations, and Notes again\nUser's Guide, Chapter 4: Lists, Streams (I) and Output\nUser's Guide, Chapter 5: Lists of Lists, Functions, and Recursion\nUser's Guide, Chapter 6: Streams (II): Hierarchies, Recursion, and Flattening\nUser's Guide, Chapter 7: Chords\nUser's Guide, Chapter 8: Installing MusicXML Readers and File Formats (1)\nUser's Guide, Chapter 9: Chordify\nUser's Guide, Chapter 10: Examples 1\nUser's Guide, Chapter 11: Corpus Searching\nUser's Guide, Chapter 12: Getting Back to Basics: The Music21Object\nUser's Guide, Chapter 13: More Music21Object Attributes and Properties\nUser's Guide: Chapter 14: Time Signatures and Beats\nUser's Guide, Chapter 15: Keys and KeySignatures\nUser's Guide, Chapter 16: TinyNotation\nUser's Guide: Chapter 17: Derivations\nUser's Guide: Chapter 18: Intervals\nUser's Guide, Chapter 19: Advanced Durations (Complex and Tuplets)\nUser's Guide, Chapter 20: Examples 2\nUser's Guide, Chapter 21: Ordering and Sorting of Stream Elements\nUser's Guide, Chapter 22: Graphing and plotting\nUser's Guide, Chapter 23: Roman Numeral Analysis\nUser's Guide, Chapter 24: Configuring Environment Settings\nUser's Guide, Chapter 25: Post-Tonal Tools (1)\nUser's Guide, Chapter 26: Stream Iteration and Filtering\nUser's Guide, Chapter 27: Grace Notes\nUser's Guide, Chapter 28: Lyric Searching\nUser's Guide, Chapter 29: Spanners 1 (Slurs)\nUser's Guide, Chapter 30: Examples 3\nUser's Guide, Chapter 31: Clefs, Ties, and Beams\nUser's Guide, Chapter 32: Articulations\nUser's Guide, Chapter 44: Advanced Graphing (Axes, Plots, and Graphs)\nUser's Guide, Chapter 53: Advanced Corpus and Metadata Searching\nUser's Guide, Chapter 54: Extending Converter with New Formats\nUser's Guide, Chapter 55: Advanced Meter Topics\nUser's Guide, Chapter 58: Understanding Sites and Contexts\nUser's Guide, Chapter 61: TimespanTrees and Verticalities",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 31: Clefs, Ties, and Beams\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Throughout the first thirty chapters, we have repeatedly been using\nfundamental music notation principles, such as clefs, ties, and beams,\nbut we have never talked about them directly. This chapter gives a\nchance to do so and to look at some Stream methods that make use of\nthem.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Let's first look at clefs. They all live in the music21.clef\nmodule:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "from",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "import",
+        "type": "Title"
+    },
+    {
+        "text": "alto",
+        "type": "Title"
+    },
+    {
+        "text": "clef",
+        "type": "Title"
+    },
+    {
+        "text": "AltoClef",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Measure",
+        "type": "Title"
+    },
+    {
+        "text": "([",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "alto",
+        "type": "Title"
+    },
+    {
+        "text": "])",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Since clefs can be put into Streams, they are Music21Objects, with\noffsets, etc., but they generally have a Duration of zero.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "alto",
+        "type": "Title"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "alto",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "Duration",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Multiple clefs can coexist in the same measure, and will all display (so\nlong as there's at least one note between them; a problem of our\nMusicXML readers):",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'C4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "))",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "bass",
+        "type": "Title"
+    },
+    {
+        "text": "clef",
+        "type": "Title"
+    },
+    {
+        "text": "BassClef",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "bass",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'C4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "))",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Most of the clefs in common use are PitchClefs and they know what\nline they are on:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "alto",
+        "type": "Title"
+    },
+    {
+        "text": "line",
+        "type": "Title"
+    },
+    {
+        "text": "tenor",
+        "type": "Title"
+    },
+    {
+        "text": "clef",
+        "type": "Title"
+    },
+    {
+        "text": "TenorClef",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "tenor",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "tenor",
+        "type": "Title"
+    },
+    {
+        "text": "line",
+        "type": "Title"
+    },
+    {
+        "text": "In this case, the line refers to the pitch that it's \u009csign\u009d can be found\non.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "tenor",
+        "type": "Title"
+    },
+    {
+        "text": "sign",
+        "type": "Title"
+    },
+    {
+        "text": "'C'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "treble",
+        "type": "Title"
+    },
+    {
+        "text": "clef",
+        "type": "Title"
+    },
+    {
+        "text": "TrebleClef",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "treble",
+        "type": "Title"
+    },
+    {
+        "text": "sign",
+        "type": "Title"
+    },
+    {
+        "text": "'G'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Clefs also have an .octaveChange value which specifies how many\noctaves \u009coff\u009d from the basic clef they are.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "treble",
+        "type": "Title"
+    },
+    {
+        "text": "octaveChange",
+        "type": "Title"
+    },
+    {
+        "text": "t8vb",
+        "type": "Title"
+    },
+    {
+        "text": "clef",
+        "type": "Title"
+    },
+    {
+        "text": "Treble8vbClef",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "t8vb",
+        "type": "Title"
+    },
+    {
+        "text": "octaveChange",
+        "type": "Title"
+    },
+    {
+        "text": "t8vb.show()",
+        "type": "ListItem"
+    },
+    {
+        "text": "t8vb",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "There are some clefs that do not support Pitches, such as NoClef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "noClef",
+        "type": "Title"
+    },
+    {
+        "text": "clef",
+        "type": "Title"
+    },
+    {
+        "text": "NoClef",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "This clef is not supported in MuseScore (which I use to generate these\ndocs), but in some other MusicXML readers, will render a score without a\nclef. Percussion clefs also are not pitch clefs:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "clef",
+        "type": "Title"
+    },
+    {
+        "text": "PercussionClef",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "There are a lot of clefs that are pre-defined in music21 including\nunusual ones such as MezzoSopranoClef, SubBassClef, and\nJianpuClef. The music21.clef module lists them all. But you\ncan also create your own clef.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "pc",
+        "type": "Title"
+    },
+    {
+        "text": "clef",
+        "type": "Title"
+    },
+    {
+        "text": "PitchClef",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "pc",
+        "type": "Title"
+    },
+    {
+        "text": "sign",
+        "type": "Title"
+    },
+    {
+        "text": "'F'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "pc",
+        "type": "Title"
+    },
+    {
+        "text": "line",
+        "type": "Title"
+    },
+    {
+        "text": "pc",
+        "type": "Title"
+    },
+    {
+        "text": "octaveChange",
+        "type": "Title"
+    },
+    {
+        "text": "pc",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "And you can get a clef from a string by using the\nclefFromString() function:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "clef",
+        "type": "Title"
+    },
+    {
+        "text": "clefFromString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "'treble'",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "clef",
+        "type": "Title"
+    },
+    {
+        "text": "TrebleClef",
+        "type": "Title"
+    },
+    {
+        "text": "Or from a sign and a number of the line:",
+        "type": "Title"
+    },
+    {
+        "text": "clef",
+        "type": "Title"
+    },
+    {
+        "text": "clefFromString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "'C4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "If you've run from music21 import * be very careful not to name your\nvariable clef or you will lose access to the clef module!",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Automatic Clef Generation\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Look at this quick Stream:",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'B2'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Stream",
+        "type": "Title"
+    },
+    {
+        "text": "([",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "])",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "How did music21 know to make the clef be bass clef? It turns out\nthat there's a function in clef called\nbestClef() which can return the best clef given\nthe contents of the stream:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "clef",
+        "type": "Title"
+    },
+    {
+        "text": "bestClef",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "clef",
+        "type": "Title"
+    },
+    {
+        "text": "BassClef",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'C6'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "))",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "clef",
+        "type": "Title"
+    },
+    {
+        "text": "bestClef",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "clef",
+        "type": "Title"
+    },
+    {
+        "text": "TrebleClef",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "bestClef has two configurable options, allowTreble8vb if set to\nTrue, gives the very useful Treble8vb clef:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'B3'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Stream",
+        "type": "Title"
+    },
+    {
+        "text": "([",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "])",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "clef",
+        "type": "Title"
+    },
+    {
+        "text": "bestClef",
+        "type": "Title"
+    },
+    {
+        "text": "allowTreble8vb",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "clef",
+        "type": "Title"
+    },
+    {
+        "text": "Treble8vbClef",
+        "type": "Title"
+    },
+    {
+        "text": "And it also has a recurse parameter, which should be set to True\nwhen running on a nested stream structure, such as a part:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "bass",
+        "type": "Title"
+    },
+    {
+        "text": "corpus",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "'bwv66.6'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "parts",
+        "type": "Title"
+    },
+    {
+        "text": "'bass'",
+        "type": "Title"
+    },
+    {
+        "text": "clef",
+        "type": "Title"
+    },
+    {
+        "text": "bestClef",
+        "type": "Title"
+    },
+    {
+        "text": "bass",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "clef",
+        "type": "Title"
+    },
+    {
+        "text": "TrebleClef",
+        "type": "Title"
+    },
+    {
+        "text": "clef",
+        "type": "Title"
+    },
+    {
+        "text": "bestClef",
+        "type": "Title"
+    },
+    {
+        "text": "bass",
+        "type": "Title"
+    },
+    {
+        "text": "recurse",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "clef",
+        "type": "Title"
+    },
+    {
+        "text": "BassClef",
+        "type": "Title"
+    },
+    {
+        "text": "Ties\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "That's enough about clefs, let's move to a similarly basic musical\nelement called \u009cTies\u009d. Ties connect two pitches at the same pitch level\nattached to different notes or chords. All notes have a .tie\nattribute that specifies where the tie lives. Let's look at the top\nvoice of an Agnus Dei by Palestrina:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "agnus",
+        "type": "Title"
+    },
+    {
+        "text": "corpus",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "'palestrina/Agnus_01'",
+        "type": "Title"
+    },
+    {
+        "text": "agnusSop",
+        "type": "Title"
+    },
+    {
+        "text": "agnus",
+        "type": "Title"
+    },
+    {
+        "text": "parts",
+        "type": "Title"
+    },
+    {
+        "text": "agnusSop",
+        "type": "Title"
+    },
+    {
+        "text": "measures",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The second note of the first measure is tied, so let's find it:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "n1",
+        "type": "Title"
+    },
+    {
+        "text": "agnusSop",
+        "type": "Title"
+    },
+    {
+        "text": "recurse",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "notes",
+        "type": "Title"
+    },
+    {
+        "text": "n1",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "Now let's look at the .tie attribute:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "n1",
+        "type": "Title"
+    },
+    {
+        "text": "tie",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "tie",
+        "type": "Title"
+    },
+    {
+        "text": "Tie",
+        "type": "Title"
+    },
+    {
+        "text": "start",
+        "type": "Title"
+    },
+    {
+        "text": "This tie says \u009cstart\u009d. I'll bet that if we get the next note, we'll find\nit has a Tie marked \u009cstop\u009d:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "n1",
+        "type": "Title"
+    },
+    {
+        "text": "next",
+        "type": "Title"
+    },
+    {
+        "text": "'Note'",
+        "type": "Title"
+    },
+    {
+        "text": "tie",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "tie",
+        "type": "Title"
+    },
+    {
+        "text": "Tie",
+        "type": "Title"
+    },
+    {
+        "text": "stop",
+        "type": "Title"
+    },
+    {
+        "text": "The second .tie does not produce a graphical object. Thus the Tie\nobject really represents a tied-state for a given note rather than the\nnotational \u009ctie\u009d itself.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "The previous Note though, has a .tie of None",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "n1",
+        "type": "Title"
+    },
+    {
+        "text": "previous",
+        "type": "Title"
+    },
+    {
+        "text": "'Note'",
+        "type": "Title"
+    },
+    {
+        "text": "tie",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "We can find the value of \u0098start' or \u0098stop' in the .type attribute of\nthe Tie.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "n1",
+        "type": "Title"
+    },
+    {
+        "text": "tie",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "'start'",
+        "type": "Title"
+    },
+    {
+        "text": "n1",
+        "type": "Title"
+    },
+    {
+        "text": "next",
+        "type": "Title"
+    },
+    {
+        "text": "'Note'",
+        "type": "Title"
+    },
+    {
+        "text": "tie",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "'stop'",
+        "type": "Title"
+    },
+    {
+        "text": "There is a third tie type, \u0098continue' if a the note is tied from before\nand tied to the next note, we'll demonstrate it by creating some notes\nand ties manually:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "c0",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'C4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "c0",
+        "type": "Title"
+    },
+    {
+        "text": "tie",
+        "type": "Title"
+    },
+    {
+        "text": "tie",
+        "type": "Title"
+    },
+    {
+        "text": "Tie",
+        "type": "Title"
+    },
+    {
+        "text": "'start'",
+        "type": "Title"
+    },
+    {
+        "text": "c1",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'C4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "c1",
+        "type": "Title"
+    },
+    {
+        "text": "tie",
+        "type": "Title"
+    },
+    {
+        "text": "tie",
+        "type": "Title"
+    },
+    {
+        "text": "Tie",
+        "type": "Title"
+    },
+    {
+        "text": "'continue'",
+        "type": "Title"
+    },
+    {
+        "text": "c2",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'C4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "c2",
+        "type": "Title"
+    },
+    {
+        "text": "tie",
+        "type": "Title"
+    },
+    {
+        "text": "tie",
+        "type": "Title"
+    },
+    {
+        "text": "Tie",
+        "type": "Title"
+    },
+    {
+        "text": "'stop'",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Measure",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "([",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "c0",
+        "type": "Title"
+    },
+    {
+        "text": "c1",
+        "type": "Title"
+    },
+    {
+        "text": "c2",
+        "type": "Title"
+    },
+    {
+        "text": "])",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "(Note that if you've worked with MusicXML, the our \u0098continue' value is\nsimilar to the notion in MusicXML of attaching two ties, both a \u0098stop'\nand a \u0098start' tie.)",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Ties also have a .placement attribute which can be \u0098above', \u0098below',\nor None, the last meaning to allow renderers to determine the position\nfrom context:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "c0",
+        "type": "Title"
+    },
+    {
+        "text": "tie",
+        "type": "Title"
+    },
+    {
+        "text": "placement",
+        "type": "Title"
+    },
+    {
+        "text": "'above'",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Setting the placement on a \u0098stop' tie does nothing.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Ties also have a style attribute that represents how the tie should be\ndisplayed. It can be one of \u0098normal', \u0098dotted', \u0098dashed', or \u0098hidden'.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Stream",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "tie_style",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "'normal'",
+        "type": "Title"
+    },
+    {
+        "text": "'dotted'",
+        "type": "Title"
+    },
+    {
+        "text": "'dashed'",
+        "type": "Title"
+    },
+    {
+        "text": "'hidden'",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "nStart",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'E4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "tStart",
+        "type": "Title"
+    },
+    {
+        "text": "tie",
+        "type": "Title"
+    },
+    {
+        "text": "Tie",
+        "type": "Title"
+    },
+    {
+        "text": "'start'",
+        "type": "Title"
+    },
+    {
+        "text": "tStart",
+        "type": "Title"
+    },
+    {
+        "text": "style",
+        "type": "Title"
+    },
+    {
+        "text": "tie_style",
+        "type": "Title"
+    },
+    {
+        "text": "nStart",
+        "type": "Title"
+    },
+    {
+        "text": "tie",
+        "type": "Title"
+    },
+    {
+        "text": "tStart",
+        "type": "Title"
+    },
+    {
+        "text": "nStop",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'E4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "tStop",
+        "type": "Title"
+    },
+    {
+        "text": "tie",
+        "type": "Title"
+    },
+    {
+        "text": "Tie",
+        "type": "Title"
+    },
+    {
+        "text": "'stop'",
+        "type": "Title"
+    },
+    {
+        "text": "tStop",
+        "type": "Title"
+    },
+    {
+        "text": "style",
+        "type": "Title"
+    },
+    {
+        "text": "tie_style",
+        "type": "Title"
+    },
+    {
+        "text": "# optional",
+        "type": "Title"
+    },
+    {
+        "text": "nStop",
+        "type": "Title"
+    },
+    {
+        "text": "tie",
+        "type": "Title"
+    },
+    {
+        "text": "tStop",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "([",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "nStart",
+        "type": "Title"
+    },
+    {
+        "text": "nStop",
+        "type": "Title"
+    },
+    {
+        "text": "])",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "It can be hard to tell the difference between \u0098dotted' and \u0098dashed' in\nsome notation programs.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Ties and chords\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Chords also have a .tie attribute:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "ch0",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "'C4 G4 B4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "ch0",
+        "type": "Title"
+    },
+    {
+        "text": "tie",
+        "type": "Title"
+    },
+    {
+        "text": "tie",
+        "type": "Title"
+    },
+    {
+        "text": "Tie",
+        "type": "Title"
+    },
+    {
+        "text": "'start'",
+        "type": "Title"
+    },
+    {
+        "text": "ch1",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "'C4 G4 B4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "ch1",
+        "type": "Title"
+    },
+    {
+        "text": "tie",
+        "type": "Title"
+    },
+    {
+        "text": "tie",
+        "type": "Title"
+    },
+    {
+        "text": "Tie",
+        "type": "Title"
+    },
+    {
+        "text": "'stop'",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Measure",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "([",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "ch0",
+        "type": "Title"
+    },
+    {
+        "text": "ch1",
+        "type": "Title"
+    },
+    {
+        "text": "])",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "This is great and simple if you have two chords that are identical, but\nwhat if there are two chords where some notes should be tied and some\nshould not be, such as:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "ch2",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "'D4 G4 A4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "ch3",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "'D4 F#4 A4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Measure",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "([",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "ch2",
+        "type": "Title"
+    },
+    {
+        "text": "ch3",
+        "type": "Title"
+    },
+    {
+        "text": "])",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The D and the A might want to be tied, but the suspended G needs to\nresolve to the F# without having a tie in it. The solution obviously\nrelies on assigning a Tie object to a .tie\nattribute somewhere, but this is not the right approach:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "p0",
+        "type": "Title"
+    },
+    {
+        "text": "ch2",
+        "type": "Title"
+    },
+    {
+        "text": "pitches",
+        "type": "Title"
+    },
+    {
+        "text": "p0",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "D4",
+        "type": "Title"
+    },
+    {
+        "text": "p0",
+        "type": "Title"
+    },
+    {
+        "text": "tie",
+        "type": "Title"
+    },
+    {
+        "text": "tie",
+        "type": "Title"
+    },
+    {
+        "text": "Tie",
+        "type": "Title"
+    },
+    {
+        "text": "'start'",
+        "type": "Title"
+    },
+    {
+        "text": "# Don't do this.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Pitch objects generally do not have .tie attributes, and While we\ncan assign an attribute to almost any object, music21 looks for the\n.tie attribute on Notes or Chords, not Pitches. So to do this\nproperly, we need to know that internally, Chords store not just pitch\nobjects, but also Note objects, which you can access by iterating over\nthe Chord:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "ch2",
+        "type": "Title"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "Aha, so this is a trick. We could say:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "ch2",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "ch2",
+        "type": "Title"
+    },
+    {
+        "text": "tie",
+        "type": "Title"
+    },
+    {
+        "text": "tie",
+        "type": "Title"
+    },
+    {
+        "text": "Tie",
+        "type": "Title"
+    },
+    {
+        "text": "'start'",
+        "type": "Title"
+    },
+    {
+        "text": "And that works rather well. But maybe you don't want to bother\nremembering which note number in a chord refers to the particular note\nyou want tied? You can also get Notes out of a chord by treating passing\nin the pitch name of the Note to the chord:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "ch2",
+        "type": "Title"
+    },
+    {
+        "text": "'A4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "Note that this only works properly if the chord does not have any\nrepeated pitches. We are safe here. We can also retrieve and specify\ninformation directly in the chord from the index:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "ch2",
+        "type": "Title"
+    },
+    {
+        "text": "'D4.tie'",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "tie",
+        "type": "Title"
+    },
+    {
+        "text": "Tie",
+        "type": "Title"
+    },
+    {
+        "text": "start",
+        "type": "Title"
+    },
+    {
+        "text": "Or alternatively (though note that this is a string):",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "ch2",
+        "type": "Title"
+    },
+    {
+        "text": "'0.tie'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "tie",
+        "type": "Title"
+    },
+    {
+        "text": "Tie",
+        "type": "Title"
+    },
+    {
+        "text": "start",
+        "type": "Title"
+    },
+    {
+        "text": "And we can set the information this way too:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "ch2",
+        "type": "Title"
+    },
+    {
+        "text": "'A4.tie'",
+        "type": "Title"
+    },
+    {
+        "text": "tie",
+        "type": "Title"
+    },
+    {
+        "text": "Tie",
+        "type": "Title"
+    },
+    {
+        "text": "'start'",
+        "type": "Title"
+    },
+    {
+        "text": "Now let's set the stop information on the next chord:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "ch3",
+        "type": "Title"
+    },
+    {
+        "text": "'D4.tie'",
+        "type": "Title"
+    },
+    {
+        "text": "tie",
+        "type": "Title"
+    },
+    {
+        "text": "Tie",
+        "type": "Title"
+    },
+    {
+        "text": "'start'",
+        "type": "Title"
+    },
+    {
+        "text": "ch3",
+        "type": "Title"
+    },
+    {
+        "text": "'A4.tie'",
+        "type": "Title"
+    },
+    {
+        "text": "tie",
+        "type": "Title"
+    },
+    {
+        "text": "Tie",
+        "type": "Title"
+    },
+    {
+        "text": "'start'",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Voila! it works well. Now what does ch2.tie return?",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "ch2",
+        "type": "Title"
+    },
+    {
+        "text": "tie",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "tie",
+        "type": "Title"
+    },
+    {
+        "text": "Tie",
+        "type": "Title"
+    },
+    {
+        "text": "start",
+        "type": "Title"
+    },
+    {
+        "text": "The chord returns information from the highest note. So if we delete the\ntie on D4, we get the same answer:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "ch2",
+        "type": "Title"
+    },
+    {
+        "text": "'D4.tie'",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "ch2",
+        "type": "Title"
+    },
+    {
+        "text": "tie",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "tie",
+        "type": "Title"
+    },
+    {
+        "text": "Tie",
+        "type": "Title"
+    },
+    {
+        "text": "start",
+        "type": "Title"
+    },
+    {
+        "text": "But if we delete it from A4, we get a different answer:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "ch2",
+        "type": "Title"
+    },
+    {
+        "text": "'A4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "tie",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "ch2",
+        "type": "Title"
+    },
+    {
+        "text": "tie",
+        "type": "Title"
+    },
+    {
+        "text": "is",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "Here is an example of a case where we might want to set the\n.placement attribute of a tie manually:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "c1",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "'C#4 E4 G4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "c2",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "'C4 E4 G4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "c1",
+        "type": "Title"
+    },
+    {
+        "text": "tie",
+        "type": "Title"
+    },
+    {
+        "text": "tie",
+        "type": "Title"
+    },
+    {
+        "text": "Tie",
+        "type": "Title"
+    },
+    {
+        "text": "'start'",
+        "type": "Title"
+    },
+    {
+        "text": "c2",
+        "type": "Title"
+    },
+    {
+        "text": "tie",
+        "type": "Title"
+    },
+    {
+        "text": "tie",
+        "type": "Title"
+    },
+    {
+        "text": "Tie",
+        "type": "Title"
+    },
+    {
+        "text": "'stop'",
+        "type": "Title"
+    },
+    {
+        "text": "c1",
+        "type": "Title"
+    },
+    {
+        "text": "tie",
+        "type": "Title"
+    },
+    {
+        "text": "tie",
+        "type": "Title"
+    },
+    {
+        "text": "Tie",
+        "type": "Title"
+    },
+    {
+        "text": "'start'",
+        "type": "Title"
+    },
+    {
+        "text": "c2",
+        "type": "Title"
+    },
+    {
+        "text": "tie",
+        "type": "Title"
+    },
+    {
+        "text": "tie",
+        "type": "Title"
+    },
+    {
+        "text": "Tie",
+        "type": "Title"
+    },
+    {
+        "text": "'stop'",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Stream",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "([",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "c1",
+        "type": "Title"
+    },
+    {
+        "text": "c2",
+        "type": "Title"
+    },
+    {
+        "text": "])",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Hmm\u2026 the E tie intersects with the accidental and looks too confusing\nwith a tie on the C# to C. However, there's a placement attribute\nbeginning in music21 v.4 which can fix this:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "c1",
+        "type": "Title"
+    },
+    {
+        "text": "tie",
+        "type": "Title"
+    },
+    {
+        "text": "placement",
+        "type": "Title"
+    },
+    {
+        "text": "'above'",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Notice that in some of the examples above, we only set the \u009cstart\u009d tie\non the first note or chord and not the \u009cstop\u009d tie on the second note or\nchord. In most cases, setting the start tie is good enough for music21.\nBut some analyses require every tie to have a start, optional continue,\nand stop. So if you're writing a program that knows where the tie stops,\nit is best to set it explicitly.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Making and Stripping Ties from a Stream\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Sometimes ties get in the way of analysis. For instance, take this\nsimple melody created in TinyNotation:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "littlePiece",
+        "type": "Title"
+    },
+    {
+        "text": "converter",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "'tinyNotation: 2/4 d4. e8~ e4 d4~ d8 f4.'",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "littlePiece",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Suppose we wanted to know how many D's are in this melody. This,\nunfortunately, isn't the right approach:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "numDs",
+        "type": "Title"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "littlePiece",
+        "type": "Title"
+    },
+    {
+        "text": "recurse",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "notes",
+        "type": "Title"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "name",
+        "type": "Title"
+    },
+    {
+        "text": "==",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'D'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "numDs",
+        "type": "Title"
+    },
+    {
+        "text": "+=",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "numDs",
+        "type": "Title"
+    },
+    {
+        "text": "The first D is found properly, but the second D, being spanned across a\nbarline, is counted twice. It is possible to get the right number with\nsome code like this:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "numDs",
+        "type": "Title"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "littlePiece",
+        "type": "Title"
+    },
+    {
+        "text": "recurse",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "notes",
+        "type": "Title"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "name",
+        "type": "Title"
+    },
+    {
+        "text": "==",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'D'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "and",
+        "type": "Title"
+    },
+    {
+        "text": "tie",
+        "type": "Title"
+    },
+    {
+        "text": "is",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "or",
+        "type": "Title"
+    },
+    {
+        "text": "tie",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "==",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'start'",
+        "type": "Title"
+    },
+    {
+        "text": ")):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "numDs",
+        "type": "Title"
+    },
+    {
+        "text": "+=",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "numDs",
+        "type": "Title"
+    },
+    {
+        "text": "But this code will get very tedious if you also want to do something\nmore complex, say based on the total duration of all the D's, so it\nwould be better if the Stream had no tied notes in it.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "To take a Stream with tied notes and change it into a Stream with tied\nnotes represented by a single note, call\nstripTies() on the Stream:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "'C#4 E4 G4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "tie",
+        "type": "Title"
+    },
+    {
+        "text": "tie",
+        "type": "Title"
+    },
+    {
+        "text": "Tie",
+        "type": "Title"
+    },
+    {
+        "text": "'start'",
+        "type": "Title"
+    },
+    {
+        "text": "c2",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "'C#4 E4 G4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "c2",
+        "type": "Title"
+    },
+    {
+        "text": "tie",
+        "type": "Title"
+    },
+    {
+        "text": "tie",
+        "type": "Title"
+    },
+    {
+        "text": "Tie",
+        "type": "Title"
+    },
+    {
+        "text": "'stop'",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Measure",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "([",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "c2",
+        "type": "Title"
+    },
+    {
+        "text": "])",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "s2",
+        "type": "Title"
+    },
+    {
+        "text": "stripTies",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "s2",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "So, getting back to our little piece, all of its notes are essentially\ndotted quarter notes, but some of them are tied across the barline. To\nfix this, let's get a score where the ties are stripped, but we'll\nretain the measures.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "littleStripped",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "littlePiece",
+        "type": "Title"
+    },
+    {
+        "text": "stripTies",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Now we'll count the D's again:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "numDs",
+        "type": "Title"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "littleStripped",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "recurse",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "notes",
+        "type": "Title"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "name",
+        "type": "Title"
+    },
+    {
+        "text": "==",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'D'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "numDs",
+        "type": "Title"
+    },
+    {
+        "text": "+=",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "numDs",
+        "type": "Title"
+    },
+    {
+        "text": "That's a lot better. Let's look at littleStripped in a bit more\ndetail, by showing it as a text output with end times of each object\nadded:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "littleStripped",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "'text'",
+        "type": "Title"
+    },
+    {
+        "text": "addEndTimes",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "3.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Measure",
+        "type": "Title"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "clef",
+        "type": "Title"
+    },
+    {
+        "text": "TrebleClef",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "meter",
+        "type": "Title"
+    },
+    {
+        "text": "TimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "1.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "1.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "3.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "4.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Measure",
+        "type": "Title"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "2.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "4.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "6.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Measure",
+        "type": "Title"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "4.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "0.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "bar",
+        "type": "Title"
+    },
+    {
+        "text": "Barline",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "final",
+        "type": "Title"
+    },
+    {
+        "text": "One thing to notice is that the note E extends now beyond the end of the\nfirst 2/4 measure. The second D, in measure 2, by contrast, does not\nbegin at the beginning of the measure, but instead halfway through the\nfirst measure. This is why it's sometimes most helpful to follow\nstripTies() with a .flatten():",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "stripped2",
+        "type": "Title"
+    },
+    {
+        "text": "littlePiece",
+        "type": "Title"
+    },
+    {
+        "text": "stripTies",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "flatten",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "stripped2",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "'text'",
+        "type": "Title"
+    },
+    {
+        "text": "addEndTimes",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "clef",
+        "type": "Title"
+    },
+    {
+        "text": "TrebleClef",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "meter",
+        "type": "Title"
+    },
+    {
+        "text": "TimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "1.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "1.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "3.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "3.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "4.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "4.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "6.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "6.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "6.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "bar",
+        "type": "Title"
+    },
+    {
+        "text": "Barline",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "final",
+        "type": "Title"
+    },
+    {
+        "text": "In this view, it's easier to see what is going on with the lengths of\nthe various notes and where they should begin.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Remember from Chapter 17, that if we\nwant to go from the strip-tie note to the original, we can use\n.derivation. For instance, let's put an accent mark on every other\nnote of the original score, not counting tied notes:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "enumerate",
+        "type": "Title"
+    },
+    {
+        "text": "stripped2",
+        "type": "Title"
+    },
+    {
+        "text": "notes",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "==",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "nOrigin",
+        "type": "Title"
+    },
+    {
+        "text": "derivation",
+        "type": "Title"
+    },
+    {
+        "text": "origin",
+        "type": "Title"
+    },
+    {
+        "text": "nOrigin",
+        "type": "Title"
+    },
+    {
+        "text": "articulations",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "articulations",
+        "type": "Title"
+    },
+    {
+        "text": "Accent",
+        "type": "Title"
+    },
+    {
+        "text": "())",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "littlePiece",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "To partially undo the effect of .stripTies, run .makeTies. For\ninstance, let's take .littleStripped and change all the D's to C's\nand then get a new part:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "littleStripped",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "recurse",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "notes",
+        "type": "Title"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "name",
+        "type": "Title"
+    },
+    {
+        "text": "==",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'D'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "name",
+        "type": "Title"
+    },
+    {
+        "text": "'C'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "unstripped",
+        "type": "Title"
+    },
+    {
+        "text": "littleStripped",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "makeTies",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "unstripped",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Actually, one thing you can count on is that music21 will run\n.makeTies before showing a piece (since otherwise it can't be\ndisplayed in MusicXML) so if all you are going to do is show a piece, go\nahead and skip the .makeTies call:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "littleStripped",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ".stripTies",
+        "type": "Title"
+    },
+    {
+        "text": ".makeTies",
+        "type": "Title"
+    },
+    {
+        "text": ".makeTies",
+        "type": "Title"
+    },
+    {
+        "text": ".stripTies",
+        "type": "Title"
+    },
+    {
+        "text": ".stripTies",
+        "type": "Title"
+    },
+    {
+        "text": ".makeTies",
+        "type": "Title"
+    },
+    {
+        "text": ".stripTies",
+        "type": "Title"
+    },
+    {
+        "text": ".stripTies",
+        "type": "Title"
+    },
+    {
+        "text": "Beams\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Beams are the little invention of the seventeenth century (replacing the\nearlier \u009cligatures\u009d) that make it easier to read groups of eighth,\nsixteenth, and smaller notes by grouping them together. Formerly not\nused in vocal music (except in melismas), today beams are used in nearly\nall contexts, so of course music21 supports them.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "There are two objects that deal with beams, the\nBeam object which represents a single\nhorizontal line, and the Beams object (with \u009cs\u009d\nat the end) which deals with collections of Beam objects. Both live\nin the module called music21.beam.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Let's create a measure with some nice notes in them:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Measure",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'C4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "'quarter'",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "d1",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'D4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "'eighth'",
+        "type": "Title"
+    },
+    {
+        "text": "d2",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'D4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "'eighth'",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "([",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "d1",
+        "type": "Title"
+    },
+    {
+        "text": "d2",
+        "type": "Title"
+    },
+    {
+        "text": "])",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'E4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "'16th'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "repeatAppend",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "'text'",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "1.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "2.25",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "2.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "2.75",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "Every note and chord has a .beams attribute which returns a\nBeams object.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beams",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "beam",
+        "type": "Title"
+    },
+    {
+        "text": "Beams",
+        "type": "Title"
+    },
+    {
+        "text": "music21.beam.Beams",
+        "type": "Title"
+    },
+    {
+        "text": "Beam",
+        "type": "Title"
+    },
+    {
+        "text": "d1",
+        "type": "Title"
+    },
+    {
+        "text": "d2",
+        "type": "Title"
+    },
+    {
+        "text": "Beam",
+        "type": "Title"
+    },
+    {
+        "text": "d1",
+        "type": "Title"
+    },
+    {
+        "text": ".type",
+        "type": "Title"
+    },
+    {
+        "text": "beam1",
+        "type": "Title"
+    },
+    {
+        "text": "beam",
+        "type": "Title"
+    },
+    {
+        "text": "Beam",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "'start'",
+        "type": "Title"
+    },
+    {
+        "text": "number",
+        "type": "Title"
+    },
+    {
+        "text": "Now we can add it to the Beams object in d1:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "d1Beams",
+        "type": "Title"
+    },
+    {
+        "text": "d1",
+        "type": "Title"
+    },
+    {
+        "text": "beams",
+        "type": "Title"
+    },
+    {
+        "text": "d1Beams",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "beam1",
+        "type": "Title"
+    },
+    {
+        "text": "d1",
+        "type": "Title"
+    },
+    {
+        "text": "beams",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "beam",
+        "type": "Title"
+    },
+    {
+        "text": "Beams",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "beam",
+        "type": "Title"
+    },
+    {
+        "text": "Beam",
+        "type": "Title"
+    },
+    {
+        "text": "start",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Now we can see that there is a start beam on d1.beams. This way of\nconstructing Beam objects individually can get tedious for the\nprogrammer, so for d2 we'll make the stop beam in an easier manner,\nusing the same Beams.append method, but just giving it the \u009cstop\u009d\nattribute:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "d2",
+        "type": "Title"
+    },
+    {
+        "text": "beams",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "'stop'",
+        "type": "Title"
+    },
+    {
+        "text": "d2",
+        "type": "Title"
+    },
+    {
+        "text": "beams",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "beam",
+        "type": "Title"
+    },
+    {
+        "text": "Beams",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "beam",
+        "type": "Title"
+    },
+    {
+        "text": "Beam",
+        "type": "Title"
+    },
+    {
+        "text": "stop",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Now when we show the score we'll see it with some beams:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Now let us add beams to the sixteenth notes, there's an even easier way\nto add multiple beams rather than calling append repeatedly, we can\nsimply get the notes and call .beams.fill() with the number of beams\nwe want (2) and their type, which will be \u009cstart\u009d, twice \u009ccontinue\u009d, and\nonce \u009cstop\u009d:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "notes",
+        "type": "Title"
+    },
+    {
+        "text": "beams",
+        "type": "Title"
+    },
+    {
+        "text": "fill",
+        "type": "Title"
+    },
+    {
+        "text": "'start'",
+        "type": "Title"
+    },
+    {
+        "text": "notes",
+        "type": "Title"
+    },
+    {
+        "text": "beams",
+        "type": "Title"
+    },
+    {
+        "text": "fill",
+        "type": "Title"
+    },
+    {
+        "text": "'continue'",
+        "type": "Title"
+    },
+    {
+        "text": "notes",
+        "type": "Title"
+    },
+    {
+        "text": "beams",
+        "type": "Title"
+    },
+    {
+        "text": "fill",
+        "type": "Title"
+    },
+    {
+        "text": "'continue'",
+        "type": "Title"
+    },
+    {
+        "text": "notes",
+        "type": "Title"
+    },
+    {
+        "text": "beams",
+        "type": "Title"
+    },
+    {
+        "text": "fill",
+        "type": "Title"
+    },
+    {
+        "text": "'stop'",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Suppose we wanted to put a secondary beam break in the middle of the\nsixteenth notes? It involves changing the second beam (beam number 2) on\nnotes[4] and notes[5]. We do not want to change beam number 1,\nbecause it continues across the four notes:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "notes",
+        "type": "Title"
+    },
+    {
+        "text": "beams",
+        "type": "Title"
+    },
+    {
+        "text": "setByNumber",
+        "type": "Title"
+    },
+    {
+        "text": "'stop'",
+        "type": "Title"
+    },
+    {
+        "text": "notes",
+        "type": "Title"
+    },
+    {
+        "text": "beams",
+        "type": "Title"
+    },
+    {
+        "text": "setByNumber",
+        "type": "Title"
+    },
+    {
+        "text": "'start'",
+        "type": "Title"
+    },
+    {
+        "text": "The output is not rendered in MuseScore, but works great in Finale 25:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Secondary Beam Break\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "There are cases, such as dotted eighths followed by sixteenths, where\npartial beams are needed, these partial beams need to know their\ndirection. For instance:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "m2",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Measure",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "m2",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "meter",
+        "type": "Title"
+    },
+    {
+        "text": "TimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "'6/8'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "))",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "c4",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'C4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "d8",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'D4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "'eighth'",
+        "type": "Title"
+    },
+    {
+        "text": "e8",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'E4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "'eighth'",
+        "type": "Title"
+    },
+    {
+        "text": "e8",
+        "type": "Title"
+    },
+    {
+        "text": "beams",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "'start'",
+        "type": "Title"
+    },
+    {
+        "text": "f16",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'F4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "'16th'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "f16",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "beams",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "'continue'",
+        "type": "Title"
+    },
+    {
+        "text": "Now comes the second, partial beam, which we'll make go right:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "f16",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "beams",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "'partial'",
+        "type": "Title"
+    },
+    {
+        "text": "'right'",
+        "type": "Title"
+    },
+    {
+        "text": "g8",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'G4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "'eighth'",
+        "type": "Title"
+    },
+    {
+        "text": "g8",
+        "type": "Title"
+    },
+    {
+        "text": "beams",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "'continue'",
+        "type": "Title"
+    },
+    {
+        "text": "a16",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'A4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "'16th'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "a16",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "beams",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "'stop'",
+        "type": "Title"
+    },
+    {
+        "text": "a16",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "beams",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "'partial'",
+        "type": "Title"
+    },
+    {
+        "text": "'left'",
+        "type": "Title"
+    },
+    {
+        "text": "m2",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "([",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "c4",
+        "type": "Title"
+    },
+    {
+        "text": "d8",
+        "type": "Title"
+    },
+    {
+        "text": "e8",
+        "type": "Title"
+    },
+    {
+        "text": "f16",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "g8",
+        "type": "Title"
+    },
+    {
+        "text": "a16",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "])",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "m2",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "This beamming implies that the dotted quarter is divided into three\neighth notes. If we wanted the beams to imply that the dotted quarter\nwas divided into two dotted-eighth notes, we could switch the partial\nbeam on f16 to point to the left. Unfortunately, none of the major\nMusicXML readers properly import direction of partial beams (\u0098backward\nhook' vs.\u00c2\u00a0\u0098forward hook')",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Beams the easy way\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "This section began by explaining what beams were like on the lowest\npossible level, but most of the time we're going to be too busy solving\nthe world's great musicological/music theoretical/cognition/composition\nproblems to worry about things like beaming! So let's jump all the way\nto the other extreme, and look at beams in the easiest possible way. If\nall you want is your score to look decently beamed when you show it,\nforget about setting beaming at all and just show it!",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Measure",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "ts34",
+        "type": "Title"
+    },
+    {
+        "text": "meter",
+        "type": "Title"
+    },
+    {
+        "text": "TimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "'3/4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "ts34",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'C4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "'quarter'",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "d1",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'D4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "'eighth'",
+        "type": "Title"
+    },
+    {
+        "text": "d2",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'D4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "'eighth'",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "([",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "d1",
+        "type": "Title"
+    },
+    {
+        "text": "d2",
+        "type": "Title"
+    },
+    {
+        "text": "])",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'E4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "'16th'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "repeatAppend",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "If the TimeSignature changes, music21 will rebeam it differently:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "ts68",
+        "type": "Title"
+    },
+    {
+        "text": "meter",
+        "type": "Title"
+    },
+    {
+        "text": "TimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "'6/8'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "replace",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "ts34",
+        "type": "Title"
+    },
+    {
+        "text": "ts68",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "This is accomplished because before showing the Stream, music21 runs\nthe powerful method makeNotation()\non the stream. This calls a function in\nmusic21.stream.makeNotation module called\nmakeBeams() that does the real\nwork. That function checks the stream to see if any beams exist on it:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "streamStatus",
+        "type": "Title"
+    },
+    {
+        "text": "haveBeamsBeenMade",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "If there are any beams in the stream, then that will return True and\nno beams will be made:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "notes",
+        "type": "Title"
+    },
+    {
+        "text": "beams",
+        "type": "Title"
+    },
+    {
+        "text": "fill",
+        "type": "Title"
+    },
+    {
+        "text": "'start'",
+        "type": "Title"
+    },
+    {
+        "text": "notes",
+        "type": "Title"
+    },
+    {
+        "text": "beams",
+        "type": "Title"
+    },
+    {
+        "text": "fill",
+        "type": "Title"
+    },
+    {
+        "text": "'stop'",
+        "type": "Title"
+    },
+    {
+        "text": "streamStatus",
+        "type": "Title"
+    },
+    {
+        "text": "haveBeamsBeenMade",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "In Chapter 55 we will learn how to\nadjust TimeSignature objects to make them give different beaming\npatterns by default, but for now, you can trust that for most common\ntime signatures, the beaming will be at least acceptable.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "We've gone through the basics and more advanced topics regarding Clefs,\nTies, and Beams, which are fundamental musical objects. Other musical\nobjects give great spice to music, and we will see them next in\nArticulations.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 31: Clefs, Ties, and Beams",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

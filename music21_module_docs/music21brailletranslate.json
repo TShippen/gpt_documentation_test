@@ -1,0 +1,1342 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.braille.translate",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.braille.text",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.capella.fromCapellaXML",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.braille.translate\nFunctions\nobjectToBraille()\nkeyboardPartsToBraille()\nmeasureToBraille()\nmetadataToString()\nopusToBraille()\npartToBraille()\nscoreToBraille()\nstreamToBraille()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.braille.translate\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Functions for exporting music21 data as braille.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "This module was made in consultation with the manual \u009cIntroduction to Braille\nMusic Transcription, Second Edition\u009d by Mary Turner De Garmo, 2005. It is\navailable from the Library of Congress\nhere,\nand will henceforth be referred to as BMTM.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "The most important function, and the only one that is needed to translate music\ninto braille, is objectToBraille(). This function,\nas well as the others, accepts keyword arguments that serve to modify the output.\nIf no keyword arguments are needed, then using the function is equivalent to\ncalling show() on the music.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Keywords:",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace (False): If False, then makeNotation() is called\non all Measure, Part, and\nPartStaff instances. Copies of those objects are then\nused to transcribe the music. If True, the transcription is done \u009cas is.\u009d\nThis is useful for strict transcription because\nsometimes makeNotation()\nintroduces some unwanted artifacts in the music. However, the music needs\nto be organized into measures for transcription to work.",
+        "type": "ListItem"
+    },
+    {
+        "text": "debug (False): If True, a braille-english representation of the music is returned. Useful\nfor knowing how the music was interpreted by the braille transcriber.",
+        "type": "ListItem"
+    },
+    {
+        "text": "The rest of the keywords are segment keywords. A segment is \u009ca group of measures occupying\nmore than one braille line.\u009d Music is divided into segments to \u009cpresent the music to\nthe reader in a meaningful manner and to give him convenient reference points to use in\nmemorization\u009d (BMTM, 71). Some of these keywords are changed automatically in context.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "cancelOutgoingKeySig (True): If True, whenever a key signature change isencountered, the new signature should be preceded by the old one.",
+        "type": "ListItem"
+    },
+    {
+        "text": "descendingChords (True): If True, then chords are spelled around the highest note.If False, then chords are spelled around the lowest note. This keyword is\noverridden by any valid clefs present in the music.",
+        "type": "ListItem"
+    },
+    {
+        "text": "dummyRestLength (None) For a given positive integer n, adds n \u009cdummy rests\u009dnear the beginning of a segment. Designed for test purposes, as the rests\nare used to demonstrate measure division at the end of braille lines.",
+        "type": "ListItem"
+    },
+    {
+        "text": "maxLineLength (40): The maximum amount of braille charactersthat should be present in a line of braille.",
+        "type": "ListItem"
+    },
+    {
+        "text": "segmentBreaks (None): A list consisting of (measure number, offset start)tuples indicating where the music should be broken into segments.\n\nWarning\nNot currently implemented",
+        "type": "ListItem"
+    },
+    {
+        "text": "showClefSigns (False): If True, then clef signs are displayed.Since braille does not use clefs or staves to represent music, they would\ninstead be shown for referential or historical purposes.",
+        "type": "ListItem"
+    },
+    {
+        "text": "showFirstMeasureNumber (True): If True, then a measure number is shownfollowing the heading (if applicable) and preceding the music.",
+        "type": "ListItem"
+    },
+    {
+        "text": "showHand (None): If set to \u009cright\u009d or \u009cleft\u009d, the correspondinghand sign is shown before the music. In keyboard music,\nthe hand signs are shown automatically.",
+        "type": "ListItem"
+    },
+    {
+        "text": "showHeading (True): If True, then a braille heading is created abovethe initial segment. A heading consists\nof an initial KeySignature, TimeSignature,\nTempoText, and MetronomeMark,\nor any subset thereof. The heading\nis centered above the music automatically.",
+        "type": "ListItem"
+    },
+    {
+        "text": "showLongSlursAndTiesTogether (None), showShortSlursAndTiesTogether (False):If False, then the slur on either side of the phrase is reduced by the amount\nthat ties are present. If True, then slurs and ties are shown together\n(i.e. the note can have both a slur and a tie). If showLongSlursAndTiesTogether\nis None (default), its value is programmatically set to be the value of\nslurLongPhraseWithBrackets, described next.",
+        "type": "ListItem"
+    },
+    {
+        "text": "slurLongPhraseWithBrackets (True): If True, then the slur of along phrase (4+ consecutive notes) is brailled using the bracket slur.\nIf False, the double slur is used instead.",
+        "type": "ListItem"
+    },
+    {
+        "text": "suppressOctaveMarks (False): If True, then all octave marks are suppressed.Designed for test purposes, as octave marks were not presented in BMTM until Chapter 7.",
+        "type": "ListItem"
+    },
+    {
+        "text": "upperFirstInNoteFingering (True): If True, then wheneverthere is a choice fingering (i.e. 5|4), the upper\nnumber is transcribed before the lower number. If False, the reverse is the case.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.braille.translate.",
+        "type": "Title"
+    },
+    {
+        "text": "objectToBraille",
+        "type": "Title"
+    },
+    {
+        "text": "music21Obj",
+        "type": "Title"
+    },
+    {
+        "text": "Music21Object",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "debug",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "cancelOutgoingKeySig",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "descendingChords",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "dummyRestLength",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "maxLineLength",
+        "type": "Title"
+    },
+    {
+        "text": "40",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "segmentBreaks",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "showClefSigns",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "showFirstMeasureNumber",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "showHand",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "showHeading",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "showLongSlursAndTiesTogether",
+        "type": "Title"
+    },
+    {
+        "text": "bool | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "showShortSlursAndTiesTogether",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "slurLongPhraseWithBrackets",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "suppressOctaveMarks",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "upperFirstInNoteFingering",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Translates an arbitrary object to braille.\n>>> from music21.braille import translate\n>>> samplePart = converter.parse('tinynotation: 3/4 C4 D16 E F G# r4 e2.')\n>>> samplePart.show()\n\n\n\n\n\n>>> print(translate.objectToBraille(samplePart))\n\u00e2\u00a0\u0080\u00e2\u00a0\u0080\u00e2\u00a0\u0080\u00e2\u00a0\u0080\u00e2\u00a0\u0080\u00e2\u00a0\u0080\u00e2\u00a0\u0080\u00e2\u00a0\u00bc\u00e2\u00a0\u0089\u00e2\u00a0\u00b2\u00e2\u00a0\u0080\u00e2\u00a0\u0080\u00e2\u00a0\u0080\u00e2\u00a0\u0080\u00e2\u00a0\u0080\u00e2\u00a0\u0080\u00e2\u00a0\u0080\n\u00e2\u00a0\u00bc\u00e2\u00a0\u0081\u00e2\u00a0\u0080\u00e2\u00a0\u00b8\u00e2\u00a0\u00b9\u00e2\u00a0\u00b5\u00e2\u00a0\u008b\u00e2\u00a0\u009b\u00e2\u00a0\u00a9\u00e2\u00a0\u201c\u00e2\u00a0\u00a7\u00e2\u00a0\u0080\u00e2\u00a0\u0090\u00e2\u00a0\u008f\u00e2\u00a0\u0084\u00e2\u00a0\u00a3\u00e2\u00a0\u0085\n\n\nFor normal users, you'll just call this, which starts a text editor:\n>>> samplePart.show('braille')\n\u00e2\u00a0\u0080\u00e2\u00a0\u0080\u00e2\u00a0\u0080\u00e2\u00a0\u0080\u00e2\u00a0\u0080\u00e2\u00a0\u0080\u00e2\u00a0\u0080\u00e2\u00a0\u00bc\u00e2\u00a0\u0089\u00e2\u00a0\u00b2\u00e2\u00a0\u0080\u00e2\u00a0\u0080\u00e2\u00a0\u0080\u00e2\u00a0\u0080\u00e2\u00a0\u0080\u00e2\u00a0\u0080\u00e2\u00a0\u0080\n\u00e2\u00a0\u00bc\u00e2\u00a0\u0081\u00e2\u00a0\u0080\u00e2\u00a0\u00b8\u00e2\u00a0\u00b9\u00e2\u00a0\u00b5\u00e2\u00a0\u008b\u00e2\u00a0\u009b\u00e2\u00a0\u00a9\u00e2\u00a0\u201c\u00e2\u00a0\u00a7\u00e2\u00a0\u0080\u00e2\u00a0\u0090\u00e2\u00a0\u008f\u00e2\u00a0\u0084\u00e2\u00a0\u00a3\u00e2\u00a0\u0085\n\n\nOther examples:\n>>> sampleNote = note.Note('C3')\n>>> print(translate.objectToBraille(sampleNote))\n\u00e2\u00a0\u00b8\u00e2\u00a0\u00b9\n\n\n>>> sampleDynamic = dynamics.Dynamic('fff')\n>>> print(translate.objectToBraille(sampleDynamic))\n\u00e2\u00a0\u009c\u00e2\u00a0\u008b\u00e2\u00a0\u008b\u00e2\u00a0\u008b\n\n\n>>> sample_voice = stream.Voice([note.Note()])\n>>> sample_measure = stream.Measure([sample_voice])\n>>> print(translate.objectToBraille(sample_measure))\n\u00e2\u00a0\u0080\u00e2\u00a0\u00bc\u00e2\u00a0\u0081\u00e2\u00a0\u00b2\u00e2\u00a0\u0080\n\u00e2\u00a0\u00bc\u00e2\u00a0\u009a\u00e2\u00a0\u0080\u00e2\u00a0\u0090\u00e2\u00a0\u00b9\n\n\n>>> empty_measure = stream.Measure()\n>>> print(translate.objectToBraille(empty_measure))\n\u00e2\u00a0\u0080\u00e2\u00a0\u0080\u00e2\u00a0\u0080\u00e2\u00a0\u0080\u00e2\u00a0\u0080\u00e2\u00a0\u0080\u00e2\u00a0\u0080\u00e2\u00a0\u0080\u00e2\u00a0\u0080\u00e2\u00a0\u0080\u00e2\u00a0\u0080\u00e2\u00a0\u0080\u00e2\u00a0\u0080\u00e2\u00a0\u0080\u00e2\u00a0\u0080\u00e2\u00a0\u0080\u00e2\u00a0\u0080\u00e2\u00a0\u0080\u00e2\u00a0\u00bc\u00e2\u00a0\u0099\u00e2\u00a0\u00b2\u00e2\u00a0\u0080\u00e2\u00a0\u0080\u00e2\u00a0\u0080\u00e2\u00a0\u0080\u00e2\u00a0\u0080\u00e2\u00a0\u0080\u00e2\u00a0\u0080\u00e2\u00a0\u0080\u00e2\u00a0\u0080\u00e2\u00a0\u0080\u00e2\u00a0\u0080\u00e2\u00a0\u0080\u00e2\u00a0\u0080\u00e2\u00a0\u0080\u00e2\u00a0\u0080\u00e2\u00a0\u0080\u00e2\u00a0\u0080\u00e2\u00a0\u0080\u00e2\u00a0\u0080\n\u00e2\u00a0\u00bc\u00e2\u00a0\u009a\n\n\nNot currently supported: generic stream.Stream objects or stream.Voice objects:\n>>> sample_generic_stream = stream.Stream([note.Note()])\n>>> translate.objectToBraille(sample_generic_stream)\nTraceback (most recent call last):\nmusic21.braille.translate.BrailleTranslateException: Stream cannot be translated to Braille.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.braille.translate.",
+        "type": "Title"
+    },
+    {
+        "text": "keyboardPartsToBraille",
+        "type": "Title"
+    },
+    {
+        "text": "keyboardScore",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "debug",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "cancelOutgoingKeySig",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "descendingChords",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "dummyRestLength",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "maxLineLength",
+        "type": "Title"
+    },
+    {
+        "text": "40",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "segmentBreaks",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "showClefSigns",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "showFirstMeasureNumber",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "showHand",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "showHeading",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "showLongSlursAndTiesTogether",
+        "type": "Title"
+    },
+    {
+        "text": "bool | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "showShortSlursAndTiesTogether",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "slurLongPhraseWithBrackets",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "suppressOctaveMarks",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "upperFirstInNoteFingering",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Translates a Score object containing two Part instances to braille,\nan upper part and a lower\npart. Assumes that the two parts are aligned and well constructed. Bar over bar format is used.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.braille.translate.",
+        "type": "Title"
+    },
+    {
+        "text": "measureToBraille",
+        "type": "Title"
+    },
+    {
+        "text": "music21Measure",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "debug",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "cancelOutgoingKeySig",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "descendingChords",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "dummyRestLength",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "maxLineLength",
+        "type": "Title"
+    },
+    {
+        "text": "40",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "segmentBreaks",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "showClefSigns",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "showFirstMeasureNumber",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "showHand",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "showHeading",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "showLongSlursAndTiesTogether",
+        "type": "Title"
+    },
+    {
+        "text": "bool | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "showShortSlursAndTiesTogether",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "slurLongPhraseWithBrackets",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "suppressOctaveMarks",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "upperFirstInNoteFingering",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Translates a Measure to braille.\n>>> p = stream.Part()\n>>> p.append(note.Note('C4', type='whole'))\n>>> p.makeMeasures(inPlace=True)\n>>> p.show('t')\n{0.0} <music21.stream.Measure 1 offset=0.0>\n    {0.0} <music21.clef.TrebleClef>\n    {0.0} <music21.meter.TimeSignature 4/4>\n    {0.0} <music21.note.Note C>\n    {4.0} <music21.bar.Barline type=final>\n>>> print(braille.translate.objectToBraille(p))\n\u00e2\u00a0\u0080\u00e2\u00a0\u0080\u00e2\u00a0\u00bc\u00e2\u00a0\u0099\u00e2\u00a0\u00b2\u00e2\u00a0\u0080\u00e2\u00a0\u0080\n\u00e2\u00a0\u00bc\u00e2\u00a0\u0081\u00e2\u00a0\u0080\u00e2\u00a0\u0090\u00e2\u00a0\u00bd\u00e2\u00a0\u00a3\u00e2\u00a0\u0085\n>>> print(braille.translate.measureToBraille(p.measure(1)))\n\u00e2\u00a0\u00bc\u00e2\u00a0\u0099\u00e2\u00a0\u00b2\u00e2\u00a0\u0080\u00e2\u00a0\u0090\u00e2\u00a0\u00bd\u00e2\u00a0\u00a3\u00e2",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.braille.translate.",
+        "type": "Title"
+    },
+    {
+        "text": "metadataToString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "music21Metadata",
+        "type": "Title"
+    },
+    {
+        "text": "Metadata",
+        "type": "Title"
+    },
+    {
+        "text": "returnBrailleUnicode",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 str",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Convert a Metadata format to a format for BRF.\n>>> from music21.braille import translate\n>>> corelli = corpus.parse('monteverdi/madrigal.3.1.rntxt')\n>>> mdObject = corelli.getElementsByClass(metadata.Metadata).first()\n>>> mdObject.__class__\n<class 'music21.metadata.Metadata'>\n\n\nThe default is very close to ascii.\n>>> print(translate.metadataToString(mdObject))\nAlternative Title: 3.1\nComposer: Claudio Monteverdi\nTitle: La Giovinetta Pianta\n\n\nAnd in Braille Unicode.\n>>> unicodeVersion = translate.metadataToString(mdObject, returnBrailleUnicode=True)\n>>> print(unicodeVersion)\n\u00e2\u00a0\u00a0\u00e2\u00a0\u0081\u00e2\u00a0\u0087\u00e2\u00a0\u009e\u00e2\u00a0\u2018\u00e2\u00a0\u0097\u00e2\u00a0\u009d\u00e2\u00a0\u0081\u00e2\u00a0\u009e\u00e2\u00a0\u008a\u00e2\u00a0\u00a7\u00e2\u00a0\u2018\u00e2\u00a0\u0080\u00e2\u00a0\u00a0\u00e2\u00a0\u009e\u00e2\u00a0\u008a\u00e2\u00a0\u009e\u00e2\u00a0\u0087\u00e2\u00a0\u2018\u00e2\u00a0\u2019\u00e2\u00a0\u0080\u00e2\u00a0\u00bc\u00e2\u00a0\u0089\u00e2\u00a0\u00b2\u00e2\u00a0\u0081\n\u00e2\u00a0\u00a0\u00e2\u00a0\u0089\u00e2\u00a0\u0095\u00e2\u00a0\u008d\u00e2\u00a0\u008f\u00e2\u00a0\u0095\u00e2\u00a0\u008e\u00e2\u00a0\u2018\u00e2\u00a0\u0097\u00e2\u00a0\u2019\u00e2\u00a0\u0080\u00e2\u00a0\u00a0\u00e2\u00a0\u0089\u00e2\u00a0\u0087\u00e2\u00a0\u0081\u00e2\u00a0\u00a5\u00e2\u00a0\u0099\u00e2\u00a0\u008a\u00e2\u00a0\u0095\u00e2\u00a0\u0080\u00e2\u00a0\u00a0\u00e2\u00a0\u008d\u00e2\u00a0\u0095\u00e2\u00a0\u009d\u00e2\u00a0\u009e\u00e2\u00a0\u2018\u00e2\u00a0\u00a7\u00e2\u00a0\u2018\u00e2\u00a0\u0097\u00e2\u00a0\u0099\u00e2\u00a0\u008a\n\u00e2\u00a0\u00a0\u00e2\u00a0\u009e\u00e2\u00a0\u008a\u00e2\u00a0\u009e\u00e2\u00a0\u0087\u00e2\u00a0\u2018\u00e2\u00a0\u2019\u00e2\u00a0\u0080\u00e2\u00a0\u00a0\u00e2\u00a0\u0087\u00e2\u00a0\u0081\u00e2\u00a0\u0080\u00e2\u00a0\u00a0\u00e2\u00a0\u009b\u00e2\u00a0\u008a\u00e2\u00a0\u0095\u00e2\u00a0\u00a7\u00e2\u00a0\u008a\u00e2\u00a0\u009d\u00e2\u00a0\u2018\u00e2\u00a0\u009e\u00e2\u00a0\u009e\u00e2\u00a0\u0081\u00e2\u00a0\u0080\u00e2\u00a0\u00a0\u00e2\u00a0\u008f\u00e2\u00a0\u008a\u00e2\u00a0\u0081\u00e2\u00a0\u009d\u00e2\u00a0\u009e\u00e2\u00a0\u0081\n\n\nNote the difference between the first and then translating back to ASCII Braille:\n>>> print(braille.basic.brailleUnicodeToBrailleAscii(unicodeVersion))\n,ALTERNATIVE ,TITLE3 #C4A\n,COMPOSER3 ,CLAUDIO ,MONTEVERDI\n,TITLE3 ,LA ,GIOVINETTA ,PIANTA",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.braille.translate.",
+        "type": "Title"
+    },
+    {
+        "text": "opusToBraille",
+        "type": "Title"
+    },
+    {
+        "text": "music21Opus",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "debug",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "cancelOutgoingKeySig",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "descendingChords",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "dummyRestLength",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "maxLineLength",
+        "type": "Title"
+    },
+    {
+        "text": "40",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "segmentBreaks",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "showClefSigns",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "showFirstMeasureNumber",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "showHand",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "showHeading",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "showLongSlursAndTiesTogether",
+        "type": "Title"
+    },
+    {
+        "text": "bool | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "showShortSlursAndTiesTogether",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "slurLongPhraseWithBrackets",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "suppressOctaveMarks",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "upperFirstInNoteFingering",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Translates an Opus to braille.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.braille.translate.",
+        "type": "Title"
+    },
+    {
+        "text": "partToBraille",
+        "type": "Title"
+    },
+    {
+        "text": "music21Part",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "debug",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "cancelOutgoingKeySig",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "descendingChords",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "dummyRestLength",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "maxLineLength",
+        "type": "Title"
+    },
+    {
+        "text": "40",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "segmentBreaks",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "showClefSigns",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "showFirstMeasureNumber",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "showHand",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "showHeading",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "showLongSlursAndTiesTogether",
+        "type": "Title"
+    },
+    {
+        "text": "bool | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "showShortSlursAndTiesTogether",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "slurLongPhraseWithBrackets",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "suppressOctaveMarks",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "upperFirstInNoteFingering",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Translates a Part to braille.\nThis is one of two (w/ keyboardPartsToBraille) main routines.  Runs segment.findSegments\nand then for each segment runs transcribe on it.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.braille.translate.",
+        "type": "Title"
+    },
+    {
+        "text": "scoreToBraille",
+        "type": "Title"
+    },
+    {
+        "text": "music21Score",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "debug",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "cancelOutgoingKeySig",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "descendingChords",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "dummyRestLength",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "maxLineLength",
+        "type": "Title"
+    },
+    {
+        "text": "40",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "segmentBreaks",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "showClefSigns",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "showFirstMeasureNumber",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "showHand",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "showHeading",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "showLongSlursAndTiesTogether",
+        "type": "Title"
+    },
+    {
+        "text": "bool | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "showShortSlursAndTiesTogether",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "slurLongPhraseWithBrackets",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "suppressOctaveMarks",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "upperFirstInNoteFingering",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Translates a Score to braille.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.braille.translate.",
+        "type": "Title"
+    },
+    {
+        "text": "streamToBraille",
+        "type": "Title"
+    },
+    {
+        "text": "music21Stream",
+        "type": "Title"
+    },
+    {
+        "text": "Measure",
+        "type": "Title"
+    },
+    {
+        "text": "Part",
+        "type": "Title"
+    },
+    {
+        "text": "Score",
+        "type": "Title"
+    },
+    {
+        "text": "Opus",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "debug",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "cancelOutgoingKeySig",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "descendingChords",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "dummyRestLength",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "maxLineLength",
+        "type": "Title"
+    },
+    {
+        "text": "40",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "segmentBreaks",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "showClefSigns",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "showFirstMeasureNumber",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "showHand",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "showHeading",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "showLongSlursAndTiesTogether",
+        "type": "Title"
+    },
+    {
+        "text": "bool | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "showShortSlursAndTiesTogether",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "slurLongPhraseWithBrackets",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "suppressOctaveMarks",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "upperFirstInNoteFingering",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Translates a Measure.\nPart,\nScore, or\nOpus to braille.\nNote: generic Stream instances are not supported.\n>>> s = stream.Stream(note.Note())\n>>> braille.translate.streamToBraille(s)\nTraceback (most recent call last):\nmusic21.braille.translate.BrailleTranslateException: Stream cannot be translated to Braille.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.braille.translate",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

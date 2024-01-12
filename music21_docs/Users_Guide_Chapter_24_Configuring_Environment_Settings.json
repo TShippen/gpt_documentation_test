@@ -1,0 +1,494 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 24: Configuring Environment Settings",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide, Chapter 23: Roman Numeral Analysis",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide, Chapter 25: Post-Tonal Tools (1)",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide, Chapter 24: Configuring Environment Settings\nCreating and Configuring the UserSettings Object\nLocation of Environment Configuration Files\nImportant Tools that May Use Environment Settings\nshow() Methods and \u0098directoryScratch', \u0098showFormat' and \u0098writeFormat'\nparseURL() and parse() Functions and \u0098autoDownload'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide\nUser's Guide: Table of Contents\nUser's Guide, Chapter 1: Installing and Getting Started with music21\nUser's Guide, Chapter 2: Notes\nUser's Guide, Chapter 3: Pitches, Durations, and Notes again\nUser's Guide, Chapter 4: Lists, Streams (I) and Output\nUser's Guide, Chapter 5: Lists of Lists, Functions, and Recursion\nUser's Guide, Chapter 6: Streams (II): Hierarchies, Recursion, and Flattening\nUser's Guide, Chapter 7: Chords\nUser's Guide, Chapter 8: Installing MusicXML Readers and File Formats (1)\nUser's Guide, Chapter 9: Chordify\nUser's Guide, Chapter 10: Examples 1\nUser's Guide, Chapter 11: Corpus Searching\nUser's Guide, Chapter 12: Getting Back to Basics: The Music21Object\nUser's Guide, Chapter 13: More Music21Object Attributes and Properties\nUser's Guide: Chapter 14: Time Signatures and Beats\nUser's Guide, Chapter 15: Keys and KeySignatures\nUser's Guide, Chapter 16: TinyNotation\nUser's Guide: Chapter 17: Derivations\nUser's Guide: Chapter 18: Intervals\nUser's Guide, Chapter 19: Advanced Durations (Complex and Tuplets)\nUser's Guide, Chapter 20: Examples 2\nUser's Guide, Chapter 21: Ordering and Sorting of Stream Elements\nUser's Guide, Chapter 22: Graphing and plotting\nUser's Guide, Chapter 23: Roman Numeral Analysis\nUser's Guide, Chapter 24: Configuring Environment Settings\nUser's Guide, Chapter 25: Post-Tonal Tools (1)\nUser's Guide, Chapter 26: Stream Iteration and Filtering\nUser's Guide, Chapter 27: Grace Notes\nUser's Guide, Chapter 28: Lyric Searching\nUser's Guide, Chapter 29: Spanners 1 (Slurs)\nUser's Guide, Chapter 30: Examples 3\nUser's Guide, Chapter 31: Clefs, Ties, and Beams\nUser's Guide, Chapter 32: Articulations\nUser's Guide, Chapter 44: Advanced Graphing (Axes, Plots, and Graphs)\nUser's Guide, Chapter 53: Advanced Corpus and Metadata Searching\nUser's Guide, Chapter 54: Extending Converter with New Formats\nUser's Guide, Chapter 55: Advanced Meter Topics\nUser's Guide, Chapter 58: Understanding Sites and Contexts\nUser's Guide, Chapter 61: TimespanTrees and Verticalities",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 24: Configuring Environment Settings\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Music21 features an environment configuration system which lets users\nconfigure and customize settings. These settings will be saved so that\nthe next time the user starts Python, the settings will still work.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Environment configuration is particularly useful for setting default\nthird-party applications (necessary for handling Music21 output in\ndifferent media formats such as MusicXML, Lilypond, and graphics files)\nand for setting a default scratch directory (for writing output without\nproviding explicit file paths).",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Environment configuration can be handled with two objects. The\nEnvironment object provides lower-level\naccess and control, as well as numerous utility methods for music21\nmodules. The UserSettings object is a\nconvenience class for users to quickly set and check settings, and is\nreccommended for general usage. For complete information on the\nEnvironment and UserSettings objects, see :mod:~music21.environment.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Creating and Configuring the UserSettings Object\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Environment configuration files are not created by default. To create an\nenvironment configuration file, import environment from Music21 and\ncreate a UserSettings object. Then, call\nthe create() method to create\nan XML environment file.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "from",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "import",
+        "type": "Title"
+    },
+    {
+        "text": "us",
+        "type": "Title"
+    },
+    {
+        "text": "environment",
+        "type": "Title"
+    },
+    {
+        "text": "UserSettings",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "us",
+        "type": "Title"
+    },
+    {
+        "text": "create",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "After creating an environment file, the resulting XML preference file\ncan be edited directly by the user by using the UserSettings object. The\nkeys tell you what can be changed:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "sorted",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "us",
+        "type": "Title"
+    },
+    {
+        "text": "keys",
+        "type": "Title"
+    },
+    {
+        "text": "()):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "autoDownload",
+        "type": "Title"
+    },
+    {
+        "text": "braillePath",
+        "type": "Title"
+    },
+    {
+        "text": "debug",
+        "type": "Title"
+    },
+    {
+        "text": "directoryScratch",
+        "type": "Title"
+    },
+    {
+        "text": "graphicsPath",
+        "type": "Title"
+    },
+    {
+        "text": "ipythonShowFormat",
+        "type": "Title"
+    },
+    {
+        "text": "lilypondBackend",
+        "type": "Title"
+    },
+    {
+        "text": "lilypondFormat",
+        "type": "Title"
+    },
+    {
+        "text": "lilypondPath",
+        "type": "Title"
+    },
+    {
+        "text": "lilypondVersion",
+        "type": "Title"
+    },
+    {
+        "text": "localCorporaSettings",
+        "type": "Title"
+    },
+    {
+        "text": "localCorpusPath",
+        "type": "Title"
+    },
+    {
+        "text": "localCorpusSettings",
+        "type": "Title"
+    },
+    {
+        "text": "manualCoreCorpusPath",
+        "type": "Title"
+    },
+    {
+        "text": "midiPath",
+        "type": "Title"
+    },
+    {
+        "text": "musescoreDirectPNGPath",
+        "type": "Title"
+    },
+    {
+        "text": "musicxmlPath",
+        "type": "Title"
+    },
+    {
+        "text": "pdfPath",
+        "type": "Title"
+    },
+    {
+        "text": "showFormat",
+        "type": "Title"
+    },
+    {
+        "text": "vectorPath",
+        "type": "Title"
+    },
+    {
+        "text": "warnings",
+        "type": "Title"
+    },
+    {
+        "text": "writeFormat",
+        "type": "Title"
+    },
+    {
+        "text": "To set and write a preference, a key and value pair must be provided\nusing Python dictionary-like syntax. For example, to set the Music21\nscratch directory, the \u0098directoryScratch' key can be set to a file path\nof the user's choice. Changes are made immediately to the environment\nconfiguration file. To see the current setting, the value can be accesed\nby key.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "::",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "us",
+        "type": "Title"
+    },
+    {
+        "text": "'directoryScratch'",
+        "type": "Title"
+    },
+    {
+        "text": "'/_scratch'",
+        "type": "Title"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "us",
+        "type": "Title"
+    },
+    {
+        "text": "'directoryScratch'",
+        "type": "Title"
+    },
+    {
+        "text": "'/_scratch'",
+        "type": "Title"
+    },
+    {
+        "text": "Note that Music21 objects may need to be reloaded, and/or the Python\nsession restarted, to have changes made to the UserSettings object take\neffect.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Location of Environment Configuration Files\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Environment configuration files are stored in platform-specific\nlocations.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "On Linux and MacOS computers, the configuration file is stored as the\nfile .music21rc, located in the user's home directory.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "On Windows computers the configuration file is generally located in the\nApplication Data directory as the file \u0098music21-settings.xml'. In some\ncases the XML settings file may be stored in the user directory.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "The path to the environment settings file can always be found with the\ngetSettingsPath() method.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "us",
+        "type": "Title"
+    },
+    {
+        "text": "environment",
+        "type": "Title"
+    },
+    {
+        "text": "UserSettings",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "us",
+        "type": "Title"
+    },
+    {
+        "text": "getSettingsPath",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'/Users/cuthbert/.music21rc'",
+        "type": "Title"
+    },
+    {
+        "text": "To permanently delete the environment configuration file, call the\ndelete() method.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "us",
+        "type": "Title"
+    },
+    {
+        "text": "environment",
+        "type": "Title"
+    },
+    {
+        "text": "UserSettings",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "us",
+        "type": "Title"
+    },
+    {
+        "text": "delete",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Important Tools that May Use Environment Settings\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "The following important functions and methods will make use of\nenvironment configuration file and are important to properly configure.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "show() Methods and \u0098directoryScratch', \u0098showFormat' and \u0098writeFormat'\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "The show method, inherited from\nshow(), will, depending on user\nsettings, write a temporary file in a user specified format in a\nuser-specified scratch directory.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Setting the showFormat key will set the default output format of all\ncalls to show() methods. The behavior can be deviated from by\nproviding an argument to show().",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Setting the writeFormat key will set the default output format of\nall calls to write() methods. The behavior can be deviated from by\nproviding an argument to write().",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Setting the directoryScratch key will determine where the file is\nwritten. If this setting is not made, the file will be written in a\nsystem-specified scratch directory. While useful, such temporary files\nand directories may be buried deeply in your file system.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "parseURL() and parse() Functions and \u0098autoDownload'\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "The parseURL() function, as well as the\nparse() function, offer the ability to download\nfiles directly from the internet.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Users may configure the \u0098autoDownload' key to determine whether\ndownloading is attempted automatically without prompting the user\n(\u0098allow'), whether the user is asked first before attempting a download\n(\u0098ask'), or whether downloading is prohibited (\u0098deny').",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 24: Configuring Environment Settings",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

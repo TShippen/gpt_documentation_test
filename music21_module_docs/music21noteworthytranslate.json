@@ -1,0 +1,594 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.noteworthy.translate",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.noteworthy.binaryTranslate",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.omr.correctors",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.noteworthy.translate\nNoteworthyTranslator\nNoteworthyTranslator\nNoteworthyTranslator.createBarlines()\nNoteworthyTranslator.createClef()\nNoteworthyTranslator.createDynamicVariance()\nNoteworthyTranslator.createDynamics()\nNoteworthyTranslator.createKey()\nNoteworthyTranslator.createLyrics()\nNoteworthyTranslator.createOtherRepetitions()\nNoteworthyTranslator.createPart()\nNoteworthyTranslator.createTimeSignature()\nNoteworthyTranslator.getMultiplePitchesFromPositionInfo()\nNoteworthyTranslator.getOnePitchFromPosition()\nNoteworthyTranslator.getPitchFromPositionInfo()\nNoteworthyTranslator.getStepAndOctaveFromPosition()\nNoteworthyTranslator.parseFile()\nNoteworthyTranslator.parseList()\nNoteworthyTranslator.parseString()\nNoteworthyTranslator.setDurationForObject()\nNoteworthyTranslator.setTieFromPitchInfo()\nNoteworthyTranslator.translateChord()\nNoteworthyTranslator.translateNote()\nNoteworthyTranslator.translateRest()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.noteworthy.translate\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Module to translate Noteworthy Composer's NWCTXT format to music21.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "NoteworthyTranslator\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.noteworthy.translate.",
+        "type": "Title"
+    },
+    {
+        "text": "NoteworthyTranslator",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "stores all the data about the current parse context (whether we're in a slur, tuplet, etc.)",
+        "type": "ListItem"
+    },
+    {
+        "text": "NoteworthyTranslator methods",
+        "type": "Title"
+    },
+    {
+        "text": "NoteworthyTranslator.",
+        "type": "Title"
+    },
+    {
+        "text": "createBarlines",
+        "type": "Title"
+    },
+    {
+        "text": "attributes",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Translates bar lines into music21.\n>>> nwt = noteworthy.translate.NoteworthyTranslator()\n>>> nwt.currentPart = stream.Part()\n>>> nwt.currentMeasure = stream.Measure()\n>>> nwt.createBarlines({'Style':'MasterRepeatOpen'})\n>>> nwt.currentMeasure\n<music21.stream.Measure 0 offset=0.0>\n>>> nwt.currentMeasure.leftBarline\n<music21.bar.Repeat direction=start>",
+        "type": "ListItem"
+    },
+    {
+        "text": "NoteworthyTranslator.",
+        "type": "Title"
+    },
+    {
+        "text": "createClef",
+        "type": "Title"
+    },
+    {
+        "text": "attributes",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Add a new clef to the current measure and return the currentClef.\nClef lines should look like: |Clef|Type:ClefType  or\n|Clef|Type:ClefType|OctaveShift:Octave Down (or Up)\n>>> nwt = noteworthy.translate.NoteworthyTranslator()\n>>> nwt.currentMeasure = stream.Measure()\n>>> nwt.createClef({'Type': 'Treble'})\n>>> nwt.currentMeasure.show('text')\n{0.0} <music21.clef.TrebleClef>\n>>> nwt.currentClef\n'TREBLE'\n>>> nwt.createClef({'Type' : 'Bass', 'OctaveShift' : 'Octave Down'})\n>>> nwt.currentMeasure.show('text')\n{0.0} <music21.clef.TrebleClef>\n{0.0} <music21.clef.Bass8vbClef>\n\n\nIf no clef can be found then it raises a NoteworthyTranslate exception\n>>> nwt.createClef({'Type' : 'OrangeClef'})\nTraceback (most recent call last):\nmusic21.noteworthy.translate.NoteworthyTranslateException: Did\n    not find a proper clef in type, OrangeClef",
+        "type": "ListItem"
+    },
+    {
+        "text": "NoteworthyTranslator.",
+        "type": "Title"
+    },
+    {
+        "text": "createDynamicVariance",
+        "type": "Title"
+    },
+    {
+        "text": "attributes",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Adding dynamics like \u009ccrescendo\u009d to the measure.\n>>> nwt = noteworthy.translate.NoteworthyTranslator()\n>>> nwt.currentMeasure = stream.Measure()\n>>> nwt.createDynamicVariance({'Style' : 'Crescendo', 'Pos': '-6'})\n>>> nwt.currentMeasure.show('text')\n{0.0} <music21.dynamics.Crescendo>",
+        "type": "ListItem"
+    },
+    {
+        "text": "NoteworthyTranslator.",
+        "type": "Title"
+    },
+    {
+        "text": "createDynamics",
+        "type": "Title"
+    },
+    {
+        "text": "attributes",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Adding dynamics like \u009cfff\u009d, \u009cpp\u009d, \u2026 to the measure.\n>>> nwt = noteworthy.translate.NoteworthyTranslator()\n>>> nwt.currentMeasure = stream.Measure()\n>>> nwt.createDynamics({'Style': 'fff', 'Pos': '-8'})\n>>> nwt.currentMeasure[0]\n<music21.dynamics.Dynamic fff>",
+        "type": "ListItem"
+    },
+    {
+        "text": "NoteworthyTranslator.",
+        "type": "Title"
+    },
+    {
+        "text": "createKey",
+        "type": "Title"
+    },
+    {
+        "text": "attributes",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Adds a new key signature to the given measure.\nReturns the number of sharps (negative for flats)\n>>> measureIn = stream.Measure()\n>>> measureIn.append(note.Rest(quarterLength=3.0))\n\n\n>>> nwt = noteworthy.translate.NoteworthyTranslator()\n>>> nwt.currentMeasure = measureIn\n>>> nwt.createKey({'Signature':'F#,C#,G#,D#'})\n>>> nwt.currentKey.sharps\n4\n>>> measureIn.show('text')\n{0.0} <music21.note.Rest dotted-half>\n{3.0} <music21.key.KeySignature of 4 sharps>",
+        "type": "ListItem"
+    },
+    {
+        "text": "NoteworthyTranslator.",
+        "type": "Title"
+    },
+    {
+        "text": "createLyrics",
+        "type": "Title"
+    },
+    {
+        "text": "attributes",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get a list of lyrics from a Lyric line\n>>> nwt = noteworthy.translate.NoteworthyTranslator()\n>>> lyricsList = nwt.createLyrics({'Text': '\"Hello world\"'})\n>>> lyricsList[0]\n'Hello'",
+        "type": "ListItem"
+    },
+    {
+        "text": "NoteworthyTranslator.",
+        "type": "Title"
+    },
+    {
+        "text": "createOtherRepetitions",
+        "type": "Title"
+    },
+    {
+        "text": "attributes",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Repetitions like \u0098Coda', \u0098Segno' and some others.\n>>> nwt = noteworthy.translate.NoteworthyTranslator()\n>>> nwt.currentMeasure = stream.Measure()\n>>> nwt.createOtherRepetitions({'Style' : 'ToCoda', 'Pos': '8',\n...                             'Wide':'Y', 'Placement': 'BestFitForward'})\n>>> 'Coda' in nwt.currentMeasure[0].classes\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "NoteworthyTranslator.",
+        "type": "Title"
+    },
+    {
+        "text": "createPart",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Add a new part to the score.",
+        "type": "ListItem"
+    },
+    {
+        "text": "NoteworthyTranslator.",
+        "type": "Title"
+    },
+    {
+        "text": "createTimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "attributes",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Adding a time signature in the score.\n>>> measure = stream.Measure()\n>>> nwt = noteworthy.translate.NoteworthyTranslator()\n>>> nwt.currentMeasure = measure\n>>> nwt.createTimeSignature({'Signature':'4/4'})\n>>> measure[0]\n<music21.meter.TimeSignature 4/4>",
+        "type": "ListItem"
+    },
+    {
+        "text": "NoteworthyTranslator.",
+        "type": "Title"
+    },
+    {
+        "text": "getMultiplePitchesFromPositionInfo",
+        "type": "Title"
+    },
+    {
+        "text": "posInfo",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "returns a list of pitch objects given the Pos:\u2026 info\nfor a chord.\n>>> nwt = noteworthy.translate.NoteworthyTranslator()\n>>> nwt.currentClef = 'BASS'\n>>> pList = nwt.getMultiplePitchesFromPositionInfo('1,b3,5^')\n>>> pList\n[<music21.pitch.Pitch E3>, <music21.pitch.Pitch G-3>, <music21.pitch.Pitch B3>]",
+        "type": "ListItem"
+    },
+    {
+        "text": "NoteworthyTranslator.",
+        "type": "Title"
+    },
+    {
+        "text": "getOnePitchFromPosition",
+        "type": "Title"
+    },
+    {
+        "text": "pos",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "get one pitch from a position\u2026\n>>> nwt = noteworthy.translate.NoteworthyTranslator()\n>>> nwt.currentClef = 'BASS'\n>>> p = nwt.getOnePitchFromPosition('b3')\n>>> p\n<music21.pitch.Pitch G-3>\n>>> p.ps\n54.0",
+        "type": "ListItem"
+    },
+    {
+        "text": "NoteworthyTranslator.",
+        "type": "Title"
+    },
+    {
+        "text": "getPitchFromPositionInfo",
+        "type": "Title"
+    },
+    {
+        "text": "posInfo",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "returns a pitch object given the Pos: info\nremoves ties and alteration signs.  Otherwise\nis same as getOnePitchFromPosition()\n>>> nwt = noteworthy.translate.NoteworthyTranslator()\n>>> nwt.currentClef = 'BASS'\n>>> p = nwt.getPitchFromPositionInfo('b3^')  # removes ties\n>>> p\n<music21.pitch.Pitch G-3>",
+        "type": "ListItem"
+    },
+    {
+        "text": "NoteworthyTranslator.",
+        "type": "Title"
+    },
+    {
+        "text": "getStepAndOctaveFromPosition",
+        "type": "Title"
+    },
+    {
+        "text": "positionNote",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given an int representing the position on the staff for the\ncurrent clef,\nreturns a string for the step and an int for the octave\n>>> nwt = noteworthy.translate.NoteworthyTranslator()\n>>> nwt.currentClef = 'BASS'\n>>> (step, octave) = nwt.getStepAndOctaveFromPosition(3)\n>>> (step, octave)\n('G', 3)",
+        "type": "ListItem"
+    },
+    {
+        "text": "NoteworthyTranslator.",
+        "type": "Title"
+    },
+    {
+        "text": "parseFile",
+        "type": "Title"
+    },
+    {
+        "text": "filePath",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "NoteworthyTranslator.",
+        "type": "Title"
+    },
+    {
+        "text": "parseList",
+        "type": "Title"
+    },
+    {
+        "text": "dataList",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Parses a list where each element is a line from a nwctxt file.\nReturns a Score object\n>>> data = []\n>>> data.append('!NoteWorthyComposer(2.0)\\n')\n>>> data.append('|AddStaff|\\n')\n>>> data.append('|Clef|Type:Bass\\n')\n>>> data.append('|TimeSig|Signature:4/4\\n')\n>>> data.append('|Note|Dur:Whole|Pos:1\\n')\n\n\n>>>\n>>> nwt = noteworthy.translate.NoteworthyTranslator()\n>>> s = nwt.parseList(data)\n>>> s.show('text')\n{0.0} <music21.stream.Part ...>\n    {0.0} <music21.stream.Measure 0 offset=0.0>\n        {0.0} <music21.clef.BassClef>\n        {0.0} <music21.meter.TimeSignature 4/4>\n        {0.0} <music21.note.Note E>",
+        "type": "ListItem"
+    },
+    {
+        "text": "NoteworthyTranslator.",
+        "type": "Title"
+    },
+    {
+        "text": "parseString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "data",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "NoteworthyTranslator.",
+        "type": "Title"
+    },
+    {
+        "text": "setDurationForObject",
+        "type": "Title"
+    },
+    {
+        "text": "generalNote",
+        "type": "Title"
+    },
+    {
+        "text": "durationInfo",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "generalNote could be a Note, Chord, or Rest\nDurationInfo is a string like:\n\nWhole,Dotted,Slur",
+        "type": "ListItem"
+    },
+    {
+        "text": "NoteworthyTranslator.",
+        "type": "Title"
+    },
+    {
+        "text": "setTieFromPitchInfo",
+        "type": "Title"
+    },
+    {
+        "text": "noteOrChord",
+        "type": "Title"
+    },
+    {
+        "text": "pitchInfo",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "sets the tie status for a noteOrChord from the pitchInfo",
+        "type": "ListItem"
+    },
+    {
+        "text": "NoteworthyTranslator.",
+        "type": "Title"
+    },
+    {
+        "text": "translateChord",
+        "type": "Title"
+    },
+    {
+        "text": "attributes",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Translation of a music21 chord from a NWC one.\n>>> measure = stream.Measure()\n\n\n>>> nwt = noteworthy.translate.NoteworthyTranslator()\n>>> nwt.currentMeasure = measure\n>>> nwt.translateChord({'Dur': 'Half', 'Pos': '1,3,#5'})\n>>> measure[0]\n<music21.chord.Chord C5 E5 G#5>\n\n\nChords also inherit accidentals:\n>>> nwt.translateChord({\u0098Dur': \u0098Half', \u0098Pos': \u00981,3,5'})\n>>> measure[1]\n<music21.chord.Chord C5 E5 G#5>",
+        "type": "ListItem"
+    },
+    {
+        "text": "NoteworthyTranslator.",
+        "type": "Title"
+    },
+    {
+        "text": "translateNote",
+        "type": "Title"
+    },
+    {
+        "text": "attributes",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Translation of a music21 note from a NWC note.\n>>> measure = stream.Measure()\n>>> nwt = noteworthy.translate.NoteworthyTranslator()\n>>> nwt.currentMeasure = measure\n>>> nwt.translateNote({'Dur': 'Half', 'Pos': '#-3'})\n>>> measure[0]\n<music21.note.Note F#>\n\n\nNote that the next note in the measure with the same position should\ninherit the last position's accidental:\n>>> nwt.translateNote({'Dur': 'Half', 'Pos': '-3'})\n>>> measure[1]\n<music21.note.Note F#>",
+        "type": "ListItem"
+    },
+    {
+        "text": "NoteworthyTranslator.",
+        "type": "Title"
+    },
+    {
+        "text": "translateRest",
+        "type": "Title"
+    },
+    {
+        "text": "attributes",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Translation of a music21 rest.  Adds the rest to the given measure.\n>>> measureIn = stream.Measure()\n>>> measureIn.append(note.Note('C#4', type='half'))\n\n\n>>> nwt = noteworthy.translate.NoteworthyTranslator()\n>>> nwt.currentMeasure = measureIn\n>>> nwt.translateRest({'Dur': '8th,Dotted'})\n>>> nwt.translateRest({'Dur': '4th'})\n>>> measureIn.show('text')\n{0.0} <music21.note.Note C#>\n{2.0} <music21.note.Rest dotted-eighth>\n{2.75} <music21.note.Rest quarter>",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.noteworthy.translate",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

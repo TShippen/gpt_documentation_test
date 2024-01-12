@@ -1,0 +1,530 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.corpus.chorales",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.corpus",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.corpus.corpora",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.corpus.chorales\nChoraleList\nChoraleList\nChoraleList.prepareList()\n\n\n\n\nChoraleListRKBWV\nChoraleListRKBWV\nChoraleListRKBWV.prepareList()\n\n\n\n\nIterator\nIterator\nIterator.currentNumber\nIterator.highestNumber\nIterator.iterationType\nIterator.numberList\nIterator.numberingSystem\nIterator.returnType\nIterator.titleList\nIterator.__getitem__()\n\n\n\n\nFunctions\ngetByTitle()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.corpus.chorales\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "This file makes it easier to access Bach's chorales through various\nnumbering schemes and filters and includes the corpus.chorales.Iterator()\nclass for easily iterating through the chorale collection.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "ChoraleList\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.corpus.chorales.",
+        "type": "Title"
+    },
+    {
+        "text": "ChoraleList",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A searchable list of Bach's chorales by various numbering systems:\nNote that multiple chorales share the same title, so it's best to\niterate over one of the other lists to get them all.\nThe list of chorales comes from\nhttps://en.wikipedia.org/wiki/List_of_chorale_harmonisations_by_Johann_Sebastian_Bach\nwhich does not have all chorales in the B\u00c3\u00a4renreitter-Kirnberger or Riemenschneider\nnumberings since it only includes BWV 250-438.\n>>> bcl = corpus.chorales.ChoraleList()\n>>> info358 = bcl.byBudapest[358]\n>>> for key in sorted(list(info358)):\n...   print(f'{key} {info358[key]}')\nbaerenreiter 68\nbudapest 358\nbwv 431\nkalmus 358\nnotes None\nriemenschneider 68\ntitle Wenn wir in h\u00c3\u00b6chsten N\u00c3\u00b6ten sein\n>>> c = corpus.parse('bach/bwv' + str(info358['bwv']))\n>>> c.show()  # shows Bach BWV431\n\n\nMore fully:\n>>> b = corpus.parse('bwv' + str(corpus.chorales.ChoraleList().byRiemenschneider[2]['bwv']))\n>>> b\n<music21.stream.Score ...>",
+        "type": "ListItem"
+    },
+    {
+        "text": "ChoraleList methods",
+        "type": "Title"
+    },
+    {
+        "text": "ChoraleList.",
+        "type": "Title"
+    },
+    {
+        "text": "prepareList",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "puts a list of Bach Chorales into dicts of dicts called\nself.byBudapest\nself.byBWV\nself.byRiemenschneider\netc.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ChoraleListRKBWV\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.corpus.chorales.",
+        "type": "Title"
+    },
+    {
+        "text": "ChoraleListRKBWV",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A searchable list of Bach's chorales by various numbering systems:\nNote that multiple chorales share the same title, so it's best to\niterate over one of the other lists to get them all.\nThe list of chorales comes from Margaret Greentree (formerly at\njsbchorales.net) who compiled\nall chorales in the corpus, but only had numbers for the kalmus,\nriemenschneider, and bwv numbering systems.\n>>> bcl = corpus.chorales.ChoraleListRKBWV()\n>>> info155 = bcl.byRiemenschneider[155]\n>>> for key in sorted(list(info155)):\n...   print(f'{key} {info155[key]}')\nbwv 344\nkalmus 173\nriemenschneider 155\ntitle Hilf, Herr Jesu, la\u00c3\u009f gelingen\n>>> c = corpus.parse('bach/bwv' + str(info155['bwv']))\n>>> c.show()  # shows Bach BWV344\n\n\nMore fully:\n>>> theNumber = corpus.chorales.ChoraleListRKBWV().byRiemenschneider[2]['bwv']\n>>> b = corpus.parse('bwv' + str(theNumber))\n>>> b\n<music21.stream.Score ...>",
+        "type": "ListItem"
+    },
+    {
+        "text": "ChoraleListRKBWV methods",
+        "type": "Title"
+    },
+    {
+        "text": "ChoraleListRKBWV.",
+        "type": "Title"
+    },
+    {
+        "text": "prepareList",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "puts a list of Bach Chorales into dicts of dicts called\nself.byKalmus\nself.byBWV\nself.byRiemenschneider\nself.byTitle",
+        "type": "ListItem"
+    },
+    {
+        "text": "Iterator\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.corpus.chorales.",
+        "type": "Title"
+    },
+    {
+        "text": "Iterator",
+        "type": "Title"
+    },
+    {
+        "text": "currentNumber",
+        "type": "Title"
+    },
+    {
+        "text": "int | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "highestNumber",
+        "type": "Title"
+    },
+    {
+        "text": "int | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "numberingSystem",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "'riemenschneider'",
+        "type": "Title"
+    },
+    {
+        "text": "returnType",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "'stream'",
+        "type": "Title"
+    },
+    {
+        "text": "iterationType",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "'number'",
+        "type": "Title"
+    },
+    {
+        "text": "analysis",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "numberList",
+        "type": "Title"
+    },
+    {
+        "text": "list",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "titleList",
+        "type": "Title"
+    },
+    {
+        "text": "list",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "This is a class for iterating over many Bach Chorales. It is designed\nto make it easier to use\none of music21's most accessible datasets. It will parse each chorale\nin the selected\nrange in a lazy fashion so that a list of chorales need not be parsed up front. To select a\nrange of chorales, first select a .numberingSystem\n(\u0098riemenschneider', \u0098bwv', \u0098kalmus', \u0098budapest',\n\u0098baerenreiter', or \u0098title'). Then, set .currentNumber to the lowest\nnumber in the range and\n.highestNumber to the highest in the range. This can either be done by catalogue number\n(iterationType = \u0098number') or by index (iterationType = \u0098index').\nNote that these numbers are 1-indexed (as most catalogues are) and\nunlike Python's range feature, the final number is included.\nChanging the numberingSystem will reset the iterator and\nchange the range values to span the entire numberList.\nThe iterator can be initialized with three parameters\n(currentNumber, highestNumber, numberingSystem). For example\ncorpus.chorales.Iterator(1, 26,'riemenschneider') iterates\nthrough the riemenschneider numbered chorales from 1 to 26.\nAdditionally, the following keywords can be set:\n\nreturnType = either \u0098stream' (default) or \u0098filename'\niterationType = either \u0098number' or \u0098index'\ntitleList = [list, of, titles]\nnumberList = [list, of, numbers]\n\n>>> for chorale in corpus.chorales.Iterator(1, 4, returnType='filename'):\n...    print(chorale)\nbach/bwv269\nbach/bwv347\nbach/bwv153.1\nbach/bwv86.6\n\n\n>>> BCI = corpus.chorales.Iterator()\n>>> BCI.numberingSystem\n'riemenschneider'\n\n\n>>> BCI.currentNumber\n1\n\n\n>>> BCI.highestNumber\n371\n\n\nAn Exception will be raised if the number set is not in the\nnumbering system selected, or if the numbering system selected is not valid.\n>>> BCI.currentNumber = 377\nTraceback (most recent call last):\n...\nmusic21.corpus.chorales.BachException: 377 does not correspond to a\n    chorale in the riemenschneider numbering system\n\n\n>>> BCI.numberingSystem = 'not a numbering system'\nTraceback (most recent call last):\n...\nmusic21.corpus.chorales.BachException: not a numbering system is not a valid\n    numbering system for Bach Chorales.\n\n\nIf the numberingSystem \u0098title' is selected, the iterator must be\ninitialized with a list of titles.\nIt will iterate through the titles in the order of the list.\n>>> BCI.numberingSystem = 'title'\n>>> BCI.returnType = 'filename'\n>>> BCI.titleList = ['Jesu, meine Freude',\n...                  'Gott hat das Evangelium',\n...                  'Not a Chorale']\n'Not a Chorale' will be skipped because it is not a recognized title.\n\n\n>>> for chorale in BCI:\n...    print(chorale)\nbach/bwv358\nbach/bwv319\n\n\nThe numberList, which, by default, includes all chorales in the chosen numberingSystem,\ncan be set like the titleList. In the following example,\nnote that the first chorale in the given\nnumberList will not be part of the iteration because the\nfirst currentNumber is set to 2 at the\nstart by the first argument. (If iterationType=='index',\nsetting the currentNumber to 1 and the highestNumber to 7\nwould have the same effect as the given example.\n>>> BCI = corpus.chorales.Iterator(2, 371, numberingSystem='riemenschneider',\n...                                numberList=[1, 2, 3, 4, 6, 190, 371, 500],\n...                                returnType='filename')\n500 will be skipped because it is not in the numberingSystem riemenschneider\n\n\n>>> for chorale in BCI:\n...    print(chorale)\nbach/bwv347\nbach/bwv153.1\nbach/bwv86.6\nbach/bwv281\nbach/bwv337\nbach/bwv278\n\n\nElements in the iterator can be accessed by index as well as slice.\n>>> for chorale in corpus.chorales.Iterator(returnType='filename')[4:10]:\n...    print(chorale)\nbach/bwv86.6\nbach/bwv267\nbach/bwv281\nbach/bwv17.7\nbach/bwv40.8\nbach/bwv248.12-2\nbach/bwv38.6\n\n\n>>> print(corpus.chorales.Iterator(returnType='filename')[55])\nbach/bwv121.6\n\n\nFor the first 20 chorales in the Riemenschneider numbering system, there are professionally\nannotated roman numeral analyses in romanText format, courtesy of Dmitri Tymoczko of Princeton\nUniversity.  To get them as an additional part to the score set returnType to \u009cstream\u009d, and\nadd a keyword \u009canalysis = True\u009d:\nIf chorales are accessed through the Iterator(), the metadata.title attribute will have the\ncorrect German title. This is different from the metadata returned by the parser which does\nnot give the German title but rather the BWV number.\n>>> corpus.chorales.Iterator(returnType='stream')[1].metadata.title\n'Ich dank' dir, lieber Herre'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Iterator read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Iterator.",
+        "type": "Title"
+    },
+    {
+        "text": "currentNumber",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The currentNumber is the number of the\nchorale (in the set numberingSystem) for the\nnext chorale to be parsed by the iterator.\nIt is initially the first chorale in whatever\nnumberingSystem is set, but it can be changed\nto any other number in the numberingSystem\nas desired as long as it does not go above\nthe highestNumber which is the boundary\nof the iteration.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Iterator.",
+        "type": "Title"
+    },
+    {
+        "text": "highestNumber",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The highestNumber is the number of the chorale\n(in the set numberingSystem) for the\nlast chorale to be parsed by the iterator.\nIt is initially the highest numbered chorale in whatever\nnumberingSystem is set, but it can be changed\nto any other number in the numberingSystem\nas desired as long as it does not go below\nthe currentNumber of the iteration.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Iterator.",
+        "type": "Title"
+    },
+    {
+        "text": "iterationType",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "This property determines how boundary numbers are\ninterpreted, as indices or as catalogue numbers.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Iterator.",
+        "type": "Title"
+    },
+    {
+        "text": "numberList",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Allows access to the catalogue numbers\n(or indices if iterationType == \u0098index')\nthat will be iterated over. This can be\nset to a specific list of numbers.\nThe list will be sorted.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Iterator.",
+        "type": "Title"
+    },
+    {
+        "text": "numberingSystem",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "This property determines which numbering\nsystem to iterate through chorales with.\nIt can be set to \u0098bwv', \u0098kalmus', \u0098baerenreiter',\n\u0098budapest', or \u0098riemenschneider'.\nIt can also be set to \u0098title' in which case the\niterator needs to be given a list\nof chorale titles in .titleList. At this time,\nthe titles need to be exactly as they\nappear in the dictionary it queries.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Iterator.",
+        "type": "Title"
+    },
+    {
+        "text": "returnType",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "This property determines what the iterator\nreturns; \u0098stream' is the default and causes the iterator to parse\neach chorale. If this is set to \u0098filename', the\niterator will return the filename of each chorale but not\nparse it.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Iterator.",
+        "type": "Title"
+    },
+    {
+        "text": "titleList",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A list of titles to iterate over\nif .numberingSystem is set to \u0098title'.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Iterator methods",
+        "type": "Title"
+    },
+    {
+        "text": "Iterator.",
+        "type": "Title"
+    },
+    {
+        "text": "__getitem__",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.corpus.chorales.",
+        "type": "Title"
+    },
+    {
+        "text": "getByTitle",
+        "type": "Title"
+    },
+    {
+        "text": "title",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a Chorale by title (or title fragment) or None\n>>> germanTitle = \"Sach' Gott heimgestellt\"\n>>> c = corpus.chorales.getByTitle(germanTitle)\n>>> c.metadata.title\n\"Ich hab' mein' Sach' Gott heimgestellt\"",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.corpus.chorales",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

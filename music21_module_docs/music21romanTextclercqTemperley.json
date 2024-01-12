@@ -1,0 +1,850 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.romanText.clercqTemperley",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.roman",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.romanText.rtObjects",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.romanText.clercqTemperley\nCTSong\nCTSong\nCTSong.comments\nCTSong.homeKey\nCTSong.homeTimeSig\nCTSong.rules\nCTSong.title\nCTSong.parse()\nCTSong.toPart()\nCTSong.toScore()\nCTSong.year\n\n\n\n\nCTRule\nCTRule\nCTRule.comment\nCTRule.sectionName\nCTRule.LHS\nCTRule.musicText\nCTRule.parent\nCTRule.addOptionalTieAndLyrics()\nCTRule.expand()\nCTRule.expandExpansionContent()\nCTRule.expandSimpleContent()\nCTRule.fixupChordAtom()\nCTRule.insertKsTs()\nCTRule.isSame()\nCTRule.text",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.romanText.clercqTemperley\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Parses the de Clercq-Temperley popular music flavor of RomanText.\nThe Clercq-Temperley file format and additional rock corpus analysis\ninformation may be located at http://rockcorpus.midside.com",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "CTSong\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.romanText.clercqTemperley.",
+        "type": "Title"
+    },
+    {
+        "text": "CTSong",
+        "type": "Title"
+    },
+    {
+        "text": "textFile",
+        "type": "Title"
+    },
+    {
+        "text": "str | Path",
+        "type": "Title"
+    },
+    {
+        "text": "''",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "This parser is an object-oriented approach to parsing clercqTemperley text files into music.\nIt is an advanced method.  Most people should just run:\n>>> p = converter.parse('clercqTemperley/dt/BrownEyedGirl.cttxt')\n\n\nor if the file ends in .txt then give the format explicitly as either \u0098clerqTemperley'\nor \u0098cttxt':\n>>> p = converter.parse('BrownEyedGirl.txt', format='clercqTemperley')\n\n\nAdvanced: if you want access to a CTSong object itself (for manipulating the input before\nconverting to a string, etc. then create a CTSong object with one of the following inputs:\n\nby passing in the string, with newline characters (\\n) at the end of each line\nby passing in the filename as a string or path, and have Python\nopen the file and read the text\n\nGiven this file, you could create a CTSong object with:\n>>> exampleClercqTemperley = '''\n... % Brown-Eyed Girl\n... VP: I | IV | I | V |\n... In: $VP*2\n... Vr: $VP*4 IV | V | I | vi | IV | V | I | V | % Second half could be called chorus\n... Ch: V | | $VP*2 I |*4\n... Ch2: V | | $VP*3     % Fadeout\n... S: [G] $In $Vr $Vr $Ch $VP $Vr $Ch2\n... '''\n\n\nOr:\n>>> s = romanText.clercqTemperley.CTSong('C:/Brown-Eyed_Girl.txt')\n\n\nWhen you call the .toPart() method on the newly created CTSong object,\nthe code extracts meaningful properties (such as title, text, comments,\nyear, rules, home time Signature, and home Key Signature) from the text file\nand returns a new Part object.  It also makes these properties available on the\nCTSong object.\nThe toPart() method has two optional labeling parameters, labelRomanNumerals and\nlabelSubsectionsOnScore. Both are set to True by default. Thus, the created score\nwill have labels (on the chord's lyric) for each roman numeral as well as for each\nsection in the song (LHS). In case of a recursive definition (a rule contains a reference\nto another rule), both labels are printed, with the deepest\nreference on the smallest lyric line.\n>>> p = s.toPart()\n>>> p.show()\n\n\n\n>>> firstRN = p[roman.RomanNumeral][0]\n>>> firstRN.lyric\n'I\\nVP\\nIn'\n\n\nAll roman numerals mark which formal division they are in:\n>>> 'formalDivision' in firstRN.editorial\nTrue\n>>> firstRN.editorial.formalDivision\n['VP', 'In']\n\n\nThe second RomanNumeral is at the start of no formal divisions\n>>> secondRN = p[roman.RomanNumeral][1]\n>>> secondRN.lyric\n'IV'\n>>> secondRN.editorial.formalDivision\n[]\n\n\n>>> s.title\n'Brown-Eyed Girl'\n\n\n>>> s.homeTimeSig\n<music21.meter.TimeSignature 4/4>\n\n\n>>> s.homeKey\n<music21.key.Key of G major>\n\n\n>>> s.comments\n[['Vr:', 'Second half could be called chorus'], ['Ch2:', 'Fadeout']]\n\n\nYear is not defined as part of the Clercq-Temperley format, but it will be helpful\nto have it as a property. So let's assign a year to this song:\n>>> s.year = 1967\n>>> s.year\n1967\n\n\nUpon calling toPart(), CTRule objects are also created. CTRule objects are\nthe individual rules that make up the song object. For example,\n>>> s.rules\nOrderedDict([('VP', <music21.romanText.clercqTemperley.CTRule\n                     text='VP: I | IV | I | V |'>),\n             ('In', <music21.romanText.clercqTemperley.CTRule text='In: $VP*2'>),\n             ('Vr', <music21.romanText.clercqTemperley.CTRule\n                     text='Vr: $VP*4 IV | V | I | vi | IV | V | I | V |\n                                 % Second half could be called chorus'>),\n             ('Ch', <music21.romanText.clercqTemperley.CTRule\n                     text='Ch: V | | $VP*2 I |*4'>),\n             ('Ch2', <music21.romanText.clercqTemperley.CTRule\n                     text='Ch2: V | | $VP*3     % Fadeout'>),\n             ('S', <music21.romanText.clercqTemperley.CTRule\n                     text='S: [G] $In $Vr $Vr $Ch $VP $Vr $Ch2'>)])\n\n\nThe parser extracts meaningful properties to each rule, such as sectionName,\nhome time signature of that rule, home key of that rule, and of course the individual\nstream from the song corresponding to the rule.\nThe following examples display the instantiated properties of the second rule (list indexes\nstart at one) as created above.\n>>> rule = s.rules['In']\n>>> rule.text\n'In: $VP*2'\n\n\n>>> rule.sectionName\n'Introduction'\n\n\nWith this object-oriented approach to parsing the clercq-temperley text file format,\nwe now have the ability to analyze a large corpus (200 files) of popular music\nusing the full suite of harmonic tools of music21. We can not only analyze each\nsong as a whole, as presented in Clercq and Temperley's research, but we can also analyze each\nindividual section (or rule) of a song. This may provide interesting insight\ninto popular music beyond our current understanding.\nExamples used throughout this class utilize the following Clercq-Temperley text file\n>>> BlitzkriegBopCT = '''\n... % Blitzkrieg Bop\n... BP: I | IV V | %THIS IS A COMMENT\n... In: $BP*3 I IV | I | $BP*3 I IV | I | R |*4 I |*4\n... Vr: $BP*3 I IV | I |\n... Br: IV | | I | IV I | IV | | ii | IV V |\n... Co: R |*4 I |*4\n... S: [A] $In $Vr $Vr $Br $Vr $Vr $Br $Vr $Vr $Co\n... '''\n\n\nAnother example using a different Clercq-Temperley file\nRockClockCT =\n% Rock Around the Clock\n% just a general comment\nIn: I | | | | | | V | |\nVr: I | | | | IVd7 | | I | | V7 | | I | | %a comment on verse\nVrf: I | | | | IVd7 | | I | | V7 | | I | IV iv | V | . I |\nS: [A] $In $Vr $Vr $Vr $Vr $Vr $Vr $Vrf    % 3rd and 6th verses are instrumental\n>>> s = romanText.clercqTemperley.CTSong(romanText.clercqTemperley.RockClockCT)\n>>> part = s.toPart()\n>>> part.highestTime\n376.0\n\n\n>>> s.title\n'Rock Around the Clock'\n\n\n>>> s.homeTimeSig\n<music21.meter.TimeSignature 4/4>\n\n\n>>> s.homeKey\n<music21.key.Key of A major>\n\n\n>>> s.comments\n[['just a general comment'],\n ['Vr:', 'a comment on verse'],\n ['S:', '3rd and 6th verses are instrumental']]\n\n\n>>> s.year = 1952\n>>> s.year\n1952\n\n\n>>> s.rules\nOrderedDict([('In', <music21.romanText.clercqTemperley.CTRule\n                        text='In: I | | | | | | V | |'>),\n             ('Vr', <music21.romanText.clercqTemperley.CTRule\n                     text='Vr: I | | | | IVd7 | | I | | V7 | | I | | %a comment on verse'>),\n             ('Vrf', <music21.romanText.clercqTemperley.CTRule\n                     text='Vrf: I | | | | IVd7 | | I | | V7 | | I | IV iv | V | . I |'>),\n             ('S', <music21.romanText.clercqTemperley.CTRule\n                     text='S: [A] $In $Vr $Vr $Vr $Vr $Vr $Vr $Vrf\n                                 % 3rd and 6th verses are instrumental'>)])\n\n\n>>> rule = s.rules['In']\n>>> rule.text\n'In: I | | | | | | V | |'\n\n\n>>> rule.sectionName\n'Introduction'",
+        "type": "ListItem"
+    },
+    {
+        "text": "CTSong bases",
+        "type": "Title"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "CTSong read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "CTSong.",
+        "type": "Title"
+    },
+    {
+        "text": "comments",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get the comments list of all CTRule objects.\ncomments are stored as a list of comments, each comment on a line as a list. If the\ncomment is on a rule line, the list contains both the line's LHS (like \u009cIn:\u009d)\nand the comment if the comment is on a line of its own, only the comment is\nappended as a list of length one.\nThe title is not a comment. The title is stored under self.title\n\n\ntextString = \u0098''\n%Simple Gifts\n% A wonderful shaker melody\nVr: I | I | %incomplete verse\nS: [A] $Vr % Not quite finished!'''\n\n\n>>> s = romanText.clercqTemperley.CTSong(romanText.clercqTemperley.textString)\n>>> s\n<music21.romanText.clercqTemperley.CTSong title='Simple Gifts' year=None>\n>>> s.comments\n[['A wonderful shaker melody'], ['Vr:', 'incomplete verse'], ['S:', 'Not quite finished!']]",
+        "type": "ListItem"
+    },
+    {
+        "text": "CTSong.",
+        "type": "Title"
+    },
+    {
+        "text": "homeKey",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "gets the initial, or \u0098home', Key by looking at the music text and locating\nthe key signature at the start of the S: rule.\n>>> s = romanText.clercqTemperley.CTSong(romanText.clercqTemperley.textString)\n>>> s.homeKey\n<music21.key.Key of A major>",
+        "type": "ListItem"
+    },
+    {
+        "text": "CTSong.",
+        "type": "Title"
+    },
+    {
+        "text": "homeTimeSig",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "gets the initial, or \u0098home', time signature in a song by looking at the \u0098S' substring\nand returning the provided time signature. If not present, returns a default music21\ntime signature of 4/4\n>>> s = romanText.clercqTemperley.CTSong(romanText.clercqTemperley.textString)\n>>> s.homeTimeSig\n<music21.meter.TimeSignature 4/4>\n\n\n>>> change = romanText.clercqTemperley.CTSong(romanText.clercqTemperley.changeIsGonnaCome)\n>>> change.homeTimeSig\n<music21.meter.TimeSignature 12/8>\n>>> change.homeTimeSig.beatSequence\n<music21.meter.core.MeterSequence {{1/8+1/8+1/8}+{1/8+1/8+1/8}+{1/8+1/8+1/8}+{1/8+1/8+1/8}}>",
+        "type": "ListItem"
+    },
+    {
+        "text": "CTSong.",
+        "type": "Title"
+    },
+    {
+        "text": "rules",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get the rules of a CTSong. the Rules is an OrderedDict of\nobjects of type CTRule. If only a text file\nprovided, this goes through text file and creates the\nrule object out of each line containing\nan LHS including the Song line, which should always be last.\n>>> s = romanText.clercqTemperley.CTSong(romanText.clercqTemperley.BlitzkriegBopCT)\n>>> len(s.rules)\n6\n>>> for rule in s.rules:\n...   (rule, s.rules[rule])\n('BP', <music21.romanText.clercqTemperley.CTRule\n            text='BP: I | IV V | %THIS IS A COMMENT'>)\n('In', <music21.romanText.clercqTemperley.CTRule\n            text='In: $BP*3 I IV | I | $BP*3 I IV | I | R |*4 I |*4'>)\n('Vr', <music21.romanText.clercqTemperley.CTRule\n            text='Vr: $BP*3 I IV | I |'>)\n('Br', <music21.romanText.clercqTemperley.CTRule\n            text='Br: IV | | I | IV I | IV | | ii | IV V |'>)\n('Co', <music21.romanText.clercqTemperley.CTRule\n            text='Co: R |*4 I |*4'>)\n('S', <music21.romanText.clercqTemperley.CTRule\n            text='S: [A] $In $Vr $Vr $Br $Vr $Vr $Br $Vr $Vr $Co'>)\n\n\nRules S is where we begin:\n>>> s.rules['S']\n<music21.romanText.clercqTemperley.CTRule\n    text='S: [A] $In $Vr $Vr $Br $Vr $Vr $Br $Vr $Vr $Co'>",
+        "type": "ListItem"
+    },
+    {
+        "text": "CTSong.",
+        "type": "Title"
+    },
+    {
+        "text": "title",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get or set the title of the CTSong. If not specified\nexplicitly but the clercq-Temperley text exists,\nthis attribute searches first few lines of text file for title (a string preceded by a \u0098%')\nif found, sets title attribute to this string and returns this title)\n>>> s = romanText.clercqTemperley.CTSong(romanText.clercqTemperley.textString)\n>>> s.title\n'Simple Gifts'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "CTSong methods",
+        "type": "Title"
+    },
+    {
+        "text": "CTSong.",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "textFile",
+        "type": "Title"
+    },
+    {
+        "text": "str | Path",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Called when a CTSong is created by passing a string or filename;\nin the second case, it opens the file\nand removes all blank lines, and adds in new line characters\nreturns pieceString that CTSong can call .expand() on.\n>>> exCT = romanText.clercqTemperley.exampleClercqTemperley\n\n\nThis calls parse implicitly:\n>>> s = romanText.clercqTemperley.CTSong(exCT)\n\n\n>>> print(s.text)\n% Brown-Eyed Girl\nVP: I | IV | I | V |\nIn: $VP*2\nVr: $VP*4 IV | V | I | vi | IV | V | I | V |       % Second half could be called chorus\nCh: V | | $VP*2 I |*4\nCh2: V | | $VP*3     % Fadeout\nS: [G] $In $Vr $Vr $Ch $VP $Vr $Ch2\n\n\n>>> s.lines[0]\n'% Brown-Eyed Girl'\n\n\n>>> s.lines[-1]\n'S: [G] $In $Vr $Vr $Ch $VP $Vr $Ch2'",
+        "type": "ListItem"
+    },
+    {
+        "text": "CTSong.",
+        "type": "Title"
+    },
+    {
+        "text": "toPart",
+        "type": "Title"
+    },
+    {
+        "text": "labelRomanNumerals",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "labelSubsectionsOnScore",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 Part",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "creates a Part object out of a from CTSong\u2026also creates CTRule objects in the process,\nfilling their .streamFromCTSong attribute with the corresponding smaller inner stream.\nIndividual attributes of a rule are defined by the entire CTSong, such as\nmeter and time signature, so creation of CTRule objects typically occurs\nonly from this method and directly from the clercqTemperley text.\n>>> s = romanText.clercqTemperley.CTSong(romanText.clercqTemperley.BlitzkriegBopCT)\n>>> partObj = s.toPart()\n>>> partObj.highestOffset\n380.0",
+        "type": "ListItem"
+    },
+    {
+        "text": "CTSong.",
+        "type": "Title"
+    },
+    {
+        "text": "toScore",
+        "type": "Title"
+    },
+    {
+        "text": "labelRomanNumerals",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "labelSubsectionsOnScore",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 Part",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "DEPRECATED: use .toPart() instead.  This method will be removed in v.10",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "CTSong instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "CTSong.",
+        "type": "Title"
+    },
+    {
+        "text": "year",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The year of the CTSong; not formally defined\nby the Clercq-Temperley format.",
+        "type": "ListItem"
+    },
+    {
+        "text": "CTRule\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.romanText.clercqTemperley.",
+        "type": "Title"
+    },
+    {
+        "text": "CTRule",
+        "type": "Title"
+    },
+    {
+        "text": "text",
+        "type": "Title"
+    },
+    {
+        "text": "''",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "parent",
+        "type": "Title"
+    },
+    {
+        "text": "CTSong | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "CTRule objects correspond to the individual lines defined in a\nCTSong object. They are typically\ncreated by the parser after a CTSong object has been created and the .toPart() method\nhas been called on that object. The usefulness of each CTRule object is that each\nhas a streamFromCTSong() attribute,\nwhich is the stream from the entire score that the rule corresponds to.\nTo parse, put the text into the",
+        "type": "ListItem"
+    },
+    {
+        "text": "CTRule bases",
+        "type": "Title"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "CTRule read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "CTRule.",
+        "type": "Title"
+    },
+    {
+        "text": "comment",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get the comment of a CTRule object.\n>>> rs = 'In: $BP*3 I IV | I | $BP*3 I IV | I | R |*4 I |*4 % This is a comment'\n>>> s = romanText.clercqTemperley.CTRule(rs)\n>>> s.comment\n'This is a comment'",
+        "type": "ListItem"
+    },
+    {
+        "text": "CTRule.",
+        "type": "Title"
+    },
+    {
+        "text": "sectionName",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns the expanded version of the Left-hand side (LHS) such as\nIntroduction, Verse, etc. if\ntext is present (uses LHS to expand)\nCurrently supported abbreviations:\n\nIn: Introduction\nBr: Bridge\nVr: Verse\nCh: Chorus\nFadeout: Fadeout\nS: Song\n\n>>> s = romanText.clercqTemperley.CTRule('Vr2: $BP*3 I IV | I |')\n>>> s.sectionName\n'Verse2'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "CTRule read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "CTRule.",
+        "type": "Title"
+    },
+    {
+        "text": "LHS",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get the LHS (Left Hand Side) of the CTRule.\nIf not specified explicitly but CTtext present, searches\nfirst characters up until \u0098:' for rule and returns string)\n>>> rs = 'In: $BP*3 I IV | R |*4 I |*4 % This is a comment'\n>>> s = romanText.clercqTemperley.CTRule(rs)\n>>> s.LHS\n'In'",
+        "type": "ListItem"
+    },
+    {
+        "text": "CTRule.",
+        "type": "Title"
+    },
+    {
+        "text": "musicText",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Gets just the music text of the CTRule, excluding the left hand side and comments\n>>> rs = 'In: $BP*3 I IV | I | $BP*3 I IV | I | R |*4 I |*4 % This is a comment'\n>>> s = romanText.clercqTemperley.CTRule(rs)\n>>> s.text\n'In: $BP*3 I IV | I | $BP*3 I IV | I | R |*4 I |*4 % This is a comment'\n>>> s.musicText\n'$BP*3 I IV | I | $BP*3 I IV | I | R |*4 I |*4'",
+        "type": "ListItem"
+    },
+    {
+        "text": "CTRule.",
+        "type": "Title"
+    },
+    {
+        "text": "parent",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A reference to the CTSong object housing the CTRule if any.",
+        "type": "ListItem"
+    },
+    {
+        "text": "CTRule methods",
+        "type": "Title"
+    },
+    {
+        "text": "CTRule.",
+        "type": "Title"
+    },
+    {
+        "text": "addOptionalTieAndLyrics",
+        "type": "Title"
+    },
+    {
+        "text": "rn",
+        "type": "Title"
+    },
+    {
+        "text": "roman.RomanNumeral",
+        "type": "Title"
+    },
+    {
+        "text": "lastChord",
+        "type": "Title"
+    },
+    {
+        "text": "chord.Chord | None",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Adds ties to chords that are the same.  Adds lyrics to chords that change.",
+        "type": "ListItem"
+    },
+    {
+        "text": "CTRule.",
+        "type": "Title"
+    },
+    {
+        "text": "expand",
+        "type": "Title"
+    },
+    {
+        "text": "tsContext",
+        "type": "Title"
+    },
+    {
+        "text": "TimeSignature | None",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "keyContext",
+        "type": "Title"
+    },
+    {
+        "text": "Key | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 list[music21.stream.base.Measure]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The meat of it all \u2014 expand one rule completely and return a list of Measure objects.\nParses within the local time signature context and key context.",
+        "type": "ListItem"
+    },
+    {
+        "text": "CTRule.",
+        "type": "Title"
+    },
+    {
+        "text": "expandExpansionContent",
+        "type": "Title"
+    },
+    {
+        "text": "content",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "numReps",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Expand a rule that contains an expansion (i.e., a $) in it.\nRequires CTSong parent to be set.",
+        "type": "ListItem"
+    },
+    {
+        "text": "CTRule.",
+        "type": "Title"
+    },
+    {
+        "text": "expandSimpleContent",
+        "type": "Title"
+    },
+    {
+        "text": "content",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "numReps",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "CTRule.",
+        "type": "Title"
+    },
+    {
+        "text": "fixupChordAtom",
+        "type": "Title"
+    },
+    {
+        "text": "atom",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 str",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "changes some CT values into music21 values\n>>> s = romanText.clercqTemperley.CTRule()\n>>> s.fixupChordAtom('iix')\n'iio'\n>>> s.fixupChordAtom('viih7')\n'vii/o7'\n>>> s.fixupChordAtom('iia')\n'ii+'",
+        "type": "ListItem"
+    },
+    {
+        "text": "CTRule.",
+        "type": "Title"
+    },
+    {
+        "text": "insertKsTs",
+        "type": "Title"
+    },
+    {
+        "text": "Measure",
+        "type": "Title"
+    },
+    {
+        "text": "ts",
+        "type": "Title"
+    },
+    {
+        "text": "TimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "keyObj",
+        "type": "Title"
+    },
+    {
+        "text": "Key",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Insert a new time signature or Key into measure m, if it's\nnot already in the stream somewhere.\nNote that the name \u009cks\u009d is slightly misnamed.  It requires a Key,\nnot KeySignature object.",
+        "type": "ListItem"
+    },
+    {
+        "text": "CTRule.",
+        "type": "Title"
+    },
+    {
+        "text": "isSame",
+        "type": "Title"
+    },
+    {
+        "text": "rn",
+        "type": "Title"
+    },
+    {
+        "text": "roman.RomanNumeral",
+        "type": "Title"
+    },
+    {
+        "text": "lastChord",
+        "type": "Title"
+    },
+    {
+        "text": "chord.Chord | None",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if the pitches of the RomanNumeral are the same as the pitches\nof lastChord.  Returns False if lastChord is None.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "CTRule instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "CTRule.",
+        "type": "Title"
+    },
+    {
+        "text": "text",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The full text of the CTRule, including the LHS, chords, and comments.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.romanText.clercqTemperley",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

@@ -1,0 +1,346 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.sorting",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.sites",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.spanner",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.sorting\nSortTuple\nSortTuple\nSortTuple.__eq__()\nSortTuple.add()\nSortTuple.modify()\nSortTuple.shortRepr()\nSortTuple.sub()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.sorting\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "This module defines a single class, SortTuple, which is a named tuple that can\nsort against bare offsets and other SortTuples.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "This is a performance-critical object.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "It also defines three singleton instances of the SortTupleLow class as ZeroSortTupleDefault,\nZeroSortTupleLow and\nZeroSortTupleHigh which are sortTuple at\noffset 0.0, priority [0, -inf, inf] respectively:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "sorting",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "ZeroSortTupleDefault",
+        "type": "Title"
+    },
+    {
+        "text": "SortTuple(atEnd=0, offset=0.0, priority=0, classSortOrder=0, isNotGrace=1, insertIndex=0)",
+        "type": "Title"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "sorting",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "ZeroSortTupleLow",
+        "type": "Title"
+    },
+    {
+        "text": "SortTuple(atEnd=0, offset=0.0, priority=-inf, classSortOrder=0, isNotGrace=1, insertIndex=0)",
+        "type": "Title"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "sorting",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "ZeroSortTupleHigh",
+        "type": "Title"
+    },
+    {
+        "text": "SortTuple(atEnd=0, offset=0.0, priority=inf, classSortOrder=0, isNotGrace=1, insertIndex=0)",
+        "type": "Title"
+    },
+    {
+        "text": "SortTuple\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.sorting.",
+        "type": "Title"
+    },
+    {
+        "text": "SortTuple",
+        "type": "Title"
+    },
+    {
+        "text": "tupEls",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Derived class of namedTuple which allows for comparisons with pure ints/fractions.\n>>> n = note.Note()\n>>> s = stream.Stream()\n>>> s.insert(4, n)\n>>> st = n.sortTuple()\n>>> st\nSortTuple(atEnd=0, offset=4.0, priority=0, classSortOrder=20, isNotGrace=1, insertIndex=...)\n>>> st.shortRepr()\n'4.0 <0.20...>'\n>>> st.atEnd\n0\n>>> st.offset\n4.0\n\n\n>>> st < 5.0\nTrue\n>>> 5.0 > st\nTrue\n>>> st > 3.0\nTrue\n>>> 3.0 < st\nTrue\n\n\n>>> st == 4.0\nTrue\n\n\n>>> ts = bar.Barline('double')\n>>> s2 = stream.Stream()\n>>> s2.storeAtEnd(ts)\n>>> ts_st = ts.sortTuple()\n>>> ts_st\nSortTuple(atEnd=1, offset=0.0, priority=0, classSortOrder=-5, isNotGrace=1, insertIndex=...)\n>>> st < ts_st\nTrue\n>>> ts_st > 999999\nTrue\n>>> import math\n>>> ts_st == math.inf\nTrue\n\n\nConstruct one w/ keywords:\n>>> st = sorting.SortTuple(atEnd=0, offset=1.0, priority=0, classSortOrder=20,\n...           isNotGrace=1, insertIndex=323)\n>>> st.shortRepr()\n'1.0 <0.20.323>'\n\n\nor as tuple:\n>>> st = sorting.SortTuple(0, 1.0, 0, 20, 1, 323)\n>>> st.shortRepr()\n'1.0 <0.20.323>'",
+        "type": "ListItem"
+    },
+    {
+        "text": "SortTuple bases",
+        "type": "Title"
+    },
+    {
+        "text": "SortTuple",
+        "type": "ListItem"
+    },
+    {
+        "text": "SortTuple methods",
+        "type": "Title"
+    },
+    {
+        "text": "SortTuple.",
+        "type": "Title"
+    },
+    {
+        "text": "__eq__",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "other",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return self==value.",
+        "type": "ListItem"
+    },
+    {
+        "text": "SortTuple.",
+        "type": "Title"
+    },
+    {
+        "text": "add",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "other",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Add all attributes from one sortTuple to another,\nreturning a new one.\n>>> n = note.Note()\n>>> n.offset = 10\n>>> s = stream.Stream()\n>>> s.offset = 10\n>>> n.sortTuple()\nSortTuple(atEnd=0, offset=10.0, priority=0, classSortOrder=20, isNotGrace=1, insertIndex=0)\n>>> s.sortTuple()\nSortTuple(atEnd=0, offset=10.0, priority=0, classSortOrder=-20, isNotGrace=1, insertIndex=0)\n>>> s.sortTuple().add(n.sortTuple())\nSortTuple(atEnd=0, offset=20.0, priority=0, classSortOrder=0, isNotGrace=1, insertIndex=0)\n\n\nNote that atEnd and isNotGrace are equal to other's value. are upper bounded at 1 and\ntake the maxValue of either.",
+        "type": "ListItem"
+    },
+    {
+        "text": "SortTuple.",
+        "type": "Title"
+    },
+    {
+        "text": "modify",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "return a new SortTuple identical to the previous, except with\nthe given keyword modified.  Works only with keywords.\n>>> st = sorting.SortTuple(atEnd=0, offset=1.0, priority=0, classSortOrder=20,\n...           isNotGrace=1, insertIndex=32)\n>>> st2 = st.modify(offset=2.0)\n>>> st2.shortRepr()\n'2.0 <0.20.32>'\n>>> st2\nSortTuple(atEnd=0, offset=2.0, priority=0, classSortOrder=20, isNotGrace=1, insertIndex=32)\n\n\n>>> st3 = st2.modify(atEnd=1, isNotGrace=0)\n>>> st3.shortRepr()\n'End <0.20.[Grace].32>'\n\n\nThe original tuple is never modified (hence tuple):\n>>> st.offset\n1.0\n\n\nChanging offset, but nothing else, helps in creating .flatten() positions.",
+        "type": "ListItem"
+    },
+    {
+        "text": "SortTuple.",
+        "type": "Title"
+    },
+    {
+        "text": "shortRepr",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns a nice representation of a SortTuple\n>>> st = sorting.SortTuple(atEnd=0, offset=1.0, priority=0, classSortOrder=20,\n...           isNotGrace=1, insertIndex=323)\n>>> st.shortRepr()\n'1.0 <0.20.323>'\n\n\n>>> st = sorting.SortTuple(atEnd=1, offset=1.0, priority=4, classSortOrder=7,\n...           isNotGrace=0, insertIndex=200)\n>>> st.shortRepr()\n'End <4.7.[Grace].200>'",
+        "type": "ListItem"
+    },
+    {
+        "text": "SortTuple.",
+        "type": "Title"
+    },
+    {
+        "text": "sub",
+        "type": "Title"
+    },
+    {
+        "text": "other",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Subtract all attributes from to another.  atEnd and isNotGrace take the min value of either.\n>>> n = note.Note()\n>>> n.offset = 10\n>>> s = stream.Stream()\n>>> s.offset = 10\n>>> n.sortTuple()\nSortTuple(atEnd=0, offset=10.0, priority=0, classSortOrder=20, isNotGrace=1, insertIndex=0)\n>>> s.sortTuple()\nSortTuple(atEnd=0, offset=10.0, priority=0, classSortOrder=-20, isNotGrace=1, insertIndex=0)\n>>> s.sortTuple().sub(n.sortTuple())\nSortTuple(atEnd=0, offset=0.0, priority=0, classSortOrder=-40, isNotGrace=1, insertIndex=0)\n\n\nNote that atEnd and isNotGrace are lower bounded at 0.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.sorting",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

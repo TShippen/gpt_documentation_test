@@ -1,0 +1,2254 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 7: Chords",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide, Chapter 6: Streams (II): Hierarchies, Recursion, and Flattening",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide, Chapter 8: Installing MusicXML Readers and File Formats (1)",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide, Chapter 7: Chords\nDisplaying Chords\nMore ways of creating chords; Chords and Streams\nPost-tonal chords (in brief)",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide\nUser's Guide: Table of Contents\nUser's Guide, Chapter 1: Installing and Getting Started with music21\nUser's Guide, Chapter 2: Notes\nUser's Guide, Chapter 3: Pitches, Durations, and Notes again\nUser's Guide, Chapter 4: Lists, Streams (I) and Output\nUser's Guide, Chapter 5: Lists of Lists, Functions, and Recursion\nUser's Guide, Chapter 6: Streams (II): Hierarchies, Recursion, and Flattening\nUser's Guide, Chapter 7: Chords\nUser's Guide, Chapter 8: Installing MusicXML Readers and File Formats (1)\nUser's Guide, Chapter 9: Chordify\nUser's Guide, Chapter 10: Examples 1\nUser's Guide, Chapter 11: Corpus Searching\nUser's Guide, Chapter 12: Getting Back to Basics: The Music21Object\nUser's Guide, Chapter 13: More Music21Object Attributes and Properties\nUser's Guide: Chapter 14: Time Signatures and Beats\nUser's Guide, Chapter 15: Keys and KeySignatures\nUser's Guide, Chapter 16: TinyNotation\nUser's Guide: Chapter 17: Derivations\nUser's Guide: Chapter 18: Intervals\nUser's Guide, Chapter 19: Advanced Durations (Complex and Tuplets)\nUser's Guide, Chapter 20: Examples 2\nUser's Guide, Chapter 21: Ordering and Sorting of Stream Elements\nUser's Guide, Chapter 22: Graphing and plotting\nUser's Guide, Chapter 23: Roman Numeral Analysis\nUser's Guide, Chapter 24: Configuring Environment Settings\nUser's Guide, Chapter 25: Post-Tonal Tools (1)\nUser's Guide, Chapter 26: Stream Iteration and Filtering\nUser's Guide, Chapter 27: Grace Notes\nUser's Guide, Chapter 28: Lyric Searching\nUser's Guide, Chapter 29: Spanners 1 (Slurs)\nUser's Guide, Chapter 30: Examples 3\nUser's Guide, Chapter 31: Clefs, Ties, and Beams\nUser's Guide, Chapter 32: Articulations\nUser's Guide, Chapter 44: Advanced Graphing (Axes, Plots, and Graphs)\nUser's Guide, Chapter 53: Advanced Corpus and Metadata Searching\nUser's Guide, Chapter 54: Extending Converter with New Formats\nUser's Guide, Chapter 55: Advanced Meter Topics\nUser's Guide, Chapter 58: Understanding Sites and Contexts\nUser's Guide, Chapter 61: TimespanTrees and Verticalities",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 7: Chords\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Chords, as the name might suggest, are objects that combine multiple\nPitch objects on a single stem. They can be\nfound in the music21.chord module. The most general way to create\na Chord object is by passing in a list of\npitch names you want in the chord:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "from",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "import",
+        "type": "Title"
+    },
+    {
+        "text": "cMinor",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "([",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\"C4\"",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\"G4\"",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\"E-5\"",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "])",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Note and Chord objects, since both are subclasses of the\nGeneralNote object share many features in\ncommon:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "cMinor",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "'half'",
+        "type": "Title"
+    },
+    {
+        "text": "cMinor",
+        "type": "Title"
+    },
+    {
+        "text": "quarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "But since a Chord contains many pitches, it does not have a\n.pitch attribute:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "cMinor",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "---------------------------------------------------------------------------",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "AttributeError",
+        "type": "Title"
+    },
+    {
+        "text": "Traceback",
+        "type": "Title"
+    },
+    {
+        "text": "most",
+        "type": "Title"
+    },
+    {
+        "text": "recent",
+        "type": "Title"
+    },
+    {
+        "text": "call",
+        "type": "Title"
+    },
+    {
+        "text": "last",
+        "type": "Title"
+    },
+    {
+        "text": "ipython",
+        "type": "Title"
+    },
+    {
+        "text": "input",
+        "type": "Title"
+    },
+    {
+        "text": "e8314cc72a18",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "module",
+        "type": "Title"
+    },
+    {
+        "text": "---->",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "cMinor",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "AttributeError",
+        "type": "Title"
+    },
+    {
+        "text": "'Chord'",
+        "type": "Title"
+    },
+    {
+        "text": "object",
+        "type": "Title"
+    },
+    {
+        "text": "has",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "no",
+        "type": "Title"
+    },
+    {
+        "text": "attribute",
+        "type": "Title"
+    },
+    {
+        "text": "'pitch'",
+        "type": "Title"
+    },
+    {
+        "text": "Instead it has a .pitches\nattribute which returns a Tuple of pitches in the Chord.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "cMinor",
+        "type": "Title"
+    },
+    {
+        "text": "pitches",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "C4",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "G4",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "A little bit more about Python. .pitches returns a tuple, what's\nthat? A tuple is like a list, except that unlike a list which has square\nbrackets around it, a tuple has parentheses around it:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "baroqueTuple",
+        "type": "Title"
+    },
+    {
+        "text": "'Strozzi'",
+        "type": "Title"
+    },
+    {
+        "text": "'Bach'",
+        "type": "Title"
+    },
+    {
+        "text": "'Handel'",
+        "type": "Title"
+    },
+    {
+        "text": "'Telemann'",
+        "type": "Title"
+    },
+    {
+        "text": "classicalList",
+        "type": "Title"
+    },
+    {
+        "text": "'Mozart'",
+        "type": "Title"
+    },
+    {
+        "text": "'Haydn'",
+        "type": "Title"
+    },
+    {
+        "text": "'Saint-George'",
+        "type": "Title"
+    },
+    {
+        "text": "'Beethoven'",
+        "type": "Title"
+    },
+    {
+        "text": "baroqueTuple",
+        "type": "Title"
+    },
+    {
+        "text": "'Strozzi'",
+        "type": "Title"
+    },
+    {
+        "text": "'Bach'",
+        "type": "Title"
+    },
+    {
+        "text": "'Handel'",
+        "type": "Title"
+    },
+    {
+        "text": "'Telemann'",
+        "type": "Title"
+    },
+    {
+        "text": "classicalList",
+        "type": "Title"
+    },
+    {
+        "text": "'Mozart'",
+        "type": "Title"
+    },
+    {
+        "text": "'Haydn'",
+        "type": "Title"
+    },
+    {
+        "text": "'Saint-George'",
+        "type": "Title"
+    },
+    {
+        "text": "'Beethoven'",
+        "type": "Title"
+    },
+    {
+        "text": "Both tuples and lists can find members by accessing them with numbers in\nsquare brackets:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "baroqueTuple",
+        "type": "Title"
+    },
+    {
+        "text": "'Strozzi'",
+        "type": "Title"
+    },
+    {
+        "text": "classicalList",
+        "type": "Title"
+    },
+    {
+        "text": "'Mozart'",
+        "type": "Title"
+    },
+    {
+        "text": "But the biggest difference between the two is that you can manipulate a\nlist, but not a tuple. If we try to add someone to the classicalList,\nusing .append it works great.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classicalList",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "'Ella Fitzgerald'",
+        "type": "Title"
+    },
+    {
+        "text": "# she's a classic to me...",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classicalList",
+        "type": "Title"
+    },
+    {
+        "text": "'Mozart'",
+        "type": "Title"
+    },
+    {
+        "text": "'Haydn'",
+        "type": "Title"
+    },
+    {
+        "text": "'Saint-George'",
+        "type": "Title"
+    },
+    {
+        "text": "'Beethoven'",
+        "type": "Title"
+    },
+    {
+        "text": "'Ella Fitzgerald'",
+        "type": "Title"
+    },
+    {
+        "text": "classicalList",
+        "type": "Title"
+    },
+    {
+        "text": "remove",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "'Mozart'",
+        "type": "Title"
+    },
+    {
+        "text": "classicalList",
+        "type": "Title"
+    },
+    {
+        "text": "'Haydn'",
+        "type": "Title"
+    },
+    {
+        "text": "'Saint-George'",
+        "type": "Title"
+    },
+    {
+        "text": "'Beethoven'",
+        "type": "Title"
+    },
+    {
+        "text": "'Ella Fitzgerald'",
+        "type": "Title"
+    },
+    {
+        "text": "But a tuple can't be changed:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "baroqueTuple",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "'Miles Davis'",
+        "type": "Title"
+    },
+    {
+        "text": "---------------------------------------------------------------------------",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "AttributeError",
+        "type": "Title"
+    },
+    {
+        "text": "Traceback",
+        "type": "Title"
+    },
+    {
+        "text": "most",
+        "type": "Title"
+    },
+    {
+        "text": "recent",
+        "type": "Title"
+    },
+    {
+        "text": "call",
+        "type": "Title"
+    },
+    {
+        "text": "last",
+        "type": "Title"
+    },
+    {
+        "text": "ipython",
+        "type": "Title"
+    },
+    {
+        "text": "input",
+        "type": "Title"
+    },
+    {
+        "text": "17",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "fd7e965db659",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "module",
+        "type": "Title"
+    },
+    {
+        "text": "---->",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "baroqueTuple",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "'Miles Davis'",
+        "type": "Title"
+    },
+    {
+        "text": "AttributeError",
+        "type": "Title"
+    },
+    {
+        "text": "'tuple'",
+        "type": "Title"
+    },
+    {
+        "text": "object",
+        "type": "Title"
+    },
+    {
+        "text": "has",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "no",
+        "type": "Title"
+    },
+    {
+        "text": "attribute",
+        "type": "Title"
+    },
+    {
+        "text": "'append'",
+        "type": "Title"
+    },
+    {
+        "text": "In this case, that's a shame, because Miles belongs with Bach! So we\nshouldn't have used a tuple there.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "But in the class of .pitches it makes sense that it returns a tuple,\nsince changing the result .pitches separate from the Chord could be\nambiguous \u2014 did you mean to change the result of .pitches or to\nchange the pitches in the chord itself? music21 will often return\ntuples in places where manipulating the result could cause headaches or\nbugs down the line. In any case, it's easy to turn a tuple into a list\nor vice versa:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "baroqueList",
+        "type": "Title"
+    },
+    {
+        "text": "list",
+        "type": "Title"
+    },
+    {
+        "text": "baroqueTuple",
+        "type": "Title"
+    },
+    {
+        "text": "baroqueList",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "'Miles Davis'",
+        "type": "Title"
+    },
+    {
+        "text": "baroqueList",
+        "type": "Title"
+    },
+    {
+        "text": "'Strozzi'",
+        "type": "Title"
+    },
+    {
+        "text": "'Bach'",
+        "type": "Title"
+    },
+    {
+        "text": "'Handel'",
+        "type": "Title"
+    },
+    {
+        "text": "'Telemann'",
+        "type": "Title"
+    },
+    {
+        "text": "'Miles Davis'",
+        "type": "Title"
+    },
+    {
+        "text": "classicalTuple",
+        "type": "Title"
+    },
+    {
+        "text": "tuple",
+        "type": "Title"
+    },
+    {
+        "text": "classicalList",
+        "type": "Title"
+    },
+    {
+        "text": "classicalTuple",
+        "type": "Title"
+    },
+    {
+        "text": "'Haydn'",
+        "type": "Title"
+    },
+    {
+        "text": "'Saint-George'",
+        "type": "Title"
+    },
+    {
+        "text": "'Beethoven'",
+        "type": "Title"
+    },
+    {
+        "text": "'Ella Fitzgerald'",
+        "type": "Title"
+    },
+    {
+        "text": "Okay, back to chord, where we left off:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "cMinor",
+        "type": "Title"
+    },
+    {
+        "text": "pitches",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "C4",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "G4",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "But you already knew what pitches were in the Chord since you just\ncreated it! What else can you do with it?",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "How about determining if it is a\nmajor or a\nminor triad?",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "cMinor",
+        "type": "Title"
+    },
+    {
+        "text": "isMajorTriad",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "cMinor",
+        "type": "Title"
+    },
+    {
+        "text": "isMinorTriad",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "You can also figure out if it is in inversion or not:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "cMinor",
+        "type": "Title"
+    },
+    {
+        "text": "inversion",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Chords in root position have inversion of 0. But consider this other\nchord:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "cMajor",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "([",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\"E3\"",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\"C4\"",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\"G4\"",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "])",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "cMajor",
+        "type": "Title"
+    },
+    {
+        "text": "inversion",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "With this chord, two other methods become important:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "cMajor",
+        "type": "Title"
+    },
+    {
+        "text": "root",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "C4",
+        "type": "Title"
+    },
+    {
+        "text": "cMajor",
+        "type": "Title"
+    },
+    {
+        "text": "bass",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "E3",
+        "type": "Title"
+    },
+    {
+        "text": "You can find the third and fifth of the Chord with .third and\n.fifth. Note that these properties do not have () after them. This\nwas a mistake in how we created music21 and hopefully this will all\nbe fixed and consistent soon:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "cMajor",
+        "type": "Title"
+    },
+    {
+        "text": "third",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "E3",
+        "type": "Title"
+    },
+    {
+        "text": "cMajor",
+        "type": "Title"
+    },
+    {
+        "text": "fifth",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "G4",
+        "type": "Title"
+    },
+    {
+        "text": "There is also a .seventh property, but it won't do anything here:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "cMajor",
+        "type": "Title"
+    },
+    {
+        "text": "seventh",
+        "type": "Title"
+    },
+    {
+        "text": "The result of that is None which we can test like so\u2026",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "cMajor",
+        "type": "Title"
+    },
+    {
+        "text": "seventh",
+        "type": "Title"
+    },
+    {
+        "text": "is",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "We can append or remove notes from a chord, just like in a set:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "dMaj",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "'D4 F#4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "dMaj",
+        "type": "Title"
+    },
+    {
+        "text": "add",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "'A5'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "dMaj",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "D4",
+        "type": "Title"
+    },
+    {
+        "text": "#4 A5>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "dMaj",
+        "type": "Title"
+    },
+    {
+        "text": "remove",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "'D4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "dMaj",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "#4 A5>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "dMaj",
+        "type": "Title"
+    },
+    {
+        "text": "add",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "'D3'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "))",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "dMaj",
+        "type": "Title"
+    },
+    {
+        "text": "add",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'F#5'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "))",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "dMaj",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "D3",
+        "type": "Title"
+    },
+    {
+        "text": "#4 F#5 A5>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Displaying Chords\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "We can display the Chord object just like any\nNote (Don't worry if this isn't working for you\nyet\u2026we'll get this set up in Chapter 8)",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "cMinor",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "cMajor",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "These chords are a bit \u009cspacey\u009d, so let's get c in\nclosedPosition():",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "cClosed",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "cMinor",
+        "type": "Title"
+    },
+    {
+        "text": "closedPosition",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "cClosed",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Notice that cMinor is unchanged. The closed position chord is only\ncClosed:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "cMinor",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "If we wanted to change the Chord object itself, we call\n.closedPosition(inPlace=True) which alters the original. Since the\noriginal is altered, we don't put x = ... in front of it.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "cMajor",
+        "type": "Title"
+    },
+    {
+        "text": "closedPosition",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "cMajor",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "There is also a method,\nsemiClosedPosition() which acts like\n.closedPosition except that if there is already a pitch at that step\n(i.e., D-flat and D-sharp are both step \u009cD\u009d), then the note is moved up\nan octave. This is useful for displaying complex, post tonal chords in\nthe most compact form possible:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "c1",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "([",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'C4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'E5'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'C#6'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'E-7'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'G8'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'C9'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'E#9'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "])",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "c2",
+        "type": "Title"
+    },
+    {
+        "text": "c1",
+        "type": "Title"
+    },
+    {
+        "text": "semiClosedPosition",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "c2",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "We can get the common name of\neach of these Chords:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "cn1",
+        "type": "Title"
+    },
+    {
+        "text": "cMinor",
+        "type": "Title"
+    },
+    {
+        "text": "commonName",
+        "type": "Title"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "cn1",
+        "type": "Title"
+    },
+    {
+        "text": "minor",
+        "type": "Title"
+    },
+    {
+        "text": "triad",
+        "type": "Title"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "cMajor",
+        "type": "Title"
+    },
+    {
+        "text": "commonName",
+        "type": "Title"
+    },
+    {
+        "text": "major",
+        "type": "Title"
+    },
+    {
+        "text": "triad",
+        "type": "Title"
+    },
+    {
+        "text": "More complex chords have less common \u009ccommonNames\u009d. Here's one that the\nAmerican composer Elliott Carter liked a lot.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "elliottCarterChord",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "([",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'C4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'D-4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'E4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'F#4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "])",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "elliottCarterChord",
+        "type": "Title"
+    },
+    {
+        "text": "commonName",
+        "type": "Title"
+    },
+    {
+        "text": "'all-interval tetrachord'",
+        "type": "Title"
+    },
+    {
+        "text": "elliottCarterChord",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "More ways of creating chords; Chords and Streams\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "There are other ways of creating a Chord if you'd like. One way is from\na bunch of already created Note objects:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'D4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "fSharp",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'F#4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'A5'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "dMajor",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "([",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "fSharp",
+        "type": "Title"
+    },
+    {
+        "text": "])",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "dMajor",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Or we can pass a string with note names separated by spaces:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "e7",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "\"E4 G#4 B4 D5\"",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "e7",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The octaves are optional, especially if everything is within an octave:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "es",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "\"E- G B-\"",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "es",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "But you will definitely want them if a chord crosses the boundary of an\noctave (between B and C). Unless you love 6-4 chords, this is probably\nnot what you want:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "fMajor",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "\"F A C\"",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "fMajor",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Notice that because C sorts before F and A that the chord is in second\ninversion, or 64. We can figure out the inversion of a Chord like\nso:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "fMajor",
+        "type": "Title"
+    },
+    {
+        "text": "inversion",
+        "type": "Title"
+    },
+    {
+        "text": "(),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "fMajor",
+        "type": "Title"
+    },
+    {
+        "text": "inversionName",
+        "type": "Title"
+    },
+    {
+        "text": "())",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "64",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "In addition to .commonName, there are a few other \u009cname\u009d properties that\nmight be interesting:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "fMajor",
+        "type": "Title"
+    },
+    {
+        "text": "fullName",
+        "type": "Title"
+    },
+    {
+        "text": "'Chord {F | A | C} Quarter'",
+        "type": "Title"
+    },
+    {
+        "text": "fMajor",
+        "type": "Title"
+    },
+    {
+        "text": "pitchedCommonName",
+        "type": "Title"
+    },
+    {
+        "text": "'F-major triad'",
+        "type": "Title"
+    },
+    {
+        "text": "Like Note objects, we can put Chord objects inside a\nStream:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "stream1",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Stream",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "stream1",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "cMinor",
+        "type": "Title"
+    },
+    {
+        "text": "stream1",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "fMajor",
+        "type": "Title"
+    },
+    {
+        "text": "stream1",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "es",
+        "type": "Title"
+    },
+    {
+        "text": "stream1",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "We can mix and match Notes, Rests,\nand Chords:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "rest1",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Rest",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "rest1",
+        "type": "Title"
+    },
+    {
+        "text": "quarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "0.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "noteASharp",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'A#5'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "noteASharp",
+        "type": "Title"
+    },
+    {
+        "text": "quarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "1.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "stream2",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Stream",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "stream2",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "cMinor",
+        "type": "Title"
+    },
+    {
+        "text": "stream2",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "rest1",
+        "type": "Title"
+    },
+    {
+        "text": "stream2",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "noteASharp",
+        "type": "Title"
+    },
+    {
+        "text": "stream2",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Post-tonal chords (in brief)\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "There are a lot of methods for dealing with post-tonal aspects of\nchords. If you're not interested in twentieth century music, go ahead\nand skip to the next chapter, but, here are some fun things.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "The intervalVector of a chord is a list of the number of\n[semitones, whole-tones, minor-thirds/augmented-seconds, major-thirds, perfect fourths, and tritones]\nin the chord or inversion. A minor triad, for instance, has one minor\nthird (C to E-flat), one major third (E-flat to G), and one perfect\nfourth (G to C above, since octave does not matter):",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "cMinor",
+        "type": "Title"
+    },
+    {
+        "text": "intervalVector",
+        "type": "Title"
+    },
+    {
+        "text": "A major triad has the same interval vector:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "cMajor",
+        "type": "Title"
+    },
+    {
+        "text": "intervalVector",
+        "type": "Title"
+    },
+    {
+        "text": "The elliottCarterChord is unique in that it has an .intervalVector\nof all 1's:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "elliottCarterChord",
+        "type": "Title"
+    },
+    {
+        "text": "intervalVector",
+        "type": "Title"
+    },
+    {
+        "text": "Well, it's almost unique: there is another chord with the same\n.intervalVector. That Chord is called its Z-relation or Z-pair.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "elliottCarterChord",
+        "type": "Title"
+    },
+    {
+        "text": "hasZRelation",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "otherECChord",
+        "type": "Title"
+    },
+    {
+        "text": "elliottCarterChord",
+        "type": "Title"
+    },
+    {
+        "text": "getZRelation",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "otherECChord",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "otherECChord",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "otherECChord",
+        "type": "Title"
+    },
+    {
+        "text": "intervalVector",
+        "type": "Title"
+    },
+    {
+        "text": "The other post-tonal tools you might be interested in are given below.\nWe'll return to them in a later chapter, but here are three important\nones:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "elliottCarterChord",
+        "type": "Title"
+    },
+    {
+        "text": "primeForm",
+        "type": "Title"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "elliottCarterChord",
+        "type": "Title"
+    },
+    {
+        "text": "normalOrder",
+        "type": "Title"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "elliottCarterChord",
+        "type": "Title"
+    },
+    {
+        "text": "forteClass",
+        "type": "Title"
+    },
+    {
+        "text": "15",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "If you really only care about semitones, you can create a chord just\nwith the pitchClasses:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "oddChord",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "([",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "10",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "])",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "oddChord",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "There's a little problem with the A and A# being on the same space that\nmakes it hard to read. Let's flip the A# to Bb:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "oddChord",
+        "type": "Title"
+    },
+    {
+        "text": "pitches",
+        "type": "Title"
+    },
+    {
+        "text": "getHigherEnharmonic",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "oddChord",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "If you use pitchClasses above 11, then they are treated as MIDI numbers,\nwhere 60 = MiddleC, 72 = C5, etc. Enharmonic spelling is chosen\nautomatically.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "midiChordType",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "([",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "60",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "65",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "70",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "75",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "])",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "midiChordType",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Okay, so now you've learned the basics (and more!) of Notes and Chords.\nIf you haven't been able to see them on your own,\nChapter 8: Installing MusicXML Readers\nwill fix it. It's also going to cover the basic file formats of\nmusic21.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 7: Chords",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

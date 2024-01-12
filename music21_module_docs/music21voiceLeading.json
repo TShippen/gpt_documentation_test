@@ -1,0 +1,2722 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.voiceLeading",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.vexflow.toMusic21j",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.volpiano",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.voiceLeading\nVoiceLeadingQuartet\nVoiceLeadingQuartet\nVoiceLeadingQuartet.key\nVoiceLeadingQuartet.v1n1\nVoiceLeadingQuartet.v1n2\nVoiceLeadingQuartet.v2n1\nVoiceLeadingQuartet.v2n2\nVoiceLeadingQuartet.antiParallelMotion()\nVoiceLeadingQuartet.closesIncorrectly()\nVoiceLeadingQuartet.contraryMotion()\nVoiceLeadingQuartet.hiddenFifth()\nVoiceLeadingQuartet.hiddenInterval()\nVoiceLeadingQuartet.hiddenOctave()\nVoiceLeadingQuartet.inwardContraryMotion()\nVoiceLeadingQuartet.isProperResolution()\nVoiceLeadingQuartet.leapNotSetWithStep()\nVoiceLeadingQuartet.motionType()\nVoiceLeadingQuartet.noMotion()\nVoiceLeadingQuartet.obliqueMotion()\nVoiceLeadingQuartet.opensIncorrectly()\nVoiceLeadingQuartet.outwardContraryMotion()\nVoiceLeadingQuartet.parallelFifth()\nVoiceLeadingQuartet.parallelInterval()\nVoiceLeadingQuartet.parallelMotion()\nVoiceLeadingQuartet.parallelOctave()\nVoiceLeadingQuartet.parallelUnison()\nVoiceLeadingQuartet.parallelUnisonOrOctave()\nVoiceLeadingQuartet.similarMotion()\nVoiceLeadingQuartet.voiceCrossing()\nVoiceLeadingQuartet.voiceOverlap()\nVoiceLeadingQuartet.hIntervals\nVoiceLeadingQuartet.vIntervals\n\n\n\n\nThreeNoteLinearSegment\nThreeNoteLinearSegment\nThreeNoteLinearSegment.iLeft\nThreeNoteLinearSegment.iLeftToRight\nThreeNoteLinearSegment.iRight\nThreeNoteLinearSegment.n1\nThreeNoteLinearSegment.n2\nThreeNoteLinearSegment.n3\nThreeNoteLinearSegment.couldBeChromaticNeighborTone()\nThreeNoteLinearSegment.couldBeChromaticPassingTone()\nThreeNoteLinearSegment.couldBeDiatonicNeighborTone()\nThreeNoteLinearSegment.couldBeDiatonicPassingTone()\nThreeNoteLinearSegment.couldBeNeighborTone()\nThreeNoteLinearSegment.couldBePassingTone()\n\n\n\n\nVerticality\nVerticality\nVerticality.objects\nVerticality.color\nVerticality.lyric\nVerticality.changeDurationOfAllObjects()\nVerticality.getChord()\nVerticality.getLongestDuration()\nVerticality.getObjectsByClass()\nVerticality.getObjectsByPart()\nVerticality.getShortestDuration()\nVerticality.getStream()\nVerticality.getVerticalityOffset()\nVerticality.isConsonant()\nVerticality.makeAllLargestDuration()\nVerticality.makeAllSmallestDuration()\nVerticality.contentDict\n\n\n\n\nVerticalityNTuplet\nVerticalityNTuplet\n\n\nMotionType\nMotionType\n\n\nNChordLinearSegment\nNChordLinearSegment\nNChordLinearSegment.chordList\n\n\n\n\nNNoteLinearSegment\nNNoteLinearSegment\nNNoteLinearSegment.melodicIntervals\nNNoteLinearSegment.noteList\n\n\n\n\nNObjectLinearSegment\nNObjectLinearSegment\n\n\nTwoChordLinearSegment\nTwoChordLinearSegment\nTwoChordLinearSegment.bassInterval()\nTwoChordLinearSegment.rootInterval()\n\n\n\n\nVerticalityTriplet\nVerticalityTriplet\nVerticalityTriplet.hasNeighborTone()\nVerticalityTriplet.hasPassingTone()\n\n\n\n\nFunctions\ngetVerticalityFromObject()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.voiceLeading\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Objects to represent unique elements in a score that contain special analysis routines\nto identify certain aspects of music theory. for use especially with theoryAnalyzer, which will\ndivide a score up into these segments, returning a list of segments to later analyze",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "The list of objects included here are:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "VoiceLeadingQuartet : two by two matrix of notes",
+        "type": "ListItem"
+    },
+    {
+        "text": "Verticalityvertical context in a score,composed of any music21 objects",
+        "type": "ListItem"
+    },
+    {
+        "text": "VerticalityNTupletgroup of threecontiguous verticality objects",
+        "type": "ListItem"
+    },
+    {
+        "text": "VerticalityTripletthree verticality objects \u2014has special features",
+        "type": "ListItem"
+    },
+    {
+        "text": "NObjectLinearSegment : n (any number) of music21 objects",
+        "type": "ListItem"
+    },
+    {
+        "text": "NNoteLinearSegment : n (any number) of notes",
+        "type": "ListItem"
+    },
+    {
+        "text": "ThreeNoteLinearSegment : three notes in the same part of a score",
+        "type": "ListItem"
+    },
+    {
+        "text": "NChordLinearSegment :preliminary implementation of n(any number) chords",
+        "type": "ListItem"
+    },
+    {
+        "text": "TwoChordLinearSegment : 2 chord objects",
+        "type": "ListItem"
+    },
+    {
+        "text": "VoiceLeadingQuartet\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.voiceLeading.",
+        "type": "Title"
+    },
+    {
+        "text": "VoiceLeadingQuartet",
+        "type": "Title"
+    },
+    {
+        "text": "v1n1",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "v1n2",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "v2n1",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "v2n2",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "analyticKey",
+        "type": "Title"
+    },
+    {
+        "text": "Key | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "An object consisting of four pitches: v1n1, v1n2, v2n1, v2n2\nwhere v1n1 moves to v1n2 at the same time as\nv2n1 moves to v2n2.\n(v1n1: voice 1(top voice), note 1 (left most note) )\nNecessary for classifying types of voice-leading motion.\nIn general, v1 should be the \u009chigher\u009d voice and v2 the \u009clower\u009d voice\nin order for methods such as .voiceCrossing and isProperResolution\nto make sense.  Most routines will work the other way still though.",
+        "type": "ListItem"
+    },
+    {
+        "text": "VoiceLeadingQuartet bases",
+        "type": "Title"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "VoiceLeadingQuartet read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "VoiceLeadingQuartet read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "VoiceLeadingQuartet.",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "get or set the key of this VoiceLeadingQuartet, for use in theory analysis routines\nsuch as closesIncorrectly. Can be None\n>>> vlq = voiceLeading.VoiceLeadingQuartet('D', 'G', 'B', 'G')\n>>> vlq.key is None\nTrue\n>>> vlq.key = key.Key('G')\n>>> vlq.key\n<music21.key.Key of G major>\n\n\nKey can also be given as a string:\n>>> vlq.key = 'd'\n>>> vlq.key\n<music21.key.Key of d minor>\n\n\nIncorrect keys raise VoiceLeadingQuartetExceptions",
+        "type": "ListItem"
+    },
+    {
+        "text": "VoiceLeadingQuartet.",
+        "type": "Title"
+    },
+    {
+        "text": "v1n1",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "set note1 for voice 1\n>>> vl = voiceLeading.VoiceLeadingQuartet('C', 'D', 'E', 'F')\n>>> vl.v1n1\n<music21.note.Note C>",
+        "type": "ListItem"
+    },
+    {
+        "text": "VoiceLeadingQuartet.",
+        "type": "Title"
+    },
+    {
+        "text": "v1n2",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "set note 2 for voice 1\n>>> vl = voiceLeading.VoiceLeadingQuartet('C', 'D', 'E', 'F')\n>>> vl.v1n2\n<music21.note.Note D>",
+        "type": "ListItem"
+    },
+    {
+        "text": "VoiceLeadingQuartet.",
+        "type": "Title"
+    },
+    {
+        "text": "v2n1",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "set note 1 for voice 2\n>>> vl = voiceLeading.VoiceLeadingQuartet('C', 'D', 'E', 'F')\n>>> vl.v2n1\n<music21.note.Note E>",
+        "type": "ListItem"
+    },
+    {
+        "text": "VoiceLeadingQuartet.",
+        "type": "Title"
+    },
+    {
+        "text": "v2n2",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "set note 2 for voice 2\n>>> vl = voiceLeading.VoiceLeadingQuartet('C', 'D', 'E', 'F')\n>>> vl.v2n2\n<music21.note.Note F>",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "VoiceLeadingQuartet methods",
+        "type": "Title"
+    },
+    {
+        "text": "VoiceLeadingQuartet.",
+        "type": "Title"
+    },
+    {
+        "text": "antiParallelMotion",
+        "type": "Title"
+    },
+    {
+        "text": "simpleName",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if the simple interval before is the same as the simple\ninterval after and the motion is contrary. if simpleName is\nspecified as an Interval object or a string then it only returns\ntrue if the simpleName of both intervals is the same as simpleName\n(i.e., use to find antiParallel fifths)\n>>> n11 = note.Note('C4')\n>>> n12 = note.Note('D3')  # descending 7th\n>>> n21 = note.Note('G4')\n>>> n22 = note.Note('A4')  # ascending 2nd\n>>> vlq1 = voiceLeading.VoiceLeadingQuartet(n11, n12, n21, n22)\n>>> vlq1.antiParallelMotion()\nTrue\n\n\n>>> vlq1.antiParallelMotion('M2')\nFalse\n\n\n>>> vlq1.antiParallelMotion('P5')\nTrue\n\n\nWe can also use interval objects\n>>> p5Obj = interval.Interval('P5')\n>>> p8Obj = interval.Interval('P8')\n>>> vlq1.antiParallelMotion(p5Obj)\nTrue\n\n\n>>> p8Obj = interval.Interval('P8')\n>>> vlq1.antiParallelMotion(p8Obj)\nFalse\n\n\n>>> n1 = note.Note('G4')\n>>> n2 = note.Note('G4')\n>>> m1 = note.Note('G4')\n>>> m2 = note.Note('G3')\n>>> vl2 = voiceLeading.VoiceLeadingQuartet(n1, n2, m1, m2)\n>>> vl2.antiParallelMotion()\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "VoiceLeadingQuartet.",
+        "type": "Title"
+    },
+    {
+        "text": "closesIncorrectly",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "TODO(msc): will be renamed to be less dogmatic\nReturns True if the VLQ would be an incorrect closing in\nthe style of 16th century Counterpoint (not Bach Chorale style)\nReturns True if closing harmonic interval is a P8 or PU and the interval\napproaching the close is\n6 - 8, 10 - 8, or 3 - U. Must be in contrary motion, and if in minor key,\nhas a leading tone resolves to the tonic.\n>>> vl = voiceLeading.VoiceLeadingQuartet('C#', 'D', 'E', 'D')\n>>> vl.key = key.Key('d')\n>>> vl.closesIncorrectly()\nFalse\n>>> vl = voiceLeading.VoiceLeadingQuartet('B3', 'C4', 'G3', 'C2')\n>>> vl.key = key.Key('C')\n>>> vl.closesIncorrectly()\nFalse\n>>> vl = voiceLeading.VoiceLeadingQuartet('F', 'G', 'D', 'G')\n>>> vl.key = key.Key('g')\n>>> vl.closesIncorrectly()\nTrue\n>>> vl = voiceLeading.VoiceLeadingQuartet('C#4', 'D4', 'A2', 'D3', analyticKey='D')\n>>> vl.closesIncorrectly()\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "VoiceLeadingQuartet.",
+        "type": "Title"
+    },
+    {
+        "text": "contraryMotion",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if both voices move in opposite directions\n>>> n1 = note.Note('G4')\n>>> n2 = note.Note('G4')\n>>> m1 = note.Note('G4')\n>>> m2 = note.Note('G4')\n\n\nNo motion, so False:\n>>> vl = voiceLeading.VoiceLeadingQuartet(n1, n2, m1, m2)\n>>> vl.contraryMotion()\nFalse\n\n\nOblique motion, so False:\n>>> n2.octave = 5\n>>> vl = voiceLeading.VoiceLeadingQuartet(n1, n2, m1, m2)\n>>> vl.contraryMotion()\nFalse\n\n\nParallel motion, so False\n>>> m2.octave = 5\n>>> vl = voiceLeading.VoiceLeadingQuartet(n1, n2, m1, m2)\n>>> vl.contraryMotion()\nFalse\n\n\nSimilar motion, so False\n>>> m2 = note.Note('A5')\n>>> vl = voiceLeading.VoiceLeadingQuartet(n1, n2, m1, m2)\n>>> vl.contraryMotion()\nFalse\n\n\nFinally, contrary motion, so True!\n>>> m2 = note.Note('C4')\n>>> vl = voiceLeading.VoiceLeadingQuartet(n1, n2, m1, m2)\n>>> vl.contraryMotion()\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "VoiceLeadingQuartet.",
+        "type": "Title"
+    },
+    {
+        "text": "hiddenFifth",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Calls hiddenInterval()\nby passing a fifth",
+        "type": "ListItem"
+    },
+    {
+        "text": "VoiceLeadingQuartet.",
+        "type": "Title"
+    },
+    {
+        "text": "hiddenInterval",
+        "type": "Title"
+    },
+    {
+        "text": "thisInterval",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if there is a hidden interval that matches\nthisInterval.\nN.B. \u2014 this method finds ALL hidden intervals,\nnot just those that are forbidden under traditional\ncommon practice counterpoint rules. Takes thisInterval,\nan Interval object.\n>>> n1 = note.Note('C4')\n>>> n2 = note.Note('G4')\n>>> m1 = note.Note('B4')\n>>> m2 = note.Note('D5')\n>>> vl = voiceLeading.VoiceLeadingQuartet(n1, n2, m1, m2)\n>>> vl.hiddenInterval(interval.Interval('P5'))\nTrue\n\n\n>>> n1 = note.Note('E4')\n>>> n2 = note.Note('G4')\n>>> m1 = note.Note('B4')\n>>> m2 = note.Note('D5')\n>>> vl = voiceLeading.VoiceLeadingQuartet(n1, n2, m1, m2)\n>>> vl.hiddenInterval(interval.Interval('P5'))\nFalse\n\n\n>>> n1 = note.Note('E4')\n>>> n2 = note.Note('G4')\n>>> m1 = note.Note('B4')\n>>> m2 = note.Note('D6')\n>>> vl = voiceLeading.VoiceLeadingQuartet(n1, n2, m1, m2)\n>>> vl.hiddenInterval(interval.Interval('P5'))\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "VoiceLeadingQuartet.",
+        "type": "Title"
+    },
+    {
+        "text": "hiddenOctave",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Calls hiddenInterval by passing an octave",
+        "type": "ListItem"
+    },
+    {
+        "text": "VoiceLeadingQuartet.",
+        "type": "Title"
+    },
+    {
+        "text": "inwardContraryMotion",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if both voices move inward by contrary motion\n>>> n1 = note.Note('C5')\n>>> n2 = note.Note('B4')\n>>> m1 = note.Note('G4')\n>>> m2 = note.Note('A4')\n>>> vl = voiceLeading.VoiceLeadingQuartet(n1, n2, m1, m2)\n>>> vl.inwardContraryMotion()\nTrue\n>>> vl.outwardContraryMotion()\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "VoiceLeadingQuartet.",
+        "type": "Title"
+    },
+    {
+        "text": "isProperResolution",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Checks whether the voice-leading quartet resolves correctly according to standard\ncounterpoint rules. If the first harmony is dissonant (P4, d5, A4, or m7) it checks\nthat these are correctly resolved. If the first harmony is consonant, True is returned.\nThe key parameter should be specified to check for motion in the bass from specific\nnote degrees. If it is not set, then no checking for scale degrees takes place.\nCurrently implements the following resolutions:\n\nP4:     Top voice must resolve downward.\n\nA4:     out by contrary motion to a sixth, with chordal seventh resolvingdown to a third in the bass.\n\n\nd5:     in by contrary motion to a third, with 7 resolving up to 1 in the bass\nm7:     Resolves to a third with a leap from 5 to 1 in the bass\n\nWe will make the examples shorter with this abbreviation:\n>>> N = note.Note\n>>> n1 = note.Note('B-4')\n>>> n2 = note.Note('A4')\n>>> m1 = note.Note('E4')\n>>> m2 = note.Note('F4')\n>>> vl = voiceLeading.VoiceLeadingQuartet(n1, n2, m1, m2)\n>>> vl.isProperResolution()  # d5 resolves inward\nTrue\n>>> m2.pitch.name = 'D'\n>>> vl = voiceLeading.VoiceLeadingQuartet(n1, n2, m1, m2)\n>>> vl.isProperResolution()  # d5 resolves outward\nFalse\n>>> vl.key = 'B-'\n>>> vl.isProperResolution()  # not on scale degrees that need resolution\nTrue\n\n\n>>> n1 = note.Note('D4')\n>>> n2 = note.Note('C4')\n>>> m1 = note.Note('G#3')\n>>> m2 = note.Note('A3')\n>>> k = key.Key('a')\n>>> vl = voiceLeading.VoiceLeadingQuartet(n1, n2, m1, m2, k)\n>>> vl.isProperResolution()  # d5 with #7 in minor handled correctly\nTrue\n\n\n>>> n1 = note.Note('E5')\n>>> n2 = note.Note('F5')\n>>> m1 = note.Note('B-4')\n>>> m2 = note.Note('A4')\n>>> vl = voiceLeading.VoiceLeadingQuartet(n1, n2, m1, m2)\n>>> vl.isProperResolution()  # A4 resolves outward\nTrue\n>>> m2.pitch.nameWithOctave = 'D5'\n>>> vl = voiceLeading.VoiceLeadingQuartet(n1, n2, m1, m2)\n>>> vl.isProperResolution()  # A4 resolves inward\nFalse\n>>> vl.key = 'B-'\n>>> vl.isProperResolution()  # A4 not on scale degrees that need resolution\nTrue\n>>> vl.key = 'F'\n>>> vl.isProperResolution()  # A4 on scale degrees that need resolution\nFalse\n\n\n>>> n1 = note.Note('B-4')\n>>> n2 = note.Note('A4')\n>>> m1 = note.Note('C4')\n>>> m2 = note.Note('F4')\n>>> vl = voiceLeading.VoiceLeadingQuartet(n1, n2, m1, m2)\n>>> vl.isProperResolution()  # m7\nTrue\n>>> m2.pitch.nameWithOctave = 'F3'\n>>> vl = voiceLeading.VoiceLeadingQuartet(n1, n2, m1, m2)\n>>> vl.isProperResolution()  # m7 with similar motion\nTrue\n>>> vl.key = 'B-'\n>>> vl.isProperResolution()  # m7 not on scale degrees that need resolution\nTrue\n>>> vl.key = 'F'\n>>> vl.isProperResolution()  # m7 on scale degrees that need resolution\nTrue\n\n\nP4 on the initial harmony must move down.\n>>> n1 = note.Note('F5')\n>>> n2 = note.Note('G5')\n>>> m1 = note.Note('C4')\n>>> m2 = note.Note('C4')\n>>> vl = voiceLeading.VoiceLeadingQuartet(n1, n2, m1, m2)\n>>> vl.isProperResolution()  # P4 must move down or remain static\nFalse\n>>> n2.step = 'E'\n>>> vl = voiceLeading.VoiceLeadingQuartet(n1, n2, m1, m2)\n>>> vl.isProperResolution()  # P4 can move down by step or leap\nTrue\n\n\n>>> vl = voiceLeading.VoiceLeadingQuartet('B-4', 'A4', 'C2', 'F2')\n>>> vl.key = key.Key('F')\n>>> vl.isProperResolution()  # not dissonant, True returned\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "VoiceLeadingQuartet.",
+        "type": "Title"
+    },
+    {
+        "text": "leapNotSetWithStep",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if there is a leap or skip in once voice then the other voice must\nbe a step or unison.\nif neither part skips then False is returned. Returns False if the two voices\nskip thirds in contrary motion.\n>>> n1 = note.Note('G4')\n>>> n2 = note.Note('C5')\n>>> m1 = note.Note('B3')\n>>> m2 = note.Note('A3')\n>>> vl = voiceLeading.VoiceLeadingQuartet(n1, n2, m1, m2)\n>>> vl.leapNotSetWithStep()\nFalse\n\n\n>>> n1 = note.Note('G4')\n>>> n2 = note.Note('C5')\n>>> m1 = note.Note('B3')\n>>> m2 = note.Note('F3')\n>>> vl = voiceLeading.VoiceLeadingQuartet(n1, n2, m1, m2)\n>>> vl.leapNotSetWithStep()\nTrue\n\n\n>>> vl = voiceLeading.VoiceLeadingQuartet('E', 'G', 'G', 'E')\n>>> vl.leapNotSetWithStep()\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "VoiceLeadingQuartet.",
+        "type": "Title"
+    },
+    {
+        "text": "motionType",
+        "type": "Title"
+    },
+    {
+        "text": "allowAntiParallel",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "returns the type of motion from the MotionType Enum object\nthat exists in this voice leading quartet\n>>> for mt in voiceLeading.MotionType:\n...     print(repr(mt))\n<MotionType.antiParallel: 'Anti-Parallel'>\n<MotionType.contrary: 'Contrary'>\n<MotionType.noMotion: 'No Motion'>\n<MotionType.oblique: 'Oblique'>\n<MotionType.parallel: 'Parallel'>\n<MotionType.similar: 'Similar'>\n\n\n>>> n1_d4 = note.Note('D4')\n>>> n2_e4 = note.Note('E4')\n>>> m1_f4 = note.Note('F4')\n>>> m2_b4 = note.Note('B4')\n>>> vl = voiceLeading.VoiceLeadingQuartet(n1_d4, n2_e4, m1_f4, m2_b4)\n>>> vl.motionType()\n<MotionType.similar: 'Similar'>\n\n\n>>> n1_a4 = note.Note('A4')\n>>> n2_c5 = note.Note('C5')\n>>> m1_d4 = note.Note('D4')\n>>> m2_f4 = note.Note('F4')\n>>> vl = voiceLeading.VoiceLeadingQuartet(n1_a4, n2_c5, m1_d4, m2_f4)\n>>> vl.motionType()\n<MotionType.parallel: 'Parallel'>\n>>> print(vl.motionType())\nMotionType.parallel\n>>> vl.motionType() == 'Parallel'\nTrue\n\n\nDemonstrations of other motion types.\nContrary:\n>>> n1_d5 = note.Note('D5')   # D5, C5 against D4, F4\n>>> vl = voiceLeading.VoiceLeadingQuartet(n1_d5, n2_c5, m1_d4, m2_f4)\n>>> vl.motionType()\n<MotionType.contrary: 'Contrary'>\n\n\nOblique:\n>>> n1_c5 = note.Note('C5')   # C5, C5 against D4, F4\n>>> vl = voiceLeading.VoiceLeadingQuartet(n1_c5, n2_c5, m1_d4, m2_f4)\n>>> vl.motionType()\n<MotionType.oblique: 'Oblique'>\n\n\nNo motion (if I had a dollar for every time I forgot to teach\nthat this is not a form of oblique motion\u2026):\n>>> m1_f4 = note.Note('F4')   # C5, C5 against F4, F4\n>>> vl = voiceLeading.VoiceLeadingQuartet(n1_c5, n2_c5, m1_f4, m2_f4)\n>>> vl.motionType()\n<MotionType.noMotion: 'No Motion'>\n\n\nAnti-parallel motion has to be explicitly enabled to appear:\n>>> n1_a5 = note.Note('A5')\n>>> vl = voiceLeading.VoiceLeadingQuartet(n1_a5, n2_c5, m1_d4, m2_f4)\n>>> vl.motionType()  # anti-parallel fifths\n<MotionType.contrary: 'Contrary'>\n>>> vl.motionType(allowAntiParallel=True)\n<MotionType.antiParallel: 'Anti-Parallel'>\n\n\n\nChanged in v6: anti-parallel motion was supposed to be\nable to be returned in previous versions, but a bug prevented it.\nTo preserve backwards compatibility, it must be explicitly enabled.",
+        "type": "ListItem"
+    },
+    {
+        "text": "VoiceLeadingQuartet.",
+        "type": "Title"
+    },
+    {
+        "text": "noMotion",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if no voice moves in this \u009cvoice-leading\u009d moment\n>>> n1 = note.Note('G4')\n>>> n2 = note.Note('G4')\n>>> m1 = note.Note('D4')\n>>> m2 = note.Note('D4')\n>>> vl = voiceLeading.VoiceLeadingQuartet(n1, n2, m1, m2)\n>>> vl.noMotion()\nTrue\n>>> n2.octave = 5\n>>> vl = voiceLeading.VoiceLeadingQuartet(n1, n2, m1, m2)\n>>> vl.noMotion()\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "VoiceLeadingQuartet.",
+        "type": "Title"
+    },
+    {
+        "text": "obliqueMotion",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if one voice remains the same and another moves.  i.e.,\nnoMotion must be False if obliqueMotion is True.\n>>> n1 = note.Note('G4')\n>>> n2 = note.Note('G4')\n>>> m1 = note.Note('D4')\n>>> m2 = note.Note('D4')\n>>> vl = voiceLeading.VoiceLeadingQuartet(n1, n2, m1, m2)\n>>> vl.obliqueMotion()\nFalse\n>>> n2.octave = 5\n>>> vl = voiceLeading.VoiceLeadingQuartet(n1, n2, m1, m2)\n>>> vl.obliqueMotion()\nTrue\n>>> m2.octave = 5\n>>> vl = voiceLeading.VoiceLeadingQuartet(n1, n2, m1, m2)\n>>> vl.obliqueMotion()\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "VoiceLeadingQuartet.",
+        "type": "Title"
+    },
+    {
+        "text": "opensIncorrectly",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "TODO(msc): will be renamed to be less dogmatic\nReturns True if the VLQ would be an incorrect opening in\nthe style of 16th century Counterpoint (not Bach Chorale style)\nReturns True if the opening or second harmonic interval is PU, P8, or P5,\nto accommodate an anacrusis.\nalso checks to see if opening establishes tonic or dominant harmony (uses\nidentifyAsTonicOrDominant()\n>>> vl = voiceLeading.VoiceLeadingQuartet('D', 'D', 'D', 'F#')\n>>> vl.key = 'D'\n>>> vl.opensIncorrectly()\nFalse\n>>> vl = voiceLeading.VoiceLeadingQuartet('B', 'A', 'G#', 'A')\n>>> vl.key = 'A'\n>>> vl.opensIncorrectly()\nFalse\n>>> vl = voiceLeading.VoiceLeadingQuartet('A', 'A', 'F#', 'D')\n>>> vl.key = 'A'\n>>> vl.opensIncorrectly()\nFalse\n\n\n>>> vl = voiceLeading.VoiceLeadingQuartet('C#', 'C#', 'D', 'E')\n>>> vl.key = 'A'\n>>> vl.opensIncorrectly()\nTrue\n\n\n>>> vl = voiceLeading.VoiceLeadingQuartet('B', 'B', 'A', 'A')\n>>> vl.key = 'C'\n>>> vl.opensIncorrectly()\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "VoiceLeadingQuartet.",
+        "type": "Title"
+    },
+    {
+        "text": "outwardContraryMotion",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if both voices move outward by contrary motion\n>>> n1 = note.Note('D5')\n>>> n2 = note.Note('E5')\n>>> m1 = note.Note('G4')\n>>> m2 = note.Note('F4')\n>>> vl = voiceLeading.VoiceLeadingQuartet(n1, n2, m1, m2)\n>>> vl.outwardContraryMotion()\nTrue\n>>> vl.inwardContraryMotion()\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "VoiceLeadingQuartet.",
+        "type": "Title"
+    },
+    {
+        "text": "parallelFifth",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if the motion is a parallel or antiparallel Perfect Fifth,\nallowing displacement by an octave (e.g., 5th to a 12th).\nWe will make the examples shorter with this abbreviation:\n>>> N = note.Note\n\n\nParallel fifths\n>>> vlq = voiceLeading.VoiceLeadingQuartet(N('G4'), N('A4'), N('C4'), N('D4'))\n>>> vlq.parallelFifth()\nTrue\n\n\n5th -> 12th in similar motion\n>>> vlq = voiceLeading.VoiceLeadingQuartet(N('G4'), N('A5'), N('C4'), N('D4'))\n>>> vlq.parallelFifth()\nTrue\n\n\n5th -> 12th in antiparallel motion\n>>> vlq = voiceLeading.VoiceLeadingQuartet(N('G4'), N('A4'), N('C4'), N('D3'))\n>>> vlq.parallelFifth()\nTrue\n\n\nNote that diminished fifth moving to perfect fifth is not a parallelFifth\n>>> vlq = voiceLeading.VoiceLeadingQuartet(N('G4'), N('A4'), N('C#4'), N('D4'))\n>>> vlq.parallelFifth()\nFalse\n\n\nNor is P5 moving to d5.\n>>> vlq = voiceLeading.VoiceLeadingQuartet(N('G4'), N('Ab4'), N('C4'), N('D4'))\n>>> vlq.parallelFifth()\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "VoiceLeadingQuartet.",
+        "type": "Title"
+    },
+    {
+        "text": "parallelInterval",
+        "type": "Title"
+    },
+    {
+        "text": "thisInterval",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if there is a parallel motion or antiParallel motion of\nthis type (thisInterval should be an Interval object)\n>>> n11 = note.Note('G4')\n>>> n12a = note.Note('A4')  # ascending 2nd\n\n\n>>> n21 = note.Note('C4')\n>>> n22a = note.Note('D4')  # ascending 2nd\n\n\n>>> vlq1 = voiceLeading.VoiceLeadingQuartet(n11, n12a, n21, n22a)\n>>> vlq1.parallelInterval(interval.Interval('P5'))\nTrue\n\n\n>>> vlq1.parallelInterval(interval.Interval('P8'))\nFalse\n\n\nAntiparallel fifths also are True\n>>> n22b = note.Note('D3')  # descending 7th\n>>> vlq2 = voiceLeading.VoiceLeadingQuartet(n11, n12a, n21, n22b)\n>>> vlq2.parallelInterval(interval.Interval('P5'))\nTrue\n\n\nBut Antiparallel other interval are not:\n>>> N = note.Note\n>>> vlq2a = voiceLeading.VoiceLeadingQuartet(N('C5'), N('C6'), N('C4'), N('C3'))\n>>> vlq2a.parallelInterval(interval.Interval('P5'))\nFalse\n>>> vlq2a.parallelInterval(interval.Interval('P8'))\nTrue\n\n\nNon-parallel intervals are, of course, False\n>>> n12b = note.Note('B4')  # ascending 3rd\n>>> vlq3 = voiceLeading.VoiceLeadingQuartet(n11, n12b, n21, n22b)\n>>> vlq3.parallelInterval(interval.Interval('P5'))\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "VoiceLeadingQuartet.",
+        "type": "Title"
+    },
+    {
+        "text": "parallelMotion",
+        "type": "Title"
+    },
+    {
+        "text": "requiredInterval",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "allowOctaveDisplacement",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if both the first and second intervals are the same sized\ngeneric interval.\nIf requiredInterval is set, returns True only if both intervals are that\ngeneric or specific interval.\nallowOctaveDisplacement treats motion as parallel even if any of the intervals\nare displaced by octaves, except in the case of unisons and octaves, which\nare always treated as distinct.\nWe will make the examples shorter with this abbreviation:\n>>> N = note.Note\n>>> vl = voiceLeading.VoiceLeadingQuartet(N('G4'), N('G4'), N('G3'), N('G3'))\n>>> vl.parallelMotion()  # not even similar motion\nFalse\n\n\n>>> vl = voiceLeading.VoiceLeadingQuartet(N('G4'), N('B4'), N('G3'), N('A3'))\n>>> vl.parallelMotion()  # similar motion, but no kind of parallel\nFalse\n\n\n>>> vl = voiceLeading.VoiceLeadingQuartet(N('G4'), N('G5'), N('G4'), N('G5'))\n>>> vl.parallelMotion()  # parallel unisons\nTrue\n\n\n>>> vl.parallelMotion('P1')\nTrue\n\n\noctaves never equivalent to unisons\n>>> vl.parallelMotion('P8', allowOctaveDisplacement=True)\nFalse\n\n\n>>> vl = voiceLeading.VoiceLeadingQuartet(N('A4'), N('B4'), N('D3'), N('E3'))\n>>> vl.parallelMotion()  # parallel fifths\nTrue\n\n\n>>> vl = voiceLeading.VoiceLeadingQuartet(N('A4'), N('B5'), N('D3'), N('E3'))\n>>> vl.parallelMotion()  # 5th to a 12th\nFalse\n>>> vl.parallelMotion(allowOctaveDisplacement=True)\nTrue\n\n\n>>> vl = voiceLeading.VoiceLeadingQuartet(N('A4'), N('Bb4'), N('F4'), N('G4'))\n>>> vl.parallelMotion(3)  # parallel thirds ...\nTrue\n>>> vl.parallelMotion('M3')  # ... but not parallel MAJOR thirds\nFalse\n\n\n>>> vl = voiceLeading.VoiceLeadingQuartet(N('D4'), N('E4'), N('F3'), N('G3'))\n>>> gi = interval.GenericInterval(6)\n>>> vl.parallelMotion(gi)  # these are parallel sixths ...\nTrue\n\n\nThese are also parallel major sixths\n>>> i = interval.Interval('M6')\n>>> di = interval.DiatonicInterval('major', 6)\n>>> vl.parallelMotion(i) and vl.parallelMotion(di)\nTrue\n\n\n>>> vl = voiceLeading.VoiceLeadingQuartet(N('D5'), N('E6'), N('F3'), N('G3'))\n>>> vl.parallelMotion(gi)  # octave displacement\nFalse\n>>> vl.parallelMotion(gi, allowOctaveDisplacement=True)\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "VoiceLeadingQuartet.",
+        "type": "Title"
+    },
+    {
+        "text": "parallelOctave",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if the motion is a parallel Perfect Octave\u2026\na concept so abhorrent we shudder to illustrate it with an example, but alas, we must:\nWe will make the examples shorter with this abbreviation:\n>>> N = note.Note\n>>> vlq = voiceLeading.VoiceLeadingQuartet(N('C5'), N('D5'), N('C4'), N('D4'))\n>>> vlq.parallelOctave()\nTrue\n\n\n>>> vlq = voiceLeading.VoiceLeadingQuartet(N('C6'), N('D6'), N('C4'), N('D4'))\n>>> vlq.parallelOctave()\nTrue\n\n\nOr False if the motion is according to the rules of God's own creation:\n>>> vlq = voiceLeading.VoiceLeadingQuartet(N('C4'), N('D4'), N('C4'), N('D4'))\n>>> vlq.parallelOctave()\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "VoiceLeadingQuartet.",
+        "type": "Title"
+    },
+    {
+        "text": "parallelUnison",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if the motion is a parallel Perfect Unison (and not\nPerfect Octave, etc.)\nWe will make the examples shorter with this abbreviation:\n>>> N = note.Note\n>>> vlq = voiceLeading.VoiceLeadingQuartet(N('C4'), N('D4'), N('C4'), N('D4'))\n>>> vlq.parallelUnison()\nTrue\n\n\n>>> vlq  = voiceLeading.VoiceLeadingQuartet(N('C5'), N('D5'), N('C4'), N('D4'))\n>>> vlq.parallelUnison()\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "VoiceLeadingQuartet.",
+        "type": "Title"
+    },
+    {
+        "text": "parallelUnisonOrOctave",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if the VoiceLeadingQuartet has motion by parallel\noctave or parallel unison\n>>> voiceLeading.VoiceLeadingQuartet(\n...     note.Note('C4'),\n...     note.Note('D4'),\n...     note.Note('C3'),\n...     note.Note('D3')\n...     ).parallelUnisonOrOctave()\nTrue\n\n\n>>> voiceLeading.VoiceLeadingQuartet(\n...     note.Note('C4'),\n...     note.Note('D4'),\n...     note.Note('C4'),\n...     note.Note('D4')\n...     ).parallelUnisonOrOctave()\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "VoiceLeadingQuartet.",
+        "type": "Title"
+    },
+    {
+        "text": "similarMotion",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if the two voices both move in the same direction.\nParallel Motion will also return true, as it is a special case of\nsimilar motion. If there is no motion, returns False.\n>>> n1 = note.Note('G4')\n>>> n2 = note.Note('G4')\n>>> m1 = note.Note('G4')\n>>> m2 = note.Note('G4')\n>>> vl = voiceLeading.VoiceLeadingQuartet(n1, n2, m1, m2)\n>>> vl.similarMotion()\nFalse\n>>> n2.octave = 5\n>>> vl = voiceLeading.VoiceLeadingQuartet(n1, n2, m1, m2)\n>>> vl.similarMotion()\nFalse\n>>> m2.octave = 5\n>>> vl = voiceLeading.VoiceLeadingQuartet(n1, n2, m1, m2)\n>>> vl.similarMotion()\nTrue\n>>> m2 = note.Note('A5')\n>>> vl = voiceLeading.VoiceLeadingQuartet(n1, n2, m1, m2)\n>>> vl.similarMotion()\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "VoiceLeadingQuartet.",
+        "type": "Title"
+    },
+    {
+        "text": "voiceCrossing",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if either note in V1 is lower than the simultaneous note in V2.\nWe will make the examples shorter with this abbreviation:\n>>> N = note.Note\n\n\n>>> vl = voiceLeading.VoiceLeadingQuartet(N('A4'), N('A4'), N('G4'), N('G4'))\n>>> vl.voiceCrossing()  # nothing crossed\nFalse\n\n\n>>> vl = voiceLeading.VoiceLeadingQuartet(N('A4'), N('F4'), N('G4'), N('G4'))\n>>> vl.voiceCrossing()  # second interval is crossed\nTrue\n\n\n>>> vl = voiceLeading.VoiceLeadingQuartet(N('F4'), N('A4'), N('G4'), N('G4'))\n>>> vl.voiceCrossing()  # first interval crossed\nTrue\n\n\n>>> vl = voiceLeading.VoiceLeadingQuartet(N('F4'), N('F4'), N('G4'), N('G4'))\n>>> vl.voiceCrossing()  # both crossed\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "VoiceLeadingQuartet.",
+        "type": "Title"
+    },
+    {
+        "text": "voiceOverlap",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if the second note in V1 is lower than the first in V2, or\nif the second note in V2 is higher than the first note in V1.\nWe will make the examples shorter with this abbreviation:\n>>> N = note.Note\n>>> vl = voiceLeading.VoiceLeadingQuartet(N('A4'), N('B4'), N('F4'), N('G4'))\n>>> vl.voiceOverlap()  # no overlap\nFalse\n\n\n>>> vl = voiceLeading.VoiceLeadingQuartet(N('A4'), N('B4'), N('F4'), N('A4'))\n>>> vl.voiceOverlap()  # Motion to the SAME note is not considered overlap\nFalse\n\n\n>>> vl = voiceLeading.VoiceLeadingQuartet(N('A4'), N('C4'), N('F4'), N('Bb4'))\n>>> vl.voiceOverlap()  # V2 overlaps V1\nTrue\n\n\n>>> vl = voiceLeading.VoiceLeadingQuartet(N('A4'), N('E4'), N('F4'), N('D4'))\n>>> vl.voiceOverlap()  # V1 overlaps V2\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "VoiceLeadingQuartet instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "VoiceLeadingQuartet.",
+        "type": "Title"
+    },
+    {
+        "text": "hIntervals",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A two-element list of the two melodic intervals present,\nv1n1 to v1n2 and v2n1 to v2n2.",
+        "type": "ListItem"
+    },
+    {
+        "text": "VoiceLeadingQuartet.",
+        "type": "Title"
+    },
+    {
+        "text": "vIntervals",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A two-element list of the two harmonic intervals present,\nvn1n1 to v2n1 and v1n2 to v2n2.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "ThreeNoteLinearSegment\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.voiceLeading.",
+        "type": "Title"
+    },
+    {
+        "text": "ThreeNoteLinearSegment",
+        "type": "Title"
+    },
+    {
+        "text": "noteListOrN1",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "n2",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "n3",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "An object consisting of three sequential notes\nThe middle tone in a ThreeNoteLinearSegment can\nbe classified using methods enclosed in this class\nto identify it as types of embellishing tones. Further\nmethods can be used on the entire stream to identify these\nas non-harmonic.\nAccepts a sequence of strings, pitches, or notes.\n>>> ex = voiceLeading.ThreeNoteLinearSegment('C#4', 'D4', 'E-4')\n>>> ex.n1\n<music21.note.Note C#>\n>>> ex.n2\n<music21.note.Note D>\n>>> ex.n3\n<music21.note.Note E->\n\n\n>>> ex = voiceLeading.ThreeNoteLinearSegment(note.Note('A4'),note.Note('D4'),'F5')\n>>> ex.n1\n<music21.note.Note A>\n>>> ex.n2\n<music21.note.Note D>\n>>> ex.n3\n<music21.note.Note F>\n>>> ex.iLeftToRight\n<music21.interval.Interval m6>\n\n\n>>> ex.iLeft\n<music21.interval.Interval P-5>\n>>> ex.iRight\n<music21.interval.Interval m10>\n\n\nif no octave specified, default octave of 4 is assumed\n>>> ex2 = voiceLeading.ThreeNoteLinearSegment('a', 'b', 'c')\n>>> ex2.n1\n<music21.note.Note A>\n>>> defaults.pitchOctave\n4",
+        "type": "ListItem"
+    },
+    {
+        "text": "ThreeNoteLinearSegment bases",
+        "type": "Title"
+    },
+    {
+        "text": "NNoteLinearSegment",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ThreeNoteLinearSegment read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "ThreeNoteLinearSegment.",
+        "type": "Title"
+    },
+    {
+        "text": "iLeft",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "get the interval between the left-most note and the middle note\n(read-only property)\n>>> tnls = voiceLeading.ThreeNoteLinearSegment('A', 'B', 'G')\n>>> tnls.iLeft\n<music21.interval.Interval M2>",
+        "type": "ListItem"
+    },
+    {
+        "text": "ThreeNoteLinearSegment.",
+        "type": "Title"
+    },
+    {
+        "text": "iLeftToRight",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "get the interval between the left-most note and the right-most note\n(read-only property)\n>>> tnls = voiceLeading.ThreeNoteLinearSegment('C', 'E', 'G')\n>>> tnls.iLeftToRight\n<music21.interval.Interval P5>",
+        "type": "ListItem"
+    },
+    {
+        "text": "ThreeNoteLinearSegment.",
+        "type": "Title"
+    },
+    {
+        "text": "iRight",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "get the interval between the middle note and the right-most note\n(read-only property)\n>>> tnls = voiceLeading.ThreeNoteLinearSegment('A', 'B', 'G')\n>>> tnls.iRight\n<music21.interval.Interval M-3>",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read-only properties inherited from NNoteLinearSegment:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "melodicIntervals noteList",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "ThreeNoteLinearSegment read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "ThreeNoteLinearSegment.",
+        "type": "Title"
+    },
+    {
+        "text": "n1",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "get or set the first note (left-most) in the segment",
+        "type": "ListItem"
+    },
+    {
+        "text": "ThreeNoteLinearSegment.",
+        "type": "Title"
+    },
+    {
+        "text": "n2",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "get or set the middle note in the segment",
+        "type": "ListItem"
+    },
+    {
+        "text": "ThreeNoteLinearSegment.",
+        "type": "Title"
+    },
+    {
+        "text": "n3",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "get or set the last note (right-most) in the segment",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "ThreeNoteLinearSegment methods",
+        "type": "Title"
+    },
+    {
+        "text": "ThreeNoteLinearSegment.",
+        "type": "Title"
+    },
+    {
+        "text": "couldBeChromaticNeighborTone",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "returns True if and only if noteToAnalyze could be a chromatic neighbor tone, that is,\nthe left and right notes are identical while the middle is a chromatic step up or down\n>>> voiceLeading.ThreeNoteLinearSegment('C3', 'D3', 'C3').couldBeChromaticNeighborTone()\nFalse\n>>> voiceLeading.ThreeNoteLinearSegment('C3', 'D-3', 'C3').couldBeChromaticNeighborTone()\nTrue\n>>> voiceLeading.ThreeNoteLinearSegment('C#3', 'D3', 'C#3').couldBeChromaticNeighborTone()\nTrue\n>>> voiceLeading.ThreeNoteLinearSegment('C#3', 'D3', 'D-3').couldBeChromaticNeighborTone()\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "ThreeNoteLinearSegment.",
+        "type": "Title"
+    },
+    {
+        "text": "couldBeChromaticPassingTone",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A note could a chromatic passing tone (and therefore a passing tone in general)\nif the generic interval between the previous and the current is -2, 1, or 2;\nthe generic interval between the current and next is -2, 1, 2; the two generic\nintervals multiply to -2 or 2 (if 4 then it's a diatonic interval; if 1 then\nnot a passing tone; i.e, C -> C# -> C## is not a chromatic passing tone);\nAND between each of the notes there is a chromatic interval of 1 or -1 and\nmultiplied together it is 1. (i.e.: C -> D\u2014 -> D- is not a chromatic passing tone).\n>>> voiceLeading.ThreeNoteLinearSegment('B3', 'C4', 'C#4').couldBeChromaticPassingTone()\nTrue\n>>> voiceLeading.ThreeNoteLinearSegment('B3', 'C4', 'C#4').couldBeChromaticPassingTone()\nTrue\n>>> voiceLeading.ThreeNoteLinearSegment('B3', 'B#3', 'C#4').couldBeChromaticPassingTone()\nTrue\n>>> voiceLeading.ThreeNoteLinearSegment('B3', 'D-4', 'C#4').couldBeChromaticPassingTone()\nFalse\n>>> voiceLeading.ThreeNoteLinearSegment('B3', 'C##4', 'C#4').couldBeChromaticPassingTone()\nFalse\n>>> voiceLeading.ThreeNoteLinearSegment('C#4', 'C4', 'C##4').couldBeChromaticPassingTone()\nFalse\n>>> voiceLeading.ThreeNoteLinearSegment('D--4', 'C4', 'D-4').couldBeChromaticPassingTone()\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "ThreeNoteLinearSegment.",
+        "type": "Title"
+    },
+    {
+        "text": "couldBeDiatonicNeighborTone",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if and only if noteToAnalyze could be a diatonic neighbor tone, that is,\nthe left and right notes are identical while the middle is a diatonic step up or down\n>>> voiceLeading.ThreeNoteLinearSegment('C3', 'D3', 'C3').couldBeDiatonicNeighborTone()\nTrue\n>>> voiceLeading.ThreeNoteLinearSegment('C3', 'C#3', 'C3').couldBeDiatonicNeighborTone()\nFalse\n>>> voiceLeading.ThreeNoteLinearSegment('C3', 'D-3', 'C3').couldBeDiatonicNeighborTone()\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "ThreeNoteLinearSegment.",
+        "type": "Title"
+    },
+    {
+        "text": "couldBeDiatonicPassingTone",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A note could be a diatonic passing tone (and therefore a passing tone in general)\nif the generic interval between the previous and the current is 2 or -2;\nsame for the next; and both move in the same direction\n(that is, the two intervals multiplied by each other are 4, not -4).\n>>> tls = voiceLeading.ThreeNoteLinearSegment('B3', 'C4', 'C#4')\n>>> tls.couldBeDiatonicPassingTone()\nFalse\n\n\n>>> tls = voiceLeading.ThreeNoteLinearSegment('C3', 'D3', 'E3')\n>>> tls.couldBeDiatonicPassingTone()\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "ThreeNoteLinearSegment.",
+        "type": "Title"
+    },
+    {
+        "text": "couldBeNeighborTone",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "checks if noteToAnalyze could be a neighbor tone, either a diatonic neighbor tone\nor a chromatic neighbor tone. Does NOT check if tone is non-harmonic.\n>>> voiceLeading.ThreeNoteLinearSegment('E3', 'F3', 'E3').couldBeNeighborTone()\nTrue\n>>> voiceLeading.ThreeNoteLinearSegment('B-4', 'C5', 'B-4').couldBeNeighborTone()\nTrue\n>>> voiceLeading.ThreeNoteLinearSegment('B4', 'C5', 'B4').couldBeNeighborTone()\nTrue\n>>> voiceLeading.ThreeNoteLinearSegment('G4', 'F#4', 'G4').couldBeNeighborTone()\nTrue\n>>> voiceLeading.ThreeNoteLinearSegment('E-3', 'F3', 'E-4').couldBeNeighborTone()\nFalse\n>>> voiceLeading.ThreeNoteLinearSegment('C3', 'D3', 'E3').couldBeNeighborTone()\nFalse\n>>> voiceLeading.ThreeNoteLinearSegment('A3', 'C3', 'D3').couldBeNeighborTone()\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "ThreeNoteLinearSegment.",
+        "type": "Title"
+    },
+    {
+        "text": "couldBePassingTone",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "checks if the two intervals are steps and if these steps\nare moving in the same direction. Returns True if the tone is\nidentified as either a chromatic passing tone or a diatonic passing\ntone. Only major and minor diatonic passing tones are recognized (not\npentatonic or scales beyond twelve-notes). Does NOT check if tone is non-harmonic.\nAccepts pitch or note objects; method is dependent on octave information\n>>> voiceLeading.ThreeNoteLinearSegment('C#4', 'D4', 'E-4').couldBePassingTone()\nTrue\n>>> voiceLeading.ThreeNoteLinearSegment('C3', 'D3', 'E3').couldBePassingTone()\nTrue\n>>> voiceLeading.ThreeNoteLinearSegment('E-3', 'F3', 'G-3').couldBePassingTone()\nTrue\n>>> voiceLeading.ThreeNoteLinearSegment('C3', 'C3', 'C3').couldBePassingTone()\nFalse\n>>> voiceLeading.ThreeNoteLinearSegment('A3', 'C3', 'D3').couldBePassingTone()\nFalse\n\n\nDirectionality must be maintained\n>>> voiceLeading.ThreeNoteLinearSegment('B##3', 'C4', 'D--4').couldBePassingTone()\nFalse\n\n\nIf no octave is given then ._defaultOctave is used.  This is generally octave 4\n>>> voiceLeading.ThreeNoteLinearSegment('C', 'D', 'E').couldBePassingTone()\nTrue\n>>> voiceLeading.ThreeNoteLinearSegment('C4', 'D', 'E').couldBePassingTone()\nTrue\n>>> voiceLeading.ThreeNoteLinearSegment('C5', 'D', 'E').couldBePassingTone()\nFalse\n\n\nMethod returns True if either a chromatic passing tone or a diatonic passing\ntone is identified. Spelling of the pitch does matter!\n>>> voiceLeading.ThreeNoteLinearSegment('B3', 'C4', 'B##3').couldBePassingTone()\nFalse\n>>> voiceLeading.ThreeNoteLinearSegment('A##3', 'C4', 'E---4').couldBePassingTone()\nFalse\n>>> voiceLeading.ThreeNoteLinearSegment('B3', 'C4', 'D-4').couldBePassingTone()\nTrue\n>>> voiceLeading.ThreeNoteLinearSegment('B3', 'C4', 'C#4').couldBePassingTone()\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "ThreeNoteLinearSegment instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "Verticality\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.voiceLeading.",
+        "type": "Title"
+    },
+    {
+        "text": "Verticality",
+        "type": "Title"
+    },
+    {
+        "text": "contentDict",
+        "type": "Title"
+    },
+    {
+        "text": "dict | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "DEPRECATED in v7 in favor of tree.verticality.Verticality\nA Verticality (previously called \u009cvertical slice\u009d)\nobject provides more accessible information about\nvertical moments in a score. A Verticality is\ninstantiated by passing in a dictionary of\nthe form {partNumber: [ music21Objects ] }\nVerticalities are useful to provide direct and easy access to objects in a part.\nA list of Verticalities, although similar to the list of chords from a chordified score,\nprovides easier access to part number\ninformation and identity of objects in the score. Plus, the objects in a\nVerticality point directly\nto the objects in the score, so modifying a Verticality taken from a\nscore is the same as modifying the elements\nof the Verticality in the score directly.\n>>> vs1 = voiceLeading.Verticality({0: [note.Note('A4'), harmony.ChordSymbol('Cm')],\n...                                 1: [note.Note('F2')]})\n>>> vs1.getObjectsByClass(note.Note)\n[<music21.note.Note A>, <music21.note.Note F>]\n>>> vs1.getObjectsByPart(0, note.Note)\n<music21.note.Note A>",
+        "type": "ListItem"
+    },
+    {
+        "text": "Verticality bases",
+        "type": "Title"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "Verticality read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Verticality.",
+        "type": "Title"
+    },
+    {
+        "text": "objects",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "return a list of all the music21 objects in the Verticality\n>>> vs1 = voiceLeading.Verticality({0: [harmony.ChordSymbol('C'), note.Note('A4'),],\n...                                 1: [note.Note('C')]})\n>>> vs1.objects\n[<music21.harmony.ChordSymbol C>, <music21.note.Note A>, <music21.note.Note C>]",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "Verticality read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Verticality.",
+        "type": "Title"
+    },
+    {
+        "text": "color",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "sets the color of each element in the Verticality\n>>> vs1 = voiceLeading.Verticality({1:note.Note('C'), 2:harmony.ChordSymbol('D')})\n>>> vs1.color = 'blue'\n>>> [(x, x.style.color) for x in vs1.objects]\n[(<music21.note.Note C>, 'blue'), (<music21.harmony.ChordSymbol D>, 'blue')]",
+        "type": "ListItem"
+    },
+    {
+        "text": "Verticality.",
+        "type": "Title"
+    },
+    {
+        "text": "lyric",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "sets each object on the Verticality to have the passed in lyric\n>>> h = voiceLeading.Verticality({1: note.Note('C'), 2: harmony.ChordSymbol('C')})\n>>> h.lyric = 'Verticality 1'\n>>> h.getStream().flatten().getElementsByClass(note.Note).first().lyric\n'Verticality 1'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "Verticality methods",
+        "type": "Title"
+    },
+    {
+        "text": "Verticality.",
+        "type": "Title"
+    },
+    {
+        "text": "changeDurationOfAllObjects",
+        "type": "Title"
+    },
+    {
+        "text": "newQuarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "changes the duration of all objects in Verticality\n>>> n1 =  note.Note('C4')\n>>> n1.quarterLength = 1\n>>> n2 =  note.Note('G4')\n>>> n2.quarterLength = 2\n>>> cs = harmony.ChordSymbol('C')\n>>> cs.quarterLength = 4\n>>> vs1 = voiceLeading.Verticality({0:n1, 1:n2, 2:cs})\n>>> vs1.changeDurationOfAllObjects(1.5)\n>>> [x.quarterLength for x in vs1.objects]\n[1.5, 1.5, 1.5]\n\n\nNote: capitalization of function changed in v5.7",
+        "type": "ListItem"
+    },
+    {
+        "text": "Verticality.",
+        "type": "Title"
+    },
+    {
+        "text": "getChord",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "extracts all simultaneously sounding pitches (from chords, notes, harmony objects, etc.)\nand returns\nas a chord. Pretty much returns the Verticality to a chordified output.\n>>> N = note.Note\n>>> vs1 = voiceLeading.Verticality({0:N('A4'), 1:chord.Chord(['B', 'C', 'A']), 2:N('A')})\n>>> vs1.getChord()\n<music21.chord.Chord A4 B C A A>\n>>> voiceLeading.Verticality({0:N('A3'),\n...                           1:chord.Chord(['F3', 'D4', 'A4']),\n...                           2:harmony.ChordSymbol('Am')}).getChord()\n<music21.chord.Chord A3 F3 D4 A4 A2 C3 E3>",
+        "type": "ListItem"
+    },
+    {
+        "text": "Verticality.",
+        "type": "Title"
+    },
+    {
+        "text": "getLongestDuration",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "returns the longest duration that exists among all elements\n>>> n1 =  note.Note('C4')\n>>> n1.quarterLength = 1\n>>> n2 =  note.Note('G4')\n>>> n2.quarterLength = 2\n>>> cs = harmony.ChordSymbol('C')\n>>> cs.quarterLength = 4\n>>> vs1 = voiceLeading.Verticality({0:n1, 1:n2, 2:cs})\n>>> vs1.getLongestDuration()\n4.0",
+        "type": "ListItem"
+    },
+    {
+        "text": "Verticality.",
+        "type": "Title"
+    },
+    {
+        "text": "getObjectsByClass",
+        "type": "Title"
+    },
+    {
+        "text": "classFilterList",
+        "type": "Title"
+    },
+    {
+        "text": "partNums",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "returns a list of all objects in the Verticality of a type contained\nin the classFilterList. Optionally\nspecify part numbers to only search for matching objects\n>>> N = note.Note\n>>> vs1 = voiceLeading.Verticality({0: [N('A4'), harmony.ChordSymbol('C')],\n...                                 1: [N('C')],\n...                                 2: [N('B'), N('F#')]})\n>>> vs1.getObjectsByClass('Note')\n[<music21.note.Note A>, <music21.note.Note C>,\n <music21.note.Note B>, <music21.note.Note F#>]\n>>> vs1.getObjectsByClass('Note', [1, 2])\n[<music21.note.Note C>, <music21.note.Note B>, <music21.note.Note F#>]",
+        "type": "ListItem"
+    },
+    {
+        "text": "Verticality.",
+        "type": "Title"
+    },
+    {
+        "text": "getObjectsByPart",
+        "type": "Title"
+    },
+    {
+        "text": "partNum",
+        "type": "Title"
+    },
+    {
+        "text": "classFilterList",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "returns the list of music21 objects associated with a given part number\n(if more than one). returns\nthe single object if only one. Optionally specify which\ntype of objects to return with classFilterList\n>>> vs1 = voiceLeading.Verticality({0: [note.Note('A4'), harmony.ChordSymbol('C')],\n...                                 1: [note.Note('C')]})\n>>> vs1.getObjectsByPart(0, classFilterList=['Harmony'])\n<music21.harmony.ChordSymbol C>\n>>> vs1.getObjectsByPart(0)\n[<music21.note.Note A>, <music21.harmony.ChordSymbol C>]\n>>> vs1.getObjectsByPart(1)\n<music21.note.Note C>",
+        "type": "ListItem"
+    },
+    {
+        "text": "Verticality.",
+        "type": "Title"
+    },
+    {
+        "text": "getShortestDuration",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "returns the smallest quarterLength that exists among all elements\n>>> n1 =  note.Note('C4')\n>>> n1.quarterLength = 1\n>>> n2 =  note.Note('G4')\n>>> n2.quarterLength = 2\n>>> cs = harmony.ChordSymbol('C')\n>>> cs.quarterLength = 4\n>>> vs1 = voiceLeading.Verticality({0:n1, 1:n2, 2:cs})\n>>> vs1.getShortestDuration()\n1.0",
+        "type": "ListItem"
+    },
+    {
+        "text": "Verticality.",
+        "type": "Title"
+    },
+    {
+        "text": "getStream",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "returns a stream representation of this Verticality. Correct key, meter, and time\nsignatures will be included if they are found in the context of the first part\n>>> vs1 = voiceLeading.Verticality({0: [harmony.ChordSymbol('C'), note.Note('A4'),],\n...                                 1: [note.Note('C')]})\n>>> vsStream = vs1.getStream()\n>>> vsStream.show('text')\n{0.0} <music21.stream.Part part-0>\n    {0.0} <music21.harmony.ChordSymbol C>\n    {0.0} <music21.note.Note A>\n{0.0} <music21.stream.Part part-1>\n    {0.0} <music21.note.Note C>\n\n\nHow many notes are there anywhere in the hierarchy?\n>>> len(vsStream[note.Note])\n2\n>>> len(vsStream[harmony.Harmony])\n1",
+        "type": "ListItem"
+    },
+    {
+        "text": "Verticality.",
+        "type": "Title"
+    },
+    {
+        "text": "getVerticalityOffset",
+        "type": "Title"
+    },
+    {
+        "text": "leftAlign",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "returns the overall offset of the Verticality. Typically, this would just be the\noffset of each object in the Verticality,\nand each object would have the same offset.\nHowever, if the duration of one object in the slice is different from\nthe duration of another,\nand that other starts after the first, but the first is still sounding, then the\noffsets would be\ndifferent. In this case, specify leftAlign=True to return the lowest valued-offset\nof all the objects\nin the Verticality. If you prefer the offset of the right-most starting object,\nthen specify leftAlign=False\n>>> s = stream.Score()\n>>> n1 = note.Note('A4', quarterLength=1.0)\n>>> s.append(n1)\n>>> n1.offset\n0.0\n>>> n2 = note.Note('F2', quarterLength =0.5)\n>>> s.append(n2)\n>>> n2.offset\n1.0\n>>> vs = voiceLeading.Verticality({0:n1, 1: n2})\n>>> vs.getObjectsByClass(note.Note)\n[<music21.note.Note A>, <music21.note.Note F>]\n\n\n>>> vs.getVerticalityOffset(leftAlign=True)\n0.0\n>>> vs.getVerticalityOffset(leftAlign=False)\n1.0\n\n\n\n\nChanged in v8: renamed getVerticalityOffset to not conflict with.offset property.  Made leftAlign keyword only",
+        "type": "ListItem"
+    },
+    {
+        "text": "Verticality.",
+        "type": "Title"
+    },
+    {
+        "text": "isConsonant",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "evaluates whether this Verticality moment is consonant or dissonant\naccording to the common-practice\nconsonance rules. Method generates chord of all simultaneously sounding pitches, then calls\nisConsonant()\n>>> V = voiceLeading.Verticality\n>>> N = note.Note\n>>> V({0: N('A4'), 1: N('B4'), 2: N('A4')}).isConsonant()\nFalse\n>>> V({0: N('A4'), 1: N('B4'), 2: N('C#4')}).isConsonant()\nFalse\n>>> V({0: N('C3'), 1: N('G5'), 2: chord.Chord(['C3', 'E4', 'G5'])}).isConsonant()\nTrue\n>>> V({0: N('A3'), 1: N('B3'), 2: N('C4')}).isConsonant()\nFalse\n>>> V({0: N('C1'), 1: N('C2'), 2: N('C3'),\n...    3: N('G1'), 4: N('G2'), 5: N('G3')}).isConsonant()\nTrue\n>>> V({0: N('A3'), 1: harmony.ChordSymbol('Am')}).isConsonant()\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "Verticality.",
+        "type": "Title"
+    },
+    {
+        "text": "makeAllLargestDuration",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "locates the largest duration of all elements in the Verticality\nand assigns this duration\nto each element\n>>> n1 =  note.Note('C4')\n>>> n1.quarterLength = 1\n>>> n2 =  note.Note('G4')\n>>> n2.quarterLength = 2\n>>> cs = harmony.ChordSymbol('C')\n>>> cs.quarterLength = 4\n>>> vs1 = voiceLeading.Verticality({0:n1, 1:n2, 2:cs})\n>>> vs1.makeAllLargestDuration()\n>>> [x.quarterLength for x in vs1.objects]\n[4.0, 4.0, 4.0]",
+        "type": "ListItem"
+    },
+    {
+        "text": "Verticality.",
+        "type": "Title"
+    },
+    {
+        "text": "makeAllSmallestDuration",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "locates the smallest duration of all elements in the Verticality\nand assigns this duration\nto each element\n>>> n1 =  note.Note('C4')\n>>> n1.quarterLength = 1\n>>> n2 =  note.Note('G4')\n>>> n2.quarterLength = 2\n>>> cs = harmony.ChordSymbol('C')\n>>> cs.quarterLength = 4\n>>> vs1 = voiceLeading.Verticality({0:n1, 1:n2, 2:cs})\n>>> vs1.makeAllSmallestDuration()\n>>> [x.quarterLength for x in vs1.objects]\n[1.0, 1.0, 1.0]",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Verticality instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Verticality.",
+        "type": "Title"
+    },
+    {
+        "text": "contentDict",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Dictionary representing contents of Verticalities.\nthe keys of the dictionary\nare the part numbers and the element at each key is a list of\nmusic21 objects (allows for multiple voices\nin a single part)",
+        "type": "ListItem"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "VerticalityNTuplet\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.voiceLeading.",
+        "type": "Title"
+    },
+    {
+        "text": "VerticalityNTuplet",
+        "type": "Title"
+    },
+    {
+        "text": "listOfVerticalities",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "a collection of n number of Verticalities. These objects are useful when\nanalyzing counterpoint\nmotion and music theory elements such as passing tones",
+        "type": "ListItem"
+    },
+    {
+        "text": "VerticalityNTuplet bases",
+        "type": "Title"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "VerticalityNTuplet read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "VerticalityNTuplet read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "VerticalityNTuplet methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "VerticalityNTuplet instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "MotionType\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.voiceLeading.",
+        "type": "Title"
+    },
+    {
+        "text": "MotionType",
+        "type": "Title"
+    },
+    {
+        "text": "value",
+        "type": "Title"
+    },
+    {
+        "text": "names",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "module",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "qualname",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "start",
+        "type": "Title"
+    },
+    {
+        "text": "boundary",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "NChordLinearSegment\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.voiceLeading.",
+        "type": "Title"
+    },
+    {
+        "text": "NChordLinearSegment",
+        "type": "Title"
+    },
+    {
+        "text": "chordList",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "NChordLinearSegment bases",
+        "type": "Title"
+    },
+    {
+        "text": "NObjectLinearSegment",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "NChordLinearSegment read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "NChordLinearSegment.",
+        "type": "Title"
+    },
+    {
+        "text": "chordList",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns a list of all chord symbols in this linear segment.\nModifying the list does not change the linear segment.\n>>> n = voiceLeading.NChordLinearSegment([harmony.ChordSymbol('Am'),\n...                                       harmony.ChordSymbol('F7'),\n...                                       harmony.ChordSymbol('G9')])\n>>> n.chordList\n[<music21.harmony.ChordSymbol Am>,\n <music21.harmony.ChordSymbol F7>,\n <music21.harmony.ChordSymbol G9>]",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "NChordLinearSegment read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "NChordLinearSegment methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "NChordLinearSegment instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "NNoteLinearSegment\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.voiceLeading.",
+        "type": "Title"
+    },
+    {
+        "text": "NNoteLinearSegment",
+        "type": "Title"
+    },
+    {
+        "text": "noteList",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "a list of n notes strung together in a sequence\nnoteList = [note1, note2, note3, \u2026, note-n ] Once this\nobject is created with a noteList, the noteList may not\nbe changed\n>>> n = voiceLeading.NNoteLinearSegment(['A', 'C', 'D'])\n>>> n.noteList\n[<music21.note.Note A>, <music21.note.Note C>, <music21.note.Note D>]",
+        "type": "ListItem"
+    },
+    {
+        "text": "NNoteLinearSegment bases",
+        "type": "Title"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "NNoteLinearSegment read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "NNoteLinearSegment.",
+        "type": "Title"
+    },
+    {
+        "text": "melodicIntervals",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "calculates the melodic intervals and returns them as a list,\nwith the interval at 0 being the interval between the first and second note.\n>>> linSeg = voiceLeading.NNoteLinearSegment([note.Note('A'), note.Note('B'),\n...            note.Note('C'), note.Note('D')])\n>>> linSeg.melodicIntervals\n[<music21.interval.Interval M2>,\n <music21.interval.Interval M-7>,\n <music21.interval.Interval M2>]",
+        "type": "ListItem"
+    },
+    {
+        "text": "NNoteLinearSegment.",
+        "type": "Title"
+    },
+    {
+        "text": "noteList",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Read-only property \u2014 returns a copy of the list of notes in the\nlinear segment.\n>>> n = voiceLeading.NNoteLinearSegment(['A', 'B5', 'C', 'F#'])\n>>> n.noteList\n[<music21.note.Note A>, <music21.note.Note B>,\n <music21.note.Note C>, <music21.note.Note F#>]",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "NNoteLinearSegment read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "NNoteLinearSegment methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "NNoteLinearSegment instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "NObjectLinearSegment\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.voiceLeading.",
+        "type": "Title"
+    },
+    {
+        "text": "NObjectLinearSegment",
+        "type": "Title"
+    },
+    {
+        "text": "objectList",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "NObjectLinearSegment bases",
+        "type": "Title"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "NObjectLinearSegment read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "NObjectLinearSegment read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "NObjectLinearSegment methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "NObjectLinearSegment instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "TwoChordLinearSegment\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.voiceLeading.",
+        "type": "Title"
+    },
+    {
+        "text": "TwoChordLinearSegment",
+        "type": "Title"
+    },
+    {
+        "text": "chordList",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "chord2",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "TwoChordLinearSegment bases",
+        "type": "Title"
+    },
+    {
+        "text": "NChordLinearSegment",
+        "type": "ListItem"
+    },
+    {
+        "text": "NObjectLinearSegment",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "TwoChordLinearSegment read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from NChordLinearSegment:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "chordList",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "TwoChordLinearSegment read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "TwoChordLinearSegment methods",
+        "type": "Title"
+    },
+    {
+        "text": "TwoChordLinearSegment.",
+        "type": "Title"
+    },
+    {
+        "text": "bassInterval",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "returns the chromatic interval between the basses of the two chord symbols\n>>> h = voiceLeading.TwoChordLinearSegment(harmony.ChordSymbol('C/E'),\n...                                        harmony.ChordSymbol('G'))\n>>> h.bassInterval()\n<music21.interval.ChromaticInterval 3>",
+        "type": "ListItem"
+    },
+    {
+        "text": "TwoChordLinearSegment.",
+        "type": "Title"
+    },
+    {
+        "text": "rootInterval",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "returns the chromatic interval between the roots of the two chord symbols\n>>> h = voiceLeading.TwoChordLinearSegment([harmony.ChordSymbol('C'),\n...                                         harmony.ChordSymbol('G')])\n>>> h.rootInterval()\n<music21.interval.ChromaticInterval 7>",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "TwoChordLinearSegment instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "VerticalityTriplet\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.voiceLeading.",
+        "type": "Title"
+    },
+    {
+        "text": "VerticalityTriplet",
+        "type": "Title"
+    },
+    {
+        "text": "listOfVerticalities",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "a collection of three Verticalities",
+        "type": "ListItem"
+    },
+    {
+        "text": "VerticalityTriplet bases",
+        "type": "Title"
+    },
+    {
+        "text": "VerticalityNTuplet",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "VerticalityTriplet read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "VerticalityTriplet read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "VerticalityTriplet methods",
+        "type": "Title"
+    },
+    {
+        "text": "VerticalityTriplet.",
+        "type": "Title"
+    },
+    {
+        "text": "hasNeighborTone",
+        "type": "Title"
+    },
+    {
+        "text": "partNumToIdentify",
+        "type": "Title"
+    },
+    {
+        "text": "unaccentedOnly",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "return true if this Verticality triplet contains a neighbor tone\nmusic21 currently identifies neighbor tones by analyzing both horizontal motion\nand vertical motion.\nIt first checks to see if the note could be a neighbor tone based on the notes\nlinearly adjacent to it.\nIt then checks to see if the note's vertical context is dissonant,\nwhile the Verticalities\nto the left and right are consonant\npartNum is the part (starting with 0) to identify the passing tone\nfor use on 3 Verticalities (3-tuplet)\n>>> vs1 = voiceLeading.Verticality({0:note.Note('E-4'), 1: note.Note('C3')})\n>>> vs2 = voiceLeading.Verticality({0:note.Note('E-4'), 1: note.Note('B2')})\n>>> vs3 = voiceLeading.Verticality({0:note.Note('C5'), 1: note.Note('C3')})\n>>> vt = voiceLeading.VerticalityTriplet([vs1, vs2, vs3])\n>>> vt.hasNeighborTone(1)\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "VerticalityTriplet.",
+        "type": "Title"
+    },
+    {
+        "text": "hasPassingTone",
+        "type": "Title"
+    },
+    {
+        "text": "partNumToIdentify",
+        "type": "Title"
+    },
+    {
+        "text": "unaccentedOnly",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "return true if this Verticality triplet contains a passing tone\nmusic21 currently identifies passing tones by analyzing both horizontal motion\nand vertical motion.\nIt first checks to see if the note could be a passing tone based on the notes\nlinearly adjacent to it.\nIt then checks to see if the note's vertical context is dissonant, while the\nVerticalities\nto the left and right are consonant\npartNum is the part (starting with 0) to identify the passing tone\n>>> vs1 = voiceLeading.Verticality({0:note.Note('A4'), 1:note.Note('F2')})\n>>> vs2 = voiceLeading.Verticality({0:note.Note('B-4'), 1:note.Note('F2')})\n>>> vs3 = voiceLeading.Verticality({0:note.Note('C5'), 1:note.Note('E2')})\n>>> vt = voiceLeading.VerticalityTriplet([vs1, vs2, vs3])\n>>> vt.hasPassingTone(0)\nTrue\n>>> vt.hasPassingTone(1)\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "VerticalityTriplet instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.voiceLeading.",
+        "type": "Title"
+    },
+    {
+        "text": "getVerticalityFromObject",
+        "type": "Title"
+    },
+    {
+        "text": "music21Obj",
+        "type": "Title"
+    },
+    {
+        "text": "scoreObjectIsFrom",
+        "type": "Title"
+    },
+    {
+        "text": "classFilterList",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "returns the Verticality object given a score,\nand a music21 object within this score\n(under development)\n>>> c = corpus.parse('bach/bwv66.6')\n>>> n1 = c.flatten().getElementsByClass(note.Note).first()\n>>> voiceLeading.getVerticalityFromObject(n1, c)\n<music21.voiceLeading.Verticality\n    contentDict={0: [<music21.instrument.Instrument 'P1: Soprano: Instrument 1'>,\n                     <music21.clef.TrebleClef>,\n                     <music21.tempo.MetronomeMark Quarter=96 (playback only)>,\n                     <music21.key.Key of f# minor>,\n                     <music21.meter.TimeSignature 4/4>,\n                     <music21.note.Note C#>],\n          1: [<music21.instrument.Instrument 'P2: Alto: Instrument 2'>,\n              <music21.clef.TrebleClef>,\n              <music21.tempo.MetronomeMark Quarter=96 (playback only)>,\n              <music21.key.Key of f# minor>,\n              <music21.meter.TimeSignature 4/4>,\n              <music21.note.Note E>],\n          2: [<music21.instrument.Instrument 'P3: Tenor: Instrument 3'>,\n              <music21.clef.BassClef>,\n              <music21.tempo.MetronomeMark Quarter=96 (playback only)>,\n              <music21.key.Key of f# minor>,\n              <music21.meter.TimeSignature 4/4>,\n              <music21.note.Note A>],\n          3: [<music21.instrument.Instrument 'P4: Bass: Instrument 4'>,\n              <music21.clef.BassClef>,\n              <music21.tempo.MetronomeMark Quarter=96 (playback only)>,\n              <music21.key.Key of f# minor>,\n              <music21.meter.TimeSignature 4/4>,\n              <music21.note.Note A>]}>\n\n\nfor getting things at the beginning of scores, probably better to use a classFilterList:\n>>> voiceLeading.getVerticalityFromObject(n1, c,\n...                      classFilterList=[note.Note, chord.Chord, note.Rest])\n<music21.voiceLeading.Verticality contentDict={0: [<music21.note.Note C#>],\n          1: [<music21.note.Note E>],\n          2: [<music21.note.Note A>],\n          3: [<music21.note.Note A>]}>",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.voiceLeading",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

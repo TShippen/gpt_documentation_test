@@ -1,0 +1,182 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.stream.tools",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.stream.streamStatus",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.style",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.stream.tools\nFunctions\nremoveDuplicates()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.stream.tools\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.stream.tools.",
+        "type": "Title"
+    },
+    {
+        "text": "removeDuplicates",
+        "type": "Title"
+    },
+    {
+        "text": "thisStream: ~music21.stream.base.Stream",
+        "type": "Title"
+    },
+    {
+        "text": "classesToRemove: tuple = (<class 'music21.meter.base.TimeSignature'>",
+        "type": "Title"
+    },
+    {
+        "text": "<class 'music21.key.KeySignature'>",
+        "type": "Title"
+    },
+    {
+        "text": "<class 'music21.clef.Clef'>)",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace: bool = True",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "\u2192 Stream",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The repetition of some classes like notes is common.\nBy contrast, the explicit repetition of certain other objects like clefs\nusually indicates an error e.g., resulting from a copy'n'paste.\nThis function serves to remove those that are likely in error and make no change.\nUse the classesToRemove argument to specify which music21 classes to check and remove.\nThe classes currently supported are: time signatures, key signatures, and clefs.\nThe classesToRemove argument defaults all three.\nSometimes there are legitimate reasons to duplicate even these classes.\nIn that case, override the default by specifying the list of which of the three of classes.\nMore classes may be added, but for now they will simply raise a ValueError.\nSo let's create an example part with an initial set of\ntime signature, key signature, and clef.\n>>> p = stream.Part()\n>>> p.append(meter.TimeSignature('3/4'))  # first TS\n>>> p.append(key.KeySignature(6))  # first KS\n>>> p.append(clef.TrebleClef())  # first Clef\n\n\nThen a few notes, followed by a duplicates of the\nkey signature, and clef.\n>>> p.append(note.Note('C'))\n>>> p.append(note.Note('C'))\n>>> p.append(note.Note('D'))\n\n\n>>> p.append(meter.TimeSignature('3/4'))  # duplicate\n>>> p.append(key.KeySignature(6))  # duplicate\n>>> p.append(clef.TrebleClef())  # duplicate\n\n\nFinally, a few more notes, followed by a\nchange of time signature, key signature, and clef.\n>>> p.append(note.Note('E'))\n>>> p.append(note.Note('F'))\n>>> p.append(note.Note('G'))\n\n\n>>> p.append(meter.TimeSignature('2/4'))\n>>> p.append(key.KeySignature(-5))\n>>> p.append(clef.BassClef())\n\n\n>>> p.append(note.Note('A'))\n>>> p.append(note.Note('B'))\n>>> p.append(note.Note('C5'))\n\n\nNow we'll make it into a proper part with measures and see\nhow it looks in its original, unaltered form:\n>>> p.makeMeasures(inPlace=True)\n>>> p.show('t')\n{0.0} <music21.stream.Measure 1 offset=0.0>\n    {0.0} <music21.clef.TrebleClef>\n    {0.0} <music21.key.KeySignature of 6 sharps>\n    {0.0} <music21.meter.TimeSignature 3/4>\n    {0.0} <music21.note.Note C>\n    {1.0} <music21.note.Note C>\n    {2.0} <music21.note.Note D>\n{3.0} <music21.stream.Measure 2 offset=3.0>\n    {0.0} <music21.clef.TrebleClef>\n    {0.0} <music21.key.KeySignature of 6 sharps>\n    {0.0} <music21.meter.TimeSignature 3/4>\n    {0.0} <music21.note.Note E>\n    {1.0} <music21.note.Note F>\n    {2.0} <music21.note.Note G>\n{6.0} <music21.stream.Measure 3 offset=6.0>\n    {0.0} <music21.clef.BassClef>\n    {0.0} <music21.key.KeySignature of 5 flats>\n    {0.0} <music21.meter.TimeSignature 2/4>\n    {0.0} <music21.note.Note A>\n    {1.0} <music21.note.Note B>\n{8.0} <music21.stream.Measure 4 offset=8.0>\n    {0.0} <music21.note.Note C>\n    {1.0} <music21.bar.Barline type=final>\n\n\nCalling removeDuplicates should remove the duplicates\neven with those changes now stored within measures,\nnot directly on the part.\nSpecifically, in our example,\nthe duplicates entries are removed from measure 2\nand the actual changes in measure 3 remain.\n>>> testInPlace = stream.tools.removeDuplicates(p)\n>>> testInPlace.show('t')\n{0.0} <music21.stream.Measure 1 offset=0.0>\n    {0.0} <music21.clef.TrebleClef>\n    {0.0} <music21.key.KeySignature of 6 sharps>\n    {0.0} <music21.meter.TimeSignature 3/4>\n    {0.0} <music21.note.Note C>\n    {1.0} <music21.note.Note C>\n    {2.0} <music21.note.Note D>\n{3.0} <music21.stream.Measure 2 offset=3.0>\n    {0.0} <music21.note.Note E>\n    {1.0} <music21.note.Note F>\n    {2.0} <music21.note.Note G>\n{6.0} <music21.stream.Measure 3 offset=6.0>\n    {0.0} <music21.clef.BassClef>\n    {0.0} <music21.key.KeySignature of 5 flats>\n    {0.0} <music21.meter.TimeSignature 2/4>\n    {0.0} <music21.note.Note A>\n    {1.0} <music21.note.Note B>\n{8.0} <music21.stream.Measure 4 offset=8.0>\n    {0.0} <music21.note.Note C>\n    {1.0} <music21.bar.Barline type=final>\n\n\nAs the example shows, this function defaults to working on a stream inPlace.\n>>> testInPlace == p\nTrue\n\n\nTo avoid this, set inPlace to False.\n>>> testNotInPlace = stream.tools.removeDuplicates(p, inPlace=False)\n>>> testNotInPlace == p\nFalse\n\n\nThis function is primarily designed and intended for use on a stream.Part object.\nIf called on a steam.Score, it will simply be applied to each of that score's parts in turn.\n>>> s = stream.Score()\n>>> s.append(p)\n>>> t = stream.tools.removeDuplicates(s, inPlace=False)\n>>> s.parts[0] == testInPlace\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.stream.tools",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

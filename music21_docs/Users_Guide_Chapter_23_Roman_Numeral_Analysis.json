@@ -1,0 +1,1294 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 23: Roman Numeral Analysis",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide, Chapter 22: Graphing and plotting",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide, Chapter 24: Configuring Environment Settings",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide, Chapter 23: Roman Numeral Analysis\nRomanNumerals as Chords",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide\nUser's Guide: Table of Contents\nUser's Guide, Chapter 1: Installing and Getting Started with music21\nUser's Guide, Chapter 2: Notes\nUser's Guide, Chapter 3: Pitches, Durations, and Notes again\nUser's Guide, Chapter 4: Lists, Streams (I) and Output\nUser's Guide, Chapter 5: Lists of Lists, Functions, and Recursion\nUser's Guide, Chapter 6: Streams (II): Hierarchies, Recursion, and Flattening\nUser's Guide, Chapter 7: Chords\nUser's Guide, Chapter 8: Installing MusicXML Readers and File Formats (1)\nUser's Guide, Chapter 9: Chordify\nUser's Guide, Chapter 10: Examples 1\nUser's Guide, Chapter 11: Corpus Searching\nUser's Guide, Chapter 12: Getting Back to Basics: The Music21Object\nUser's Guide, Chapter 13: More Music21Object Attributes and Properties\nUser's Guide: Chapter 14: Time Signatures and Beats\nUser's Guide, Chapter 15: Keys and KeySignatures\nUser's Guide, Chapter 16: TinyNotation\nUser's Guide: Chapter 17: Derivations\nUser's Guide: Chapter 18: Intervals\nUser's Guide, Chapter 19: Advanced Durations (Complex and Tuplets)\nUser's Guide, Chapter 20: Examples 2\nUser's Guide, Chapter 21: Ordering and Sorting of Stream Elements\nUser's Guide, Chapter 22: Graphing and plotting\nUser's Guide, Chapter 23: Roman Numeral Analysis\nUser's Guide, Chapter 24: Configuring Environment Settings\nUser's Guide, Chapter 25: Post-Tonal Tools (1)\nUser's Guide, Chapter 26: Stream Iteration and Filtering\nUser's Guide, Chapter 27: Grace Notes\nUser's Guide, Chapter 28: Lyric Searching\nUser's Guide, Chapter 29: Spanners 1 (Slurs)\nUser's Guide, Chapter 30: Examples 3\nUser's Guide, Chapter 31: Clefs, Ties, and Beams\nUser's Guide, Chapter 32: Articulations\nUser's Guide, Chapter 44: Advanced Graphing (Axes, Plots, and Graphs)\nUser's Guide, Chapter 53: Advanced Corpus and Metadata Searching\nUser's Guide, Chapter 54: Extending Converter with New Formats\nUser's Guide, Chapter 55: Advanced Meter Topics\nUser's Guide, Chapter 58: Understanding Sites and Contexts\nUser's Guide, Chapter 61: TimespanTrees and Verticalities",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 23: Roman Numeral Analysis\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "F major is a chord that has the notes F, A, and usually C. Those notes,\nplaced in the same octave, instrument, dynamics, etc., should have\nbasically the same acoustical properties each time it's played, but\nhuman perception of this chord can seem to vary dramatically depending\non the context the chord is placed in. One of the most powerful contexts\nthat can give the same isolated sound remarkably different meanings\ncomes from its surrounding key.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Roman numeral analysis is a way to identify certain similarities in\ntonal music (whether classical, folk, or popular) that have\ntraditionally been assigned to different chords that appear on the same\nscale degrees in different keys.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "For a basic introduction to Roman numeral analysis, see\nthe strong Wikipedia article\nor, for a quick review, the great PDF cheatsheet\nat \u009cLearn Music Theory\u009d",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Let's create an F-major chord but convert it to roman numerals in a few\ndifferent contexts by creating different key objects. First the setup:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "from",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "import",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "'F4 C5 A5'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "kf",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "Key",
+        "type": "Title"
+    },
+    {
+        "text": "'F'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "sf",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Measure",
+        "type": "Title"
+    },
+    {
+        "text": "([",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "kf",
+        "type": "Title"
+    },
+    {
+        "text": "])",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "sf",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "kc",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "Key",
+        "type": "Title"
+    },
+    {
+        "text": "'C'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "sc",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Part",
+        "type": "Title"
+    },
+    {
+        "text": "([",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "kc",
+        "type": "Title"
+    },
+    {
+        "text": "])",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "sc",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "kb",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "Key",
+        "type": "Title"
+    },
+    {
+        "text": "'B'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "sb",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Part",
+        "type": "Title"
+    },
+    {
+        "text": "([",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "kb",
+        "type": "Title"
+    },
+    {
+        "text": "])",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "sb",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Now that we have four different keys, let's create Roman numerals from\nthe F major chord and each of the keys. We will use a function from the\nmusic21.roman module called\nromanNumeralFromChord() (which we saw briefly in\nChapter 10). We pass to this function\na Chord object and a Key object.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "rf",
+        "type": "Title"
+    },
+    {
+        "text": "roman",
+        "type": "Title"
+    },
+    {
+        "text": "romanNumeralFromChord",
+        "type": "Title"
+    },
+    {
+        "text": "kf",
+        "type": "Title"
+    },
+    {
+        "text": "rf",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "roman",
+        "type": "Title"
+    },
+    {
+        "text": "RomanNumeral",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "major",
+        "type": "Title"
+    },
+    {
+        "text": "rc",
+        "type": "Title"
+    },
+    {
+        "text": "roman",
+        "type": "Title"
+    },
+    {
+        "text": "romanNumeralFromChord",
+        "type": "Title"
+    },
+    {
+        "text": "kc",
+        "type": "Title"
+    },
+    {
+        "text": "rc",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "roman",
+        "type": "Title"
+    },
+    {
+        "text": "RomanNumeral",
+        "type": "Title"
+    },
+    {
+        "text": "IV",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "major",
+        "type": "Title"
+    },
+    {
+        "text": "Music21 tries its best to find a Roman numeral for almost any\ncombination of chord and key, even if, like in B major:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "rb",
+        "type": "Title"
+    },
+    {
+        "text": "roman",
+        "type": "Title"
+    },
+    {
+        "text": "romanNumeralFromChord",
+        "type": "Title"
+    },
+    {
+        "text": "kb",
+        "type": "Title"
+    },
+    {
+        "text": "rb",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "roman",
+        "type": "Title"
+    },
+    {
+        "text": "RomanNumeral",
+        "type": "Title"
+    },
+    {
+        "text": "bV",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "major",
+        "type": "Title"
+    },
+    {
+        "text": "RomanNumeral object has some common\nproperties, such as",
+        "type": "NarrativeText"
+    },
+    {
+        "text": ".figure",
+        "type": "Title"
+    },
+    {
+        "text": ".figureAndKey",
+        "type": "Title"
+    },
+    {
+        "text": ".romanNumeralAlone",
+        "type": "Title"
+    },
+    {
+        "text": ".key",
+        "type": "Title"
+    },
+    {
+        "text": ".scaleDegree",
+        "type": "Title"
+    },
+    {
+        "text": "rf",
+        "type": "Title"
+    },
+    {
+        "text": "figure",
+        "type": "Title"
+    },
+    {
+        "text": "rc",
+        "type": "Title"
+    },
+    {
+        "text": "figure",
+        "type": "Title"
+    },
+    {
+        "text": "rb",
+        "type": "Title"
+    },
+    {
+        "text": "figure",
+        "type": "Title"
+    },
+    {
+        "text": "'I'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'IV'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'bV'",
+        "type": "Title"
+    },
+    {
+        "text": "rf",
+        "type": "Title"
+    },
+    {
+        "text": "figureAndKey",
+        "type": "Title"
+    },
+    {
+        "text": "'I in F major'",
+        "type": "Title"
+    },
+    {
+        "text": "rf",
+        "type": "Title"
+    },
+    {
+        "text": "romanNumeralAlone",
+        "type": "Title"
+    },
+    {
+        "text": "rc",
+        "type": "Title"
+    },
+    {
+        "text": "romanNumeralAlone",
+        "type": "Title"
+    },
+    {
+        "text": "rb",
+        "type": "Title"
+    },
+    {
+        "text": "romanNumeralAlone",
+        "type": "Title"
+    },
+    {
+        "text": "'I'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'IV'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'V'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "rf",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "rc",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "rb",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "Key",
+        "type": "Title"
+    },
+    {
+        "text": "of",
+        "type": "Title"
+    },
+    {
+        "text": "major",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "Key",
+        "type": "Title"
+    },
+    {
+        "text": "of",
+        "type": "Title"
+    },
+    {
+        "text": "major",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "Key",
+        "type": "Title"
+    },
+    {
+        "text": "of",
+        "type": "Title"
+    },
+    {
+        "text": "major",
+        "type": "Title"
+    },
+    {
+        "text": "rf",
+        "type": "Title"
+    },
+    {
+        "text": "scaleDegree",
+        "type": "Title"
+    },
+    {
+        "text": "rc",
+        "type": "Title"
+    },
+    {
+        "text": "scaleDegree",
+        "type": "Title"
+    },
+    {
+        "text": "rb",
+        "type": "Title"
+    },
+    {
+        "text": "scaleDegree",
+        "type": "Title"
+    },
+    {
+        "text": "Note that in the last case, the scale degree is the uninflected degree \u2014\nthe flat sign isn't included in the .scaleDegree tag. For that, use\n.scaleDegreeWithAlteration",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "rf",
+        "type": "Title"
+    },
+    {
+        "text": "scaleDegreeWithAlteration",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "rb",
+        "type": "Title"
+    },
+    {
+        "text": "scaleDegreeWithAlteration",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Accidental",
+        "type": "Title"
+    },
+    {
+        "text": "flat",
+        "type": "Title"
+    },
+    {
+        "text": "Or look at the .frontAlterationString,\nfrontAlterationAccidental, and frontAlterationTransposeInterval",
+        "type": "Title"
+    },
+    {
+        "text": "rb",
+        "type": "Title"
+    },
+    {
+        "text": "frontAlterationString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "'b'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "rb",
+        "type": "Title"
+    },
+    {
+        "text": "frontAlterationAccidental",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Accidental",
+        "type": "Title"
+    },
+    {
+        "text": "flat",
+        "type": "Title"
+    },
+    {
+        "text": "rb",
+        "type": "Title"
+    },
+    {
+        "text": "frontAlterationTransposeInterval",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "interval",
+        "type": "Title"
+    },
+    {
+        "text": "Interval",
+        "type": "Title"
+    },
+    {
+        "text": "d1",
+        "type": "Title"
+    },
+    {
+        "text": "Of course, some RomanNumerals make more sense than others, so there's a\n.functionalityScore which returns a number from 0 to 100 as a rough\napproximation of how \u009cfunctional\u009d this chord is:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "rf",
+        "type": "Title"
+    },
+    {
+        "text": "functionalityScore",
+        "type": "Title"
+    },
+    {
+        "text": "rc",
+        "type": "Title"
+    },
+    {
+        "text": "functionalityScore",
+        "type": "Title"
+    },
+    {
+        "text": "rb",
+        "type": "Title"
+    },
+    {
+        "text": "functionalityScore",
+        "type": "Title"
+    },
+    {
+        "text": "100",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "59",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "As I hinted at above, RomanNumeral objects are Music21Objects so\nthey can be put into Streams and showed:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Measure",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "insert",
+        "type": "Title"
+    },
+    {
+        "text": "rf",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Note that the spacing of the roman numeral is preserved from the chord\nthat it was converted from. If we create a RomanNumeral object\ndirectly, then it is created in closed position above a tonic note in\noctave 4:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "rf2",
+        "type": "Title"
+    },
+    {
+        "text": "roman",
+        "type": "Title"
+    },
+    {
+        "text": "RomanNumeral",
+        "type": "Title"
+    },
+    {
+        "text": "'I'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "kf",
+        "type": "Title"
+    },
+    {
+        "text": "rf2",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "roman",
+        "type": "Title"
+    },
+    {
+        "text": "RomanNumeral",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "major",
+        "type": "Title"
+    },
+    {
+        "text": "rf2",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "It is possible to pass in just a roman numeral (\u009cI\u009d, \u009cii\u009d, \u009ciii\u009d, \u009cIV\u009d,\netc.) and a string (\u009cC\u009d = C major, \u009cc\u009d = c minor) to create a\nRomanNumeral object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "subDom7",
+        "type": "Title"
+    },
+    {
+        "text": "roman",
+        "type": "Title"
+    },
+    {
+        "text": "RomanNumeral",
+        "type": "Title"
+    },
+    {
+        "text": "\"IV7\"",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\"B-\"",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "subDom7",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "e65",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "roman",
+        "type": "Title"
+    },
+    {
+        "text": "RomanNumeral",
+        "type": "Title"
+    },
+    {
+        "text": "\"ii65\"",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\"E\"",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "e65",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "For these romanNumerals, there is information after the\n.romanNumeralAlone this can be found as a string in\n.figuresWritten:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "subDom7",
+        "type": "Title"
+    },
+    {
+        "text": "figuresWritten",
+        "type": "Title"
+    },
+    {
+        "text": "e65",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "figuresWritten",
+        "type": "Title"
+    },
+    {
+        "text": "'7'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "'65'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "These numbers can also be found as part of a more powerful\nfiguredBass.Notation object (to be discussed later) in the\n.figuresNotationObj attribute:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "subDom7",
+        "type": "Title"
+    },
+    {
+        "text": "figuresNotationObj",
+        "type": "Title"
+    },
+    {
+        "text": "e65",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "figuresNotationObj",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "figuredBass",
+        "type": "Title"
+    },
+    {
+        "text": "notation",
+        "type": "Title"
+    },
+    {
+        "text": "Notation",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "figuredBass",
+        "type": "Title"
+    },
+    {
+        "text": "notation",
+        "type": "Title"
+    },
+    {
+        "text": "Notation",
+        "type": "Title"
+    },
+    {
+        "text": "e65",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "figuresNotationObj",
+        "type": "Title"
+    },
+    {
+        "text": "numbers",
+        "type": "Title"
+    },
+    {
+        "text": "Many of these properties can be changed:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "rf",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "Key",
+        "type": "Title"
+    },
+    {
+        "text": "'D'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "rf",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Changing the key removes any information about pitch spacing. You can't\nhave everything. :-)",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "We'll put the key of F back and the original pitches before we forget:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "rf",
+        "type": "Title"
+    },
+    {
+        "text": "roman",
+        "type": "Title"
+    },
+    {
+        "text": "romanNumeralFromChord",
+        "type": "Title"
+    },
+    {
+        "text": "kf",
+        "type": "Title"
+    },
+    {
+        "text": "RomanNumerals as Chords\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "A RomanNumeral object is a subclass of a Chord object, therefore we\ncan do everything with them that we could do with a chord. For instance:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "rf",
+        "type": "Title"
+    },
+    {
+        "text": "isMajorTriad",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "rfc",
+        "type": "Title"
+    },
+    {
+        "text": "rf",
+        "type": "Title"
+    },
+    {
+        "text": "closedPosition",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "rfc",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "rb",
+        "type": "Title"
+    },
+    {
+        "text": "lyric",
+        "type": "Title"
+    },
+    {
+        "text": "rb",
+        "type": "Title"
+    },
+    {
+        "text": "figure",
+        "type": "Title"
+    },
+    {
+        "text": "rb",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "rf",
+        "type": "Title"
+    },
+    {
+        "text": "quality",
+        "type": "Title"
+    },
+    {
+        "text": "rc",
+        "type": "Title"
+    },
+    {
+        "text": "quality",
+        "type": "Title"
+    },
+    {
+        "text": "rb",
+        "type": "Title"
+    },
+    {
+        "text": "quality",
+        "type": "Title"
+    },
+    {
+        "text": "'major'",
+        "type": "Title"
+    },
+    {
+        "text": "'major'",
+        "type": "Title"
+    },
+    {
+        "text": "'major'",
+        "type": "Title"
+    },
+    {
+        "text": "e65",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "inversion",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "e65",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "primeForm",
+        "type": "Title"
+    },
+    {
+        "text": "e65",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "semitonesFromChordStep",
+        "type": "Title"
+    },
+    {
+        "text": "10",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "That's all we have for RomanNumerals for now \u2014 we will return to\nRomanNumeral like objects later when we look at other Harmony objects\nsuch as ChordSymbols and FiguredBass and we look at the romanText\nmodule. But we'll take a break from musical objects and get acquainted a\nbit better with how your system works when running music21 with a\nlook at Chapter 24, Environment.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 23: Roman Numeral Analysis",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

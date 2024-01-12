@@ -1,0 +1,714 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.figuredBass.possibility",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.figuredBass.notation",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.figuredBass.realizer",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.figuredBass.possibility\nFunctions\nvoiceCrossing()\nisIncomplete()\nupperPartsWithinLimit()\npitchesWithinLimit()\npartPairs()\nparallelFifths()\nparallelOctaves()\nhiddenFifth()\nhiddenOctave()\nvoiceOverlap()\npartMovementsWithinLimits()\nupperPartsSame()\ncouldBeItalianA6Resolution()\nlimitPartToPitch()\npartsSame()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.figuredBass.possibility\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "A possibility is a tuple with pitches, and is intended to encapsulate a possible\nsolution to a Segment.\nUnlike a Chord,\nthe ordering of a possibility does matter. The assumption throughout fbRealizer\nis that a possibility is always in order from the highest part to the lowest part, and\nthe last element of each possibility is the bass.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "fbRealizer supports voice crossing, so the order of pitches from lowest\nto highest may not correspond to the ordering of parts.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Here, a possibility is created. G5 is in the highest part, and C4 is the bass. The highest\npart contains the highest Pitch, and the lowest part contains the lowest Pitch. No voice\ncrossing is present.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "G5",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "'G5'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "C5",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "'C5'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "E4",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "'E4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "C4",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "'C4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "p1",
+        "type": "Title"
+    },
+    {
+        "text": "G5",
+        "type": "Title"
+    },
+    {
+        "text": "C5",
+        "type": "Title"
+    },
+    {
+        "text": "E4",
+        "type": "Title"
+    },
+    {
+        "text": "C4",
+        "type": "Title"
+    },
+    {
+        "text": "Here, another possibility is created with the same pitches, but this time,\nwith voice crossing present.\nC5 is in the highest part, but the highest Pitch G5 is in the second highest part.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "p2",
+        "type": "Title"
+    },
+    {
+        "text": "C5",
+        "type": "Title"
+    },
+    {
+        "text": "G5",
+        "type": "Title"
+    },
+    {
+        "text": "E4",
+        "type": "Title"
+    },
+    {
+        "text": "C4",
+        "type": "Title"
+    },
+    {
+        "text": "The methods in this module are applied to possibilities, and fall into three main categories:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "1) Single Possibility Methods. These methods are applied in finding correct possibilities in\nallCorrectSinglePossibilities().",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "2) Consecutive Possibility Methods. These methods are applied to (possibA, possibB) pairs\nin allCorrectConsecutivePossibilities(),\npossibA being any correct possibility in segmentA and possibB being any correct possibility\nin segmentB.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "3) Special Resolution Methods. These methods are applied in\nallCorrectConsecutivePossibilities()\nas applicable if the pitch names of a Segment correctly spell out an augmented sixth, dominant\nseventh, or diminished seventh chord. They are located in resolution.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "The application of these methods is controlled by corresponding instance variables in a\nRules object provided to a Segment.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "The number of parts and maxPitch are universal for a\nFiguredBassLine.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.figuredBass.possibility.",
+        "type": "Title"
+    },
+    {
+        "text": "voiceCrossing",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "possibA",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if there is voice crossing present between any two parts\nin possibA. The parts from the lowest part to the highest part (right to left)\nmust correspond to increasingly higher pitches in order for there to\nbe no voice crossing. Comparisons between pitches are done using pitch\ncomparison methods, which are based on pitch space values\n(see Pitch).\n>>> from music21.figuredBass import possibility\n>>> C4 = pitch.Pitch('C4')\n>>> E4 = pitch.Pitch('E4')\n>>> C5 = pitch.Pitch('C5')\n>>> G5 = pitch.Pitch('G5')\n>>> possibA1 = (C5, G5, E4)\n>>> possibility.voiceCrossing(possibA1)  # G5 > C5\nTrue\n>>> possibA2 = (C5, E4, C4)\n>>> possibility.voiceCrossing(possibA2)\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.figuredBass.possibility.",
+        "type": "Title"
+    },
+    {
+        "text": "isIncomplete",
+        "type": "Title"
+    },
+    {
+        "text": "possibA",
+        "type": "Title"
+    },
+    {
+        "text": "pitchNamesToContain",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if possibA is incomplete, if it doesn't contain at least\none of every pitch name in pitchNamesToContain.\nFor a Segment, pitchNamesToContain is\npitchNamesInChord.\nIf possibA contains excessive pitch names, a PossibilityException is\nraised, although this is not a concern with the current implementation\nof fbRealizer.\n>>> from music21.figuredBass import possibility\n>>> C3 = pitch.Pitch('C3')\n>>> E4 = pitch.Pitch('E4')\n>>> G4 = pitch.Pitch('G4')\n>>> C5 = pitch.Pitch('C5')\n>>> Bb5 = pitch.Pitch('B-5')\n>>> possibA1 = (C5, G4, E4, C3)\n>>> pitchNamesA1 = ['C', 'E', 'G', 'B-']\n>>> possibility.isIncomplete(possibA1, pitchNamesA1)  # Missing B-\nTrue\n>>> pitchNamesA2 = ['C', 'E', 'G']\n>>> possibility.isIncomplete(possibA1, pitchNamesA2)\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.figuredBass.possibility.",
+        "type": "Title"
+    },
+    {
+        "text": "upperPartsWithinLimit",
+        "type": "Title"
+    },
+    {
+        "text": "possibA",
+        "type": "Title"
+    },
+    {
+        "text": "maxSemitoneSeparation",
+        "type": "Title"
+    },
+    {
+        "text": "12",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if the pitches in the upper parts of possibA\nare found within maxSemitoneSeparation of each other. The\nupper parts of possibA are all the pitches except the last.\nThe default value of maxSemitoneSeparation is 12 semitones,\nenharmonically equivalent to a perfect octave. If this method\nreturns True for this default value, then all the notes in\nthe upper parts can be played by most adult pianists using\njust the right hand.\n>>> from music21.figuredBass import possibility\n>>> C3 = pitch.Pitch('C3')\n>>> E3 = pitch.Pitch('E3')\n>>> E4 = pitch.Pitch('E4')\n>>> G4 = pitch.Pitch('G4')\n>>> C5 = pitch.Pitch('C5')\n>>> possibA1 = (C5, G4, E4, C3)\n>>> possibility.upperPartsWithinLimit(possibA1)\nTrue\n\n\nHere, C5 and E3 are separated by almost two octaves.\n>>> possibA2 = (C5, G4, E3, C3)\n>>> possibility.upperPartsWithinLimit(possibA2)\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.figuredBass.possibility.",
+        "type": "Title"
+    },
+    {
+        "text": "pitchesWithinLimit",
+        "type": "Title"
+    },
+    {
+        "text": "possibA",
+        "type": "Title"
+    },
+    {
+        "text": "maxPitch=<music21.pitch.Pitch B5>",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if all pitches in possibA are less than or equal to\nthe maxPitch provided. Comparisons between pitches are done using pitch\ncomparison methods, which are based on pitch space values\n(see Pitch).\nUsed in Segment to filter\nresolutions of special Segments which can have pitches exceeding\nthe universal maxPitch of a FiguredBassLine.\n>>> from music21.figuredBass import possibility\n>>> from music21.figuredBass import resolution\n>>> G2 = pitch.Pitch('G2')\n>>> D4 = pitch.Pitch('D4')\n>>> F5 = pitch.Pitch('F5')\n>>> B5 = pitch.Pitch('B5')\n>>> domPossib = (B5, F5, D4, G2)\n>>> possibility.pitchesWithinLimit(domPossib)\nTrue\n>>> resPossib = resolution.dominantSeventhToMajorTonic(domPossib)\n>>> resPossib  # Contains C6 > B5\n(<music21.pitch.Pitch C6>,\n <music21.pitch.Pitch E5>,\n <music21.pitch.Pitch C4>,\n <music21.pitch.Pitch C3>)\n>>> possibility.pitchesWithinLimit(resPossib)\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.figuredBass.possibility.",
+        "type": "Title"
+    },
+    {
+        "text": "partPairs",
+        "type": "Title"
+    },
+    {
+        "text": "possibA",
+        "type": "Title"
+    },
+    {
+        "text": "possibB",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Groups together pitches of possibA and possibB which correspond to the same part,\nconstituting a shared part.\n>>> from music21.figuredBass import possibility\n>>> C4 = pitch.Pitch('C4')\n>>> D4 = pitch.Pitch('D4')\n>>> E4 = pitch.Pitch('E4')\n>>> F4 = pitch.Pitch('F4')\n>>> G4 = pitch.Pitch('G4')\n>>> B4 = pitch.Pitch('B4')\n>>> C5 = pitch.Pitch('C5')\n>>> possibA1 = (C5, G4, E4, C4)\n>>> possibB1 = (B4, F4, D4, D4)\n>>> possibility.partPairs(possibA1, possibA1)\n[(<music21.pitch.Pitch C5>, <music21.pitch.Pitch C5>),\n (<music21.pitch.Pitch G4>, <music21.pitch.Pitch G4>),\n (<music21.pitch.Pitch E4>, <music21.pitch.Pitch E4>),\n (<music21.pitch.Pitch C4>, <music21.pitch.Pitch C4>)]\n>>> possibility.partPairs(possibA1, possibB1)\n[(<music21.pitch.Pitch C5>, <music21.pitch.Pitch B4>),\n (<music21.pitch.Pitch G4>, <music21.pitch.Pitch F4>),\n (<music21.pitch.Pitch E4>, <music21.pitch.Pitch D4>),\n (<music21.pitch.Pitch C4>, <music21.pitch.Pitch D4>)]",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.figuredBass.possibility.",
+        "type": "Title"
+    },
+    {
+        "text": "parallelFifths",
+        "type": "Title"
+    },
+    {
+        "text": "possibA",
+        "type": "Title"
+    },
+    {
+        "text": "possibB",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if there are parallel fifths between any\ntwo shared parts of possibA and possibB.\nIf pitchA1 and pitchA2 in possibA are separated by\na simple interval of a perfect fifth, and they move\nto a pitchB1 and pitchB2 in possibB also separated\nby the simple interval of a perfect fifth, then this\nconstitutes parallel fifths between these two parts.\nIf the method returns False, then no two shared parts\nhave parallel fifths. The method returns True as soon\nas two shared parts with parallel fifths are found.\n>>> from music21.figuredBass import possibility\n>>> C3 = pitch.Pitch('C3')\n>>> D3 = pitch.Pitch('D3')\n>>> G3 = pitch.Pitch('G3')\n>>> A3 = pitch.Pitch('A3')\n>>> A4 = pitch.Pitch('A4')\n>>> B4 = pitch.Pitch('B4')\n\n\nHere, the bass moves from C3 to D3 and the tenor moves\nfrom G3 to A3. The interval between C3 and G3, as well\nas between D3 and A3, is a perfect fifth. These two\nparts, and therefore the two possibilities, have\nparallel fifths.\n>>> possibA1 = (B4, G3, C3)\n>>> possibB1 = (A4, A3, D3)\n>>> possibility.parallelFifths(possibA1, possibB1)\nTrue\n\n\nNow, the tenor moves instead to F3. The interval between\nD3 and F3 is a minor third. The bass and tenor parts\ndon't form parallel fifths. The soprano part forms parallel\nfifths with neither the bass nor tenor parts. The\ntwo possibilities, therefore, have no parallel fifths.\n>>> F3 = pitch.Pitch('F3')\n>>> possibA2 = (B4, G3, C3)\n>>> possibB2 = (A4, F3, D3)\n>>> possibility.parallelFifths(possibA2, possibB2)\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.figuredBass.possibility.",
+        "type": "Title"
+    },
+    {
+        "text": "parallelOctaves",
+        "type": "Title"
+    },
+    {
+        "text": "possibA",
+        "type": "Title"
+    },
+    {
+        "text": "possibB",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if there are parallel octaves between any\ntwo shared parts of possibA and possibB.\nIf pitchA1 and pitchA2 in possibA are separated by\na simple interval of a perfect octave, and they move\nto a pitchB1 and pitchB2 in possibB also separated\nby the simple interval of a perfect octave, then this\nconstitutes parallel octaves between these two parts.\nIf the method returns False, then no two shared parts\nhave parallel octaves. The method returns True as soon\nas two shared parts with parallel octaves are found.\n>>> from music21.figuredBass import possibility\n>>> C3 = pitch.Pitch('C3')\n>>> D3 = pitch.Pitch('D3')\n>>> G3 = pitch.Pitch('G3')\n>>> A3 = pitch.Pitch('A3')\n>>> C4 = pitch.Pitch('C4')\n>>> D4 = pitch.Pitch('D4')\n\n\nHere, the soprano moves from C4 to D4 and the bass moves\nfrom C3 to D3. The interval between C3 and C4, as well as\nbetween D3 and D4, is a parallel octave. The two parts,\nand therefore the two possibilities, have parallel octaves.\n>>> possibA1 = (C4, G3, C3)\n>>> possibB1 = (D4, A3, D3)\n>>> possibility.parallelOctaves(possibA1, possibB1)\nTrue\n\n\nNow, the soprano moves down to B3. The interval between\nD3 and B3 is a major sixth. The soprano and bass parts\nno longer have parallel octaves. The tenor part forms\na parallel octave with neither the bass nor soprano,\nso the two possibilities do not have parallel octaves.\n(Notice, however, the parallel fifth between the bass\nand tenor!)\n>>> B3 = pitch.Pitch('B3')\n>>> possibA2 = (C4, G3, C3)\n>>> possibB2 = (B3, A3, D3)\n>>> possibility.parallelOctaves(possibA2, possibB2)\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.figuredBass.possibility.",
+        "type": "Title"
+    },
+    {
+        "text": "hiddenFifth",
+        "type": "Title"
+    },
+    {
+        "text": "possibA",
+        "type": "Title"
+    },
+    {
+        "text": "possibB",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if there is a hidden fifth between shared outer parts\nof possibA and possibB. The outer parts here are the first and last\nelements of each possibility.\nIf sopranoPitchA and bassPitchA in possibA move to a sopranoPitchB\nand bassPitchB in possibB in similar motion, and the simple interval\nbetween sopranoPitchB and bassPitchB is that of a perfect fifth,\nthen this constitutes a hidden octave between the two possibilities.\n>>> from music21.figuredBass import possibility\n>>> C3 = pitch.Pitch('C3')\n>>> D3 = pitch.Pitch('D3')\n>>> E3 = pitch.Pitch('E3')\n>>> F3 = pitch.Pitch('F3')\n>>> E5 = pitch.Pitch('E5')\n>>> A5 = pitch.Pitch('A5')\n\n\nHere, the bass part moves up from C3 to D3 and the soprano part moves\nup from E5 to A5. The simple interval between D3 and A5 is a perfect\nfifth. Therefore, there is a hidden fifth between the two possibilities.\n>>> possibA1 = (E5, E3, C3)\n>>> possibB1 = (A5, F3, D3)\n>>> possibility.hiddenFifth(possibA1, possibB1)\nTrue\n\n\nHere, the soprano and bass parts also move in similar motion, but the\nsimple interval between D3 and Ab5 is a diminished fifth. Consequently,\nthere is no hidden fifth.\n>>> Ab5 = pitch.Pitch('A-5')\n>>> possibA2 = (E5, E3, C3)\n>>> possibB2 = (Ab5, F3, D3)\n>>> possibility.hiddenFifth(possibA2, possibB2)\nFalse\n\n\nNow, we have the soprano and bass parts again moving to A5 and D3, whose\nsimple interval is a perfect fifth. However, the bass moves up while the\nsoprano moves down. Therefore, there is no hidden fifth.\n>>> E6 = pitch.Pitch('E6')\n>>> possibA3 = (E6, E3, C3)\n>>> possibB3 = (A5, F3, D3)\n>>> possibility.hiddenFifth(possibA3, possibB3)\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.figuredBass.possibility.",
+        "type": "Title"
+    },
+    {
+        "text": "hiddenOctave",
+        "type": "Title"
+    },
+    {
+        "text": "possibA",
+        "type": "Title"
+    },
+    {
+        "text": "possibB",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if there is a hidden octave between shared outer parts\nof possibA and possibB. The outer parts here are the first and last\nelements of each possibility.\nIf sopranoPitchA and bassPitchA in possibA move to a sopranoPitchB\nand bassPitchB in possibB in similar motion, and the simple interval\nbetween sopranoPitchB and bassPitchB is that of a perfect octave,\nthen this constitutes a hidden octave between the two possibilities.\n>>> from music21.figuredBass import possibility\n>>> C3 = pitch.Pitch('C3')\n>>> D3 = pitch.Pitch('D3')\n>>> E3 = pitch.Pitch('E3')\n>>> F3 = pitch.Pitch('F3')\n>>> A5 = pitch.Pitch('A5')\n>>> D6 = pitch.Pitch('D6')\n\n\nHere, the bass part moves up from C3 to D3 and the soprano part moves\nup from A5 to D6. The simple interval between D3 and D6 is a perfect\noctave. Therefore, there is a hidden octave between the two possibilities.\n>>> possibA1 = (A5, E3, C3)\n>>> possibB1 = (D6, F3, D3)  # Perfect octave between soprano and bass.\n>>> possibility.hiddenOctave(possibA1, possibB1)\nTrue\n\n\nHere, the bass part moves up from C3 to D3 but the soprano part moves\ndown from A6 to D6. There is no hidden octave since the parts move in\ncontrary motion.\n>>> A6 = pitch.Pitch('A6')\n>>> possibA2 = (A6, E3, C3)\n>>> possibB2 = (D6, F3, D3)\n>>> possibility.hiddenOctave(possibA2, possibB2)\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.figuredBass.possibility.",
+        "type": "Title"
+    },
+    {
+        "text": "voiceOverlap",
+        "type": "Title"
+    },
+    {
+        "text": "possibA",
+        "type": "Title"
+    },
+    {
+        "text": "possibB",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if there is voice overlap between any two shared parts\nof possibA and possibB.\nVoice overlap can occur in two ways:\n1) If a pitch in a lower part in possibB is higher than a pitch in\na higher part in possibA. This case is demonstrated below.\n2) If a pitch in a higher part in possibB is lower than a pitch in\na lower part in possibA.\n\n\n\nIn the above example, possibA has G4 in the bass and B4 in the soprano.\nIf the bass moves up to C5 in possibB, that would constitute voice overlap\nbecause the bass in possibB would be higher than the soprano in possibA.\n>>> from music21.figuredBass import possibility\n>>> C4 = pitch.Pitch('C4')\n>>> D4 = pitch.Pitch('D4')\n>>> E4 = pitch.Pitch('E4')\n>>> F4 = pitch.Pitch('F4')\n>>> G4 = pitch.Pitch('G4')\n>>> C5 = pitch.Pitch('C5')\n\n\nHere, case #2 is demonstrated. There is overlap between the soprano and\nalto parts, because F4 in the soprano in possibB1 is lower than the G4\nin the alto in possibA1. Note that neither possibility has to have voice\ncrossing for voice overlap to occur, as shown.\n>>> possibA1 = (C5, G4, E4, C4)\n>>> possibB1 = (F4, F4, D4, D4)\n>>> possibility.voiceOverlap(possibA1, possibB1)\nTrue\n>>> possibility.voiceCrossing(possibA1)\nFalse\n>>> possibility.voiceCrossing(possibB1)\nFalse\n\n\nHere is the same example as above, except the soprano of the second\npossibility is now B4, which does not overlap the G4 of the first.\nNow, there is no voice overlap.\n>>> B4 = pitch.Pitch('B4')\n>>> possibA2 = (C5, G4, E4, C4)\n>>> possibB2 = (B4, F4, D4, D4)\n>>> possibility.voiceOverlap(possibA2, possibB2)\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.figuredBass.possibility.",
+        "type": "Title"
+    },
+    {
+        "text": "partMovementsWithinLimits",
+        "type": "Title"
+    },
+    {
+        "text": "possibA",
+        "type": "Title"
+    },
+    {
+        "text": "possibB",
+        "type": "Title"
+    },
+    {
+        "text": "partMovementLimits",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if all movements between shared parts of possibA and possibB\nare within limits, as specified by list partMovementLimits, which consists of\n(partNumber, maxSeparation) tuples.\n\npartNumber: Specified from 1 to n, where 1 is the soprano or\nhighest part and n is the bass or lowest part.\nmaxSeparation: For a given part, the maximum separation to allow\nbetween a pitch in possibA and a corresponding pitch in possibB, in semitones.\n\n>>> from music21.figuredBass import possibility\n>>> C4 = pitch.Pitch('C4')\n>>> D4 = pitch.Pitch('D4')\n>>> E4 = pitch.Pitch('E4')\n>>> F4 = pitch.Pitch('F4')\n>>> G4 = pitch.Pitch('G4')\n>>> A4 = pitch.Pitch('A4')\n>>> B4 = pitch.Pitch('B4')\n>>> C5 = pitch.Pitch('C5')\n\n\nHere, we limit the soprano part to motion of two semitones,\nenharmonically equivalent to a major second.\nMoving from C5 to B4 is allowed because it constitutes stepwise\nmotion, but moving to A4 is not allowed\nbecause the distance between A4 and C5 is three semitones.\n>>> partMovementLimits = [(1, 2)]\n>>> possibA1 = (C5, G4, E4, C4)\n>>> possibB1 = (B4, F4, D4, D4)\n>>> possibility.partMovementsWithinLimits(possibA1, possibB1, partMovementLimits)\nTrue\n>>> possibB2 = (A4, F4, D4, D4)\n>>> possibility.partMovementsWithinLimits(possibA1, possibB2, partMovementLimits)\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.figuredBass.possibility.",
+        "type": "Title"
+    },
+    {
+        "text": "upperPartsSame",
+        "type": "Title"
+    },
+    {
+        "text": "possibA",
+        "type": "Title"
+    },
+    {
+        "text": "possibB",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if the upper parts are the same.\nFalse otherwise.\n>>> from music21.figuredBass import possibility\n>>> C4 = pitch.Pitch('C4')\n>>> D4 = pitch.Pitch('D4')\n>>> E4 = pitch.Pitch('E4')\n>>> F4 = pitch.Pitch('F4')\n>>> G4 = pitch.Pitch('G4')\n>>> B4 = pitch.Pitch('B4')\n>>> C5 = pitch.Pitch('C5')\n>>> possibA1 = (C5, G4, E4, C4)\n>>> possibB1 = (B4, F4, D4, D4)\n>>> possibB2 = (C5, G4, E4, D4)\n>>> possibility.upperPartsSame(possibA1, possibB1)\nFalse\n>>> possibility.upperPartsSame(possibA1, possibB2)\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.figuredBass.possibility.",
+        "type": "Title"
+    },
+    {
+        "text": "couldBeItalianA6Resolution",
+        "type": "Title"
+    },
+    {
+        "text": "possibA",
+        "type": "Title"
+    },
+    {
+        "text": "possibB",
+        "type": "Title"
+    },
+    {
+        "text": "threePartChordInfo",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "restrictDoublings",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Speed-enhanced but designed to stand alone.\nReturns True if possibA is an Italian A6 chord\nand possibB could possibly be an acceptable resolution.\nIf restrictDoublings is set to True,\nonly the tonic can be doubled. Setting restrictDoublings\nto False opens up the chance\nthat the root or the third can be doubled. Controlled\nin the Rules\nobject by restrictDoublingsInItalianA6Resolution.\n>>> from music21.figuredBass import possibility\n>>> A2 = pitch.Pitch('A2')\n>>> Bb2 = pitch.Pitch('B-2')\n>>> Cs4 = pitch.Pitch('C#4')\n>>> D4 = pitch.Pitch('D4')\n>>> E4 = pitch.Pitch('E4')\n>>> Fs4 = pitch.Pitch('F#4')\n>>> Gs4 = pitch.Pitch('G#4')\n>>> A4 = pitch.Pitch('A4')\n>>> possibA1 = (Gs4, D4, D4, Bb2)\n>>> possibB1 = (A4, Cs4, E4, A2)\n>>> possibB2 = (A4, E4, Cs4, A2)\n>>> possibB3 = (A4, D4, Fs4, A2)\n>>> possibility.couldBeItalianA6Resolution(possibA1, possibB1)\nTrue\n>>> possibility.couldBeItalianA6Resolution(possibA1, possibB1)\nTrue\n>>> possibility.couldBeItalianA6Resolution(possibA1, possibB3)\nTrue\n\n\nA PossibilityException is raised if possibA is not an Italian A6 chord, but this only\napplies if threePartChordInfo=None, because otherwise the chord information is\ncoming from Segment and the fact that possibA is\nan It+6 chord is assumed.\n>>> possibA2 = (Gs4, E4, D4, Bb2)\n>>> possibB2 = (A4, E4, Cs4, A2)\n>>> possibility.couldBeItalianA6Resolution(possibA2, possibB2)\nTraceback (most recent call last):\nmusic21.figuredBass.possibility.PossibilityException: possibA does not spell out an It+6 chord.\n\n\nThe method is called couldBeItalianA6Resolution as opposed\nto isItalianA6Resolution because it is designed to work in\ntandem with parallelOctaves()\nand isIncomplete() in\na Segment. Consider the following examples with possibA1 above as the\naugmented sixth chord to resolve.\n>>> possibA1 = (Gs4, D4, D4, Bb2)\n>>> possibB4 = (A4, D4, D4, A2)  # No 3rd\n>>> possibB5 = (A4, Cs4, Cs4, A2)  # No 5th\n>>> possibility.couldBeItalianA6Resolution(possibA1, possibB4)\nTrue\n>>> possibility.couldBeItalianA6Resolution(possibA1, possibB5)  # parallel octaves\nTrue\n\n\n>>> possibA3 = (Gs4, Gs4, D4, Bb2)\n>>> possibB6 = (A4, A4, Cs4, A2)\n>>> possibility.couldBeItalianA6Resolution(possibA3, possibB6, restrictDoublings=True)\nFalse\n>>> possibility.couldBeItalianA6Resolution(possibA3, possibB6, restrictDoublings=False)\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.figuredBass.possibility.",
+        "type": "Title"
+    },
+    {
+        "text": "limitPartToPitch",
+        "type": "Title"
+    },
+    {
+        "text": "possibA",
+        "type": "Title"
+    },
+    {
+        "text": "partPitchLimits",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Takes in a dict, partPitchLimits containing (partNumber, partPitch) pairs, each\nof which limits a part in possibA to a certain Pitch.\nReturns True if all limits are followed in possibA, False otherwise.\n>>> from music21.figuredBass import possibility\n>>> C4 = pitch.Pitch('C4')\n>>> E4 = pitch.Pitch('E4')\n>>> G4 = pitch.Pitch('G4')\n>>> C5 = pitch.Pitch('C5')\n>>> G5 = pitch.Pitch('G5')\n>>> sopranoPitch = pitch.Pitch('G5')\n>>> possibA1 = (C5, G4, E4, C4)\n>>> possibility.limitPartToPitch(possibA1, {1: sopranoPitch})\nFalse\n>>> possibA2 = (G5, G4, E4, C4)\n>>> possibility.limitPartToPitch(possibA2, {1: sopranoPitch})\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.figuredBass.possibility.",
+        "type": "Title"
+    },
+    {
+        "text": "partsSame",
+        "type": "Title"
+    },
+    {
+        "text": "possibA",
+        "type": "Title"
+    },
+    {
+        "text": "possibB",
+        "type": "Title"
+    },
+    {
+        "text": "partsToCheck",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Takes in partsToCheck, a list of part numbers. Checks if pitches at those part numbers of\npossibA and possibB are equal, determined by pitch space.\n>>> from music21.figuredBass import possibility\n>>> C4 = pitch.Pitch('C4')\n>>> E4 = pitch.Pitch('E4')\n>>> G4 = pitch.Pitch('G4')\n>>> B4 = pitch.Pitch('B4')\n>>> C5 = pitch.Pitch('C5')\n>>> possibA1 = (C5, G4, E4, C4)\n>>> possibB1 = (B4, G4, E4, C4)\n>>> possibility.partsSame(possibA1, possibB1, [2, 3, 4])\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.figuredBass.possibility",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

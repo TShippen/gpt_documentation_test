@@ -1,0 +1,738 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.dynamics",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.duration",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.editorial",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.dynamics\nDynamic\nDynamic\nDynamic.value\nDynamic.volumeScalar\nDynamic.englishName\nDynamic.longName\nDynamic.placement\n\n\n\n\nCrescendo\nCrescendo\n\n\nDiminuendo\nDiminuendo\n\n\nDynamicWedge\nDynamicWedge\n\n\nFunctions\ndynamicStrFromDecimal()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.dynamics\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Classes and functions for creating and manipulating dynamic symbols. Rather than\nsubclasses, the Dynamic object is often specialized by parameters.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Dynamic\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.dynamics.",
+        "type": "Title"
+    },
+    {
+        "text": "Dynamic",
+        "type": "Title"
+    },
+    {
+        "text": "value",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Object representation of Dynamics.\n>>> pp1 = dynamics.Dynamic('pp')\n>>> pp1.value\n'pp'\n>>> pp1.longName\n'pianissimo'\n>>> pp1.englishName\n'very soft'\n\n\nDynamics can also be specified on a 0 to 1 scale with 1 being the\nloudest (see dynamicStrFromDecimal() above)\n>>> ppp = dynamics.Dynamic(0.15)  # on 0 to 1 scale\n>>> ppp.value\n'ppp'\n>>> print('%.2f' % ppp.volumeScalar)\n0.15\n\n\nNote that we got lucky last time because the dynamic 0.15 exactly corresponds\nto what we've considered the default for \u0098ppp'.  Here we assign 0.98 which\nis close to the 0.9 that is the default for \u0098fff' \u2014 but the 0.98 will\nbe retained in the .volumeScalar\n>>> loud = dynamics.Dynamic(0.98)  # on 0 to 1 scale\n>>> loud.value\n'fff'\n>>> print('%.2f' % loud.volumeScalar)\n0.98\n\n\nTransferring the .value (\u0098fff') to a new Dynamic object will set the volumeScalar\nback to 0.9\n>>> loud2 = dynamics.Dynamic(loud.value)\n>>> loud2.value\n'fff'\n>>> print('%.2f' % loud2.volumeScalar)\n0.90\n\n\nCustom dynamics are possible:\n>>> myDyn = dynamics.Dynamic('rfzsfmp')\n>>> myDyn.value\n'rfzsfmp'\n>>> print(myDyn.volumeScalar)\n0.5\n>>> myDyn.volumeScalar = 0.87\n>>> myDyn.volumeScalar\n0.87\n\n\nDynamics can be placed anywhere in a stream.\n>>> s = stream.Stream()\n>>> s.insert(0, note.Note('E-4', type='half'))\n>>> s.insert(2, note.Note('F#5', type='half'))\n>>> s.insert(0, dynamics.Dynamic('pp'))\n>>> s.insert(1, dynamics.Dynamic('mf'))\n>>> s.insert(3, dynamics.Dynamic('fff'))\n>>> s.show()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Dynamic bases",
+        "type": "Title"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "Dynamic read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "Dynamic read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Dynamic.",
+        "type": "Title"
+    },
+    {
+        "text": "value",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get or set the value of this dynamic, which sets the long and\nEnglish names of this Dynamic. The value is a string specification.\n>>> p = dynamics.Dynamic('p')\n>>> p.value\n'p'\n>>> p.englishName\n'soft'\n>>> p.longName\n'piano'\n\n\n>>> p.value = 'f'\n>>> p.value\n'f'\n>>> p.englishName\n'loud'\n>>> p.longName\n'forte'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Dynamic.",
+        "type": "Title"
+    },
+    {
+        "text": "volumeScalar",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get or set the volume scalar for this dynamic. If not explicitly set, a\ndefault volume scalar will be provided. Any number between 0 and 1 can be\nused to set the volume scalar, overriding the expected behavior.\nAs mezzo is at 0.5, the unit interval range is doubled for\ngenerating final output. The default output is 0.5.\n>>> d = dynamics.Dynamic('mf')\n>>> d.volumeScalar\n0.55...\n\n\n>>> d.volumeScalar = 0.1\n>>> d.volumeScalar\n0.1\n>>> d.value\n'mf'\n\n\nint(volumeScalar * 127) gives the MusicXML <sound dynamics=\u009dx\u009d/> tag\n>>> xmlOut = musicxml.m21ToXml.GeneralObjectExporter().parse(d).decode('utf-8')\n>>> print(xmlOut)\n<?xml...\n<direction>\n    <direction-type>\n      <dynamics default-x=\"-36\" default-y=\"-80\">\n        <mf />\n      </dynamics>\n    </direction-type>\n    <sound dynamics=\"12\" />\n</direction>...",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "Dynamic methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Dynamic instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Dynamic.",
+        "type": "Title"
+    },
+    {
+        "text": "englishName",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "the name of this dynamic in English.\n>>> d = dynamics.Dynamic('pp')\n>>> d.englishName\n'very soft'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Dynamic.",
+        "type": "Title"
+    },
+    {
+        "text": "longName",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "the name of this dynamic in Italian.\n>>> d = dynamics.Dynamic('pp')\n>>> d.longName\n'pianissimo'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Dynamic.",
+        "type": "Title"
+    },
+    {
+        "text": "placement",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Staff placement: \u0098above', \u0098below', or None.\nA setting of None implies that the placement will be determined\nby notation software and no particular placement is demanded.\nThis is not placed in the .style property, since for some dynamics,\nthe placement above or below an object has semantic\nmeaning and is not purely presentational.  For instance, a dynamic\nplaced between two staves in a piano part implies that it applies\nto both hands, while one placed below the lower staff would apply\nonly to the left hand.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "Crescendo\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.dynamics.",
+        "type": "Title"
+    },
+    {
+        "text": "Crescendo",
+        "type": "Title"
+    },
+    {
+        "text": "spannedElements",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A spanner crescendo wedge.\n>>> d = dynamics.Crescendo()\n>>> d.spread\n15\n>>> d.spread = 20\n>>> d.spread\n20\n>>> d.type\n'crescendo'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Crescendo bases",
+        "type": "Title"
+    },
+    {
+        "text": "DynamicWedge",
+        "type": "ListItem"
+    },
+    {
+        "text": "Spanner",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "Crescendo read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "Crescendo read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "Crescendo methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from Spanner:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__getitem__() addSpannedElements() fill() getFirst() getLast() getSpannedElementIds() getSpannedElements() getSpannedElementsByClass() hasSpannedElement() isFirst() isLast() purgeLocations() purgeOrphans() replaceSpannedElement()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Crescendo instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "Diminuendo\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.dynamics.",
+        "type": "Title"
+    },
+    {
+        "text": "Diminuendo",
+        "type": "Title"
+    },
+    {
+        "text": "spannedElements",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A spanner diminuendo wedge.\n>>> d = dynamics.Diminuendo()\n>>> d.spread = 20\n>>> d.spread\n20",
+        "type": "ListItem"
+    },
+    {
+        "text": "Diminuendo bases",
+        "type": "Title"
+    },
+    {
+        "text": "DynamicWedge",
+        "type": "ListItem"
+    },
+    {
+        "text": "Spanner",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "Diminuendo read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "Diminuendo read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "Diminuendo methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from Spanner:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__getitem__() addSpannedElements() fill() getFirst() getLast() getSpannedElementIds() getSpannedElements() getSpannedElementsByClass() hasSpannedElement() isFirst() isLast() purgeLocations() purgeOrphans() replaceSpannedElement()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Diminuendo instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "DynamicWedge\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.dynamics.",
+        "type": "Title"
+    },
+    {
+        "text": "DynamicWedge",
+        "type": "Title"
+    },
+    {
+        "text": "spannedElements",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Common base-class for Crescendo and Diminuendo.",
+        "type": "ListItem"
+    },
+    {
+        "text": "DynamicWedge bases",
+        "type": "Title"
+    },
+    {
+        "text": "Spanner",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "DynamicWedge read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "DynamicWedge read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "DynamicWedge methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from Spanner:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__getitem__() addSpannedElements() fill() getFirst() getLast() getSpannedElementIds() getSpannedElements() getSpannedElementsByClass() hasSpannedElement() isFirst() isLast() purgeLocations() purgeOrphans() replaceSpannedElement()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "DynamicWedge instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.dynamics.",
+        "type": "Title"
+    },
+    {
+        "text": "dynamicStrFromDecimal",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a decimal from 0 to 1, return a string representing a dynamic\nwith 0 being the softest (0.01 = \u0098ppp') and 1 being the loudest (0.9+ = \u0098fff')\n0 returns \u009cn\u009d (niente), while ppp and fff are the loudest dynamics used.\n>>> dynamics.dynamicStrFromDecimal(0.25)\n'pp'\n>>> dynamics.dynamicStrFromDecimal(1)\n'fff'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.dynamics",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

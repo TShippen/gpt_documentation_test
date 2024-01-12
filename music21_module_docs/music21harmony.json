@@ -1,0 +1,1718 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.harmony",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.graph.utilities",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.humdrum.harmparser",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.harmony\nHarmony\nHarmony\nHarmony.figure\nHarmony.key\nHarmony.romanNumeral\nHarmony.writeAsChord\nHarmony.addChordStepModification()\nHarmony.findFigure()\nHarmony.getChordStepModifications()\n\n\n\n\nChordSymbol\nChordSymbol\nChordSymbol.findFigure()\nChordSymbol.inversionIsValid()\nChordSymbol.transpose()\n\n\n\n\nChordStepModification\nChordStepModification\nChordStepModification.degree\nChordStepModification.interval\nChordStepModification.modType\nChordStepModification.__eq__()\n\n\n\n\nNoChord\nNoChord\nNoChord.bass()\nNoChord.root()\nNoChord.transpose()\n\n\n\n\nFunctions\nchordSymbolFigureFromChord()\naddNewChordSymbol()\nchangeAbbreviationFor()\nchordSymbolFromChord()\ngetAbbreviationListGivenChordType()\ngetCurrentAbbreviationFor()\ngetNotationStringGivenChordType()\nrealizeChordSymbolDurations()\nremoveChordSymbols()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.harmony\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "An object representation of harmony, a subclass of chord, as encountered as chord symbols or\nroman numerals, or other chord representations with a defined root.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Harmony\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.harmony.",
+        "type": "Title"
+    },
+    {
+        "text": "Harmony",
+        "type": "Title"
+    },
+    {
+        "text": "figure",
+        "type": "Title"
+    },
+    {
+        "text": "str | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "root",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "bass",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "inversion",
+        "type": "Title"
+    },
+    {
+        "text": "int | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "updatePitches",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Harmony objects in music21 are a special type of chord - they retain all\nthe same functionality as a chord (and inherit from chord directly),\nalthough they have special representations symbolically. They contain a\nfigure representation, a shorthand, for the actual pitches they contain.\nThis shorthand is commonly used on musical scores rather than writing out\nthe chord pitches. Thus, each harmony object has an attribute,\nself.writeAsChord that dictates whether the object will be written to a\nscore as a chord (with pitches realized) or with just the\nfigure (as in Chord Symbols).\nMost users should start with the ChordSymbol class or the RomanNumeral\nclass.  The Harmony object is primarily a base object for defining other\nsorts of objects:\n>>> c6 = harmony.ChordSymbol('C/E')\n>>> c6\n<music21.harmony.ChordSymbol C/E>\n\n\nBy default, Harmony objects just float above the score and are a sort of\nanalytical object.  To make them also count as pitches in a score, use\nwriteAsChord=True\n>>> c6.writeAsChord = True\n>>> c6\n<music21.harmony.ChordSymbol C/E: E G C>\n\n\nOr individual components can be specified:\n>>> c6_again = harmony.ChordSymbol(root='C', bass='E', kind='major')\n>>> c6_again\n<music21.harmony.ChordSymbol C/E>\n\n\nIt is also possible to instantiate an empty Harmony object and\nthen set components later, but this is an advanced and delicate operation:\n>>> h = harmony.ChordSymbol()\n>>> h.root('B-3')\n>>> h.bass('D', allow_add=True)\n>>> h.inversion(1, transposeOnSet=False)\n>>> h.addChordStepModification(harmony.ChordStepModification('add', 4))\n>>> h\n<music21.harmony.ChordSymbol B-/D add 4>\n\n\n>>> h = harmony.ChordSymbol('C7/E')\n>>> h.root()\n<music21.pitch.Pitch C4>\n\n\n>>> h.bass()\n<music21.pitch.Pitch E3>\n\n\n>>> h.inversion()\n1\n\n\n>>> h.isSeventh()\nTrue\n\n\n>>> [str(p) for p in h.pitches]\n['E3', 'G3', 'B-3', 'C4']\n\n\n>>> sus = harmony.ChordSymbol('Dsus4')\n>>> sus.root()\n<music21.pitch.Pitch D3>\n\n\nAccepts a keyword \u0098updatePitches'. By default, it\nis True, but can be set to False to initialize faster if pitches are not needed.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Harmony bases",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "ListItem"
+    },
+    {
+        "text": "ChordBase",
+        "type": "ListItem"
+    },
+    {
+        "text": "NotRest",
+        "type": "ListItem"
+    },
+    {
+        "text": "GeneralNote",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "Harmony read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Chord:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "chordTablesAddress commonName fifth forteClass forteClassNumber forteClassTn forteClassTnI fullName hasZRelation intervalVector intervalVectorString isPrimeFormInversion multisetCardinality normalOrder normalOrderString orderedPitchClasses orderedPitchClassesString pitchClassCardinality pitchClasses pitchedCommonName primeForm primeFormString quality scaleDegrees seventh third",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "Harmony read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Harmony.",
+        "type": "Title"
+    },
+    {
+        "text": "figure",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get or set the figure of the harmony object. The figure is the\ncharacter (string) representation of the object. For example, \u0098I',\n\u0098CM', \u00983#'.\nWhen you instantiate a harmony object, if you pass in a figure it\nis stored internally and returned when you access the figure\nproperty. If you don't instantiate the object with a figure, this\nproperty calls music21.harmony.Harmony.findFigure() method which\ndeduces the figure provided other information about the object,\nespecially the chord.\nIf the pitches of the harmony object have been modified after being\ninstantiated, call music21.harmony.Harmony.findFigure() to deduce the\nnew figure.\n>>> h = harmony.ChordSymbol('CM')\n>>> h.figure\n'CM'\n\n\n>>> harmony.ChordSymbol(root='C', bass='A', kind='minor').figure\n'Cm/A'\n\n\n>>> h.bass(note.Note('E'))\n>>> h.figure\n'CM'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Harmony.",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Gets or sets the current Key (or Scale object) associated with this\nHarmony object.\nFor a given RomanNumeral object. Each sub-classed harmony object\nmay treat this property differently, for example Roman Numeral\nobjects update the pitches when the key is changed, but chord\nsymbol objects do not and the key provides more information about\nthe musical context from where the harmony object was extracted.\n>>> r1 = roman.RomanNumeral('V')\n>>> r1.pitches\n(<music21.pitch.Pitch G4>, <music21.pitch.Pitch B4>, <music21.pitch.Pitch D5>)\n\n\n>>> r1.key = key.Key('A')\n>>> r1.pitches\n(<music21.pitch.Pitch E5>, <music21.pitch.Pitch G#5>, <music21.pitch.Pitch B5>)\n\n\nChanging the key for a ChordSymbol object does nothing to its pitches, since it's\nnot dependent on key:\n>>> h1 = harmony.ChordSymbol('D-m11')\n>>> [str(p) for p in h1.pitches]\n['D-2', 'F-2', 'A-2', 'C-3', 'E-3', 'G-3']\n\n\n>>> h1.key = 'CM'  # = C-Major\n>>> [str(p) for p in h1.pitches]\n['D-2', 'F-2', 'A-2', 'C-3', 'E-3', 'G-3']\n\n\nBut it should change the .romanNumeral object:\n>>> y = harmony.ChordSymbol('F')\n>>> y.key is None\nTrue\n>>> y.romanNumeral\n<music21.roman.RomanNumeral I in F major>\n>>> y.key = key.Key('C')\n>>> y.romanNumeral\n<music21.roman.RomanNumeral IV in C major>",
+        "type": "ListItem"
+    },
+    {
+        "text": "Harmony.",
+        "type": "Title"
+    },
+    {
+        "text": "romanNumeral",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get or set the romanNumeral numeral function of the Harmony as a\nRomanNumeral object. String\nrepresentations accepted by RomanNumeral are also accepted.\n>>> h = harmony.ChordSymbol('Dmaj7')\n>>> h.romanNumeral\n<music21.roman.RomanNumeral I7 in D major>\n\n\n>>> h.romanNumeral = 'III7'\n>>> h.romanNumeral\n<music21.roman.RomanNumeral III7>\n\n\n>>> h.romanNumeral.key = key.Key('B')\n>>> h.romanNumeral\n<music21.roman.RomanNumeral III7 in B major>\n\n\n>>> h.romanNumeral = roman.RomanNumeral('IV7', 'A')\n>>> h.romanNumeral\n<music21.roman.RomanNumeral IV7 in A major>\n\n\n>>> h = harmony.ChordSymbol('B-/D')\n>>> h.romanNumeral\n<music21.roman.RomanNumeral I6 in B- major>",
+        "type": "ListItem"
+    },
+    {
+        "text": "Harmony.",
+        "type": "Title"
+    },
+    {
+        "text": "writeAsChord",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Boolean attribute of all harmony objects that specifies how this\nobject will be written to the rendered output (such as musicxml). If True\n(default for romanNumerals), the chord with pitches is written. If\nFalse (default for ChordSymbols) the harmony symbol is written.\nFor NoChord objects, writeAsChord means to write as a rest.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read/write properties inherited from Chord:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "duration notes pitchNames pitches",
+        "type": "Table"
+    },
+    {
+        "text": "Read/write properties inherited from ChordBase:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "tie volume",
+        "type": "Table"
+    },
+    {
+        "text": "Read/write properties inherited from NotRest:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "notehead noteheadFill noteheadParenthesis stemDirection storedInstrument",
+        "type": "Table"
+    },
+    {
+        "text": "Read/write properties inherited from GeneralNote:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "lyric",
+        "type": "Table"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "Harmony methods",
+        "type": "Title"
+    },
+    {
+        "text": "Harmony.",
+        "type": "Title"
+    },
+    {
+        "text": "addChordStepModification",
+        "type": "Title"
+    },
+    {
+        "text": "degree",
+        "type": "Title"
+    },
+    {
+        "text": "updatePitches",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Add a harmony degree specification to this Harmony as a\nChordStepModification object.\n>>> hd = harmony.ChordStepModification('add', 4)\n>>> h = harmony.ChordSymbol()\n>>> h.addChordStepModification(hd)\n>>> h.addChordStepModification('juicy')\nTraceback (most recent call last):\nmusic21.harmony.HarmonyException: cannot add this object as a degree: juicy\n\n\nAlteration will also impact the pitches,\nif the keyword argument updatePitches is given as True\n>>> h = harmony.ChordSymbol('C')\n>>> mod = harmony.ChordStepModification('alter', 5, -1)\n>>> h.addChordStepModification(mod, updatePitches=True)\n>>> h.pitches\n(<music21.pitch.Pitch C3>, <music21.pitch.Pitch E3>, <music21.pitch.Pitch G-3>)\n\n\n\nChanged in v7: updatePitches is True by default",
+        "type": "ListItem"
+    },
+    {
+        "text": "Harmony.",
+        "type": "Title"
+    },
+    {
+        "text": "findFigure",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "Harmony.",
+        "type": "Title"
+    },
+    {
+        "text": "getChordStepModifications",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return all harmony degrees as a list.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from Chord:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() __getitem__() add() annotateIntervals() areZRelations() bass() canBeDominantV() canBeTonic() closedPosition() containsSeventh() containsTriad() formatVectorString() geometricNormalForm() getChordStep() getColor() getNotehead() getNoteheadFill() getStemDirection() getTie() getVolume() getZRelation() hasAnyEnharmonicSpelledPitches() hasAnyRepeatedDiatonicNote() hasRepeatedChordStep() intervalFromChordStep() inversion() inversionName() inversionText() isAugmentedSixth() isAugmentedTriad() isConsonant() isDiminishedSeventh() isDiminishedTriad() isDominantSeventh() isFalseDiminishedSeventh() isFrenchAugmentedSixth() isGermanAugmentedSixth() isHalfDiminishedSeventh() isIncompleteMajorTriad() isIncompleteMinorTriad() isItalianAugmentedSixth() isMajorTriad() isMinorTriad() isNinth() isSeventh() isSeventhOfType() isSwissAugmentedSixth() isTranspositionallySymmetrical() isTriad() removeRedundantPitchClasses() removeRedundantPitchNames() removeRedundantPitches() root() semiClosedPosition() semitonesFromChordStep() setColor() setNotehead() setNoteheadFill() setStemDirection() setTie() setVolume() simplifyEnharmonics() sortAscending() sortChromaticAscending() sortDiatonicAscending() sortFrequencyAscending() transpose()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ChordBase:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "hasComponentVolumes() remove() setVolumes()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from NotRest:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "getInstrument() hasVolumeInformation()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from GeneralNote:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "addLyric() augmentOrDiminish() getGrace() insertLyric()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Harmony instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from Chord:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beams isChord isNote isRest",
+        "type": "Table"
+    },
+    {
+        "text": "Instance variables inherited from ChordBase:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beams isNote isRest",
+        "type": "Table"
+    },
+    {
+        "text": "Instance variables inherited from NotRest:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beams",
+        "type": "Table"
+    },
+    {
+        "text": "Instance variables inherited from GeneralNote:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "articulations expressions isChord lyrics",
+        "type": "Table"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "ChordSymbol\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.harmony.",
+        "type": "Title"
+    },
+    {
+        "text": "ChordSymbol",
+        "type": "Title"
+    },
+    {
+        "text": "figure",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "root",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "bass",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "inversion",
+        "type": "Title"
+    },
+    {
+        "text": "int | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "kind",
+        "type": "Title"
+    },
+    {
+        "text": "''",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "kindStr",
+        "type": "Title"
+    },
+    {
+        "text": "''",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Class representing the Chord Symbols commonly found on lead sheets.\nChord Symbol objects can be instantiated one of two main ways:\n\nwhen music xml is parsed by the music21 converter, xml Chord Symbol tags\nare interpreted as Chord Symbol objects with a root and kind attribute.\nIf bass is not specified, the bass is assumed to be the root\nby creating a chord symbol object with music21 by passing in the\nexpression commonly found on leadsheets. Due to the relative diversity\nof lead sheet chord syntax, not all expressions are supported. Consult\nthe examples for the supported syntax, or email us for help.\n\nAll ChordSymbol inherit from\nChord so you can consider these objects as chords,\nalthough they have a unique representation in a score. ChordSymbols, unlike\nchords, by default appear as chord symbols in a score and have duration of\n0.\nTo obtain the chord representation of the ChordSymbol in the score, change\nwriteAsChord to True. Unless otherwise\nspecified, the duration of this chord object will become 1.0. If you have a\nleadsheet, run music21.harmony.realizeChordSymbolDurations() on the\nstream to assign the correct (according to offsets) duration to each\nharmony object.)\nThe music xml-based approach to instantiating Chord Symbol objects:\n>>> cs = harmony.ChordSymbol(kind='minor', kindStr='m', root='C', bass='E-')\n>>> cs\n<music21.harmony.ChordSymbol Cm/E->\n\n\n>>> cs.chordKind\n'minor'\n\n\n>>> cs.root()\n<music21.pitch.Pitch C4>\n\n\n>>> cs.bass()\n<music21.pitch.Pitch E-3>\n\n\nThe second approach to creating a Chord Symbol object, by\npassing a regular expression (this list is not exhaustive):\n>>> symbols = ['', 'm', '+', 'dim', '7',\n...            'M7', 'm7', 'dim7', '7+', 'm7b5',  # half-diminished\n...            'mM7', '6', 'm6', '9', 'Maj9', 'm9',\n...            '11', 'Maj11', 'm11', '13',\n...            'Maj13', 'm13', 'sus2', 'sus4',\n...            'N6', 'It+6', 'Fr+6', 'Gr+6', 'pedal',\n...            'power', 'tristan', '/E', 'm7/E-', 'add2',\n...            '7omit3',]\n>>> for s in symbols:\n...     chordSymbolName = 'C' + s\n...     h = harmony.ChordSymbol(chordSymbolName)\n...     pitchNames = [str(p) for p in h.pitches]\n...     print('%-10s%s' % (chordSymbolName, '[' + (', '.join(pitchNames)) + ']'))\nC         [C3, E3, G3]\nCm        [C3, E-3, G3]\nC+        [C3, E3, G#3]\nCdim      [C3, E-3, G-3]\nC7        [C3, E3, G3, B-3]\nCM7       [C3, E3, G3, B3]\nCm7       [C3, E-3, G3, B-3]\nCdim7     [C3, E-3, G-3, B--3]\nC7+       [C3, E3, G#3, B-3]\nCm7b5     [C3, E-3, G-3, B-3]\nCmM7      [C3, E-3, G3, B3]\nC6        [C3, E3, G3, A3]\nCm6       [C3, E-3, G3, A3]\nC9        [C3, E3, G3, B-3, D4]\nCMaj9     [C3, E3, G3, B3, D4]\nCm9       [C3, E-3, G3, B-3, D4]\nC11       [C2, E2, G2, B-2, D3, F3]\nCMaj11    [C2, E2, G2, B2, D3, F3]\nCm11      [C2, E-2, G2, B-2, D3, F3]\nC13       [C2, E2, G2, B-2, D3, F3, A3]\nCMaj13    [C2, E2, G2, B2, D3, F3, A3]\nCm13      [C2, E-2, G2, B-2, D3, F3, A3]\nCsus2     [C3, D3, G3]\nCsus4     [C3, F3, G3]\nCN6       [C3, D-3, E3, G-3]\nCIt+6     [C3, F#3, A-3]\nCFr+6     [C3, D3, F#3, A-3]\nCGr+6     [C3, E-3, F#3, A-3]\nCpedal    [C3]\nCpower    [C3, G3]\nCtristan  [C3, D#3, F#3, A#3]\nC/E       [E3, G3, C4]\nCm7/E-    [E-3, G3, B-3, C4]\nCadd2     [C3, D3, E3, G3]\nC7omit3   [C3, G3, B-3]\n\n\nYou can also create a Chord Symbol by writing out each degree,\nand any alterations to that degree:\nYou must explicitly indicate EACH degree (a triad is NOT necessarily implied)\n>>> [str(p) for p in harmony.ChordSymbol('C35b7b9#11b13').pitches]\n['C2', 'E2', 'G2', 'D-3', 'F#3', 'A-3', 'B-3']\n\n\n>>> [str(p) for p in harmony.ChordSymbol('C35911').pitches]\n['C2', 'E2', 'G2', 'D3', 'F3']\n\n\nto prevent ambiguity in notation\u2026\n\u2026and in accordance with the rest of music21, if a root or bass is flat,\nthe \u0098-' must be used, and NOT \u0098b'. However, alterations and chord\nabbreviations are specified normally with the \u0098b' and \u0098#' signs.\n>>> dFlat = harmony.ChordSymbol('D-35')\n>>> [str(p) for p in dFlat.pitches]\n['D-3', 'F3', 'A-3']\n\n\n>>> [str(p) for p in harmony.ChordSymbol('Db35').pitches]\n['D3', 'F3', 'A3']\n\n\n>>> [str(p) for p in harmony.ChordSymbol('D,35b7b9#11b13').pitches]\n['D2', 'F#2', 'A2', 'E-3', 'G#3', 'B-3', 'C4']\n\n\n>>> harmony.ChordSymbol('Am').pitches\n(<music21.pitch.Pitch A2>, <music21.pitch.Pitch C3>, <music21.pitch.Pitch E3>)\n\n\n>>> harmony.ChordSymbol('A-m').pitches\n(<music21.pitch.Pitch A-2>, <music21.pitch.Pitch C-3>, <music21.pitch.Pitch E-3>)\n\n\n>>> harmony.ChordSymbol('A-m').pitches\n(<music21.pitch.Pitch A-2>, <music21.pitch.Pitch C-3>, <music21.pitch.Pitch E-3>)\n\n\n>>> harmony.ChordSymbol('F-dim7').pitches\n(<music21.pitch.Pitch F-2>, <music21.pitch.Pitch A--2>,\n <music21.pitch.Pitch C--3>, <music21.pitch.Pitch E---3>)\n\n\nThanks to David Bolton for catching the bugs tested below:\n>>> [str(p) for p in harmony.ChordSymbol('C3579').pitches]\n['C2', 'E2', 'G2', 'D3', 'B3']\n\n\n>>> [str(p) for p in harmony.ChordSymbol('C35b79').pitches]\n['C2', 'E2', 'G2', 'D3', 'B-3']\n\n\n>>> [str(p) for p in harmony.ChordSymbol('C357b9').pitches]\n['C2', 'E2', 'G2', 'D-3', 'B3']\n\n\nWhen bass is not in chord:\n>>> cs = harmony.ChordSymbol(root='E', bass='C', kind='diminished-seventh')\n\n\n>>> [str(p) for p in cs.pitches]\n['C2', 'E3', 'G3', 'B-3', 'D-4']\n\n\n>>> cs.figure\n'Eo7/C'\n\n\nAnd now, and example of parsing in the wild:\n>>> s = corpus.parse('leadsheet/fosterBrownHair')\n>>> initialSymbols = s.flatten().getElementsByClass(harmony.ChordSymbol)[0:5]\n>>> [[str(c.name) for c in c.pitches] for c in initialSymbols]\n[['F', 'A', 'C'], ['B-', 'D', 'F'], ['F', 'A', 'C'], ['C', 'E', 'G'], ['F', 'A', 'C']]\n\n\nTest creating an empty chordSymbol:\n>>> cs = harmony.ChordSymbol()\n>>> cs\n<music21.harmony.ChordSymbol>\n>>> cs.root('E-')\n>>> cs.bass('B-', allow_add=True)\n\n\nimportant: we are not asking for transposition, merely specifying the inversion that\nthe chord should be read in (transposeOnSet = False)\n>>> cs.inversion(2, transposeOnSet=False)\n\n\n>>> cs.romanNumeral = 'I64'\n>>> cs.chordKind = 'major'\n>>> cs.chordKindStr = 'M'\n>>> cs\n<music21.harmony.ChordSymbol E-/B->",
+        "type": "ListItem"
+    },
+    {
+        "text": "ChordSymbol bases",
+        "type": "Title"
+    },
+    {
+        "text": "Harmony",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord",
+        "type": "ListItem"
+    },
+    {
+        "text": "ChordBase",
+        "type": "ListItem"
+    },
+    {
+        "text": "NotRest",
+        "type": "ListItem"
+    },
+    {
+        "text": "GeneralNote",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ChordSymbol read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Chord:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "chordTablesAddress commonName fifth forteClass forteClassNumber forteClassTn forteClassTnI fullName hasZRelation intervalVector intervalVectorString isPrimeFormInversion multisetCardinality normalOrder normalOrderString orderedPitchClasses orderedPitchClassesString pitchClassCardinality pitchClasses pitchedCommonName primeForm primeFormString quality scaleDegrees seventh third",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "ChordSymbol read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Harmony:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "figure key romanNumeral writeAsChord",
+        "type": "Table"
+    },
+    {
+        "text": "Read/write properties inherited from Chord:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "duration notes pitchNames pitches",
+        "type": "Table"
+    },
+    {
+        "text": "Read/write properties inherited from ChordBase:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "tie volume",
+        "type": "Table"
+    },
+    {
+        "text": "Read/write properties inherited from NotRest:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "notehead noteheadFill noteheadParenthesis stemDirection storedInstrument",
+        "type": "Table"
+    },
+    {
+        "text": "Read/write properties inherited from GeneralNote:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "lyric",
+        "type": "Table"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "ChordSymbol methods",
+        "type": "Title"
+    },
+    {
+        "text": "ChordSymbol.",
+        "type": "Title"
+    },
+    {
+        "text": "findFigure",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return the chord symbol figure associated with this chord.\nThis method tries to deduce what information it can from the provided\npitches.\n>>> h = harmony.ChordSymbol(root='F', bass='D-', kind='Neapolitan')\n>>> h.figure\n'FN6/D-'\n\n\nThanks to Norman Schmidt for code sample and helping fix a bug\n>>> foster = corpus.parse('leadsheet/fosterBrownHair.xml')\n>>> foster = foster.parts[0].getElementsByClass(stream.Measure)\n>>> for m in foster[12:17]:\n...   c = m.getElementsByClass(harmony.ChordSymbol)\n...   if c:\n...     ch = c[0].figure\n...     print(ch.replace('-', 'b'))\n...   else:\n...     print('n.c.')\nF\nG7\nC\nC\nC\n\n\nThanks to David Bolton for catching the bugs tested below:\n>>> h1 = harmony.ChordSymbol('C7 b9')\n>>> for x in h1.pitches:\n...     x\n...\n<music21.pitch.Pitch C3>\n<music21.pitch.Pitch E3>\n<music21.pitch.Pitch G3>\n<music21.pitch.Pitch B-3>\n<music21.pitch.Pitch D-4>\n\n\n>>> h2 = harmony.ChordSymbol('C/B- add 2')\n>>> for x in h2.pitches:\n...     x\n...\n<music21.pitch.Pitch B-2>\n<music21.pitch.Pitch C3>\n<music21.pitch.Pitch D3>\n<music21.pitch.Pitch E3>\n<music21.pitch.Pitch G3>",
+        "type": "ListItem"
+    },
+    {
+        "text": "ChordSymbol.",
+        "type": "Title"
+    },
+    {
+        "text": "inversionIsValid",
+        "type": "Title"
+    },
+    {
+        "text": "inversion",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns true if the provided inversion exists for the given pitches of\nthe chord. If not, it returns false and the getPitches method then\nappends the bass pitch to the chord.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ChordSymbol.",
+        "type": "Title"
+    },
+    {
+        "text": "transpose",
+        "type": "Title"
+    },
+    {
+        "text": "value",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 T | None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Overrides transpose() so that this ChordSymbol's\nfigure is appropriately cleared afterward.\n>>> cs = harmony.ChordSymbol('Am')\n>>> cs.figure\n'Am'\n>>> cs.transpose(1)\n<music21.harmony.ChordSymbol B-m>\n>>> cs.transpose(5, inPlace=True)\n>>> cs\n<music21.harmony.ChordSymbol Dm>\n>>> cs.figure\n'Dm'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from Harmony:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "addChordStepModification() getChordStepModifications()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Chord:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() __getitem__() add() annotateIntervals() areZRelations() bass() canBeDominantV() canBeTonic() closedPosition() containsSeventh() containsTriad() formatVectorString() geometricNormalForm() getChordStep() getColor() getNotehead() getNoteheadFill() getStemDirection() getTie() getVolume() getZRelation() hasAnyEnharmonicSpelledPitches() hasAnyRepeatedDiatonicNote() hasRepeatedChordStep() intervalFromChordStep() inversion() inversionName() inversionText() isAugmentedSixth() isAugmentedTriad() isConsonant() isDiminishedSeventh() isDiminishedTriad() isDominantSeventh() isFalseDiminishedSeventh() isFrenchAugmentedSixth() isGermanAugmentedSixth() isHalfDiminishedSeventh() isIncompleteMajorTriad() isIncompleteMinorTriad() isItalianAugmentedSixth() isMajorTriad() isMinorTriad() isNinth() isSeventh() isSeventhOfType() isSwissAugmentedSixth() isTranspositionallySymmetrical() isTriad() removeRedundantPitchClasses() removeRedundantPitchNames() removeRedundantPitches() root() semiClosedPosition() semitonesFromChordStep() setColor() setNotehead() setNoteheadFill() setStemDirection() setTie() setVolume() simplifyEnharmonics() sortAscending() sortChromaticAscending() sortDiatonicAscending() sortFrequencyAscending()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ChordBase:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "hasComponentVolumes() remove() setVolumes()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from NotRest:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "getInstrument() hasVolumeInformation()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from GeneralNote:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "addLyric() augmentOrDiminish() getGrace() insertLyric()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "ChordSymbol instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from Chord:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beams isChord isNote isRest",
+        "type": "Table"
+    },
+    {
+        "text": "Instance variables inherited from ChordBase:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beams isNote isRest",
+        "type": "Table"
+    },
+    {
+        "text": "Instance variables inherited from NotRest:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beams",
+        "type": "Table"
+    },
+    {
+        "text": "Instance variables inherited from GeneralNote:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "articulations expressions isChord lyrics",
+        "type": "Table"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "ChordStepModification\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.harmony.",
+        "type": "Title"
+    },
+    {
+        "text": "ChordStepModification",
+        "type": "Title"
+    },
+    {
+        "text": "modType",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "degree",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "intervalObj",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "ChordStepModification objects define the specification of harmony degree\nalterations, subtractions, or additions, used in\nHarmony objects, which includes\nharmony.ChordSymbol objects (and will include harmony.RomanNumeral\nobjects).\n\ndegree-value element: indicates degree in chord, positive integers only\ndegree-alter: indicates semitone alteration of degree, positive and\nnegative integers only\n\ndegree-type: add, alter, or subtract\nif add: degree-alter is relative to a dominant chord (major and\nperfect intervals except for a minor seventh)\nif alter or subtract: degree-alter is relative to degree already in\nthe chord based on its kind element\n\n\n\n\n\n>>> hd = harmony.ChordStepModification('add', 4)\n>>> hd\n<music21.harmony.ChordStepModification modType=add\n    degree=4 interval=<music21.interval.Interval P1>>\n\n\n>>> hd = harmony.ChordStepModification('alter', 3, 1)\n>>> hd\n<music21.harmony.ChordStepModification modType=alter\n    degree=3 interval=<music21.interval.Interval A1>>",
+        "type": "ListItem"
+    },
+    {
+        "text": "ChordStepModification bases",
+        "type": "Title"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ChordStepModification read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "ChordStepModification read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "ChordStepModification.",
+        "type": "Title"
+    },
+    {
+        "text": "degree",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns or sets an integer specifying the scale degree\nthat this ChordStepModification alters.\n>>> hd = harmony.ChordStepModification()\n>>> hd.degree = 3\n>>> hd.degree\n3\n\n\n>>> hd.degree = 'juicy'\nTraceback (most recent call last):\nmusic21.harmony.ChordStepModificationException: not a valid degree: juicy",
+        "type": "ListItem"
+    },
+    {
+        "text": "ChordStepModification.",
+        "type": "Title"
+    },
+    {
+        "text": "interval",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get or set the alteration of this degree as a\nInterval object, generally\nas a type of ascending or descending augmented unison.\n>>> hd = harmony.ChordStepModification()\n>>> hd.interval = 1\n>>> hd.interval\n<music21.interval.Interval A1>\n\n\n>>> hd.interval = -2\n>>> hd.interval\n<music21.interval.Interval AA-1>\n\n\n>>> hd.interval = 0\n>>> hd.interval\n<music21.interval.Interval P1>\n\n\n>>> hd.interval = interval.Interval('m3')\n>>> hd.interval\n<music21.interval.Interval m3>\n\n\nMore than 3 half step alteration gets\nan interval that isn't a prime.\n>>> hd.interval = -4\n>>> hd.interval\n<music21.interval.Interval M-3>",
+        "type": "ListItem"
+    },
+    {
+        "text": "ChordStepModification.",
+        "type": "Title"
+    },
+    {
+        "text": "modType",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get or set the ChordStepModification modification type, where\npermitted types are the strings add, subtract, or alter.\n>>> hd = harmony.ChordStepModification()\n>>> hd.modType = 'add'\n>>> hd.modType\n'add'\n\n\n>>> hd.modType = 'juicy'\nTraceback (most recent call last):\nmusic21.harmony.ChordStepModificationException: not a valid degree modification type: juicy",
+        "type": "ListItem"
+    },
+    {
+        "text": "ChordStepModification methods",
+        "type": "Title"
+    },
+    {
+        "text": "ChordStepModification.",
+        "type": "Title"
+    },
+    {
+        "text": "__eq__",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "other",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return self==value.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "NoChord\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.harmony.",
+        "type": "Title"
+    },
+    {
+        "text": "NoChord",
+        "type": "Title"
+    },
+    {
+        "text": "figure",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "kind",
+        "type": "Title"
+    },
+    {
+        "text": "'none'",
+        "type": "Title"
+    },
+    {
+        "text": "kindStr",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Class representing a special \u0098no chord' ChordSymbol used to explicitly\nencode absence of chords. This is especially useful to stop a chord\nwithout playing another.\n>>> from music21.harmony import ChordSymbol, NoChord\n>>> s = stream.Score()\n>>> s.repeatAppend(note.Note('C'), 4)\n>>> s.append(ChordSymbol('C'))\n>>> s.repeatAppend(note.Note('C'), 4)\n>>> s.append(NoChord())\n>>> s.repeatAppend(note.Note('C'), 4)\n>>> s = s.makeMeasures()\n\n\nSee how the chordSymbol of C stops at offset 8 rather\nthan continuing, thanks to the NoChord object.\n>>> s = harmony.realizeChordSymbolDurations(s)\n>>> s.show('text', addEndTimes=True)\n{0.0 - 0.0} <music21.clef.BassClef>\n{0.0 - 0.0} <music21.meter.TimeSignature 4/4>\n{0.0 - 1.0} <music21.note.Note C>\n{1.0 - 2.0} <music21.note.Note C>\n{2.0 - 3.0} <music21.note.Note C>\n{3.0 - 4.0} <music21.note.Note C>\n{4.0 - 8.0} <music21.harmony.ChordSymbol C>\n{4.0 - 5.0} <music21.note.Note C>\n{5.0 - 6.0} <music21.note.Note C>\n{6.0 - 7.0} <music21.note.Note C>\n{7.0 - 8.0} <music21.note.Note C>\n{8.0 - 12.0} <music21.harmony.NoChord N.C.>\n{8.0 - 9.0} <music21.note.Note C>\n{9.0 - 10.0} <music21.note.Note C>\n{10.0 - 11.0} <music21.note.Note C>\n{11.0 - 12.0} <music21.note.Note C>\n{12.0 - 12.0} <music21.bar.Barline type=final>\n\n\n>>> c_major = s.getElementsByClass(ChordSymbol).first()\n>>> c_major.duration\n<music21.duration.Duration 4.0>\n>>> c_major.offset\n4.0\n\n\nOther text than the default of \u0098N.C.' can be given:\n>>> nc2 = NoChord('NC')\n>>> nc2\n<music21.harmony.NoChord NC>\n>>> nc2.pitches\n()\n\n\nNote that even if the text is a valid chord abbreviation, no\npitches are generated.  This feature may be useful for adding\nthe appearance of ChordSymbols in a piece without having them\nbe realized.\n>>> nc2 = NoChord('C7')\n>>> nc2\n<music21.harmony.NoChord C7>\n>>> nc2.pitches\n()",
+        "type": "ListItem"
+    },
+    {
+        "text": "NoChord bases",
+        "type": "Title"
+    },
+    {
+        "text": "ChordSymbol",
+        "type": "ListItem"
+    },
+    {
+        "text": "Harmony",
+        "type": "ListItem"
+    },
+    {
+        "text": "Chord",
+        "type": "ListItem"
+    },
+    {
+        "text": "ChordBase",
+        "type": "ListItem"
+    },
+    {
+        "text": "NotRest",
+        "type": "ListItem"
+    },
+    {
+        "text": "GeneralNote",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "NoChord read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Chord:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "chordTablesAddress commonName fifth forteClass forteClassNumber forteClassTn forteClassTnI fullName hasZRelation intervalVector intervalVectorString isPrimeFormInversion multisetCardinality normalOrder normalOrderString orderedPitchClasses orderedPitchClassesString pitchClassCardinality pitchClasses pitchedCommonName primeForm primeFormString quality scaleDegrees seventh third",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "NoChord read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Harmony:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "figure key romanNumeral writeAsChord",
+        "type": "Table"
+    },
+    {
+        "text": "Read/write properties inherited from Chord:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "duration notes pitchNames pitches",
+        "type": "Table"
+    },
+    {
+        "text": "Read/write properties inherited from ChordBase:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "tie volume",
+        "type": "Table"
+    },
+    {
+        "text": "Read/write properties inherited from NotRest:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "notehead noteheadFill noteheadParenthesis stemDirection storedInstrument",
+        "type": "Table"
+    },
+    {
+        "text": "Read/write properties inherited from GeneralNote:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "lyric",
+        "type": "Table"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "NoChord methods",
+        "type": "Title"
+    },
+    {
+        "text": "NoChord.",
+        "type": "Title"
+    },
+    {
+        "text": "bass",
+        "type": "Title"
+    },
+    {
+        "text": "newbass",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "find",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "allow_add",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Generally used to find and return the bass Pitch:\n>>> cmaj1stInv = chord.Chord(['C4', 'E3', 'G5'])\n>>> cmaj1stInv.bass()\n<music21.pitch.Pitch E3>\n\n\nSubclasses of Chord often have basses that are harder to determine.\n>>> cmaj = harmony.ChordSymbol('CM')\n>>> cmaj.bass()\n<music21.pitch.Pitch C3>\n\n\n>>> cmin_inv = harmony.ChordSymbol('Cm/E-')\n>>> cmin_inv.bass()\n<music21.pitch.Pitch E-3>\n\n\nCan also be used in rare occasions to set the bass note to a new Pitch,\nso long as that note is found in the chord:\n>>> strange_chord = chord.Chord('E##4 F-4 C5')\n>>> strange_chord.bass()\n<music21.pitch.Pitch E##4>\n>>> strange_chord.bass('F-4')\n>>> strange_chord.bass()\n<music21.pitch.Pitch F-4>\n\n\nIf the note assigned to the bass is not found, it will default to raising a\nChordException:\n>>> strange_chord.bass('G--4')\nTraceback (most recent call last):\nmusic21.chord.ChordException: Pitch G--4 not found in chord\n\n\nFor the purposes of initializing from a ChordSymbol and in other cases,\na new bass can be added to the chord by setting allow_add = True:\n>>> strange_chord.bass('G--4', allow_add=True)\n>>> strange_chord.bass()\n<music21.pitch.Pitch G--4>\n\n\nBy default, if nothing has been overridden, this method uses a\nquick algorithm to find the bass among the\nchord's pitches, if no bass has been previously specified. If this is\nnot intended, set find to False when calling this method, and \u0098None'\nwill be returned if no bass is specified\n>>> em = chord.Chord(['E3', 'G3', 'B4'])\n>>> print(em.bass(find=False))\nNone\n\n\n\nChanged in v8: raise an exception if setting a new bass\nto a pitch not in the chord, unless new keyword allow_add is True.",
+        "type": "ListItem"
+    },
+    {
+        "text": "NoChord.",
+        "type": "Title"
+    },
+    {
+        "text": "root",
+        "type": "Title"
+    },
+    {
+        "text": "newroot",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "find",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns the root of the chord.  Or if given a Pitch as the\nnewroot will override the algorithm and always return that Pitch.\n>>> cmaj = chord.Chord(['E3', 'C4', 'G5'])\n>>> cmaj.root()\n<music21.pitch.Pitch C4>\n\n\nExamples:\n>>> cmaj = chord.Chord(['E', 'G', 'C'])\n>>> cmaj.root()\n<music21.pitch.Pitch C>\n\n\nFor some chords we make an exception.  For instance, this chord in\nB-flat minor:\n>>> aDim7no3rd = chord.Chord(['A3', 'E-4', 'G4'])\n\n\n\u2026could be considered a type of E-flat 11 chord with a 3rd, but no 5th,\n7th, or 9th, in 5th inversion.  That doesn't make sense, so we should\ncall it an A dim 7th chord\nwith no 3rd.\n>>> aDim7no3rd.root()\n<music21.pitch.Pitch A3>\n\n\n>>> aDim7no3rdInv = chord.Chord(['E-3', 'A4', 'G4'])\n>>> aDim7no3rdInv.root()\n<music21.pitch.Pitch A4>\n\n\nThe root of a 13th chord (which could be any chord in any inversion) is\ndesigned to be the bass:\n>>> chord.Chord('F3 A3 C4 E-4 G-4 B4 D5').root()\n<music21.pitch.Pitch F3>\n\n\nMultiple pitches in different octaves do not interfere with root.\n>>> lotsOfNotes = chord.Chord(['E3', 'C4', 'G4', 'B-4', 'E5', 'G5'])\n>>> r = lotsOfNotes.root()\n>>> r\n<music21.pitch.Pitch C4>\n\n\n>>> r is lotsOfNotes.pitches[1]\nTrue\n\n\nSetting of a root may happen for a number of reasons, such as\nin the case where music21's idea of a root differs from the interpreter's.\nTo specify the root directly, pass the pitch to the root function:\n>>> cSus4 = chord.Chord('C4 F4 G4')\n>>> cSus4.root()  # considered by music21 to be an F9 chord in 2nd inversion\n<music21.pitch.Pitch F4>\n\n\nChange it to be a Csus4:\n>>> cSus4.root('C4')\n>>> cSus4.root()\n<music21.pitch.Pitch C4>\n\n\nNote that if passing in a string as the root,\nthe root is set to a pitch in the chord if possible.\n>>> cSus4.root() is cSus4.pitches[0]\nTrue\n\n\nYou might also want to supply an \u009cimplied root.\u009d For instance, some people\ncall a diminished seventh chord (generally viio7)\na dominant chord with an omitted root (Vo9) \u2014 here we will specify the root\nto be a note not in the chord:\n>>> vo9 = chord.Chord(['B3', 'D4', 'F4', 'A-4'])\n>>> vo9.root()\n<music21.pitch.Pitch B3>\n\n\n>>> vo9.root(pitch.Pitch('G3'))\n>>> vo9.root()\n<music21.pitch.Pitch G3>\n\n\nWhen setting a root, the pitches of the chord are left untouched:\n>>> [p.nameWithOctave for p in vo9.pitches]\n['B3', 'D4', 'F4', 'A-4']\n\n\nBy default, this method uses an algorithm to find the root among the\nchord's pitches, if no root has been previously specified.  If a root\nhas been explicitly specified, as in the Csus4 chord above, it can be\nreturned to the original root() by setting find explicitly to True:\n>>> cSus4.root(find=True)\n<music21.pitch.Pitch F4>\n\n\nSubsequent calls without find=True have also removed the overridden root:\n>>> cSus4.root()\n<music21.pitch.Pitch F4>\n\n\nIf for some reason you do not want the root-finding algorithm to be\nrun (for instance, checking to see if an overridden root has been\nspecified) set find=False.  \u009cNone\u009d will be returned if no root has been specified.\n>>> c = chord.Chord(['E3', 'G3', 'B4'])\n>>> print(c.root(find=False))\nNone\n\n\nChord symbols, for instance, have their root already specified on construction:\n>>> d = harmony.ChordSymbol('CM/E')\n>>> d.root(find=False)\n<music21.pitch.Pitch C4>\n\n\nThere is no need to set find=False in this case, however, the\nalgorithm will skip the slow part of finding the root if it\nhas been specified (or already found and no pitches have changed).\nA chord with no pitches has no root and raises a ChordException.\n>>> chord.Chord().root()\nTraceback (most recent call last):\nmusic21.chord.ChordException: no pitches in chord <music21.chord.Chord ...>\n\n\n\nChanged in v5.2: find is a keyword-only parameter,\nnewroot finds Pitch in Chord",
+        "type": "ListItem"
+    },
+    {
+        "text": "NoChord.",
+        "type": "Title"
+    },
+    {
+        "text": "transpose",
+        "type": "Title"
+    },
+    {
+        "text": "_value",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 NCT | None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Overrides transpose() to do nothing.\n>>> nc = harmony.NoChord()\n>>> nc.figure\n'N.C.'\n>>> nc.transpose(8, inPlace=True)\n>>> nc.figure\n'N.C.'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from ChordSymbol:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "findFigure() inversionIsValid()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Harmony:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "addChordStepModification() getChordStepModifications()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Chord:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() __getitem__() add() annotateIntervals() areZRelations() canBeDominantV() canBeTonic() closedPosition() containsSeventh() containsTriad() formatVectorString() geometricNormalForm() getChordStep() getColor() getNotehead() getNoteheadFill() getStemDirection() getTie() getVolume() getZRelation() hasAnyEnharmonicSpelledPitches() hasAnyRepeatedDiatonicNote() hasRepeatedChordStep() intervalFromChordStep() inversion() inversionName() inversionText() isAugmentedSixth() isAugmentedTriad() isConsonant() isDiminishedSeventh() isDiminishedTriad() isDominantSeventh() isFalseDiminishedSeventh() isFrenchAugmentedSixth() isGermanAugmentedSixth() isHalfDiminishedSeventh() isIncompleteMajorTriad() isIncompleteMinorTriad() isItalianAugmentedSixth() isMajorTriad() isMinorTriad() isNinth() isSeventh() isSeventhOfType() isSwissAugmentedSixth() isTranspositionallySymmetrical() isTriad() removeRedundantPitchClasses() removeRedundantPitchNames() removeRedundantPitches() semiClosedPosition() semitonesFromChordStep() setColor() setNotehead() setNoteheadFill() setStemDirection() setTie() setVolume() simplifyEnharmonics() sortAscending() sortChromaticAscending() sortDiatonicAscending() sortFrequencyAscending()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ChordBase:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "hasComponentVolumes() remove() setVolumes()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from NotRest:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "getInstrument() hasVolumeInformation()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from GeneralNote:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "addLyric() augmentOrDiminish() getGrace() insertLyric()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "NoChord instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from Chord:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beams isChord isNote isRest",
+        "type": "Table"
+    },
+    {
+        "text": "Instance variables inherited from ChordBase:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beams isNote isRest",
+        "type": "Table"
+    },
+    {
+        "text": "Instance variables inherited from NotRest:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beams",
+        "type": "Table"
+    },
+    {
+        "text": "Instance variables inherited from GeneralNote:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "articulations expressions isChord lyrics",
+        "type": "Table"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.harmony.",
+        "type": "Title"
+    },
+    {
+        "text": "chordSymbolFigureFromChord",
+        "type": "Title"
+    },
+    {
+        "text": "inChord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "includeChordType",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Analyze the given chord, and attempt to describe its pitches using a\nstandard chord symbol figure.\nThe pitches of the chord are analyzed based on intervals, and compared to\nstandard triads, sevenths, ninths, elevenths, and thirteenth chords. The\ntype of chord therefore is determined if it matches (given certain\nguidelines documented below) and the figure is returned. There is no\nstandard \u009cchord symbol\u009d notation, so a typical notation is used that can be\neasily modified if desired by changing a dictionary in the source code.\nSet includeChordType to true (default is False) to return a tuple, the\nfirst element being the figure and the second element the identified chord\ntype.\n>>> harmony.chordSymbolFigureFromChord(chord.Chord(['C3', 'E3', 'G3']))\n'C'\n\n\nTHIRDS\n>>> c = chord.Chord(['C3', 'E3', 'G3'])\n>>> harmony.chordSymbolFigureFromChord(c, True)\n('C', 'major')\n\n\n>>> c = chord.Chord(['B-3', 'D-4', 'F4'])\n>>> harmony.chordSymbolFigureFromChord(c, True)\n('B-m', 'minor')\n\n\n>>> c = chord.Chord(['F#3', 'A#3', 'C##4'])\n>>> harmony.chordSymbolFigureFromChord(c, True)\n('F#+', 'augmented')\n\n\n>>> c = chord.Chord(['C3', 'E-3', 'G-3'])\n>>> harmony.chordSymbolFigureFromChord(c, True)\n('Cdim', 'diminished')\n\n\nSEVENTHS\n>>> c = chord.Chord(['E-3', 'G3', 'B-3', 'D-4'])\n>>> harmony.chordSymbolFigureFromChord(c, True)\n('E-7', 'dominant-seventh')\n\n\n>>> c = chord.Chord(['C3', 'E3', 'G3', 'B3'])\n>>> harmony.chordSymbolFigureFromChord(c, True)\n('Cmaj7', 'major-seventh')\n\n\n>>> c = chord.Chord(['F#3', 'A3', 'C#4', 'E#4'])\n>>> harmony.chordSymbolFigureFromChord(c, True)\n('F#mM7', 'minor-major-seventh')\n\n\n>>> c = chord.Chord(['F3', 'A-3', 'C4', 'E-4'])\n>>> harmony.chordSymbolFigureFromChord(c, True)\n('Fm7', 'minor-seventh')\n\n\n>>> c = chord.Chord(['F3', 'A3', 'C#4', 'E4'])\n>>> harmony.chordSymbolFigureFromChord(c, True)\n('F+M7', 'augmented-major-seventh')\n\n\n>>> c = chord.Chord(['C3', 'E3', 'G#3', 'B-3'])\n>>> harmony.chordSymbolFigureFromChord(c, True)\n('C7+', 'augmented-seventh')\n\n\n>>> c = chord.Chord(['G3', 'B-3', 'D-4', 'F4'])\n>>> harmony.chordSymbolFigureFromChord(c, True)\n('G\u00c3\u00b87', 'half-diminished-seventh')\n\n\n>>> c = chord.Chord(['C3', 'E-3', 'G-3', 'B--3'])\n>>> harmony.chordSymbolFigureFromChord(c, True)\n('Co7', 'diminished-seventh')\n\n\n>>> c = chord.Chord(['B-3', 'D4', 'F-4', 'A-4'])\n>>> harmony.chordSymbolFigureFromChord(c, True)\n('B-dom7dim5', 'seventh-flat-five')\n\n\nNINTHS\n>>> c = chord.Chord(['C3', 'E3', 'G3', 'B3', 'D3'])\n>>> harmony.chordSymbolFigureFromChord(c, True)\n('CM9', 'major-ninth')\n\n\n>>> c = chord.Chord(['B-3', 'D4', 'F4', 'A-4', 'C4'])\n>>> harmony.chordSymbolFigureFromChord(c, True)\n('B-9', 'dominant-ninth')\n\n\n>>> c = chord.Chord(['E-3', 'G-3', 'B-3', 'D4', 'F3'])\n>>> harmony.chordSymbolFigureFromChord(c, True)\n('E-mM9', 'minor-major-ninth')\n\n\n>>> c = chord.Chord(['C3', 'E-3', 'G3', 'B-3', 'D3'])\n>>> harmony.chordSymbolFigureFromChord(c, True)\n('Cm9', 'minor-ninth')\n\n\n>>> c = chord.Chord(['F#3', 'A#3', 'C##4', 'E#4', 'G#3'])\n>>> harmony.chordSymbolFigureFromChord(c, True)\n('F#+M9', 'augmented-major-ninth')\n\n\n>>> c = chord.Chord(['G3', 'B3', 'D#4', 'F4', 'A3'])\n>>> harmony.chordSymbolFigureFromChord(c, True)\n('G9#5', 'augmented-dominant-ninth')\n\n\n>>> c = chord.Chord(['C3', 'E-3', 'G-3', 'B-3', 'D3'])\n>>> harmony.chordSymbolFigureFromChord(c, True)\n('C\u00c3\u00b89', 'half-diminished-ninth')\n\n\n>>> c = chord.Chord(['B-3', 'D-4', 'F-4', 'A-4', 'C-4'])\n>>> harmony.chordSymbolFigureFromChord(c, True)\n('B-\u00c3\u00b8b9', 'half-diminished-minor-ninth')\n\n\n>>> c = chord.Chord(['C3', 'E-3', 'G-3', 'B--3', 'D3'])\n>>> harmony.chordSymbolFigureFromChord(c, True)\n('Co9', 'diminished-ninth')\n\n\n>>> c = chord.Chord(['F3', 'A-3', 'C-4', 'E--4', 'G-3'])\n>>> harmony.chordSymbolFigureFromChord(c, True)\n('Fob9', 'diminished-minor-ninth')\n\n\nThis harmony can either be CmaddD or Csus2addE-. music21 prefers the former.\nChange the ordering of harmony.CHORD_TYPES to switch the preference. From Bach BWV380\n>>> c = chord.Chord(['C3', 'D4', 'G4', 'E-5'])\n>>> harmony.chordSymbolFigureFromChord(c, True)\n('CmaddD', 'minor')\n\n\nELEVENTHS\n>>> c = chord.Chord(['E-3', 'G3', 'B-3', 'D-4', 'F3', 'A-3'] )\n>>> harmony.chordSymbolFigureFromChord(c, True)\n('E-11', 'dominant-11th')\n\n\n>>> c = chord.Chord(['G3', 'B3', 'D4', 'F#4', 'A3', 'C4'])\n>>> harmony.chordSymbolFigureFromChord(c, True)\n('GM11', 'major-11th')\n\n\n>>> c = chord.Chord(['C3', 'E-3', 'G3', 'B3', 'D3', 'F3'])\n>>> harmony.chordSymbolFigureFromChord(c, True)\n('CmM11', 'minor-major-11th')\n\n\n>>> c = chord.Chord(['F#3', 'A3', 'C#4', 'E4', 'G#3', 'B3'])\n>>> harmony.chordSymbolFigureFromChord(c, True)\n('F#m11', 'minor-11th')\n\n\n>>> c = chord.Chord(['B-3', 'D4', 'F#4', 'A4', 'C4', 'E-4'])\n>>> harmony.chordSymbolFigureFromChord(c, True)\n('B-+M11', 'augmented-major-11th')\n\n\n>>> c = chord.Chord(['F3', 'A3', 'C#4', 'E-4', 'G3', 'B-3'])\n>>> harmony.chordSymbolFigureFromChord(c, True)\n('F+11', 'augmented-11th')\n\n\n>>> c = chord.Chord(['G3', 'B-3', 'D-4', 'F4', 'A3', 'C4'])\n>>> harmony.chordSymbolFigureFromChord(c, True)\n('G\u00c3\u00b811', 'half-diminished-11th')\n\n\n>>> c = chord.Chord(['E-3', 'G-3', 'B--3', 'D--4', 'F3', 'A-3'])\n>>> harmony.chordSymbolFigureFromChord(c, True)\n('E-o11', 'diminished-11th')\n\n\nTHIRTEENTHS\nthese are so tricky\u2026music21 needs to be told what the root is in these cases\nall tests here are \u0098C' chords, but any root will work:\n>>> c = chord.Chord(['C3', 'E3', 'G3', 'B3', 'D4', 'F4', 'A4'])\n>>> c.root('C3')\n>>> harmony.chordSymbolFigureFromChord(c, True)\n('CM13', 'major-13th')\n\n\n>>> c = chord.Chord(['C3', 'E3', 'G3', 'B-3', 'D4', 'F4', 'A4'])\n>>> c.root('C3')\n>>> harmony.chordSymbolFigureFromChord(c, True)\n('C13', 'dominant-13th')\n\n\n>>> c = chord.Chord(['C3', 'E-3', 'G3', 'B3', 'D4', 'F4', 'A4'])\n>>> c.root('C3')\n>>> harmony.chordSymbolFigureFromChord(c, True)\n('CmM13', 'minor-major-13th')\n\n\n>>> c = chord.Chord(['C3', 'E-3', 'G3', 'B-3', 'D4', 'F4', 'A4'])\n>>> c.root('C3')\n>>> harmony.chordSymbolFigureFromChord(c, True)\n('Cm13', 'minor-13th')\n\n\n>>> c = chord.Chord(['C3', 'E3', 'G#3', 'B3', 'D4', 'F4', 'A4'])\n>>> c.root('C3')\n>>> harmony.chordSymbolFigureFromChord(c, True)\n('C+M13', 'augmented-major-13th')\n\n\n>>> c = chord.Chord(['C3', 'E3', 'G#3', 'B-3', 'D4', 'F4', 'A4'])\n>>> c.root('C3')\n>>> harmony.chordSymbolFigureFromChord(c, True)\n('C+13', 'augmented-dominant-13th')\n\n\n>>> c = chord.Chord(['C3', 'E-3', 'G-3', 'B-3', 'D4', 'F4', 'A4'])\n>>> c.root('C3')\n>>> harmony.chordSymbolFigureFromChord(c, True)\n('C\u00c3\u00b813', 'half-diminished-13th')\n\n\nPop chords are typically not always \u009cstrictly\u009d spelled and often certain degrees\nare omitted. Therefore, the following common chord omissions are permitted\nand the chord will still be identified correctly:\n\ntriads: none\nseventh chords: none\nninth chords: fifth\neleventh chords: third and/or fifth\nthirteenth chords: fifth, eleventh, ninth\n\nThis Chord could be minor 7th with a C4, but because this 5th isn't present, not identified\n>>> c = chord.Chord(['F3', 'A-3', 'E-4'])\n>>> harmony.chordSymbolFigureFromChord(c)\n'Chord Symbol Cannot Be Identified'\n\n\nRemoving the fifth G3  (fifth of chord)\n>>> c = chord.Chord(['C3', 'E3',  'B3', 'D3'])\n>>> harmony.chordSymbolFigureFromChord(c, True)\n('CM9', 'major-ninth')\n\n\nChord with G3 and B-3 removed (3rd & 5th of chord)\n>>> c = chord.Chord(['E-3', 'D-4', 'F3', 'A-3'] )\n\n\nWithout a 3rd and 5th, root() algorithm can't locate the root,\nso we must tell it the root (or write an algorithm that assumes the root is the\nlowest note if the root can't be found)\n>>> c.root('E-3')\n>>> harmony.chordSymbolFigureFromChord(c, True)\n('E-11', 'dominant-11th')\n\n\nInversions are supported, and indicated with a \u0098/' between the root, type-string, and bass\n>>> c = chord.Chord([ 'G#3', 'B-3', 'C4', 'E4',])\n>>> harmony.chordSymbolFigureFromChord(c, True)\n('C7+/G#', 'augmented-seventh')\n\n\n>>> c = chord.Chord(['G#2', 'B2', 'F#3', 'A3', 'C#4', 'E4'])\n>>> harmony.chordSymbolFigureFromChord(c, True)\n('F#m11/G#', 'minor-11th')\n\n\nif the algorithm matches the chord, but omissions or subtractions are present,\nthe chord symbol attempts to indicate this (although there is no standard way of doing\nthis so the notation might be different from what you're familiar with).\nAn example of using this algorithm for identifying chords \u009cin the wild\u009d:\n>>> score = corpus.parse('bach/bwv380')\n>>> excerpt = score.measures(2, 3)\n>>> chfy = excerpt.chordify()\n>>> for c in chfy.flatten().getElementsByClass(chord.Chord):\n...   print(harmony.chordSymbolFigureFromChord(c))\nB-7\nE-maj7/B-\nB-7\nChord Symbol Cannot Be Identified\nB-7\nE-\nB-\nChord Symbol Cannot Be Identified\nB-/D\nB-7\nCmaddD\nCm/D\nE-+M7/D\nCm/E-\nF7\n\n\nNotice, however, that this excerpt contains many embellishment and non-harmonic tones,\nso an algorithm to truly identify the chord symbols must be as complex as any harmonic\nanalysis algorithm, which this is not, so innately this method is flawed.\nAnd for the sake of completeness, unique chords supported by musicxml that\nthis method can still successfully identify. Notice that the root must\noften be specified for this method to work.\n>>> c = chord.Chord(['C3', 'D3', 'G3'])\n>>> harmony.chordSymbolFigureFromChord(c, True)\n('Csus2', 'suspended-second')\n>>> c.root()\n<music21.pitch.Pitch C3>\n>>> c.bass()\n<music21.pitch.Pitch C3>\n\n\n>>> c = chord.Chord(['C3', 'F3', 'G3'])\n>>> harmony.chordSymbolFigureFromChord(c, True)\n('Csus', 'suspended-fourth')\n>>> c.root()\n<music21.pitch.Pitch C3>\n>>> c.inversion()\n0\n\n\n>>> c = chord.Chord(['C3', 'D-3', 'E3', 'G-3'])\n>>> harmony.chordSymbolFigureFromChord(c, True)\n('CN6', 'Neapolitan')\n\n\n>>> c = chord.Chord(['C3', 'F#3', 'A-3'])\n>>> c.root('C3')\n>>> harmony.chordSymbolFigureFromChord(c, True)\n('CIt+6', 'Italian')\n\n\n>>> c = chord.Chord(['C3', 'D3', 'F#3', 'A-3'])\n>>> c.root('C3')\n>>> harmony.chordSymbolFigureFromChord(c, True)\n('CFr+6', 'French')\n\n\n>>> c = chord.Chord(['C3', 'E-3', 'F#3', 'A-3'])\n>>> c.root('C3')\n>>> harmony.chordSymbolFigureFromChord(c, True)\n('CGr+6', 'German')\n\n\n>>> c = chord.Chord(['C3'])\n>>> harmony.chordSymbolFigureFromChord(c, True)\n('Cpedal', 'pedal')\n\n\n>>> c = chord.Chord(['C3', 'G3'])\n>>> harmony.chordSymbolFigureFromChord(c, True)\n('Cpower', 'power')\n\n\n>>> c = chord.Chord(['F3', 'G#3', 'B3', 'D#4'] )\n>>> c.root('F3')\n>>> harmony.chordSymbolFigureFromChord(c, True)\n('Ftristan', 'Tristan')\n\n\nThis algorithm works as follows:\n\nchord is analyzed for root (using chord's root() )\nif the root cannot be determined, error is raised\nbe aware that the root() method determines the root based on which note has\nthe most thirds above it\nthis is not a consistent way to determine the root of 13th chords, for example\n\na chord vector is extracted from the chordusing  music21.chord.Chord.semitonesFromChordStep()\nthis vector extracts the following degrees: (2, 3, 4, 5, 6, 7, 9, 11, and 13)\n\n\n\n\nthis vector is converted to fbNotationString (in the form of chord step,and a \u0098-' or \u0098#' to indicate semitone distance)\n\n\n\n\nthe fbNotationString is matched against the CHORD_TYPES dictionary in this harmony module,although certain subtractions are permitted for example a 9th chord will\nstill be identified correctly even if it is missing the 5th\n\n\n\n\nthe type with the most identical matches is used, and if no type matches,\u009cChord Type Cannot Be Identified\u009d is returned\n\n\n\n\nthe output format for the chord symbol figure is the chord's root (with \u0098b' instead of \u0098-\u0098),the chord type's Abbreviation (saved in CHORD_TYPES dictionary),\na \u0098/' if the chord is in an inversion, and the chord's bass\n\n\n\n\nThe chord symbol nomenclature is not entirely standardized. There are several\nways to write each abbreviation.\nFor example, an augmented triad might be symbolized with \u0098+' or \u0098aug'.\nThus, by default the returned symbol is the first (element 0) in the CHORD_TYPES list.\nFor example (Eb minor eleventh chord, second inversion):\n\nroot + chord-type-str + \u0098/' + bass = \u0098Ebmin11/Bb'\n\nUsers who wish to change these defaults can simply change that\nentry in the CHORD_TYPES dictionary.\n>>> harmony.chordSymbolFigureFromChord(chord.Chord(['C2', 'E2', 'G2']))\n'C'\n\n\n>>> harmony.changeAbbreviationFor('major', 'maj')\n>>> harmony.chordSymbolFigureFromChord(chord.Chord(['C2', 'E2', 'G2']))\n'Cmaj'",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.harmony.",
+        "type": "Title"
+    },
+    {
+        "text": "addNewChordSymbol",
+        "type": "Title"
+    },
+    {
+        "text": "chordTypeName",
+        "type": "Title"
+    },
+    {
+        "text": "fbNotationString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "AbbreviationList",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Add a new chord symbol:\n>>> harmony.addNewChordSymbol('BethChord', '1,3,-6,#9', ['MH', 'beth'])\n>>> [str(p) for p in harmony.ChordSymbol('BMH').pitches]\n['B2', 'C##3', 'D#3', 'G3']\n\n\n>>> harmony.ChordSymbol('Cbeth').pitches\n(<music21.pitch.Pitch C3>, <music21.pitch.Pitch D#3>,\n <music21.pitch.Pitch E3>, <music21.pitch.Pitch A-3>)\n\n\n>>> harmony.ChordSymbol('C-beth').pitches\n(<music21.pitch.Pitch C-3>, <music21.pitch.Pitch D3>,\n <music21.pitch.Pitch E-3>, <music21.pitch.Pitch A--3>)",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.harmony.",
+        "type": "Title"
+    },
+    {
+        "text": "changeAbbreviationFor",
+        "type": "Title"
+    },
+    {
+        "text": "chordType",
+        "type": "Title"
+    },
+    {
+        "text": "changeTo",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Change the current Abbreviation used for a certain\nmusic21.harmony.ChordSymbol chord type\n>>> harmony.getCurrentAbbreviationFor('minor')\n'm'\n\n\n>>> harmony.changeAbbreviationFor('minor', 'min')\n>>> harmony.getCurrentAbbreviationFor('minor')\n'min'",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.harmony.",
+        "type": "Title"
+    },
+    {
+        "text": "chordSymbolFromChord",
+        "type": "Title"
+    },
+    {
+        "text": "inChord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 ChordSymbol",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get the chordSymbol object from the chord, using\nmusic21.harmony.Harmony.chordSymbolFigureFromChord()\n>>> c = chord.Chord(['D3', 'F3', 'A4', 'B-5'])\n>>> symbol = harmony.chordSymbolFromChord(c)\n>>> symbol\n<music21.harmony.ChordSymbol B-maj7/D>\n>>> c.pitches == symbol.pitches\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.harmony.",
+        "type": "Title"
+    },
+    {
+        "text": "getAbbreviationListGivenChordType",
+        "type": "Title"
+    },
+    {
+        "text": "chordType",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get the Abbreviation list (all allowed Abbreviations that map to this\nmusic21.harmony.ChordSymbol object):\n>>> harmony.getAbbreviationListGivenChordType('minor-major-13th')\n['mM13', 'minmaj13']",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.harmony.",
+        "type": "Title"
+    },
+    {
+        "text": "getCurrentAbbreviationFor",
+        "type": "Title"
+    },
+    {
+        "text": "chordType",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return the current Abbreviation for a given\nmusic21.harmony.ChordSymbol chordType:\n>>> harmony.getCurrentAbbreviationFor('dominant-seventh')\n'7'",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.harmony.",
+        "type": "Title"
+    },
+    {
+        "text": "getNotationStringGivenChordType",
+        "type": "Title"
+    },
+    {
+        "text": "chordType",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get the notation string (fb-notation style) associated with this\nmusic21.harmony.ChordSymbol chordType\n>>> harmony.getNotationStringGivenChordType('German')\n'1,-3,#4,-6'",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.harmony.",
+        "type": "Title"
+    },
+    {
+        "text": "realizeChordSymbolDurations",
+        "type": "Title"
+    },
+    {
+        "text": "piece",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns music21 stream with duration attribute of chord symbols correctly\nset. Duration of chord symbols is based on the surrounding chord symbols;\nThe chord symbol continues duration until another chord symbol is located\nor the piece ends.\n>>> s = stream.Score()\n>>> s.append(harmony.ChordSymbol('C'))\n>>> s.repeatAppend(note.Note('C'), 4)\n>>> s.append(harmony.ChordSymbol('C'))\n>>> s.repeatAppend(note.Note('C'), 4)\n>>> s = s.makeMeasures()\n\n\n>>> harmony.realizeChordSymbolDurations(s).show('text')\n{0.0} <music21.clef.BassClef>\n{0.0} <music21.meter.TimeSignature 4/4>\n{0.0} <music21.harmony.ChordSymbol C>\n{0.0} <music21.note.Note C>\n{1.0} <music21.note.Note C>\n{2.0} <music21.note.Note C>\n{3.0} <music21.note.Note C>\n{4.0} <music21.harmony.ChordSymbol C>\n{4.0} <music21.note.Note C>\n{5.0} <music21.note.Note C>\n{6.0} <music21.note.Note C>\n{7.0} <music21.note.Note C>\n{8.0} <music21.bar.Barline type=final>\n\n\nIf only one chord symbol object is present:\n>>> s = stream.Score()\n>>> s.append(harmony.ChordSymbol('C'))\n>>> s.repeatAppend(note.Note('C'), 4)\n>>> s = s.makeMeasures()\n>>> harmony.realizeChordSymbolDurations(s).show('text')\n{0.0} <music21.clef.BassClef>\n{0.0} <music21.meter.TimeSignature 4/4>\n{0.0} <music21.harmony.ChordSymbol C>\n{0.0} <music21.note.Note C>\n{1.0} <music21.note.Note C>\n{2.0} <music21.note.Note C>\n{3.0} <music21.note.Note C>\n{4.0} <music21.bar.Barline type=final>\n\n\nIf a ChordSymbol object exists followed by many notes, duration represents\nall those notes (how else can the computer know to end the chord? if\nthere's no chord following it other than end the chord at the end of the\npiece?).\n>>> s = stream.Score()\n>>> s.repeatAppend(note.Note('C'), 4)\n>>> s.append(harmony.ChordSymbol('C'))\n>>> s.repeatAppend(note.Note('C'), 8)\n>>> s = s.makeMeasures()\n>>> harmony.realizeChordSymbolDurations(s).show('text')\n{0.0} <music21.clef.BassClef>\n{0.0} <music21.meter.TimeSignature 4/4>\n{0.0} <music21.note.Note C>\n{1.0} <music21.note.Note C>\n{2.0} <music21.note.Note C>\n{3.0} <music21.note.Note C>\n{4.0} <music21.harmony.ChordSymbol C>\n{4.0} <music21.note.Note C>\n{5.0} <music21.note.Note C>\n{6.0} <music21.note.Note C>\n{7.0} <music21.note.Note C>\n{8.0} <music21.note.Note C>\n{9.0} <music21.note.Note C>\n{10.0} <music21.note.Note C>\n{11.0} <music21.note.Note C>\n{12.0} <music21.bar.Barline type=final>",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.harmony.",
+        "type": "Title"
+    },
+    {
+        "text": "removeChordSymbols",
+        "type": "Title"
+    },
+    {
+        "text": "chordType",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Remove the given chord type from the CHORD_TYPES dictionary, so it\ncan no longer be identified or parsed by harmony methods.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.harmony",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

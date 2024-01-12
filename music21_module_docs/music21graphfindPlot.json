@@ -1,0 +1,390 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.graph.findPlot",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.graph.axis",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.graph.plot",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.graph.findPlot\nFunctions\naxisMatchesValue()\ngetAxisClassFromValue()\ngetAxisClasses()\ngetAxisQuantities()\ngetPlotClasses()\ngetPlotClassesFromFormat()\ngetPlotsToMake()\nuserFormatsToFormat()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.graph.findPlot\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Functions that find appropriate plots for graph.plot.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.graph.findPlot.",
+        "type": "Title"
+    },
+    {
+        "text": "axisMatchesValue",
+        "type": "Title"
+    },
+    {
+        "text": "axisClass",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "music21.graph.axis.Axis",
+        "type": "Title"
+    },
+    {
+        "text": "Axis",
+        "type": "Title"
+    },
+    {
+        "text": "axisValue",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns Bool about whether axisValue.lower() is anywhere in axisClass.quantities\n>>> ax = graph.axis.CountingAxis\n>>> graph.findPlot.axisMatchesValue(ax, 'counting')\nTrue\n>>> graph.findPlot.axisMatchesValue(ax, 'count')\nTrue\n>>> graph.findPlot.axisMatchesValue(ax, 'offset')\nFalse\n\n\nWorks on an instantiated object as well:\n>>> ax = graph.axis.CountingAxis()\n>>> graph.findPlot.axisMatchesValue(ax, 'counting')\nTrue\n>>> graph.findPlot.axisMatchesValue(ax, 'flute')\nFalse\n\n\n\n\nChanged in v8: Must send a subclass of axis.Axis or an instance.None is no longer supported.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.graph.findPlot.",
+        "type": "Title"
+    },
+    {
+        "text": "getAxisClassFromValue",
+        "type": "Title"
+    },
+    {
+        "text": "axisValue",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 type[music21.graph.axis.Axis] | None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "given an axis value return the single best axis for the value, or None\nuses Axis.quantities\n>>> getAxis = graph.findPlot.getAxisClassFromValue\n\n\n>>> getAxis('counting')\n<class 'music21.graph.axis.CountingAxis'>\n\n\n>>> getAxis('pc')\n<class 'music21.graph.axis.PitchClassAxis'>\n\n\n>>> print(getAxis('boogie'))\nNone",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.graph.findPlot.",
+        "type": "Title"
+    },
+    {
+        "text": "getAxisClasses",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 list[type[music21.graph.axis.Axis]]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "return a list of all Axis subclasses\u2026  returns sorted list by name\n>>> graph.findPlot.getAxisClasses()\n[<class 'music21.graph.axis.Axis'>,\n <class 'music21.graph.axis.CountingAxis'>,\n <class 'music21.graph.axis.DynamicsAxis'>,\n <class 'music21.graph.axis.OffsetAxis'>,\n ...]",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.graph.findPlot.",
+        "type": "Title"
+    },
+    {
+        "text": "getAxisQuantities",
+        "type": "Title"
+    },
+    {
+        "text": "synonyms",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "axesToCheck",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>> graph.findPlot.getAxisQuantities()\n['generic', 'count', 'dynamic', 'offset', 'offsetEnd',\n 'pitchGeneric', 'pitchClass', 'pitchSpace', 'octave', 'position', 'quarterLength']\n\n\n>>> graph.findPlot.getAxisQuantities(synonyms=True)\n['generic', 'one', 'nothing', 'blank', 'count', 'quantity', 'frequency', ...]\n\n\n>>> theseAxes = [graph.axis.CountingAxis, graph.axis.OffsetAxis]\n>>> graph.findPlot.getAxisQuantities(axesToCheck=theseAxes)\n['count', 'offset']\n\n\n>>> graph.findPlot.getAxisQuantities(True, axesToCheck=theseAxes)\n['count', 'quantity', 'frequency', 'counting',\n 'offset', 'measure', 'offsets', 'measures', 'time']",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.graph.findPlot.",
+        "type": "Title"
+    },
+    {
+        "text": "getPlotClasses",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 list[type[music21.graph.plot.PlotStreamMixin]]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "return a list of all PlotStreamMixin subclasses\u2026  returns sorted list by name\n>>> graph.findPlot.getPlotClasses()\n[<class 'music21.graph.plot.Dolan'>,\n <class 'music21.graph.plot.Features'>,\n <class 'music21.graph.plot.Histogram'>,\n <class 'music21.graph.plot.HistogramPitchClass'>,\n <class 'music21.graph.plot.HistogramPitchSpace'>,\n ...]",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.graph.findPlot.",
+        "type": "Title"
+    },
+    {
+        "text": "getPlotClassesFromFormat",
+        "type": "Title"
+    },
+    {
+        "text": "graphFormat",
+        "type": "Title"
+    },
+    {
+        "text": "checkPlotClasses",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a graphFormat, find a list of plots that match:\n>>> graph.findPlot.getPlotClassesFromFormat('scatterweighted')\n[<class 'music21.graph.plot.ScatterWeighted'>,\n <class 'music21.graph.plot.ScatterWeightedPitchClassQuarterLength'>,\n <class 'music21.graph.plot.ScatterWeightedPitchSpaceDynamicSymbol'>,\n <class 'music21.graph.plot.ScatterWeightedPitchSpaceQuarterLength'>]\n\n\nOr give a list of plot classes to check:\n>>> pcs = [graph.plot.ScatterWeighted, graph.plot.Dolan]\n>>> graph.findPlot.getPlotClassesFromFormat('scatterweighted', pcs)\n[<class 'music21.graph.plot.ScatterWeighted'>]",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.graph.findPlot.",
+        "type": "Title"
+    },
+    {
+        "text": "getPlotsToMake",
+        "type": "Title"
+    },
+    {
+        "text": "graphFormat",
+        "type": "Title"
+    },
+    {
+        "text": "str | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "xValue",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "yValue",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "zValue",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns either a list of plot classes to make if there is a predetermined class\nor a list of tuples where the first element of each tuple is the plot class\nand the second is a dict of {\u0098x': axisXClass, \u0098y': axisYClass} etc.\nDefault is pianoroll\n>>> graph.findPlot.getPlotsToMake()\n[<class 'music21.graph.plot.HorizontalBarPitchSpaceOffset'>]\n\n\n>>> graph.findPlot.getPlotsToMake('scatter')\n[<class 'music21.graph.plot.Scatter'>,\n <class 'music21.graph.plot.ScatterPitchClassOffset'>,\n <class 'music21.graph.plot.ScatterPitchClassQuarterLength'>,\n <class 'music21.graph.plot.ScatterPitchSpaceDynamicSymbol'>,\n <class 'music21.graph.plot.ScatterPitchSpaceQuarterLength'>]\n\n\n>>> graph.findPlot.getPlotsToMake('scatter', 'offset', 'pitchClass')\n[<class 'music21.graph.plot.ScatterPitchClassOffset'>]\n\n\nTry in wrong order:\n>>> graph.findPlot.getPlotsToMake('scatter', 'pitchClass', 'offset')\n[<class 'music21.graph.plot.ScatterPitchClassOffset'>]\n\n\nTry giving just one value:\n>>> graph.findPlot.getPlotsToMake('scatter', 'offset')\n[<class 'music21.graph.plot.ScatterPitchClassOffset'>]\n\n\n>>> graph.findPlot.getPlotsToMake('scatter', 'ql')  # abbreviation\n[<class 'music21.graph.plot.ScatterPitchClassQuarterLength'>,\n <class 'music21.graph.plot.ScatterPitchSpaceQuarterLength'>]\n\n\nJust one value, but it is in the wrong axis\u2026\n>>> graph.findPlot.getPlotsToMake('scatter', 'pitchClass')\n[<class 'music21.graph.plot.ScatterPitchClassOffset'>,\n <class 'music21.graph.plot.ScatterPitchClassQuarterLength'>]\n\n\nCreate a graph that does not exist:\n>>> graph.findPlot.getPlotsToMake('scatter', 'offset', 'dynamics')\n[(<class 'music21.graph.plot.Scatter'>,\n  OrderedDict([('x', <class 'music21.graph.axis.OffsetAxis'>),\n               ('y', <class 'music21.graph.axis.DynamicsAxis'>)]))]\n\n\nJust a couple of values:\n>>> graph.findPlot.getPlotsToMake('offset', 'dynamics')\n[(<class 'music21.graph.plot.Scatter'>,\n  OrderedDict([('x', <class 'music21.graph.axis.OffsetAxis'>),\n               ('y', <class 'music21.graph.axis.DynamicsAxis'>)]))]\n\n\nJust one value:\n>>> graph.findPlot.getPlotsToMake('octave')\n[(<class 'music21.graph.plot.Histogram'>,\n  OrderedDict([('x', <class 'music21.graph.axis.PitchSpaceOctaveAxis'>)]))]\n\n\nThree values:\n>>> graph.findPlot.getPlotsToMake('offset', 'dynamics', 'count')\n[(<class 'music21.graph.plot.ScatterWeighted'>,\n  OrderedDict([('x', <class 'music21.graph.axis.OffsetAxis'>),\n               ('y', <class 'music21.graph.axis.DynamicsAxis'>),\n               ('z', <class 'music21.graph.axis.CountingAxis'>)]))]",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.graph.findPlot.",
+        "type": "Title"
+    },
+    {
+        "text": "userFormatsToFormat",
+        "type": "Title"
+    },
+    {
+        "text": "userFormat",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Replace possible user format strings with defined format names as used herein.\nReturns string unaltered if no match.\n>>> graph.findPlot.userFormatsToFormat('horizontal')\n'horizontalbar'\n>>> graph.findPlot.userFormatsToFormat('Weighted Scatter')\n'scatterweighted'\n>>> graph.findPlot.userFormatsToFormat('3D')\n'3dbars'\n\n\nUnknown formats pass through unaltered.\n>>> graph.findPlot.userFormatsToFormat('4D super chart')\n'4dsuperchart'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.graph.findPlot",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

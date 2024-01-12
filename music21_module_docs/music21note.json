@@ -1,0 +1,2154 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.note",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.musicxml.xmlToM21",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.noteworthy.binaryTranslate",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.note\nNote\nNote\nNote.fullName\nNote.name\nNote.nameWithOctave\nNote.octave\nNote.pitches\nNote.step\nNote.pitchChanged()\nNote.transpose()\nNote.isNote\nNote.isRest\nNote.pitch\n\n\n\n\nRest\nRest\nRest.fullName\nRest.fullMeasure\nRest.isNote\nRest.isRest\nRest.name\nRest.stepShift\n\n\n\n\nUnpitched\nUnpitched\nUnpitched.displayName\nUnpitched.storedInstrument\nUnpitched.displayPitch()\n\n\n\n\nNotRest\nNotRest\nNotRest.notehead\nNotRest.noteheadFill\nNotRest.noteheadParenthesis\nNotRest.stemDirection\nNotRest.storedInstrument\nNotRest.volume\nNotRest.getInstrument()\nNotRest.hasVolumeInformation()\nNotRest.beams\n\n\n\n\nGeneralNote\nGeneralNote\nGeneralNote.fullName\nGeneralNote.lyric\nGeneralNote.pitches\nGeneralNote.tie\nGeneralNote.__eq__()\nGeneralNote.addLyric()\nGeneralNote.augmentOrDiminish()\nGeneralNote.getGrace()\nGeneralNote.insertLyric()\nGeneralNote.articulations\nGeneralNote.expressions\nGeneralNote.isChord\nGeneralNote.lyrics\n\n\n\n\nLyric\nLyric\nLyric.isComposite\nLyric.identifier\nLyric.number\nLyric.rawText\nLyric.syllabic\nLyric.text\nLyric.setTextAndSyllabic()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.note\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Classes and functions for creating Notes, Rests, and Lyrics.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "The Pitch object is stored within,\nand used to configure, Note objects.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Note\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.note.",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "name",
+        "type": "Title"
+    },
+    {
+        "text": "str | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "nameWithOctave",
+        "type": "Title"
+    },
+    {
+        "text": "str | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "One of the most important music21 classes, a Note\nstores a single note (that is, not a rest or an unpitched element)\nthat can be represented by one or more notational units \u2014 so\nfor instance a C quarter-note and a D# eighth-tied-to-32nd are both\na single Note object.\nA Note knows both its total duration and how to express itself as a set of\ntied notes of different lengths. For instance, a note of 2.5 quarters in\nlength could be half tied to eighth or dotted quarter tied to quarter.\nThe first argument to the Note is the pitch name (with or without\noctave, see the introduction to music21.pitch.Pitch).\nFurther arguments can be specified as keywords (such as type, dots, etc.)\nand are passed to the underlying music21.duration.Duration element.\n>>> n = note.Note()\n>>> n\n<music21.note.Note C>\n>>> n.pitch\n<music21.pitch.Pitch C4>\n\n\n>>> n = note.Note('B-')\n>>> n.name\n'B-'\n>>> n.octave is None\nTrue\n>>> n.pitch.implicitOctave\n4\n\n\n>>> n = note.Note(name='D#')\n>>> n.name\n'D#'\n>>> n = note.Note(nameWithOctave='D#5')\n>>> n.nameWithOctave\n'D#5'\n\n\nOther ways of instantiating a Pitch object, such as by MIDI number or pitch class\nare also possible:\n>>> note.Note(64).nameWithOctave\n'E4'\n\n\nAll keyword args that are valid for Duration or Pitch objects\nare valid (as well as those for superclasses, NotRest, GeneralNote,\nMusic21Object):\n>>> n = note.Note(step='C', accidental='sharp', octave=2, id='csharp', type='eighth', dots=2)\n>>> n.nameWithOctave\n'C#2'\n>>> n.duration\n<music21.duration.Duration 0.875>\n\n\nEquality and ordering\nTwo notes are equal if they pass all the equality tests for NotRest and their\npitches are equal.\nAttributes that might change based on the wider context\nof a note (such as offset) are not compared. This test does not look at lyrics in\nestablishing equality.  (It may in the future.)\n>>> note.Note('C4') == note.Note('C4')\nTrue\n\n\nEnharmonics are not equal:\n>>> note.Note('D#4') == note.Note('E-4')\nFalse\n\n\n>>> note.Note('C4', type='half') == note.Note('C4', type='quarter')\nFalse\n\n\nNotes, like pitches, also have an ordering based on their pitches.\n>>> highE = note.Note('E5')\n>>> lowF = note.Note('F2')\n>>> otherHighE = note.Note('E5')\n\n\n>>> highE > lowF\nTrue\n>>> highE < lowF\nFalse\n>>> highE >= otherHighE\nTrue\n>>> highE <= otherHighE\nTrue\n\n\nNotice you cannot compare Notes w/ ints or anything that does not a have a\n.pitch attribute.\n>>> highE < 50\nTraceback (most recent call last):\nTypeError: '<' not supported between instances of 'Note' and 'int'\n\n\nNote also that two objects can be >= and <= without being equal, because\nonly pitch-height is being compared in <, <=, >, >= but duration and other\nelements are compared in equality.\n>>> otherHighE.duration.type = 'whole'\n\n\nNow otherHighE is != highE\n>>> highE == otherHighE\nFalse\n\n\nBut it is both >= and <= it:\n>>> highE >= otherHighE\nTrue\n>>> highE <= otherHighE\nTrue\n\n\n(The pigeonhole principle police have a bounty out on my head for this.)",
+        "type": "ListItem"
+    },
+    {
+        "text": "Note bases",
+        "type": "Title"
+    },
+    {
+        "text": "NotRest",
+        "type": "ListItem"
+    },
+    {
+        "text": "GeneralNote",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "Note read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Note.",
+        "type": "Title"
+    },
+    {
+        "text": "fullName",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return the most complete representation of this Note,\nproviding duration and pitch information.\n>>> n = note.Note('A-', quarterLength=1.5)\n>>> n.fullName\n'A-flat Dotted Quarter Note'\n\n\n>>> n = note.Note('E~3', quarterLength=2)\n>>> n.fullName\n'E-half-sharp in octave 3 Half Note'\n\n\n>>> n = note.Note('D', quarterLength=0.25)\n>>> n.pitch.microtone = 25\n>>> n.fullName\n'D (+25c) 16th Note'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "Note read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Note.",
+        "type": "Title"
+    },
+    {
+        "text": "name",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return or set the pitch name from the Pitch object.\nSee Pitch's attribute name.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Note.",
+        "type": "Title"
+    },
+    {
+        "text": "nameWithOctave",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return or set the pitch name with octave from the Pitch object.\nSee Pitch's attribute nameWithOctave.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Note.",
+        "type": "Title"
+    },
+    {
+        "text": "octave",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return or set the octave value from the Pitch object.\nSee octave.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Note.",
+        "type": "Title"
+    },
+    {
+        "text": "pitches",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return the single Pitch object in a tuple.\nThis property is designed to provide an interface analogous to\nthat found on Chord so that [c.pitches for c in s.notes]\nprovides a consistent interface for all objects.\n>>> n = note.Note('g#')\n>>> n.nameWithOctave\n'G#'\n>>> n.pitches\n(<music21.pitch.Pitch G#>,)\n\n\nSince this is a Note, not a chord, from the list or tuple,\nonly the first one will be used:\n>>> n.pitches = [pitch.Pitch('c2'), pitch.Pitch('g2')]\n>>> n.nameWithOctave\n'C2'\n>>> n.pitches\n(<music21.pitch.Pitch C2>,)\n\n\nThe value for setting must be a list or tuple:\n>>> n.pitches = pitch.Pitch('C4')\nTraceback (most recent call last):\nmusic21.note.NoteException: cannot set pitches with provided object: C4\n\n\nFor setting a single one, use n.pitch instead.\nDon't use strings, or you will get a string back!\n>>> n.pitches = ('C4', 'D4')\n>>> n.pitch\n'C4'\n>>> n.pitch.diatonicNoteNum\nTraceback (most recent call last):\nAttributeError: 'str' object has no attribute 'diatonicNoteNum'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Note.",
+        "type": "Title"
+    },
+    {
+        "text": "step",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return or set the pitch step from the Pitch object.\nSee step.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read/write properties inherited from NotRest:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "notehead noteheadFill noteheadParenthesis stemDirection storedInstrument volume",
+        "type": "Table"
+    },
+    {
+        "text": "Read/write properties inherited from GeneralNote:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "lyric tie",
+        "type": "Table"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "Note methods",
+        "type": "Title"
+    },
+    {
+        "text": "Note.",
+        "type": "Title"
+    },
+    {
+        "text": "pitchChanged",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Called by the underlying pitch if something changed there.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Note.",
+        "type": "Title"
+    },
+    {
+        "text": "transpose",
+        "type": "Title"
+    },
+    {
+        "text": "value",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Transpose the Note by the user-provided\nvalue. If the value is an integer, the transposition is treated in half steps.\nIf the value is a string, any Interval string specification can be provided.\n>>> a = note.Note('g4')\n>>> b = a.transpose('m3')\n>>> b\n<music21.note.Note B->\n>>> aInterval = interval.Interval(-6)\n>>> b = a.transpose(aInterval)\n>>> b\n<music21.note.Note C#>\n\n\n>>> c = b.transpose(interval.GenericInterval(2))\n>>> c\n<music21.note.Note D#>\n\n\n>>> a.transpose(aInterval, inPlace=True)\n>>> a\n<music21.note.Note C#>\n\n\nIf the transposition value is an integer, take the KeySignature or Key context\ninto account\u2026\n>>> s = stream.Stream()\n>>> s.append(key.Key('D'))\n>>> s.append(note.Note('F'))\n>>> s.append(key.Key('b-', 'minor'))\n>>> s.append(note.Note('F'))\n>>> s.show('text')\n{0.0} <music21.key.Key of D major>\n{0.0} <music21.note.Note F>\n{1.0} <music21.key.Key of b- minor>\n{1.0} <music21.note.Note F>\n>>> for n in s.notes:\n...     n.transpose(1, inPlace=True)\n>>> s.show('text')\n{0.0} <music21.key.Key of D major>\n{0.0} <music21.note.Note F#>\n{1.0} <music21.key.Key of b- minor>\n{1.0} <music21.note.Note G->",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from NotRest:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "getInstrument() hasVolumeInformation()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from GeneralNote:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() addLyric() augmentOrDiminish() getGrace() insertLyric()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Note instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Note.",
+        "type": "Title"
+    },
+    {
+        "text": "isNote",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Boolean read-only value describing if this Note is a Note (True).",
+        "type": "ListItem"
+    },
+    {
+        "text": "Note.",
+        "type": "Title"
+    },
+    {
+        "text": "isRest",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Boolean read-only value describing if this Note is a Rest (False).",
+        "type": "ListItem"
+    },
+    {
+        "text": "Note.",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A Pitch object containing all the\ninformation about the note's pitch.  Many .pitch properties and\nmethods are also made Note properties also",
+        "type": "ListItem"
+    },
+    {
+        "text": "Instance variables inherited from NotRest:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beams",
+        "type": "Table"
+    },
+    {
+        "text": "Instance variables inherited from GeneralNote:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "articulations expressions isChord lyrics",
+        "type": "Table"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "Rest\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.note.",
+        "type": "Title"
+    },
+    {
+        "text": "Rest",
+        "type": "Title"
+    },
+    {
+        "text": "length",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "OffsetQLIn",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "stepShift",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "fullMeasure",
+        "type": "Title"
+    },
+    {
+        "text": "t.Literal",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "'auto'",
+        "type": "Title"
+    },
+    {
+        "text": "'always'",
+        "type": "Title"
+    },
+    {
+        "text": "'auto'",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Rests are represented in music21 as GeneralNote objects that do not have\na pitch object attached to them.  By default, they have length 1.0 (Quarter Rest)\nCalling notes on a Stream does not get rests.\nHowever, the property notesAndRests of Streams\ngets rests as well.\n>>> r = note.Rest()\n>>> r.isRest\nTrue\n>>> r.isNote\nFalse\n>>> r.duration.quarterLength = 2.0\n>>> r.duration.type\n'half'\n\n\nAll Rests have the name property \u0098rest':\n>>> r.name\n'rest'\n\n\nAnd their .pitches is an empty tuple\n>>> r.pitches\n()\n\n\nAll arguments to Duration are valid in constructing:\n>>> r2 = note.Rest(type='whole')\n>>> r2.duration.quarterLength\n4.0\n\n\nOr they can just be specified in without a type, and they'll be evaluated automatically\n>>> r3, r4 = note.Rest('half'), note.Rest(2.0)\n>>> r3 == r4\nTrue\n>>> r3.duration.quarterLength\n2.0\n\n\nTwo rests are considered equal if their durations are equal.\n>>> r1 = note.Rest('quarter')\n>>> r2 = note.Rest('quarter')\n>>> r1 == r2\nTrue\n>>> r1 != r2\nFalse\n\n\n>>> r2.duration.quarterLength = 4/3\n>>> r1 == r2\nFalse\n\n\nA rest is never equal to a note.\n>>> r1 == note.Note()\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "Rest bases",
+        "type": "Title"
+    },
+    {
+        "text": "GeneralNote",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "Rest read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Rest.",
+        "type": "Title"
+    },
+    {
+        "text": "fullName",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return the most complete representation of this Rest,\nproviding duration information.\n>>> r = note.Rest(quarterLength=1.5)\n>>> r.fullName\n'Dotted Quarter Rest'\n\n\n>>> note.Rest(type='whole').fullName\n'Whole Rest'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "Rest read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from GeneralNote:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "lyric pitches tie",
+        "type": "Table"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "Rest methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from GeneralNote:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() addLyric() augmentOrDiminish() getGrace() insertLyric()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Rest instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Rest.",
+        "type": "Title"
+    },
+    {
+        "text": "fullMeasure",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "does this rest last a full measure or if it does, should it display\nitself as whole rest (or breve rest) and centered.\nOptions are \u009cauto\u009d (default), False, True, and \u009calways\u009d\n\u009cauto\u009d is the default, where if the rest value happens to match the current\ntime signature context (and there is no pickup or other padding),\nthen display it as a whole rest, centered, etc. otherwise will display normally.\nFalse means do not display the rest as full measure whole rest,\nno matter what.  This setting is often used by composers in very small time\nsignatures such as 1/8, where a whole rest can look incongruous.\nTrue keeps the set duration, but will always display as a full measure rest\neven if it's not the length of the measure\n(generally a whole note unless the time signature is very long).\n\u009calways\u009d means that on export, the duration will (EVENTUALLY, not yet!)\nupdate automatically to match the time signature context and always display\nas a whole rest. \u009calways\u009d does not work yet \u2014 functions as True.\nSee examples in music21.musicxml.m21ToXml.MeasureExporter.restToXml()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Rest.",
+        "type": "Title"
+    },
+    {
+        "text": "isNote",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Boolean read-only value describing if this Rest is a Note (False).",
+        "type": "ListItem"
+    },
+    {
+        "text": "Rest.",
+        "type": "Title"
+    },
+    {
+        "text": "isRest",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Boolean read-only value describing if this Rest is a Rest (True, obviously).",
+        "type": "ListItem"
+    },
+    {
+        "text": "Rest.",
+        "type": "Title"
+    },
+    {
+        "text": "name",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "returns \u009crest\u009d always.  It is here so that you can get\nx.name on all .notesAndRests objects",
+        "type": "ListItem"
+    },
+    {
+        "text": "Rest.",
+        "type": "Title"
+    },
+    {
+        "text": "stepShift",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "number of lines/spaces to shift the note upwards or downwards for display.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Instance variables inherited from GeneralNote:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "articulations expressions isChord lyrics",
+        "type": "Table"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "Unpitched\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.note.",
+        "type": "Title"
+    },
+    {
+        "text": "Unpitched",
+        "type": "Title"
+    },
+    {
+        "text": "displayName",
+        "type": "Title"
+    },
+    {
+        "text": "str | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A General class of unpitched objects which appear at different places\non the staff.  Examples: percussion notation.\n>>> unp = note.Unpitched()\n\n\nUnpitched elements have displayStep and displayOctave,\nwhich shows where they should be displayed as if the staff were a\n5-line staff in treble clef, but they do not have pitch\nobjects:\n>>> unp.displayStep\n'B'\n>>> unp.displayOctave\n4\n>>> unp.displayStep = 'G'\n>>> unp.pitch\nTraceback (most recent call last):\nAttributeError: 'Unpitched' object has no attribute 'pitch'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Unpitched bases",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "NotRest",
+        "type": "ListItem"
+    },
+    {
+        "text": "GeneralNote",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "Unpitched read-only properties",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Unpitched.",
+        "type": "Title"
+    },
+    {
+        "text": "displayName",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns the nameWithOctave of the displayPitch().\n>>> unp = note.Unpitched('B2')\n>>> unp.displayName\n'B2'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read-only properties inherited from GeneralNote:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "fullName",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "Unpitched read/write properties",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Unpitched.",
+        "type": "Title"
+    },
+    {
+        "text": "storedInstrument",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read/write properties inherited from NotRest:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "notehead noteheadFill noteheadParenthesis stemDirection volume",
+        "type": "Table"
+    },
+    {
+        "text": "Read/write properties inherited from GeneralNote:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "lyric pitches tie",
+        "type": "Table"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "Unpitched methods",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Unpitched.",
+        "type": "Title"
+    },
+    {
+        "text": "displayPitch",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 Pitch",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "returns a pitch object that is the same as the displayStep and displayOctave.\nit will never have an accidental.\n>>> unp = note.Unpitched()\n>>> unp.displayStep = 'E'\n>>> unp.displayOctave = 4\n>>> unp.displayPitch()\n<music21.pitch.Pitch E4>",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from NotRest:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "getInstrument() hasVolumeInformation()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from GeneralNote:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() addLyric() augmentOrDiminish() getGrace() insertLyric()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Unpitched instance variables",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Instance variables inherited from NotRest:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beams",
+        "type": "Table"
+    },
+    {
+        "text": "Instance variables inherited from GeneralNote:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "articulations expressions isChord lyrics",
+        "type": "Table"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "NotRest\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.note.",
+        "type": "Title"
+    },
+    {
+        "text": "NotRest",
+        "type": "Title"
+    },
+    {
+        "text": "beams",
+        "type": "Title"
+    },
+    {
+        "text": "Beams | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Parent class for Note-like objects that are not rests; that is to say\nthey have a stem, can be tied, and volume is important.\nBasically, that's a Note or Chord\n(or their subclasses such as ChordSymbol), or\nUnpitched object.",
+        "type": "ListItem"
+    },
+    {
+        "text": "NotRest bases",
+        "type": "Title"
+    },
+    {
+        "text": "GeneralNote",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "NotRest read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from GeneralNote:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "fullName",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "NotRest read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "NotRest.",
+        "type": "Title"
+    },
+    {
+        "text": "notehead",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get or set the notehead type of this NotRest object.\nValid notehead type names are found in note.noteheadTypeNames (see below):\n>>> note.noteheadTypeNames\n('arrow down', 'arrow up', 'back slashed', 'circle dot', 'circle-x', 'circled', 'cluster',\n 'cross', 'diamond', 'do', 'fa', 'inverted triangle', 'la', 'left triangle',\n 'mi', 'none', 'normal', 'other', 're', 'rectangle', 'slash', 'slashed', 'so',\n 'square', 'ti', 'triangle', 'x')\n>>> n = note.Note()\n>>> n.notehead = 'diamond'\n>>> n.notehead\n'diamond'\n\n\n>>> n.notehead = 'junk'\nTraceback (most recent call last):\nmusic21.note.NotRestException: not a valid notehead type name: 'junk'",
+        "type": "ListItem"
+    },
+    {
+        "text": "NotRest.",
+        "type": "Title"
+    },
+    {
+        "text": "noteheadFill",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get or set the note head fill status of this NotRest. Valid note head fill values are\nTrue, False, or None (meaning default).  \u009cyes\u009d and \u009cno\u009d are converted to True\nand False.\n>>> n = note.Note()\n>>> n.noteheadFill = 'no'\n>>> n.noteheadFill\nFalse\n>>> n.noteheadFill = 'filled'\n>>> n.noteheadFill\nTrue\n\n\n>>> n.noteheadFill = 'jelly'\nTraceback (most recent call last):\nmusic21.note.NotRestException: not a valid notehead fill value: 'jelly'",
+        "type": "ListItem"
+    },
+    {
+        "text": "NotRest.",
+        "type": "Title"
+    },
+    {
+        "text": "noteheadParenthesis",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get or set the note head parentheses for this Note/Unpitched/Chord object.\n>>> n = note.Note()\n>>> n.noteheadParenthesis\nFalse\n>>> n.noteheadParenthesis = True\n>>> n.noteheadParenthesis\nTrue\n\n\n\u0098yes' or 1 equate to True; \u0098no' or 0 to False\n>>> n.noteheadParenthesis = 'no'\n>>> n.noteheadParenthesis\nFalse\n\n\nAnything else raises an exception:\n>>> n.noteheadParenthesis = 'blah'\nTraceback (most recent call last):\nmusic21.note.NotRestException: notehead parentheses must be True or False, not 'blah'",
+        "type": "ListItem"
+    },
+    {
+        "text": "NotRest.",
+        "type": "Title"
+    },
+    {
+        "text": "stemDirection",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get or set the stem direction of this NotRest object.\nValid stem direction names are found in note.stemDirectionNames (see below).\n>>> note.stemDirectionNames\n('double', 'down', 'noStem', 'none', 'unspecified', 'up')\n>>> n = note.Note()\n\n\nBy default, a Note's stemDirection is \u0098unspecified'\nmeaning that it is unknown:\n>>> n.stemDirection\n'unspecified'\n\n\n>>> n.stemDirection = 'noStem'\n>>> n.stemDirection\n'noStem'\n\n\nThe alias \u0098none' (the string) is the same as \u0098noStem'\n>>> n.stemDirection = 'none'\n>>> n.stemDirection\n'noStem'\n\n\n>>> n.stemDirection = 'junk'\nTraceback (most recent call last):\nmusic21.note.NotRestException: not a valid stem direction name: junk\n\n\nStem direction can be set explicitly to None to remove\nany prior stem information, same as \u0098unspecified':\n>>> n.stemDirection = None\n>>> n.stemDirection\n'unspecified'",
+        "type": "ListItem"
+    },
+    {
+        "text": "NotRest.",
+        "type": "Title"
+    },
+    {
+        "text": "storedInstrument",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get and set the Instrument that\nshould be used to play this note, overriding whatever\nInstrument object may be active in the Stream. (See\ngetInstrument() for a means of retrieving storedInstrument\nif available before falling back to a context search to find\nthe active instrument.)",
+        "type": "ListItem"
+    },
+    {
+        "text": "NotRest.",
+        "type": "Title"
+    },
+    {
+        "text": "volume",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get and set the Volume object of this object.\nVolume objects are created on demand.\n>>> n1 = note.Note()\n>>> n1.volume.velocity = 120\n>>> n2 = note.Note()\n>>> n2.volume = 80  # can directly set a velocity value\n>>> s = stream.Stream()\n>>> s.append([n1, n2])\n>>> [n.volume.velocity for n in s.notes]\n[120, 80]",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read/write properties inherited from GeneralNote:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "lyric pitches tie",
+        "type": "Table"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "NotRest methods",
+        "type": "Title"
+    },
+    {
+        "text": "NotRest.",
+        "type": "Title"
+    },
+    {
+        "text": "getInstrument",
+        "type": "Title"
+    },
+    {
+        "text": "returnDefault",
+        "type": "Title"
+    },
+    {
+        "text": "Literal[True]",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 instrument.Instrument",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "NotRest.",
+        "type": "Title"
+    },
+    {
+        "text": "getInstrument",
+        "type": "Title"
+    },
+    {
+        "text": "returnDefault",
+        "type": "Title"
+    },
+    {
+        "text": "Literal[False]",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 instrument.Instrument | None",
+        "type": "Title"
+    },
+    {
+        "text": "Retrieves the .storedInstrument on this NotRest instance, if any.\nIf one is not found, executes a context search (without following\nderivations) to find the closest (i.e., active) instrument in the\nstream hierarchy.\nReturns a default instrument if no instrument is found in the context\nand returnDefault is True (default).\n>>> n = note.Note()\n>>> m = stream.Measure([n])\n>>> n.getInstrument(returnDefault=False) is None\nTrue\n>>> dulcimer = instrument.Dulcimer()\n>>> m.insert(0, dulcimer)\n>>> n.getInstrument() is dulcimer\nTrue\n\n\nOverridden .storedInstrument is privileged:\n>>> picc = instrument.Piccolo()\n>>> n.storedInstrument = picc\n>>> n.getInstrument() is picc\nTrue\n\n\nInstruments in containing streams ARE found:\n>>> n.storedInstrument = None\n>>> m.remove(dulcimer)\n>>> p = stream.Part([m])\n>>> p.insert(0, dulcimer)\n>>> n.getInstrument() is dulcimer\nTrue\n\n\nBut not if the instrument is only found in a derived stream:\n>>> derived = p.stripTies()\n>>> p.remove(dulcimer)\n>>> derived.getInstruments().first()\n<music21.instrument.Dulcimer 'Dulcimer'>\n>>> n.getInstrument(returnDefault=False) is None\nTrue\n\n\nElecting to return a default generic Instrument:\n>>> n.getInstrument(returnDefault=True)\n<music21.instrument.Instrument ''>",
+        "type": "ListItem"
+    },
+    {
+        "text": "NotRest.",
+        "type": "Title"
+    },
+    {
+        "text": "hasVolumeInformation",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns bool whether volume was set \u2014 saving some time for advanced\nusers (such as MusicXML exporters) that only want to look at the volume\nif it is already there.\n>>> n = note.Note()\n>>> n.hasVolumeInformation()\nFalse\n>>> n.volume\n <music21.volume.Volume realized=0.71>\n>>> n.hasVolumeInformation()\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from GeneralNote:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() addLyric() augmentOrDiminish() getGrace() insertLyric()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "NotRest instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "NotRest.",
+        "type": "Title"
+    },
+    {
+        "text": "beams",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A Beams object that contains\ninformation about the beaming of this note.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Instance variables inherited from GeneralNote:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "articulations expressions isChord lyrics",
+        "type": "Table"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "GeneralNote\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.note.",
+        "type": "Title"
+    },
+    {
+        "text": "GeneralNote",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "Duration | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "lyric",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "Lyric",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A GeneralNote object is the base class object\nfor the Note,\nRest, Chord,\nand related objects.\nKeywords can be passed to\na GeneralNote which are then passed to the\nunderlying Duration.\nThese keywords might be listed like\ntype='16th', dots=2 etc. to create a\ndouble-dotted sixteenth note.\nIn almost every circumstance, you should\ncreate note.Note() or note.Rest() or chord.Chord()\nobjects directly, and not use this underlying\nstructure.\n>>> gn = note.GeneralNote(type='16th', dots=2)\n>>> gn.quarterLength\n0.4375\n\n\nEquality\nGeneralNote objects are equal if they pass superclass tests (e.g., their durations are equal),\nand they have the same articulation and expression classes (in any order),\nand their ties are equal.",
+        "type": "ListItem"
+    },
+    {
+        "text": "GeneralNote bases",
+        "type": "Title"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "GeneralNote read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "GeneralNote.",
+        "type": "Title"
+    },
+    {
+        "text": "fullName",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "GeneralNote read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "GeneralNote.",
+        "type": "Title"
+    },
+    {
+        "text": "lyric",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The lyric property can\nbe used to get and set a lyric for this\nNote, Chord, or Rest. This is a simplified version of the more general\naddLyric() method.\n>>> a = note.Note('A4')\n>>> a.lyrics\n[]\n>>> a.lyric = 'hel-'\n>>> a.lyric\n'hel'\n>>> a.lyrics\n[<music21.note.Lyric number=1 syllabic=begin text='hel'>]\n\n\nEliminate Lyrics by setting a.lyric to None\n>>> a.lyric = None\n>>> a.lyric\n>>> a.lyrics\n[]\n\n\nSet multiple lyrics with n separated text:\n>>> a.lyric = '1. Hi\\n2. Bye'\n>>> a.lyric\n'1. Hi\\n2. Bye'\n>>> a.lyrics\n[<music21.note.Lyric number=1 syllabic=single text='1. Hi'>,\n <music21.note.Lyric number=2 syllabic=single text='2. Bye'>]\n\n\nYou can also set a lyric with a lyric object directly:\n>>> b = note.Note('B5')\n>>> ly = note.Lyric('bon-')\n>>> b.lyric = ly\n>>> b.lyrics\n[<music21.note.Lyric number=1 syllabic=begin text='bon'>]\n>>> b.lyric\n'bon'\n\n\n\nChanged in v6.7: added setting to a Lyric object.  Removed undocumented\nsetting to False instead of setting to None",
+        "type": "ListItem"
+    },
+    {
+        "text": "GeneralNote.",
+        "type": "Title"
+    },
+    {
+        "text": "pitches",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns an empty tuple.  (Useful for iterating over NotRests since they\ninclude Notes and Chords.)",
+        "type": "ListItem"
+    },
+    {
+        "text": "GeneralNote.",
+        "type": "Title"
+    },
+    {
+        "text": "tie",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return and set a Tie object, or None.\n>>> n = note.Note()\n>>> n.tie is None\nTrue\n>>> n.tie = tie.Tie('start')",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "GeneralNote methods",
+        "type": "Title"
+    },
+    {
+        "text": "GeneralNote.",
+        "type": "Title"
+    },
+    {
+        "text": "__eq__",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "other",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Define equality for Music21Objects.  See main class docs.",
+        "type": "ListItem"
+    },
+    {
+        "text": "GeneralNote.",
+        "type": "Title"
+    },
+    {
+        "text": "addLyric",
+        "type": "Title"
+    },
+    {
+        "text": "text",
+        "type": "Title"
+    },
+    {
+        "text": "lyricNumber",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "applyRaw",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "lyricIdentifier",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Adds a lyric, or an additional lyric, to a Note, Chord, or Rest's lyric list.\nIf lyricNumber is not None, a specific line of lyric text can be set.\nThe lyricIdentifier can also be set.\n>>> n1 = note.Note()\n>>> n1.addLyric('hello')\n>>> n1.lyrics[0].text\n'hello'\n>>> n1.lyrics[0].number\n1\n\n\nAn added option gives the lyric number, not the list position\n>>> n1.addLyric('bye', 3)\n>>> n1.lyrics[1].text\n'bye'\n>>> n1.lyrics[1].number\n3\n>>> for lyr in n1.lyrics:\n...     print(lyr.text)\nhello\nbye\n\n\nReplace an existing lyric by specifying the same number:\n>>> n1.addLyric('ciao', 3)\n>>> n1.lyrics[1].text\n'ciao'\n>>> n1.lyrics[1].number\n3\n\n\nGiving a lyric with a hyphen at either end will set whether it\nis part of a multisyllable word:\n>>> n1.addLyric('good-')\n>>> n1.lyrics[2].text\n'good'\n>>> n1.lyrics[2].syllabic\n'begin'\n\n\nThis feature can be overridden by specifying the keyword only argument \u009capplyRaw=True\u009d:\n>>> n1.addLyric('-5', applyRaw=True)\n>>> n1.lyrics[3].text\n'-5'\n>>> n1.lyrics[3].syllabic\n'single'",
+        "type": "ListItem"
+    },
+    {
+        "text": "GeneralNote.",
+        "type": "Title"
+    },
+    {
+        "text": "augmentOrDiminish",
+        "type": "Title"
+    },
+    {
+        "text": "scalar",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a scalar greater than zero, return a Note with a scaled Duration.\nIf inPlace is True, this is done in-place and the method returns None.\nIf inPlace is False [default], this returns a modified deepcopy.\n\nChanged in v5: inPlace is now False.\n\n>>> n = note.Note('g#')\n>>> n.quarterLength = 3\n>>> n.augmentOrDiminish(2, inPlace=True)\n>>> n.quarterLength\n6.0\n\n\n>>> c = chord.Chord(['g#', 'a#', 'd'])\n>>> c.quarterLength = 2\n>>> c.augmentOrDiminish(0.25, inPlace=True)\n>>> c.quarterLength\n0.5\n\n\n>>> n = note.Note('g#')\n>>> n.augmentOrDiminish(-1)\nTraceback (most recent call last):\nmusic21.note.NoteException: scalar must be greater than zero\n\n\n>>> n = note.Note()\n>>> n.quarterLength = 3\n>>> n2 = n.augmentOrDiminish(1/3, inPlace=False)\n>>> n2.quarterLength\n1.0\n>>> n.quarterLength\n3.0",
+        "type": "ListItem"
+    },
+    {
+        "text": "GeneralNote.",
+        "type": "Title"
+    },
+    {
+        "text": "getGrace",
+        "type": "Title"
+    },
+    {
+        "text": "appoggiatura",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a grace version of this GeneralNote\n>>> n = note.Note('G4', quarterLength=2)\n>>> n.duration.quarterLength\n2.0\n>>> n.duration.isGrace\nFalse\n>>> n.duration\n<music21.duration.Duration 2.0>\n>>> n.duration.type\n'half'\n>>> n.duration.components\n(DurationTuple(type='half', dots=0, quarterLength=2.0),)\n\n\n>>> ng = n.getGrace()\n>>> ng.duration.quarterLength\n0.0\n>>> ng.duration.isGrace\nTrue\n>>> ng.duration\n<music21.duration.GraceDuration unlinked type:half quarterLength:0.0>\n>>> ng.duration.type\n'half'\n>>> ng.duration.components\n(DurationTuple(type='half', dots=0, quarterLength=0.0),)\n\n\nAppoggiaturas are still a work in progress\u2026\n* Changed in v6: corrected spelling of appoggiatura keyword.\n>>> ng2 = n.getGrace(appoggiatura=True)\n>>> ng2.duration\n<music21.duration.AppoggiaturaDuration unlinked type:half quarterLength:0.0>\n>>> ng2.duration.slash\nFalse\n\n\nSet inPlace to True to change the duration element on the Note.  This can have\nnegative consequences if the Note is in a stream.\n>>> r = note.Rest(quarterLength=0.5)\n>>> r.getGrace(inPlace=True)\n>>> r.duration\n<music21.duration.GraceDuration unlinked type:eighth quarterLength:0.0>",
+        "type": "ListItem"
+    },
+    {
+        "text": "GeneralNote.",
+        "type": "Title"
+    },
+    {
+        "text": "insertLyric",
+        "type": "Title"
+    },
+    {
+        "text": "text",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "Title"
+    },
+    {
+        "text": "applyRaw",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "identifier",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Inserts a lyric into the Note, Chord, or Rest's lyric list in front of\nthe index specified (0 by default), using index + 1 as the inserted lyric's\nline number. shifts line numbers of all following lyrics in list\n>>> n1 = note.Note()\n>>> n1.addLyric('second')\n>>> n1.lyrics\n[<music21.note.Lyric number=1 syllabic=single text='second'>]\n>>> n1.insertLyric('first', 0)\n>>> n1.lyrics\n[<music21.note.Lyric number=1 syllabic=single text='first'>,\n <music21.note.Lyric number=2 syllabic=single text='second'>]",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "GeneralNote instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "GeneralNote.",
+        "type": "Title"
+    },
+    {
+        "text": "articulations",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "a list of articulations such\nas Staccato, etc.) that are stored on this Note.",
+        "type": "ListItem"
+    },
+    {
+        "text": "GeneralNote.",
+        "type": "Title"
+    },
+    {
+        "text": "expressions",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "a list of expressions (such\nas Fermata, etc.)\nthat are stored on this Note.",
+        "type": "ListItem"
+    },
+    {
+        "text": "GeneralNote.",
+        "type": "Title"
+    },
+    {
+        "text": "isChord",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Boolean read-only value describing if this object is a Chord.",
+        "type": "ListItem"
+    },
+    {
+        "text": "GeneralNote.",
+        "type": "Title"
+    },
+    {
+        "text": "lyrics",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A list of Lyric objects.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "Lyric\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.note.",
+        "type": "Title"
+    },
+    {
+        "text": "Lyric",
+        "type": "Title"
+    },
+    {
+        "text": "text",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "''",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "number",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "applyRaw",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "syllabic",
+        "type": "Title"
+    },
+    {
+        "text": "Literal",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "'begin'",
+        "type": "Title"
+    },
+    {
+        "text": "'single'",
+        "type": "Title"
+    },
+    {
+        "text": "'end'",
+        "type": "Title"
+    },
+    {
+        "text": "'middle'",
+        "type": "Title"
+    },
+    {
+        "text": "'composite'",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "identifier",
+        "type": "Title"
+    },
+    {
+        "text": "str | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "An object representing a single Lyric as part of a note's .lyrics property.\nThe note.lyric property is a simple way of specifying a single lyric, but\nLyric objects are needed for working with multiple lyrics.\n>>> l = note.Lyric(text='hello')\n>>> l\n<music21.note.Lyric number=1 syllabic=single text='hello'>\n\n\nMusic21 processes leading and following hyphens intelligently\u2026\n>>> l2 = note.Lyric(text='hel-')\n>>> l2\n<music21.note.Lyric number=1 syllabic=begin text='hel'>\n\n\n\u2026unless applyRaw is set to True\n>>> l3 = note.Lyric(number=3, text='hel-', applyRaw=True)\n>>> l3\n<music21.note.Lyric number=3 syllabic=single text='hel-'>\n\n\nLyrics have four properties: text, number, identifier, syllabic (single,\nbegin, middle, end, or (not in musicxml) composite)\n>>> l3.text\n'hel-'\n\n\n>>> l3.number\n3\n\n\n>>> l3.syllabic\n'single'\n\n\nNote musicXML only supports one \u0098identifier' attribute which is called\n\u0098number' but which can be a number or a descriptive identifier like\n\u0098part2verse1.' To preserve lyric ordering, music21 stores a number and a\ndescriptive identifier separately. The descriptive identifier is by default\nthe same as the number, but in cases where a string identifier is present,\nit will be different.\nBoth music21 and musicxml support multiple Lyric objects in the same stanza,\nfor instance, if there is an elision on a note then multiple lyrics with\ndifferent syllabics can appear on a single note.  In music21 these are supported\nby setting .components into a list of Lyric object.  For instance in\nthe madrigal \u009cIl bianco e dolce cigno\u009d, the \u009cco\u009d and \u009ce\u009d of \u009cbianco e\u009d\nare elided into a single lyric:\n>>> bianco = note.Lyric()\n>>> co = note.Lyric('co', syllabic='end')\n>>> e = note.Lyric('e', syllabic='single')\n>>> bianco.components = [co, e]\n>>> bianco.isComposite\nTrue\n>>> bianco.text\n'co e'\n>>> bianco.syllabic\n'composite'\n>>> e.elisionBefore = '_'\n>>> bianco.text\n'co_e'\n\n\n>>> [component.syllabic for component in bianco.components]\n['end', 'single']\n\n\nCustom elision elements for composite components will be supported later.\n\nNew in v6.7: composite components, elisionBefore\nChanged in v8: lyric text can be an empty string, but not None.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Lyric bases",
+        "type": "Title"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "StyleMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "SlottedObjectMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "Lyric read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Lyric.",
+        "type": "Title"
+    },
+    {
+        "text": "isComposite",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if this Lyric has composite elements,\nfor instance, is multiple lyrics placed together.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from StyleMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "hasEditorialInformation hasStyleInformation",
+        "type": "Table"
+    },
+    {
+        "text": "Lyric read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Lyric.",
+        "type": "Title"
+    },
+    {
+        "text": "identifier",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "By default, this is the same as self.number. However, if there is a\ndescriptive identifier like \u0098part2verse1', it is stored here and\nwill be different from self.number. When converting to musicXML,\nthis property will be stored in the lyric \u0098number' attribute which\ncan store a number or a descriptive identifier but not both.\n>>> l = note.Lyric()\n>>> l.number = 12\n>>> l.identifier\n12\n\n\n>>> l.identifier = 'Rainbow'\n>>> l.identifier\n'Rainbow'\n\n\nDefault value is the same as default for number, that is, 1:\n>>> note.Lyric().identifier\n1",
+        "type": "ListItem"
+    },
+    {
+        "text": "Lyric.",
+        "type": "Title"
+    },
+    {
+        "text": "number",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "This stores the number of the lyric (which determines the order\nlyrics appear in the score if there are multiple lyrics). Unlike\nthe musicXML lyric number attribute, this value must always be a\nnumber; lyric order is always stored in this form. Descriptive\nidentifiers like \u0098part2verse1' which can be found in the musicXML\nlyric number attribute should be stored in self.identifier.\nDefault is 1\n>>> l = note.Lyric('Hi')\n>>> l.number\n1\n\n\n>>> l.number = 5\n>>> l.number\n5\n>>> l.number = None\nTraceback (most recent call last):\nmusic21.note.LyricException: Number best be number",
+        "type": "ListItem"
+    },
+    {
+        "text": "Lyric.",
+        "type": "Title"
+    },
+    {
+        "text": "rawText",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "returns the text of the syllable with \u0098-' etc.\n>>> l = note.Lyric('hel-')\n>>> l.text\n'hel'\n>>> l.rawText\n'hel-'\n\n\n>>> l = note.Lyric('lo', syllabic='end')\n>>> l.rawText\n'-lo'\n\n\n>>> l = note.Lyric('-ti-')\n>>> l.rawText\n'-ti-'\n\n\n>>> l = note.Lyric('bye')\n>>> l.rawText\n'bye'\n\n\nComposite lyrics take their endings from the first and last components:\n>>> composite = note.Lyric()\n>>> co = note.Lyric('co', syllabic='end')\n>>> e = note.Lyric('e', syllabic='single')\n>>> e.elisionBefore = '_'\n>>> composite.components = [co, e]\n>>> composite.rawText\n'-co_e'\n>>> e.syllabic = 'middle'\n>>> composite.rawText\n'-co_e-'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Lyric.",
+        "type": "Title"
+    },
+    {
+        "text": "syllabic",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns or sets the syllabic property of a lyric.\n>>> fragment = note.Lyric('frag', syllabic='begin')\n>>> fragment.syllabic\n'begin'\n>>> fragment.rawText\n'frag-'\n>>> fragment.syllabic = 'end'\n>>> fragment.rawText\n'-frag'\n\n\nIllegal values raise a LyricException\n>>> fragment.syllabic = 'slide'\nTraceback (most recent call last):\nmusic21.note.LyricException: Syllabic value 'slide' is not in\n    note.SYLLABIC_CHOICES, namely:\n    [None, 'begin', 'single', 'end', 'middle', 'composite']",
+        "type": "ListItem"
+    },
+    {
+        "text": "Lyric.",
+        "type": "Title"
+    },
+    {
+        "text": "text",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Gets or sets the text of the lyric.  For composite lyrics, set\nthe text of individual components instead of setting the text here.\n>>> l = note.Lyric()\n>>> l.text\n''\n>>> l.text = 'hi'\n>>> l.text\n'hi'\n\n\nSetting the text of a composite lyric wipes out the components:\n>>> bianco = note.Lyric()\n>>> co = note.Lyric('co', syllabic='end')\n>>> e = note.Lyric('e', syllabic='single')\n>>> bianco.components = [co, e]\n>>> bianco.isComposite\nTrue\n>>> bianco.text\n'co e'\n>>> bianco.text = 'co_e'\n>>> bianco.isComposite\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read/write properties inherited from StyleMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "editorial style",
+        "type": "Table"
+    },
+    {
+        "text": "Lyric methods",
+        "type": "Title"
+    },
+    {
+        "text": "Lyric.",
+        "type": "Title"
+    },
+    {
+        "text": "setTextAndSyllabic",
+        "type": "Title"
+    },
+    {
+        "text": "rawText",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "applyRaw",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a setting for rawText and applyRaw,\nsets the syllabic type for a lyric based on the rawText.  Useful for\nparsing raw text from, say, an OMR score.  Or just to quickly set text\nand syllabic.\n>>> l = note.Lyric()\n>>> l.setTextAndSyllabic('hel-')\n>>> l.text\n'hel'\n>>> l.syllabic\n'begin'\n>>> l.setTextAndSyllabic('-lo')\n>>> l.text\n'lo'\n>>> l.syllabic\n'end'\n>>> l.setTextAndSyllabic('the')\n>>> l.text\n'the'\n>>> l.syllabic\n'single'\n\n\nIf applyRaw is True then this will assume you actually want hyphens\nin the text, and if syllabic is None, sets it to \u0098single'\n>>> l = note.Lyric()\n>>> l.setTextAndSyllabic('hel-', applyRaw=True)\n>>> l.text\n'hel-'\n>>> l.syllabic\n'single'\n\n\nIf applyRaw is True, other syllabic settings except None are retained\n>>> l.syllabic = 'begin'\n>>> l.setTextAndSyllabic('-lo', applyRaw=True)\n>>> l.text\n'-lo'\n>>> l.syllabic\n'begin'\n\n\nThis method wipes out components.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.note",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

@@ -1,0 +1,534 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.alpha.analysis.aligner",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.abcFormat.translate",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.alpha.analysis.fixer",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.alpha.analysis.aligner\nChangeOps\nChangeOps\n\n\nStreamAligner\nStreamAligner\nStreamAligner.align()\nStreamAligner.calculateChangesList()\nStreamAligner.calculateNumSimilarities()\nStreamAligner.deleteCost()\nStreamAligner.getDefaultHasher()\nStreamAligner.getOpFromLocation()\nStreamAligner.getPossibleMovesFromLocation()\nStreamAligner.insertCost()\nStreamAligner.makeHashedStreams()\nStreamAligner.populateDistanceMatrix()\nStreamAligner.setupDistanceMatrix()\nStreamAligner.showChanges()\nStreamAligner.substitutionCost()\nStreamAligner.tupleEqualityWithoutReference()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.alpha.analysis.aligner\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "ChangeOps\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.alpha.analysis.aligner.",
+        "type": "Title"
+    },
+    {
+        "text": "ChangeOps",
+        "type": "Title"
+    },
+    {
+        "text": "value",
+        "type": "Title"
+    },
+    {
+        "text": "names",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "module",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "qualname",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "start",
+        "type": "Title"
+    },
+    {
+        "text": "boundary",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>> ins = alpha.analysis.aligner.ChangeOps.Insertion\n>>> ins.color\n'green'\n\n\n>>> deletion = alpha.analysis.aligner.ChangeOps.Deletion\n>>> deletion.color\n'red'\n\n\n>>> subs = alpha.analysis.aligner.ChangeOps.Substitution\n>>> subs.color\n'purple'\n\n\n>>> noChange = alpha.analysis.aligner.ChangeOps.NoChange\n>>> noChange.color is None\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamAligner\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.alpha.analysis.aligner.",
+        "type": "Title"
+    },
+    {
+        "text": "StreamAligner",
+        "type": "Title"
+    },
+    {
+        "text": "targetStream",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "sourceStream",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "hasher_func",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "preHashed",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Stream Aligner is a dumb object that takes in two streams and forces them to align\nwithout any thought to any external variables\nThese terms are associated with the Target stream are:\n- n, the number of rows in the distance matrix, the left-most column of the matrix\n- i, the index into rows in the distance matrix\n- the first element of tuple\nThese terms are associated with the Source stream are:\n- m, the number of columns in the distance matrix, the top-most row of the matrix\n- j, the index into columns in the distance matrix\n- the second element of tuple",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamAligner methods",
+        "type": "Title"
+    },
+    {
+        "text": "StreamAligner.",
+        "type": "Title"
+    },
+    {
+        "text": "align",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamAligner.",
+        "type": "Title"
+    },
+    {
+        "text": "calculateChangesList",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Traverses through self.distanceMatrix from bottom right corner to top left looking at\nbestOp at every move to determine which change was most likely at any point. Compiles\nthe list of changes in self.changes. Also calculates some metrics like self.similarityScore\nand self.changesCount.\n>>> note1 = note.Note('C#4')\n>>> note2 = note.Note('C4')\n\n\ntest 1: one insertion, one no change. Target stream has one more note than\nsource stream, so source stream needs an insertion to match target stream.\nshould be 0.5 similarity between the two\n>>> targetA = stream.Stream()\n>>> sourceA = stream.Stream()\n>>> targetA.append([note1, note2])\n>>> sourceA.append(note1)\n>>> saA = alpha.analysis.aligner.StreamAligner(targetA, sourceA)\n>>> saA.makeHashedStreams()\n>>> saA.setupDistanceMatrix()\n>>> saA.populateDistanceMatrix()\n>>> saA.calculateChangesList()\n>>> saA.changesCount[alpha.analysis.aligner.ChangeOps.Insertion]\n1\n>>> saA.changesCount[alpha.analysis.aligner.ChangeOps.NoChange]\n1\n>>> saA.similarityScore\n0.5\n\n\ntest 2: one deletion, one no change. Target stream has one fewer note than\nsource stream, so source stream needs a deletion to match target stream.\nshould be 0.5 similarity between the two\n>>> targetB = stream.Stream()\n>>> sourceB = stream.Stream()\n>>> targetB.append(note1)\n>>> sourceB.append([note1, note2])\n>>> saB = alpha.analysis.aligner.StreamAligner(targetB, sourceB)\n>>> saB.makeHashedStreams()\n>>> saB.setupDistanceMatrix()\n>>> saB.populateDistanceMatrix()\n>>> saB.calculateChangesList()\n>>> saB.changesCount[alpha.analysis.aligner.ChangeOps.Deletion]\n1\n>>> saB.changesCount[alpha.analysis.aligner.ChangeOps.NoChange]\n1\n>>> saB.similarityScore\n0.5\n\n\ntest 3: no changes\n>>> targetC = stream.Stream()\n>>> sourceC = stream.Stream()\n>>> targetC.append([note1, note2])\n>>> sourceC.append([note1, note2])\n>>> saC = alpha.analysis.aligner.StreamAligner(targetC, sourceC)\n>>> saC.makeHashedStreams()\n>>> saC.setupDistanceMatrix()\n>>> saC.populateDistanceMatrix()\n>>> saC.calculateChangesList()\n>>> saC.changesCount[alpha.analysis.aligner.ChangeOps.NoChange]\n2\n>>> saC.similarityScore\n1.0\n\n\ntest 4: 1 no change, 1 substitution\n>>> targetD = stream.Stream()\n>>> sourceD = stream.Stream()\n>>> note3 = note.Note('C4')\n>>> note3.quarterLength = 2  # same pitch and offset as note2\n>>> targetD.append([note1, note2])\n>>> sourceD.append([note1, note3])\n>>> saD = alpha.analysis.aligner.StreamAligner(targetD, sourceD)\n>>> saD.makeHashedStreams()\n>>> saD.setupDistanceMatrix()\n>>> saD.populateDistanceMatrix()\n>>> saD.calculateChangesList()\n>>> saD.changesCount[alpha.analysis.aligner.ChangeOps.Substitution]\n1\n>>> saD.changesCount[alpha.analysis.aligner.ChangeOps.NoChange]\n1\n>>> saD.similarityScore\n0.5",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamAligner.",
+        "type": "Title"
+    },
+    {
+        "text": "calculateNumSimilarities",
+        "type": "Title"
+    },
+    {
+        "text": "targetTup",
+        "type": "Title"
+    },
+    {
+        "text": "sourceTup",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns the number of attributes that two tuples have that are the same\n>>> target = stream.Stream()\n>>> source = stream.Stream()\n\n\n>>> note1 = note.Note('D1')\n>>> target.append([note1])\n>>> source.append([note1])\n>>> sa = alpha.analysis.aligner.StreamAligner(target, source)\n\n\n>>> from collections import namedtuple\n>>> NoteHash = namedtuple('NoteHash', ['Pitch', 'Duration'])\n>>> nh1 = NoteHash(60, 4)\n>>> nhwr1 = alpha.analysis.hasher.NoteHashWithReference(nh1)\n>>> nhwr1.reference = note.Note('C4')\n>>> nhwr1\nNoteHashWithReference(Pitch=60, Duration=4)\n\n\n>>> nh2 = NoteHash(60, 4)\n>>> nhwr2 = alpha.analysis.hasher.NoteHashWithReference(nh2)\n>>> nhwr2.reference = note.Note('C4')\n>>> nhwr2\nNoteHashWithReference(Pitch=60, Duration=4)\n\n\n>>> sa.calculateNumSimilarities(nhwr1, nhwr2)\n2\n\n\n>>> nh3 = NoteHash(61, 4)\n>>> nhwr3 = alpha.analysis.hasher.NoteHashWithReference(nh3)\n>>> nhwr3.reference = note.Note('C#4')\n>>> nhwr3\nNoteHashWithReference(Pitch=61, Duration=4)\n\n\n>>> sa.calculateNumSimilarities(nhwr1, nhwr3)\n1\n\n\n>>> nh4 = NoteHash(59, 1)\n>>> nhwr4 = alpha.analysis.hasher.NoteHashWithReference(nh4)\n>>> nhwr4.reference = note.Note('B3')\n>>> nhwr4\nNoteHashWithReference(Pitch=59, Duration=1)\n\n\n>>> sa.calculateNumSimilarities(nhwr2, nhwr4)\n0",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamAligner.",
+        "type": "Title"
+    },
+    {
+        "text": "deleteCost",
+        "type": "Title"
+    },
+    {
+        "text": "tup",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Cost of deleting an extra hashed item.\nFor now, it's just the size of the keys of the NoteHashWithReference\n>>> target = stream.Stream()\n>>> source = stream.Stream()\n\n\n>>> note1 = note.Note('C4')\n>>> note2 = note.Note('D4')\n>>> note3 = note.Note('C4')\n>>> note4 = note.Note('E4')\n\n\n>>> target.append([note1, note2, note3, note4])\n>>> source.append([note1, note2, note3])\n\n\nThis is a StreamAligner with default hasher settings\n>>> sa0 = alpha.analysis.aligner.StreamAligner(target, source)\n>>> sa0.align()\n>>> tup0 = sa0.hashedSourceStream[0]\n>>> sa0.deleteCost(tup0)\n2\n\n\nThis is a StreamAligner with a modified hasher that doesn't hash pitch at all\n>>> sa1 = alpha.analysis.aligner.StreamAligner(target, source)\n>>> sa1.hasher.hashPitch = False\n>>> sa1.align()\n>>> tup1 = sa1.hashedSourceStream[0]\n>>> sa1.deleteCost(tup1)\n1\n\n\nThis is a StreamAligner with a modified hasher that hashes 3 additional properties\n>>> sa2 = alpha.analysis.aligner.StreamAligner(target, source)\n>>> sa2.hasher.hashOctave = True\n>>> sa2.hasher.hashIntervalFromLastNote = True\n>>> sa2.hasher.hashIsAccidental = True\n>>> sa2.align()\n>>> tup2 = sa2.hashedSourceStream[0]\n>>> sa2.deleteCost(tup2)\n5",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamAligner.",
+        "type": "Title"
+    },
+    {
+        "text": "getDefaultHasher",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "returns a default hasher.Hasher object\nthat does not hashOffset or include the reference.\ncalled by __init__ if no hasher is passed in.\n>>> sa = alpha.analysis.aligner.StreamAligner()\n>>> h = sa.getDefaultHasher()\n>>> h\n<music21.alpha.analysis.hasher.Hasher object at 0x1068cf6a0>\n>>> h.hashOffset\nFalse\n>>> h.includeReference\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamAligner.",
+        "type": "Title"
+    },
+    {
+        "text": "getOpFromLocation",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Insert, Delete, Substitution, No Change = range(4)\nreturn the direction that traceback moves\n0: vertical movement, insertion\n1: horizontal movement, deletion\n2: diagonal movement, substitution\n3: diagonal movement, no change\nraises a ValueError if i == 0 and j == 0.\n>>> target = stream.Stream()\n>>> source = stream.Stream()\n>>> note1 = note.Note('C4')\n>>> note2 = note.Note('D4')\n>>> note3 = note.Note('C4')\n>>> note4 = note.Note('E4')\n\n\n>>> target.append([note1, note2, note3, note4])\n>>> source.append([note1, note2, note3])\n\n\n>>> sa = alpha.analysis.aligner.StreamAligner(target, source)\n>>> sa.makeHashedStreams()\n>>> sa.setupDistanceMatrix()\n>>> sa.populateDistanceMatrix()\n>>> sa.distanceMatrix\narray([[0, 2, 4, 6],\n       [2, 0, 2, 4],\n       [4, 2, 0, 2],\n       [6, 4, 2, 0],\n       [8, 6, 4, 2]])\n\n\n>>> sa.getOpFromLocation(4, 3)\n<ChangeOps.Insertion: 0>\n\n\n>>> sa.getOpFromLocation(2, 2)\n<ChangeOps.NoChange: 3>\n\n\n>>> sa.getOpFromLocation(0, 2)\n<ChangeOps.Deletion: 1>\n\n\n>>> sa.distanceMatrix[0][0] = 1\n>>> sa.distanceMatrix\narray([[1, 2, 4, 6],\n       [2, 0, 2, 4],\n       [4, 2, 0, 2],\n       [6, 4, 2, 0],\n       [8, 6, 4, 2]])\n\n\n>>> sa.getOpFromLocation(1, 1)\n<ChangeOps.Substitution: 2>\n\n\n>>> sa.getOpFromLocation(0, 0)\nTraceback (most recent call last):\nValueError: No movement possible from the origin",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamAligner.",
+        "type": "Title"
+    },
+    {
+        "text": "getPossibleMovesFromLocation",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "i and j are current row and column index in self.distanceMatrix\nreturns all possible moves (0 up to 3)\nvertical, horizontal, diagonal costs of adjacent entries in self.distMatrix\n>>> target = stream.Stream()\n>>> source = stream.Stream()\n\n\n>>> note1 = note.Note('C4')\n>>> note2 = note.Note('D4')\n>>> note3 = note.Note('C4')\n>>> note4 = note.Note('E4')\n\n\n>>> target.append([note1, note2, note3, note4])\n>>> source.append([note1, note2, note3])\n>>> sa = alpha.analysis.aligner.StreamAligner(target, source)\n>>> sa.makeHashedStreams()\n>>> sa.setupDistanceMatrix()\n>>> for i in range(4+1):\n...     for j in range(3+1):\n...         sa.distanceMatrix[i][j] = i * j\n\n\n>>> sa.distanceMatrix\narray([[ 0,  0,  0,  0],\n       [ 0,  1,  2,  3],\n       [ 0,  2,  4,  6],\n       [ 0,  3,  6,  9],\n       [ 0,  4,  8, 12]])\n\n\n>>> sa.getPossibleMovesFromLocation(0, 0)\n[None, None, None]\n\n\n>>> sa.getPossibleMovesFromLocation(1, 1)\n[0, 0, 0]\n\n\n>>> sa.getPossibleMovesFromLocation(4, 3)\n[9, 8, 6]\n\n\n>>> sa.getPossibleMovesFromLocation(2, 2)\n[2, 2, 1]\n\n\n>>> sa.getPossibleMovesFromLocation(0, 2)\n[None, 0, None]\n\n\n>>> sa.getPossibleMovesFromLocation(3, 0)\n[0, None, None]",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamAligner.",
+        "type": "Title"
+    },
+    {
+        "text": "insertCost",
+        "type": "Title"
+    },
+    {
+        "text": "tup",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Cost of inserting an extra hashed item.\nFor now, it's just the size of the keys of the NoteHashWithReference\n>>> target = stream.Stream()\n>>> source = stream.Stream()\n\n\n>>> note1 = note.Note('C4')\n>>> note2 = note.Note('D4')\n>>> note3 = note.Note('C4')\n>>> note4 = note.Note('E4')\n\n\n>>> target.append([note1, note2, note3, note4])\n>>> source.append([note1, note2, note3])\n\n\nThis is a StreamAligner with default hasher settings\n>>> sa0 = alpha.analysis.aligner.StreamAligner(target, source)\n>>> sa0.align()\n>>> tup0 = sa0.hashedTargetStream[0]\n>>> sa0.insertCost(tup0)\n2\n\n\nThis is a StreamAligner with a modified hasher that doesn't hash pitch at all\n>>> sa1 = alpha.analysis.aligner.StreamAligner(target, source)\n>>> sa1.hasher.hashPitch = False\n>>> sa1.align()\n>>> tup1 = sa1.hashedTargetStream[0]\n>>> sa1.insertCost(tup1)\n1\n\n\nThis is a StreamAligner with a modified hasher that hashes 3 additional properties\n>>> sa2 = alpha.analysis.aligner.StreamAligner(target, source)\n>>> sa2.hasher.hashOctave = True\n>>> sa2.hasher.hashIntervalFromLastNote = True\n>>> sa2.hasher.hashIsAccidental = True\n>>> sa2.align()\n>>> tup2 = sa2.hashedTargetStream[0]\n>>> sa2.insertCost(tup2)\n5",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamAligner.",
+        "type": "Title"
+    },
+    {
+        "text": "makeHashedStreams",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Hashes streams if not pre-hashed\n>>> tStream = stream.Stream()\n>>> sStream = stream.Stream()\n\n\n>>> note1 = note.Note('C4')\n>>> note2 = note.Note('D4')\n>>> note3 = note.Note('C4')\n>>> note4 = note.Note('E4')\n\n\n>>> tStream.append([note1, note2])\n>>> sStream.append([note3, note4])\n>>> sa1 = alpha.analysis.aligner.StreamAligner(tStream, sStream)\n\n\n>>> h = alpha.analysis.hasher.Hasher()\n>>> h.includeReference = True\n\n\n>>> toBeHashedTarStream = stream.Stream()\n>>> toBeHashedSouStream = stream.Stream()\n\n\n>>> note5 = note.Note('A4')\n>>> note6 = note.Note('B4')\n>>> note7 = note.Note('A4')\n>>> note8 = note.Note('G4')\n\n\n>>> toBeHashedTarStream.append([note5, note6])\n>>> toBeHashedSouStream.append([note7, note8])\n>>> hashedTarStr = h.hashStream(toBeHashedTarStream)\n>>> hashedSouStr = h.hashStream(toBeHashedSouStream)\n>>> sa2 = alpha.analysis.aligner.StreamAligner(\n...             hashedTarStr, hashedSouStr, preHashed=True)\n\n\n>>> sa2.makeHashedStreams()\n>>> sa1.makeHashedStreams()\n\n\n>>> sa1.hashedTargetStream\n[NoteHashWithReference(Pitch=60, Duration=1.0),\n NoteHashWithReference(Pitch=62, Duration=1.0)]\n>>> sa1.hashedSourceStream\n[NoteHashWithReference(Pitch=60, Duration=1.0),\n NoteHashWithReference(Pitch=64, Duration=1.0)]\n\n\n>>> sa2.hashedTargetStream\n[NoteHashWithReference(Pitch=69, Duration=1.0, Offset=0.0),\n NoteHashWithReference(Pitch=71, Duration=1.0, Offset=1.0)]\n>>> sa2.hashedSourceStream\n[NoteHashWithReference(Pitch=69, Duration=1.0, Offset=0.0),\n NoteHashWithReference(Pitch=67, Duration=1.0, Offset=1.0)]",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamAligner.",
+        "type": "Title"
+    },
+    {
+        "text": "populateDistanceMatrix",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Sets up the distance matrix for back-tracing\n>>> note1 = note.Note('C#4')\n>>> note2 = note.Note('C4')\n\n\nTest 1: similar streams\n>>> targetA = stream.Stream()\n>>> sourceA = stream.Stream()\n>>> targetA.append([note1, note2])\n>>> sourceA.append([note1, note2])\n>>> saA = alpha.analysis.aligner.StreamAligner(targetA, sourceA)\n>>> saA.makeHashedStreams()\n>>> saA.setupDistanceMatrix()\n>>> saA.populateDistanceMatrix()\n>>> saA.distanceMatrix\narray([[0, 2, 4],\n       [2, 0, 2],\n       [4, 2, 0]])\n\n\nSecond Test\n>>> targetB = stream.Stream()\n>>> sourceB = stream.Stream()\n>>> targetB.append([note1, note2])\n>>> sourceB.append(note1)\n>>> saB = alpha.analysis.aligner.StreamAligner(targetB, sourceB)\n>>> saB.makeHashedStreams()\n>>> saB.setupDistanceMatrix()\n>>> saB.populateDistanceMatrix()\n>>> saB.distanceMatrix\narray([[0, 2],\n       [2, 0],\n       [4, 2]])\n\n\nThird Test\n>>> note3 = note.Note('D5')\n>>> note3.quarterLength = 3\n>>> note4 = note.Note('E3')\n>>> targetC = stream.Stream()\n>>> sourceC = stream.Stream()\n>>> targetC.append([note1, note2, note4])\n>>> sourceC.append([note3, note1, note4])\n>>> saC = alpha.analysis.aligner.StreamAligner(targetC, sourceC)\n>>> saC.makeHashedStreams()\n>>> saC.setupDistanceMatrix()\n>>> saC.populateDistanceMatrix()\n>>> saC.distanceMatrix\narray([[0, 2, 4, 6],\n   [2, 2, 2, 4],\n   [4, 4, 3, 3],\n   [6, 6, 5, 3]])",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamAligner.",
+        "type": "Title"
+    },
+    {
+        "text": "setupDistanceMatrix",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Creates a distance matrix of the right size after hashing\n>>> note1 = note.Note('C4')\n>>> note2 = note.Note('D4')\n>>> note3 = note.Note('C4')\n>>> note4 = note.Note('E4')\n\n\nTest for streams of length 3 and 4\n>>> target0 = converter.parse('tinyNotation: C4 D C E')\n>>> source0 = converter.parse('tinyNotation: C4 D C')\n\n\n>>> sa0 = alpha.analysis.aligner.StreamAligner(target0, source0)\n>>> sa0.setupDistanceMatrix()\n>>> sa0.distanceMatrix.size\n20\n>>> sa0.distanceMatrix.shape\n(5, 4)\n\n\nTest for empty target stream\n>>> target1 = stream.Stream()\n>>> source1 = stream.Stream()\n>>> source1.append(note1)\n>>> sa1 = alpha.analysis.aligner.StreamAligner(target1, source1)\n>>> sa1.makeHashedStreams()\n>>> sa1.setupDistanceMatrix()\nTraceback (most recent call last):\nmusic21.alpha.analysis.aligner.AlignerException:\nCannot perform alignment with empty target stream.\n\n\nTest for empty source stream\n>>> target2 = stream.Stream()\n>>> source2 = stream.Stream()\n>>> target2.append(note3)\n>>> sa2 = alpha.analysis.aligner.StreamAligner(target2, source2)\n>>> sa2.makeHashedStreams()\n>>> sa2.setupDistanceMatrix()\nTraceback (most recent call last):\nmusic21.alpha.analysis.aligner.AlignerException:\n    Cannot perform alignment with empty source stream.",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamAligner.",
+        "type": "Title"
+    },
+    {
+        "text": "showChanges",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Visual and debugging feature to display which notes are changed.\nWill open in MuseScore, unless show is set to False",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamAligner.",
+        "type": "Title"
+    },
+    {
+        "text": "substitutionCost",
+        "type": "Title"
+    },
+    {
+        "text": "targetTup",
+        "type": "Title"
+    },
+    {
+        "text": "sourceTup",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Finds the cost of substituting the targetTup with the sourceTup.\nFor now, it's just an interpolation of how many things they have in common\nExample: equality testing, both streams made from same note\ntargetA will not have the same reference as sourceA\nbut their hashes will be equal, which makes for their hashed objects to be\nable to be equal.\n>>> note1 = note.Note('C4')\n>>> targetA = stream.Stream()\n>>> sourceA = stream.Stream()\n>>> targetA.append(note1)\n>>> sourceA.append(note1)\n>>> targetA == sourceA\nFalse\n\n\n>>> saA = alpha.analysis.aligner.StreamAligner(targetA, sourceA)\n>>> saA.align()\n>>> hashedItem1A = saA.hashedTargetStream[0]\n>>> hashedItem2A = saA.hashedSourceStream[0]\n>>> print(hashedItem1A)\nNoteHashWithReference(Pitch=60, Duration=1.0)\n\n\n>>> print(hashedItem2A)\nNoteHashWithReference(Pitch=60, Duration=1.0)\n\n\n>>> saA.tupleEqualityWithoutReference(hashedItem1A, hashedItem2A)\nTrue\n>>> saA.substitutionCost(hashedItem1A, hashedItem2A)\n0\n\n\n>>> note2 = note.Note('D4')\n>>> targetB = stream.Stream()\n>>> sourceB = stream.Stream()\n>>> targetB.append(note1)\n>>> sourceB.append(note2)\n>>> saB = alpha.analysis.aligner.StreamAligner(targetB, sourceB)\n>>> saB.align()\n>>> hashedItem1B = saB.hashedTargetStream[0]\n>>> hashedItem2B = saB.hashedSourceStream[0]\n\n\nhashed items only differ in 1 spot\n>>> print(hashedItem1B)\nNoteHashWithReference(Pitch=60, Duration=1.0)\n\n\n>>> print(hashedItem2B)\nNoteHashWithReference(Pitch=62, Duration=1.0)\n\n\n>>> saB.substitutionCost(hashedItem1B, hashedItem2B)\n1\n\n\n>>> note3 = note.Note('E4')\n>>> note4 = note.Note('E#4')\n>>> note4.duration = duration.Duration('half')\n>>> targetC = stream.Stream()\n>>> sourceC = stream.Stream()\n>>> targetC.append(note3)\n>>> sourceC.append(note4)\n>>> saC = alpha.analysis.aligner.StreamAligner(targetC, sourceC)\n>>> saC.align()\n>>> hashedItem1C = saC.hashedTargetStream[0]\n>>> hashedItem2C = saC.hashedSourceStream[0]\n\n\nhashed items should differ in 2 spots\n>>> print(hashedItem1C)\nNoteHashWithReference(Pitch=64, Duration=1.0)\n\n\n>>> print(hashedItem2C)\nNoteHashWithReference(Pitch=65, Duration=2.0)\n\n\n>>> saC.substitutionCost(hashedItem1C, hashedItem2C)\n2",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamAligner.",
+        "type": "Title"
+    },
+    {
+        "text": "tupleEqualityWithoutReference",
+        "type": "Title"
+    },
+    {
+        "text": "tup1",
+        "type": "Title"
+    },
+    {
+        "text": "tup2",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns whether two hashed items have the same attributes,\neven though their references are different?\n>>> target = stream.Stream()\n>>> source = stream.Stream()\n\n\n>>> note1 = note.Note('D1')\n>>> target.append([note1])\n>>> source.append([note1])\n>>> sa = alpha.analysis.aligner.StreamAligner(target, source)\n\n\n>>> from collections import namedtuple\n>>> NoteHash = namedtuple('NoteHash', ['Pitch', 'Duration'])\n>>> nh1 = NoteHash(60, 4)\n>>> nhwr1 = alpha.analysis.hasher.NoteHashWithReference(nh1)\n>>> nhwr1.reference = note.Note('C4')\n>>> nhwr1\nNoteHashWithReference(Pitch=60, Duration=4)\n\n\n>>> nh2 = NoteHash(60, 4)\n>>> nhwr2 = alpha.analysis.hasher.NoteHashWithReference(nh2)\n>>> nhwr2.reference = note.Note('B#3')\n>>> nhwr2\nNoteHashWithReference(Pitch=60, Duration=4)\n\n\n>>> sa.tupleEqualityWithoutReference(nhwr1, nhwr2)\nTrue\n\n\nThis is a very difference has\n>>> nh3 = NoteHash(61, 4)\n>>> nhwr3 = alpha.analysis.hasher.NoteHashWithReference(nh3)\n>>> nhwr3.reference = note.Note('C#4')\n>>> nhwr3\nNoteHashWithReference(Pitch=61, Duration=4)\n\n\n>>> sa.tupleEqualityWithoutReference(nhwr1, nhwr3)\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.alpha.analysis.aligner",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

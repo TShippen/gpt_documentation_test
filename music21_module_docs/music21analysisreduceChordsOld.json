@@ -1,0 +1,398 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.analysis.reduceChordsOld",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.analysis.reduceChords",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.analysis.reduction",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.analysis.reduceChordsOld\nChordReducer\nChordReducer\nChordReducer.computeMeasureChordWeights()\nChordReducer.multiPartReduction()\nChordReducer.qlbsmpConsonance()\nChordReducer.quarterLengthBeatStrength()\nChordReducer.quarterLengthBeatStrengthMeasurePosition()\nChordReducer.quarterLengthOnly()\nChordReducer.reduceMeasureToNChords()\nChordReducer.reduceThisMeasure()\n\n\n\n\nFunctions\ntestMeasureStream1()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.analysis.reduceChordsOld\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Automatically reduce a MeasureStack to a single chord or group of chords.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "ChordReducer\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.analysis.reduceChordsOld.",
+        "type": "Title"
+    },
+    {
+        "text": "ChordReducer",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "ChordReducer methods",
+        "type": "Title"
+    },
+    {
+        "text": "ChordReducer.",
+        "type": "Title"
+    },
+    {
+        "text": "computeMeasureChordWeights",
+        "type": "Title"
+    },
+    {
+        "text": "measureObj",
+        "type": "Title"
+    },
+    {
+        "text": "weightAlgorithm",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>> s = analysis.reduceChordsOld.testMeasureStream1().notes\n>>> cr = analysis.reduceChordsOld.ChordReducer()\n>>> cws = cr.computeMeasureChordWeights(s)\n>>> for pcs in sorted(cws):\n...     print(\"%18r  %2.1f\" % (pcs, cws[pcs]))\n     (0, 4, 7)  3.0\n (0, 11, 4, 5)  1.0\n\n\nAdd beatStrength:\n>>> cws = cr.computeMeasureChordWeights(s, weightAlgorithm=cr.quarterLengthBeatStrength)\n>>> for pcs in sorted(cws):\n...     print(\"%18r  %2.1f\" % (pcs, cws[pcs]))\n     (0, 4, 7)  2.2\n (0, 11, 4, 5)  0.5\n\n\nGive extra weight to the last element in a measure:\n>>> cws = cr.computeMeasureChordWeights(s,\n...              weightAlgorithm=cr.quarterLengthBeatStrengthMeasurePosition)\n>>> for pcs in sorted(cws):\n...     print(\"%18r  %2.1f\" % (pcs, cws[pcs]))\n     (0, 4, 7)  3.0\n (0, 11, 4, 5)  0.5\n\n\nMake consonance count a lot:\n>>> cws = cr.computeMeasureChordWeights(s, weightAlgorithm=cr.qlbsmpConsonance)\n>>> for pcs in sorted(cws):\n...     print(\"%18r  %2.1f\" % (pcs, cws[pcs]))\n         (0, 4, 7)  3.0\n     (0, 11, 4, 5)  0.5",
+        "type": "ListItem"
+    },
+    {
+        "text": "ChordReducer.",
+        "type": "Title"
+    },
+    {
+        "text": "multiPartReduction",
+        "type": "Title"
+    },
+    {
+        "text": "inStream",
+        "type": "Title"
+    },
+    {
+        "text": "maxChords",
+        "type": "Title"
+    },
+    {
+        "text": "closedPosition",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "forceOctave",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a multipart reduction of a stream.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ChordReducer.",
+        "type": "Title"
+    },
+    {
+        "text": "qlbsmpConsonance",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Everything from before plus consonance",
+        "type": "ListItem"
+    },
+    {
+        "text": "ChordReducer.",
+        "type": "Title"
+    },
+    {
+        "text": "quarterLengthBeatStrength",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "ChordReducer.",
+        "type": "Title"
+    },
+    {
+        "text": "quarterLengthBeatStrengthMeasurePosition",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "ChordReducer.",
+        "type": "Title"
+    },
+    {
+        "text": "quarterLengthOnly",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "ChordReducer.",
+        "type": "Title"
+    },
+    {
+        "text": "reduceMeasureToNChords",
+        "type": "Title"
+    },
+    {
+        "text": "measureObj",
+        "type": "Title"
+    },
+    {
+        "text": "numChords",
+        "type": "Title"
+    },
+    {
+        "text": "weightAlgorithm",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "trimBelow",
+        "type": "Title"
+    },
+    {
+        "text": "0.25",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>> s = analysis.reduceChordsOld.testMeasureStream1()\n>>> cr = analysis.reduceChordsOld.ChordReducer()\n\n\nReduce to a maximum of 3 chords; though here we will\nonly get one because the other chord is\nbelow the trimBelow threshold.\n>>> newS = cr.reduceMeasureToNChords(s, 3,\n...    weightAlgorithm=cr.qlbsmpConsonance, trimBelow = 0.3)\n>>> newS.show('text')\n{0.0} <music21.chord.Chord C4 E4 G4 C5>\n>>> newS.notes.first().quarterLength\n4.0",
+        "type": "ListItem"
+    },
+    {
+        "text": "ChordReducer.",
+        "type": "Title"
+    },
+    {
+        "text": "reduceThisMeasure",
+        "type": "Title"
+    },
+    {
+        "text": "mI",
+        "type": "Title"
+    },
+    {
+        "text": "measureIndex",
+        "type": "Title"
+    },
+    {
+        "text": "maxChords",
+        "type": "Title"
+    },
+    {
+        "text": "closedPosition",
+        "type": "Title"
+    },
+    {
+        "text": "forceOctave",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.analysis.reduceChordsOld.",
+        "type": "Title"
+    },
+    {
+        "text": "testMeasureStream1",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "returns a simple measure stream for testing:\n>>> s = analysis.reduceChordsOld.testMeasureStream1()\n>>> s.show('text')\n{0.0} <music21.meter.TimeSignature 4/4>\n{0.0} <music21.chord.Chord C4 E4 G4 C5>\n{2.0} <music21.chord.Chord C4 E4 F4 B4>\n{3.0} <music21.chord.Chord C4 E4 G4 C5>",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.analysis.reduceChordsOld",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

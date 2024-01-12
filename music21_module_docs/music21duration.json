@@ -1,0 +1,2694 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.duration",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.derivation",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.dynamics",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.duration\nDuration\nDuration\nDuration.fullName\nDuration.isComplex\nDuration.ordinal\nDuration.quarterLengthNoTuplets\nDuration.components\nDuration.dotGroups\nDuration.dots\nDuration.linked\nDuration.quarterLength\nDuration.tuplets\nDuration.type\nDuration.__eq__()\nDuration.addDurationTuple()\nDuration.aggregateTupletMultiplier()\nDuration.appendTuplet()\nDuration.augmentOrDiminish()\nDuration.clear()\nDuration.componentIndexAtQtrPosition()\nDuration.componentStartTime()\nDuration.consolidate()\nDuration.currentComponents()\nDuration.getGraceDuration()\nDuration.informClient()\nDuration.sliceComponentAtPosition()\nDuration.splitDotGroups()\nDuration.client\nDuration.expressionIsInferred\n\n\n\n\nTuplet\nTuplet\nTuplet.fullName\nTuplet.durationActual\nTuplet.durationNormal\nTuplet.tupletActual\nTuplet.tupletNormal\nTuplet.__eq__()\nTuplet.augmentOrDiminish()\nTuplet.setDurationType()\nTuplet.setRatio()\nTuplet.totalTupletLength()\nTuplet.tupletMultiplier()\n\n\n\n\nGraceDuration\nGraceDuration\nGraceDuration.makeTime\nGraceDuration.slash\nGraceDuration.stealTimeFollowing\nGraceDuration.stealTimePrevious\n\n\n\n\nTupletFixer\nTupletFixer\nTupletFixer.findTupletGroups()\nTupletFixer.fixBrokenTupletDuration()\nTupletFixer.setStream()\n\n\n\n\nAppoggiaturaDuration\nAppoggiaturaDuration\n\n\nDurationTuple\nDurationTuple\nDurationTuple.ordinal\nDurationTuple.augmentOrDiminish()\n\n\n\n\nFrozenDuration\nFrozenDuration\n\n\nQuarterLengthConversion\nQuarterLengthConversion\n\n\nFunctions\nconvertQuarterLengthToType()\nconvertTypeToNumber()\nconvertTypeToQuarterLength()\ndottedMatch()\ndurationTupleFromQuarterLength()\ndurationTupleFromTypeDots()\nnextLargerType()\nnextSmallerType()\nquarterLengthToClosestType()\nquarterLengthToNonPowerOf2Tuplet()\nquarterLengthToTuplet()\nunitSpec()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.duration\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "The duration module contains  Duration objects\n(among other objects and functions).  Duration objects are a fundamental\ncomponent of Note and all Music21Objects, such as\nTimeSignature objects.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Containers such as Stream and\nScore also have durations which are equal to the\nposition of the ending of the last object in the Stream.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Music21 Durations are almost always measured in Quarter Notes, so an eighth\nnote has a duration of 0.5.  Different Duration-like objects support objects\nsuch as grace notes which take no duration on the page, have a short (but real)\nduration when played, and have a duration-type representation when performed.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Example usage:",
+        "type": "Title"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "Duration",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "quarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "0.5",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "'eighth'",
+        "type": "Title"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "'whole'",
+        "type": "Title"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "quarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "4.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "quarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "0.166666666",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "'16th'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "tuplets",
+        "type": "Title"
+    },
+    {
+        "text": "numberNotesActual",
+        "type": "Title"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "tuplets",
+        "type": "Title"
+    },
+    {
+        "text": "numberNotesNormal",
+        "type": "Title"
+    },
+    {
+        "text": "Duration\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.duration.",
+        "type": "Title"
+    },
+    {
+        "text": "Duration",
+        "type": "Title"
+    },
+    {
+        "text": "typeOrDuration",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "OffsetQLIn",
+        "type": "Title"
+    },
+    {
+        "text": "DurationTuple",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "str | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "dots",
+        "type": "Title"
+    },
+    {
+        "text": "int | None",
+        "type": "Title"
+    },
+    {
+        "text": "quarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "OffsetQLIn | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "durationTuple",
+        "type": "Title"
+    },
+    {
+        "text": "DurationTuple | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "components",
+        "type": "Title"
+    },
+    {
+        "text": "Iterable",
+        "type": "Title"
+    },
+    {
+        "text": "DurationTuple",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "client",
+        "type": "Title"
+    },
+    {
+        "text": "base.Music21Object | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Durations are one of the most important objects in music21. A Duration\nrepresents a span of musical time measurable in terms of quarter notes (or\nin advanced usage other units). For instance, \u009c57 quarter notes\u009d or \u009cdotted\nhalf tied to quintuplet sixteenth note\u009d or simply \u009cquarter note.\u009d\nA Duration object is made of one or more immutable DurationTuple objects stored on the\ncomponents list. A Duration created by setting quarterLength sets the attribute\nexpressionIsInferred to True, which indicates that callers\n(such as splitElementsToCompleteTuplets())\ncan express this Duration using another combination of components that sums to the\nquarterLength. Otherwise, expressionIsInferred is set to False, indicating that\ncomponents are not allowed to mutate.\nMultiple DurationTuples in a single Duration may be used to express tied\nnotes, or may be used to split duration across barlines or beam groups.\nSome Duration objects are not expressible as a single notation unit.\nDuration objects are not Music21Objects.\nIf a single argument is passed to Duration() and it is a string, then it is\nassumed to be a type, such as \u0098half', \u0098eighth', or \u009816th', etc.  If that\nsingle argument is a number then it is assumed to be a quarterLength (2 for\nhalf notes, 0.5 for eighth notes, 0.75 for dotted eighth notes, 0.333333333\nfor a triplet eighth, etc.).  If one or more named arguments are passed\nthen the Duration() is configured according to those arguments.  Supported\narguments are \u0098type', \u0098dots', \u0098quarterLength', or \u0098components'.\nExample 1: a triplet eighth configured by quarterLength:\n>>> d = duration.Duration(0.333333333)\n>>> d.type\n'eighth'\n\n\n>>> d.tuplets\n(<music21.duration.Tuplet 3/2/eighth>,)\n\n\nExample 2: A Duration made up of multiple\nmusic21.duration.DurationTuple objects automatically configured by\nthe specified quarterLength.\n>>> d2 = duration.Duration(0.625)\n>>> d2.type\n'complex'\n\n\n>>> d2.components\n(DurationTuple(type='eighth', dots=0, quarterLength=0.5),\n DurationTuple(type='32nd', dots=0, quarterLength=0.125))\n\n\n>>> d2.expressionIsInferred\nTrue\n\n\nExample 3: A Duration configured by keywords.\n>>> d3 = duration.Duration(type='half', dots=2)\n>>> d3.quarterLength\n3.5\n>>> d3.expressionIsInferred\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "Duration bases",
+        "type": "Title"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "SlottedObjectMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "Duration read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Duration.",
+        "type": "Title"
+    },
+    {
+        "text": "fullName",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return the most complete representation of this Duration, providing\ndots, type, tuplet, and quarter length representation.\n>>> d = duration.Duration(quarterLength=1.5)\n>>> d.fullName\n'Dotted Quarter'\n\n\n>>> d = duration.Duration(type='half')\n>>> d.fullName\n'Half'\n\n\n>>> d = duration.Duration(quarterLength=1.25)\n>>> d.fullName\n'Quarter tied to 16th (1 1/4 total QL)'\n\n\n>>> d = duration.Duration(quarterLength=0.333333)\n>>> d.fullName\n'Eighth Triplet (1/3 QL)'\n\n\n>>> d = duration.Duration(quarterLength=0.666666)\n>>> d.fullName\n'Quarter Triplet (2/3 QL)'\n\n\n>>> d = duration.Duration(quarterLength=0.571428)\n>>> d.fullName\n'Quarter Septuplet (4/7 QL)'\n\n\n>>> d = duration.Duration(quarterLength=0)\n>>> d.fullName\n'Zero Duration (0 total QL)'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Duration.",
+        "type": "Title"
+    },
+    {
+        "text": "isComplex",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if this Duration has more than one DurationTuple object on\nthe component list.  That is to say if it's a single Duration that\nneed multiple tied noteheads to represent.\n>>> aDur = duration.Duration()\n>>> aDur.quarterLength = 1.375\n>>> aDur.isComplex\nTrue\n\n\n>>> len(aDur.components)\n2\n\n\n>>> aDur.components\n(DurationTuple(type='quarter', dots=0, quarterLength=1.0),\n DurationTuple(type='16th', dots=1, quarterLength=0.375))\n\n\n>>> cDur = duration.Duration()\n>>> cDur.quarterLength = 0.25\n>>> cDur.isComplex\nFalse\n\n\n>>> len(cDur.components)\n1",
+        "type": "ListItem"
+    },
+    {
+        "text": "Duration.",
+        "type": "Title"
+    },
+    {
+        "text": "ordinal",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get the ordinal value of the Duration, where whole is 4,\nhalf is 5, etc.\n>>> d = duration.Duration()\n>>> d.quarterLength = 2.0\n>>> d.ordinal\n5\n>>> d.type = '16th'\n>>> d.ordinal\n8\n\n\nComplex values have an ordinal of the string \u0098complex'.  This might\nchange to NaN in a later version.\n>>> d.quarterLength = 2.5\n>>> d.ordinal\n'complex'\n\n\nZero durations have an ordinal of None\n>>> d2 = duration.Duration(0.0)\n>>> print(d2.ordinal)\nNone",
+        "type": "ListItem"
+    },
+    {
+        "text": "Duration.",
+        "type": "Title"
+    },
+    {
+        "text": "quarterLengthNoTuplets",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns the quarter length of the duration without taking into account triplets.\nDoes not cache.\n>>> d = duration.Duration(1/3)\n>>> d.quarterLengthNoTuplets\n0.5",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "Duration read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Duration.",
+        "type": "Title"
+    },
+    {
+        "text": "components",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns or sets a tuple of the component DurationTuples of this\nDuration object\n>>> d = duration.Duration(1.0)\n>>> d.components\n(DurationTuple(type='quarter', dots=0, quarterLength=1.0),)\n\n\nTuplets do not have the tuplet in their components.\n>>> d = duration.Duration(1/3)\n>>> d.components\n(DurationTuple(type='eighth', dots=0, quarterLength=0.5),)\n\n\nWith a complex duration it becomes clearer why multiple components are needed.\nHere is a duration that cannot be expressed as a single note.\n>>> d = duration.Duration(1.25)\n>>> d.type\n'complex'\n>>> d.components\n(DurationTuple(type='quarter', dots=0, quarterLength=1.0),\n DurationTuple(type='16th', dots=0, quarterLength=0.25))\n\n\nBut it can be expressed another way and will output in that way in MusicXML\nand other readers:\n>>> component0 = duration.DurationTuple(type='eighth', dots=0, quarterLength=0.5)\n>>> component1 = duration.DurationTuple(type='eighth', dots=1, quarterLength=0.75)\n>>> d.components = [component0, component1]\n\n\nIt is allowed but not advised to set components that do not add up\nto the current (pre-tuplet) quarterLength.  In which case the quarterLength\nwill be adjusted:\n>>> d.components = [component0]\n>>> d\n<music21.duration.Duration 0.5>\n>>> d.type\n'eighth'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Duration.",
+        "type": "Title"
+    },
+    {
+        "text": "dotGroups",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Dot groups are a convenience for transcribing medieval music.\nThey represent dotted-dotted notes (written one above another).\nFor instance a half note with dotGroups = (1, 1) represents a dotted half note that\nis itself dotted.  Worth 9 eighth notes (dotted-half tied to dotted-quarter).  It\nis not the same as a double-dotted half note, which is only worth 7 eighth notes.\n>>> a = duration.Duration()\n>>> a.type = 'half'\n>>> a.dotGroups\n(0,)\n>>> a.dots = 1\n\n\n>>> a.dotGroups = (1, 1)\n>>> a.quarterLength\n4.5",
+        "type": "ListItem"
+    },
+    {
+        "text": "Duration.",
+        "type": "Title"
+    },
+    {
+        "text": "dots",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns or sets the number of dots in the Duration\nif it is a simple Duration.\nFor returning only the number of dots on the first component is returned for\ncomplex durations. (Previously it could return None\nif it was not a simple duration which led to some\nterribly difficult to find errors.)\n>>> a = duration.Duration()\n>>> a.type = 'quarter'\n>>> a.dots = 1\n>>> a.quarterLength\n1.5\n>>> a.dots = 2\n>>> a.quarterLength\n1.75\n\n\nIf a duration is complex then setting dots has the effect of\nsetting the number of dots to value on every component.\n>>> DT = duration.durationTupleFromTypeDots\n>>> complexDuration = duration.Duration()\n>>> complexDuration.addDurationTuple(DT('half', 0))\n>>> complexDuration.addDurationTuple(DT('eighth', 2))\n>>> complexDuration.type\n'complex'\n>>> complexDuration.quarterLength\n2.875\n\n\nIn a complex duration, the number of dots comes from the first component:\n>>> complexDuration.dots\n0\n\n\nBut if set, applies to all components:\n>>> complexDuration.dots = 1\n>>> complexDuration.components\n(DurationTuple(type='half', dots=1, quarterLength=3.0),\n DurationTuple(type='eighth', dots=1, quarterLength=0.75))\n>>> complexDuration.quarterLength\n3.75\n\n\nDots can go pretty high.\n>>> d = duration.Duration('half')\n>>> d.quarterLength\n2.0\n>>> d.dots = 5\n>>> d.quarterLength\n3.9375\n>>> d.dots = 10\n>>> d.quarterLength\n3.998046875\n\n\nInfinite dots\u2026 (an Easter egg\u2026)\n>>> from math import inf\n>>> d.type = 'half'\n>>> d.dots = inf\n>>> d.quarterLength\n4.0\n>>> d.dots\n0\n>>> d.type\n'whole'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Duration.",
+        "type": "Title"
+    },
+    {
+        "text": "linked",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Gets or sets the .linked property \u2014 if linked (default) then type, dots, tuplets are\nalways coherent with quarterLength.  If not, then they are separate.\n>>> d = duration.Duration(0.5)\n>>> d.linked\nTrue\n\n\nLinked durations change other values when one changes:\n>>> d.type = '16th'\n>>> d.quarterLength\n0.25\n\n\nUnlinked values do not:\n>>> d.linked = False\n>>> d.type = 'half'\n>>> d.quarterLength\n0.25",
+        "type": "ListItem"
+    },
+    {
+        "text": "Duration.",
+        "type": "Title"
+    },
+    {
+        "text": "quarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns the quarter note length or Sets the quarter note length to\nthe specified value. May be expressed as a float or Fraction.\nCurrently (if the value is different from what is already stored)\nthis wipes out any existing components, not preserving their type.\nSo if you've set up Duration(1.5) as 3-eighth notes, setting\nDuration to 1.75 will NOT dot the last eighth note, but instead\ngive you a single double-dotted half note.\n>>> a = duration.Duration()\n>>> a.quarterLength = 3.5\n>>> a.quarterLength\n3.5\n\n\n>>> for thisUnit in a.components:\n...    print(duration.unitSpec(thisUnit))\n(3.5, 'half', 2, None, None, None)\n\n\n>>> a.quarterLength = 2.5\n>>> a.quarterLength\n2.5\n\n\n>>> for thisUnit in a.components:\n...    print(duration.unitSpec(thisUnit))\n(2.0, 'half', 0, None, None, None)\n(0.5, 'eighth', 0, None, None, None)\n\n\nNote that integer values of quarter lengths get\nsilently converted to floats (internally opFracs):\n>>> b = duration.Duration()\n>>> b.quarterLength = 5\n>>> b.quarterLength\n5.0\n>>> b.type  # complex because 5qL cannot be expressed as a single note.\n'complex'\n\n\nFloat values will be converted to fractions if they are inexpressible exactly\nas floats:\n>>> b = duration.Duration()\n>>> b.quarterLength = 1/3\n>>> b.quarterLength\nFraction(1, 3)",
+        "type": "ListItem"
+    },
+    {
+        "text": "Duration.",
+        "type": "Title"
+    },
+    {
+        "text": "tuplets",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a tuple of Tuplet objects.\nSetting tuplets will inform the client (Note) that the duration has changed.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Duration.",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get or set the type of the Duration.\n>>> a = duration.Duration()\n>>> a.type = 'half'\n>>> a.quarterLength\n2.0\n\n\n>>> a.type= '16th'\n>>> a.quarterLength\n0.25",
+        "type": "ListItem"
+    },
+    {
+        "text": "Duration methods",
+        "type": "Title"
+    },
+    {
+        "text": "Duration.",
+        "type": "Title"
+    },
+    {
+        "text": "__eq__",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "other",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Two durations are the same if their type, dots, tuplets, and\nquarterLength are all the same.\n>>> aDur = duration.Duration('quarter')\n>>> bDur = duration.Duration('16th')\n>>> cDur = duration.Duration('16th')\n>>> aDur == bDur\nFalse\n>>> aDur != bDur\nTrue\n\n\n>>> cDur == bDur\nTrue\n\n\n>>> dDur = duration.Duration(0.0)\n>>> eDur = duration.Duration(0.0)\n>>> dDur == eDur\nTrue\n\n\n>>> tupDur1 = duration.Duration(2 / 3)\n>>> tupDur2 = duration.Duration(2 / 3)\n>>> tupDur1 == tupDur2\nTrue\n\n\n>>> graceDur1 = tupDur1.getGraceDuration()\n>>> graceDur1 == tupDur1\nFalse\n>>> graceDur2 = tupDur2.getGraceDuration()\n>>> graceDur1 == graceDur2\nTrue\n\n\nLink status must be the same:\n>>> tupDur1.linked = False\n>>> tupDur1 == tupDur2\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "Duration.",
+        "type": "Title"
+    },
+    {
+        "text": "addDurationTuple",
+        "type": "Title"
+    },
+    {
+        "text": "dur",
+        "type": "Title"
+    },
+    {
+        "text": "DurationTuple",
+        "type": "Title"
+    },
+    {
+        "text": "Duration",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "float",
+        "type": "Title"
+    },
+    {
+        "text": "Fraction",
+        "type": "Title"
+    },
+    {
+        "text": "_skipInform",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Add a DurationTuple or a Duration's components to this Duration.\nDoes not simplify the Duration.  For instance, adding two\nquarter notes results in two tied quarter notes, not one half note.\nSee consolidate below for more info on how to do that.\n>>> a = duration.Duration('quarter')\n>>> b = duration.durationTupleFromTypeDots('quarter', 0)\n>>> a.addDurationTuple(b)\n>>> a.quarterLength\n2.0\n>>> a.type\n'complex'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Duration.",
+        "type": "Title"
+    },
+    {
+        "text": "aggregateTupletMultiplier",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 float | Fraction",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns the multiple of all the tuplet multipliers as an opFrac.\nThis method is needed for MusicXML time-modification among other\nplaces.\nNo tuplets\u2026\n>>> complexDur = duration.Duration('eighth')\n>>> complexDur.aggregateTupletMultiplier()\n1.0\n\n\nWith tuplets:\n>>> complexDur.appendTuplet(duration.Tuplet())\n>>> complexDur.aggregateTupletMultiplier()\nFraction(2, 3)\n\n\nNested tuplets are possible\u2026\n>>> tup2 = duration.Tuplet()\n>>> tup2.setRatio(5, 4)\n>>> complexDur.appendTuplet(tup2)\n>>> complexDur.aggregateTupletMultiplier()\nFraction(8, 15)",
+        "type": "ListItem"
+    },
+    {
+        "text": "Duration.",
+        "type": "Title"
+    },
+    {
+        "text": "appendTuplet",
+        "type": "Title"
+    },
+    {
+        "text": "newTuplet",
+        "type": "Title"
+    },
+    {
+        "text": "Tuplet",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Adds a new Tuplet to a Duration, sets the Tuplet's .frozen state to True,\nand then informs the client (Note) that the duration has changed.\n>>> tup = duration.Tuplet(3, 2)\n>>> d = duration.Duration(1.0)\n>>> d.appendTuplet(tup)\n>>> d.quarterLength\nFraction(2, 3)\n>>> t2 = duration.Tuplet(5, 4)\n>>> d.appendTuplet(t2)\n>>> d.quarterLength\nFraction(8, 15)\n>>> tup.frozen\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "Duration.",
+        "type": "Title"
+    },
+    {
+        "text": "augmentOrDiminish",
+        "type": "Title"
+    },
+    {
+        "text": "amountToScale",
+        "type": "Title"
+    },
+    {
+        "text": "retainComponents",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a number greater than zero, creates a new Duration object\nafter\nmultiplying the current quarterLength of the\nduration by the number and resets the components\nfor the duration (by default).\nReturns a new duration that has\nthe new length.\n>>> aDur = duration.Duration()\n>>> aDur.quarterLength = 1.5  # dotted quarter\n>>> cDur = aDur.augmentOrDiminish(2)\n>>> cDur.quarterLength\n3.0\n>>> cDur.type\n'half'\n>>> cDur.dots\n1\n\n\naDur is not changed:\n>>> aDur\n<music21.duration.Duration 1.5>\n\n\nA complex duration that cannot be expressed as a single notehead (component)\n>>> bDur = duration.Duration()\n>>> bDur.quarterLength = 2.125  # requires components\n>>> bDur.quarterLength\n2.125\n>>> len(bDur.components)\n2\n>>> bDur.components\n(DurationTuple(type='half', dots=0, quarterLength=2.0),\n DurationTuple(type='32nd', dots=0, quarterLength=0.125))\n\n\nBy default, when augmenting or diminishing, we will delete any\nunusual components or tuplets:\n>>> dDur = duration.Duration(1.5)\n>>> dDur.appendTuplet(duration.Tuplet(3, 2))\n>>> dDur\n<music21.duration.Duration 1.0>\n>>> dDur.dots\n1\n>>> dDur.tuplets\n(<music21.duration.Tuplet 3/2>,)\n\n\n>>> eDur = dDur.augmentOrDiminish(2)\n>>> eDur\n<music21.duration.Duration 2.0>\n>>> eDur.dots\n0\n>>> eDur.tuplets\n()\n\n\n>>> eRetain = dDur.augmentOrDiminish(2, retainComponents=True)\n>>> eRetain\n<music21.duration.Duration 2.0>\n>>> eRetain.dots\n1\n>>> eRetain.tuplets\n(<music21.duration.Tuplet 3/2>,)\n\n\n>>> fDur = duration.Duration(1.0)\n>>> fDur.addDurationTuple(duration.DurationTuple('quarter', 0, 1.0))\n>>> fDur\n<music21.duration.Duration 2.0>\n>>> fDur.components\n(DurationTuple(type='quarter', dots=0, quarterLength=1.0),\n DurationTuple(type='quarter', dots=0, quarterLength=1.0))\n\n\n>>> gDur = fDur.augmentOrDiminish(0.5)\n>>> gDur.components\n(DurationTuple(type='quarter', dots=0, quarterLength=1.0),)\n\n\n>>> gRetain = fDur.augmentOrDiminish(0.5, retainComponents=True)\n>>> gRetain.components\n(DurationTuple(type='eighth', dots=0, quarterLength=0.5),\n DurationTuple(type='eighth', dots=0, quarterLength=0.5))\n\n\nNegative values raise ValueError:\n>>> fDur.augmentOrDiminish(-1)\nTraceback (most recent call last):\nValueError: amountToScale must be greater than zero",
+        "type": "ListItem"
+    },
+    {
+        "text": "Duration.",
+        "type": "Title"
+    },
+    {
+        "text": "clear",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Permit all components to be removed.\nThis is needed for resetting to zero duration.\n>>> a = duration.Duration()\n>>> a.quarterLength = 6\n>>> a.type\n'whole'\n>>> a.components\n(DurationTuple(type='whole', dots=1, quarterLength=6.0),)\n\n\n>>> a.clear()\n\n\n>>> a.dots\n0\n>>> a.components\n()\n>>> a.type\n'zero'\n>>> a.quarterLength\n0.0",
+        "type": "ListItem"
+    },
+    {
+        "text": "Duration.",
+        "type": "Title"
+    },
+    {
+        "text": "componentIndexAtQtrPosition",
+        "type": "Title"
+    },
+    {
+        "text": "quarterPosition",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "returns the index number of the duration component sounding at\nthe given quarter position.\nNote that for 0 and the last value, the object is returned.\n>>> components = []\n>>> components.append(duration.Duration('quarter'))\n>>> components.append(duration.Duration('quarter'))\n>>> components.append(duration.Duration('quarter'))\n\n\n>>> a = duration.Duration()\n>>> a.components = components\n>>> a.quarterLength\n3.0\n>>> a.componentIndexAtQtrPosition(0.5)\n0\n>>> a.componentIndexAtQtrPosition(1.5)\n1\n>>> a.componentIndexAtQtrPosition(2.5)\n2\n\n\nthis is odd behavior:\ne.g. given d1, d2, d3 as 3 quarter notes and\nself.components = [d1, d2, d3]\nthen\nself.componentIndexAtQtrPosition(1.5) == d2\nself.componentIndexAtQtrPosition(2.0) == d3\nself.componentIndexAtQtrPosition(2.5) == d3\nCurrently sometimes returns the component itself.  Changing in v7.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Duration.",
+        "type": "Title"
+    },
+    {
+        "text": "componentStartTime",
+        "type": "Title"
+    },
+    {
+        "text": "componentIndex",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "For a valid component index value, this returns the quarter note offset\nat which that component would start.\nThis does not handle fractional arguments.\n>>> components = []\n>>> qdt = duration.DurationTuple('quarter', 0, 1.0)\n>>> components.append(qdt)\n>>> components.append(qdt)\n>>> components.append(qdt)\n\n\n>>> a = duration.Duration()\n>>> a.components = components\n>>> a.quarterLength\n3.0\n>>> a.componentStartTime(0)\n0.0\n>>> a.componentStartTime(1)\n1.0\n>>> a.componentStartTime(3)\nTraceback (most recent call last):\nIndexError: invalid component index value 3 submitted;\n            value must be an integer between 0 and 2",
+        "type": "ListItem"
+    },
+    {
+        "text": "Duration.",
+        "type": "Title"
+    },
+    {
+        "text": "consolidate",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a Duration with multiple components, consolidate into a single\nDuration. This can only be based on quarterLength; this is\ndestructive: information is lost from components.\nThis cannot be done for all Durations, as DurationTuples cannot express all durations\n>>> a = duration.Duration(1)\n>>> a.addDurationTuple(duration.DurationTuple('half', 0, 2.0))\n>>> a.addDurationTuple(duration.DurationTuple('quarter', 0, 1.0))\n>>> a.quarterLength\n4.0\n>>> len(a.components)\n3\n>>> a.type\n'complex'\n\n\nAfter consolidate:\n>>> a.consolidate()\n>>> a.quarterLength\n4.0\n>>> len(a.components)\n1\n\n\nIt gains a type!\n>>> a.type\n'whole'\n\n\nIf the type cannot be expressed then the type is inexpressible\n>>> a = duration.Duration(1)\n>>> a.addDurationTuple(duration.DurationTuple('half', 0, 2.0))\n>>> a.addDurationTuple(duration.DurationTuple('half', 0, 2.0))\n>>> a.quarterLength\n5.0\n>>> len(a.components)\n3\n>>> a.type\n'complex'\n\n\nAfter consolidate:\n>>> a.consolidate()\n>>> a.quarterLength\n5.0\n>>> len(a.components)\n1\n>>> a.components\n(DurationTuple(type='inexpressible', dots=0, quarterLength=5.0),)\n\n\nIt gains a type!\n>>> a.type\n'inexpressible'\n\n\nFor an \u0098inexpressible' duration, the opposite of consolidate is\nto set the duration's quarterLength to itself.  It won't necessarily\nreturn to the original components, but it will usually\ncreate something that can be notated.\n>>> a.quarterLength = a.quarterLength\n>>> a.type\n'complex'\n>>> a.components\n(DurationTuple(type='whole', dots=0, quarterLength=4.0),\n DurationTuple(type='quarter', dots=0, quarterLength=1.0))",
+        "type": "ListItem"
+    },
+    {
+        "text": "Duration.",
+        "type": "Title"
+    },
+    {
+        "text": "currentComponents",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Advanced Method:\nreturns the current components WITHOUT running the component updater.\nNeeded by some internal methods.  Components are made on the fly.\n>>> d = duration.Duration(1.25)\n>>> d.currentComponents()\n()\n\n\nLike in quantum physics, an observation affects the state:\n>>> d.type\n'complex'\n>>> d.currentComponents()\n(DurationTuple(type='quarter', dots=0, quarterLength=1.0),\n DurationTuple(type='16th', dots=0, quarterLength=0.25))\n\n\nGenerally, just look at .components\n>>> d = duration.Duration(1.25)\n>>> d.components\n(DurationTuple(type='quarter', dots=0, quarterLength=1.0),\n DurationTuple(type='16th', dots=0, quarterLength=0.25))",
+        "type": "ListItem"
+    },
+    {
+        "text": "Duration.",
+        "type": "Title"
+    },
+    {
+        "text": "getGraceDuration",
+        "type": "Title"
+    },
+    {
+        "text": "appoggiatura",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 GraceDuration | AppoggiaturaDuration",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a deepcopy of this Duration as a GraceDuration instance with the same types.\n>>> d = duration.Duration(1.25)\n>>> d\n<music21.duration.Duration 1.25>\n>>> d.components\n(DurationTuple(type='quarter', dots=0, quarterLength=1.0),\n DurationTuple(type='16th', dots=0, quarterLength=0.25))\n\n\n>>> gd = d.getGraceDuration()\n>>> gd\n<music21.duration.GraceDuration unlinked type:complex quarterLength:0.0>\n>>> gd.quarterLength\n0.0\n>>> gd.components\n(DurationTuple(type='quarter', dots=0, quarterLength=0.0),\n DurationTuple(type='16th', dots=0, quarterLength=0.0))\n\n\nd is unchanged.\n>>> d.quarterLength\n1.25",
+        "type": "ListItem"
+    },
+    {
+        "text": "Duration.",
+        "type": "Title"
+    },
+    {
+        "text": "informClient",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A method that tells the client that something has changed.\nCall informSites({\u0098changedAttribute': \u0098duration', \u0098quarterLength': quarterLength})\non any call that changes the quarterLength, so that the client can make a change.\nReturns False if there was no need to inform the client (like nothing has changed)\nor if .client is None.  Otherwise returns True.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Duration.",
+        "type": "Title"
+    },
+    {
+        "text": "sliceComponentAtPosition",
+        "type": "Title"
+    },
+    {
+        "text": "quarterPosition",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a quarter position within a component, divide that\ncomponent into two components.\n>>> d = duration.Duration()\n>>> d.clear()  # need to remove default\n>>> components = []\n\n\n>>> d.addDurationTuple(duration.Duration('quarter'))\n>>> d.addDurationTuple(duration.Duration('quarter'))\n>>> d.addDurationTuple(duration.Duration('quarter'))\n>>> d.quarterLength\n3.0\n>>> d.sliceComponentAtPosition(0.5)\n>>> d.quarterLength\n3.0\n>>> len(d.components)\n4\n>>> d.components[0].type\n'eighth'\n>>> d.components[1].type\n'eighth'\n>>> d.components[2].type\n'quarter'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Duration.",
+        "type": "Title"
+    },
+    {
+        "text": "splitDotGroups",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "splits a dotGroup-duration (of 1 component) into a new duration of two\ncomponents.  Returns a new duration\nProbably does not handle properly tuplets of dot-groups.\nNever seen one, so probably okay.\n>>> d1 = duration.Duration(type='half')\n>>> d1.dotGroups = (1, 1)\n>>> d1.quarterLength\n4.5\n>>> d2 = d1.splitDotGroups()\n>>> d2.components\n(DurationTuple(type='half', dots=1, quarterLength=3.0),\n DurationTuple(type='quarter', dots=1, quarterLength=1.5))\n>>> d2.quarterLength\n4.5\n\n\nHere's how a system that does not support dotGroups can still display\nthe notes accurately.  N.B. MusicXML does this automatically, so\nno need.\n>>> n1 = note.Note()\n>>> n1.duration = d1\n>>> n1.duration = n1.duration.splitDotGroups()\n>>> n1.duration.components\n(DurationTuple(type='half', dots=1, quarterLength=3.0),\n DurationTuple(type='quarter', dots=1, quarterLength=1.5))\n\n\n>>> s1 = stream.Stream()\n>>> s1.append(meter.TimeSignature('9/8'))\n>>> s1.append(n1)\n>>> s1.show('lily.png')\n.. image:: images/duration_splitDotGroups.*\n\n\n>>> n2 = note.Note()\n>>> n2.duration.type = 'quarter'\n>>> n2.duration.dotGroups = (1, 1)\n>>> n2.quarterLength\n2.25\n>>> n2.show()  # generates a dotted-quarter tied to dotted-eighth\n>>> n2.duration.splitDotGroups(inPlace=True)\n>>> n2.duration.dotGroups\n(1,)\n>>> n2.duration.components\n(DurationTuple(type='quarter', dots=1, quarterLength=1.5),\n DurationTuple(type='eighth', dots=1, quarterLength=0.75))\n\n\n>>> n2 = note.Note()\n>>> n2.duration.type = 'quarter'\n>>> n2.duration.dotGroups = (1, 1, 1)\n>>> n2.quarterLength\n3.375\n>>> dSplit = n2.duration.splitDotGroups()\n>>> dSplit.quarterLength\n3.375\n>>> dSplit.components\n(DurationTuple(type='quarter', dots=1, quarterLength=1.5),\n DurationTuple(type='eighth', dots=1, quarterLength=0.75),\n DurationTuple(type='eighth', dots=1, quarterLength=0.75),\n DurationTuple(type='16th', dots=1, quarterLength=0.375))\n\n\nDoes NOT handle tuplets etc.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Duration instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Duration.",
+        "type": "Title"
+    },
+    {
+        "text": "client",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A duration's \u009cclient\u009d is the object that holds this\nduration as a property.  It is informed whenever the duration changes.\n>>> n = note.Note('C#5', type='whole')\n>>> d = n.duration\n>>> d.client is n\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "Duration.",
+        "type": "Title"
+    },
+    {
+        "text": "expressionIsInferred",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Boolean indicating whether this duration was created from a\nnumber rather than a type and thus can be changed to another\nexpression.  For instance the duration of 0.5 is generally\nan eighth note, but in the middle of a triplet group might be\nbetter written as a dotted-eighth triplet.  If expressionIsInferred\nis True then music21 can change it according to complex.  If\nFalse, then the type, dots, and tuplets are considered immutable.\n>>> d = duration.Duration(0.5)\n>>> d.expressionIsInferred\nTrue\n\n\n>>> d = duration.Duration('eighth')\n>>> d.expressionIsInferred\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "Tuplet\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.duration.",
+        "type": "Title"
+    },
+    {
+        "text": "Tuplet",
+        "type": "Title"
+    },
+    {
+        "text": "numberNotesActual",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "numberNotesNormal",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "durationActual",
+        "type": "Title"
+    },
+    {
+        "text": "DurationTuple",
+        "type": "Title"
+    },
+    {
+        "text": "Duration",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "tuple",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "durationNormal",
+        "type": "Title"
+    },
+    {
+        "text": "DurationTuple",
+        "type": "Title"
+    },
+    {
+        "text": "Duration",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "tuple",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "tupletId",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "nestedLevel",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "Literal",
+        "type": "Title"
+    },
+    {
+        "text": "'start'",
+        "type": "Title"
+    },
+    {
+        "text": "'stop'",
+        "type": "Title"
+    },
+    {
+        "text": "'startStop'",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "bracket",
+        "type": "Title"
+    },
+    {
+        "text": "Literal",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "'slur'",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "placement",
+        "type": "Title"
+    },
+    {
+        "text": "Literal",
+        "type": "Title"
+    },
+    {
+        "text": "'above'",
+        "type": "Title"
+    },
+    {
+        "text": "'below'",
+        "type": "Title"
+    },
+    {
+        "text": "'above'",
+        "type": "Title"
+    },
+    {
+        "text": "tupletActualShow",
+        "type": "Title"
+    },
+    {
+        "text": "Literal",
+        "type": "Title"
+    },
+    {
+        "text": "'number'",
+        "type": "Title"
+    },
+    {
+        "text": "'type'",
+        "type": "Title"
+    },
+    {
+        "text": "'both'",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "'number'",
+        "type": "Title"
+    },
+    {
+        "text": "tupletNormalShow",
+        "type": "Title"
+    },
+    {
+        "text": "Literal",
+        "type": "Title"
+    },
+    {
+        "text": "'number'",
+        "type": "Title"
+    },
+    {
+        "text": "'type'",
+        "type": "Title"
+    },
+    {
+        "text": "'both'",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "frozen",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A tuplet object is a representation of a musical tuplet (like a triplet).\nIt expresses a ratio that modifies duration values and are stored in\nDuration objects in a \u009ctuple\u009d (immutable list; since there can be nested\ntuplets) in the duration's .tuplets property.\nThe primary representation uses two pairs of note numbers and durations.\nThe first pair of note numbers and durations describes the representation\nwithin the tuplet, or the value presented by the context. This is called\n\u009cactual.\u009d In a standard 8th note triplet this would be 3, eighth, meaning\nthat a complete collection of this tuplet will be visually represented as\nthree eighth notes.  These\nattributes are numberNotesActual, durationActual.\nThe second pair of note numbers and durations describes the space that\nwould have been occupied in a normal context. This is called \u009cnormal.\u009d In a\nstandard 8th note triplet this would be 2, eighth, meaning that a complete\ncollection of notes under this tuplet will occupy the space of two eighth notes.\nThese attributes are\nnumberNotesNormal, durationNormal.\nIf duration values are not provided then durationActual and durationNormal are\nleft as None \u2014 meaning that it is unspecified what the duration that completes the\ntuplet is.  And this tuplet just represents a Ratio.\nPRIOR TO v4 durationActual and durationNormal were assumed to be eighths.\nIf only one duration, either durationActual or durationNormal, is\nprovided, both are set to the same value.\nNote that this is a duration modifier, or a generator of ratios to scale\nquarterLength values in Duration objects.\n>>> myTup = duration.Tuplet(numberNotesActual=5, numberNotesNormal=4)\n>>> print(myTup.tupletMultiplier())\n4/5\n\n\nWe know that it is 5 in the place of 4, but 5 what in the place of 4 what?\n>>> myTup.durationActual is None\nTrue\n>>> myTup\n<music21.duration.Tuplet 5/4>\n\n\nBut we can change that:\n>>> myTup.setDurationType('eighth')\n>>> myTup.durationActual\nDurationTuple(type='eighth', dots=0, quarterLength=0.5)\n>>> myTup\n<music21.duration.Tuplet 5/4/eighth>\n\n\nIn this case, the tupletMultiplier is a float because it can be expressed\nas a binary number:\n>>> myTup2 = duration.Tuplet(8, 5)\n>>> tm = myTup2.tupletMultiplier()\n>>> tm\n0.625\n\n\nHere, six sixteenth notes occupy the space of four sixteenth notes.\n>>> myTup2 = duration.Tuplet(6, 4, '16th')\n>>> print(myTup2.durationActual.type)\n16th\n>>> print(myTup2.durationNormal.type)\n16th\n\n\n>>> print(myTup2.tupletMultiplier())\n2/3\n\n\nTuplets may be frozen, in which case they become immutable. Tuplets\nwhich are attached to Durations are automatically frozen.  Otherwise\na tuplet could change without the attached duration knowing about it,\nwhich would be a real problem.\n>>> myTup.frozen = True\n>>> myTup.tupletActual = [3, 2]\nTraceback (most recent call last):\nmusic21.duration.TupletException: A frozen tuplet (or one attached to a duration)\n    has immutable length.\n\n\n>>> myHalf = duration.Duration('half')\n>>> myHalf.appendTuplet(myTup2)\n>>> myTup2.tupletActual = [5, 4]\nTraceback (most recent call last):\nmusic21.duration.TupletException: A frozen tuplet (or one attached to a duration)\n    has immutable length.\n\n\nNote that if you want to create a note with a simple Tuplet attached to it,\nyou can just change the quarterLength of the note:\n>>> myNote = note.Note('C#4')\n>>> myNote.duration.quarterLength = 0.8\n>>> myNote.duration.quarterLength\nFraction(4, 5)\n>>> myNote.duration.fullName\n'Quarter Quintuplet (4/5 QL)'\n\n\n>>> myNote.duration.tuplets\n(<music21.duration.Tuplet 5/4/quarter>,)",
+        "type": "ListItem"
+    },
+    {
+        "text": "Tuplet bases",
+        "type": "Title"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "Tuplet read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Tuplet.",
+        "type": "Title"
+    },
+    {
+        "text": "fullName",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return the most complete representation of this tuplet in a readable\nform.\n>>> tup = duration.Tuplet(numberNotesActual=5, numberNotesNormal=2)\n>>> tup.fullName\n'Quintuplet'\n\n\n>>> tup = duration.Tuplet(numberNotesActual=3, numberNotesNormal=2)\n>>> tup.fullName\n'Triplet'\n\n\n>>> tup = duration.Tuplet(numberNotesActual=17, numberNotesNormal=14)\n>>> tup.fullName\n'Tuplet of 17/14ths'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "Tuplet read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Tuplet.",
+        "type": "Title"
+    },
+    {
+        "text": "durationActual",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "durationActual is a DurationTuple that represents the notes that are\nactually present and counted in a tuplet.  For instance, in a 7\ndotted-eighth in the place of 2 double-dotted quarter notes tuplet,\nthe duration actual would be\u2026\n>>> d = duration.Tuplet(7, 2)\n>>> print(d.durationActual)\nNone\n>>> d.durationActual = duration.Duration('eighth', dots=1)\n\n\nNotice that the Duration object gets converted to a DurationTuple\n>>> d.durationActual\nDurationTuple(type='eighth', dots=1, quarterLength=0.75)\n\n\n>>> d.durationActual = 'quarter'\n>>> d.durationActual\nDurationTuple(type='quarter', dots=0, quarterLength=1.0)",
+        "type": "ListItem"
+    },
+    {
+        "text": "Tuplet.",
+        "type": "Title"
+    },
+    {
+        "text": "durationNormal",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "durationNormal is a DurationTuple that represents the notes that\nwould be present in the space normally (if there were no tuplets).  For instance, in a 7\ndotted-eighth in the place of 2 double-dotted quarter notes tuplet,\nthe durationNormal would be\u2026\n>>> d = duration.Tuplet(7, 2)\n>>> print(d.durationNormal)\nNone\n>>> d.durationNormal = duration.Duration('quarter', dots=2)\n\n\nNotice that the Duration object gets converted to a DurationTuple\n>>> d.durationNormal\nDurationTuple(type='quarter', dots=2, quarterLength=1.75)\n\n\n>>> d.durationNormal = 'half'\n>>> d.durationNormal\nDurationTuple(type='half', dots=0, quarterLength=2.0)",
+        "type": "ListItem"
+    },
+    {
+        "text": "Tuplet.",
+        "type": "Title"
+    },
+    {
+        "text": "tupletActual",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get or set a two element list of number notes actual and duration\nactual.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Tuplet.",
+        "type": "Title"
+    },
+    {
+        "text": "tupletNormal",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get or set a two element list of number notes actual and duration\nnormal.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Tuplet methods",
+        "type": "Title"
+    },
+    {
+        "text": "Tuplet.",
+        "type": "Title"
+    },
+    {
+        "text": "__eq__",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "other",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Two Tuplets are equal if their numbers are equal and durations are equal.\nVisual details (type, bracket, placement, tupletActualShow, etc.) do\nnot matter.\n>>> triplet1 = duration.Tuplet(3, 2)\n>>> triplet2 = duration.Tuplet(3, 2)\n>>> triplet1 == triplet2\nTrue\n>>> quadruplet = duration.Tuplet(4, 3)\n>>> triplet1 == quadruplet\nFalse\n>>> triplet3 = duration.Tuplet(3, 2, 'half')\n>>> triplet1 == triplet3\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "Tuplet.",
+        "type": "Title"
+    },
+    {
+        "text": "augmentOrDiminish",
+        "type": "Title"
+    },
+    {
+        "text": "amountToScale",
+        "type": "Title"
+    },
+    {
+        "text": "int | float",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a number greater than zero,\nmultiplies the current quarterLength of the\nduration by the number and resets the components\nfor the duration (by default).  Or if inPlace is\nset to False, returns a new duration that has\nthe new length.\n# TODO: add inPlace setting.\n>>> a = duration.Tuplet()\n>>> a.setRatio(6, 2)\n>>> a.tupletMultiplier()\nFraction(1, 3)\n>>> a.setDurationType('eighth')\n>>> a.durationActual\nDurationTuple(type='eighth', dots=0, quarterLength=0.5)\n\n\n>>> c = a.augmentOrDiminish(0.5)\n>>> c.durationActual\nDurationTuple(type='16th', dots=0, quarterLength=0.25)\n\n\n>>> c.tupletMultiplier()\nFraction(1, 3)\n\n\nRaises ValueError if amountToScale is negative.\n>>> a.augmentOrDiminish(-1)\nTraceback (most recent call last):\nValueError: amountToScale must be greater than zero",
+        "type": "ListItem"
+    },
+    {
+        "text": "Tuplet.",
+        "type": "Title"
+    },
+    {
+        "text": "setDurationType",
+        "type": "Title"
+    },
+    {
+        "text": "durType",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "float",
+        "type": "Title"
+    },
+    {
+        "text": "Fraction",
+        "type": "Title"
+    },
+    {
+        "text": "dots",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Set both durationActual and durationNormal from either a string type or\na quarterLength.  optional dots can add dots to a string Type (or I suppose\na quarterLength\u2026but why?)\n>>> a = duration.Tuplet()\n>>> a.tupletMultiplier()\nFraction(2, 3)\n>>> a.totalTupletLength()\n1.0\n>>> a.setDurationType('half')\n>>> a.durationNormal\nDurationTuple(type='half', dots=0, quarterLength=2.0)\n>>> a.tupletMultiplier()\nFraction(2, 3)\n>>> a.totalTupletLength()\n4.0\n>>> a.setDurationType('half', dots=1)\n>>> a.durationNormal\nDurationTuple(type='half', dots=1, quarterLength=3.0)\n>>> a.totalTupletLength()\n6.0\n\n\n>>> a.setDurationType(2.0)\n>>> a.totalTupletLength()\n4.0\n>>> a.setDurationType(4.0)\n>>> a.totalTupletLength()\n8.0",
+        "type": "ListItem"
+    },
+    {
+        "text": "Tuplet.",
+        "type": "Title"
+    },
+    {
+        "text": "setRatio",
+        "type": "Title"
+    },
+    {
+        "text": "actual",
+        "type": "Title"
+    },
+    {
+        "text": "normal",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Set the ratio of actual divisions to represented in normal divisions.\nA triplet is 3 actual in the time of 2 normal.\n>>> a = duration.Tuplet()\n>>> a.tupletMultiplier()\nFraction(2, 3)\n>>> a.setRatio(6, 2)\n>>> a.numberNotesActual\n6\n>>> a.numberNotesNormal\n2\n>>> a.tupletMultiplier()\nFraction(1, 3)\n\n\nOne way of expressing 6/4-ish triplets without numbers:\n>>> a = duration.Tuplet()\n>>> a.setRatio(3, 1)\n>>> a.durationActual = duration.durationTupleFromTypeDots('quarter', 0)\n>>> a.durationNormal = duration.durationTupleFromTypeDots('half', 0)\n>>> a.tupletMultiplier()\nFraction(2, 3)\n>>> a.totalTupletLength()\n2.0",
+        "type": "ListItem"
+    },
+    {
+        "text": "Tuplet.",
+        "type": "Title"
+    },
+    {
+        "text": "totalTupletLength",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 float | Fraction",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The total duration in quarter length of the tuplet as defined,\nassuming that enough notes existed to fill all entire tuplet as defined.\nFor instance, 3 quarters in the place of 2 quarters = 2.0\n5 half notes in the place of a 2 dotted half notes = 6.0\n(In the end it's only the denominator that matters)\nIf durationActual or durationNormal are None, then they will be\nassumed to be eighth notes (for the basic 3:2 eighth-note triplet)\n>>> a = duration.Tuplet()\n>>> a.totalTupletLength()\n1.0\n\n\n>>> a.numberNotesActual = 3\n>>> a.numberNotesNormal = 2\n>>> a.setDurationType('half')\n>>> a.totalTupletLength()\n4.0\n\n\nLet's make it five halfs in the place of four:\n>>> a.setRatio(5, 4)\n>>> a.setDurationType('half')\n>>> a.totalTupletLength()\n8.0\n\n\nNow five halfs in the place of two whole notes (same thing):\n>>> a.setRatio(5, 2)\n>>> a.totalTupletLength()\n4.0\n>>> a.durationNormal = duration.durationTupleFromTypeDots('whole', 0)\n>>> a.totalTupletLength()\n8.0",
+        "type": "ListItem"
+    },
+    {
+        "text": "Tuplet.",
+        "type": "Title"
+    },
+    {
+        "text": "tupletMultiplier",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 float | Fraction",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get a Fraction() by which to scale the duration that\nthis Tuplet is associated with.\n>>> myTuplet = duration.Tuplet()\n>>> myTuplet.tupletMultiplier()\nFraction(2, 3)\n>>> myTuplet.tupletActual = [5, duration.Duration('eighth')]\n>>> myTuplet.numberNotesActual\n5\n>>> myTuplet.durationActual.type\n'eighth'\n>>> print(myTuplet.tupletMultiplier())\n2/5\n>>> myTuplet.numberNotesNormal = 4\n>>> print(myTuplet.tupletMultiplier())\n4/5",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "GraceDuration\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.duration.",
+        "type": "Title"
+    },
+    {
+        "text": "GraceDuration",
+        "type": "Title"
+    },
+    {
+        "text": "typeOrDuration",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "float",
+        "type": "Title"
+    },
+    {
+        "text": "Fraction",
+        "type": "Title"
+    },
+    {
+        "text": "DurationTuple",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A Duration that, no matter how it is created, always has a quarter length\nof zero.\nGraceDuration can be created with an implied quarter length and type; these\nvalues are used to configure the duration, but then may not be relevant\nafter instantiation.\n>>> gd = duration.GraceDuration(type='half')\n>>> gd.quarterLength\n0.0\n\n\n>>> gd.type\n'half'\n\n\n>>> gd = duration.GraceDuration(0.25)\n>>> gd.type\n'16th'\n\n\n>>> gd.quarterLength\n0.0\n\n\n>>> gd.linked\nFalse\n\n\n>>> gd = duration.GraceDuration(1.25)\n>>> gd.type\n'complex'\n\n\n>>> gd.quarterLength\n0.0\n\n\n>>> [(x.quarterLength, x.type) for x in gd.components]\n[(0.0, 'quarter'), (0.0, '16th')]",
+        "type": "ListItem"
+    },
+    {
+        "text": "GraceDuration bases",
+        "type": "Title"
+    },
+    {
+        "text": "Duration",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "SlottedObjectMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "GraceDuration read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Duration:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "fullName isComplex ordinal quarterLengthNoTuplets",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "GraceDuration read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "GraceDuration.",
+        "type": "Title"
+    },
+    {
+        "text": "makeTime",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "True, False, or None (=unknown) whether the grace note should occupy time\nin performance. Default False. Currently not used in generated playback.\nTODO: allow a duration object or number for duration.",
+        "type": "ListItem"
+    },
+    {
+        "text": "GraceDuration.",
+        "type": "Title"
+    },
+    {
+        "text": "slash",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "True, False, or None (=unknown) whether the grace note should have a slash\nthrough it. Default True.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read/write properties inherited from Duration:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "components dotGroups dots linked quarterLength tuplets type",
+        "type": "Table"
+    },
+    {
+        "text": "GraceDuration methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from Duration:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() addDurationTuple() aggregateTupletMultiplier() appendTuplet() augmentOrDiminish() clear() componentIndexAtQtrPosition() componentStartTime() consolidate() currentComponents() getGraceDuration() informClient() sliceComponentAtPosition() splitDotGroups()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "GraceDuration instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "GraceDuration.",
+        "type": "Title"
+    },
+    {
+        "text": "stealTimeFollowing",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Float number from 0.0 to 1.0 or None (default) for the proportion\nof the following duration to steal from the following note.",
+        "type": "ListItem"
+    },
+    {
+        "text": "GraceDuration.",
+        "type": "Title"
+    },
+    {
+        "text": "stealTimePrevious",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Float number from 0.0 to 1.0, or None (default) for the proportion\nof the previous duration to steal from the previous note.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Instance variables inherited from Duration:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "client expressionIsInferred",
+        "type": "Table"
+    },
+    {
+        "text": "TupletFixer\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.duration.",
+        "type": "Title"
+    },
+    {
+        "text": "TupletFixer",
+        "type": "Title"
+    },
+    {
+        "text": "streamIn",
+        "type": "Title"
+    },
+    {
+        "text": "stream.Stream | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The TupletFixer object takes in a flat stream and tries to fix the\nbrackets and time modification values of the tuplet so that they\nreflect proper beaming, etc.  It does not alter the quarterLength\nof any notes.\nSee findTupletGroups() and\nfixBrokenTupletDuration() for\ndemonstrations.",
+        "type": "ListItem"
+    },
+    {
+        "text": "TupletFixer methods",
+        "type": "Title"
+    },
+    {
+        "text": "TupletFixer.",
+        "type": "Title"
+    },
+    {
+        "text": "findTupletGroups",
+        "type": "Title"
+    },
+    {
+        "text": "incorporateGroupings",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 list[list[note.GeneralNote]]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Finds all tuplets in the stream and puts them into groups.\nIf incorporateGroupings is True, then a tuplet.type=\u009dstop\u009d\nends a tuplet group even if the next note is a tuplet.\nThis demonstration has three groups of tuplets, two sets of 8th note\ntuplets and one of 16ths:\n>>> c = converter.parse(\n...    'tinynotation: 4/4 trip{c8 d e} f4 trip{c#8 d# e#} g8 trip{c-16 d- e-}',\n...    makeNotation=False)\n>>> tf = duration.TupletFixer(c)  # no need to flatten this stream\n>>> tupletGroups = tf.findTupletGroups()\n>>> tupletGroups\n[[<music21.note.Note C>, <music21.note.Note D>, <music21.note.Note E>],\n [<music21.note.Note C#>, <music21.note.Note D#>, <music21.note.Note E#>],\n [<music21.note.Note C->, <music21.note.Note D->, <music21.note.Note E->]]\n\n\nThese groups are stored in TupletFixer.allTupletGroups:\n>>> tupletGroups is tf.allTupletGroups\nTrue\n\n\nDemonstration with incorporateGroupings:\n>>> s = stream.Stream()\n>>> for i in range(9):\n...    n = note.Note()\n...    n.pitch.ps = 60 + i\n...    n.duration.quarterLength = 1/3\n...    if i % 3 == 2:\n...        n.duration.tuplets[0].type = 'stop'\n...    s.append(n)\n>>> tf = duration.TupletFixer(s)\n>>> tupletGroups = tf.findTupletGroups(incorporateGroupings=True)\n>>> tupletGroups\n[[<music21.note.Note C>, <music21.note.Note C#>, <music21.note.Note D>],\n [<music21.note.Note E->, <music21.note.Note E>, <music21.note.Note F>],\n [<music21.note.Note F#>, <music21.note.Note G>, <music21.note.Note G#>]]\n\n\nWithout incorporateGroupings we just get one big set of tuplets\n>>> tupletGroups = tf.findTupletGroups()\n>>> len(tupletGroups)\n1\n>>> len(tupletGroups[0])\n9",
+        "type": "ListItem"
+    },
+    {
+        "text": "TupletFixer.",
+        "type": "Title"
+    },
+    {
+        "text": "fixBrokenTupletDuration",
+        "type": "Title"
+    },
+    {
+        "text": "tupletGroup",
+        "type": "Title"
+    },
+    {
+        "text": "list[note.GeneralNote]",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Tries to fix cases like triplet quarter followed by triplet\neighth to be a coherent tuplet.\nRequires a tuplet group from findTupletGroups() or TupletFixer.allTupletGroups.\nNote: this works on a single tupletGroup while findTupletGroups()\nreturns a list of groups.\n>>> s = stream.Stream()\n\n\n>>> n1 = note.Note('C')\n>>> n1.duration.quarterLength = 2/3\n>>> n1.duration.quarterLength\nFraction(2, 3)\n>>> s.append(n1)\n>>> n2 = note.Note('D')\n>>> n2.duration.quarterLength = 1/3\n>>> n2.duration.quarterLength\nFraction(1, 3)\n>>> s.append(n2)\n\n\nHere are the current tuplets for the two notes:\n>>> n1.duration.tuplets[0]\n<music21.duration.Tuplet 3/2/quarter>\n>>> n2.duration.tuplets[0]\n<music21.duration.Tuplet 3/2/eighth>\n\n\nNotice how the first note is waiting for 3 triplet quarters to\ncomplete itself.  But it could be 2/3 of a quarter note divided into\neighth note triplets.  TupletFixer will work on this.\nIt takes in a flattened stream, like this one:\n>>> tf = duration.TupletFixer(s)\n\n\nFind the tuplet groups.  Returning a list of one group, which has\ntwo notes in it:\n>>> tupletGroups = tf.findTupletGroups()\n>>> tupletGroups\n[[<music21.note.Note C>, <music21.note.Note D>]]\n\n\nNow fix that single group:\n>>> tg0 = tupletGroups[0]\n>>> [n.duration.tuplets[0].type for n in tg0]\n[None, None]\n\n\n>>> tf.fixBrokenTupletDuration(tg0)\n\n\nNow the first quarter-note triplet knows that its group\nwill be complete after the next note:\n>>> n1.duration.tuplets[0]\n<music21.duration.Tuplet 3/2/eighth>\n>>> n1.duration.quarterLength\nFraction(2, 3)\n>>> n2.duration.tuplets[0]\n<music21.duration.Tuplet 3/2/eighth>\n\n\nNote that the tuplet type is not affected by this call:\n>>> [n.duration.tuplets[0].type for n in tg0]\n[None, None]\n\n\nTo do that, call makeTupletBrackets()\non the flattened stream:\n>>> stream.makeNotation.makeTupletBrackets(s, inPlace=True)\n>>> [n.duration.tuplets[0].type for n in tg0]\n['start', 'stop']\n\n\nMore complex example, from a piece by Josquin:\n>>> humdrumExcerpt = '**kern *M3/1 3.c 6d 3e 3f 3d 3%2g 3e 3f#'\n>>> humdrumLines = '\\n'.join(humdrumExcerpt.split())\n\n\nThere is a side format of humdrum that the Josquin Research Project uses\nfor long notes like the 3%2.\n>>> humdrum.spineParser.flavors['JRP'] = True\n\n\nSince Humdrum parsing is going to apply TupletFixer, we will temporarily\ndisable it:\n>>> saved_fixed_broken = duration.TupletFixer.fixBrokenTupletDuration\n>>> duration.TupletFixer.fixBrokenTupletDuration = lambda x,y: None\n\n\n>>> s = converter.parse(humdrumLines, format='humdrum')\n\n\n>>> m1 = s.parts.first().measure(1)\n>>> m1.show('text', addEndTimes=True)\n{0.0 - 0.0} <music21.meter.TimeSignature 3/1>\n{0.0 - 2.0} <music21.note.Note C>\n{2.0 - 2.6667} <music21.note.Note D>\n{2.6667 - 4.0} <music21.note.Note E>\n{4.0 - 5.3333} <music21.note.Note F>\n{5.3333 - 6.6667} <music21.note.Note D>\n{6.6667 - 9.3333} <music21.note.Note G>\n{9.3333 - 10.6667} <music21.note.Note E>\n{10.6667 - 12.0} <music21.note.Note F#>\n\n\n>>> duration.TupletFixer.fixBrokenTupletDuration = saved_fixed_broken\n>>> tf = duration.TupletFixer(m1)\n>>> tupletGroups = tf.findTupletGroups(incorporateGroupings=True)\n>>> tupletGroups\n[[<music21.note.Note C>, <music21.note.Note D>, <music21.note.Note E>],\n [<music21.note.Note F>, <music21.note.Note D>, <music21.note.Note G>,\n  <music21.note.Note E>, <music21.note.Note F#>]]\n\n\nThere's a problem with the last group: it contains 5 notes and the\nthird note is twice as long as the others, so none of them form a coherent\ntriplet.\n>>> [n.duration.tuplets[0] for n in tupletGroups[1]]\n[<music21.duration.Tuplet 3/2/half>, <music21.duration.Tuplet 3/2/half>,\n <music21.duration.Tuplet 3/2/whole>,\n <music21.duration.Tuplet 3/2/half>, <music21.duration.Tuplet 3/2/half>]\n>>> [n.duration.tuplets[0].type for n in tupletGroups[1]]\n['start', None, None, None, 'stop']\n\n\nFix the last broken tuplet group.\n>>> tf.fixBrokenTupletDuration(tupletGroups[1])\n>>> [n.duration.tuplets[0] for n in tupletGroups[1]]\n[<music21.duration.Tuplet 3/2/whole>, <music21.duration.Tuplet 3/2/whole>,\n <music21.duration.Tuplet 3/2/whole>,\n <music21.duration.Tuplet 3/2/whole>, <music21.duration.Tuplet 3/2/whole>]\n\n\nNote that the changes appear in the notes in the Stream as well.\n>>> m1.last().duration.tuplets[0]\n<music21.duration.Tuplet 3/2/whole>\n\n\nAgain, TupletFixer is automatically called when parsing from Humdrum.\n(MusicXML specifies its tuplet groups explicitly.) But you may need it\nwhen building up a stream from scratch in your own projects.",
+        "type": "ListItem"
+    },
+    {
+        "text": "TupletFixer.",
+        "type": "Title"
+    },
+    {
+        "text": "setStream",
+        "type": "Title"
+    },
+    {
+        "text": "streamIn",
+        "type": "Title"
+    },
+    {
+        "text": "stream.Stream",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Define a stream to work on and reset all temporary variables.",
+        "type": "ListItem"
+    },
+    {
+        "text": "AppoggiaturaDuration\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.duration.",
+        "type": "Title"
+    },
+    {
+        "text": "AppoggiaturaDuration",
+        "type": "Title"
+    },
+    {
+        "text": "typeOrDuration",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "float",
+        "type": "Title"
+    },
+    {
+        "text": "Fraction",
+        "type": "Title"
+    },
+    {
+        "text": "DurationTuple",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Renamed in v6 to correct spelling.",
+        "type": "ListItem"
+    },
+    {
+        "text": "AppoggiaturaDuration bases",
+        "type": "Title"
+    },
+    {
+        "text": "GraceDuration",
+        "type": "ListItem"
+    },
+    {
+        "text": "Duration",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "SlottedObjectMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "AppoggiaturaDuration read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Duration:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "fullName isComplex ordinal quarterLengthNoTuplets",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "AppoggiaturaDuration read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from GraceDuration:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "makeTime slash",
+        "type": "Table"
+    },
+    {
+        "text": "Read/write properties inherited from Duration:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "components dotGroups dots linked quarterLength tuplets type",
+        "type": "Table"
+    },
+    {
+        "text": "AppoggiaturaDuration methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from Duration:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() addDurationTuple() aggregateTupletMultiplier() appendTuplet() augmentOrDiminish() clear() componentIndexAtQtrPosition() componentStartTime() consolidate() currentComponents() getGraceDuration() informClient() sliceComponentAtPosition() splitDotGroups()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "AppoggiaturaDuration instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from GraceDuration:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "stealTimeFollowing stealTimePrevious",
+        "type": "Table"
+    },
+    {
+        "text": "Instance variables inherited from Duration:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "client expressionIsInferred",
+        "type": "Table"
+    },
+    {
+        "text": "DurationTuple\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.duration.",
+        "type": "Title"
+    },
+    {
+        "text": "DurationTuple",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "dots",
+        "type": "Title"
+    },
+    {
+        "text": "quarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "DurationTuple read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "DurationTuple.",
+        "type": "Title"
+    },
+    {
+        "text": "ordinal",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Converts type to an ordinal number where maxima = 1 and 1024th = 14;\nwhole = 4 and quarter = 6.  Based on duration.ordinalTypeFromNum\n>>> a = duration.DurationTuple('whole', 0, 4.0)\n>>> a.ordinal\n4\n\n\n>>> b = duration.DurationTuple('maxima', 0, 32.0)\n>>> b.ordinal\n1\n\n\n>>> c = duration.DurationTuple('1024th', 0, 1/256)\n>>> c.ordinal\n14",
+        "type": "ListItem"
+    },
+    {
+        "text": "DurationTuple methods",
+        "type": "Title"
+    },
+    {
+        "text": "DurationTuple.",
+        "type": "Title"
+    },
+    {
+        "text": "augmentOrDiminish",
+        "type": "Title"
+    },
+    {
+        "text": "amountToScale",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "FrozenDuration\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.duration.",
+        "type": "Title"
+    },
+    {
+        "text": "FrozenDuration",
+        "type": "Title"
+    },
+    {
+        "text": "arguments",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A FrozenDuration is one that must have all of its arguments specified\nat the time of construction.  After that, it is immutable, like a Tuple\nand thus can be shared across different objects (like in MeterTerminals)\nor used as a hash.\n>>> fd = duration.FrozenDuration(type='half', dots=2)\n>>> fd.quarterLength\n3.5\n>>> fd.dots = 1\nTraceback (most recent call last):\nTypeError: This FrozenDuration instance is immutable.\n\n\nFrozenDurations can be used as set/dict keys with stability.\n>>> {fd}\n{<music21.duration.FrozenDuration 3.5>}\n\n\nCopying a FrozenDuration returns the original, so it is super fast.\n>>> import copy\n>>> copy.deepcopy(fd) is fd\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "FrozenDuration bases",
+        "type": "Title"
+    },
+    {
+        "text": "FrozenObject",
+        "type": "ListItem"
+    },
+    {
+        "text": "EqualSlottedObjectMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "Duration",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "SlottedObjectMixin",
+        "type": "ListItem"
+    },
+    {
+        "text": "FrozenDuration read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Duration:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "fullName isComplex ordinal quarterLengthNoTuplets",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "FrozenDuration read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Duration:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "components dotGroups dots linked quarterLength tuplets type",
+        "type": "Table"
+    },
+    {
+        "text": "FrozenDuration methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from EqualSlottedObjectMixin:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Duration:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "addDurationTuple() aggregateTupletMultiplier() appendTuplet() augmentOrDiminish() clear() componentIndexAtQtrPosition() componentStartTime() consolidate() currentComponents() getGraceDuration() informClient() sliceComponentAtPosition() splitDotGroups()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "FrozenDuration instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from Duration:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "client expressionIsInferred",
+        "type": "Table"
+    },
+    {
+        "text": "QuarterLengthConversion\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.duration.",
+        "type": "Title"
+    },
+    {
+        "text": "QuarterLengthConversion",
+        "type": "Title"
+    },
+    {
+        "text": "components",
+        "type": "Title"
+    },
+    {
+        "text": "tuplet",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.duration.",
+        "type": "Title"
+    },
+    {
+        "text": "convertQuarterLengthToType",
+        "type": "Title"
+    },
+    {
+        "text": "qLen",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "float",
+        "type": "Title"
+    },
+    {
+        "text": "Fraction",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 str",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a type if there exists a type that is exactly equal to the\nduration of the provided quarterLength. Similar to\nquarterLengthToClosestType() but this\nfunction only returns exact matches.\n>>> duration.convertQuarterLengthToType(2)\n'half'\n>>> duration.convertQuarterLengthToType(0.125)\n'32nd'\n>>> duration.convertQuarterLengthToType(0.33333)\nTraceback (most recent call last):\nmusic21.duration.DurationException: cannot convert quarterLength 0.33333 exactly to type",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.duration.",
+        "type": "Title"
+    },
+    {
+        "text": "convertTypeToNumber",
+        "type": "Title"
+    },
+    {
+        "text": "dType",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 float",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Convert a duration type string (dType) to a numerical scalar representation that shows\nhow many of that duration type fits within a whole note.\n>>> duration.convertTypeToNumber('quarter')\n4.0\n>>> duration.convertTypeToNumber('half')\n2.0\n>>> duration.convertTypeToNumber('1024th')\n1024.0\n>>> duration.convertTypeToNumber('maxima')\n0.125\n\n\nThese other types give these results:\n>>> duration.convertTypeToNumber('zero')\n0.0\n>>> duration.convertTypeToNumber('complex')\nTraceback (most recent call last):\nmusic21.duration.DurationException: Could not determine durationNumber from complex",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.duration.",
+        "type": "Title"
+    },
+    {
+        "text": "convertTypeToQuarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "dType",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "dots",
+        "type": "Title"
+    },
+    {
+        "text": "tuplets",
+        "type": "Title"
+    },
+    {
+        "text": "list",
+        "type": "Title"
+    },
+    {
+        "text": "music21.duration.Tuplet",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "dotGroups",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 float | Fraction",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a rhythm type (dType), number of dots (dots), an optional list of\nTuplet objects (tuplets), and a (very) optional list of\nMedieval dot groups (dotGroups), return the equivalent quarter length.\n>>> duration.convertTypeToQuarterLength('whole')\n4.0\n>>> duration.convertTypeToQuarterLength('16th')\n0.25\n>>> duration.convertTypeToQuarterLength('quarter', 2)\n1.75\n\n\n>>> tup = duration.Tuplet(numberNotesActual=5, numberNotesNormal=4)\n>>> duration.convertTypeToQuarterLength('quarter', 0, [tup])\nFraction(4, 5)\n>>> duration.convertTypeToQuarterLength('quarter', 1, [tup])\nFraction(6, 5)\n\n\n>>> tup = duration.Tuplet(numberNotesActual=3, numberNotesNormal=4)\n>>> duration.convertTypeToQuarterLength('quarter', 0, [tup])\nFraction(4, 3)\n\n\nAlso can handle those rare medieval dot groups\n(such as dotted-dotted half notes that take a full measure of 9/8.\nConceptually, these are dotted-(dotted-half) notes.  See\ntrecento.trecentoCadence for more information\n).\n>>> duration.convertTypeToQuarterLength(\u0098half', dots=1, dotGroups=[1, 1])\n4.5\nUnknown values raise DurationException:\n>>> duration.convertTypeToQuarterLength('minim')\nTraceback (most recent call last):\nmusic21.duration.DurationException: no such type (minim) available for conversion",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.duration.",
+        "type": "Title"
+    },
+    {
+        "text": "dottedMatch",
+        "type": "Title"
+    },
+    {
+        "text": "qLen",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "float",
+        "type": "Title"
+    },
+    {
+        "text": "Fraction",
+        "type": "Title"
+    },
+    {
+        "text": "maxDots",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 tuple[int, str] | tuple[Literal[False], Literal[False]]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a quarterLength, determine if there is a dotted\n(or non-dotted) type that exactly matches. Returns a pair of\n(numDots, type) or (False, False) if no exact matches are found.\nReturns a maximum of four dots by default.\n>>> duration.dottedMatch(3.0)\n(1, 'half')\n>>> duration.dottedMatch(1.75)\n(2, 'quarter')\n\n\nThis value is not equal to any dotted note length\n>>> duration.dottedMatch(1.6)\n(False, False)\n\n\nmaxDots can be lowered for certain searches\n>>> duration.dottedMatch(1.875)\n(3, 'quarter')\n>>> duration.dottedMatch(1.875, 2)\n(False, False)\n\n\n>>> duration.dottedMatch(0.00001, 2)\n(False, False)",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.duration.",
+        "type": "Title"
+    },
+    {
+        "text": "durationTupleFromQuarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "ql",
+        "type": "Title"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u2192 DurationTuple",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns a DurationTuple for a given quarter length\nif the ql can be expressed as a type and number of dots\n(no tuplets, no complex duration, etc.).  If it can't be expressed,\nreturns an \u009cinexpressible\u009d DurationTuple.\n>>> dt = duration.durationTupleFromQuarterLength(3.0)\n>>> dt\nDurationTuple(type='half', dots=1, quarterLength=3.0)\n\n\nIf it's not possible, we return an \u009cinexpressible\u009d type:\n>>> dt = duration.durationTupleFromQuarterLength(2.5)\n>>> dt\nDurationTuple(type='inexpressible', dots=0, quarterLength=2.5)",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.duration.",
+        "type": "Title"
+    },
+    {
+        "text": "durationTupleFromTypeDots",
+        "type": "Title"
+    },
+    {
+        "text": "durType",
+        "type": "Title"
+    },
+    {
+        "text": "'quarter'",
+        "type": "Title"
+    },
+    {
+        "text": "dots",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns a DurationTuple (which knows its quarterLength) for\na given type and dots (no tuplets)\n>>> dt = duration.durationTupleFromTypeDots('quarter', 0)\n>>> dt\nDurationTuple(type='quarter', dots=0, quarterLength=1.0)\n>>> dt2 = duration.durationTupleFromTypeDots('quarter', 0)\n>>> dt is dt2\nTrue\n\n\nAlso with keyword arguments.\n>>> dt = duration.durationTupleFromTypeDots(durType='zero', dots=0)\n>>> dt\nDurationTuple(type='zero', dots=0, quarterLength=0.0)\n\n\nUnknown values raise DurationException:\n>>> dt = duration.durationTupleFromTypeDots(durType='minim', dots=0)\nTraceback (most recent call last):\nmusic21.duration.DurationException: Unknown type: minim",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.duration.",
+        "type": "Title"
+    },
+    {
+        "text": "nextLargerType",
+        "type": "Title"
+    },
+    {
+        "text": "durType",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 str",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a type (such as 16th or quarter), return the next larger type.\n>>> duration.nextLargerType('16th')\n'eighth'\n\n\n>>> duration.nextLargerType('whole')\n'breve'\n\n\n>>> duration.nextLargerType('duplex-maxima')\nTraceback (most recent call last):\nmusic21.duration.DurationException: cannot get the next larger of duplex-maxima",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.duration.",
+        "type": "Title"
+    },
+    {
+        "text": "nextSmallerType",
+        "type": "Title"
+    },
+    {
+        "text": "durType",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 str",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a type (such as 16th or quarter), return the next smaller type.\n>>> duration.nextSmallerType('16th')\n'32nd'\n>>> duration.nextSmallerType('whole')\n'half'\n>>> duration.nextSmallerType('1024th')\n'2048th'\n>>> duration.nextSmallerType('2048th')\nTraceback (most recent call last):\nmusic21.duration.DurationException: cannot get the next smaller of 2048th",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.duration.",
+        "type": "Title"
+    },
+    {
+        "text": "quarterLengthToClosestType",
+        "type": "Title"
+    },
+    {
+        "text": "qLen",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "float",
+        "type": "Title"
+    },
+    {
+        "text": "Fraction",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 tuple[str, bool]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns a two-unit tuple consisting of\n1. The type string (\u009cquarter\u009d) that is smaller than or equal to the\nquarterLength of provided.\n\nBoolean, True or False, whether the conversion was exact.\n\n>>> duration.quarterLengthToClosestType(0.5)\n('eighth', True)\n>>> duration.quarterLengthToClosestType(0.75)\n('eighth', False)\n>>> duration.quarterLengthToClosestType(1.8)\n('quarter', False)\n\n\nSome extremely close types will return True for exact conversion\u2026\n>>> duration.quarterLengthToClosestType(2.0000000000000001)\n('half', True)\n\n\nVery big durations\u2026 are fine:\n>>> duration.quarterLengthToClosestType(129.99)\n('duplex-maxima', False)\n\n\nDurations smaller than 2048th note raise a DurationException\n>>> qL = duration.typeToDuration['2048th']\n>>> qL\n0.001953125\n\n\n>>> qL = qL * 0.75\n>>> duration.quarterLengthToClosestType(qL)\nTraceback (most recent call last):\nmusic21.duration.DurationException: Cannot return types smaller than 2048th;\n    qLen was: 0.00146484375",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.duration.",
+        "type": "Title"
+    },
+    {
+        "text": "quarterLengthToNonPowerOf2Tuplet",
+        "type": "Title"
+    },
+    {
+        "text": "qLen",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "float",
+        "type": "Title"
+    },
+    {
+        "text": "Fraction",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 tuple[music21.duration.Tuplet, music21.duration.DurationTuple]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Slow, last chance function that returns a tuple of a single tuplet, probably with a non\npower of 2 denominator (such as 7:6) that represents the quarterLength and the\nDurationTuple that should be used to express the note.\nThis could be a double-dotted note, but also a tuplet\u2026\n>>> duration.quarterLengthToNonPowerOf2Tuplet(7)\n(<music21.duration.Tuplet 8/7/quarter>, DurationTuple(type='breve', dots=0, quarterLength=8.0))\n\n\n>>> duration.quarterLengthToNonPowerOf2Tuplet(7/16)\n(<music21.duration.Tuplet 8/7/64th>, DurationTuple(type='eighth', dots=0, quarterLength=0.5))\n\n\n>>> duration.quarterLengthToNonPowerOf2Tuplet(7/3)\n(<music21.duration.Tuplet 12/7/16th>, DurationTuple(type='whole', dots=0, quarterLength=4.0))\n\n\nAnd of course\u2026\n>>> duration.quarterLengthToNonPowerOf2Tuplet(1)\n(<music21.duration.Tuplet 1/1/quarter>,\n DurationTuple(type='quarter', dots=0, quarterLength=1.0))",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.duration.",
+        "type": "Title"
+    },
+    {
+        "text": "quarterLengthToTuplet",
+        "type": "Title"
+    },
+    {
+        "text": "qLen",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "float",
+        "type": "Title"
+    },
+    {
+        "text": "Fraction",
+        "type": "Title"
+    },
+    {
+        "text": "maxToReturn",
+        "type": "Title"
+    },
+    {
+        "text": "tupletNumerators",
+        "type": "Title"
+    },
+    {
+        "text": "(3, 5, 7, 11, 13)",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u2192 list[music21.duration.Tuplet]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns a list of possible Tuplet objects for a\ngiven qLen (quarterLength). As there may be more than one\npossible solution, the maxToReturn integer specifies the\nmaximum number of values returned.\nSearches for numerators specified in duration.defaultTupletNumerators\n(3, 5, 7, 11, 13). Does not return dotted tuplets, nor nested tuplets.\nNote that 4:3 tuplets won't be found, but will be found as dotted notes\nby dottedMatch.\n>>> duration.quarterLengthToTuplet(0.33333333)\n[<music21.duration.Tuplet 3/2/eighth>, <music21.duration.Tuplet 3/1/quarter>]\n\n\n>>> duration.quarterLengthToTuplet(0.20)\n[<music21.duration.Tuplet 5/4/16th>,\n <music21.duration.Tuplet 5/2/eighth>,\n <music21.duration.Tuplet 5/1/quarter>]\n\n\nBy specifying only 1 maxToReturn, a single-length list containing the\nTuplet with the smallest type will be returned.\n>>> duration.quarterLengthToTuplet(0.3333333, 1)\n[<music21.duration.Tuplet 3/2/eighth>]\n\n\n>>> tup = duration.quarterLengthToTuplet(0.3333333, 1)[0]\n>>> tup.tupletMultiplier()\nFraction(2, 3)",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.duration.",
+        "type": "Title"
+    },
+    {
+        "text": "unitSpec",
+        "type": "Title"
+    },
+    {
+        "text": "durationObjectOrObjects",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "DEPRECATED and to be removed in v10.\nA simple data representation of most Duration objects. Processes a single\nDuration or a List of Durations, returning a single or list of unitSpecs.\nA unitSpec is a tuple of qLen, durType, dots, tupleNumerator,\ntupletDenominator, and tupletType (assuming top and bottom tuplets are the\nsame).\nThis function does not deal with nested tuplets, etc.\n>>> aDur = duration.Duration()\n>>> aDur.quarterLength = 3\n>>> duration.unitSpec(aDur)\n(3.0, 'half', 1, None, None, None)\n\n\n>>> bDur = duration.Duration()\n>>> bDur.quarterLength = 1.125\n>>> duration.unitSpec(bDur)\n(1.125, 'complex', 0, None, None, None)\n\n\n>>> cDur = duration.Duration()\n>>> cDur.quarterLength = 0.3333333\n>>> duration.unitSpec(cDur)\n(Fraction(1, 3), 'eighth', 0, 3, 2, 'eighth')\n\n\n>>> duration.unitSpec([aDur, bDur, cDur])\n[(3.0, 'half', 1, None, None, None),\n (1.125, 'complex', 0, None, None, None),\n (Fraction(1, 3), 'eighth', 0, 3, 2, 'eighth')]",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.duration",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

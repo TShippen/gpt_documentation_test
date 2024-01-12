@@ -1,0 +1,1658 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 16: TinyNotation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide, Chapter 15: Keys and KeySignatures",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide: Chapter 17: Derivations",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide, Chapter 16: TinyNotation\nExpanding TinyNotation through new Tokens, Modifiers, and States\nAdding new tokens\nModifying the behavior of existing tokens\nDefining a State for a set of tokens",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide\nUser's Guide: Table of Contents\nUser's Guide, Chapter 1: Installing and Getting Started with music21\nUser's Guide, Chapter 2: Notes\nUser's Guide, Chapter 3: Pitches, Durations, and Notes again\nUser's Guide, Chapter 4: Lists, Streams (I) and Output\nUser's Guide, Chapter 5: Lists of Lists, Functions, and Recursion\nUser's Guide, Chapter 6: Streams (II): Hierarchies, Recursion, and Flattening\nUser's Guide, Chapter 7: Chords\nUser's Guide, Chapter 8: Installing MusicXML Readers and File Formats (1)\nUser's Guide, Chapter 9: Chordify\nUser's Guide, Chapter 10: Examples 1\nUser's Guide, Chapter 11: Corpus Searching\nUser's Guide, Chapter 12: Getting Back to Basics: The Music21Object\nUser's Guide, Chapter 13: More Music21Object Attributes and Properties\nUser's Guide: Chapter 14: Time Signatures and Beats\nUser's Guide, Chapter 15: Keys and KeySignatures\nUser's Guide, Chapter 16: TinyNotation\nUser's Guide: Chapter 17: Derivations\nUser's Guide: Chapter 18: Intervals\nUser's Guide, Chapter 19: Advanced Durations (Complex and Tuplets)\nUser's Guide, Chapter 20: Examples 2\nUser's Guide, Chapter 21: Ordering and Sorting of Stream Elements\nUser's Guide, Chapter 22: Graphing and plotting\nUser's Guide, Chapter 23: Roman Numeral Analysis\nUser's Guide, Chapter 24: Configuring Environment Settings\nUser's Guide, Chapter 25: Post-Tonal Tools (1)\nUser's Guide, Chapter 26: Stream Iteration and Filtering\nUser's Guide, Chapter 27: Grace Notes\nUser's Guide, Chapter 28: Lyric Searching\nUser's Guide, Chapter 29: Spanners 1 (Slurs)\nUser's Guide, Chapter 30: Examples 3\nUser's Guide, Chapter 31: Clefs, Ties, and Beams\nUser's Guide, Chapter 32: Articulations\nUser's Guide, Chapter 44: Advanced Graphing (Axes, Plots, and Graphs)\nUser's Guide, Chapter 53: Advanced Corpus and Metadata Searching\nUser's Guide, Chapter 54: Extending Converter with New Formats\nUser's Guide, Chapter 55: Advanced Meter Topics\nUser's Guide, Chapter 58: Understanding Sites and Contexts\nUser's Guide, Chapter 61: TimespanTrees and Verticalities",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 16: TinyNotation\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "So far in this User's Guide, we've been loading music into music21\neither with one of the corpus.parse or converter.parse methods,\nwhich is great if you already have a piece of music in the corpus or in\na file somewhere, or by building up a score note by note using the\nstream.Stream() and note.Note() objects.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "But suppose that you want to get some music into music21 that is too\nlong to use the note.Note() build up, but too short to be worth\nfiring up your notation editor to make a file? As you might imagine,\nthis was a problem that the music21 design team encountered often\nduring the early development stages of the system, and we created our\nown solution with a format called \u009cTinyNotation\u009d.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "As its name implies, TinyNotation is designed to be a simple and\nlightweight notation syntax for getting simple music into music21\n(and from there, into the larger world). It borrows from earlier simple\nnotation solutions, especially Lilypond's syntax (but also ABC Notation\nand Humdrum/Kern). I also tried to learn from their growth compared to\nmore structured notation systems, such as MusicXML. What I discovered is\nthat the simpler a system is at inputting simple notes, the more complex\nthat format is when dealing with really complex music. It's a major\nproblem with simple solutions.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "TinyNotation tries to avoid this limitation by, I'm serious here, making\nmore complex notation impossible! Parsing TinyNotation should always be\neasy to do, because it is intentionally extremely limited. However, as\nwe will demonstrate below, we designed TinyNotation so it would be easy\nto subclass into NotSoTinyNotation dialects that will, we hope, make\nyour particular notational needs possible (and pretty simple). Let's\nbegin with the basics, and we'll start with examples.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Here's a bunch of quarter notes in 4/4:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "from",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "import",
+        "type": "Title"
+    },
+    {
+        "text": "converter",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "'tinyNotation: 4/4 C4 D4 E4 F4 G4 A4 B4 c4'",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Notice that the last \u009cc\u009d is lowercase, while the rest of the notes are\nuppercase. Case determines octave: \u009cC\u009d = the c in bass clef (C3) while\n\u009cc\u009d = middle C (C4). Here are some other octaves:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "converter",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "\"tinyNotation: 3/4 CC4 C4 c4\"",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "converter",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "\"tinyNotation: 3/4 c4 c'4 c''4\"",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "And, yes, CCC is the C below CC, and c''' is the c above c''. Remember\nwhen you use higher notes to make sure to enclose your string in double\nquotes, not single quotes.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Typing all those \u009c4\u009ds for each of the quarter notes got tedious, so if\nthe number for a duration is omitted, then the next note uses the\nprevious note's duration:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "converter",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "'tinyNotation: 4/4 C4 D E8 F G16 A B c'",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Periods signify dots, \u009cr\u009d is for a rest, and \u009c~\u009d indicates a tie:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "converter",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "'tinyNotation: 4/4 C.4 D8~ D8 r c4'",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Sharps, flats, and, if desired for clarity, naturals are indicated with\n#, - (not b) and, n, respectively:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "converter",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "'tinyNotation: 4/4 c4 c# c c## cn c- c-- c c1'",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A lyric syllable is specified by appending it after the note with an\nunderscore:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "converter",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "'tinyNotation: 4/4 c4 d2_Dee e4'",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "And, finally, triplets are possible by enclosing the triplet notes in\ncurly brackets along with a special trip prefix:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "converter",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "'tinyNotation: 4/4 c4 trip{c8 d e} trip{f4 g a} b-1'",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Okay \u2014 so what if you want to do something more complex? Apply an id to\na note with the \u009c=\u009d tag, and then make changes to it using music21:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "converter",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "'tinyNotation: 4/4 c4 d=id2 e f'",
+        "type": "Title"
+    },
+    {
+        "text": "recurse",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "getElementById",
+        "type": "Title"
+    },
+    {
+        "text": "'id2'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "ch",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "'D4 F#4 A4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "ch",
+        "type": "Title"
+    },
+    {
+        "text": "style",
+        "type": "Title"
+    },
+    {
+        "text": "color",
+        "type": "Title"
+    },
+    {
+        "text": "'pink'",
+        "type": "Title"
+    },
+    {
+        "text": "activeSite",
+        "type": "Title"
+    },
+    {
+        "text": "replace",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "ch",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "And that's how I use TinyNotation, about 90% of the time. But when I\nneed to, I can make something more complex\u2026",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Expanding TinyNotation through new Tokens, Modifiers, and States\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "In order to keep TinyNotation tiny, there's a lot not included in it. So\nmany people have said to me over the years, \u009cTinyNotation is almost\nperfect for what I need, but it just has to include one more thing\u2026\u009d If\nthat \u009cone more thing\u009d were the same for everyone, it'd be no problem to\nadd! But everyone has a different \u009cone more thing\u009d and if all the dozens\nof \u009cone more things\u009d were added, tinyNotation wouldn't be tiny anymore.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "So instead, we've made it easy to expand TinyNotation through creating\nnew Tokens (like the Notes, Rests, and TimeSignatures from above,\nseparated by spaces), new Modifiers (such as the = for assigning .id, or\nthe _ for assigning a lyric), and new States (such as the triplet state\nenclosed in curly brackets).",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "The first thing that we'll need to know in order to expand TinyNotation\nis how to get at the TinyNotation\nConverter itself (which is different\nfrom the basic converter.parse() call). It's found in the\ntinyNotation module, and is called with a set of music to parse.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "tnc",
+        "type": "Title"
+    },
+    {
+        "text": "tinyNotation",
+        "type": "Title"
+    },
+    {
+        "text": "Converter",
+        "type": "Title"
+    },
+    {
+        "text": "'6/8 e4. d8 c# d e2.'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "We run the converter by calling .parse() on it and then there will\nbe a Stream (generally a stream.Part object) in the .stream\nattribute of the Converter.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "tnc",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "tnc",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Now that we have a basic idea of how we can get a converter, we can\nstart hacking it.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Adding new tokens\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "TinyNotation does not have a way of specifying the Key (and thereby the\nKeySignature) of a piece or region. Let's add that \u009cone more thing\u009d with\na new Token:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "KeyToken",
+        "type": "Title"
+    },
+    {
+        "text": "tinyNotation",
+        "type": "Title"
+    },
+    {
+        "text": "Token",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "def",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "self",
+        "type": "Title"
+    },
+    {
+        "text": "parent",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keyName",
+        "type": "Title"
+    },
+    {
+        "text": "self",
+        "type": "Title"
+    },
+    {
+        "text": "token",
+        "type": "Title"
+    },
+    {
+        "text": "return",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "Key",
+        "type": "Title"
+    },
+    {
+        "text": "keyName",
+        "type": "Title"
+    },
+    {
+        "text": "KeyToken",
+        "type": "Title"
+    },
+    {
+        "text": "tinyNotation.Token",
+        "type": "Title"
+    },
+    {
+        "text": ".parse()",
+        "type": "Title"
+    },
+    {
+        "text": "Converter",
+        "type": "Title"
+    },
+    {
+        "text": "self.token",
+        "type": "Title"
+    },
+    {
+        "text": "parse()",
+        "type": "Title"
+    },
+    {
+        "text": "Music21Object or",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "Key object.",
+        "type": "Title"
+    },
+    {
+        "text": "Now that we've defined this particular Token, we'll need to teach the\nConverter when to call it. We'll say that any token (that is, data\nseparated by spaces) which begins with a k is a new Key object,\nand that the relevant data is everything after the k. And we'll add\nthis to a blank Converter object.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "tnc",
+        "type": "Title"
+    },
+    {
+        "text": "tinyNotation",
+        "type": "Title"
+    },
+    {
+        "text": "Converter",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keyMapping",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "'k(.*)'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "KeyToken",
+        "type": "Title"
+    },
+    {
+        "text": "tnc",
+        "type": "Title"
+    },
+    {
+        "text": "tokenMap",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "keyMapping",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Next, let's create a fragment of TinyNotation to see if this works,\nusing the load() method:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "tnc",
+        "type": "Title"
+    },
+    {
+        "text": "load",
+        "type": "Title"
+    },
+    {
+        "text": "'4/4 kE- G1 kf# A1'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "tnc",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "tnc",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Modifying the behavior of existing tokens\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Now that we have a way to create totally new Tokens, let's look at ways\nwe can modify existing tokens. Let's first create a simple\nModifier that changes the color of\nindividual notes after they've been parsed:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "ColorModifier",
+        "type": "Title"
+    },
+    {
+        "text": "tinyNotation",
+        "type": "Title"
+    },
+    {
+        "text": "Modifier",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "def",
+        "type": "Title"
+    },
+    {
+        "text": "postParse",
+        "type": "Title"
+    },
+    {
+        "text": "self",
+        "type": "Title"
+    },
+    {
+        "text": "m21Obj",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "m21Obj",
+        "type": "Title"
+    },
+    {
+        "text": "style",
+        "type": "Title"
+    },
+    {
+        "text": "color",
+        "type": "Title"
+    },
+    {
+        "text": "self",
+        "type": "Title"
+    },
+    {
+        "text": "modifierData",
+        "type": "Title"
+    },
+    {
+        "text": "return",
+        "type": "Title"
+    },
+    {
+        "text": "m21Obj",
+        "type": "Title"
+    },
+    {
+        "text": "Now we'll modify our Converter object to make it so that the\nColorModifier is run anytime that a color name is put in angle brackets\nafter a Token, and then test it on a simple stream.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "tnc",
+        "type": "Title"
+    },
+    {
+        "text": "modifierAngle",
+        "type": "Title"
+    },
+    {
+        "text": "ColorModifier",
+        "type": "Title"
+    },
+    {
+        "text": "tnc",
+        "type": "Title"
+    },
+    {
+        "text": "load",
+        "type": "Title"
+    },
+    {
+        "text": "'3/4 c4<red> d<green> e-<blue>'",
+        "type": "Title"
+    },
+    {
+        "text": "tnc",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "tnc",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "=data",
+        "type": "Title"
+    },
+    {
+        "text": "modifierEquals",
+        "type": "Title"
+    },
+    {
+        "text": "_data",
+        "type": "Title"
+    },
+    {
+        "text": "modifierUnderscore",
+        "type": "Title"
+    },
+    {
+        "text": "<data>",
+        "type": "Title"
+    },
+    {
+        "text": "modifierAngle",
+        "type": "Title"
+    },
+    {
+        "text": "data*",
+        "type": "ListItem"
+    },
+    {
+        "text": "modifierStar",
+        "type": "Title"
+    },
+    {
+        "text": "[data]",
+        "type": "Title"
+    },
+    {
+        "text": "modifierSquare",
+        "type": "Title"
+    },
+    {
+        "text": "(data)",
+        "type": "Title"
+    },
+    {
+        "text": "modifierParens",
+        "type": "Title"
+    },
+    {
+        "text": "Here's a less silly modifier which replaces the Note object that\ncomes in with a ChordSymbol object that\ncombines the root name from the Note with the data from the\nmodifier:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "HarmonyModifier",
+        "type": "Title"
+    },
+    {
+        "text": "tinyNotation",
+        "type": "Title"
+    },
+    {
+        "text": "Modifier",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "def",
+        "type": "Title"
+    },
+    {
+        "text": "postParse",
+        "type": "Title"
+    },
+    {
+        "text": "self",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "cs",
+        "type": "Title"
+    },
+    {
+        "text": "harmony",
+        "type": "Title"
+    },
+    {
+        "text": "ChordSymbol",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "name",
+        "type": "Title"
+    },
+    {
+        "text": "self",
+        "type": "Title"
+    },
+    {
+        "text": "modifierData",
+        "type": "Title"
+    },
+    {
+        "text": "cs",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "return",
+        "type": "Title"
+    },
+    {
+        "text": "cs",
+        "type": "Title"
+    },
+    {
+        "text": "tnc",
+        "type": "Title"
+    },
+    {
+        "text": "modifierUnderscore",
+        "type": "Title"
+    },
+    {
+        "text": "HarmonyModifier",
+        "type": "Title"
+    },
+    {
+        "text": "tnc",
+        "type": "Title"
+    },
+    {
+        "text": "load",
+        "type": "Title"
+    },
+    {
+        "text": "'4/4 C2_maj7 D4_m E-_sus4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "tnc",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "'text'",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Measure",
+        "type": "Title"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "clef",
+        "type": "Title"
+    },
+    {
+        "text": "BassClef",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "meter",
+        "type": "Title"
+    },
+    {
+        "text": "TimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "harmony",
+        "type": "Title"
+    },
+    {
+        "text": "ChordSymbol",
+        "type": "Title"
+    },
+    {
+        "text": "Cmaj7",
+        "type": "Title"
+    },
+    {
+        "text": "2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "harmony",
+        "type": "Title"
+    },
+    {
+        "text": "ChordSymbol",
+        "type": "Title"
+    },
+    {
+        "text": "Dm",
+        "type": "Title"
+    },
+    {
+        "text": "3.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "harmony",
+        "type": "Title"
+    },
+    {
+        "text": "ChordSymbol",
+        "type": "Title"
+    },
+    {
+        "text": "sus4",
+        "type": "Title"
+    },
+    {
+        "text": "4.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "bar",
+        "type": "Title"
+    },
+    {
+        "text": "Barline",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "final",
+        "type": "Title"
+    },
+    {
+        "text": "If we leave in the bass note and instead add the ChordSymbol to the\nstream, then we'll be able to see it on the score:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "HarmonyModifier",
+        "type": "Title"
+    },
+    {
+        "text": "tinyNotation",
+        "type": "Title"
+    },
+    {
+        "text": "Modifier",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "def",
+        "type": "Title"
+    },
+    {
+        "text": "postParse",
+        "type": "Title"
+    },
+    {
+        "text": "self",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "cs",
+        "type": "Title"
+    },
+    {
+        "text": "harmony",
+        "type": "Title"
+    },
+    {
+        "text": "ChordSymbol",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "name",
+        "type": "Title"
+    },
+    {
+        "text": "self",
+        "type": "Title"
+    },
+    {
+        "text": "modifierData",
+        "type": "Title"
+    },
+    {
+        "text": "self",
+        "type": "Title"
+    },
+    {
+        "text": "parent",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "cs",
+        "type": "Title"
+    },
+    {
+        "text": "return",
+        "type": "Title"
+    },
+    {
+        "text": "tnc",
+        "type": "Title"
+    },
+    {
+        "text": "modifierUnderscore",
+        "type": "Title"
+    },
+    {
+        "text": "HarmonyModifier",
+        "type": "Title"
+    },
+    {
+        "text": "tnc",
+        "type": "Title"
+    },
+    {
+        "text": "load",
+        "type": "Title"
+    },
+    {
+        "text": "'4/4 C2_maj7 D4_m E-_sus4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "tnc",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Defining a State for a set of tokens\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Lastly are State conditions. These affect more than one Token at a\ntime and are (generally) enclosed in curly brackets (the \u009cTieState\u009d is a\nState that works differently but is too advanced to discuss here). Let's\ncreate a silly State first, that removes stems from notes when it's\nclosed:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "NoStemState",
+        "type": "Title"
+    },
+    {
+        "text": "tinyNotation",
+        "type": "Title"
+    },
+    {
+        "text": "State",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "def",
+        "type": "Title"
+    },
+    {
+        "text": "end",
+        "type": "Title"
+    },
+    {
+        "text": "self",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "self",
+        "type": "Title"
+    },
+    {
+        "text": "affectedTokens",
+        "type": "Title"
+    },
+    {
+        "text": "stemDirection",
+        "type": "Title"
+    },
+    {
+        "text": "'none'",
+        "type": "Title"
+    },
+    {
+        "text": "start()",
+        "type": "Title"
+    },
+    {
+        "text": "affectTokenBeforeParse(tokenStr)",
+        "type": "Title"
+    },
+    {
+        "text": "State",
+        "type": "Title"
+    },
+    {
+        "text": "affectTokenAfterParseBeforeModifier(music21object)",
+        "type": "Title"
+    },
+    {
+        "text": "affectTokenAfterParse(music21object)",
+        "type": "Title"
+    },
+    {
+        "text": "end()",
+        "type": "Title"
+    },
+    {
+        "text": ".affectedToken",
+        "type": "Title"
+    },
+    {
+        "text": "end()",
+        "type": "Title"
+    },
+    {
+        "text": "Now we'll define \"nostem\" to be the start of a stemless state. We do\nthis by adding the term \u009cnostem\u009d to the bracketStateMapping\ndictionary on TinyNotationConverter.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "tnc",
+        "type": "Title"
+    },
+    {
+        "text": "bracketStateMapping",
+        "type": "Title"
+    },
+    {
+        "text": "'nostem'",
+        "type": "Title"
+    },
+    {
+        "text": "NoStemState",
+        "type": "Title"
+    },
+    {
+        "text": "tnc",
+        "type": "Title"
+    },
+    {
+        "text": "load",
+        "type": "Title"
+    },
+    {
+        "text": "\"4/4 c4 d nostem{e f g2 a4} b c'1\"",
+        "type": "Title"
+    },
+    {
+        "text": "tnc",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Okay, that's a good amount of fun and games, but here's what some people\nreally want: using State to create chords. To do this, we will prevent\nnotes from being added to the stream as they are parsed, and then put a\nChord into the stream at the end:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "ChordState",
+        "type": "Title"
+    },
+    {
+        "text": "tinyNotation",
+        "type": "Title"
+    },
+    {
+        "text": "State",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "def",
+        "type": "Title"
+    },
+    {
+        "text": "affectTokenAfterParse",
+        "type": "Title"
+    },
+    {
+        "text": "self",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "super",
+        "type": "Title"
+    },
+    {
+        "text": "ChordState",
+        "type": "Title"
+    },
+    {
+        "text": "self",
+        "type": "Title"
+    },
+    {
+        "text": "affectTokenAfterParse",
+        "type": "Title"
+    },
+    {
+        "text": "return",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "# do not append Note object",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "def",
+        "type": "Title"
+    },
+    {
+        "text": "end",
+        "type": "Title"
+    },
+    {
+        "text": "self",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "ch",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "self",
+        "type": "Title"
+    },
+    {
+        "text": "affectedTokens",
+        "type": "Title"
+    },
+    {
+        "text": "ch",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "self",
+        "type": "Title"
+    },
+    {
+        "text": "affectedTokens",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "return",
+        "type": "Title"
+    },
+    {
+        "text": "ch",
+        "type": "Title"
+    },
+    {
+        "text": "tnc",
+        "type": "Title"
+    },
+    {
+        "text": "bracketStateMapping",
+        "type": "Title"
+    },
+    {
+        "text": "'chord'",
+        "type": "Title"
+    },
+    {
+        "text": "ChordState",
+        "type": "Title"
+    },
+    {
+        "text": "tnc",
+        "type": "Title"
+    },
+    {
+        "text": "load",
+        "type": "Title"
+    },
+    {
+        "text": "\"2/4 C4 chord{C4 e g} F.4 chord{D8 F# A}\"",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "tnc",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "That's a long enough chapter on a tiny enough concept. We'll move on to\nhow Streams and other objects are related to their prior incarnations\nthough Chapter 17, Derivations.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 16: TinyNotation",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

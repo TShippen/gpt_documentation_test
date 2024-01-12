@@ -1,0 +1,1274 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 27: Grace Notes",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide, Chapter 26: Stream Iteration and Filtering",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide, Chapter 28: Lyric Searching",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide, Chapter 27: Grace Notes\nBasic Graces\nMultiple Grace Notes\nStealing time\nChordify and Grace Notes\nAppogiature",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide\nUser's Guide: Table of Contents\nUser's Guide, Chapter 1: Installing and Getting Started with music21\nUser's Guide, Chapter 2: Notes\nUser's Guide, Chapter 3: Pitches, Durations, and Notes again\nUser's Guide, Chapter 4: Lists, Streams (I) and Output\nUser's Guide, Chapter 5: Lists of Lists, Functions, and Recursion\nUser's Guide, Chapter 6: Streams (II): Hierarchies, Recursion, and Flattening\nUser's Guide, Chapter 7: Chords\nUser's Guide, Chapter 8: Installing MusicXML Readers and File Formats (1)\nUser's Guide, Chapter 9: Chordify\nUser's Guide, Chapter 10: Examples 1\nUser's Guide, Chapter 11: Corpus Searching\nUser's Guide, Chapter 12: Getting Back to Basics: The Music21Object\nUser's Guide, Chapter 13: More Music21Object Attributes and Properties\nUser's Guide: Chapter 14: Time Signatures and Beats\nUser's Guide, Chapter 15: Keys and KeySignatures\nUser's Guide, Chapter 16: TinyNotation\nUser's Guide: Chapter 17: Derivations\nUser's Guide: Chapter 18: Intervals\nUser's Guide, Chapter 19: Advanced Durations (Complex and Tuplets)\nUser's Guide, Chapter 20: Examples 2\nUser's Guide, Chapter 21: Ordering and Sorting of Stream Elements\nUser's Guide, Chapter 22: Graphing and plotting\nUser's Guide, Chapter 23: Roman Numeral Analysis\nUser's Guide, Chapter 24: Configuring Environment Settings\nUser's Guide, Chapter 25: Post-Tonal Tools (1)\nUser's Guide, Chapter 26: Stream Iteration and Filtering\nUser's Guide, Chapter 27: Grace Notes\nUser's Guide, Chapter 28: Lyric Searching\nUser's Guide, Chapter 29: Spanners 1 (Slurs)\nUser's Guide, Chapter 30: Examples 3\nUser's Guide, Chapter 31: Clefs, Ties, and Beams\nUser's Guide, Chapter 32: Articulations\nUser's Guide, Chapter 44: Advanced Graphing (Axes, Plots, and Graphs)\nUser's Guide, Chapter 53: Advanced Corpus and Metadata Searching\nUser's Guide, Chapter 54: Extending Converter with New Formats\nUser's Guide, Chapter 55: Advanced Meter Topics\nUser's Guide, Chapter 58: Understanding Sites and Contexts\nUser's Guide, Chapter 61: TimespanTrees and Verticalities",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 27: Grace Notes\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Grace notes present particular problems for almost all computer\nrepresentations of scores. In one way of theorizing them, they take up\nno time whatsoever \u2014 you can take a full measure of 4/4 and add two\nhundred grace notes and the measure is still not over full. On the other\nhand, they need to take up some time, otherwise how would we hear them?",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "So we have something that takes up no time, but takes up time, at the\nsame time. Let's look more closely at them. Along the way we'll look at\nappogiature, which present some issues that are similar and some that\nare different.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Basic Graces\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "We'll begin by creating a 4/4 measure of four quarter notes:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "from",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "import",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Measure",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "meter",
+        "type": "Title"
+    },
+    {
+        "text": "TimeSignature",
+        "type": "Title"
+    },
+    {
+        "text": "'4/4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "))",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "repeatAppend",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'C5'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Now let's insert a D-grace note just before the third quarter note.\nFirst we create a normal note (usually an eighth note) and then we\ncreate a new grace note with the getGrace method.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'D5'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "'eighth'",
+        "type": "Title"
+    },
+    {
+        "text": "dGrace",
+        "type": "Title"
+    },
+    {
+        "text": "getGrace",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "insert",
+        "type": "Title"
+    },
+    {
+        "text": "2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "dGrace",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "If we look at dGrace at first it appears to be just a normal Note:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "dGrace",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "But its duration is a subclass called GraceDuration.\nImportantly, it is an \u009cunlinked\u009d duration, meaning that the type\n(e.g.\u00c2\u00a0\u009ceighth\u009d) of the duration does not say how long it lasts.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "dGrace",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "GraceDuration",
+        "type": "Title"
+    },
+    {
+        "text": "unlinked",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "eighth",
+        "type": "Title"
+    },
+    {
+        "text": "quarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "dGrace",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "linked",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "There is one DurationTuple in the .components of the\nGraceDuration object, and it is an eighth note of length 0.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "dGrace",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "components",
+        "type": "Title"
+    },
+    {
+        "text": "DurationTuple",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "'eighth'",
+        "type": "Title"
+    },
+    {
+        "text": "dots",
+        "type": "Title"
+    },
+    {
+        "text": "quarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "),)",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A GraceDuration has the boolean attribute .slash which says whether\nor not it receives a slash. By default this is True.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "dGrace",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "slash",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "Within a Stream grace notes sort before elements of the same class\nthat have the same priority and offset. Internally, this is done by\nsetting isNotGrace to 0 in the sort tuple. (normally it is 1).",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "dGrace",
+        "type": "Title"
+    },
+    {
+        "text": "sortTuple",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "SortTuple",
+        "type": "Title"
+    },
+    {
+        "text": "atEnd",
+        "type": "Title"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "priority",
+        "type": "Title"
+    },
+    {
+        "text": "classSortOrder",
+        "type": "Title"
+    },
+    {
+        "text": "20",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "isNotGrace",
+        "type": "Title"
+    },
+    {
+        "text": "insertIndex",
+        "type": "Title"
+    },
+    {
+        "text": "110",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Normally grace notes are slurred to the following note, so let's add a\nslur there.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "thirdNote",
+        "type": "Title"
+    },
+    {
+        "text": "notes",
+        "type": "Title"
+    },
+    {
+        "text": "sl",
+        "type": "Title"
+    },
+    {
+        "text": "spanner",
+        "type": "Title"
+    },
+    {
+        "text": "Slur",
+        "type": "Title"
+    },
+    {
+        "text": "dGrace",
+        "type": "Title"
+    },
+    {
+        "text": "thirdNote",
+        "type": "Title"
+    },
+    {
+        "text": "insert",
+        "type": "Title"
+    },
+    {
+        "text": "sl",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Multiple Grace Notes\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Multiple grace notes are normally beamed together and generally written\nas sixteenth or thirty-second notes. We'll add two graces to the last C\nin the measure:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "eGrace",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'E5'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "'16th'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "getGrace",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "dGrace2",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'D5'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "'16th'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "getGrace",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "eGrace",
+        "type": "Title"
+    },
+    {
+        "text": "beams",
+        "type": "Title"
+    },
+    {
+        "text": "fill",
+        "type": "Title"
+    },
+    {
+        "text": "'start'",
+        "type": "Title"
+    },
+    {
+        "text": "dGrace2",
+        "type": "Title"
+    },
+    {
+        "text": "beams",
+        "type": "Title"
+    },
+    {
+        "text": "fill",
+        "type": "Title"
+    },
+    {
+        "text": "'stop'",
+        "type": "Title"
+    },
+    {
+        "text": "insert",
+        "type": "Title"
+    },
+    {
+        "text": "3.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "eGrace",
+        "type": "Title"
+    },
+    {
+        "text": "insert",
+        "type": "Title"
+    },
+    {
+        "text": "3.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "dGrace2",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Notice that the grace notes are ordered according to the principle,\n\u009cfirst inserted = left-most, last inserted = right-most.\u009d If you know\nevery note to be inserted in advance, then there's no problem getting\nthe order right. But suppose you need to change it later? In this case,\nchange the priority of the grace notes:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "dGrace2",
+        "type": "Title"
+    },
+    {
+        "text": "priority",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Note that the default priority of all objects is 0, so that by giving a\npriority higher than 1, the grace notes can be made to follow the main\nnote:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "dGrace2",
+        "type": "Title"
+    },
+    {
+        "text": "priority",
+        "type": "Title"
+    },
+    {
+        "text": "eGrace",
+        "type": "Title"
+    },
+    {
+        "text": "priority",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "This is useful for cases such as putting a \u009cNachschlag\u009d or\n\u009cNachschlagen\u009d after a trill:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Part",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "m1",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Measure",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "n2",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'F#5'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "'whole'",
+        "type": "Title"
+    },
+    {
+        "text": "nach1",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'E5'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "'16th'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "getGrace",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "nach2",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'F#5'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "'16th'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "getGrace",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "nach1",
+        "type": "Title"
+    },
+    {
+        "text": "priority",
+        "type": "Title"
+    },
+    {
+        "text": "nach2",
+        "type": "Title"
+    },
+    {
+        "text": "priority",
+        "type": "Title"
+    },
+    {
+        "text": "trMark",
+        "type": "Title"
+    },
+    {
+        "text": "expressions",
+        "type": "Title"
+    },
+    {
+        "text": "Trill",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "n2",
+        "type": "Title"
+    },
+    {
+        "text": "expressions",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "trMark",
+        "type": "Title"
+    },
+    {
+        "text": "m1",
+        "type": "Title"
+    },
+    {
+        "text": "insert",
+        "type": "Title"
+    },
+    {
+        "text": "n2",
+        "type": "Title"
+    },
+    {
+        "text": "m1",
+        "type": "Title"
+    },
+    {
+        "text": "insert",
+        "type": "Title"
+    },
+    {
+        "text": "nach1",
+        "type": "Title"
+    },
+    {
+        "text": "m1",
+        "type": "Title"
+    },
+    {
+        "text": "insert",
+        "type": "Title"
+    },
+    {
+        "text": "nach2",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "m1",
+        "type": "Title"
+    },
+    {
+        "text": "m2",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Measure",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "nResolve",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'G5'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "'whole'",
+        "type": "Title"
+    },
+    {
+        "text": "m2",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "nResolve",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "m2",
+        "type": "Title"
+    },
+    {
+        "text": "# nResolve is necessary because",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "# MuseScore has a bug with spanners that end with grace notes.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "nachSlur",
+        "type": "Title"
+    },
+    {
+        "text": "spanner",
+        "type": "Title"
+    },
+    {
+        "text": "Slur",
+        "type": "Title"
+    },
+    {
+        "text": "([",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "nach1",
+        "type": "Title"
+    },
+    {
+        "text": "nach2",
+        "type": "Title"
+    },
+    {
+        "text": "nResolve",
+        "type": "Title"
+    },
+    {
+        "text": "])",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "insert",
+        "type": "Title"
+    },
+    {
+        "text": "nachSlur",
+        "type": "Title"
+    },
+    {
+        "text": "# beams are also created automagically on show",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Stealing time\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": ".stealTimePrevious and .stealTimeFollowing are values from 0 to\n1 that show what fraction of the previous or following note's durations\nshould be allocated to make room for this grace note.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "MIDI output does not yet support playing back grace notes.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Chordify and Grace Notes\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "By default, music21 includes GraceNotes when creating chords via\nchordify:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "chordify",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "While this behavior may be desireable in some cases, for many uses, it\nis unlikely to result in chords that are intended. However, it is easy\nto create a Stream that removes the grace notes. First, let's make a\ncopy of the measure, so we do not change the original:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "import",
+        "type": "Title"
+    },
+    {
+        "text": "copy",
+        "type": "Title"
+    },
+    {
+        "text": "mCopy",
+        "type": "Title"
+    },
+    {
+        "text": "copy",
+        "type": "Title"
+    },
+    {
+        "text": "deepcopy",
+        "type": "Title"
+    },
+    {
+        "text": "Next, we will keep track of every grace note to remove:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "graceNotes",
+        "type": "Title"
+    },
+    {
+        "text": "[]",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "mCopy",
+        "type": "Title"
+    },
+    {
+        "text": "recurse",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "notes",
+        "type": "Title"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "isGrace",
+        "type": "Title"
+    },
+    {
+        "text": "graceNotes",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "graceNotes",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "Next remove them from their activeSite (which might be a Voice\nwithin a measure, etc.). This is done in a separate step because\nremoving objects from an iterator during iteration leads to bad\nconsequences:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "grace",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "graceNotes",
+        "type": "Title"
+    },
+    {
+        "text": "grace",
+        "type": "Title"
+    },
+    {
+        "text": "activeSite",
+        "type": "Title"
+    },
+    {
+        "text": "remove",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "grace",
+        "type": "Title"
+    },
+    {
+        "text": "mCopy",
+        "type": "Title"
+    },
+    {
+        "text": "chordify",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "(Alternatively, this could be done in one step if\nmCopy.recurse().notes was replaced with\nlist(mCopy.recurse().notes), but better to be explicit about what we\nare doing than implicit.)",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Appogiature\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Appogiature are not yet fully supported by music21. Documentation here\nis a TODO.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "That's enough on grace notes for now. Let's move to finding things with\nsomething to say:\nChapter 28: Lyric Searching",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 27: Grace Notes",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

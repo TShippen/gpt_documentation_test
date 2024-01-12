@@ -1,0 +1,646 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.audioSearch",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.articulations",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.audioSearch.recording",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.audioSearch\nFunctions\nautocorrelationFunction()\ndecisionProcess()\ndetectPitchFrequencies()\ngetFrequenciesFromAudioFile()\ngetFrequenciesFromMicrophone()\ngetFrequenciesFromPartialAudioFile()\nhistogram()\ninterpolation()\njoinConsecutiveIdenticalPitches()\nnormalizeInputFrequency()\nnotesAndDurationsToStream()\npitchFrequenciesToObjects()\nprepareThresholds()\nquantizeDuration()\nquarterLengthEstimation()\nsmoothFrequencies()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.audioSearch\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Base routines used throughout audioSearching and score-following.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Requires numpy and matplotlib.  Installing scipy makes the process faster\nand more accurate using FFT convolve.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.audioSearch.",
+        "type": "Title"
+    },
+    {
+        "text": "autocorrelationFunction",
+        "type": "Title"
+    },
+    {
+        "text": "recordedSignal",
+        "type": "Title"
+    },
+    {
+        "text": "recordSampleRateIn",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Converts the temporal domain into a frequency domain. In order to do that, it\nuses the autocorrelation function, which finds periodicities in the signal\nin the temporal domain and, consequently, obtains the frequency in each instant\nof time.\n>>> import wave\n>>> import numpy  # you need to have numpy, scipy, and matplotlib installed to use this\n\n\n>>> wv = wave.open(str(common.getSourceFilePath() /\n...                     'audioSearch' / 'test_audio.wav'), 'r')\n>>> data = wv.readframes(1024)\n>>> samples = numpy.frombuffer(data, dtype=numpy.int16)\n>>> finalResult = audioSearch.autocorrelationFunction(samples, 44100)\n>>> wv.close()\n>>> print(finalResult)\n143.6276...",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.audioSearch.",
+        "type": "Title"
+    },
+    {
+        "text": "decisionProcess",
+        "type": "Title"
+    },
+    {
+        "text": "partsList",
+        "type": "Title"
+    },
+    {
+        "text": "notePrediction",
+        "type": "Title"
+    },
+    {
+        "text": "beginningData",
+        "type": "Title"
+    },
+    {
+        "text": "lastNotePosition",
+        "type": "Title"
+    },
+    {
+        "text": "countdown",
+        "type": "Title"
+    },
+    {
+        "text": "firstNotePage",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "lastNotePage",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Decides which of the given parts of the score has the best match with\nthe recorded part of the song.\nIf there is not a part of the score with a high probability to be the correct part,\nit starts a \u009ccountdown\u009d in order stop the score following if the bad matching persists.\nIn this case, it does not match the recorded part of the song with any part of the score.\nInputs: partsList, contains all the possible parts of the score, sorted from the\nhigher probability to be the best matching at the beginning to the lowest probability.\nnotePrediction is the position of the score in which the next note should start.\nbeginningData is a list with all the beginnings of the used fragments of the score to find\nthe best matching.\nlastNotePosition is the position of the score in which the last matched fragment of the\nscore finishes.\nCountdown is a counter of consecutive errors in the matching process.\nOutputs: Returns the beginning of the best matching fragment of\nscore and the countdown.\n>>> scNotes = corpus.parse('luca/gloria').parts[0].flatten().notes.stream()\n>>> scoreStream = scNotes\n\n\n>>> tf = 'test_audio.wav'\n>>> freqFromAQList = audioSearch.getFrequenciesFromAudioFile(waveFilename=tf)\n>>> chrome = scale.ChromaticScale('C4')\n>>> detectedPitchesFreq = audioSearch.detectPitchFrequencies(freqFromAQList, useScale=chrome)\n>>> detectedPitchesFreq = audioSearch.smoothFrequencies(detectedPitchesFreq)\n>>> (detectedPitches, listPlot) = audioSearch.pitchFrequenciesToObjects(\n...                                             detectedPitchesFreq, useScale=chrome)\n>>> (notesList, durationList) = audioSearch.joinConsecutiveIdenticalPitches(detectedPitches)\n>>> transcribedScore, qle = audioSearch.notesAndDurationsToStream(notesList, durationList,\n...                                             scNotes=scNotes, qle=None)\n>>> hop = 6\n>>> tn_recording = 24\n>>> totScores = []\n>>> beginningData = []\n>>> lengthData = []\n>>> for i in range(4):\n...     excerpt = scoreStream[i * hop + 1:i * hop + tn_recording + 1]\n...     scNotes = stream.Part(excerpt)\n...     name = str(i)\n...     beginningData.append(i * hop + 1)\n...     lengthData.append(tn_recording)\n...     scNotes.id = name\n...     totScores.append(scNotes)\n>>> listOfParts = search.approximateNoteSearch(transcribedScore.flatten().notes.stream(),\n...                                            totScores)\n>>> notePrediction = 0\n>>> lastNotePosition = 0\n>>> countdown = 0\n>>> positionInList, countdown = audioSearch.decisionProcess(\n...          listOfParts, notePrediction, beginningData, lastNotePosition, countdown)\n>>> print(positionInList)\n0\n\n\nThe countdown result is 1 because the song used is completely different from the score!!\n>>> print(countdown)\n1",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.audioSearch.",
+        "type": "Title"
+    },
+    {
+        "text": "detectPitchFrequencies",
+        "type": "Title"
+    },
+    {
+        "text": "freqFromAQList",
+        "type": "Title"
+    },
+    {
+        "text": "useScale",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Detects the pitches of the notes from a list of frequencies, using thresholds which\ndepend on the useScale option. If useScale is None,\nthe default value is the Major Scale beginning C4.\nReturns the frequency of each pitch after normalizing them.\n>>> freqFromAQList=[143.627689055, 99.0835452019, 211.004784689, 4700.31347962, 2197.9431119]\n>>> cMaj = scale.MajorScale('C4')\n>>> pitchesList = audioSearch.detectPitchFrequencies(freqFromAQList, useScale=cMaj)\n>>> for i in range(5):\n...     print(int(round(pitchesList[i])))\n147\n98\n220\n4699\n2093",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.audioSearch.",
+        "type": "Title"
+    },
+    {
+        "text": "getFrequenciesFromAudioFile",
+        "type": "Title"
+    },
+    {
+        "text": "waveFilename",
+        "type": "Title"
+    },
+    {
+        "text": "'xmas.wav'",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "gets a list of frequencies from a complete audio file.\nEach sample is a window of audioSearch.audioChunkLength long.\n>>> audioSearch.audioChunkLength\n1024\n\n\n>>> readPath = common.getSourceFilePath() / 'audioSearch' / 'test_audio.wav'\n>>> freq = audioSearch.getFrequenciesFromAudioFile(waveFilename=readPath)\n>>> print(freq)\n[143.627..., 99.083..., 211.004..., 4700.313..., ...]",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.audioSearch.",
+        "type": "Title"
+    },
+    {
+        "text": "getFrequenciesFromMicrophone",
+        "type": "Title"
+    },
+    {
+        "text": "length",
+        "type": "Title"
+    },
+    {
+        "text": "10.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "storeWaveFilename",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "records for length (=seconds) a set of frequencies from the microphone.\nIf storeWaveFilename is not None, then it will store the recording on disk\nin a wave file.\nReturns a list of frequencies detected.\nTODO \u2014 find a way to test\u2026 or at least demo",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.audioSearch.",
+        "type": "Title"
+    },
+    {
+        "text": "getFrequenciesFromPartialAudioFile",
+        "type": "Title"
+    },
+    {
+        "text": "waveFilenameOrHandle",
+        "type": "Title"
+    },
+    {
+        "text": "'temp'",
+        "type": "Title"
+    },
+    {
+        "text": "length",
+        "type": "Title"
+    },
+    {
+        "text": "10.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "startSample",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "It calculates the fundamental frequency at every instant of time of an audio signal\nextracted either from the microphone or from an already recorded song.\nIt uses a period of time defined by the variable \u009clength\u009d in seconds.\nIt returns a list with the frequencies, a variable with the file descriptor,\nand the end sample position.\n>>> readFile = 'pachelbel.wav'\n>>> fTup  = audioSearch.getFrequenciesFromPartialAudioFile(readFile, length=1.0)\n>>> frequencyList, pachelbelFileHandle, currentSample = fTup\n>>> for frequencyIndex in range(5):\n...     print(frequencyList[frequencyIndex])\n143.627...\n99.083...\n211.004...\n4700.313...\n767.827...\n>>> print(currentSample)  # should be near 44100, but probably not exact\n44032\n\n\nNow read the next 1 second\u2026\n>>> fTup = audioSearch.getFrequenciesFromPartialAudioFile(pachelbelFileHandle, length=1.0,\n...                                                       startSample=currentSample)\n>>> frequencyList, pachelbelFileHandle, currentSample = fTup\n>>> for frequencyIndex in range(5):\n...     print(frequencyList[frequencyIndex])\n187.798...\n238.263...\n409.700...\n149.958...\n101.989...\n>>> print(currentSample)  # should be exactly double the previous\n88064",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.audioSearch.",
+        "type": "Title"
+    },
+    {
+        "text": "histogram",
+        "type": "Title"
+    },
+    {
+        "text": "data",
+        "type": "Title"
+    },
+    {
+        "text": "bins",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Partition the list in data into a number of bins defined by bins\nand return the number of elements in each bin and a set of bins + 1\nelements where the first element (0) is the start of the first bin,\nthe last element (-1) is the end of the last bin, and every remaining element (i)\nis the dividing point between one bin and another.\n>>> data = [1, 1, 4, 5, 6, 0, 8, 8, 8, 8, 8]\n>>> outputData, bins = audioSearch.histogram(data, 8)\n>>> print(outputData)\n[3, 0, 0, 1, 1, 1, 0, 5]\n>>> bins\n[0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0]\n>>> print([int(b) for b in bins])\n[0, 1, 2, 3, 4, 5, 6, 7, 8]\n\n\n>>> outputData, bins = audioSearch.histogram(data, 4)\n>>> print(outputData)\n[3, 1, 2, 5]\n>>> print([int(b) for b in bins])\n[0, 2, 4, 6, 8]",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.audioSearch.",
+        "type": "Title"
+    },
+    {
+        "text": "interpolation",
+        "type": "Title"
+    },
+    {
+        "text": "correlation",
+        "type": "Title"
+    },
+    {
+        "text": "peak",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Interpolation for estimating the true position of an\ninter-sample maximum when nearby samples are known.\nCorrelation is a vector and peak is an index for that vector.\nReturns the x coordinate of the vertex of that parabola.\n>>> import numpy\n>>> f = [2, 3, 1, 6, 4, 2, 3, 1]\n>>> peak = numpy.argmax(f)\n>>> peak  # f[3] is 6, which is the max.\n3\n>>> audioSearch.interpolation(f, peak)\n3.21428571...",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.audioSearch.",
+        "type": "Title"
+    },
+    {
+        "text": "joinConsecutiveIdenticalPitches",
+        "type": "Title"
+    },
+    {
+        "text": "detectedPitchObjects",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "takes a list of equally-spaced Pitch objects\nand returns a tuple of two lists, the first a list of\nNote\nor Rest objects (each of quarterLength 1.0)\nand a list of how many were joined together to make that object.\nN.B. the returned list is NOT a Stream.\n>>> readPath = common.getSourceFilePath() / 'audioSearch' / 'test_audio.wav'\n>>> freqFromAQList = audioSearch.getFrequenciesFromAudioFile(waveFilename=readPath)\n>>> chrome = scale.ChromaticScale('C4')\n>>> detectedPitchesFreq = audioSearch.detectPitchFrequencies(freqFromAQList, useScale=chrome)\n>>> detectedPitchesFreq = audioSearch.smoothFrequencies(detectedPitchesFreq)\n>>> (detectedPitches, listPlot) = audioSearch.pitchFrequenciesToObjects(\n...        detectedPitchesFreq, useScale=chrome)\n>>> len(detectedPitches)\n861\n>>> notesList, durationList = audioSearch.joinConsecutiveIdenticalPitches(detectedPitches)\n>>> len(notesList)\n24\n>>> print(notesList)\n[<music21.note.Rest quarter>, <music21.note.Note C>, <music21.note.Note C>,\n <music21.note.Note D>, <music21.note.Note E>, <music21.note.Note F>,\n <music21.note.Note G>, <music21.note.Note A>, <music21.note.Note B>,\n <music21.note.Note C>, ...]\n>>> print(durationList)\n[71, 6, 14, 23, 34, 40, 27, 36, 35, 15, 17, 15, 6, 33, 22, 13, 16, 39, 35, 38, 27, 27, 26, 8]",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.audioSearch.",
+        "type": "Title"
+    },
+    {
+        "text": "normalizeInputFrequency",
+        "type": "Title"
+    },
+    {
+        "text": "inputPitchFrequency",
+        "type": "Title"
+    },
+    {
+        "text": "thresholds",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "pitches",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Takes in an inputFrequency, a set of threshold values, and a set of allowable pitches\n(given by prepareThresholds) and returns a tuple of the normalized frequency and the\npitch detected (as a Pitch object)\nIt will convert the frequency to be within the range of the default frequencies\n(usually C4 to C5) but the pitch object will have the correct octave.\n>>> audioSearch.normalizeInputFrequency(441.72)\n(440.0, <music21.pitch.Pitch A4>)\n\n\nIf you will be doing this often, it's best to cache your thresholds and\npitches by running prepareThresholds once first:\n>>> thresholds, pitches = audioSearch.prepareThresholds(scale.ChromaticScale('C4'))\n>>> for fq in [450, 510, 550, 600]:\n...      print(audioSearch.normalizeInputFrequency(fq, thresholds, pitches))\n(440.0, <music21.pitch.Pitch A4>)\n(523.25113..., <music21.pitch.Pitch C5>)\n(277.18263..., <music21.pitch.Pitch C#5>)\n(293.66476..., <music21.pitch.Pitch D5>)",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.audioSearch.",
+        "type": "Title"
+    },
+    {
+        "text": "notesAndDurationsToStream",
+        "type": "Title"
+    },
+    {
+        "text": "notesList",
+        "type": "Title"
+    },
+    {
+        "text": "durationList",
+        "type": "Title"
+    },
+    {
+        "text": "scNotes",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "removeRestsAtBeginning",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "qle",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "take a list of Note objects or rests\nand an equally long list of how long\neach one lasts in terms of samples and returns a\nStream using the information from quarterLengthEstimation\nand quantizeDurations.\nreturns a Score object, containing\na metadata object and a single Part object, which in turn\ncontains the notes, etc.  Does not run makeNotation()\non the Score.\n>>> durationList = [20, 19, 10, 30, 6, 21]\n>>> n = note.Note\n>>> noteList = [n('C#4'), n('D5'), n('B4'), n('F#5'), n('C5'), note.Rest()]\n>>> s,lengthPart = audioSearch.notesAndDurationsToStream(noteList, durationList)\n>>> s.show('text')\n{0.0} <music21.metadata.Metadata object at ...>\n{0.0} <music21.stream.Part ...>\n    {0.0} <music21.note.Note C#>\n    {1.0} <music21.note.Note D>\n    {2.0} <music21.note.Note B>\n    {2.5} <music21.note.Note F#>\n    {4.0} <music21.note.Note C>\n    {4.25} <music21.note.Rest quarter>",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.audioSearch.",
+        "type": "Title"
+    },
+    {
+        "text": "pitchFrequenciesToObjects",
+        "type": "Title"
+    },
+    {
+        "text": "detectedPitchesFreq",
+        "type": "Title"
+    },
+    {
+        "text": "useScale",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Takes in a list of detected pitch frequencies and returns a tuple where the first element\nis a list of :class:~`music21.pitch.Pitch` objects that best match these frequencies\nand the second element is a list of the frequencies of those objects that can\nbe plotted for matplotlib\nTODO: only return the former.  The latter can be generated in other ways.\n>>> readPath = common.getSourceFilePath() / 'audioSearch' / 'test_audio.wav'\n>>> freqFromAQList = audioSearch.getFrequenciesFromAudioFile(waveFilename=readPath)\n\n\n>>> detectedPitchesFreq = audioSearch.detectPitchFrequencies(\n...   freqFromAQList, useScale=scale.ChromaticScale('C4'))\n>>> detectedPitchesFreq = audioSearch.smoothFrequencies(detectedPitchesFreq)\n>>> (detectedPitchObjects, listPlot) = audioSearch.pitchFrequenciesToObjects(\n...   detectedPitchesFreq, useScale=scale.ChromaticScale('C4'))\n>>> [str(p) for p in detectedPitchObjects]\n['A5', 'A5', 'A6', 'D6', 'D4', 'B4', 'A4', 'F4', 'E-4', 'C#3', 'B3', 'B3', 'B3', 'A3', 'G3',...]",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.audioSearch.",
+        "type": "Title"
+    },
+    {
+        "text": "prepareThresholds",
+        "type": "Title"
+    },
+    {
+        "text": "useScale",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "returns two elements.  The first is a list of threshold values\nfor one octave of a given scale, useScale,\n(including the octave repetition) (Default is a ChromaticScale).\nThe second is the pitches of the scale.\nA threshold value is the fractional part of the log-base-2 value of the\nfrequency.\nFor instance if A = 440 and B-flat = 460, then the threshold between\nA and B-flat will be 450.  Notes below 450 should be considered As and those\nabove 450 should be considered B-flats.\nThus, the list returned has one less element than the number of notes in the\nscale + octave repetition.  If useScale is a ChromaticScale, prepareThresholds\nwill return a 12 element list.  If it's a diatonic scale, it'll have 7 elements.\n>>> pitchThresholds, pitches = audioSearch.prepareThresholds(scale.MajorScale('A3'))\n>>> for i in range(len(pitchThresholds)):\n...    print(f'{pitches[i]} < {pitchThresholds[i]:.2f} < {pitches[i + 1]}')\nA3 < 0.86 < B3\nB3 < 0.53 < C#4\nC#4 < 0.16 < D4\nD4 < 0.28 < E4\nE4 < 0.45 < F#4\nF#4 < 0.61 < G#4\nG#4 < 1.24 < A4",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.audioSearch.",
+        "type": "Title"
+    },
+    {
+        "text": "quantizeDuration",
+        "type": "Title"
+    },
+    {
+        "text": "length",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "round an approximately transcribed quarterLength to a better one in\nmusic21.\nShould be replaced by a full-featured routine in midi or stream.\nSee quantize() for more information\non the standard music21 methodology.\n>>> audioSearch.quantizeDuration(1.01)\n1.0\n>>> audioSearch.quantizeDuration(1.70)\n1.5",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.audioSearch.",
+        "type": "Title"
+    },
+    {
+        "text": "quarterLengthEstimation",
+        "type": "Title"
+    },
+    {
+        "text": "durationList",
+        "type": "Title"
+    },
+    {
+        "text": "mostRepeatedQuarterLength",
+        "type": "Title"
+    },
+    {
+        "text": "1.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "takes a list of lengths of notes (measured in\naudio samples) and tries to estimate what the length of a\nquarter note should be in this list.\nIf mostRepeatedQuarterLength is another number, it still returns the\nestimated length of a quarter note, but chooses it so that the most\ncommon note in durationList will be the other note.  See example 2:\nReturns a float \u2014 and not an int.\n>>> durationList = [20, 19, 10, 30, 6, 21]\n>>> audioSearch.quarterLengthEstimation(durationList)\n20.625\n\n\nExample 2: suppose these are the inputted durations for a\nscore where most of the notes are half notes.  Show how long\na quarter note should be:\n>>> audioSearch.quarterLengthEstimation(durationList, mostRepeatedQuarterLength=2.0)\n10.3125",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.audioSearch.",
+        "type": "Title"
+    },
+    {
+        "text": "smoothFrequencies",
+        "type": "Title"
+    },
+    {
+        "text": "frequencyList",
+        "type": "Title"
+    },
+    {
+        "text": "list",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "float",
+        "type": "Title"
+    },
+    {
+        "text": "smoothLevels",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 list[int] | None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Smooths the shape of the signal in order to avoid false detections in the fundamental\nfrequency.  Takes in a list of ints or floats.\nThe second pitch below is obviously too low.  It will be smoothed out\u2026\n>>> inputPitches = [440, 220, 440, 440, 442, 443, 441, 470, 440, 441, 440,\n...                 442, 440, 440, 440, 397, 440, 440, 440, 442, 443, 441,\n...                 440, 440, 440, 440, 440, 442, 443, 441, 440, 440]\n>>> result = audioSearch.smoothFrequencies(inputPitches)\n>>> result\n[409, 409, 409, 428, 435, 438, 442, 444, 441, 441, 441,\n 441, 434, 433, 432, 431, 437, 438, 439, 440, 440, 440,\n 440, 440, 440, 441, 441, 441, 440, 440, 440, 440]\n\n\nOriginal list is unchanged:\n>>> inputPitches[1]\n220\n\n\nDifferent levels of smoothing have different effects.  At smoothLevel=2,\nthe isolated 220hz sample is pulling down the surrounding samples:\n>>> audioSearch.smoothFrequencies(inputPitches, smoothLevels=2)[:5]\n[330, 275, 358, 399, 420]\n\n\nDoing this enough times will smooth out a lot of inconsistencies.\n>>> audioSearch.smoothFrequencies(inputPitches, smoothLevels=28)[:5]\n[432, 432, 432, 432, 432]\n\n\nIf inPlace is True then the list is modified in place and nothing is returned:\n>>> audioSearch.smoothFrequencies(inputPitches, inPlace=True)\n>>> inputPitches[:5]\n[409, 409, 409, 428, 435]\n\n\nNote that smoothLevels=1 is the baseline that does nothing:\n>>> audioSearch.smoothFrequencies(inputPitches, smoothLevels=1) == inputPitches\nTrue\n\n\nAnd less than 1 raises a ValueError:\n>>> audioSearch.smoothFrequencies(inputPitches, smoothLevels=0)\nTraceback (most recent call last):\nValueError: smoothLevels must be >= 1\n\n\nThere cannot be more smoothLevels than input frequencies:\n>>> audioSearch.smoothFrequencies(inputPitches, smoothLevels=40)\nTraceback (most recent call last):\nValueError: There cannot be more smoothLevels (40) than inputPitches (32)\n\n\nNote that the system runs on O(smoothLevels * len(frequenciesList)),\nso additional smoothLevels can be costly on a large set.\nThis function always returns a list of ints \u2014 rounding to the nearest\nhertz (you did want it smoothed right?)\n\nChanged in v6: inPlace defaults to False (like other music21\nfunctions) and if done in Place, returns nothing.  smoothLevels and inPlace\nbecame keyword only.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.audioSearch",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

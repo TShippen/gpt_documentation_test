@@ -1,0 +1,1846 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.search.serial",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.search.segment",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.serial",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.search.serial\nContiguousSegmentOfNotes\nContiguousSegmentOfNotes\nContiguousSegmentOfNotes.originalCenteredTransformationsFromMatched\nContiguousSegmentOfNotes.startMeasureNumber\nContiguousSegmentOfNotes.startOffset\nContiguousSegmentOfNotes.zeroCenteredTransformationsFromMatched\nContiguousSegmentOfNotes.getActiveMatchedRows()\nContiguousSegmentOfNotes.getDistinctPitchClasses()\nContiguousSegmentOfNotes.readPitchClassesFromBottom()\nContiguousSegmentOfNotes.activeSegment\nContiguousSegmentOfNotes.containerStream\nContiguousSegmentOfNotes.matchedSegment\nContiguousSegmentOfNotes.partNumber\nContiguousSegmentOfNotes.segment\n\n\n\n\nContiguousSegmentSearcher\nContiguousSegmentSearcher\nContiguousSegmentSearcher.addActiveChords()\nContiguousSegmentSearcher.byLength()\nContiguousSegmentSearcher.getSearchBoundMethod()\nContiguousSegmentSearcher.searchIgnoreAllExclude()\nContiguousSegmentSearcher.searchIgnoreAllInclude()\nContiguousSegmentSearcher.searchIncludeAllExclude()\nContiguousSegmentSearcher.searchIncludeAllInclude()\nContiguousSegmentSearcher.searchRowsOnlyExclude()\nContiguousSegmentSearcher.searchRowsOnlyInclude()\nContiguousSegmentSearcher.searchSkipConsecutiveExclude()\nContiguousSegmentSearcher.searchSkipConsecutiveInclude()\n\n\n\n\nMultisetSegmentMatcher\nMultisetSegmentMatcher\nMultisetSegmentMatcher.equalSubset()\n\n\n\n\nSegmentMatcher\nSegmentMatcher\nSegmentMatcher.includeChords\nSegmentMatcher.reps\nSegmentMatcher.checkSearchedAlready()\nSegmentMatcher.equalSubset()\nSegmentMatcher.find()\nSegmentMatcher.findOneIgnoreAll()\nSegmentMatcher.findOneOtherReps()\nSegmentMatcher.getContiguousSegmentsByLength()\nSegmentMatcher.normalize()\n\n\n\n\nTransformedSegmentMatcher\nTransformedSegmentMatcher\nTransformedSegmentMatcher.checkSearchedAlready()\nTransformedSegmentMatcher.equalSubset()\nTransformedSegmentMatcher.getTransformations()\nTransformedSegmentMatcher.normalize()\n\n\n\n\nTransposedInvertedMultisetMatcher\nTransposedInvertedMultisetMatcher\nTransposedInvertedMultisetMatcher.checkSearchedAlready()\nTransposedInvertedMultisetMatcher.equalSubset()\n\n\n\n\nTransposedMultisetMatcher\nTransposedMultisetMatcher\nTransposedMultisetMatcher.checkSearchedAlready()\nTransposedMultisetMatcher.equalSubset()\n\n\n\n\nTransposedSegmentMatcher\nTransposedSegmentMatcher\nTransposedSegmentMatcher.normalize()\n\n\n\n\nFunctions\nlabelMultisets()\nlabelSegments()\nlabelTransformedSegments()\nlabelTransposedAndInvertedMultisets()\nlabelTransposedMultisets()\nlabelTransposedSegments()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.search.serial\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "ContiguousSegmentOfNotes\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.search.serial.",
+        "type": "Title"
+    },
+    {
+        "text": "ContiguousSegmentOfNotes",
+        "type": "Title"
+    },
+    {
+        "text": "segment",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "containerStream",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "partNumber",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Class whose instantiations represent contiguous segments of notes and chords appearing\nwithin a Stream. Generally speaking, these objects are instantiated\ninternally, though it is possible\nfor the user to create them as well.\n>>> s = stream.Stream()\n>>> p = stream.Part()\n>>> n1 = note.Note('c4')\n>>> n2 = note.Note('d4')\n>>> p.append(n1)\n>>> p.append(n2)\n>>> p = p.makeMeasures()\n>>> s.insert(0, p)\n>>> cdContiguousSegment = search.serial.ContiguousSegmentOfNotes([n1, n2], s, 0)\n>>> cdContiguousSegment\n<music21.search.serial.ContiguousSegmentOfNotes ['C4', 'D4']>",
+        "type": "ListItem"
+    },
+    {
+        "text": "ContiguousSegmentOfNotes bases",
+        "type": "Title"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ContiguousSegmentOfNotes read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "ContiguousSegmentOfNotes.",
+        "type": "Title"
+    },
+    {
+        "text": "originalCenteredTransformationsFromMatched",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The list of original-centered transformations taking a segment being\nsearched for to a found segment, for example, in\nfindTransformedSegments().\nFor an explanation of the\nzero-centered convention for serial transformations, see\nmusic21.search.serial.ToneRow.originalCenteredTransformation().",
+        "type": "ListItem"
+    },
+    {
+        "text": "ContiguousSegmentOfNotes.",
+        "type": "Title"
+    },
+    {
+        "text": "startMeasureNumber",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The measure number on which the contiguous segment begins.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ContiguousSegmentOfNotes.",
+        "type": "Title"
+    },
+    {
+        "text": "startOffset",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The offset of the beginning of the contiguous segment,\nwith respect to the measure containing the first note.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ContiguousSegmentOfNotes.",
+        "type": "Title"
+    },
+    {
+        "text": "zeroCenteredTransformationsFromMatched",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The list of zero-centered transformations taking a segment being searched\nfor to a found segment, for example, in\nfindTransformedSegments().\nFor an explanation of the zero-centered convention for serial transformations,\nsee music21.search.serial.ToneRow.zeroCenteredTransformation().",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "ContiguousSegmentOfNotes read/write properties",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "ContiguousSegmentOfNotes methods",
+        "type": "Title"
+    },
+    {
+        "text": "ContiguousSegmentOfNotes.",
+        "type": "Title"
+    },
+    {
+        "text": "getActiveMatchedRows",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns two ToneRow objects, the activeSegment as ToneRow\nand the matchedSegment as ToneRow",
+        "type": "ListItem"
+    },
+    {
+        "text": "ContiguousSegmentOfNotes.",
+        "type": "Title"
+    },
+    {
+        "text": "getDistinctPitchClasses",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns a list of distinct pitch classes in the segment, in order of appearance,\nwhere pitches in a chord are read from bottom to top.\nDoes not sort or order.\n>>> sc = stream.Score()\n>>> n1 = note.Note('d4')\n>>> n1.quarterLength = 1\n>>> c = chord.Chord(['d4', 'e4', 'g4', 'd5'])\n>>> c.quarterLength = 1\n>>> sc.append(n1)\n>>> sc.append(c)\n>>> sc = sc.makeMeasures()\n>>> searcher = search.serial.ContiguousSegmentSearcher(sc)\n>>> segmentList = searcher.byLength(4)\n>>> csn = segmentList[0]\n>>> csn.getDistinctPitchClasses()\n[2, 4, 7]",
+        "type": "ListItem"
+    },
+    {
+        "text": "ContiguousSegmentOfNotes.",
+        "type": "Title"
+    },
+    {
+        "text": "readPitchClassesFromBottom",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns the list of pitch classes in the segment, reading pitches within\nchords from bottom to top.\n>>> sc = stream.Score()\n>>> n1 = note.Note('d4')\n>>> n1.quarterLength = 1\n>>> Cmaj = chord.Chord(['c5', 'e4', 'g4'])\n>>> Cmaj.quarterLength = 1\n>>> sc.append(n1)\n>>> sc.append(Cmaj)\n>>> sc = sc.makeMeasures()\n>>> searcher = search.serial.ContiguousSegmentSearcher(sc)\n>>> segmentList = searcher.byLength(4)\n>>> csn = segmentList[0]\n>>> csn.readPitchClassesFromBottom()\n[2, 0, 4, 7]",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "ContiguousSegmentOfNotes instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "ContiguousSegmentOfNotes.",
+        "type": "Title"
+    },
+    {
+        "text": "activeSegment",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A list of pitch classes representing the way the contiguous\nsegment of notes is being read as a sequence of single pitches. Set to None\nunless the container stream is being searched for segments or multisets\n(for example, using find()), in which case\nthe representation depends on the segments or multisets being searched for.\nIf there are no chords in the segment, this attribute will simply give the\npitch classes of the notes in the segment.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ContiguousSegmentOfNotes.",
+        "type": "Title"
+    },
+    {
+        "text": "containerStream",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The stream containing the contiguous segment -\nall contiguous segments must have a container stream.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ContiguousSegmentOfNotes.",
+        "type": "Title"
+    },
+    {
+        "text": "matchedSegment",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A list of pitch classes representing the segment to which\nthe contiguous segment of notes is matched when segments or multisets are\nsearched for (for example, using findSegments());\notherwise set to None. Note that the contiguous segment will only be\nmatched to one of the segments or multisets being searched for.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ContiguousSegmentOfNotes.",
+        "type": "Title"
+    },
+    {
+        "text": "partNumber",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The part number in which the segment appears, or None\n(if the container stream has no parts). Note that this attribute is zero-indexed,\nso the top (e.g. soprano) part is labeled 0.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ContiguousSegmentOfNotes.",
+        "type": "Title"
+    },
+    {
+        "text": "segment",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The list of notes and chords in the contiguous segment.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "ContiguousSegmentSearcher\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.search.serial.",
+        "type": "Title"
+    },
+    {
+        "text": "ContiguousSegmentSearcher",
+        "type": "Title"
+    },
+    {
+        "text": "inputStream",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "reps",
+        "type": "Title"
+    },
+    {
+        "text": "'skipConsecutive'",
+        "type": "Title"
+    },
+    {
+        "text": "includeChords",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Class that when given a Stream\nand .byLength() is called, returns a\nContiguousSegmentOfNotes objects\nwhere the desired number of notes in the segment is specified.\nThe inputStream is a Score or Part or Opus containing one score..\nFurthermore, all notes must be contained within measures.\nThe reps argument specifies how repeated pitch classes are dealt with.\nIt may be set to \u0098skipConsecutive' (default), \u0098rowsOnly', \u0098includeAll', or \u0098ignoreAll'.\nThese are explained in detail below.\nThe includeChords argument specifies how chords are dealt with. When set to True (default),\nthe pitches of all chords\nare read in order from bottom to top, and when set to False, all segments containing\nchords are ignored.\nThe main subtleties of this function lie in how each reps setting works in\nconjunction with chords when\nincludeChords is set to True, and how the lengths of the segments are measured.\nHowever, let us first examine what happens when includeChords\nis set to False, to get an idea of how the function works.\nTo begin, we create a stream on which we will apply the function.\n>>> s = stream.Stream()\n>>> n1 = note.Note('e4')\n>>> n1.quarterLength = 6\n>>> s.append(n1)\n>>> n2 = note.Note('f4')\n>>> n2.quarterLength = 1\n>>> s.append(n2)\n>>> n3 = chord.Chord(['g4', 'b4'])\n>>> n3.quarterLength = 1\n>>> s.append(n3)\n>>> n4 = note.Note('g4')\n>>> n4.quarterLength = 1\n>>> s.repeatAppend(n4, 2)\n>>> n5 = note.Note('a4')\n>>> n5.quarterLength = 3\n>>> s.repeatAppend(n5, 2)\n>>> n6 = note.Note('b4')\n>>> n6.quarterLength = 1\n>>> s.append(n6)\n>>> n7 = note.Note('c5')\n>>> n7.quarterLength = 1\n>>> s.append(n7)\n\n\nWe can now try to apply this function:\n>>> searcher = search.serial.ContiguousSegmentSearcher(s, 'skipConsecutive', False)\n>>> contiguousList = searcher.byLength(3)\n>>> print(contiguousList)\n[<music21.search.serial.ContiguousSegmentOfNotes ['G4', 'A4', 'B4']>,\n <music21.search.serial.ContiguousSegmentOfNotes ['A4', 'B4', 'C5']>]\n\n\n\nWe now can apply the function, and in doing so we examine in detail each of the reps settings.\n\u0098skipConsecutive' means that whenever immediate repetitions of notes or chords occur,\nonly the first instance of the note or chord is included in the segment.\nThe durations of the repeated notes,\ndo not have to be the same.\n>>> searcher = search.serial.ContiguousSegmentSearcher(s, includeChords=False)\n>>> searcher.reps = 'skipConsecutive'\n\n\n>>> skipConsecutiveList = searcher.byLength(3)\n>>> print(skipConsecutiveList)\n[<music21.search.serial.ContiguousSegmentOfNotes ['G4', 'A4', 'B4']>,\n <music21.search.serial.ContiguousSegmentOfNotes ['A4', 'B4', 'C5']>]\n\n\n>>> [instance.segment for instance in skipConsecutiveList]\n[[<music21.note.Note G>, <music21.note.Note A>, <music21.note.Note B>],\n [<music21.note.Note A>, <music21.note.Note B>, <music21.note.Note C>]]\n\n\nIn order to be considered repetition, the spellings of the notes\nin question must be exactly the same:\nenharmonic equivalents are not checked and notes with the\nsame pitch in different octaves are considered different.\nTo illustrate this, see the example below, in which all three notes,\nwith pitch class 0, are considered\nseparately.\n>>> new = stream.Stream()\n>>> n1 = note.Note('c4')\n>>> n2 = note.Note('c5')\n>>> n3 = note.Note('b#5')\n>>> new.append(n1)\n>>> new.append(n2)\n>>> new.append(n3)\n>>> new = new.makeMeasures()\n\n\n>>> searcherNew = search.serial.ContiguousSegmentSearcher(new,\n...       reps='skipConsecutive', includeChords=False)\n>>> foundSegments = searcherNew.byLength(3)\n>>> [seg.segment for seg in foundSegments]\n[[<music21.note.Note C>, <music21.note.Note C>, <music21.note.Note B#>]]\n\n\n\u0098rowsOnly' searches only for tone rows, in which all pitch classes\nin the segment must be distinct. Below,\nwe are looking for sequences three consecutive notes within the\nstream s, all of which have different pitch classes.\nThere is only one such set of notes, and by calling the\nContiguousSegmentOfNotes we can\ndetermine its location (the measure number of its first note).\nWe'll return to our original searcher, but make sure that it has measures now:\n>>> searcher = search.serial.ContiguousSegmentSearcher(s.makeMeasures(), includeChords=False)\n>>> searcher.reps = 'rowsOnly'\n>>> rowsOnlyList = searcher.byLength(3)\n>>> [(instance.segment, instance.startMeasureNumber) for instance in rowsOnlyList]\n[([<music21.note.Note A>, <music21.note.Note B>, <music21.note.Note C>], 4)]\n\n\n\u0098includeAll' disregards all repetitions, and simply gets all\ncontiguous segments of the specified length (still subject\nto the includeChords setting).\n>>> searcher.reps = 'includeAll'\n>>> includeAllList = searcher.byLength(3)\n>>> for instance in includeAllList:\n...     print(instance.segment, instance.startMeasureNumber, instance.startOffset)\n[<music21.note.Note G>, <music21.note.Note G>, <music21.note.Note A>] 3 0.0\n[<music21.note.Note G>, <music21.note.Note A>, <music21.note.Note A>] 3 1.0\n[<music21.note.Note A>, <music21.note.Note A>, <music21.note.Note B>] 3 2.0\n[<music21.note.Note A>, <music21.note.Note B>, <music21.note.Note C>] 4 1.0\n\n\nNote that there only two total As appear in these segments, despite there being three\nNote objects with the A4 as the pitch\nin the stream s; this is because only the first note of each set\nof tied notes is considered. This convention applies to this\nfunction and all parsing functions below.\nAlso note that so far, neither of the first two notes n1, n2\nnor the major third n3 in s have been included in any of the\nreturned contiguous segments. This is because for each of these,\nany instance of three consecutive notes or chords\ncontains the chord n3. This phenomenon also applies to the next example below.\nFinally, when includeChords is set to False, \u0098ignoreAll' finds all\ncontiguous segments containing exactly three distinct pitch\nclasses within it. It is unique in that unlike the previous three\nreps settings, the segments returned in fact\nhave more than the number of notes specified (3). Rather, they\neach have 3 distinct pitch classes, and some pitch classes\nmay be repeated.\n>>> searcher.reps = 'ignoreAll'\n>>> ignoreAllList = searcher.byLength(3)\n>>> [instance.segment for instance in ignoreAllList]\n[[<music21.note.Note G>, <music21.note.Note G>, <music21.note.Note A>, <music21.note.Note A>,\n  <music21.note.Note B>],\n [<music21.note.Note G>, <music21.note.Note A>, <music21.note.Note A>, <music21.note.Note B>],\n [<music21.note.Note A>, <music21.note.Note A>, <music21.note.Note B>, <music21.note.Note C>],\n [<music21.note.Note A>, <music21.note.Note B>, <music21.note.Note C>]]\n\n\nLet us now examine what happens in the default chord setting,\nin which includeChords is set to True.\nThere are two points to remember when considering chords: the first is that all\nchords are read as sequences of single notes,\nfrom bottom to top. The second is that \u0098length' always applies to the total\nnumber of single pitches or pitch classes found\nin the segment, including within chords, and not to the number of notes or chords.\nHowever, as we will see, when we search\nfor contiguous segments of length 4, the returned segments may not have exactly\n4 total notes (possibly existing\nas single notes or within chords), a natural point of confusion.\nBelow is a new stream s0.\n>>> s0 = stream.Stream()\n>>> n1 = note.Note('d4')\n>>> maj2nd = chord.Chord(['f4', 'g4'])\n>>> bMaj1 = chord.Chord(['b4', 'd#5', 'f#5'])\n>>> bMaj2 = chord.Chord(['b4', 'd#5', 'f#5'])\n>>> n2 = note.Note('f#4')\n>>> n3 = note.Note('e4')\n>>> n4 = note.Note('a4')\n>>> s0.append([n1, maj2nd, bMaj1, bMaj2, n2, n3, n4])\n>>> s0 = s0.makeMeasures()\n>>> s0.show()\n\n\n\n>>> searcher = search.serial.ContiguousSegmentSearcher(s0, 'skipConsecutive', True)\n>>> skipConsecutiveWithChords = searcher.byLength(4)\n>>> [seg.segment for seg in skipConsecutiveWithChords]\n[[<music21.note.Note D>, <music21.chord.Chord F4 G4>, <music21.chord.Chord B4 D#5 F#5>],\n [<music21.chord.Chord F4 G4>, <music21.chord.Chord B4 D#5 F#5>],\n [<music21.chord.Chord B4 D#5 F#5>, <music21.note.Note F#>],\n [<music21.chord.Chord B4 D#5 F#5>, <music21.note.Note F#>, <music21.note.Note E>],\n [<music21.chord.Chord B4 D#5 F#5>, <music21.note.Note F#>, <music21.note.Note E>,\n  <music21.note.Note A>]]\n\n\nLet us look closely at the found segments. First, because reps\nwas set to \u0098skipConsecutive', the second\nB major chord (bMaj2) is never considered, as the chord right\nbefore it is the same. As was mentioned before,\nnot all the segments found have exactly 4 notes total.\nThis is because, for each segment, only a subset\nof the notes contained in the first and last elements are read. Given one of the\nfound segments, it will always\nbe possible to extract exactly four consecutive pitches from the notes and chords,\nreading in order, so that\nat least one pitch is taken from each of the first and last chords.\nIn the first segment, there is one way to extract 4 consecutive pitches:\nwe take the D in the first note, read\nthe F and G (in that order) from the next chord, and finally,\nreading the last chord from bottom to top, the B\nfrom the B major chord. Note that no other reading of the segment\nis possible because the D from the first note\nmust be used. The second segment in the returned list, on the other\nhand, can be read as a sequence of 4\nconsecutive pitches in two ways, both equally valid. We can either take\nthe top note of the first chord, and all three\nnotes, in order, of the second chord, or both notes of the first chord\nand the bottom two notes of the second chord.\n>>> searcher.reps = 'rowsOnly'\n>>> rowsOnlyChords = searcher.byLength(4)\n>>> rowsOnlyChords\n[<music21.search.serial.ContiguousSegmentOfNotes ['D4', 'F4 G4', 'B4 D#5 F#5']>,\n <music21.search.serial.ContiguousSegmentOfNotes ['F4 G4', 'B4 D#5 F#5']>]\n\n\n>>> [seg.segment for seg in rowsOnlyChords]\n[[<music21.note.Note D>, <music21.chord.Chord F4 G4>, <music21.chord.Chord B4 D#5 F#5>],\n [<music21.chord.Chord F4 G4>, <music21.chord.Chord B4 D#5 F#5>]]\n\n\nWhen reps is set to \u0098rowsOnly', the segments returned are those such that\neach may be read as a sequence\nof 4 pitches, in the same manner as explained above with the \u0098skipConsecutive' setting,\nsuch that the sequence\nof 4 pitches constitutes a four-note tone row. Above, the first segment\ncorresponds to the row [2, 5, 7, 11], and the\nsecond may be read as either [5, 7, 11, 3] or [7, 11, 3, 6]. Note that, for example,\nwe could not include both\nthe B-major chord and the F# that comes right after it in the same segment,\nbecause there would have to be two\nconsecutive instances of the pitch class 6 (corresponding to F#). Similarly,\nwe could not include both instances\nof the B-major chord, as, again, we would have a pitch class repeated in\nany resulting four-note row.\n>>> searcher.reps = 'includeAll'\n>>> includeAll = searcher.byLength(4)\n>>> [seg.segment for seg in includeAll]\n[[<music21.note.Note D>, <music21.chord.Chord F4 G4>, <music21.chord.Chord B4 D#5 F#5>],\n [<music21.chord.Chord F4 G4>, <music21.chord.Chord B4 D#5 F#5>],\n [<music21.chord.Chord B4 D#5 F#5>, <music21.chord.Chord B4 D#5 F#5>],\n [<music21.chord.Chord B4 D#5 F#5>, <music21.note.Note F#>],\n [<music21.chord.Chord B4 D#5 F#5>, <music21.note.Note F#>, <music21.note.Note E>],\n [<music21.chord.Chord B4 D#5 F#5>, <music21.note.Note F#>,\n  <music21.note.Note E>, <music21.note.Note A>]]\n\n\nHere, all segments from which sequences of four consecutive pitches can be extracted,\nagain with at least\none pitch coming from each of the first and last elements of the segments, are found.\n>>> searcher.reps = 'ignoreAll'\n>>> ignoreAll = searcher.byLength(4)\n>>> [seg.segment for seg in ignoreAll]\n[[<music21.note.Note D>,\n  <music21.chord.Chord F4 G4>,\n  <music21.chord.Chord B4 D#5 F#5>],\n [<music21.chord.Chord F4 G4>,\n  <music21.chord.Chord B4 D#5 F#5>],\n [<music21.chord.Chord F4 G4>,\n  <music21.chord.Chord B4 D#5 F#5>,\n  <music21.chord.Chord B4 D#5 F#5>],\n [<music21.chord.Chord F4 G4>,\n  <music21.chord.Chord B4 D#5 F#5>,\n  <music21.chord.Chord B4 D#5 F#5>,\n  <music21.note.Note F#>],\n [<music21.chord.Chord B4 D#5 F#5>,\n  <music21.chord.Chord B4 D#5 F#5>,\n  <music21.note.Note F#>,\n  <music21.note.Note E>],\n [<music21.chord.Chord B4 D#5 F#5>,\n  <music21.note.Note F#>,\n  <music21.note.Note E>],\n [<music21.chord.Chord B4 D#5 F#5>,\n  <music21.note.Note F#>,\n  <music21.note.Note E>,\n  <music21.note.Note A>]]\n\n\nWhen reps is set to \u0098ignoreAll', the pitch classes from each segment are read by taking,\nin order, the pitch classes\nin the order in which they first appear, where chords are again read from bottom to top.\nFor example, in the last segment,\nthe first three pitch classes are those in the first chord, from\nbottom to top: 11, 3, and 6. Then, the next pitch class\nappearing is 6, which is disregarded because it has already appeared.\nFinally, the pitch classes 4 and 9 appear in that order.\nThere are thus five pitch classes in this segment, in the order [11, 3, 6, 4, 9].\nThe segment can be read has having length 4 because four consecutive\npitch classes, [3, 6, 4, 9], can be read from this sequence\nin such a way that the first pitch class of this subsequence is part of the\nfirst chord in the segment, and the last pitch class\nis that of the last note of the segment. More generally, in this setting the\nfound segments are those which contain at least 4\ndistinct pitch classes, but the top note of the first chord (or note), the\nbottom note of the last chord (or note),\nand all pitches of all notes and chords other than the first and last\ncontain at most 4 distinct pitch classes.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ContiguousSegmentSearcher methods",
+        "type": "Title"
+    },
+    {
+        "text": "ContiguousSegmentSearcher.",
+        "type": "Title"
+    },
+    {
+        "text": "addActiveChords",
+        "type": "Title"
+    },
+    {
+        "text": "partNumber",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "ContiguousSegmentSearcher.",
+        "type": "Title"
+    },
+    {
+        "text": "byLength",
+        "type": "Title"
+    },
+    {
+        "text": "length",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Run the current setting for reps and includeChords to find all segments\nof length length.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ContiguousSegmentSearcher.",
+        "type": "Title"
+    },
+    {
+        "text": "getSearchBoundMethod",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a search method based on the setting of reps (how to classify repetitions),\nand the includeChord setting.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ContiguousSegmentSearcher.",
+        "type": "Title"
+    },
+    {
+        "text": "searchIgnoreAllExclude",
+        "type": "Title"
+    },
+    {
+        "text": "partNumber",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "ContiguousSegmentSearcher.",
+        "type": "Title"
+    },
+    {
+        "text": "searchIgnoreAllInclude",
+        "type": "Title"
+    },
+    {
+        "text": "partNumber",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "ContiguousSegmentSearcher.",
+        "type": "Title"
+    },
+    {
+        "text": "searchIncludeAllExclude",
+        "type": "Title"
+    },
+    {
+        "text": "partNumber",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "ContiguousSegmentSearcher.",
+        "type": "Title"
+    },
+    {
+        "text": "searchIncludeAllInclude",
+        "type": "Title"
+    },
+    {
+        "text": "partNumber",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns the number added.",
+        "type": "ListItem"
+    },
+    {
+        "text": "ContiguousSegmentSearcher.",
+        "type": "Title"
+    },
+    {
+        "text": "searchRowsOnlyExclude",
+        "type": "Title"
+    },
+    {
+        "text": "partNumber",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "ContiguousSegmentSearcher.",
+        "type": "Title"
+    },
+    {
+        "text": "searchRowsOnlyInclude",
+        "type": "Title"
+    },
+    {
+        "text": "partNumber",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "ContiguousSegmentSearcher.",
+        "type": "Title"
+    },
+    {
+        "text": "searchSkipConsecutiveExclude",
+        "type": "Title"
+    },
+    {
+        "text": "partNumber",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "ContiguousSegmentSearcher.",
+        "type": "Title"
+    },
+    {
+        "text": "searchSkipConsecutiveInclude",
+        "type": "Title"
+    },
+    {
+        "text": "partNumber",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "MultisetSegmentMatcher\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.search.serial.",
+        "type": "Title"
+    },
+    {
+        "text": "MultisetSegmentMatcher",
+        "type": "Title"
+    },
+    {
+        "text": "inputStream",
+        "type": "Title"
+    },
+    {
+        "text": "reps",
+        "type": "Title"
+    },
+    {
+        "text": "'skipConsecutive'",
+        "type": "Title"
+    },
+    {
+        "text": "includeChords",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Finds all instances of given multisets of pitch classes\nwithin a Stream. A multiset\nis a generalization of a set, in which the order of the\nelements in the multiset does not matter, but multiple instances\nof the same thing (in this case, same pitch class) are treated as distinct elements.\nThus, two multisets of pitch classes\nare considered to be equal if and only if the number of times any given\npitch class appears in one multiset is the same as\nthe number of times the pitch class appears in the other multiset.\nThe inputStream is Stream; as\nin ContiguousSegmentSearcher,\nthe inputStream can contain at most one Score\nits notes must be contained in measures. However, the inputStream may have\nmultiple parts. The searchList is a list of multisets to\nbe searched for, each multiset being given as a list of pitch classes.\nNote that the order of pitch classes given in a multiset\ndoes not matter. The reps and includeChords settings specify how\nrepeated pitches and chords, respectively, are handled;\nthe possible settings are the same as those in\nContiguousSegmentSearcher\nReturns a list of ContiguousSegmentOfNotes\nobjects for the\nactiveSegment,\ninterpreted as a multiset,\nmatches at least one of the elements of the searchList,\nsubject to the settings specified in reps and includeChords.\n>>> part = stream.Part()\n>>> n1 = note.Note('e4')\n>>> n1.quarterLength = 4\n>>> n2 = note.Note('e4')\n>>> n2.quarterLength = 4\n>>> n3 = note.Note('f4')\n>>> n3.quarterLength = 4\n>>> n4 = note.Note('e4')\n>>> n4.quarterLength = 4\n>>> n5 = note.Note('g4')\n>>> n5.quarterLength = 4\n>>> part.append(n1)\n>>> part.append(n2)\n>>> part.append(n3)\n>>> part.append(n4)\n>>> part.append(n5)\n>>> part.makeMeasures(inPlace=True)\n>>> part.show('text')\n{0.0} <music21.stream.Measure 1 offset=0.0>\n    {0.0} <music21.clef.TrebleClef>\n    {0.0} <music21.meter.TimeSignature 4/4>\n    {0.0} <music21.note.Note E>\n{4.0} <music21.stream.Measure 2 offset=4.0>\n    {0.0} <music21.note.Note E>\n{8.0} <music21.stream.Measure 3 offset=8.0>\n    {0.0} <music21.note.Note F>\n{12.0} <music21.stream.Measure 4 offset=12.0>\n    {0.0} <music21.note.Note E>\n{16.0} <music21.stream.Measure 5 offset=16.0>\n    {0.0} <music21.note.Note G>\n    {4.0} <music21.bar.Barline type=final>\n\n\n>>> part.show()\n\n\n\nFind all instances of the multiset [5, 4, 4] in the part\n>>> MSS = search.serial.MultisetSegmentMatcher(part, 'includeAll', includeChords=False)\n>>> EEF = MSS.find([5, 4, 4])\n>>> EEF\n[<music21.search.serial.ContiguousSegmentOfNotes ['E4', 'E4', 'F4']>,\n <music21.search.serial.ContiguousSegmentOfNotes ['E4', 'F4', 'E4']>]\n>>> [(seg.activeSegment, seg.startMeasureNumber) for seg in EEF]\n[([4, 4, 5], 1), ([4, 5, 4], 2)]\n\n\n>>> MSS = search.serial.MultisetSegmentMatcher(part, 'ignoreAll')\n>>> EF = MSS.find([5, 4])\n>>> EF\n[<music21.search.serial.ContiguousSegmentOfNotes ['E4', 'E4', 'F4']>,\n <music21.search.serial.ContiguousSegmentOfNotes ['E4', 'F4']>,\n <music21.search.serial.ContiguousSegmentOfNotes ['E4', 'E4', 'F4', 'E4']>,\n <music21.search.serial.ContiguousSegmentOfNotes ['E4', 'F4', 'E4']>,\n <music21.search.serial.ContiguousSegmentOfNotes ['F4', 'E4']>]\n\n\nConsider the following examples, with chords.\n>>> sc0 = stream.Score()\n>>> part0 = stream.Part()\n>>> part0.append(note.Note('c4'))\n>>> part0.append(note.Note('d4'))\n>>> part0.append(note.Note('e4'))\n>>> part0.append(chord.Chord(['f4', 'e5']))\n>>> part0 = part0.makeMeasures()\n>>> sc0.insert(0, part0)\n\n\n>>> MSS = search.serial.MultisetSegmentMatcher(sc0, 'ignoreAll')\n>>> CDE = MSS.find([0, 4, 2])\n\n\n>>> [seg.segment for seg in CDE]\n[[<music21.note.Note C>, <music21.note.Note D>, <music21.note.Note E>]]\n\n\nAlso:\n>>> sc1 = stream.Score()\n>>> part1 = stream.Part()\n>>> part1.append(note.Note('c4'))\n>>> part1.append(note.Note('d4'))\n>>> part1.append(chord.Chord(['e4', 'f4']))\n>>> part1 = part1.makeMeasures()\n>>> sc1.insert(0, part1)\n>>> searcher = search.serial.ContiguousSegmentSearcher(sc1)\n>>> segmentList = searcher.byLength(3)\n>>> [seg.getDistinctPitchClasses() for seg in segmentList]\n[[0, 2, 4, 5], [2, 4, 5]]\n\n\n>>> MSS = search.serial.MultisetSegmentMatcher(sc1)\n>>> CDF = MSS.find([0, 2, 5])\n>>> CDF\n[]",
+        "type": "ListItem"
+    },
+    {
+        "text": "MultisetSegmentMatcher bases",
+        "type": "Title"
+    },
+    {
+        "text": "SegmentMatcher",
+        "type": "ListItem"
+    },
+    {
+        "text": "MultisetSegmentMatcher read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from SegmentMatcher:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "includeChords reps",
+        "type": "Table"
+    },
+    {
+        "text": "MultisetSegmentMatcher methods",
+        "type": "Title"
+    },
+    {
+        "text": "MultisetSegmentMatcher.",
+        "type": "Title"
+    },
+    {
+        "text": "equalSubset",
+        "type": "Title"
+    },
+    {
+        "text": "searchSegment",
+        "type": "Title"
+    },
+    {
+        "text": "subsetToCheck",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if there are the same number of each pitchClass in searchSegment\nas in subsetToCheck",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from SegmentMatcher:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "checkSearchedAlready() find() findOneIgnoreAll() findOneOtherReps() getContiguousSegmentsByLength() normalize()",
+        "type": "Table"
+    },
+    {
+        "text": "SegmentMatcher\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.search.serial.",
+        "type": "Title"
+    },
+    {
+        "text": "SegmentMatcher",
+        "type": "Title"
+    },
+    {
+        "text": "inputStream",
+        "type": "Title"
+    },
+    {
+        "text": "reps",
+        "type": "Title"
+    },
+    {
+        "text": "'skipConsecutive'",
+        "type": "Title"
+    },
+    {
+        "text": "includeChords",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Matches all the ContiguousSegmentsOfNotes (found by ContiguousSegmentSearcher)\nwithin a Stream\nto one or more segments of pitch classes.\nThe inputStream is a Stream; as\nin ContiguousSegmentSearcher,\nthe inputStream can contain at most one Score and\nits notes must be contained in measures. The searchList is a list of contiguous segments to\nbe searched for, each segment being given as a list of pitch classes.\nThe reps and includeChords settings specify how\nrepeated pitches and chords, respectively, are handled; the\npossible settings are the same as those in\nContiguousSegmentSearcher.\nReturns a list of ContiguousSegmentOfNotes\nobjects for which the\nactiveSegment\nmatches at least one of the elements of the searchList,\nsubject to the settings specified in reps and includeChords.\n>>> sc = stream.Score()\n>>> part = stream.Part()\n>>> sig = meter.TimeSignature('2/4')\n>>> part.append(sig)\n>>> n1 = note.Note('e4')\n>>> n1.quarterLength = 6\n>>> part.append(n1)\n>>> n2 = note.Note('f4')\n>>> n2.quarterLength = 1\n>>> part.append(n2)\n>>> n3 = chord.Chord(['g4', 'b4'])\n>>> n3.quarterLength = 1\n>>> part.append(n3)\n>>> n4 = note.Note('g4')\n>>> n4.quarterLength = 1\n>>> part.repeatAppend(n4, 2)\n>>> n5 = note.Note('a4')\n>>> n5.quarterLength = 3\n>>> part.repeatAppend(n5, 2)\n>>> n6 = note.Note('b4')\n>>> n6.quarterLength = 1\n>>> part.append(n6)\n>>> n7 = note.Note('c5')\n>>> n7.quarterLength = 1\n>>> part.append(n7)\n>>> newPart = part.makeMeasures()\n>>> newPart.makeTies(inPlace=True)\n>>> newPart.show()\n\n\n\n>>> sc.insert(0, newPart)\n\n\n>>> matcher = search.serial.SegmentMatcher(sc, includeChords=False)\n\n\n>>> GABandABC = matcher.find([[7, 9, 11], [9, 11, 0]])\n>>> print(GABandABC)\n[<music21.search.serial.ContiguousSegmentOfNotes ['G4', 'A4', 'B4']>,\n <music21.search.serial.ContiguousSegmentOfNotes ['A4', 'B4', 'C5']>]\n\n\n>>> GABandABC[0].segment, GABandABC[1].segment\n([<music21.note.Note G>, <music21.note.Note A>, <music21.note.Note B>],\n [<music21.note.Note A>, <music21.note.Note B>, <music21.note.Note C>])\n\n\n>>> GABandABC[0].startMeasureNumber, GABandABC[1].startMeasureNumber\n(5, 6)\n\n\nIn case it is not clear, we can use\nthe matchedSegment property\nto determine, to which element of the original searchList the found\ncontiguous segments were matched.\n>>> GABandABC[0].matchedSegment\n[7, 9, 11]\n>>> GABandABC[1].matchedSegment\n[9, 11, 0]\n\n\nOne can also search for segments of different lengths, simultaneously.\nBelow, \u0098B' refers to the\npitch class 11, which only coincidentally is the same as that of the note B.\n>>> x = (matcher.find([[7, 9, 11], ['B', 0]]))\n>>> x\n[<music21.search.serial.ContiguousSegmentOfNotes ['G4', 'A4', 'B4']>,\n <music21.search.serial.ContiguousSegmentOfNotes ['B4', 'C5']>]\n\n\nBelow, we can see what happens when we include the chords and use ignoreAll\n>>> matcher = search.serial.SegmentMatcher(sc, reps='ignoreAll', includeChords=True)\n>>> [seg.segment for seg in matcher.find([[5, 7, 'B']])]\n[[<music21.note.Note F>, <music21.chord.Chord G4 B4>]]\n\n\nAs expected, the pitch classes found segment are read\nin the order 5, 7, 11 (\u0098B'), as the pitches\nin the chord are read from bottom to top.\nConsider the following other example with chords, which is somewhat more complex:\n>>> sc0 = stream.Score()\n>>> p0 = stream.Part()\n>>> c1 = chord.Chord(['c4', 'd4'])\n>>> c2 = chord.Chord(['e4', 'f4'])\n>>> p0.append(c1)\n>>> p0.append(c2)\n>>> p0 = p0.makeMeasures()\n>>> sc0.insert(0, p0)\n\n\n>>> matcher = search.serial.SegmentMatcher(sc0)\n>>> foundSegments = matcher.find([[0, 2, 4]])\n>>> len(foundSegments)\n1\n>>> seg = foundSegments[0]\n>>> seg.segment\n[<music21.chord.Chord C4 D4>, <music21.chord.Chord E4 F4>]\n>>> seg.activeSegment\n[0, 2, 4]\n\n\nIf we are just searching for a single term, the list-of-lists can be\ngiven just as a list:\n>>> foundSegments = matcher.find([2, 4, 5])\n>>> len(foundSegments)\n1\n>>> seg = foundSegments[0]\n>>> seg.segment\n[<music21.chord.Chord C4 D4>, <music21.chord.Chord E4 F4>]\n>>> seg.activeSegment\n[2, 4, 5]\n\n\nIn the two function calls, despite the fact that two different segments\nof pitch classes were searched for, the same\nContiguousSegmentOfNotes object was found for each.\nThis is because the found object can be read\nin two ways as a sequence of three pitch classes: either as [0, 2, 4], by\ntaking the two notes of the first chord in order\nand the bottom note of the second, or as [2, 4, 5], by taking the top\nnote of the first chord and the two notes of the second\nchord in order. Both times, the chords are read from bottom to top.\n>>> matcher = search.serial.SegmentMatcher(sc, includeChords=False)\n>>> foundSegments = matcher.find([[7, -3, 11], [9, 11, 0]])\n\n\n>>> for a in foundSegments:\n...    print(a.matchedSegment)\n[7, -3, 11]\n[9, 11, 0]\n\n\n>>> len(foundSegments)\n2\n\n\n>>> s = stream.Stream()\n>>> n1 = note.Note('e4')\n>>> n2 = note.Note('f4')\n>>> n3 = note.Note('g4')\n>>> c = chord.Chord(['b4', 'g5', 'a5'])\n>>> s.append(n1)\n>>> s.append(n2)\n>>> s.append(n3)\n>>> s.append(c)\n>>> s = s.makeMeasures()\n\n\n>>> matcher = search.serial.SegmentMatcher(s, 'ignoreAll')\n>>> foundSegments = matcher.find([4, -7, 7])\n\n\n>>> [seg.segment for seg in foundSegments]\n[[<music21.note.Note E>, <music21.note.Note F>, <music21.note.Note G>]]\n\n\n>>> foundSegments = matcher.find([7, 'B', 9])\n>>> [seg.segment for seg in foundSegments]\n[[<music21.note.Note G>, <music21.chord.Chord B4 G5 A5>]]",
+        "type": "ListItem"
+    },
+    {
+        "text": "SegmentMatcher read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "SegmentMatcher.",
+        "type": "Title"
+    },
+    {
+        "text": "includeChords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns or sets bool on whether chords should be included.\nClears the segment cache when it is changed.",
+        "type": "ListItem"
+    },
+    {
+        "text": "SegmentMatcher.",
+        "type": "Title"
+    },
+    {
+        "text": "reps",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "SegmentMatcher methods",
+        "type": "Title"
+    },
+    {
+        "text": "SegmentMatcher.",
+        "type": "Title"
+    },
+    {
+        "text": "checkSearchedAlready",
+        "type": "Title"
+    },
+    {
+        "text": "unNormalizedSearchSegment",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Check to see if we have searched this segment already.\nCalled out to be subclassible by Transformed searchers.\nIf yes, return True.\nIf not, add to searchedAlready and return False\n>>> matcher = search.serial.SegmentMatcher(None)\n>>> matcher.checkSearchedAlready([4, 5, 6])\nFalse\n>>> matcher.checkSearchedAlready([1, 2, 3])\nFalse\n>>> matcher.checkSearchedAlready([4, 5, 6])\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "SegmentMatcher.",
+        "type": "Title"
+    },
+    {
+        "text": "equalSubset",
+        "type": "Title"
+    },
+    {
+        "text": "searchSegment",
+        "type": "Title"
+    },
+    {
+        "text": "subsetToCheck",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if these are equal in some way.\nHere's it is simple \u2014 are they equal? But it will be harder for other classes.",
+        "type": "ListItem"
+    },
+    {
+        "text": "SegmentMatcher.",
+        "type": "Title"
+    },
+    {
+        "text": "find",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "searchList",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "SegmentMatcher.",
+        "type": "Title"
+    },
+    {
+        "text": "findOneIgnoreAll",
+        "type": "Title"
+    },
+    {
+        "text": "thisSegment",
+        "type": "Title"
+    },
+    {
+        "text": "searchSegment",
+        "type": "Title"
+    },
+    {
+        "text": "unNormalizedCurrentSearchSegment",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Checks whether thisSegment is a match for the searchSegment if \u0098ignoreAll' is the search\nterm.\nIf so adds it to self.matchedSegments.  Only matches once per segment",
+        "type": "ListItem"
+    },
+    {
+        "text": "SegmentMatcher.",
+        "type": "Title"
+    },
+    {
+        "text": "findOneOtherReps",
+        "type": "Title"
+    },
+    {
+        "text": "thisSegment",
+        "type": "Title"
+    },
+    {
+        "text": "searchSegment",
+        "type": "Title"
+    },
+    {
+        "text": "unNormalizedCurrentSearchSegment",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Checks whether thisSegment is a match for the searchSegment if \u0098ignoreAll' is NOT the search\nterm.\nIf so adds it to self.matchedSegments.  Only matches once per segment",
+        "type": "ListItem"
+    },
+    {
+        "text": "SegmentMatcher.",
+        "type": "Title"
+    },
+    {
+        "text": "getContiguousSegmentsByLength",
+        "type": "Title"
+    },
+    {
+        "text": "searchSegmentLength",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Creates a ContiguousSegmentSearcher and finds all segments in\nself.stream based on the .reps and .includeChords settings and\nthe searchSegmentLength\nIf we are searching on lots of segments to match, then we could\nend up running this expensive routine multiple times, so we'll\ncache the answer for each length.\nIf .reps or .includeChords is changed, then this will be obsolete,\nso cleared.",
+        "type": "ListItem"
+    },
+    {
+        "text": "static",
+        "type": "Title"
+    },
+    {
+        "text": "SegmentMatcher.",
+        "type": "Title"
+    },
+    {
+        "text": "normalize",
+        "type": "Title"
+    },
+    {
+        "text": "segment",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Normalize an input segment for searching. This class just changes\nletters to numbers, etc.\nStaticmethod:\n>>> search.serial.SegmentMatcher.normalize([3, 4, 5])\n[3, 4, 5]\n>>> search.serial.SegmentMatcher(None).normalize(['B', -24, '1'])\n[11, 0, 1]",
+        "type": "ListItem"
+    },
+    {
+        "text": "TransformedSegmentMatcher\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.search.serial.",
+        "type": "Title"
+    },
+    {
+        "text": "TransformedSegmentMatcher",
+        "type": "Title"
+    },
+    {
+        "text": "inputStream",
+        "type": "Title"
+    },
+    {
+        "text": "reps",
+        "type": "Title"
+    },
+    {
+        "text": "'skipConsecutive'",
+        "type": "Title"
+    },
+    {
+        "text": "includeChords",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Finds all instances of given contiguous segments of pitch classes,\nwith serial transformations,\nwithin a Stream.\nThe inputStream is Stream; as\nin ContiguousSegmentSearcher,\nthe inputStream can\ncontain at most one Score\nand its notes must be contained in measures. The searchList is a list of contiguous segments to\nbe searched for, each segment being given as a list of pitch classes.\nThe reps and includeChords settings specify how\nrepeated pitches and chords, respectively, are handled; the possible settings\nare the same as those in\nContiguousSegmentSearcher.\nThe convention for serial\ntransformations must be specified to either\n\u0098zero' or \u0098original', as described in\nzeroCenteredTransformation() and\noriginalCenteredTransformation() - the default setting\nis \u0098original', as to relate found segments\ndirectly to the given segments, without first transposing the given segment to\nbegin on the pitch class 0.\nReturns a list of ContiguousSegmentOfNotes objects\nfor which some transformation of the\nactiveSegment matches at\nleast one of the elements of the searchList,\nsubject to the settings specified in reps and includeChords.\n>>> n1 = note.Note('c#4')\n>>> n2 = note.Note('e4')\n>>> n3 = note.Note('d#4')\n>>> n4 = note.Note('f4')\n>>> n5 = note.Note('e4')\n>>> n6 = note.Note('g4')\n>>> noteList = [n1, n2, n3, n4, n5, n6]\n>>> part = stream.Part()\n>>> part.append(noteList)\n>>> part = part.makeMeasures()\n>>> part.show()\n\n\n\n>>> tsMatcher = search.serial.TransformedSegmentMatcher(part, 'rowsOnly',\n...                 includeChords=False)\n>>> rowInstances = tsMatcher.find([2, 5, 4])\n\n\n>>> row = [2, 5, 4]\n>>> len(rowInstances)\n2\n>>> firstInstance = rowInstances[0]\n>>> firstInstance\n<music21.search.serial.ContiguousSegmentOfNotes ['C#4', 'E4', 'D#4']>\n\n\n>>> firstInstance.activeSegment, firstInstance.startMeasureNumber\n(<music21.serial.ToneRow 143>, 1)\n>>> firstInstance.activeSegment.pitchClasses()\n[1, 4, 3]\n>>> firstInstance.originalCenteredTransformationsFromMatched\n[('T', 11)]\n\n\nWe have thus found that the first instance of the row [2, 5, 4] within our\nstream appears as a transposition\ndown a semitone, beginning in measure 1. We can do a similar analysis on\nthe other instance of the row.\n>>> secondInstance = rowInstances[1]\n>>> secondInstance.activeSegment.pitchClasses(), secondInstance.startMeasureNumber\n([5, 4, 7], 1)\n>>> secondInstance.zeroCenteredTransformationsFromMatched\n[('RI', 7)]\n\n\nLet us give an example of this function used with chords included and reps set to \u0098ignoreAll'.\n>>> s = stream.Stream()\n>>> n1 = note.Note('e4')\n>>> n2 = note.Note('f4')\n>>> n3 = note.Note('g4')\n>>> c = chord.Chord(['b4', 'g5', 'a5'])\n>>> s.append(n1)\n>>> s.append(n2)\n>>> s.append(n3)\n>>> s.append(c)\n>>> s = s.makeMeasures()\n\n\n>>> tsMatcher = search.serial.TransformedSegmentMatcher(s, 'ignoreAll',\n...                 includeChords=True)\n>>> found643 = tsMatcher.find([6, 4, 3])\n>>> [seg.segment for seg in found643]\n[[<music21.note.Note E>, <music21.note.Note F>, <music21.note.Note G>]]\n\n\n>>> found684 = tsMatcher.find([6, 8, 4])\n>>> for seg in found684:\n...    print(seg.segment)\n[<music21.note.Note G>, <music21.chord.Chord B4 G5 A5>]\n[<music21.chord.Chord B4 G5 A5>]\n\n\n>>> [seg.activeSegment.pitchClasses() for seg in found684]\n[[7, 11, 9],\n [11, 7, 9]]\n\n\n>>> [seg.originalCenteredTransformationsFromMatched for seg in found684]\n[[('R', 3)],\n [('RI', 3)]]\n\n\nPitch classes are extracted from segments in order of appearance, with\npitches in chords being read from bottom to top.\nHowever, only the first instance of each pitch class is considered, as seen in the\nactiveSegment calls.\nAs long as the first and last pitch classes in the\nactive segment first appear in the first and last elements of\nthe found segment, respectively, the segment will be matched to the\nsegment being searched for. To make this more clear, consider the\nfollowing example in the same stream s:\n>>> tsMatcher = search.serial.TransformedSegmentMatcher(s, 'includeAll')\n>>> found = tsMatcher.find([4, 0, 4])\n>>> [(seg.segment, seg.activeSegment.pitchClasses()) for seg in found]\n[([<music21.note.Note G>, <music21.chord.Chord B4 G5 A5>], [7, 11, 7])]\n\n\nAbove, the pitch classes of the found segment are read in the order 7, 11, 7, 9.\nBecause a subsequence of this, [7, 11, 7],\nis an inversion of the search segment, [4, 0, 4], and furthermore,\nthe first 7 is part of the first note of the segment (G), and\nthe last 7 is part of the last chord of the segment, the found segment is\nmatched to the segment being searched for.",
+        "type": "ListItem"
+    },
+    {
+        "text": "TransformedSegmentMatcher bases",
+        "type": "Title"
+    },
+    {
+        "text": "SegmentMatcher",
+        "type": "ListItem"
+    },
+    {
+        "text": "TransformedSegmentMatcher read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from SegmentMatcher:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "includeChords reps",
+        "type": "Table"
+    },
+    {
+        "text": "TransformedSegmentMatcher methods",
+        "type": "Title"
+    },
+    {
+        "text": "TransformedSegmentMatcher.",
+        "type": "Title"
+    },
+    {
+        "text": "checkSearchedAlready",
+        "type": "Title"
+    },
+    {
+        "text": "unNormalizedSearchSegment",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Here a segment is returned as searchedAlready if it is a transformation\nof a previous search segment.\n>>> transMatcher = search.serial.TransformedSegmentMatcher(None)\n>>> transMatcher.checkSearchedAlready([0, 1, 2])\nFalse\n>>> transMatcher.checkSearchedAlready([0, 1, 2])\nTrue\n>>> transMatcher.checkSearchedAlready([0, 1, 3])\nFalse\n>>> transMatcher.checkSearchedAlready([3, 5, 6])  # RI of 0, 1, 3\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "TransformedSegmentMatcher.",
+        "type": "Title"
+    },
+    {
+        "text": "equalSubset",
+        "type": "Title"
+    },
+    {
+        "text": "searchSegment",
+        "type": "Title"
+    },
+    {
+        "text": "subsetToCheck",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if these are equal in some way.\nIf is case two rows are equal if they have a zeroCenteredTransformation of the other.\n>>> TSM = search.serial.TransformedSegmentMatcher(None)\n>>> TSM.equalSubset(TSM.normalize([3, 4, 5]), TSM.normalize([4, 5, 6]))\nTrue\n>>> TSM.equalSubset(TSM.normalize([0, 1, 2]), TSM.normalize([0, 1, 3]))\nFalse",
+        "type": "ListItem"
+    },
+    {
+        "text": "static",
+        "type": "Title"
+    },
+    {
+        "text": "TransformedSegmentMatcher.",
+        "type": "Title"
+    },
+    {
+        "text": "getTransformations",
+        "type": "Title"
+    },
+    {
+        "text": "row1",
+        "type": "Title"
+    },
+    {
+        "text": "row2",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns a list of transformations that transform row1 into row2\nStaticmethod:\n>>> TSM = search.serial.TransformedSegmentMatcher\n\n\n>>> TSM.getTransformations(TSM.normalize([3, 4, 5]), TSM.normalize([4, 5, 6]))\n[('P', 3), ('RI', 5)]\n>>> TSM.getTransformations(TSM.normalize(['12', 'B', 7]), TSM.normalize([0, 1, 5]))\n[('I', 0)]",
+        "type": "ListItem"
+    },
+    {
+        "text": "static",
+        "type": "Title"
+    },
+    {
+        "text": "TransformedSegmentMatcher.",
+        "type": "Title"
+    },
+    {
+        "text": "normalize",
+        "type": "Title"
+    },
+    {
+        "text": "segment",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Normalize an input segment for searching. For this class changes to intervals\nStaticmethod:\n>>> search.serial.TransformedSegmentMatcher.normalize([3, 4, 5])\n<music21.serial.ToneRow 345>\n>>> search.serial.TransformedSegmentMatcher.normalize(['12', 'B', 7])\n<music21.serial.ToneRow 0B7>",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from SegmentMatcher:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "find() findOneIgnoreAll() findOneOtherReps() getContiguousSegmentsByLength()",
+        "type": "Table"
+    },
+    {
+        "text": "TransposedInvertedMultisetMatcher\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.search.serial.",
+        "type": "Title"
+    },
+    {
+        "text": "TransposedInvertedMultisetMatcher",
+        "type": "Title"
+    },
+    {
+        "text": "inputStream",
+        "type": "Title"
+    },
+    {
+        "text": "reps",
+        "type": "Title"
+    },
+    {
+        "text": "'skipConsecutive'",
+        "type": "Title"
+    },
+    {
+        "text": "includeChords",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Finds all instances of given multisets of pitch classes, with\ntranspositions and inversions, within a Stream.\nA multiset is a generalization of a set, as described in\nMultisetSegmentMatcher.\nThe inputStream is Stream; as\nin ContiguousSegmentSearcher,\nit can contain at most one Score, and\nits notes must be contained in measures. The multisetList is a list of multisets to\nbe searched for, each multiset being given as a list of pitch classes. Note that the\norder of pitch classes given in a multiset\ndoes not matter. The reps and includeChords settings specify how\nrepeated pitches and chords, respectively, are handled; the possible settings\nare the same as those in\nContiguousSegmentSearcher\nReturns a list of ContiguousSegmentOfNotes\nobjects for some transposition or inversion of the\nactiveSegment,\ninterpreted as a multiset,\nmatches at least one of the elements of the searchList,\nsubject to the settings specified in reps and includeChords.\n>>> s = stream.Stream()\n>>> n1 = note.Note('c4')\n>>> n2 = note.Note('e-4')\n>>> n3 = note.Note('g4')\n>>> n4 = note.Note('e4')\n>>> n5 = note.Note('c4')\n>>> for n in [n1, n2, n3, n4]:\n...     n.quarterLength = 1\n...     s.append(n)\n>>> n5.quarterLength = 4\n>>> s.append(n5)\n>>> s = s.makeMeasures()\n>>> s.show()\n\n\n\n>>> transposedMatcher = search.serial.TransposedInvertedMultisetMatcher(s, 'ignoreAll',\n...                                                               includeChords=False)\n>>> majOrMinTriads = transposedMatcher.find([0, 3, 7])\n>>> majOrMinTriads\n[<music21.search.serial.ContiguousSegmentOfNotes ['C4', 'E-4', 'G4']>,\n <music21.search.serial.ContiguousSegmentOfNotes ['G4', 'E4', 'C4']>]\n\n\nNote that if we search for both kinds, we should only find each once.\n>>> bothTriads = transposedMatcher.find([[0, 4, 7], [0, 3, 7]])\n>>> [(maj.segment, maj.startOffset) for maj in bothTriads]\n[([<music21.note.Note C>, <music21.note.Note E->, <music21.note.Note G>], 0.0),\n ([<music21.note.Note G>, <music21.note.Note E>, <music21.note.Note C>], 2.0)]\n\n\nIn both these cases, the [0, 4, 7] search should have matched:\n>>> [maj.matchedSegment for maj in bothTriads]\n[[0, 4, 7], [0, 4, 7]]\n\n\nNote that when we search for both [0, 4, 7] and [0, 3, 7], which are related to each other\nby the composition of an inversion and a transposition, each\nfound segment is only matched to one\nof the multisets in the searchList; thus each found segment appears\nstill appears at most once in the returned list\nof contiguous segments. Accordingly, calling\nmatchedSegment\nreturns only one element of the searchList for each found segment.",
+        "type": "ListItem"
+    },
+    {
+        "text": "TransposedInvertedMultisetMatcher bases",
+        "type": "Title"
+    },
+    {
+        "text": "TransposedMultisetMatcher",
+        "type": "ListItem"
+    },
+    {
+        "text": "SegmentMatcher",
+        "type": "ListItem"
+    },
+    {
+        "text": "TransposedInvertedMultisetMatcher read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from SegmentMatcher:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "includeChords reps",
+        "type": "Table"
+    },
+    {
+        "text": "TransposedInvertedMultisetMatcher methods",
+        "type": "Title"
+    },
+    {
+        "text": "TransposedInvertedMultisetMatcher.",
+        "type": "Title"
+    },
+    {
+        "text": "checkSearchedAlready",
+        "type": "Title"
+    },
+    {
+        "text": "multiset",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "since the parent class adds to the list, we check inversions\nfirst and then return the parent class result",
+        "type": "ListItem"
+    },
+    {
+        "text": "TransposedInvertedMultisetMatcher.",
+        "type": "Title"
+    },
+    {
+        "text": "equalSubset",
+        "type": "Title"
+    },
+    {
+        "text": "searchSegment",
+        "type": "Title"
+    },
+    {
+        "text": "subsetToCheck",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if there are the same number of each pitchClass in searchSegment\nas in subsetToCheck",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from SegmentMatcher:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "find() findOneIgnoreAll() findOneOtherReps() getContiguousSegmentsByLength() normalize()",
+        "type": "Table"
+    },
+    {
+        "text": "TransposedMultisetMatcher\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.search.serial.",
+        "type": "Title"
+    },
+    {
+        "text": "TransposedMultisetMatcher",
+        "type": "Title"
+    },
+    {
+        "text": "inputStream",
+        "type": "Title"
+    },
+    {
+        "text": "reps",
+        "type": "Title"
+    },
+    {
+        "text": "'skipConsecutive'",
+        "type": "Title"
+    },
+    {
+        "text": "includeChords",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Finds all instances of given multisets of pitch classes, with transpositions,\nwithin a Stream. A multiset\nis a generalization of a set, as described in\nMultisetSegmentMatcher.\nThe inputStream is Stream; as\nin ContiguousSegmentSearcher,\nthe inputStream can contain at most one Score\nand its notes must be contained in measures.\nThe searchList is a list of multisets to\nbe searched for, each multiset being given as a list of pitch classes.\nNote that the order of pitch classes given in a multiset\ndoes not matter. The reps and includeChords settings specify how\nrepeated pitches and chords, respectively, are handled; the\npossible settings are the same as those in\nContiguousSegmentSearcher.\nReturns a list of ContiguousSegmentOfNotes objects\nfor some transposition of the\nactiveSegment,\ninterpreted as a multiset,\nmatches at least one of the elements of the searchList,\nsubject to the settings specified in reps and includeChords.\n>>> part = stream.Part()\n>>> n1 = note.Note('c4')\n>>> n2 = note.Note('c#4')\n>>> n3 = note.Note('d4')\n>>> n4 = note.Note('e4')\n>>> n5 = note.Note('e-4')\n>>> n6 = note.Note('e4')\n>>> n7 = note.Note('d4')\n>>> for n in [n1, n2, n3, n4, n5, n6, n7]:\n...    n.quarterLength = 2\n...    part.repeatAppend(n, 2)\n>>> part = part.makeMeasures()\n>>> part.show()\n\n\n\n>>> TMM = search.serial.TransposedMultisetMatcher(part, includeChords=False)\n>>> instanceList = TMM.find([[-9, -10, -11]])\n>>> for instance in instanceList:\n...    (instance.activeSegment, instance.startMeasureNumber, instance.matchedSegment)\n([0, 1, 2], 1, [-9, -10, -11])\n([2, 4, 3], 3, [-9, -10, -11])\n([3, 4, 2], 5, [-9, -10, -11])",
+        "type": "ListItem"
+    },
+    {
+        "text": "TransposedMultisetMatcher bases",
+        "type": "Title"
+    },
+    {
+        "text": "SegmentMatcher",
+        "type": "ListItem"
+    },
+    {
+        "text": "TransposedMultisetMatcher read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from SegmentMatcher:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "includeChords reps",
+        "type": "Table"
+    },
+    {
+        "text": "TransposedMultisetMatcher methods",
+        "type": "Title"
+    },
+    {
+        "text": "TransposedMultisetMatcher.",
+        "type": "Title"
+    },
+    {
+        "text": "checkSearchedAlready",
+        "type": "Title"
+    },
+    {
+        "text": "multiset",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "searched already uses counters\u2026",
+        "type": "ListItem"
+    },
+    {
+        "text": "TransposedMultisetMatcher.",
+        "type": "Title"
+    },
+    {
+        "text": "equalSubset",
+        "type": "Title"
+    },
+    {
+        "text": "searchSegment",
+        "type": "Title"
+    },
+    {
+        "text": "subsetToCheck",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if there are the same number of each pitchClass in searchSegment\nas in subsetToCheck",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from SegmentMatcher:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "find() findOneIgnoreAll() findOneOtherReps() getContiguousSegmentsByLength() normalize()",
+        "type": "Table"
+    },
+    {
+        "text": "TransposedSegmentMatcher\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.search.serial.",
+        "type": "Title"
+    },
+    {
+        "text": "TransposedSegmentMatcher",
+        "type": "Title"
+    },
+    {
+        "text": "inputStream",
+        "type": "Title"
+    },
+    {
+        "text": "reps",
+        "type": "Title"
+    },
+    {
+        "text": "'skipConsecutive'",
+        "type": "Title"
+    },
+    {
+        "text": "includeChords",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Finds all instances of given contiguous segments of pitch classes, with transpositions,\nwithin a Stream.\nThe inputStream is a Stream; as\nin ContiguousSegmentSearcher,\nthe inputStream can contain at most one Score and\nits notes must be contained in measures. The searchList is a list of contiguous segments to\nbe searched for, each segment being given as a list of pitch classes.\nThe reps and includeChords settings specify how\nrepeated pitches and chords, respectively, are handled; the possible settings\nare the same as those in\nContiguousSegmentSearcher\nReturns a list of ContiguousSegmentOfNotes objects\nfor which some transposition of the\nactiveSegment matches at\nleast one of the elements of the searchList,\nsubject to the settings specified in reps and includeChords.\n>>> part = stream.Part()\n>>> n1 = note.Note('e4')\n>>> n1.quarterLength = 6\n>>> part.append(n1)\n>>> n2 = note.Note('f4')\n>>> n2.quarterLength = 1\n>>> part.append(n2)\n>>> n3 = chord.Chord(['g4', 'b4'])\n>>> n3.quarterLength = 1\n>>> part.append(n3)\n>>> n4 = note.Note('g4')\n>>> n4.quarterLength = 1\n>>> part.repeatAppend(n4, 2)\n>>> n5 = note.Note('a4')\n>>> n5.quarterLength = 3\n>>> part.repeatAppend(n5, 2)\n>>> n6 = note.Note('b4')\n>>> n6.quarterLength = 1\n>>> part.append(n6)\n>>> n7 = note.Note('c5')\n>>> n7.quarterLength = 1\n>>> part.append(n7)\n>>> newPart = part.makeMeasures()\n>>> newPart.makeTies(inPlace=True)\n>>> newPart.show()\n\n\n\nFirst, note that it is impossible, using the \u0098ignoreAll' setting,\nto find segments, transposed or not,\nwith repeated pitch classes.\n>>> matcher = search.serial.TransposedSegmentMatcher(newPart, 'ignoreAll')\n>>> matcher.find([0, 0])\n[]\n\n\nA somewhat more interesting example is below.\n>>> matcher = search.serial.TransposedSegmentMatcher(newPart, 'rowsOnly',\n...                                                            includeChords=False)\n>>> halfStepList = matcher.find([0, 1])\n>>> L = [step.segment for step in halfStepList]\n>>> print(L)\n[[<music21.note.Note E>, <music21.note.Note F>],\n [<music21.note.Note B>, <music21.note.Note C>]]\n>>> [step.startMeasureNumber for step in halfStepList]\n[1, 5]\n\n\nIn addition to calling the\nstartMeasureNumber\nproperty\nto return the measure numbers on which the half steps start, one may also call the\nmeasureNumber property of the\nfirst Note of each segment.\n>>> s = stream.Stream()\n>>> s.repeatAppend(newPart, 2)  # s has two parts, each of which is a copy of newPart.\n\n\n>>> sMatcher = search.serial.TransposedSegmentMatcher(s, includeChords=False)\n>>> wholeStepList = sMatcher.find([12, 2])\n>>> [(step.segment, step.startMeasureNumber, step.partNumber) for step in wholeStepList]\n[([<music21.note.Note G>, <music21.note.Note A>], 3, 0),\n([<music21.note.Note A>, <music21.note.Note B>], 3, 0),\n([<music21.note.Note G>, <music21.note.Note A>], 3, 1),\n([<music21.note.Note A>, <music21.note.Note B>], 3, 1)]\n\n\nIncluding chords works similarly as in findSegments.\n>>> sMatcher = search.serial.TransposedSegmentMatcher(newPart, includeChords=True)\n>>> foundSegments = sMatcher.find([4, 6, 'A'])\n>>> [seg.segment for seg in foundSegments]\n[[<music21.note.Note F>, <music21.chord.Chord G4 B4>]]",
+        "type": "ListItem"
+    },
+    {
+        "text": "TransposedSegmentMatcher bases",
+        "type": "Title"
+    },
+    {
+        "text": "SegmentMatcher",
+        "type": "ListItem"
+    },
+    {
+        "text": "TransposedSegmentMatcher read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from SegmentMatcher:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "includeChords reps",
+        "type": "Table"
+    },
+    {
+        "text": "TransposedSegmentMatcher methods",
+        "type": "Title"
+    },
+    {
+        "text": "static",
+        "type": "Title"
+    },
+    {
+        "text": "TransposedSegmentMatcher.",
+        "type": "Title"
+    },
+    {
+        "text": "normalize",
+        "type": "Title"
+    },
+    {
+        "text": "segment",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Normalize an input segment for searching. For this class changes to intervals\nStaticmethod:\n>>> search.serial.TransposedSegmentMatcher.normalize([3, 4, 5])\n'11'\n>>> search.serial.TransposedSegmentMatcher.normalize(['12', 'B', 7])\n'E8'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from SegmentMatcher:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "checkSearchedAlready() equalSubset() find() findOneIgnoreAll() findOneOtherReps() getContiguousSegmentsByLength()",
+        "type": "Table"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.search.serial.",
+        "type": "Title"
+    },
+    {
+        "text": "labelMultisets",
+        "type": "Title"
+    },
+    {
+        "text": "inputStream",
+        "type": "Title"
+    },
+    {
+        "text": "multisetDict",
+        "type": "Title"
+    },
+    {
+        "text": "reps",
+        "type": "Title"
+    },
+    {
+        "text": "'skipConsecutive'",
+        "type": "Title"
+    },
+    {
+        "text": "includeChords",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Labels all instances of a given collection of multisets of pitch classes in a\nStream. A multiset\nis a generalization of a set, as described in\nMultisetSegmentMatcher.\nThe multisetDict is a dictionary whose keys are names of\nthe multisets to be searched for, and whose\nvalues are the segments of pitch classes. The values will be\nturned in to a segmentList, as in MultisetSegmentMatcher.\nAll other settings are as in MultisetSegmentMatcher as well.\nReturns a deep copy of the inputStream\nwith a Line connecting the first and last notes\nof each found multiset, and the first note of each found multiset\nlabeled with a Lyric,\nthe label being the key corresponding to the segment of pitch classes. One should make sure not\nto call this function with too large of a segmentDict, as a note being contained\nin too many segments will result in some spanners not showing.\nAt the present time a relatively large number of multisets are\nfound using the \u0098ignoreAll' setting,\nparticularly when there are many repetitions of pitch classes (immediate or otherwise).\nAs a result, it is possible that at points in the stream\nthere will be more than six spanners active\nsimultaneously, which may result in some\nspanners not showing correctly in XML format, or not at all.\n>>> part = stream.Part()\n>>> n1 = note.Note('e4')\n>>> n1.quarterLength = 4\n>>> n2 = note.Note('e4')\n>>> n2.quarterLength = 4\n>>> n3 = note.Note('f4')\n>>> n3.quarterLength = 4\n>>> n4 = note.Note('e4')\n>>> n4.quarterLength = 4\n>>> part.append(n1)\n>>> part.append(n2)\n>>> part.append(n3)\n>>> part.append(n4)\n>>> part = part.makeMeasures()\n>>> labeledPart = search.serial.labelMultisets(part, {'EEF':[4, 5, 4]},\n...                                     reps='includeAll', includeChords=False)\n>>> labeledPart.show()\n\n\n\nNote: the spanners above were moved manually so that they can\nbe more easily distinguished from one another.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.search.serial.",
+        "type": "Title"
+    },
+    {
+        "text": "labelSegments",
+        "type": "Title"
+    },
+    {
+        "text": "inputStream",
+        "type": "Title"
+    },
+    {
+        "text": "segmentDict",
+        "type": "Title"
+    },
+    {
+        "text": "reps",
+        "type": "Title"
+    },
+    {
+        "text": "'skipConsecutive'",
+        "type": "Title"
+    },
+    {
+        "text": "includeChords",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Labels all instances of a given collection of segments of pitch classes in a\nStream.\nThe segmentDict is a dictionary whose keys are names of\nthe segments to be searched for, and whose values are the segments of pitch classes.\nThe values will be\nturned in to a segmentList, as in findSegments().\nAll other settings are as in findSegments() as well.\nReturns a deepcopy of the inputStream with a Line\nconnecting the first and last notes\nof each found segment, and the first note of each found segment labeled\nwith a Lyric,\nthe label being the key corresponding to the segment of pitch classes.\nOne should make sure not\nto call this function with too large of a segmentDict, as a note being contained\nin too many segments will result in some spanners not showing.\n>>> part = stream.Part()\n>>> sig = meter.TimeSignature('2/4')\n>>> part.append(sig)\n>>> n1 = note.Note('e4')\n>>> n1.quarterLength = 6\n>>> part.append(n1)\n>>> n2 = note.Note('f4')\n>>> n2.quarterLength = 1\n>>> part.append(n2)\n>>> n3 = chord.Chord(['g4', 'b4'])\n>>> n3.quarterLength = 1\n>>> part.append(n3)\n>>> n4 = note.Note('g4')\n>>> n4.quarterLength = 1\n>>> part.repeatAppend(n4, 2)\n>>> n5 = note.Note('a4')\n>>> n5.quarterLength = 3\n>>> part.repeatAppend(n5, 2)\n>>> n6 = note.Note('b4')\n>>> n6.quarterLength = 1\n>>> part.append(n6)\n>>> n7 = note.Note('c5')\n>>> n7.quarterLength = 1\n>>> part.append(n7)\n>>> newPart = part.makeMeasures()\n>>> newPart.makeTies(inPlace=True)\n\n\nWe can then label the segment of pitch classes [7, 9, 11], which corresponds to a G,\nfollowed by an A,\nfollowed by a B. Let us call this segment \u009cGAB\u009d.\n>>> labelGAB = search.serial.labelSegments(newPart, {'GAB':[7, 9, 11]},\n...    includeChords=False)\n>>> labelGAB.show()\n\n\n\n>>> len(labelGAB.getElementsByClass(spanner.Line))\n1",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.search.serial.",
+        "type": "Title"
+    },
+    {
+        "text": "labelTransformedSegments",
+        "type": "Title"
+    },
+    {
+        "text": "inputStream",
+        "type": "Title"
+    },
+    {
+        "text": "segmentDict",
+        "type": "Title"
+    },
+    {
+        "text": "reps",
+        "type": "Title"
+    },
+    {
+        "text": "'skipConsecutive'",
+        "type": "Title"
+    },
+    {
+        "text": "includeChords",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "convention",
+        "type": "Title"
+    },
+    {
+        "text": "'original'",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Labels all instances of a given collection of segments of pitch classes,\nwith transformations, in a Stream.\nThe segmentDict is a dictionary whose keys are names of the segments to be\nsearched for, and whose values are the segments of pitch classes. The\nvalues will be turned in to a segmentList, as in\nfindTransposedSegments(). The last argument specifies\nthe convention (\u0098zero' or \u0098original') used for naming serial\ntransformations, as explained in\nzeroCenteredTransformation() and\noriginalCenteredTransformation().\nAll other settings are as in findTransposedSegments()\nas well.\nReturns a deep copy of the inputStream with a\nLine connecting the first and last notes of each\nfound segment, and the first note of each found segment labeled with a\nLyric, the label being the key corresponding to the\nsegment of pitch classes. One should make sure not to call this function\nwith too large of a segmentDict, as a note being contained in too many\nsegments will result in some spanners not showing.\n>>> c1 = chord.Chord(['c#4', 'e4'])\n>>> c2 = chord.Chord(['d#4', 'f4'])\n>>> c3 = chord.Chord(['e4', 'g4'])\n>>> chordList = [c1, c2, c3]\n>>> part = stream.Part()\n>>> for c in chordList:\n...    c.quarterLength = 4\n...    part.append(c)\n>>> part = part.makeMeasures()\n>>> labeledPart = search.serial.labelTransformedSegments(part, {'row':[2, 5, 4]})\n>>> labeledPart.show()\n\n\n\nNote: the spanners above were moved manually so that they can be more easily\ndistinguished from one another.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.search.serial.",
+        "type": "Title"
+    },
+    {
+        "text": "labelTransposedAndInvertedMultisets",
+        "type": "Title"
+    },
+    {
+        "text": "inputStream",
+        "type": "Title"
+    },
+    {
+        "text": "multisetDict",
+        "type": "Title"
+    },
+    {
+        "text": "reps",
+        "type": "Title"
+    },
+    {
+        "text": "'skipConsecutive'",
+        "type": "Title"
+    },
+    {
+        "text": "includeChords",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Labels all instances of a given collection of multisets, with\ntranspositions and inversions, of pitch classes in a\nStream.\nA multiset is a generalization of a set, as described in\nMultisetSegmentMatcher.\nThe multisetDict is a dictionary whose keys are names of the multisets to\nbe searched for, and whose values are the segments of pitch classes. The\nvalues will be turned in to a segmentList, as in\nMultisetSegmentMatcher.\nAll other settings are as in\nfindTransposedMultisets() as well.\nReturns a deep copy of the inputStream with a\nLine connecting the first and last notes of each\nfound multiset, and the first note of each found multiset labeled with a\nLyric, the label being the key corresponding to the\nsegment of pitch classes. One should make sure not to call this function\nwith too large of a segmentDict, as a note being contained in too many\nsegments will result in some spanners not showing.\nAt the present time a relatively large number of multisets are found using\nthe \u0098ignoreAll' setting, particularly when there are many repetitions of\npitch classes (immediate or otherwise).\nAs a result, it is possible that at points in the stream there will be more\nthan six spanners active simultaneously, which may result in some spanners\nnot showing correctly in XML format, or not at all.\n>>> s = stream.Stream()\n>>> n1 = note.Note('c4')\n>>> n2 = note.Note('e-4')\n>>> n3 = note.Note('g4')\n>>> n4 = note.Note('e4')\n>>> n5 = note.Note('c4')\n>>> for n in [n1, n2, n3, n4]:\n...     n.quarterLength = 1\n...     s.append(n)\n>>> n5.quarterLength = 4\n>>> s.append(n5)\n>>> s = s.makeMeasures()\n\n\n>>> l = search.serial.labelTransposedAndInvertedMultisets\n>>> l(s, {'triad':[0, 4, 7]}, includeChords=False).show()\n\n\n\nNote: the spanners above were moved manually so that they can be more\neasily distinguished from one another.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.search.serial.",
+        "type": "Title"
+    },
+    {
+        "text": "labelTransposedMultisets",
+        "type": "Title"
+    },
+    {
+        "text": "inputStream",
+        "type": "Title"
+    },
+    {
+        "text": "multisetDict",
+        "type": "Title"
+    },
+    {
+        "text": "reps",
+        "type": "Title"
+    },
+    {
+        "text": "'skipConsecutive'",
+        "type": "Title"
+    },
+    {
+        "text": "includeChords",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Labels all instances of a given collection of multisets, with\ntranspositions, of pitch classes in a Stream.\nA multiset is a generalization of a set, as described in\nMultisetSegmentMatcher.\nThe multisetDict is a dictionary whose keys are names of the multisets to\nbe searched for, and whose values are the segments of pitch classes. The\nvalues will be turned in to a segmentList, as in\nMultisetSegmentMatcher.\nAll other settings are as in\nfindTransposedMultisets() as well.\nReturns a deep copy of the inputStream with a\nLine connecting the first and last notes of each\nfound multiset, and the first note of each found multiset labeled with a\nLyric, the label being the key corresponding to the\nsegment of pitch classes. One should make sure not to call this function\nwith too large of a segmentDict, as a note being contained in too many\nsegments will result in some spanners not showing.\nAt the present time a relatively large number of multisets are found using\nthe \u0098ignoreAll' setting, particularly when there are many repetitions of\npitch classes (immediate or otherwise). As a result, it is possible that at\npoints in the stream there will be more than six spanners active\nsimultaneously, which may result in some spanners not showing correctly in\nXML format, or not at all.\nAs a diversion, instead of using this tool on atonal music, let us do so on\nBach.\nWe can label all instances of three of the same pitch classes occurring in\na row in one of the chorales.\nWe learn the obvious - it appears that the alto section would be the most\nbored while performing this chorale.\n>>> bach = corpus.parse('bach/bwv57.8')\n>>> bachLabeled = search.serial.labelTransposedMultisets(bach,\n...                                               {'x3': [0, 0, 0]},\n...                                               reps='includeAll',\n...                                               includeChords=False)\n>>> bachLabeled.show()\n\n\n\nNote: the spanners above were moved manually so that they can be more\neasily distinguished from one another.",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.search.serial.",
+        "type": "Title"
+    },
+    {
+        "text": "labelTransposedSegments",
+        "type": "Title"
+    },
+    {
+        "text": "inputStream",
+        "type": "Title"
+    },
+    {
+        "text": "segmentDict",
+        "type": "Title"
+    },
+    {
+        "text": "reps",
+        "type": "Title"
+    },
+    {
+        "text": "'skipConsecutive'",
+        "type": "Title"
+    },
+    {
+        "text": "includeChords",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Labels all instances of a given collection of segments of pitch classes,\nwith transpositions, in a Stream.\nThe segmentDict is a dictionary whose keys are names of the segments to be\nsearched for, and whose values are the segments of pitch classes. The\nvalues will be turned in to a segmentList, as in\nfindTransposedSegments().  All other settings are as\nin findTransposedSegments() as well.\nReturns a deep copy of the inputStream with a\nLine connecting the first and last notes of each\nfound segment, and the first note of each found segment labeled with a\nLyric, the label being the key corresponding to the\nsegment of pitch classes. One should make sure not to call this function\nwith too large of a segmentDict, as a note being contained in too many\nsegments will result in some spanners not showing.\n>>> part = stream.Part()\n>>> n1 = note.Note('e4')\n>>> n1.quarterLength = 6\n>>> part.append(n1)\n>>> n2 = note.Note('f4')\n>>> n2.quarterLength = 1\n>>> part.append(n2)\n>>> n3 = chord.Chord(['g4', 'b4'])\n>>> n3.quarterLength = 1\n>>> part.append(n3)\n>>> n4 = note.Note('g4')\n>>> n4.quarterLength = 1\n>>> part.repeatAppend(n4, 2)\n>>> n5 = note.Note('a4')\n>>> n5.quarterLength = 3\n>>> part.repeatAppend(n5, 2)\n>>> n6 = note.Note('b4')\n>>> n6.quarterLength = 1\n>>> part.append(n6)\n>>> n7 = note.Note('c5')\n>>> n7.quarterLength = 1\n>>> part.append(n7)\n>>> newPart = part.makeMeasures()\n>>> newPart.makeTies(inPlace=True)\n\n\nWe have a soprano line; let us now form a bass line.\n>>> bass = stream.Part()\n>>> n8 = note.Note('c3')\n>>> n8.quarterLength = 4\n>>> bass.append(n8)\n>>> r1 = note.Rest()\n>>> r1.quarterLength = 4\n>>> bass.append(r1)\n>>> n9 = note.Note('b2')\n>>> n9.quarterLength = 4\n>>> bass.append(n9)\n>>> r2 = note.Rest()\n>>> r2.quarterLength = 4\n>>> bass.append(r2)\n>>> n10 = note.Note('c3')\n>>> n10.quarterLength = 4\n>>> bass.append(n10)\n>>> newBass = bass.makeMeasures()\n>>> sc = stream.Score()\n>>> import copy\n>>> sc.insert(0, copy.deepcopy(newPart))\n>>> sc.insert(0, copy.deepcopy(newBass))\n>>> labeledSC = search.serial.labelTransposedSegments(sc, {'half':[0, 1]}, 'rowsOnly')\n>>> labeledSC.show()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.search.serial",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

@@ -1,0 +1,1986 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 58: Understanding Sites and Contexts",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide, Chapter 55: Advanced Meter Topics",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide, Chapter 61: TimespanTrees and Verticalities",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "User's Guide, Chapter 58: Understanding Sites and Contexts\nWorking with Sites\nFrom weakness I get strength of memory",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide\nUser's Guide: Table of Contents\nUser's Guide, Chapter 1: Installing and Getting Started with music21\nUser's Guide, Chapter 2: Notes\nUser's Guide, Chapter 3: Pitches, Durations, and Notes again\nUser's Guide, Chapter 4: Lists, Streams (I) and Output\nUser's Guide, Chapter 5: Lists of Lists, Functions, and Recursion\nUser's Guide, Chapter 6: Streams (II): Hierarchies, Recursion, and Flattening\nUser's Guide, Chapter 7: Chords\nUser's Guide, Chapter 8: Installing MusicXML Readers and File Formats (1)\nUser's Guide, Chapter 9: Chordify\nUser's Guide, Chapter 10: Examples 1\nUser's Guide, Chapter 11: Corpus Searching\nUser's Guide, Chapter 12: Getting Back to Basics: The Music21Object\nUser's Guide, Chapter 13: More Music21Object Attributes and Properties\nUser's Guide: Chapter 14: Time Signatures and Beats\nUser's Guide, Chapter 15: Keys and KeySignatures\nUser's Guide, Chapter 16: TinyNotation\nUser's Guide: Chapter 17: Derivations\nUser's Guide: Chapter 18: Intervals\nUser's Guide, Chapter 19: Advanced Durations (Complex and Tuplets)\nUser's Guide, Chapter 20: Examples 2\nUser's Guide, Chapter 21: Ordering and Sorting of Stream Elements\nUser's Guide, Chapter 22: Graphing and plotting\nUser's Guide, Chapter 23: Roman Numeral Analysis\nUser's Guide, Chapter 24: Configuring Environment Settings\nUser's Guide, Chapter 25: Post-Tonal Tools (1)\nUser's Guide, Chapter 26: Stream Iteration and Filtering\nUser's Guide, Chapter 27: Grace Notes\nUser's Guide, Chapter 28: Lyric Searching\nUser's Guide, Chapter 29: Spanners 1 (Slurs)\nUser's Guide, Chapter 30: Examples 3\nUser's Guide, Chapter 31: Clefs, Ties, and Beams\nUser's Guide, Chapter 32: Articulations\nUser's Guide, Chapter 44: Advanced Graphing (Axes, Plots, and Graphs)\nUser's Guide, Chapter 53: Advanced Corpus and Metadata Searching\nUser's Guide, Chapter 54: Extending Converter with New Formats\nUser's Guide, Chapter 55: Advanced Meter Topics\nUser's Guide, Chapter 58: Understanding Sites and Contexts\nUser's Guide, Chapter 61: TimespanTrees and Verticalities",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 58: Understanding Sites and Contexts\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Music21 contains a powerful context and hierarchy system that lets\nusers find analytical information in a single place that actually\nrequires looking at many pieces of information scattered throughout a\nscore. Take for instance, a fragment of code that we use a lot such as:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "beat",
+        "type": "Title"
+    },
+    {
+        "text": "It's great when it works, but then there are times when it doesn't and\nit's just frustrating. Avoiding those times is what this chapter is\nabout. And to do so, we'll need to start asking some \u009chow\u009d questions.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "How does a note know what beat it is on? It might help to think about\nwhen we read a printed score, how do we know what beat a note is on? We\nhave to look at the note, then look up the score to find the most recent\ntime signature, then find the note again and look at the measure it is\nin, count everything preceeding it in the measure, and then calculate\nthe beat. At least three different musical objects need to be consulted:\nthe note itself, the surrounding measure, and the time signature that\nprovides an interpretation of how note durations translate to beats.\nMusic21 needs to do the same search, and it does all that just on a\nlittle call to the .beat property.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "(In the early days of ``music21``, I did not know about the convention\nthat properties should be fast and easily computable so that the user\ndoes not even realize it is something more complex than an attribute\nlookup. The property ``.beat`` is none of the above. If I were starting\nover, it would be a method, ``.beat()``, but it is too late to change\nnow.)",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "To understand how this lookup works, we will need to understand better\nhow Sites and Contexts work. Advanced users and beginners alike\n(and occasionally even the music21 developers) are frequently\nconfused by music21's context and hierarchy system. When it works,\nit works great, it's just magic. But, when it doesn't, it appears to be\na random bug, and it is probably the most common type of bug mention on\nthe music21 GitHub tracker that gets \u009cnot a bug\u009d as a response.\nMagic is fickle that way.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Let's start by looking at a simple example. We will create a measure and\nadd a single E-flat to it:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "from",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "import",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Measure",
+        "type": "Title"
+    },
+    {
+        "text": "number",
+        "type": "Title"
+    },
+    {
+        "text": "es",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'E-4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "insert",
+        "type": "Title"
+    },
+    {
+        "text": "es",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "'text'",
+        "type": "Title"
+    },
+    {
+        "text": "2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">",
+        "type": "ListItem"
+    },
+    {
+        "text": "At this point, there's obviously a connection made between the Measure\nand the Note.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": ">",
+        "type": "ListItem"
+    },
+    {
+        "text": "es",
+        "type": "Title"
+    },
+    {
+        "text": "activeSite",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Measure",
+        "type": "Title"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "es",
+        "type": "Title"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "elementOffset",
+        "type": "Title"
+    },
+    {
+        "text": "es",
+        "type": "Title"
+    },
+    {
+        "text": "2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "But we need to know, what is the nature of this connection? It has\nchanged several times as music21 has developed but has been stable\nsince at least v.4, and it looks to stay that way. The measure (or any\nStream) contains an ordered list of the elements in it, and it also\ncontains a mapping of each element in it to its offset.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "The element in a stream (such as a Note) does not however, have a direct\nlist of what stream or streams it is in. Instead elements have a\nproperty .sites that is itself a rather complex object called\nSites that keeps track of this information for\nit:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "es",
+        "type": "Title"
+    },
+    {
+        "text": "sites",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "sites",
+        "type": "Title"
+    },
+    {
+        "text": "Sites",
+        "type": "Title"
+    },
+    {
+        "text": "at",
+        "type": "Title"
+    },
+    {
+        "text": "0x10c806488",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Working with Sites\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "The Sites object keeps track of how many and which streams an\nelement has been placed in:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "es",
+        "type": "Title"
+    },
+    {
+        "text": "sites",
+        "type": "Title"
+    },
+    {
+        "text": "getSiteCount",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Voice",
+        "type": "Title"
+    },
+    {
+        "text": "id",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "es",
+        "type": "Title"
+    },
+    {
+        "text": "es",
+        "type": "Title"
+    },
+    {
+        "text": "sites",
+        "type": "Title"
+    },
+    {
+        "text": "getSiteCount",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "If we need to figure out a particular attribute based on context, the\nSites object comes in very handy. For instance, the\n.measureNumber on a Note or other element, finds a container that is\na Measure and has a .number attribute:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "es",
+        "type": "Title"
+    },
+    {
+        "text": "measureNumber",
+        "type": "Title"
+    },
+    {
+        "text": "We can do the same sort of thing, by calling the Sites object\ndirectly with the getAttrByName method:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "es",
+        "type": "Title"
+    },
+    {
+        "text": "sites",
+        "type": "Title"
+    },
+    {
+        "text": "getAttrByName",
+        "type": "Title"
+    },
+    {
+        "text": "'number'",
+        "type": "Title"
+    },
+    {
+        "text": "Or we can just get a list of sites that match a certain class:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "es",
+        "type": "Title"
+    },
+    {
+        "text": "sites",
+        "type": "Title"
+    },
+    {
+        "text": "getSitesByClass",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Voice",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Voice",
+        "type": "Title"
+    },
+    {
+        "text": "Or with a string:",
+        "type": "Title"
+    },
+    {
+        "text": "es",
+        "type": "Title"
+    },
+    {
+        "text": "sites",
+        "type": "Title"
+    },
+    {
+        "text": "getSitesByClass",
+        "type": "Title"
+    },
+    {
+        "text": "'Measure'",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Measure",
+        "type": "Title"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Notice that what is returned is a list, because an element can appear in\nmultiple sites, even multiple sites of the same class, so long as those\nsites don't belong to the same hierarchy (that is, those streams are not\nboth in the same stream or have a common stream somewhere in their\nSites). Let's put the note in another Measure object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "m10",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Measure",
+        "type": "Title"
+    },
+    {
+        "text": "number",
+        "type": "Title"
+    },
+    {
+        "text": "10",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "m10",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "insert",
+        "type": "Title"
+    },
+    {
+        "text": "20",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "es",
+        "type": "Title"
+    },
+    {
+        "text": "es",
+        "type": "Title"
+    },
+    {
+        "text": "sites",
+        "type": "Title"
+    },
+    {
+        "text": "getSitesByClass",
+        "type": "Title"
+    },
+    {
+        "text": "'Measure'",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Measure",
+        "type": "Title"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Measure",
+        "type": "Title"
+    },
+    {
+        "text": "10",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Users can iterate through all sites in a Stream using .yieldSites():",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "site",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "es",
+        "type": "Title"
+    },
+    {
+        "text": "sites",
+        "type": "Title"
+    },
+    {
+        "text": "yieldSites",
+        "type": "Title"
+    },
+    {
+        "text": "():",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "site",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Measure",
+        "type": "Title"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Voice",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Measure",
+        "type": "Title"
+    },
+    {
+        "text": "10",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Note two things: (1) each element has a special site called \u009cNone\u009d that\nstores information about the element when it is not in any Stream (it\nused to be used much more, but is not used as much anymore, and is not\ncounted in the number of sites an element is in), and (2) the sites are\nyielded from earliest added to latest. We can reverse it and eliminate\nNone, with a few parameters:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "site",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "es",
+        "type": "Title"
+    },
+    {
+        "text": "sites",
+        "type": "Title"
+    },
+    {
+        "text": "yieldSites",
+        "type": "Title"
+    },
+    {
+        "text": "excludeNone",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "sortByCreationTime",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "site",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Measure",
+        "type": "Title"
+    },
+    {
+        "text": "10",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Voice",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Measure",
+        "type": "Title"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "So effectively a Note or other Music21Object can always get its\nposition in the streams that it is in via .sites:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "site",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "es",
+        "type": "Title"
+    },
+    {
+        "text": "sites",
+        "type": "Title"
+    },
+    {
+        "text": "yieldSites",
+        "type": "Title"
+    },
+    {
+        "text": "excludeNone",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "site",
+        "type": "Title"
+    },
+    {
+        "text": "elementOffset",
+        "type": "Title"
+    },
+    {
+        "text": "es",
+        "type": "Title"
+    },
+    {
+        "text": "),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "site",
+        "type": "Title"
+    },
+    {
+        "text": "2.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Measure",
+        "type": "Title"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Voice",
+        "type": "Title"
+    },
+    {
+        "text": "20.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Measure",
+        "type": "Title"
+    },
+    {
+        "text": "10",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The Sites object keeps track of the order of insertion through an\nattribute called .siteDict",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "es",
+        "type": "Title"
+    },
+    {
+        "text": "sites",
+        "type": "Title"
+    },
+    {
+        "text": "siteDict",
+        "type": "Title"
+    },
+    {
+        "text": "OrderedDict",
+        "type": "Title"
+    },
+    {
+        "text": "([(",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "sites",
+        "type": "Title"
+    },
+    {
+        "text": "SiteRef",
+        "type": "Title"
+    },
+    {
+        "text": "Global",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "Index",
+        "type": "Title"
+    },
+    {
+        "text": "),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "4504830192",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "sites",
+        "type": "Title"
+    },
+    {
+        "text": "SiteRef",
+        "type": "Title"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Measure",
+        "type": "Title"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "4518082656",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "sites",
+        "type": "Title"
+    },
+    {
+        "text": "SiteRef",
+        "type": "Title"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Voice",
+        "type": "Title"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "),",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "4518134560",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "sites",
+        "type": "Title"
+    },
+    {
+        "text": "SiteRef",
+        "type": "Title"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Measure",
+        "type": "Title"
+    },
+    {
+        "text": "10",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ")])",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Each element has as its index the memory location of the site and a\nlightweight wrapper object around the site (i.e., stream) called a\nSiteRef.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "(all sites except \u009cNone\u009d are currently \u009cStream\u009d objects \u2014 it was our\nintention at the beginning to have other types of site contexts, such as\ninterpretative contexts (\u009cbaroque\u009d, \u009cmeantone tuning\u009d) and we might\nstill someday add those, but for now, a site is a Stream)",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Let's look at the last one:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "lastSiteRef",
+        "type": "Title"
+    },
+    {
+        "text": "list",
+        "type": "Title"
+    },
+    {
+        "text": "es",
+        "type": "Title"
+    },
+    {
+        "text": "sites",
+        "type": "Title"
+    },
+    {
+        "text": "siteDict",
+        "type": "Title"
+    },
+    {
+        "text": "items",
+        "type": "Title"
+    },
+    {
+        "text": "())[",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "][",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "lastSiteRef",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "sites",
+        "type": "Title"
+    },
+    {
+        "text": "SiteRef",
+        "type": "Title"
+    },
+    {
+        "text": "to",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Measure",
+        "type": "Title"
+    },
+    {
+        "text": "10",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "lastSiteRef",
+        "type": "Title"
+    },
+    {
+        "text": "siteIndex",
+        "type": "Title"
+    },
+    {
+        "text": "lastSiteRef",
+        "type": "Title"
+    },
+    {
+        "text": "siteIndex",
+        "type": "Title"
+    },
+    {
+        "text": "lastSiteRef",
+        "type": "Title"
+    },
+    {
+        "text": "globalSiteIndex",
+        "type": "Title"
+    },
+    {
+        "text": "This item allows music21 to find sites by class without needing to\nunwrap the site",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "lastSiteRef",
+        "type": "Title"
+    },
+    {
+        "text": "classString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "'Measure'",
+        "type": "Title"
+    },
+    {
+        "text": "lastSiteRef",
+        "type": "Title"
+    },
+    {
+        "text": "site",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Measure",
+        "type": "Title"
+    },
+    {
+        "text": "10",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "From weakness I get strength of memory\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "From what has been shown so far, it appears that effectively the\nrelationship between a stream and its containing element is a mirror or\ntwo-way: streams know what notes they contain and notes know what\nstreams they are contained in. But it is a bit more complicated and it\ncomes from the type of reference each holds to each other.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Streams hold elements with a standard or \u009cstrong\u009d reference. As long as\nthe Stream exists in the computer's memory, all notes contained in it\nwill also continue to exist. You never need to worry about streams\nlosing notes.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "The .sites object, does not, however, contain strong references to\nStreams. Instead it contains what are called \u009cweak references\u009d to\nstreams. A weak reference allows notes and their Sites object to get\naccess to the stream, as long as it is still in use somewhere else,\nbut once the stream is no longer in use it is allowed to disappear\nanytime.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "As a demonstration, let's delete that pesky voice:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "del",
+        "type": "Title"
+    },
+    {
+        "text": "Now whenever Python determines that it needs some extra space, the Note\nobject will no longer have reference to the voice in its sites. Note\nthat, this might not happen immediately. The removal of dead weak\nreferences, part of Python's garbage collection, takes place at odd\ntimes, dependent on the amount of memory currently used and many other\nfactors. So one cannot predict whether the Voice object would still\nbe in the note's sites or not by the time you finish reading this\nparagraph. Music21 uses weak references in a number of other\nsituations, such as\nderivation objects, though we are\nreducing the number of places where they are used as the version of\nPython supported by music21 gets a smarter and smarter garbage\ncollector.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "You might be thinking that it's been years since the last time you\ncalled del on a variable, so this doesn't really apply to you. But\nlook at this code, which represents pretty typical music21 usage:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Part",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Measure",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "insert",
+        "type": "Title"
+    },
+    {
+        "text": "insert",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'D'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "))",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "firstNote",
+        "type": "Title"
+    },
+    {
+        "text": "recurse",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "notes",
+        "type": "Title"
+    },
+    {
+        "text": "first",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "insert",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "'C'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "))",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "newFirstNote",
+        "type": "Title"
+    },
+    {
+        "text": "recurse",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "notes",
+        "type": "Title"
+    },
+    {
+        "text": "first",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "firstNote",
+        "type": "Title"
+    },
+    {
+        "text": "newFirstNote",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "flatten",
+        "type": "Title"
+    },
+    {
+        "text": "():",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "if",
+        "type": "Title"
+    },
+    {
+        "text": "is",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "firstNote",
+        "type": "Title"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "'Yup, there is a D in the part'",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Yup",
+        "type": "Title"
+    },
+    {
+        "text": "there",
+        "type": "Title"
+    },
+    {
+        "text": "is",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "the",
+        "type": "Title"
+    },
+    {
+        "text": "part",
+        "type": "Title"
+    },
+    {
+        "text": "Did you see where we created an extra stream only to immediately discard\nit? The expression p.flatten() creates a new stream that exists just\nfor long enough to get the first note from it. (We actually store it in\na cache on p so that it's faster the next time we need it, but once\nwe add another note to m the cache is invalidated). The creation of\nanother stream is one reason to generally prefer .recurse() over\n.flatten().",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Prior to music21 v.3, the .notes call would have created yet\nanother Stream, but we've optimized this out.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "toSoundingPitch()",
+        "type": "Title"
+    },
+    {
+        "text": "stripTies()",
+        "type": "Title"
+    },
+    {
+        "text": ".flatten()",
+        "type": "Title"
+    },
+    {
+        "text": "show()",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "Also note that the Sites object cleans up \u009cdead\u009d sites from time to\ntime, and certain context-dependent calls, such as .next(note.Rest)\nor .getContextByClass('Measure') need to search every living site.\nOver time, these calls would get slower and slower if otherwise\nlong-forgotten streams created as byproducts of .show() or\n.flatten() stuck around.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Here's an example adapted from actual code that caused a problem. The\nuser was trying to figure out the beat for each note that was not the\ncontinuation of a tie, and he wrote:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "bach",
+        "type": "Title"
+    },
+    {
+        "text": "corpus",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "'bach/bwv66.6'",
+        "type": "Title"
+    },
+    {
+        "text": "allNotes",
+        "type": "Title"
+    },
+    {
+        "text": "list",
+        "type": "Title"
+    },
+    {
+        "text": "bach",
+        "type": "Title"
+    },
+    {
+        "text": "stripTies",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "recurse",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "notes",
+        "type": "Title"
+    },
+    {
+        "text": "firstNote",
+        "type": "Title"
+    },
+    {
+        "text": "allNotes",
+        "type": "Title"
+    },
+    {
+        "text": "Problems quickly arose though when he tried to figure out the note's\nbeat via firstNote.beat \u2014 it said that it was on beat 1, even though\nthis piece in 4/4 began with a one-beat pickup, and should be on beat 4.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "What happened? Again, it's a problem with confusions from disappearing\nstreams and sites. The .stripTies() method creates a new score\nhierarchy, where each note in the score hierarchy is a copy derived from\nthe previous one:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "firstNoteOriginal",
+        "type": "Title"
+    },
+    {
+        "text": "bach",
+        "type": "Title"
+    },
+    {
+        "text": "recurse",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "notes",
+        "type": "Title"
+    },
+    {
+        "text": "firstNoteStripped",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "bach",
+        "type": "Title"
+    },
+    {
+        "text": "stripTies",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "recurse",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "notes",
+        "type": "Title"
+    },
+    {
+        "text": "firstNoteOriginal",
+        "type": "Title"
+    },
+    {
+        "text": "firstNoteStripped",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#>, <music21.note.Note C#>)",
+        "type": "Title"
+    },
+    {
+        "text": "firstNoteOriginal",
+        "type": "Title"
+    },
+    {
+        "text": "is",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "firstNoteStripped",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "firstNoteStripped",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "derivation",
+        "type": "Title"
+    },
+    {
+        "text": "Derivation",
+        "type": "Title"
+    },
+    {
+        "text": "of",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "#> from <music21.note.Note C#> via 'stripTies'>",
+        "type": "Title"
+    },
+    {
+        "text": "firstNoteStripped",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "derivation",
+        "type": "Title"
+    },
+    {
+        "text": "origin",
+        "type": "Title"
+    },
+    {
+        "text": "is",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "firstNoteOriginal",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "So the Note object obtained from .stripTies() is not to be found in\nthe original bach score:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "bach",
+        "type": "Title"
+    },
+    {
+        "text": "containerInHierarchy",
+        "type": "Title"
+    },
+    {
+        "text": "firstNoteStripped",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "is",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "bach",
+        "type": "Title"
+    },
+    {
+        "text": "containerInHierarchy",
+        "type": "Title"
+    },
+    {
+        "text": "firstNoteOriginal",
+        "type": "Title"
+    },
+    {
+        "text": "music21",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "Measure",
+        "type": "Title"
+    },
+    {
+        "text": "offset",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "in fact, firstNoteStripped's entire containerHierarchy is generally\nempty if garbage collection has run. Why? Because firstNoteStripped only\ndirectly belongs to the hierarchy created by the unnamed and unsaved\nstream created by stripTies(). So how to solve this? In code that\nneeds access to the hierarchy, make sure that it is preserved by saving\nit to a variable. Here we will break up the code calling stripTies()\nand save it as a variable, st_bach. Not only does this solve our\nproblems, but it makes the code more readable:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "bach",
+        "type": "Title"
+    },
+    {
+        "text": "corpus",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "'bach/bwv66.6'",
+        "type": "Title"
+    },
+    {
+        "text": "st_bach",
+        "type": "Title"
+    },
+    {
+        "text": "bach",
+        "type": "Title"
+    },
+    {
+        "text": "stripTies",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "allNotes",
+        "type": "Title"
+    },
+    {
+        "text": "list",
+        "type": "Title"
+    },
+    {
+        "text": "st_bach",
+        "type": "Title"
+    },
+    {
+        "text": "recurse",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "notes",
+        "type": "Title"
+    },
+    {
+        "text": "firstNote",
+        "type": "Title"
+    },
+    {
+        "text": "allNotes",
+        "type": "Title"
+    },
+    {
+        "text": "firstNote",
+        "type": "Title"
+    },
+    {
+        "text": "beat",
+        "type": "Title"
+    },
+    {
+        "text": "4.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Doing this also fixes another thing that looked like a bug, but is\nexpected behavior \u2014 that getContextByClass('Measure') was needing to\nfollow the derivation chain to find a measure that firstNote was not\nin. Here it works as expected:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "firstNote",
+        "type": "Title"
+    },
+    {
+        "text": "getContextByClass",
+        "type": "Title"
+    },
+    {
+        "text": "'Measure'",
+        "type": "Title"
+    },
+    {
+        "text": "elementOffset",
+        "type": "Title"
+    },
+    {
+        "text": "firstNote",
+        "type": "Title"
+    },
+    {
+        "text": "0.0",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "This was a pretty dense chapter, I know, and it barely scratches the\nsurface of the complexities of the Context system, so we'll move to\nsomething lighter if even more distant, and look at Medieval and\nRenaissance extensions in music21 \u2014 as soon as that chapter is\ncompleted. Until then, jump ahead to\nChapter 61: TimespanTrees and Verticalities.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide, Chapter 58: Understanding Sites and Contexts",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

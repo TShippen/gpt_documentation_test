@@ -1,0 +1,2698 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.repeat",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.prebase",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.roman",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.repeat\nRepeatExpression\nRepeatExpression\nRepeatExpression.applyTextFormatting()\nRepeatExpression.getText()\nRepeatExpression.getTextExpression()\nRepeatExpression.isValidText()\nRepeatExpression.setText()\nRepeatExpression.setTextExpression()\n\n\n\n\nRepeatExpressionMarker\nRepeatExpressionMarker\n\n\nCoda\nCoda\n\n\nSegno\nSegno\n\n\nFine\nFine\n\n\nRepeatExpressionCommand\nRepeatExpressionCommand\n\n\nDaCapo\nDaCapo\n\n\nDaCapoAlFine\nDaCapoAlFine\n\n\nDaCapoAlCoda\nDaCapoAlCoda\n\n\nAlSegno\nAlSegno\n\n\nDalSegno\nDalSegno\n\n\nDalSegnoAlFine\nDalSegnoAlFine\n\n\nDalSegnoAlCoda\nDalSegnoAlCoda\n\n\nRepeatFinder\nRepeatFinder\nRepeatFinder.getMeasureSimilarityList()\nRepeatFinder.getQuarterLengthOfPickupMeasure()\nRepeatFinder.getSimilarMeasureGroups()\nRepeatFinder.hasPickup()\nRepeatFinder.simplify()\nRepeatFinder.correctMeasureNumbers\nRepeatFinder.defaultHash\nRepeatFinder.s\n\n\n\n\nExpander\nExpander\nExpander.findInnermostRepeatIndices()\nExpander.getRepeatExpressionIndex()\nExpander.isExpandable()\nExpander.measureMap()\nExpander.process()\nExpander.processInnermostRepeatBars()\nExpander.repeatBarsAreCoherent()\n\n\n\n\nRepeatMark\nRepeatMark\n\n\nFunctions\ndeleteMeasures()\ninsertRepeat()\ninsertRepeatEnding()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.repeat\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "This module provides the base class for all RepeatMark objects: entities that denote repeats.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Some RepeatMark objects are Expression objects; others are Bar objects. See for instance,\nthe Repeat which represents a normal barline repeat.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "RepeatExpression\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.repeat.",
+        "type": "Title"
+    },
+    {
+        "text": "RepeatExpression",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "This class models any mark added to a Score to mark\nrepeat start and end points that are designated by\ntext expressions or symbols, such as D.S. Al Coda, etc.\nN.B. Repeat(Barline) objects are not RepeatExpression objects,\nbut both are RepeatMark subclasses.\nThis class stores internally a\nTextExpression. This object\nis used for rendering text output in translation. A\nproperly configured TextExpression object can also be\nused to create an instance of a RepeatExpressions.",
+        "type": "ListItem"
+    },
+    {
+        "text": "RepeatExpression bases",
+        "type": "Title"
+    },
+    {
+        "text": "RepeatMark",
+        "type": "ListItem"
+    },
+    {
+        "text": "Expression",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "RepeatExpression read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Expression:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "name",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "RepeatExpression read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "RepeatExpression methods",
+        "type": "Title"
+    },
+    {
+        "text": "RepeatExpression.",
+        "type": "Title"
+    },
+    {
+        "text": "applyTextFormatting",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "te",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Apply the default text formatting to the text expression version of this repeat",
+        "type": "ListItem"
+    },
+    {
+        "text": "RepeatExpression.",
+        "type": "Title"
+    },
+    {
+        "text": "getText",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Get the text used for this expression.",
+        "type": "ListItem"
+    },
+    {
+        "text": "RepeatExpression.",
+        "type": "Title"
+    },
+    {
+        "text": "getTextExpression",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a copy of the TextExpression stored in this object.",
+        "type": "ListItem"
+    },
+    {
+        "text": "RepeatExpression.",
+        "type": "Title"
+    },
+    {
+        "text": "isValidText",
+        "type": "Title"
+    },
+    {
+        "text": "value",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return True or False if the supplied text could be used for this RepeatExpression.",
+        "type": "ListItem"
+    },
+    {
+        "text": "RepeatExpression.",
+        "type": "Title"
+    },
+    {
+        "text": "setText",
+        "type": "Title"
+    },
+    {
+        "text": "value",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Set the text of this repeat expression.\nThis is also the primary way that the stored TextExpression object is created.",
+        "type": "ListItem"
+    },
+    {
+        "text": "RepeatExpression.",
+        "type": "Title"
+    },
+    {
+        "text": "setTextExpression",
+        "type": "Title"
+    },
+    {
+        "text": "value",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Directly set a TextExpression object.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "RepeatExpression instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "RepeatExpressionMarker\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.repeat.",
+        "type": "Title"
+    },
+    {
+        "text": "RepeatExpressionMarker",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Some repeat expressions are markers of positions\nin the score to jump to; these classes model those makers,\nsuch as Coda, Segno, and Fine, which are subclassed below.",
+        "type": "ListItem"
+    },
+    {
+        "text": "RepeatExpressionMarker bases",
+        "type": "Title"
+    },
+    {
+        "text": "RepeatExpression",
+        "type": "ListItem"
+    },
+    {
+        "text": "RepeatMark",
+        "type": "ListItem"
+    },
+    {
+        "text": "Expression",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "RepeatExpressionMarker read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Expression:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "name",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "RepeatExpressionMarker read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "RepeatExpressionMarker methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from RepeatExpression:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "applyTextFormatting() getText() getTextExpression() isValidText() setText() setTextExpression()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "RepeatExpressionMarker instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "Coda\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.repeat.",
+        "type": "Title"
+    },
+    {
+        "text": "Coda",
+        "type": "Title"
+    },
+    {
+        "text": "text",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The coda symbol, or the word coda, as placed in a score.\n>>> rm = repeat.Coda()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Coda bases",
+        "type": "Title"
+    },
+    {
+        "text": "RepeatExpressionMarker",
+        "type": "ListItem"
+    },
+    {
+        "text": "RepeatExpression",
+        "type": "ListItem"
+    },
+    {
+        "text": "RepeatMark",
+        "type": "ListItem"
+    },
+    {
+        "text": "Expression",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "Coda read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Expression:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "name",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "Coda read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "Coda methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from RepeatExpression:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "applyTextFormatting() getText() getTextExpression() isValidText() setText() setTextExpression()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Coda instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "Segno\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.repeat.",
+        "type": "Title"
+    },
+    {
+        "text": "Segno",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The segno sign as placed in a score.\n>>> rm = repeat.Segno()\n>>> rm.useSymbol\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "Segno bases",
+        "type": "Title"
+    },
+    {
+        "text": "RepeatExpressionMarker",
+        "type": "ListItem"
+    },
+    {
+        "text": "RepeatExpression",
+        "type": "ListItem"
+    },
+    {
+        "text": "RepeatMark",
+        "type": "ListItem"
+    },
+    {
+        "text": "Expression",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "Segno read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Expression:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "name",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "Segno read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "Segno methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from RepeatExpression:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "applyTextFormatting() getText() getTextExpression() isValidText() setText() setTextExpression()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Segno instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "Fine\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.repeat.",
+        "type": "Title"
+    },
+    {
+        "text": "Fine",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The fine word as placed in a score.\n>>> rm = repeat.Fine()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Fine bases",
+        "type": "Title"
+    },
+    {
+        "text": "RepeatExpressionMarker",
+        "type": "ListItem"
+    },
+    {
+        "text": "RepeatExpression",
+        "type": "ListItem"
+    },
+    {
+        "text": "RepeatMark",
+        "type": "ListItem"
+    },
+    {
+        "text": "Expression",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "Fine read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Expression:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "name",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "Fine read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "Fine methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from RepeatExpression:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "applyTextFormatting() getText() getTextExpression() isValidText() setText() setTextExpression()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Fine instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "RepeatExpressionCommand\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.repeat.",
+        "type": "Title"
+    },
+    {
+        "text": "RepeatExpressionCommand",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Some repeat expressions are commands, instructing\nthe reader to go somewhere else. DaCapo and\nrelated are examples.",
+        "type": "ListItem"
+    },
+    {
+        "text": "RepeatExpressionCommand bases",
+        "type": "Title"
+    },
+    {
+        "text": "RepeatExpression",
+        "type": "ListItem"
+    },
+    {
+        "text": "RepeatMark",
+        "type": "ListItem"
+    },
+    {
+        "text": "Expression",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "RepeatExpressionCommand read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Expression:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "name",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "RepeatExpressionCommand read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "RepeatExpressionCommand methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from RepeatExpression:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "applyTextFormatting() getText() getTextExpression() isValidText() setText() setTextExpression()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "RepeatExpressionCommand instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "DaCapo\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.repeat.",
+        "type": "Title"
+    },
+    {
+        "text": "DaCapo",
+        "type": "Title"
+    },
+    {
+        "text": "text",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The Da Capo command, indicating a return to the beginning\nand a continuation to the end. By default,\nrepeatAfterJump is False, indicating that any repeats\nencountered on the Da Capo repeat not be repeated.",
+        "type": "ListItem"
+    },
+    {
+        "text": "DaCapo bases",
+        "type": "Title"
+    },
+    {
+        "text": "RepeatExpressionCommand",
+        "type": "ListItem"
+    },
+    {
+        "text": "RepeatExpression",
+        "type": "ListItem"
+    },
+    {
+        "text": "RepeatMark",
+        "type": "ListItem"
+    },
+    {
+        "text": "Expression",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "DaCapo read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Expression:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "name",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "DaCapo read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "DaCapo methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from RepeatExpression:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "applyTextFormatting() getText() getTextExpression() isValidText() setText() setTextExpression()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "DaCapo instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "DaCapoAlFine\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.repeat.",
+        "type": "Title"
+    },
+    {
+        "text": "DaCapoAlFine",
+        "type": "Title"
+    },
+    {
+        "text": "text",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The Da Capo al Fine command, indicating a return to\nthe beginning and a continuation to the\nFine object. By default,\nrepeatAfterJump is False, indicating that any\nrepeats encountered on the Da Capo repeat not\nbe repeated.\n>>> rm = repeat.DaCapoAlFine()",
+        "type": "ListItem"
+    },
+    {
+        "text": "DaCapoAlFine bases",
+        "type": "Title"
+    },
+    {
+        "text": "RepeatExpressionCommand",
+        "type": "ListItem"
+    },
+    {
+        "text": "RepeatExpression",
+        "type": "ListItem"
+    },
+    {
+        "text": "RepeatMark",
+        "type": "ListItem"
+    },
+    {
+        "text": "Expression",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "DaCapoAlFine read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Expression:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "name",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "DaCapoAlFine read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "DaCapoAlFine methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from RepeatExpression:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "applyTextFormatting() getText() getTextExpression() isValidText() setText() setTextExpression()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "DaCapoAlFine instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "DaCapoAlCoda\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.repeat.",
+        "type": "Title"
+    },
+    {
+        "text": "DaCapoAlCoda",
+        "type": "Title"
+    },
+    {
+        "text": "text",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The Da Capo al Coda command, indicating a return\nto the beginning and a continuation to the\nCoda object. The music\nresumes at a second Coda\nobject. By default, repeatAfterJump is False,\nindicating that any repeats encountered on the\nDa Capo repeat not be repeated.\n>>> rm = repeat.DaCapoAlCoda()",
+        "type": "ListItem"
+    },
+    {
+        "text": "DaCapoAlCoda bases",
+        "type": "Title"
+    },
+    {
+        "text": "RepeatExpressionCommand",
+        "type": "ListItem"
+    },
+    {
+        "text": "RepeatExpression",
+        "type": "ListItem"
+    },
+    {
+        "text": "RepeatMark",
+        "type": "ListItem"
+    },
+    {
+        "text": "Expression",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "DaCapoAlCoda read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Expression:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "name",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "DaCapoAlCoda read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "DaCapoAlCoda methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from RepeatExpression:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "applyTextFormatting() getText() getTextExpression() isValidText() setText() setTextExpression()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "DaCapoAlCoda instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "AlSegno\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.repeat.",
+        "type": "Title"
+    },
+    {
+        "text": "AlSegno",
+        "type": "Title"
+    },
+    {
+        "text": "text",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Jump to the sign. Presumably a forward jump, not a repeat.\n>>> rm = repeat.AlSegno()",
+        "type": "ListItem"
+    },
+    {
+        "text": "AlSegno bases",
+        "type": "Title"
+    },
+    {
+        "text": "RepeatExpressionCommand",
+        "type": "ListItem"
+    },
+    {
+        "text": "RepeatExpression",
+        "type": "ListItem"
+    },
+    {
+        "text": "RepeatMark",
+        "type": "ListItem"
+    },
+    {
+        "text": "Expression",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "AlSegno read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Expression:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "name",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "AlSegno read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "AlSegno methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from RepeatExpression:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "applyTextFormatting() getText() getTextExpression() isValidText() setText() setTextExpression()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "AlSegno instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "DalSegno\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.repeat.",
+        "type": "Title"
+    },
+    {
+        "text": "DalSegno",
+        "type": "Title"
+    },
+    {
+        "text": "text",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The Dal Segno command, indicating a return to the segno\nand a continuation to the end. By default, repeatAfterJump\nis False, indicating that any repeats encountered on\nthe Da Capo repeat not be repeated.\n>>> rm = repeat.DaCapoAlFine()",
+        "type": "ListItem"
+    },
+    {
+        "text": "DalSegno bases",
+        "type": "Title"
+    },
+    {
+        "text": "RepeatExpressionCommand",
+        "type": "ListItem"
+    },
+    {
+        "text": "RepeatExpression",
+        "type": "ListItem"
+    },
+    {
+        "text": "RepeatMark",
+        "type": "ListItem"
+    },
+    {
+        "text": "Expression",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "DalSegno read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Expression:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "name",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "DalSegno read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "DalSegno methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from RepeatExpression:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "applyTextFormatting() getText() getTextExpression() isValidText() setText() setTextExpression()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "DalSegno instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "DalSegnoAlFine\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.repeat.",
+        "type": "Title"
+    },
+    {
+        "text": "DalSegnoAlFine",
+        "type": "Title"
+    },
+    {
+        "text": "text",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The Dal Segno al Fine command, indicating a return to the\nsegno and a continuation to the Fine\nobject. By default, repeatAfterJump is False, indicating\nthat any repeats encountered on the Dal Segno repeat not\nbe repeated.\n>>> rm = repeat.DaCapoAlFine()",
+        "type": "ListItem"
+    },
+    {
+        "text": "DalSegnoAlFine bases",
+        "type": "Title"
+    },
+    {
+        "text": "RepeatExpressionCommand",
+        "type": "ListItem"
+    },
+    {
+        "text": "RepeatExpression",
+        "type": "ListItem"
+    },
+    {
+        "text": "RepeatMark",
+        "type": "ListItem"
+    },
+    {
+        "text": "Expression",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "DalSegnoAlFine read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Expression:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "name",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "DalSegnoAlFine read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "DalSegnoAlFine methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from RepeatExpression:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "applyTextFormatting() getText() getTextExpression() isValidText() setText() setTextExpression()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "DalSegnoAlFine instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "DalSegnoAlCoda\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.repeat.",
+        "type": "Title"
+    },
+    {
+        "text": "DalSegnoAlCoda",
+        "type": "Title"
+    },
+    {
+        "text": "text",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The Dal Segno al Coda command, indicating a return to the\nbeginning and a continuation to the Coda\nobject. The music resumes at a second\nCoda object. By default,\nrepeatAfterJump is False, indicating that any repeats encountered\non the Da Segno repeat not be repeated.\n>>> rm = repeat.DaCapoAlCoda()",
+        "type": "ListItem"
+    },
+    {
+        "text": "DalSegnoAlCoda bases",
+        "type": "Title"
+    },
+    {
+        "text": "RepeatExpressionCommand",
+        "type": "ListItem"
+    },
+    {
+        "text": "RepeatExpression",
+        "type": "ListItem"
+    },
+    {
+        "text": "RepeatMark",
+        "type": "ListItem"
+    },
+    {
+        "text": "Expression",
+        "type": "ListItem"
+    },
+    {
+        "text": "Music21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "DalSegnoAlCoda read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from Expression:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "name",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "beat beatDuration beatStr beatStrength hasEditorialInformation hasStyleInformation measureNumber",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "DalSegnoAlCoda read/write properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read/write properties inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeSite derivation duration editorial id offset priority quarterLength seconds style",
+        "type": "Table"
+    },
+    {
+        "text": "DalSegnoAlCoda methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from RepeatExpression:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "applyTextFormatting() getText() getTextExpression() isValidText() setText() setTextExpression()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__eq__() clearCache() containerHierarchy() contextSites() getAllContextsByClass() getContextByClass() getOffsetBySite() getOffsetInHierarchy() getSpannerSites() informSites() mergeAttributes() next() previous() purgeLocations() purgeOrphans() setOffsetBySite() show() sortTuple() splitAtDurations() splitAtQuarterLength() splitByQuarterLengths() write()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "DalSegnoAlCoda instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "Instance variables inherited from Music21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSortOrder groups isStream sites",
+        "type": "Table"
+    },
+    {
+        "text": "RepeatFinder\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.repeat.",
+        "type": "Title"
+    },
+    {
+        "text": "RepeatFinder",
+        "type": "Title"
+    },
+    {
+        "text": "inpStream",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "defaultMeasureHashFunction",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "An object for finding and simplifying repeated sections of music. Must be passed a stream\nwhich contains either measures or parts containing measures.\nTo collapse a repeated section, call RepeatFinder.simplify() and to see\nwhich sections of a piece\nare repeated, call either RepeatFinder.getMeasureSimilarityList() or\nRepeatFinder.getSimilarMeasureGroups (see below for full documentation).\nIf the internal stream passed to RepeatFinder is altered in any way\n(e.g. if you call simplify() with inplace=True)\nthen to ensure proper functionality, you should use a new RepeatFinder object.\nBelow is an example of calling simplify on a Bach chorale.\n>>> chorale = corpus.parse('bwv117.4.mxl')\n>>> chorale.show()\n\n\nOnly the first 8 bars are displayed below\n\n>>> repeat.RepeatFinder(chorale).simplify().show()\n\n\nThe same chorale as before, but simplified",
+        "type": "ListItem"
+    },
+    {
+        "text": "RepeatFinder methods",
+        "type": "Title"
+    },
+    {
+        "text": "RepeatFinder.",
+        "type": "Title"
+    },
+    {
+        "text": "getMeasureSimilarityList",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns a list mList = [ [2, 3], [3], \u2026 ] such that measures i and j are the\nsame (with i < j) if and only\nif mList[i] contains j.  NOTE: this function refers to the very first measure\nas measure 0 regardless of whether\ns starts with measure 0 or 1 (i.e. treats a pickup bar as an entire measure).\nFor instance, if getMeasureSimilarityList returned [[4], [5], [6], [7, 8],\n[], [], [], [8], []], we would know that the first\nfour measures repeat and the 4th, 8th, and 9th measures are the same.\nMeasures are considered the same if the defaultHash maps\nthem to two values which are\nequal under the \u0098==' operator.\n>>> chorale = corpus.parse('bwv154.3.mxl')\n\n\nExpand the repeats:\n>>> chorale = repeat.Expander(chorale.parts[0]).process()\n\n\nSearch for similarity:\n>>> repeat.RepeatFinder(chorale).getMeasureSimilarityList()\n[[4, 12], [5, 13], [6], [7], [12], [13], [], [], [], [], [], [], [], [], [], []]\n\n\n>>> chorale2 = corpus.parse('bwv153.5.mxl')\n>>> chorale2 = repeat.Expander(chorale2.parts[0]).process()\n>>> repeat.RepeatFinder(chorale2).getMeasureSimilarityList()  # bwv153.5 has a pickup\n[[5], [6], [7], [8], [9], [], [], [], [], [], [15], [], [], [], [19], [], [], [], [], []]\n>>> hashFunction = lambda m : str(len(m))\n\n\n>>> repeat.RepeatFinder(chorale.measures(1, 8),\n...                     defaultMeasureHashFunction=hashFunction).getMeasureSimilarityList()\n[[1, 2, 4, 5, 6, 8, 10], [2, 4, 5, 6, 8, 10], [4, 5, 6, 8, 10],\n [7, 9, 11], [5, 6, 8, 10], [6, 8, 10], [8, 10], [9, 11], [10], [11], [], []]",
+        "type": "ListItem"
+    },
+    {
+        "text": "RepeatFinder.",
+        "type": "Title"
+    },
+    {
+        "text": "getQuarterLengthOfPickupMeasure",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Looks at RepeatFinder's internal stream and returns the duration of the pickup bar\nin quarterLengths.  If there is no pickup, returns 0.0.\nRaises an exception if RepeatFinder's internal stream is too short\n(i.e. fewer than 3 measures long)\n>>> noPickup = corpus.parse('bwv10.7.mxl')\n>>> repeat.RepeatFinder(noPickup).getQuarterLengthOfPickupMeasure()\n0.0\n>>> noPickup.parts[0].measures(0, 5).show()\n\n\n\n>>> hasPickup = corpus.parse('bwv101.7.mxl')\n>>> repeat.RepeatFinder(hasPickup).getQuarterLengthOfPickupMeasure()\n1.0\n>>> hasPickup.parts[0].measures(0, 2).show()\n\n\n\n>>> tooShort = noPickup.parts[0].measures(1, 2)\n>>> repeat.RepeatFinder(tooShort).getQuarterLengthOfPickupMeasure()\nTraceback (most recent call last):\nmusic21.repeat.InsufficientLengthException: Cannot determine length\n    of pickup given fewer than 3 measures",
+        "type": "ListItem"
+    },
+    {
+        "text": "RepeatFinder.",
+        "type": "Title"
+    },
+    {
+        "text": "getSimilarMeasureGroups",
+        "type": "Title"
+    },
+    {
+        "text": "threshold",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns a list of tuples containing information on repeated groups of measures.\nSpecifically, returns a list of tuples of the form (l1, l2)\nwhere l1 and l2 are lists\nof measure numbers such that measure l1[i] is the same as measure l2[i].\n>>> chorale = corpus.parse('bwv117.4.mxl')\n\n\nExpand repeats\n>>> chorale = repeat.Expander(chorale.parts[0]).process()\n>>> chorale.show()\n\n\nMeasures 0-4 are the same as measures 5-9.\n\n>>> repeat.RepeatFinder(chorale).getSimilarMeasureGroups()\n[([0, 1, 2, 3, 4], [5, 6, 7, 8, 9]), ([1, 2, 3, 4, 5], [6, 7, 8, 9, 10]), ([0], [10])]\n\n\nNotice that although measures 2-3 are the same as measures 6-7, we\ndon't have ([2, 3], [6, 7]) in our result, since ([1, 2, 3], [5, 6, 7])\nalready contains that information.",
+        "type": "ListItem"
+    },
+    {
+        "text": "RepeatFinder.",
+        "type": "Title"
+    },
+    {
+        "text": "hasPickup",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True when the RepeatFinder's internal stream has a pickup bar.\nRaises an exception if the internal stream is too short\n(i.e. fewer than 3 bars long).\n>>> noPickup = corpus.parse('bwv10.7.mxl')\n>>> repeat.RepeatFinder(noPickup).hasPickup()\nFalse\n>>> noPickup.parts[0].measures(0, 5).show()\n\n\n\n>>> hasPickup = corpus.parse('bwv101.7.mxl')\n>>> repeat.RepeatFinder(hasPickup).hasPickup()\nTrue\n>>> hasPickup.parts[0].measures(0, 2).show()",
+        "type": "ListItem"
+    },
+    {
+        "text": "RepeatFinder.",
+        "type": "Title"
+    },
+    {
+        "text": "simplify",
+        "type": "Title"
+    },
+    {
+        "text": "repeatThreshold",
+        "type": "Title"
+    },
+    {
+        "text": "repeatEndingThreshold",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Takes the piece stored in the RepeatFinder object and collapses repeated sections by\nreplacing them with repeat signs. Includes first and second endings where appropriate.\nOnly detects repeated sections which are repeatThreshold bars long and only\ndetects repeat endings\nwhere the repeated sections is more than repeatEndingThreshold bars long.\nIf inPlace is True, does not return a new music21 object, but instead alters\nthe stream passed to\nthe RepeatFinder object.\nIn the below example, we have an 8-measure stream where the last four measures\nare identical to the\nfirst four.\n>>> s = stream.Stream()\n>>> notes = [note.Note('D'), note.Note('E-'), note.Note('C'), note.Note('B3'),\n...           note.Note('D'), note.Note('E-'), note.Note('C'), note.Note('B3')]\n>>> for i in range(8):\n...    m = stream.Measure()\n...    m.number = i + 1\n...    myNote = notes[i]\n...    myNote.duration.quarterLength = 4.0\n...    m.append(myNote)\n...    s.append(m)\n>>> s.show()\n\n\n\n>>> s2 = repeat.RepeatFinder(s).simplify()\n>>> s2.show()",
+        "type": "ListItem"
+    },
+    {
+        "text": "RepeatFinder instance variables",
+        "type": "Title"
+    },
+    {
+        "text": "RepeatFinder.",
+        "type": "Title"
+    },
+    {
+        "text": "correctMeasureNumbers",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "boolean whether measure numbers should be corrected",
+        "type": "ListItem"
+    },
+    {
+        "text": "RepeatFinder.",
+        "type": "Title"
+    },
+    {
+        "text": "defaultHash",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A function that takes a stream of notes and rests and\nreturns a string or an\ninteger such that two measures are equal if their\nhashes are equal under the \u0098==' operator",
+        "type": "ListItem"
+    },
+    {
+        "text": "RepeatFinder.",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The internal stream which is being analyzed for repeated sections",
+        "type": "ListItem"
+    },
+    {
+        "text": "Expander\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.repeat.",
+        "type": "Title"
+    },
+    {
+        "text": "Expander",
+        "type": "Title"
+    },
+    {
+        "text": "streamObj",
+        "type": "Title"
+    },
+    {
+        "text": "StreamType",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The Expander object can expand a single Part or Part-like Stream with repeats. Nested\nrepeats given with Repeat objects, or\nrepeats and sections designated with\nRepeatExpression objects, are all expanded.\nThis class is a utility processor. Direct usage is more commonly\nfrom the expandRepeats() method.\nTo use this object directly, call process() on the\nscore\n>>> s = converter.parse('tinynotation: 3/4 A2. C4 D E F2.')\n>>> s.makeMeasures(inPlace=True)\n>>> s.measure(2).leftBarline = bar.Repeat(direction='start')\n>>> s.measure(2).rightBarline = bar.Repeat(direction='end', times=3)\n>>> s.show('text')\n{0.0} <music21.stream.Measure 1 offset=0.0>\n    {0.0} <music21.clef.BassClef>\n    {0.0} <music21.meter.TimeSignature 3/4>\n    {0.0} <music21.note.Note A>\n{3.0} <music21.stream.Measure 2 offset=3.0>\n    {0.0} <music21.bar.Repeat direction=start>\n    {0.0} <music21.note.Note C>\n    {1.0} <music21.note.Note D>\n    {2.0} <music21.note.Note E>\n    {3.0} <music21.bar.Repeat direction=end times=3>\n{6.0} <music21.stream.Measure 3 offset=6.0>\n    {0.0} <music21.note.Note F>\n    {3.0} <music21.bar.Barline type=final>\n\n\n>>> e = repeat.Expander(s)\n>>> e.repeatBarsAreCoherent()\nTrue\n>>> s2 = e.process()\n>>> s2.show('text')\n{0.0} <music21.stream.Measure 1 offset=0.0>\n    {0.0} <music21.clef.BassClef>\n    {0.0} <music21.meter.TimeSignature 3/4>\n    {0.0} <music21.note.Note A>\n{3.0} <music21.stream.Measure 2 offset=3.0>\n    {0.0} <music21.bar.Barline type=double>\n    {0.0} <music21.note.Note C>\n    {1.0} <music21.note.Note D>\n    {2.0} <music21.note.Note E>\n    {3.0} <music21.bar.Barline type=double>\n{6.0} <music21.stream.Measure 2a offset=6.0>\n    {0.0} <music21.bar.Barline type=double>\n    {0.0} <music21.note.Note C>\n    {1.0} <music21.note.Note D>\n    {2.0} <music21.note.Note E>\n    {3.0} <music21.bar.Barline type=double>\n{9.0} <music21.stream.Measure 2b offset=9.0>\n    {0.0} <music21.bar.Barline type=double>\n    {0.0} <music21.note.Note C>\n    {1.0} <music21.note.Note D>\n    {2.0} <music21.note.Note E>\n    {3.0} <music21.bar.Barline type=double>\n{12.0} <music21.stream.Measure 3 offset=12.0>\n    {0.0} <music21.note.Note F>\n    {3.0} <music21.bar.Barline type=final>\n\n\nChanged in v9: Expander must be initialized with a Stream object.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Expander methods",
+        "type": "Title"
+    },
+    {
+        "text": "Expander.",
+        "type": "Title"
+    },
+    {
+        "text": "findInnermostRepeatIndices",
+        "type": "Title"
+    },
+    {
+        "text": "streamObj",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Find the innermost repeat bars. Return raw index values.\nFor a single measure, this could be [2]\nFor many contiguous measures, this might be [2, 3, 4, 5]\nThe provided Stream must be a Stream only of Measures.\n>>> s = converter.parse('tinynotation: 3/4 A2.  C4 D E   F2.    G4 a b   c2.')\n>>> s.makeMeasures(inPlace=True)\n>>> s.measure(2).leftBarline = bar.Repeat(direction='start')\n>>> s.measure(2).rightBarline = bar.Repeat(direction='end', times=3)\n>>> s.measure(4).leftBarline = bar.Repeat(direction='start')\n>>> s.measure(4).rightBarline = bar.Repeat(direction='end', times=2)\n>>> e = repeat.Expander(s)\n>>> e.findInnermostRepeatIndices(s)\n[1]\n\n\n>>> s.measure(2).rightBarline = None\n>>> s.measure(4).leftBarline = None\n>>> e2 = repeat.Expander(s)\n>>> e2.findInnermostRepeatIndices(s)\n[1, 2, 3]",
+        "type": "ListItem"
+    },
+    {
+        "text": "Expander.",
+        "type": "Title"
+    },
+    {
+        "text": "getRepeatExpressionIndex",
+        "type": "Title"
+    },
+    {
+        "text": "streamObj",
+        "type": "Title"
+    },
+    {
+        "text": "target",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a list of index positions of a Measure given a\nstream of measures. This requires the provided stream\nto only have measures.\n>>> s = converter.parse('tinynotation: 3/4 A2. C4 D E F2.')\n>>> s.makeMeasures(inPlace=True)\n>>> s.measure(3).append(repeat.Segno())\n>>> e = repeat.Expander(s)\n\n\ngetRepeatExpressionIndex returns the measureIndex not measure number\n>>> e.getRepeatExpressionIndex(s.getElementsByClass(stream.Measure), 'Segno')\n[2]",
+        "type": "ListItem"
+    },
+    {
+        "text": "Expander.",
+        "type": "Title"
+    },
+    {
+        "text": "isExpandable",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool | None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return True or False if this Stream is expandable, that is,\nif it has balanced repeats or sensible Da Capo or Dal Segno\nindications.\nReturn None if there's nothing to expand (a third case\u2026)",
+        "type": "ListItem"
+    },
+    {
+        "text": "Expander.",
+        "type": "Title"
+    },
+    {
+        "text": "measureMap",
+        "type": "Title"
+    },
+    {
+        "text": "returnType",
+        "type": "Title"
+    },
+    {
+        "text": "'index'",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "returns a list where for each measure in the expanded stream, the index of the\nmeasure in the original\nstream is given.  if returnType = \u0098measureNumber' then the str(measureNumber)\nof the original instead of the\nindex of the original is used \u2014 suffixes are important here for endings etc..\nInefficient, because the entire stream is expanded before making this call,\nrather than just seeing\nwhat needs to be expanded and returning that.\n>>> s = converter.parse('tinynotation: 3/4 A2.  C4 D E   F2.    G4 a b   c2.')\n>>> s.makeMeasures(inPlace=True)\n>>> s.measure(2).leftBarline = bar.Repeat(direction='start')\n>>> s.measure(2).rightBarline = bar.Repeat(direction='end', times=3)\n>>> s.measure(4).leftBarline = bar.Repeat(direction='start')\n>>> s.measure(4).rightBarline = bar.Repeat(direction='end', times=2)\n>>> e = repeat.Expander(s)\n>>> e.measureMap()\n[0, 1, 1, 1, 2, 3, 3, 4]\n>>> e.measureMap(returnType='measureNumber')\n['1', '2', '2a', '2b', '3', '4', '4a', '5']",
+        "type": "ListItem"
+    },
+    {
+        "text": "Expander.",
+        "type": "Title"
+    },
+    {
+        "text": "process",
+        "type": "Title"
+    },
+    {
+        "text": "deepcopy",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 StreamType",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "This is the main call for Expander\nProcesses all repeats. Note that this processing only\nhappens for Measures contained in the given Stream.\nOther objects in that Stream are neither processed nor copied.\nif deepcopy is False then it will leave the stream in an unusual state, but acceptable if\nthe source stream has already been deep-copied and will be discarded later",
+        "type": "ListItem"
+    },
+    {
+        "text": "Expander.",
+        "type": "Title"
+    },
+    {
+        "text": "processInnermostRepeatBars",
+        "type": "Title"
+    },
+    {
+        "text": "streamObj",
+        "type": "Title"
+    },
+    {
+        "text": "repeatIndices",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "repeatTimes",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "returnExpansionOnly",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Process and return a new Stream of Measures, likely a Part.\nIf repeatIndices are given, only these indices will be copied.\nAll the included indices must be listed, not just the start and end.\nIf returnExpansionOnly is True, only the expanded portion is\nreturned, the rest of the Stream is not retained.\n>>> s = converter.parse('tinynotation: 3/4 A2.  C4 D E   F2.    G4 a b   c2.')\n>>> s.makeMeasures(inPlace=True)\n>>> s.measure(2).leftBarline = bar.Repeat(direction='start')\n>>> s.measure(2).rightBarline = bar.Repeat(direction='end', times=3)\n>>> s.measure(4).leftBarline = bar.Repeat(direction='start')\n>>> s.measure(4).rightBarline = bar.Repeat(direction='end', times=2)\n\n\nprocessInnermostRepeatBars only will expand the first set of repeats.\n>>> e = repeat.Expander(s)\n>>> s2 = e.processInnermostRepeatBars(s)\n>>> s2.show('text')\n{0.0} <music21.stream.Measure 1 offset=0.0>\n    {0.0} <music21.clef.BassClef>\n    {0.0} <music21.meter.TimeSignature 3/4>\n    {0.0} <music21.note.Note A>\n{3.0} <music21.stream.Measure 2 offset=3.0>\n    {0.0} <music21.bar.Barline type=double>\n    {0.0} <music21.note.Note C>\n    {1.0} <music21.note.Note D>\n    {2.0} <music21.note.Note E>\n    {3.0} <music21.bar.Barline type=double>\n{6.0} <music21.stream.Measure 2a offset=6.0>\n    {0.0} <music21.bar.Barline type=double>\n    {0.0} <music21.note.Note C>\n    {1.0} <music21.note.Note D>\n    {2.0} <music21.note.Note E>\n    {3.0} <music21.bar.Barline type=double>\n{9.0} <music21.stream.Measure 2b offset=9.0>\n    {0.0} <music21.bar.Barline type=double>\n    {0.0} <music21.note.Note C>\n    {1.0} <music21.note.Note D>\n    {2.0} <music21.note.Note E>\n    {3.0} <music21.bar.Barline type=double>\n{12.0} <music21.stream.Measure 3 offset=12.0>\n    {0.0} <music21.note.Note F>\n{15.0} <music21.stream.Measure 4 offset=15.0>\n    {0.0} <music21.bar.Repeat direction=start>\n    {0.0} <music21.note.Note G>\n    {1.0} <music21.note.Note A>\n    {2.0} <music21.note.Note B>\n    {3.0} <music21.bar.Repeat direction=end times=2>\n{18.0} <music21.stream.Measure 5 offset=18.0>\n    {0.0} <music21.note.Note C>\n    {3.0} <music21.bar.Barline type=final>\n\n\nCalling it again will complete the job, as .process() does\n>>> s3 = e.processInnermostRepeatBars(s2)\n>>> s3.show('text')\n{0.0} <music21.stream.Measure 1 offset=0.0>\n...\n{3.0} <music21.stream.Measure 2 offset=3.0>\n...\n{6.0} <music21.stream.Measure 2a offset=6.0>\n...\n{9.0} <music21.stream.Measure 2b offset=9.0>\n...\n{12.0} <music21.stream.Measure 3 offset=12.0>\n...\n{15.0} <music21.stream.Measure 4 offset=15.0>\n    {0.0} <music21.bar.Barline type=double>\n    {0.0} <music21.note.Note G>\n    {1.0} <music21.note.Note A>\n    {2.0} <music21.note.Note B>\n    {3.0} <music21.bar.Barline type=double>\n{18.0} <music21.stream.Measure 4a offset=18.0>\n    {0.0} <music21.bar.Barline type=double>\n    {0.0} <music21.note.Note G>\n    {1.0} <music21.note.Note A>\n    {2.0} <music21.note.Note B>\n    {3.0} <music21.bar.Barline type=double>\n{21.0} <music21.stream.Measure 5 offset=21.0>\n...\n\n\nShould work even if no start repeat is given:\n>>> s = converter.parse('tinynotation: 3/4 A2.  C4 D E   F2.    G4 a b   c2.')\n>>> s.makeMeasures(inPlace=True)\n>>> s.measure(2).rightBarline = bar.Repeat(direction='end')\n>>> e = repeat.Expander(s)\n>>> s2 = e.processInnermostRepeatBars(s)\n>>> s2.show('text')\n{0.0} <music21.stream.Measure 1 offset=0.0>\n...\n{3.0} <music21.stream.Measure 2 offset=3.0>\n...\n{6.0} <music21.stream.Measure 1a offset=6.0>\n...\n{9.0} <music21.stream.Measure 2a offset=9.0>\n...\n    {3.0} <music21.bar.Barline type=double>\n{12.0} <music21.stream.Measure 3 offset=12.0>\n...\n{15.0} <music21.stream.Measure 4 offset=15.0>\n...\n{18.0} <music21.stream.Measure 5 offset=18.0>\n...\n    {3.0} <music21.bar.Barline type=final>",
+        "type": "ListItem"
+    },
+    {
+        "text": "Expander.",
+        "type": "Title"
+    },
+    {
+        "text": "repeatBarsAreCoherent",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Check that all repeat bars are paired properly. Returns True or False",
+        "type": "ListItem"
+    },
+    {
+        "text": "RepeatMark\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.repeat.",
+        "type": "Title"
+    },
+    {
+        "text": "RepeatMark",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Base class of all repeat objects, including RepeatExpression objects and\nRepeat (Barline) objects.\nThis object is used for multiple-inheritance of such objects and to filter by class in order\nto get all things that mark repeats.\nThe RepeatMark is not itself a Music21Object so you should use multiple\ninheritance to put these things in Streams.\nThe following demonstration shows how a user might see if a Stream has any repeats in it.\n>>> class PartialRepeat(repeat.RepeatMark, base.Music21Object):\n...    def __init__(self, **keywords):\n...        super().__init__(**keywords)\n\n\n>>> s = stream.Stream()\n>>> s.append(note.Note())\n>>> s.append(PartialRepeat())\n>>> repeats = s.getElementsByClass('RepeatMark')  # not a Music21Object, so use quotes\n>>> if repeats:\n...    print('Stream has %s repeat(s) in it' % (len(repeats)))\nStream has 1 repeat(s) in it",
+        "type": "ListItem"
+    },
+    {
+        "text": "RepeatMark bases",
+        "type": "Title"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "RepeatMark read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "RepeatMark methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.repeat.",
+        "type": "Title"
+    },
+    {
+        "text": "deleteMeasures",
+        "type": "Title"
+    },
+    {
+        "text": "toDelete",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "correctMeasureNumbers",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a Stream s and a list of numbers, toDelete, removes each measure\nwith a number corresponding to a number in toDelete and then renumbers\nthe remaining measures in the Stream.\nTODO: Move to someplace more appropriate.\n>>> from copy import deepcopy\n>>> chorale1 = corpus.parse('bwv10.7.mxl')\n>>> s = deepcopy(chorale1)\n>>> repeat.deleteMeasures(s, [6, 3, 4], inPlace=True)\n>>> m2 = search.translateStreamToString(chorale1.parts[1].measure(2).notesAndRests)\n>>> resm2 = search.translateStreamToString(s.parts[1].measure(2).notesAndRests)\n>>> m2 == resm2\nTrue\n>>> m5 = search.translateStreamToString(chorale1.parts[1].measure(5).notesAndRests)\n>>> resm3 = search.translateStreamToString(s.parts[1].measure(3).notesAndRests)\n>>> m5 == resm3\nTrue\n>>> m7 = search.translateStreamToString(chorale1.parts[1].measure(7).notesAndRests)\n>>> resm4 = search.translateStreamToString(s.parts[1].measure(4).notesAndRests)\n>>> m7 == resm4\nTrue\n>>> lenS = len(s.parts[0].getElementsByClass(stream.Measure))\n>>> lenChorale1 = len(chorale1.parts[0].getElementsByClass(stream.Measure))\n>>> lenS + 3 == lenChorale1\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.repeat.",
+        "type": "Title"
+    },
+    {
+        "text": "insertRepeat",
+        "type": "Title"
+    },
+    {
+        "text": "start",
+        "type": "Title"
+    },
+    {
+        "text": "end",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Given a stream s, inserts a start-repeat at the beginning of the\nbar specified by start and inserts an end-repeat at the bar specified\nby barEnd. Only alters the stream s if inPlace=True.\n>>> from copy import deepcopy\n>>> chorale1 = corpus.parse('bwv10.7.mxl')\n>>> s = repeat.insertRepeat(chorale1, 3, 6, inPlace=False)\n>>> m4 = search.translateStreamToString( chorale1.parts[1].measure(4).notesAndRests)\n>>> resm4 = search.translateStreamToString( s.parts[1].measure(4).notesAndRests)\n>>> m6 = search.translateStreamToString( chorale1.parts[1].measure(4).notesAndRests)\n>>> resm6 = search.translateStreamToString( s.parts[1].measure(4).notesAndRests)\n>>> m7 = search.translateStreamToString( chorale1.parts[1].measure(4).notesAndRests)\n>>> resm7 = search.translateStreamToString( s.parts[1].measure(4).notesAndRests)\n>>> m4 == resm4\nTrue\n>>> m6 == resm6\nTrue\n>>> m7 == resm7\nTrue\n\n\nWe should have 2 repeats in each part (a start and end) for a total of 8 repeats\n>>> len(s.parts[0].flatten().getElementsByClass(bar.Repeat))\n2\n>>> len(s[bar.Repeat])\n8\n>>> s.parts[0].measure(3).leftBarline.direction\n'start'\n>>> s.parts[0].measure(6).rightBarline.direction\n'end'",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.repeat.",
+        "type": "Title"
+    },
+    {
+        "text": "insertRepeatEnding",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "start",
+        "type": "Title"
+    },
+    {
+        "text": "end",
+        "type": "Title"
+    },
+    {
+        "text": "endingNumber",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Designates a range of measures as being repeated endings (i.e. first and second endings)\nwithin a stream s, where s either contains measures,\nor contains parts which contain measures.  Start and end are integers\ncorresponding to the first and last measure\nnumber of the \u009crepeatNum\u009d ending.  e.g. if start=6, end=7, and repeatNum=2,\nthe method adds a second ending\nfrom measures 6 to 7.\nDoes not (yet) add a RepeatMark to the end of the first ending.\nExample: create first and second endings over measures 4-6 and measures 11-13 of a chorale,\nrespectively.\n>>> c1 = corpus.parse('bwv10.7.mxl')\n>>> repeat.insertRepeatEnding(c1,  4,  6, 1, inPlace=True)\n>>> repeat.insertRepeatEnding(c1, 11, 13, 2, inPlace=True)\n\n\nWe now have 8 repeatBrackets since each part gets its own first and second ending.\n>>> repeatBrackets = c1.flatten().getElementsByClass(spanner.RepeatBracket)\n>>> len(repeatBrackets)\n8\n>>> len(c1.parts.first().getElementsByClass(spanner.RepeatBracket))\n2",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.repeat",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

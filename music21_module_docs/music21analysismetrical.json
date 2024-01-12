@@ -1,0 +1,194 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.analysis.metrical",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.analysis.harmonicFunction",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.analysis.neoRiemannian",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.analysis.metrical\nFunctions\nlabelBeatDepth()\nthomassenMelodicAccent()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.analysis.metrical\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "Various tools and utilities for doing metrical or rhythmic analysis.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "See the chapter User's Guide Chapter 14: Time Signatures\nfor more information on defining\nmetrical structures in music21.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.analysis.metrical.",
+        "type": "Title"
+    },
+    {
+        "text": "labelBeatDepth",
+        "type": "Title"
+    },
+    {
+        "text": "streamIn",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Modify a Stream in place by annotating metrical analysis symbols.\nThis assumes that the Stream is already partitioned into Measures.\n>>> s = stream.Stream()\n>>> ts = meter.TimeSignature('4/4')\n>>> s.insert(0, ts)\n>>> n = note.Note(type='eighth')\n>>> s.repeatAppend(n, 8)\n>>> s.makeMeasures(inPlace=True)\n>>> post = analysis.metrical.labelBeatDepth(s)\n>>> sOut = []\n>>> for n in s.flatten().notes:\n...     stars = \"\".join([l.text for l in n.lyrics])\n...     sOut.append(\"{0:8s} {1}\".format(n.beatStr, stars))\n>>> print(\"\\n\".join(sOut))\n1        ****\n1 1/2    *\n2        **\n2 1/2    *\n3        ***\n3 1/2    *\n4        **\n4 1/2    *",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.analysis.metrical.",
+        "type": "Title"
+    },
+    {
+        "text": "thomassenMelodicAccent",
+        "type": "Title"
+    },
+    {
+        "text": "streamIn",
+        "type": "Title"
+    },
+    {
+        "text": "Stream",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Adds an attribute, \u0098melodicAccent' to each note's .editorial\nwithin a Stream object\naccording to the method postulated in Joseph M. Thomassen, \u009cMelodic accent: Experiments and\na tentative model,\u009d \u0098'Journal of the Acoustical Society of America'', Vol. 71, No. 6 (1982) pp.\n1598-1605; with, Erratum, \u0098'Journal of the Acoustical Society of America'', Vol. 73,\nNo. 1 (1983) p.373, and in David Huron and Matthew Royal,\n\u009cWhat is melodic accent? Converging evidence\nfrom musical practice.\u009d \u0098'Music Perception'', Vol. 13, No. 4 (1996) pp. 489-516.\nSimilar to the humdrum melac tool.\nTakes in a Stream of Note objects (use .flatten().notes to get it, or\nbetter .flatten().getElementsByClass(note.Note) to filter out chords)\nand adds the attribute to\neach.  Note that Huron and Royal's work suggests that melodic accent has a correlation\nwith metrical accent only for solo works/passages; even treble passages do not have a\nstrong correlation. (Gregorian chants were found to have a strong \u0098'negative'' correlation\nbetween melodic accent and syllable onsets)\nFollowing Huron's lead, we assign a melodicAccent of 1.0 to the first note in a piece\nand take the accent marker of the first interval alone to the second note and\nof the last interval alone to be the accent of the last note.\nExample from Thomassen, figure 5:\n>>> s = converter.parse('tinynotation: 7/4 c4 c c d e d d')\n>>> analysis.metrical.thomassenMelodicAccent(s.flatten().notes)\n>>> for n in s.flatten().notes:\n...    (n.pitch.nameWithOctave, n.editorial.melodicAccent)\n('C4', 1.0)\n('C4', 0.0)\n('C4', 0.0)\n('D4', 0.33)\n('E4', 0.5561)\n('D4', 0.17)\n('D4', 0.0)",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.analysis.metrical",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

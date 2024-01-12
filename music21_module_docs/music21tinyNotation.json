@@ -1,0 +1,3134 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.tinyNotation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.tie",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.tree",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.tinyNotation\nConverter\nConverter\nConverter.load()\nConverter.parse()\nConverter.parseEndStates()\nConverter.parseModifiers()\nConverter.parseOne()\nConverter.parseStartStates()\nConverter.postParse()\nConverter.setupRegularExpressions()\nConverter.splitPreTokens()\n\n\n\n\nToken\nToken\nToken.parse()\n\n\n\n\nState\nState\nState.affectTokenAfterParse()\nState.affectTokenAfterParseBeforeModifiers()\nState.affectTokenBeforeParse()\nState.end()\nState.start()\n\n\n\n\nModifier\nModifier\nModifier.postParse()\nModifier.preParse()\n\n\n\n\nIdModifier\nIdModifier\nIdModifier.postParse()\n\n\n\n\nLyricModifier\nLyricModifier\nLyricModifier.postParse()\n\n\n\n\nNoteOrRestToken\nNoteOrRestToken\nNoteOrRestToken.applyDuration()\nNoteOrRestToken.dots()\nNoteOrRestToken.durationType()\n\n\n\n\nNoteToken\nNoteToken\nNoteToken.editorialAccidental()\nNoteToken.flats()\nNoteToken.highOctave()\nNoteToken.lowOctave()\nNoteToken.natural()\nNoteToken.parse()\nNoteToken.processPitchMap()\nNoteToken.sharps()\n\n\n\n\nQuadrupletState\nQuadrupletState\n\n\nRestToken\nRestToken\nRestToken.parse()\n\n\n\n\nTieState\nTieState\nTieState.end()\n\n\n\n\nTimeSignatureToken\nTimeSignatureToken\nTimeSignatureToken.parse()\n\n\n\n\nTripletState\nTripletState\n\n\nTupletState\nTupletState\nTupletState.affectTokenAfterParse()\nTupletState.end()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.tinyNotation\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "tinyNotation is a simple way of specifying single line melodies\nthat uses a notation somewhat similar to Lilypond but with WAY fewer\noptions.  It was originally developed to notate trecento (medieval Italian)\nmusic, but it is pretty useful for a lot of short examples, so we have\nmade it a generally supported music21 format.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "N.B.: TinyNotation is not meant to expand to cover every single case.  Instead,\nit is meant to be subclassable to extend to the cases your project needs.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Here are the most important rules by default:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Note names are: a,b,c,d,e,f,g and r for rest",
+        "type": "ListItem"
+    },
+    {
+        "text": "Flats, sharps, and naturals are notated as #,- (not b), and (if needed) n.\nIf the accidental is above the staff (i.e., editorial), enclose it in\nparentheses: (#), etc.  Make sure that flats in the key signatures are\nexplicitly specified.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Note octaves are specified as follows:\nCC to BB = from C below bass clef to second-line B in bass clef\nC to B = from bass clef C to B below middle C.\nc  to b = from middle C to the middle of treble clef\nc' to b' = from C in treble clef to B above treble clef\n\n\nOctaves below and above these are specified by further doublings of\nletter (CCC) or apostrophes (c'') \u2014 this is one of the note name\nstandards found in many music theory books.",
+        "type": "ListItem"
+    },
+    {
+        "text": "After the note name, a number may be placed indicating the note\nlength: 1 = whole note, 2 = half, 4 = quarter, 8 = eighth, 16 = sixteenth.\netc.  If the number is omitted then it is assumed to be the same\nas the previous note.  I.e., c8 B c d  is a string of eighth notes.",
+        "type": "ListItem"
+    },
+    {
+        "text": "After the number, a ~ can be placed to show a tie to the next note.\nA \u009c.\u009d indicates a dotted note.  (If you are entering\ndata via Excel or other spreadsheet, be sure that \u009ccapitalize the\nfirst letter of sentences\u009d is turned off under \u009cTools->AutoCorrect,\u009d\notherwise the next letter will be capitalized, and the octave will\nbe screwed up.)",
+        "type": "ListItem"
+    },
+    {
+        "text": "For triplets use this notation:  trip{c4 d8}  indicating that these\ntwo notes both have \u009c3s\u009d over them.  For 4 in the place of 3,\nuse quad{c16 d e8}.  No other tuplets are supported.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Here is an example of TinyNotation in action.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "stream1",
+        "type": "Title"
+    },
+    {
+        "text": "converter",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "\"tinyNotation: 3/4 E4 r f# g=lastG trip{b-8 a g} c4~ c\"",
+        "type": "NarrativeText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "stream1",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "'text'",
+        "type": "Title"
+    },
+    {
+        "text": "{0.0} <music21.stream.Measure 1 offset=0.0>",
+        "type": "Title"
+    },
+    {
+        "text": "{0.0} <music21.clef.TrebleClef>",
+        "type": "Title"
+    },
+    {
+        "text": "{0.0} <music21.meter.TimeSignature 3/4>",
+        "type": "Title"
+    },
+    {
+        "text": "{0.0} <music21.note.Note E>",
+        "type": "Title"
+    },
+    {
+        "text": "{1.0} <music21.note.Rest quarter>",
+        "type": "Title"
+    },
+    {
+        "text": "{2.0} <music21.note.Note F#>",
+        "type": "Title"
+    },
+    {
+        "text": "{3.0} <music21.stream.Measure 2 offset=3.0>",
+        "type": "Title"
+    },
+    {
+        "text": "{0.0} <music21.note.Note G>",
+        "type": "Title"
+    },
+    {
+        "text": "{1.0} <music21.note.Note B->",
+        "type": "Title"
+    },
+    {
+        "text": "{1.3333} <music21.note.Note A>",
+        "type": "Title"
+    },
+    {
+        "text": "{1.6667} <music21.note.Note G>",
+        "type": "Title"
+    },
+    {
+        "text": "{2.0} <music21.note.Note C>",
+        "type": "Title"
+    },
+    {
+        "text": "{6.0} <music21.stream.Measure 3 offset=6.0>",
+        "type": "Title"
+    },
+    {
+        "text": "{0.0} <music21.note.Note C>",
+        "type": "Title"
+    },
+    {
+        "text": "{1.0} <music21.bar.Barline type=final>",
+        "type": "Title"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "stream1",
+        "type": "Title"
+    },
+    {
+        "text": "recurse",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "getElementById",
+        "type": "Title"
+    },
+    {
+        "text": "'lastG'",
+        "type": "Title"
+    },
+    {
+        "text": "step",
+        "type": "Title"
+    },
+    {
+        "text": "'G'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "stream1",
+        "type": "Title"
+    },
+    {
+        "text": "flatten",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "notesAndRests",
+        "type": "Title"
+    },
+    {
+        "text": "isRest",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "stream1",
+        "type": "Title"
+    },
+    {
+        "text": "flatten",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "notesAndRests",
+        "type": "Title"
+    },
+    {
+        "text": "octave",
+        "type": "Title"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "stream1",
+        "type": "Title"
+    },
+    {
+        "text": "flatten",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "notes",
+        "type": "Title"
+    },
+    {
+        "text": "tie",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "'start'",
+        "type": "Title"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "stream1",
+        "type": "Title"
+    },
+    {
+        "text": "flatten",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "notes",
+        "type": "Title"
+    },
+    {
+        "text": "tie",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "'stop'",
+        "type": "Title"
+    },
+    {
+        "text": "Changing time signatures are supported:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "s1",
+        "type": "Title"
+    },
+    {
+        "text": "converter",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "'tinynotation: 3/4 C4 D E 2/4 F G A B 1/4 c'",
+        "type": "Title"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "s1",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "'t'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "{0.0} <music21.stream.Measure 1 offset=0.0>",
+        "type": "Title"
+    },
+    {
+        "text": "{0.0} <music21.clef.BassClef>",
+        "type": "Title"
+    },
+    {
+        "text": "{0.0} <music21.meter.TimeSignature 3/4>",
+        "type": "Title"
+    },
+    {
+        "text": "{0.0} <music21.note.Note C>",
+        "type": "Title"
+    },
+    {
+        "text": "{1.0} <music21.note.Note D>",
+        "type": "Title"
+    },
+    {
+        "text": "{2.0} <music21.note.Note E>",
+        "type": "Title"
+    },
+    {
+        "text": "{3.0} <music21.stream.Measure 2 offset=3.0>",
+        "type": "Title"
+    },
+    {
+        "text": "{0.0} <music21.meter.TimeSignature 2/4>",
+        "type": "Title"
+    },
+    {
+        "text": "{0.0} <music21.note.Note F>",
+        "type": "Title"
+    },
+    {
+        "text": "{1.0} <music21.note.Note G>",
+        "type": "Title"
+    },
+    {
+        "text": "{5.0} <music21.stream.Measure 3 offset=5.0>",
+        "type": "Title"
+    },
+    {
+        "text": "{0.0} <music21.note.Note A>",
+        "type": "Title"
+    },
+    {
+        "text": "{1.0} <music21.note.Note B>",
+        "type": "Title"
+    },
+    {
+        "text": "{7.0} <music21.stream.Measure 4 offset=7.0>",
+        "type": "Title"
+    },
+    {
+        "text": "{0.0} <music21.meter.TimeSignature 1/4>",
+        "type": "Title"
+    },
+    {
+        "text": "{0.0} <music21.note.Note C>",
+        "type": "Title"
+    },
+    {
+        "text": "{1.0} <music21.bar.Barline type=final>",
+        "type": "Title"
+    },
+    {
+        "text": "Here is an equivalent way of doing the example above, but using the lower level\nmusic21.tinyNotation.Converter object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "tnc",
+        "type": "Title"
+    },
+    {
+        "text": "tinyNotation",
+        "type": "Title"
+    },
+    {
+        "text": "Converter",
+        "type": "Title"
+    },
+    {
+        "text": "'3/4 E4 r f# g=lastG trip{b-8 a g} c4~ c'",
+        "type": "NarrativeText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "stream2",
+        "type": "Title"
+    },
+    {
+        "text": "tnc",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "len",
+        "type": "Title"
+    },
+    {
+        "text": "stream1",
+        "type": "Title"
+    },
+    {
+        "text": "recurse",
+        "type": "Title"
+    },
+    {
+        "text": "())",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "==",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "len",
+        "type": "Title"
+    },
+    {
+        "text": "stream2",
+        "type": "Title"
+    },
+    {
+        "text": "recurse",
+        "type": "Title"
+    },
+    {
+        "text": "())",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "This lower level is needed in case you want to add additional features.  For instance,\nhere we will set the \u009cmodifierStar\u009d to change the color of notes:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "ColorModifier",
+        "type": "Title"
+    },
+    {
+        "text": "tinyNotation",
+        "type": "Title"
+    },
+    {
+        "text": "Modifier",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "def",
+        "type": "Title"
+    },
+    {
+        "text": "postParse",
+        "type": "Title"
+    },
+    {
+        "text": "self",
+        "type": "Title"
+    },
+    {
+        "text": "m21Obj",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "m21Obj",
+        "type": "Title"
+    },
+    {
+        "text": "style",
+        "type": "Title"
+    },
+    {
+        "text": "color",
+        "type": "Title"
+    },
+    {
+        "text": "self",
+        "type": "Title"
+    },
+    {
+        "text": "modifierData",
+        "type": "Title"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "return",
+        "type": "Title"
+    },
+    {
+        "text": "m21Obj",
+        "type": "Title"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "tnc",
+        "type": "Title"
+    },
+    {
+        "text": "tinyNotation",
+        "type": "Title"
+    },
+    {
+        "text": "Converter",
+        "type": "Title"
+    },
+    {
+        "text": "'3/4 C4*pink* D4*green* E4*blue*'",
+        "type": "NarrativeText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "tnc",
+        "type": "Title"
+    },
+    {
+        "text": "modifierStar",
+        "type": "Title"
+    },
+    {
+        "text": "ColorModifier",
+        "type": "Title"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "tnc",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "recurse",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "getElementsByClass",
+        "type": "Title"
+    },
+    {
+        "text": "note",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "step",
+        "type": "Title"
+    },
+    {
+        "text": "style",
+        "type": "Title"
+    },
+    {
+        "text": "color",
+        "type": "Title"
+    },
+    {
+        "text": "C pink",
+        "type": "Title"
+    },
+    {
+        "text": "D green",
+        "type": "Title"
+    },
+    {
+        "text": "E blue",
+        "type": "Title"
+    },
+    {
+        "text": "Or more usefully, and often desired:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "HarmonyModifier",
+        "type": "Title"
+    },
+    {
+        "text": "tinyNotation",
+        "type": "Title"
+    },
+    {
+        "text": "Modifier",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "def",
+        "type": "Title"
+    },
+    {
+        "text": "postParse",
+        "type": "Title"
+    },
+    {
+        "text": "self",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "cs",
+        "type": "Title"
+    },
+    {
+        "text": "harmony",
+        "type": "Title"
+    },
+    {
+        "text": "ChordSymbol",
+        "type": "Title"
+    },
+    {
+        "text": "pitch",
+        "type": "Title"
+    },
+    {
+        "text": "name",
+        "type": "Title"
+    },
+    {
+        "text": "self",
+        "type": "Title"
+    },
+    {
+        "text": "modifierData",
+        "type": "Title"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "cs",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "return",
+        "type": "Title"
+    },
+    {
+        "text": "cs",
+        "type": "Title"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "tnc",
+        "type": "Title"
+    },
+    {
+        "text": "tinyNotation",
+        "type": "Title"
+    },
+    {
+        "text": "Converter",
+        "type": "Title"
+    },
+    {
+        "text": "'4/4 C2_maj7 D4_m E-_sus4'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "tnc",
+        "type": "Title"
+    },
+    {
+        "text": "modifierUnderscore",
+        "type": "Title"
+    },
+    {
+        "text": "HarmonyModifier",
+        "type": "Title"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "tnc",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "'text'",
+        "type": "Title"
+    },
+    {
+        "text": "{0.0} <music21.stream.Measure 1 offset=0.0>",
+        "type": "Title"
+    },
+    {
+        "text": "{0.0} <music21.clef.BassClef>",
+        "type": "Title"
+    },
+    {
+        "text": "{0.0} <music21.meter.TimeSignature 4/4>",
+        "type": "Title"
+    },
+    {
+        "text": "{0.0} <music21.harmony.ChordSymbol Cmaj7>",
+        "type": "Title"
+    },
+    {
+        "text": "{2.0} <music21.harmony.ChordSymbol Dm>",
+        "type": "Title"
+    },
+    {
+        "text": "{3.0} <music21.harmony.ChordSymbol E-sus4>",
+        "type": "Title"
+    },
+    {
+        "text": "{4.0} <music21.bar.Barline type=final>",
+        "type": "Title"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "cs",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "recurse",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "getElementsByClass",
+        "type": "Title"
+    },
+    {
+        "text": "harmony",
+        "type": "Title"
+    },
+    {
+        "text": "ChordSymbol",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "print",
+        "type": "Title"
+    },
+    {
+        "text": "([",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "name",
+        "type": "Title"
+    },
+    {
+        "text": "for",
+        "type": "Title"
+    },
+    {
+        "text": "in",
+        "type": "Title"
+    },
+    {
+        "text": "cs",
+        "type": "Title"
+    },
+    {
+        "text": "pitches",
+        "type": "Title"
+    },
+    {
+        "text": "])",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "['C', 'E', 'G', 'B']",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "['D', 'F', 'A']",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "['E-', 'A-', 'B-']",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "=data (modifierEquals, default action is to set .id)\n_data (modifierUnderscore, default action is to set .lyric)\n[data] (modifierSquare, no default action)\n<data> (modifierAngle, no default action)\n(data) (modifierParens, no default action)\n*data* (modifierStar, no default action)",
+        "type": "ListItem"
+    },
+    {
+        "text": "Another example: TinyNotation does not support key signatures \u2014 well, no problem! Let's\ncreate a new Token type and add it to the tokenMap",
+        "type": "NarrativeText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "KeyToken",
+        "type": "Title"
+    },
+    {
+        "text": "tinyNotation",
+        "type": "Title"
+    },
+    {
+        "text": "Token",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "def",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "self",
+        "type": "Title"
+    },
+    {
+        "text": "parent",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keyName",
+        "type": "Title"
+    },
+    {
+        "text": "self",
+        "type": "Title"
+    },
+    {
+        "text": "token",
+        "type": "Title"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "return",
+        "type": "Title"
+    },
+    {
+        "text": "key",
+        "type": "Title"
+    },
+    {
+        "text": "Key",
+        "type": "Title"
+    },
+    {
+        "text": "keyName",
+        "type": "Title"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keyMapping",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "'k(.*)'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "KeyToken",
+        "type": "Title"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "tnc",
+        "type": "Title"
+    },
+    {
+        "text": "tinyNotation",
+        "type": "Title"
+    },
+    {
+        "text": "Converter",
+        "type": "Title"
+    },
+    {
+        "text": "'4/4 kE- G1 kf# A1'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "tnc",
+        "type": "Title"
+    },
+    {
+        "text": "tokenMap",
+        "type": "Title"
+    },
+    {
+        "text": "append",
+        "type": "Title"
+    },
+    {
+        "text": "keyMapping",
+        "type": "NarrativeText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "tnc",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "'text'",
+        "type": "Title"
+    },
+    {
+        "text": "{0.0} <music21.stream.Measure 1 offset=0.0>",
+        "type": "Title"
+    },
+    {
+        "text": "{0.0} <music21.clef.BassClef>",
+        "type": "Title"
+    },
+    {
+        "text": "{0.0} <music21.key.Key of E- major>",
+        "type": "Title"
+    },
+    {
+        "text": "{0.0} <music21.meter.TimeSignature 4/4>",
+        "type": "Title"
+    },
+    {
+        "text": "{0.0} <music21.note.Note G>",
+        "type": "Title"
+    },
+    {
+        "text": "{4.0} <music21.stream.Measure 2 offset=4.0>",
+        "type": "Title"
+    },
+    {
+        "text": "{0.0} <music21.key.Key of f# minor>",
+        "type": "Title"
+    },
+    {
+        "text": "{0.0} <music21.note.Note A>",
+        "type": "Title"
+    },
+    {
+        "text": "{4.0} <music21.bar.Barline type=final>",
+        "type": "Title"
+    },
+    {
+        "text": "TokenMap should be passed a string, representing a regular expression with exactly one\ngroup (which can be the entire expression), and a subclass of Token\nwhich will handle the parsing of the string.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Tokens can take advantage of the parent variable, which is a reference to the Converter\nobject, to use the .stateDict dictionary to store information about state.  For instance,\nthe NoteOrRestToken uses parent.stateDict[\u0098lastDuration'] to get access to the last\nduration.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "There is also the concept of \u009cState\u009d which affects multiple tokens.  The best way to create\na new State is to define a subclass of the State  and add it\nto bracketStateMapping of the converter.  Here's one that a lot of people have asked for\nover the years:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "ChordState",
+        "type": "Title"
+    },
+    {
+        "text": "tinyNotation",
+        "type": "Title"
+    },
+    {
+        "text": "State",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "def",
+        "type": "Title"
+    },
+    {
+        "text": "affectTokenAfterParse",
+        "type": "Title"
+    },
+    {
+        "text": "self",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "super",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "affectTokenAfterParse",
+        "type": "Title"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "return",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "# do not append Note object",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "def",
+        "type": "Title"
+    },
+    {
+        "text": "end",
+        "type": "Title"
+    },
+    {
+        "text": "self",
+        "type": "Title"
+    },
+    {
+        "text": "):",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "ch",
+        "type": "Title"
+    },
+    {
+        "text": "chord",
+        "type": "Title"
+    },
+    {
+        "text": "Chord",
+        "type": "Title"
+    },
+    {
+        "text": "self",
+        "type": "Title"
+    },
+    {
+        "text": "affectedTokens",
+        "type": "Title"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "ch",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "self",
+        "type": "Title"
+    },
+    {
+        "text": "affectedTokens",
+        "type": "Title"
+    },
+    {
+        "text": "duration",
+        "type": "Title"
+    },
+    {
+        "text": "...",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "return",
+        "type": "Title"
+    },
+    {
+        "text": "ch",
+        "type": "Title"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "tnc",
+        "type": "Title"
+    },
+    {
+        "text": "tinyNotation",
+        "type": "Title"
+    },
+    {
+        "text": "Converter",
+        "type": "Title"
+    },
+    {
+        "text": "\"2/4 C4 chord{C4 e g'} F.4 chord{D8 F# A}\"",
+        "type": "NarrativeText"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "tnc",
+        "type": "Title"
+    },
+    {
+        "text": "bracketStateMapping",
+        "type": "Title"
+    },
+    {
+        "text": "'chord'",
+        "type": "Title"
+    },
+    {
+        "text": "ChordState",
+        "type": "Title"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "tnc",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "()",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": ">>>",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "'text'",
+        "type": "Title"
+    },
+    {
+        "text": "{0.0} <music21.stream.Measure 1 offset=0.0>",
+        "type": "Title"
+    },
+    {
+        "text": "{0.0} <music21.clef.BassClef>",
+        "type": "Title"
+    },
+    {
+        "text": "{0.0} <music21.meter.TimeSignature 2/4>",
+        "type": "Title"
+    },
+    {
+        "text": "{0.0} <music21.note.Note C>",
+        "type": "Title"
+    },
+    {
+        "text": "{1.0} <music21.chord.Chord C3 E4 G5>",
+        "type": "Title"
+    },
+    {
+        "text": "{2.0} <music21.stream.Measure 2 offset=2.0>",
+        "type": "Title"
+    },
+    {
+        "text": "{0.0} <music21.note.Note F>",
+        "type": "Title"
+    },
+    {
+        "text": "{1.5} <music21.chord.Chord D3 F#3 A3>",
+        "type": "Title"
+    },
+    {
+        "text": "{2.0} <music21.bar.Barline type=final>",
+        "type": "Title"
+    },
+    {
+        "text": "If you want to create a very different dialect, you can subclass tinyNotation.Converter\nand set it up once to use the mappings above.   See\nTrecentoTinyConverter (especially the code)\nfor details on how to do that.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Converter\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.tinyNotation.",
+        "type": "Title"
+    },
+    {
+        "text": "Converter",
+        "type": "Title"
+    },
+    {
+        "text": "stringRep",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "''",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "makeNotation",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "raiseExceptions",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "_keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Main conversion object for TinyNotation.\nAccepts keywords:\n\n\nmakeNotation=False to get \u009cclassic\u009d TinyNotation formats withoutmeasures, Clefs, etc.\n\n\n\nraiseExceptions=True to make errors become exceptions.\n\nGenerally, users should just use the general music21 converter (lowercase c) parse\nfunction and do not need to be in this module at all:\n>>> part = converter.parse('4/4 C4 D4 E2 F1', format='tinyNotation')\n>>> part.show('text')\n{0.0} <music21.stream.Measure 1 offset=0.0>\n    {0.0} <music21.clef.BassClef>\n    {0.0} <music21.meter.TimeSignature 4/4>\n    {0.0} <music21.note.Note C>\n    {1.0} <music21.note.Note D>\n    {2.0} <music21.note.Note E>\n{4.0} <music21.stream.Measure 2 offset=4.0>\n    {0.0} <music21.note.Note F>\n    {4.0} <music21.bar.Barline type=final>\n\n\nBut for advanced work, create a tinyNotation.Converter object as shown:\n>>> tnc = tinyNotation.Converter('4/4 C##4 D e-8 f~ f f# g4 trip{f8 e d} C2=hello')\n\n\nRun the parsing routine with .parse()\n>>> tnc.parse()\n<music21.tinyNotation.Converter object at 0x10aeefbe0>\n\n\nAnd now the .stream attribute of the converter object\nhas the Stream (generally Part) ready to send out:\n>>> tnc.stream\n<music21.stream.Part 0x10acee860>\n\n\nAnd all normal Stream methods are available on it:\n>>> tnc.stream.show('text')\n{0.0} <music21.stream.Measure 1 offset=0.0>\n    {0.0} <music21.clef.TrebleClef>\n    {0.0} <music21.meter.TimeSignature 4/4>\n    {0.0} <music21.note.Note C##>\n    {1.0} <music21.note.Note D>\n    {2.0} <music21.note.Note E->\n    {2.5} <music21.note.Note F>\n    {3.0} <music21.note.Note F>\n    {3.5} <music21.note.Note F#>\n{4.0} <music21.stream.Measure 2 offset=4.0>\n    {0.0} <music21.note.Note G>\n    {1.0} <music21.note.Note F>\n    {1.3333} <music21.note.Note E>\n    {1.6667} <music21.note.Note D>\n    {2.0} <music21.note.Note C>\n    {4.0} <music21.bar.Barline type=final>\n\n\nOr, breaking down what Parse does bit by bit:\n>>> tnc = tinyNotation.Converter('4/4 C##4 D e-8 f~ f f# g4 trip{f8 e d} C2=hello')\n>>> tnc.stream\n<music21.stream.Part 0x10acee860>\n>>> tnc.makeNotation\nTrue\n>>> tnc.stringRep\n'4/4 C##4 D e-8 f~ f f# g4 trip{f8 e d} C2=hello'\n>>> tnc.activeStates\n[]\n>>> tnc.preTokens\n[]\n>>> tnc.splitPreTokens()\n>>> tnc.preTokens\n['4/4', 'C##4', 'D', 'e-8', 'f~', 'f', 'f#', 'g4', 'trip{f8', 'e', 'd}', 'C2=hello']\n>>> tnc.setupRegularExpressions()\n\n\nThen we parse the time signature.\n>>> tnc.parseOne(0, tnc.preTokens[0])\n>>> tnc.stream.coreElementsChanged()\n>>> tnc.stream.show(\u0098text')\n{0.0} <music21.meter.TimeSignature 4/4>\n(Note that because we are calling\nshow() after each note in these docs, but TinyNotation\nuses high efficiency stream.core routines, we need to set the stream\nto a stable-state by calling coreElementsChanged after each call.\nYou would not need to do this in your own subclasses, since that would\nlose the O(n) efficiency when parsing)\nThen parse the first actual note:\n>>> tnc.parseOne(1, tnc.preTokens[1])\n>>> tnc.stream.coreElementsChanged()\n>>> tnc.stream.show('text')\n{0.0} <music21.meter.TimeSignature 4/4>\n{0.0} <music21.note.Note C##>\n\n\nThe next notes to \u0098g4' are pretty similar:\n>>> for i in range(2, 8):\n...     tnc.parseOne(i, tnc.preTokens[i])\n>>> tnc.stream.coreElementsChanged()\n>>> tnc.stream.show('text')\n{0.0} <music21.meter.TimeSignature 4/4>\n{0.0} <music21.note.Note C##>\n{1.0} <music21.note.Note D>\n{2.0} <music21.note.Note E->\n{2.5} <music21.note.Note F>\n{3.0} <music21.note.Note F>\n{3.5} <music21.note.Note F#>\n{4.0} <music21.note.Note G>\n\n\nThe next note starts a \u009cState\u009d since it has a triplet:\n>>> tnc.preTokens[8]\n'trip{f8'\n>>> tnc.parseOne(8, tnc.preTokens[8])\n>>> tnc.activeStates\n[<music21.tinyNotation.TripletState object at 0x10ae9dba8>]\n>>> tnc.activeStates[0].affectedTokens\n[<music21.note.Note F>]\n\n\nThe state is still active for the next token:\n>>> tnc.preTokens[9]\n'e'\n>>> tnc.parseOne(9, tnc.preTokens[9])\n>>> tnc.activeStates\n[<music21.tinyNotation.TripletState object at 0x10ae9dba8>]\n>>> tnc.activeStates[0].affectedTokens\n[<music21.note.Note F>, <music21.note.Note E>]\n\n\nThe TripletState state adds\ntuplets along the way, but does not set their type.\n>>> f_starts_tuplet = tnc.activeStates[0].affectedTokens[0]\n>>> f_starts_tuplet.duration.tuplets\n(<music21.duration.Tuplet 3/2/eighth>,)\n>>> f_starts_tuplet.duration.tuplets[0].type is None\nTrue\n\n\nBut the next token closes the state:\n>>> tnc.preTokens[10]\n'd}'\n>>> tnc.parseOne(10, tnc.preTokens[10])\n>>> tnc.activeStates\n[]\n\n\nAnd this sets the tupet types for the F and D properly:\n>>> f_starts_tuplet.duration.tuplets[0].type\n'start'\n\n\n>>> tnc.stream.coreElementsChanged()\n>>> tnc.stream.show('text')\n{0.0} <music21.meter.TimeSignature 4/4>\n...\n{4.0} <music21.note.Note G>\n{5.0} <music21.note.Note F>\n{5.3333} <music21.note.Note E>\n{5.6667} <music21.note.Note D>\n\n\nThe last token has a modifier, which is an IdModifier:\n>>> tnc.preTokens[11]\n'C2=hello'\n>>> tnc.parseOne(11, tnc.preTokens[11])\n>>> tnc.stream.coreElementsChanged()\n>>> tnc.stream.show('text')\n{0.0} <music21.meter.TimeSignature 4/4>\n...\n{5.6667} <music21.note.Note D>\n{6.0} <music21.note.Note C>\n>>> tnc.stream[-1].id\n'hello'\n\n\nAt this point the flattened stream is ready, if Converter.makeNotation\nis False, then not much more needs to happen, but it is True by default.\nSo, then calling tnc.postParse() runs the makeNotation:\n>>> tnc.postParse()\n>>> tnc.stream.show('text')\n{0.0} <music21.stream.Measure 1 offset=0.0>\n    {0.0} <music21.clef.TrebleClef>\n    {0.0} <music21.meter.TimeSignature 4/4>\n    {0.0} <music21.note.Note C##>\n    {1.0} <music21.note.Note D>\n    {2.0} <music21.note.Note E->\n    {2.5} <music21.note.Note F>\n    {3.0} <music21.note.Note F>\n    {3.5} <music21.note.Note F#>\n{4.0} <music21.stream.Measure 2 offset=4.0>\n    {0.0} <music21.note.Note G>\n    {1.0} <music21.note.Note F>\n    {1.3333} <music21.note.Note E>\n    {1.6667} <music21.note.Note D>\n    {2.0} <music21.note.Note C>\n    {4.0} <music21.bar.Barline type=final>\n\n\nLet's look at edge cases. Normally, invalid notes or\nother bad tokens pass freely by dropping the unparseable token.\nHere 3 is not a valid duration, so d3 will be dropped.\n>>> x = converter.parse('tinyNotation: 4/4 c2 d3 e2')\n>>> x.show('text')\n{0.0} <music21.stream.Measure 1 offset=0.0>\n    {0.0} <music21.clef.TrebleClef>\n    {0.0} <music21.meter.TimeSignature 4/4>\n    {0.0} <music21.note.Note C>\n    {2.0} <music21.note.Note E>\n    {4.0} <music21.bar.Barline type=final>\n\n\nBut with the keyword \u0098raiseExceptions=True' a TinyNotationException\nis raised if any token cannot be parsed.\n>>> x = converter.parse('tinyNotation: 4/4 c2 d3 e2', raiseExceptions=True)\nTraceback (most recent call last):\nmusic21.tinyNotation.TinyNotationException: Could not parse token: 'd3'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Converter methods",
+        "type": "Title"
+    },
+    {
+        "text": "Converter.",
+        "type": "Title"
+    },
+    {
+        "text": "load",
+        "type": "Title"
+    },
+    {
+        "text": "stringRep",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Loads a stringRepresentation into .stringRep\nand resets the parsing state.\n>>> tnc = tinyNotation.Converter()\n>>> tnc.load('4/4 c2 d e f')\n>>> s = tnc.parse().stream\n>>> tnc.load('4/4 f e d c')\n>>> s2 = tnc.parse().stream\n>>> ns2 = s2.flatten().notes\n\n\nCheck that the duration of 2.0 from the first load did not carry over.\n>>> ns2[0].duration.quarterLength\n1.0\n>>> len(ns2)\n4",
+        "type": "ListItem"
+    },
+    {
+        "text": "Converter.",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "splitPreTokens, setupRegularExpressions, then runs\nthrough each preToken, and runs postParse.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Converter.",
+        "type": "Title"
+    },
+    {
+        "text": "parseEndStates",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 tuple[str, int]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Trims the endState token (}) from the t string\nand then returns a two-tuple of the new token and number\nof states to remove:\n>>> tnc = tinyNotation.Converter()\n>>> tnc.parseEndStates('C4')\n('C4', 0)\n>>> tnc.parseEndStates('C4}}')\n('C4', 2)",
+        "type": "ListItem"
+    },
+    {
+        "text": "Converter.",
+        "type": "Title"
+    },
+    {
+        "text": "parseModifiers",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Parses modifierEquals, modifierUnderscore, modifierStar, etc.\nfor a given token and returns the modified token and a\n(possibly empty) list of activeModifiers.\nModifiers affect only the current token.  To affect\nmultiple tokens, use a State object.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Converter.",
+        "type": "Title"
+    },
+    {
+        "text": "parseOne",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "parse a single token at position i, with\ntext t, possibly adding it to the stream.\nChecks for state changes, modifiers, tokens, and end-state brackets.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Converter.",
+        "type": "Title"
+    },
+    {
+        "text": "parseStartStates",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 str",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Changes the states in self.activeStates, and starts the state given the current data.\nReturns a newly processed token.\nA contrived example:\n>>> tnc = tinyNotation.Converter()\n>>> tnc.setupRegularExpressions()\n>>> len(tnc.activeStates)\n0\n>>> tIn = 'trip{quad{f8~'\n>>> tOut = tnc.parseStartStates(tIn)\n>>> tOut\n'f8'\n>>> len(tnc.activeStates)\n3\n>>> tripState = tnc.activeStates[0]\n>>> tripState\n<music21.tinyNotation.TripletState object at 0x10afaa630>\n\n\n>>> quadState = tnc.activeStates[1]\n>>> quadState\n<music21.tinyNotation.QuadrupletState object at 0x10adcb0b8>\n\n\n>>> tieState = tnc.activeStates[2]\n>>> tieState\n<music21.tinyNotation.TieState object at 0x10afab048>\n\n\n>>> tieState.parent is tnc\nTrue\n>>> tieState.stateInfo\n'~'\n>>> quadState.stateInfo\n'quad{'\n\n\nNote that the affected tokens haven't yet been added:\n>>> tripState.affectedTokens\n[]\n\n\nUnknown state gives a warning or if .raisesException=True raises a\nTinyNotationException\n>>> tnc.raiseExceptions = True\n>>> tIn = 'blah{f8~'\n>>> tOut = tnc.parseStartStates(tIn)\nTraceback (most recent call last):\nmusic21.tinyNotation.TinyNotationException: Incorrect bracket state: 'blah'",
+        "type": "ListItem"
+    },
+    {
+        "text": "Converter.",
+        "type": "Title"
+    },
+    {
+        "text": "postParse",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Called after all the tokens have been run.\nCurrently runs .makeMeasures on .stream unless .makeNotation is False.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Converter.",
+        "type": "Title"
+    },
+    {
+        "text": "setupRegularExpressions",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Regular expressions get compiled for faster\nusage.  This is called automatically by .parse(), but can be\ncalled separately for testing.  It is also important that it\nis not called in __init__ since subclasses should override the\ntokenMap, etc. for a class.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Converter.",
+        "type": "Title"
+    },
+    {
+        "text": "splitPreTokens",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "splits the string into textual preTokens.\nRight now just splits on spaces, but might be smarter to ignore spaces in\nquotes, etc. later.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Token\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.tinyNotation.",
+        "type": "Title"
+    },
+    {
+        "text": "Token",
+        "type": "Title"
+    },
+    {
+        "text": "token",
+        "type": "Title"
+    },
+    {
+        "text": "''",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A single token made from the parser.\nCall .parse(parent) to make it work.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Token methods",
+        "type": "Title"
+    },
+    {
+        "text": "Token.",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "parent",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "do NOT store parent \u2014 probably\ntoo slow",
+        "type": "ListItem"
+    },
+    {
+        "text": "State\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.tinyNotation.",
+        "type": "Title"
+    },
+    {
+        "text": "State",
+        "type": "Title"
+    },
+    {
+        "text": "parent",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "stateInfo",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "State tokens apply something to\nevery note found within it.\nState objects can have \u009cautoExpires\u009d set, which is False if it does not expire\nor an integer if it expires after a certain number of tokens have been processed.\n>>> tnc = tinyNotation.Converter()\n>>> ts = tinyNotation.TieState(tnc, '~')\n>>> isinstance(ts, tinyNotation.State)\nTrue\n>>> ts.autoExpires\n2",
+        "type": "ListItem"
+    },
+    {
+        "text": "State methods",
+        "type": "Title"
+    },
+    {
+        "text": "State.",
+        "type": "Title"
+    },
+    {
+        "text": "affectTokenAfterParse",
+        "type": "Title"
+    },
+    {
+        "text": "m21Obj",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "called to modify the tokenObj after parsing\ntokenObj may be None if another\nstate has deleted it.",
+        "type": "ListItem"
+    },
+    {
+        "text": "State.",
+        "type": "Title"
+    },
+    {
+        "text": "affectTokenAfterParseBeforeModifiers",
+        "type": "Title"
+    },
+    {
+        "text": "m21Obj",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "called after the object has been acquired but before modifiers have been applied.",
+        "type": "ListItem"
+    },
+    {
+        "text": "State.",
+        "type": "Title"
+    },
+    {
+        "text": "affectTokenBeforeParse",
+        "type": "Title"
+    },
+    {
+        "text": "tokenStr",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "called to modify the string of a token.",
+        "type": "ListItem"
+    },
+    {
+        "text": "State.",
+        "type": "Title"
+    },
+    {
+        "text": "end",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 Music21Object | None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "called just after removing state",
+        "type": "ListItem"
+    },
+    {
+        "text": "State.",
+        "type": "Title"
+    },
+    {
+        "text": "start",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "called when the state is initiated",
+        "type": "ListItem"
+    },
+    {
+        "text": "Modifier\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.tinyNotation.",
+        "type": "Title"
+    },
+    {
+        "text": "Modifier",
+        "type": "Title"
+    },
+    {
+        "text": "modifierData",
+        "type": "Title"
+    },
+    {
+        "text": "modifierString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "parent",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "a modifier is something that changes the current\ntoken, like setting the .id or Lyric.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Modifier methods",
+        "type": "Title"
+    },
+    {
+        "text": "Modifier.",
+        "type": "Title"
+    },
+    {
+        "text": "postParse",
+        "type": "Title"
+    },
+    {
+        "text": "m21Obj",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "called after the tokenString has been\nturned into an m21Obj.  m21Obj may be None\nImportant: must return the m21Obj, or a different object!",
+        "type": "ListItem"
+    },
+    {
+        "text": "Modifier.",
+        "type": "Title"
+    },
+    {
+        "text": "preParse",
+        "type": "Title"
+    },
+    {
+        "text": "tokenString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "called before the tokenString has been\nturned into an object",
+        "type": "ListItem"
+    },
+    {
+        "text": "IdModifier\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.tinyNotation.",
+        "type": "Title"
+    },
+    {
+        "text": "IdModifier",
+        "type": "Title"
+    },
+    {
+        "text": "modifierData",
+        "type": "Title"
+    },
+    {
+        "text": "modifierString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "parent",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "sets the .id of the m21Obj, called with = by default",
+        "type": "ListItem"
+    },
+    {
+        "text": "IdModifier bases",
+        "type": "Title"
+    },
+    {
+        "text": "Modifier",
+        "type": "ListItem"
+    },
+    {
+        "text": "IdModifier methods",
+        "type": "Title"
+    },
+    {
+        "text": "IdModifier.",
+        "type": "Title"
+    },
+    {
+        "text": "postParse",
+        "type": "Title"
+    },
+    {
+        "text": "m21Obj",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "called after the tokenString has been\nturned into an m21Obj.  m21Obj may be None\nImportant: must return the m21Obj, or a different object!",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from Modifier:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "preParse()",
+        "type": "Table"
+    },
+    {
+        "text": "LyricModifier\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.tinyNotation.",
+        "type": "Title"
+    },
+    {
+        "text": "LyricModifier",
+        "type": "Title"
+    },
+    {
+        "text": "modifierData",
+        "type": "Title"
+    },
+    {
+        "text": "modifierString",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "parent",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "sets the .lyric of the m21Obj, called with _ by default",
+        "type": "ListItem"
+    },
+    {
+        "text": "LyricModifier bases",
+        "type": "Title"
+    },
+    {
+        "text": "Modifier",
+        "type": "ListItem"
+    },
+    {
+        "text": "LyricModifier methods",
+        "type": "Title"
+    },
+    {
+        "text": "LyricModifier.",
+        "type": "Title"
+    },
+    {
+        "text": "postParse",
+        "type": "Title"
+    },
+    {
+        "text": "m21Obj",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "called after the tokenString has been\nturned into an m21Obj.  m21Obj may be None\nImportant: must return the m21Obj, or a different object!",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from Modifier:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "preParse()",
+        "type": "Table"
+    },
+    {
+        "text": "NoteOrRestToken\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.tinyNotation.",
+        "type": "Title"
+    },
+    {
+        "text": "NoteOrRestToken",
+        "type": "Title"
+    },
+    {
+        "text": "token",
+        "type": "Title"
+    },
+    {
+        "text": "''",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "represents a Note or Rest.  Chords are represented by Note objects",
+        "type": "ListItem"
+    },
+    {
+        "text": "NoteOrRestToken bases",
+        "type": "Title"
+    },
+    {
+        "text": "Token",
+        "type": "ListItem"
+    },
+    {
+        "text": "NoteOrRestToken methods",
+        "type": "Title"
+    },
+    {
+        "text": "NoteOrRestToken.",
+        "type": "Title"
+    },
+    {
+        "text": "applyDuration",
+        "type": "Title"
+    },
+    {
+        "text": "parent",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "takes the information in the string t and creates a Duration object for the\nnote or rest n.",
+        "type": "ListItem"
+    },
+    {
+        "text": "NoteOrRestToken.",
+        "type": "Title"
+    },
+    {
+        "text": "dots",
+        "type": "Title"
+    },
+    {
+        "text": "element",
+        "type": "Title"
+    },
+    {
+        "text": "search",
+        "type": "Title"
+    },
+    {
+        "text": "pm",
+        "type": "Title"
+    },
+    {
+        "text": "parent",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "adds the appropriate number of dots to the right place.\nSubclassed in TrecentoNotation where two dots has a different meaning.",
+        "type": "ListItem"
+    },
+    {
+        "text": "NoteOrRestToken.",
+        "type": "Title"
+    },
+    {
+        "text": "durationType",
+        "type": "Title"
+    },
+    {
+        "text": "element",
+        "type": "Title"
+    },
+    {
+        "text": "search",
+        "type": "Title"
+    },
+    {
+        "text": "pm",
+        "type": "Title"
+    },
+    {
+        "text": "parent",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The result of a successful search for a duration type: puts a Duration in the right place.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from Token:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "parse()",
+        "type": "Table"
+    },
+    {
+        "text": "NoteToken\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.tinyNotation.",
+        "type": "Title"
+    },
+    {
+        "text": "NoteToken",
+        "type": "Title"
+    },
+    {
+        "text": "token",
+        "type": "Title"
+    },
+    {
+        "text": "''",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A NoteToken represents a single Note with pitch\n>>> c3 = tinyNotation.NoteToken('C')\n>>> c3\n<music21.tinyNotation.NoteToken object at 0x10b07bf98>\n>>> n = c3.parse()\n>>> n\n<music21.note.Note C>\n>>> n.nameWithOctave\n'C3'\n\n\n>>> bFlat6 = tinyNotation.NoteToken(\"b''-\")\n>>> bFlat6\n<music21.tinyNotation.NoteToken object at 0x10b07bf98>\n>>> n = bFlat6.parse()\n>>> n\n<music21.note.Note B->\n>>> n.nameWithOctave\n'B-6'",
+        "type": "ListItem"
+    },
+    {
+        "text": "NoteToken bases",
+        "type": "Title"
+    },
+    {
+        "text": "NoteOrRestToken",
+        "type": "ListItem"
+    },
+    {
+        "text": "Token",
+        "type": "ListItem"
+    },
+    {
+        "text": "NoteToken methods",
+        "type": "Title"
+    },
+    {
+        "text": "NoteToken.",
+        "type": "Title"
+    },
+    {
+        "text": "editorialAccidental",
+        "type": "Title"
+    },
+    {
+        "text": "search",
+        "type": "Title"
+    },
+    {
+        "text": "pm",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "indicates that the accidental is in parentheses, so set it up to be stored in ficta.",
+        "type": "ListItem"
+    },
+    {
+        "text": "NoteToken.",
+        "type": "Title"
+    },
+    {
+        "text": "flats",
+        "type": "Title"
+    },
+    {
+        "text": "search",
+        "type": "Title"
+    },
+    {
+        "text": "pm",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "called when one or more flats have been found and calls adds\nthe appropriate accidental to it.\n>>> import re\n>>> tStr = 'BB--'\n>>> nToken = tinyNotation.NoteToken(tStr)\n>>> n = note.Note('B')\n>>> n.octave = 2\n>>> searchResult = re.search(nToken.pitchMap['flats'], tStr)\n>>> tPost = nToken.flats(n, searchResult, nToken.pitchMap['flats'], tStr)\n>>> tPost\n'BB'\n>>> n.pitch.accidental\n<music21.pitch.Accidental double-flat>",
+        "type": "ListItem"
+    },
+    {
+        "text": "NoteToken.",
+        "type": "Title"
+    },
+    {
+        "text": "highOctave",
+        "type": "Title"
+    },
+    {
+        "text": "search",
+        "type": "Title"
+    },
+    {
+        "text": "pm",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Called when a note of octave 4 or higher is encountered.\n>>> import re\n>>> tStr = \"e''\"\n>>> nToken = tinyNotation.NoteToken(tStr)\n>>> n = note.Note('E')\n>>> searchResult = re.search(nToken.pitchMap['highOctave'], tStr)\n>>> tPost = nToken.highOctave(n, searchResult, nToken.pitchMap['highOctave'], tStr)\n>>> tPost\n''\n>>> n.octave\n6",
+        "type": "ListItem"
+    },
+    {
+        "text": "NoteToken.",
+        "type": "Title"
+    },
+    {
+        "text": "lowOctave",
+        "type": "Title"
+    },
+    {
+        "text": "search",
+        "type": "Title"
+    },
+    {
+        "text": "pm",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Called when a note of octave 3 or below is encountered.\n>>> import re\n>>> tStr = 'BBB'\n>>> nToken = tinyNotation.NoteToken(tStr)\n>>> n = note.Note('B')\n>>> searchResult = re.search(nToken.pitchMap['lowOctave'], tStr)\n>>> tPost = nToken.lowOctave(n, searchResult, nToken.pitchMap['lowOctave'], tStr)\n>>> tPost\n''\n>>> n.octave\n1",
+        "type": "ListItem"
+    },
+    {
+        "text": "NoteToken.",
+        "type": "Title"
+    },
+    {
+        "text": "natural",
+        "type": "Title"
+    },
+    {
+        "text": "search",
+        "type": "Title"
+    },
+    {
+        "text": "pm",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "called when an explicit natural has been found.  All pitches are natural without\nbeing specified, so not needed. Adds a natural accidental to it.\n>>> import re\n>>> tStr = 'En'\n>>> nToken = tinyNotation.NoteToken(tStr)\n>>> n = note.Note('E')\n>>> n.octave = 3\n>>> searchResult = re.search(nToken.pitchMap['natural'], tStr)\n>>> tPost = nToken.natural(n, searchResult, nToken.pitchMap['natural'], tStr)\n>>> tPost\n'E'\n>>> n.pitch.accidental\n<music21.pitch.Accidental natural>",
+        "type": "ListItem"
+    },
+    {
+        "text": "NoteToken.",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "parent",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Extract the pitch from the note and then returns the Note.",
+        "type": "ListItem"
+    },
+    {
+        "text": "NoteToken.",
+        "type": "Title"
+    },
+    {
+        "text": "processPitchMap",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "processes the pitchMap on the object.",
+        "type": "ListItem"
+    },
+    {
+        "text": "NoteToken.",
+        "type": "Title"
+    },
+    {
+        "text": "sharps",
+        "type": "Title"
+    },
+    {
+        "text": "search",
+        "type": "Title"
+    },
+    {
+        "text": "pm",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "called when one or more sharps have been found and adds the appropriate accidental to it.\n>>> import re\n>>> tStr = 'C##'\n>>> nToken = tinyNotation.NoteToken(tStr)\n>>> n = note.Note('C')\n>>> n.octave = 3\n>>> searchResult = re.search(nToken.pitchMap['sharps'], tStr)\n>>> tPost = nToken.sharps(n, searchResult, nToken.pitchMap['sharps'], tStr)\n>>> tPost\n'C'\n>>> n.pitch.accidental\n<music21.pitch.Accidental double-sharp>",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from NoteOrRestToken:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "applyDuration() dots() durationType()",
+        "type": "Table"
+    },
+    {
+        "text": "QuadrupletState\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.tinyNotation.",
+        "type": "Title"
+    },
+    {
+        "text": "QuadrupletState",
+        "type": "Title"
+    },
+    {
+        "text": "parent",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "stateInfo",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "a 4:3 tuplet",
+        "type": "ListItem"
+    },
+    {
+        "text": "QuadrupletState bases",
+        "type": "Title"
+    },
+    {
+        "text": "TupletState",
+        "type": "ListItem"
+    },
+    {
+        "text": "State",
+        "type": "ListItem"
+    },
+    {
+        "text": "QuadrupletState methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from TupletState:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "affectTokenAfterParse() end()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from State:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "affectTokenAfterParseBeforeModifiers() affectTokenBeforeParse() start()",
+        "type": "Table"
+    },
+    {
+        "text": "RestToken\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.tinyNotation.",
+        "type": "Title"
+    },
+    {
+        "text": "RestToken",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "token",
+        "type": "Title"
+    },
+    {
+        "text": "''",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A token starting with \u0098r', representing a rest.",
+        "type": "ListItem"
+    },
+    {
+        "text": "RestToken bases",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "NoteOrRestToken",
+        "type": "ListItem"
+    },
+    {
+        "text": "Token",
+        "type": "ListItem"
+    },
+    {
+        "text": "RestToken methods",
+        "type": "Title"
+    },
+    {
+        "text": "RestToken.",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "parent",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "do NOT store parent \u2014 probably\ntoo slow",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from NoteOrRestToken:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "applyDuration() dots() durationType()",
+        "type": "Table"
+    },
+    {
+        "text": "TieState\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.tinyNotation.",
+        "type": "Title"
+    },
+    {
+        "text": "TieState",
+        "type": "Title"
+    },
+    {
+        "text": "parent",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "stateInfo",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "A TieState is an auto-expiring state that applies a tie start to this note and a\ntie stop to the next note.",
+        "type": "ListItem"
+    },
+    {
+        "text": "TieState bases",
+        "type": "Title"
+    },
+    {
+        "text": "State",
+        "type": "ListItem"
+    },
+    {
+        "text": "TieState methods",
+        "type": "Title"
+    },
+    {
+        "text": "TieState.",
+        "type": "Title"
+    },
+    {
+        "text": "end",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "end the tie state by applying tie ties to the appropriate notes",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from State:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "affectTokenAfterParse() affectTokenAfterParseBeforeModifiers() affectTokenBeforeParse() start()",
+        "type": "Table"
+    },
+    {
+        "text": "TimeSignatureToken\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.tinyNotation.",
+        "type": "Title"
+    },
+    {
+        "text": "TimeSignatureToken",
+        "type": "Title"
+    },
+    {
+        "text": "token",
+        "type": "Title"
+    },
+    {
+        "text": "''",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Represents a single time signature, like 1/4",
+        "type": "ListItem"
+    },
+    {
+        "text": "TimeSignatureToken bases",
+        "type": "Title"
+    },
+    {
+        "text": "Token",
+        "type": "ListItem"
+    },
+    {
+        "text": "TimeSignatureToken methods",
+        "type": "Title"
+    },
+    {
+        "text": "TimeSignatureToken.",
+        "type": "Title"
+    },
+    {
+        "text": "parse",
+        "type": "Title"
+    },
+    {
+        "text": "parent",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "do NOT store parent \u2014 probably\ntoo slow",
+        "type": "ListItem"
+    },
+    {
+        "text": "TripletState\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.tinyNotation.",
+        "type": "Title"
+    },
+    {
+        "text": "TripletState",
+        "type": "Title"
+    },
+    {
+        "text": "parent",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "stateInfo",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "a 3:2 tuplet",
+        "type": "ListItem"
+    },
+    {
+        "text": "TripletState bases",
+        "type": "Title"
+    },
+    {
+        "text": "TupletState",
+        "type": "ListItem"
+    },
+    {
+        "text": "State",
+        "type": "ListItem"
+    },
+    {
+        "text": "TripletState methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from TupletState:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "affectTokenAfterParse() end()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from State:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "affectTokenAfterParseBeforeModifiers() affectTokenBeforeParse() start()",
+        "type": "Table"
+    },
+    {
+        "text": "TupletState\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.tinyNotation.",
+        "type": "Title"
+    },
+    {
+        "text": "TupletState",
+        "type": "Title"
+    },
+    {
+        "text": "parent",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "stateInfo",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "a tuplet state applies tuplets to notes while parsing and sets \u0098start' and \u0098stop'\non the first and last note when end is called.",
+        "type": "ListItem"
+    },
+    {
+        "text": "TupletState bases",
+        "type": "Title"
+    },
+    {
+        "text": "State",
+        "type": "ListItem"
+    },
+    {
+        "text": "TupletState methods",
+        "type": "Title"
+    },
+    {
+        "text": "TupletState.",
+        "type": "Title"
+    },
+    {
+        "text": "affectTokenAfterParse",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "puts a tuplet on the note",
+        "type": "ListItem"
+    },
+    {
+        "text": "TupletState.",
+        "type": "Title"
+    },
+    {
+        "text": "end",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "end a tuplet by putting start on the first note and stop on the last.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from State:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "affectTokenAfterParseBeforeModifiers() affectTokenBeforeParse() start()",
+        "type": "Table"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.tinyNotation",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

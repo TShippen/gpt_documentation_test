@@ -1,0 +1,310 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.analysis.harmonicFunction",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.analysis.floatingKey",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.analysis.metrical",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.analysis.harmonicFunction\nHarmonicFunction\nHarmonicFunction\n\n\nFunctions\nfunctionToRoman()\nromanToFunction()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.analysis.harmonicFunction\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "HarmonicFunction\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.analysis.harmonicFunction.",
+        "type": "Title"
+    },
+    {
+        "text": "HarmonicFunction",
+        "type": "Title"
+    },
+    {
+        "text": "value",
+        "type": "Title"
+    },
+    {
+        "text": "names",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "module",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "qualname",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "type",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "start",
+        "type": "Title"
+    },
+    {
+        "text": "boundary",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "HarmonicFunction bases",
+        "type": "Title"
+    },
+    {
+        "text": "StrEnum",
+        "type": "ListItem"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.analysis.harmonicFunction.",
+        "type": "Title"
+    },
+    {
+        "text": "functionToRoman",
+        "type": "Title"
+    },
+    {
+        "text": "thisHarmonicFunction",
+        "type": "Title"
+    },
+    {
+        "text": "HarmonicFunction",
+        "type": "Title"
+    },
+    {
+        "text": "keyOrScale",
+        "type": "Title"
+    },
+    {
+        "text": "Key",
+        "type": "Title"
+    },
+    {
+        "text": "ConcreteScale",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "'C'",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "\u2192 RomanNumeral | None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Takes harmonic function labels (such as \u0098T' for major tonic)\nwith a key (keyOrScale, default = \u0098C') and\nreturns the corresponding RomanNumeral object.\n>>> analysis.harmonicFunction.functionToRoman('T')\n<music21.roman.RomanNumeral I in C major>\n\n\nThe harmonicFunction argument can be a string (as shown),\nthough strictly speaking, it's handled through a special HarmonicFunction enum object.\n>>> fn = analysis.harmonicFunction.HarmonicFunction.TONIC_MAJOR\n>>> str(fn)\n'T'\n\n\n>>> analysis.harmonicFunction.functionToRoman(fn).figure\n'I'\n\n\nAs with Roman numerals, this is case sensitive.\nFor instance, \u0098t' indicates a minor tonic\nas distinct from the major tonic, \u0098T'.\n>>> analysis.harmonicFunction.functionToRoman('t').figure\n'i'\n\n\nThere are 18 main functional labels supported in all, for\nthe three functional categories\n(T for tonic, S for subdominant, and D for dominant) and\nthree relevant transformation types (none, P, and G)\nall in upper and lower case (for major/minor):\nT, Tp, Tg, t, tP, tG,\nS, Sp, Sg, s, sP, sG,\nD, Dp, Dg, d, dP, dG.\nNote that this module uses terminology from modern German music theory\nwhere Functional notation (\u0098HarmonicFunctionstheorie') is typically used\nthroughout the curriculum in preference over Roman numerals (\u0098Stufentheorie').\nFirst, note the false friend: here \u0098P' for \u0098Parallel'\nconnects a major triad with the minor triad a minor third below (e.g. C-a).\n(in English-speaking traditions this would usually be \u0098relative').\nSecond, note that this module uses\n\u0098G' (and \u0098g'), standing for\n\u0098Gegenkl\u00c3\u00a4nge' or \u0098Gegenparallelen'.\n\u0098L' (and \u0098l') for Leittonwechselkl\u00c3\u00a4nge is equivalent to this.\n(Again, \u0098G' is more common in modern German-language music theory).\nUse the keyOrScale argement to specify a key.\nThis makes a difference where 6th and 7th degrees of minor are involved.\n>>> analysis.harmonicFunction.functionToRoman('sP', keyOrScale='C').figure\n'bVI'\n\n\n>>> analysis.harmonicFunction.functionToRoman('sP', keyOrScale='a').figure\n'VI'\n\n\nSome of the 18 main functions overlap, with two functional labels\nreferring to the same Roman numeral figure.\nFor instance both \u0098Tg' and \u0098Dp' simply map to \u0098iii':\n>>> analysis.harmonicFunction.functionToRoman('Tp').figure\n'vi'\n\n\n>>> analysis.harmonicFunction.functionToRoman('Sg').figure\n'vi'\n\n\nThe reverse operation is handled by the complementary\nromanToFunction().\nIn this case, romanToFunction()\nfollows the convention of preferring the P-version over alternatives.\n>>> rn = roman.RomanNumeral('vi')\n>>> str(analysis.harmonicFunction.romanToFunction(rn))\n'Tp'",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.analysis.harmonicFunction.",
+        "type": "Title"
+    },
+    {
+        "text": "romanToFunction",
+        "type": "Title"
+    },
+    {
+        "text": "rn",
+        "type": "Title"
+    },
+    {
+        "text": "RomanNumeral",
+        "type": "Title"
+    },
+    {
+        "text": "onlyHauptHarmonicFunction",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 HarmonicFunction | None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Takes a Roman numeral and returns a corresponding harmonic function label.\n>>> rn1 = roman.RomanNumeral('VI', 'a')\n>>> fn1 = analysis.harmonicFunction.romanToFunction(rn1)\n>>> fn1\n<HarmonicFunction.SUBDOMINANT_MINOR_PARALLELKLANG_MAJOR>\n\n\nThis can be converted into a string:\n>>> str(fn1)\n'sP'\n\n\nOptionally, set onlyHauptHarmonicFunction to True to return\na simplified version with only the HauptHarmonicFunction\n(one of t, T, s, S, d, D: major and minor forms of the tonic, subdominant and dominant).\n>>> fn1 = analysis.harmonicFunction.romanToFunction(rn1, onlyHauptHarmonicFunction=True)\n>>> fn1\n<HarmonicFunction.SUBDOMINANT_MINOR>\n\n\n>>> str(fn1)\n's'\n\n\nInversions are not currently considered (they may be in a future version of this).\nThis function simply uses the romanNumeral attribute of the roman.RomanNumeral object.\nThis excludes inversions, but\nincludes, where applicable, the frontAlterationAccidental.modifier.\n>>> rn2 = roman.RomanNumeral('bII6', 'g')\n>>> fn2 = analysis.harmonicFunction.romanToFunction(rn2)\n>>> fn2\n<HarmonicFunction.SUBDOMINANT_MINOR_GEGENKLANG_MAJOR>\n\n\n>>> str(fn2)\n'sG'\n\n\nSee further notes on the complementary\nfunctionToRoman().",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.analysis.harmonicFunction",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

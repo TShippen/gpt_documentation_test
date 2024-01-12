@@ -1,0 +1,870 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.alpha.analysis.fixer",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.alpha.analysis.aligner",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.alpha.analysis.hasher",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.alpha.analysis.fixer\nDeleteFixer\nDeleteFixer\nDeleteFixer.fix()\n\n\n\n\nEnharmonicFixer\nEnharmonicFixer\nEnharmonicFixer.fix()\nEnharmonicFixer.hasAcc()\nEnharmonicFixer.hasNatAcc()\nEnharmonicFixer.hasSharpFlatAcc()\nEnharmonicFixer.intervalTooBig()\nEnharmonicFixer.isEnharmonic()\nEnharmonicFixer.stepEq()\nEnharmonicFixer.stepNotEq()\n\n\n\n\nOMRMidiFixer\nOMRMidiFixer\nOMRMidiFixer.checkIfNoteInstance()\nOMRMidiFixer.fix()\n\n\n\n\nOrnamentFixer\nOrnamentFixer\nOrnamentFixer.addOrnament()\nOrnamentFixer.findOrnament()\nOrnamentFixer.fix()\n\n\n\n\nTrillFixer\nTrillFixer\n\n\nTurnFixer\nTurnFixer\n\n\nFunctions\ngetNotesWithinDuration()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.alpha.analysis.fixer\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "DeleteFixer\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.alpha.analysis.fixer.",
+        "type": "Title"
+    },
+    {
+        "text": "DeleteFixer",
+        "type": "Title"
+    },
+    {
+        "text": "changes",
+        "type": "Title"
+    },
+    {
+        "text": "midiStream",
+        "type": "Title"
+    },
+    {
+        "text": "omrStream",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "The DeleteFixer was designed to fit the specifications of the OpenScore project.\nThe goal of the OpenScore project is to open-source music with open source software\n(like music21!). OpenScore will use a combination of computer and human power\nto digitize classical music scores and put them in the public domain. One idea is\nthat software can identify wrong recognized notes in a scanned score and mark or\ndelete the entire measure that that note is in and pass it off to a human corrector to\nre-transcribe the entire measure. The DeleteFixer could be the computer power in\nthis method of score correction that OpenScore is using.\nCAUTION: this does really weird things still.",
+        "type": "ListItem"
+    },
+    {
+        "text": "DeleteFixer bases",
+        "type": "Title"
+    },
+    {
+        "text": "OMRMidiFixer",
+        "type": "ListItem"
+    },
+    {
+        "text": "DeleteFixer methods",
+        "type": "Title"
+    },
+    {
+        "text": "DeleteFixer.",
+        "type": "Title"
+    },
+    {
+        "text": "fix",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from OMRMidiFixer:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "checkIfNoteInstance()",
+        "type": "Table"
+    },
+    {
+        "text": "EnharmonicFixer\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.alpha.analysis.fixer.",
+        "type": "Title"
+    },
+    {
+        "text": "EnharmonicFixer",
+        "type": "Title"
+    },
+    {
+        "text": "changes",
+        "type": "Title"
+    },
+    {
+        "text": "midiStream",
+        "type": "Title"
+    },
+    {
+        "text": "omrStream",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Fixes incorrectly spelled enharmonics\ninitialized with self.changes \u2014 a list of tuples in this form:\n(MIDIReference, OMRReference, op)\nMIDIReference and OMRReference are actual note/rest/chord object in some stream\nop is a ChangeOp that relates the two references\nTEST 1, no changes in OMR stream\n>>> omrStream1 = stream.Stream()\n>>> midiStream1 = stream.Stream()\n\n\n>>> omrNote1 = note.Note('A#4')\n>>> omrNote2 = note.Note('A#4')\n>>> midiNote1 = note.Note('B-4')\n>>> midiNote2 = note.Note('B-4')\n\n\n>>> omrStream1.append([omrNote1, omrNote2])\n>>> midiStream1.append([midiNote1, midiNote2])\n>>> subOp = alpha.analysis.aligner.ChangeOps.Substitution\n\n\n>>> ct1 = (midiNote1, omrNote1, subOp)\n>>> ct2 = (midiNote2, omrNote2, subOp)\n>>> changes1 = [ct1, ct2]\n\n\n>>> fixer1 = alpha.analysis.fixer.EnharmonicFixer(changes1, None, None)\n>>> fixer1.fix()\n>>> omrStream1[0]\n<music21.note.Note A#>\n>>> omrStream1[1]\n<music21.note.Note A#>\n\n\nTEST 2, no changes in OMR stream\n>>> omrStream2 = stream.Stream()\n>>> midiStream2 = stream.Stream()\n\n\n>>> omr2Note1 = note.Note('A#4')\n>>> omr2Note2 = note.Note('A#4')\n>>> midi2Note1 = note.Note('A#4')\n>>> midi2Note2 = note.Note('A#4')\n\n\n>>> omrStream2.append([omr2Note1, omr2Note2])\n>>> midiStream2.append([midi2Note1, midi2Note2])\n>>> ncOp = alpha.analysis.aligner.ChangeOps.NoChange\n\n\n>>> ct2_1 = (midi2Note1, omr2Note1, ncOp)\n>>> ct2_2 = (midi2Note2, omr2Note2, ncOp)\n>>> changes2 = [ct2_1, ct2_2]\n\n\n>>> fixer2 = alpha.analysis.fixer.EnharmonicFixer(changes2, None, None)\n>>> fixer2.fix()\n>>> omrStream2[0]\n<music21.note.Note A#>\n>>> omrStream1[1]\n<music21.note.Note A#>\n\n\nTEST 3 (case 1)\n>>> midiNote3 = note.Note('A4')\n>>> omrNote3 = note.Note('An4')\n\n\n>>> subOp = alpha.analysis.aligner.ChangeOps.Substitution\n\n\n>>> ct3 = (midiNote3, omrNote3, subOp)\n>>> changes3 = [ct3]\n>>> omrNote3.pitch.accidental\n<music21.pitch.Accidental natural>\n>>> fixer3 = alpha.analysis.fixer.EnharmonicFixer(changes3, None, None)\n>>> fixer3.fix()\n>>> omrNote3.pitch.accidental\n\n\nTEST 4 (case 2-1) e.g MIDI = g#, ground truth = a-, OMR = an\n>>> midiNote4 = note.Note('G#4')\n>>> omrNote4 = note.Note('An4')\n\n\n>>> subOp = alpha.analysis.aligner.ChangeOps.Substitution\n\n\n>>> ct4 = (midiNote4, omrNote4, subOp)\n>>> changes4 = [ct4]\n>>> omrNote4.pitch.accidental\n<music21.pitch.Accidental natural>\n>>> fixer4 = alpha.analysis.fixer.EnharmonicFixer(changes4, None, None)\n>>> fixer4.fix()\n>>> omrNote4.pitch.accidental\n<music21.pitch.Accidental flat>\n\n\nTEST 5 (case 2-2) e.g midi = g-, gt = f#, omr = fn\n>>> midiNote5 = note.Note('G-4')\n>>> omrNote5 = note.Note('Fn4')\n\n\n>>> subOp = alpha.analysis.aligner.ChangeOps.Substitution\n\n\n>>> ct5 = (midiNote5, omrNote5, subOp)\n>>> changes5 = [ct5]\n>>> omrNote5.pitch.accidental\n<music21.pitch.Accidental natural>\n>>> fixer5 = alpha.analysis.fixer.EnharmonicFixer(changes5, None, None)\n>>> fixer5.fix()\n>>> omrNote5.pitch.accidental\n<music21.pitch.Accidental sharp>\n\n\nTEST 6.1 (case 3) e.g. midi = g#, gt = g#, omr = gn or omr = g-\n>>> midiNote6_1 = note.Note('G#4')\n>>> midiNote6_2 = note.Note('G#4')\n>>> omrNote6_1 = note.Note('Gn4')\n>>> omrNote6_2 = note.Note('G-4')\n\n\n>>> subOp6_1 = alpha.analysis.aligner.ChangeOps.Substitution\n>>> subOp6_2 = alpha.analysis.aligner.ChangeOps.Substitution\n>>> ct6_1 = (midiNote6_1, omrNote6_1, subOp6_1)\n>>> ct6_2 = (midiNote6_2, omrNote6_2, subOp6_2)\n>>> changes6 = [ct6_1, ct6_2]\n\n\n>>> omrNote6_1.pitch.accidental\n<music21.pitch.Accidental natural>\n>>> omrNote6_2.pitch.accidental\n<music21.pitch.Accidental flat>\n>>> fixer6 = alpha.analysis.fixer.EnharmonicFixer(changes6, None, None)\n>>> fixer6.fix()\n>>> omrNote6_1.pitch.accidental\n<music21.pitch.Accidental sharp>\n>>> omrNote6_2.pitch.accidental\n<music21.pitch.Accidental sharp>\n\n\nTEST 7 (case 4-1, 4-2) notes are on different step, off by an interval of 2:\n* 4-1: e.g. midi = g#, gt = a-, omr = a#\n* 4-2: e.g. midi = a-, gt = g#, omr = g-\n>>> midiNote7_1 = note.Note('G#4')\n>>> omrNote7_1 = note.Note('A#4')\n\n\n>>> midiNote7_2 = note.Note('A-4')\n>>> omrNote7_2 = note.Note('G-4')\n\n\n>>> subOp7_1 = alpha.analysis.aligner.ChangeOps.Substitution\n>>> subOp7_2 = alpha.analysis.aligner.ChangeOps.Substitution\n>>> ct7_1 = (midiNote7_1, omrNote7_1, subOp7_1)\n>>> ct7_2 = (midiNote7_2, omrNote7_2, subOp7_2)\n>>> changes7 = [ct7_1, ct7_2]\n\n\n>>> omrNote7_1.pitch.accidental\n<music21.pitch.Accidental sharp>\n>>> omrNote7_2.pitch.accidental\n<music21.pitch.Accidental flat>\n>>> fixer7 = alpha.analysis.fixer.EnharmonicFixer(changes7, None, None)\n>>> fixer7.fix()\n\n\n>>> omrNote7_1.pitch.step\n'A'\n>>> omrNote7_1.pitch.accidental\n<music21.pitch.Accidental flat>\n\n\n>>> omrNote7_2.pitch.step\n'G'\n>>> omrNote7_2.pitch.accidental\n<music21.pitch.Accidental sharp>",
+        "type": "ListItem"
+    },
+    {
+        "text": "EnharmonicFixer bases",
+        "type": "Title"
+    },
+    {
+        "text": "OMRMidiFixer",
+        "type": "ListItem"
+    },
+    {
+        "text": "EnharmonicFixer methods",
+        "type": "Title"
+    },
+    {
+        "text": "EnharmonicFixer.",
+        "type": "Title"
+    },
+    {
+        "text": "fix",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Fixes the enharmonic errors in the OMR by changing the pitch of the note.",
+        "type": "ListItem"
+    },
+    {
+        "text": "EnharmonicFixer.",
+        "type": "Title"
+    },
+    {
+        "text": "hasAcc",
+        "type": "Title"
+    },
+    {
+        "text": "omrRef",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if the omrRef has an accidental, False otherwise",
+        "type": "ListItem"
+    },
+    {
+        "text": "EnharmonicFixer.",
+        "type": "Title"
+    },
+    {
+        "text": "hasNatAcc",
+        "type": "Title"
+    },
+    {
+        "text": "omrRef",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if the omrRef has a natural accidental, False otherwise",
+        "type": "ListItem"
+    },
+    {
+        "text": "EnharmonicFixer.",
+        "type": "Title"
+    },
+    {
+        "text": "hasSharpFlatAcc",
+        "type": "Title"
+    },
+    {
+        "text": "omrRef",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if the omrRef has a sharp or flat accidental, False otherwise",
+        "type": "ListItem"
+    },
+    {
+        "text": "EnharmonicFixer.",
+        "type": "Title"
+    },
+    {
+        "text": "intervalTooBig",
+        "type": "Title"
+    },
+    {
+        "text": "midiRef",
+        "type": "Title"
+    },
+    {
+        "text": "omrRef",
+        "type": "Title"
+    },
+    {
+        "text": "setInt",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if the intervalClass between the two notes is greater than setInt.\nNote that intervalClass and not actual interval size is used.",
+        "type": "ListItem"
+    },
+    {
+        "text": "EnharmonicFixer.",
+        "type": "Title"
+    },
+    {
+        "text": "isEnharmonic",
+        "type": "Title"
+    },
+    {
+        "text": "midiRef",
+        "type": "Title"
+    },
+    {
+        "text": "omrRef",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if the omrRef is enharmonic to the midiRef, False otherwise",
+        "type": "ListItem"
+    },
+    {
+        "text": "EnharmonicFixer.",
+        "type": "Title"
+    },
+    {
+        "text": "stepEq",
+        "type": "Title"
+    },
+    {
+        "text": "midiRef",
+        "type": "Title"
+    },
+    {
+        "text": "omrRef",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if the steps are equal, False otherwise",
+        "type": "ListItem"
+    },
+    {
+        "text": "EnharmonicFixer.",
+        "type": "Title"
+    },
+    {
+        "text": "stepNotEq",
+        "type": "Title"
+    },
+    {
+        "text": "midiRef",
+        "type": "Title"
+    },
+    {
+        "text": "omrRef",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns True if the steps are not equal, False otherwise",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from OMRMidiFixer:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "checkIfNoteInstance()",
+        "type": "Table"
+    },
+    {
+        "text": "OMRMidiFixer\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.alpha.analysis.fixer.",
+        "type": "Title"
+    },
+    {
+        "text": "OMRMidiFixer",
+        "type": "Title"
+    },
+    {
+        "text": "changes",
+        "type": "Title"
+    },
+    {
+        "text": "midiStream",
+        "type": "Title"
+    },
+    {
+        "text": "omrStream",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Base class for future fixers\nchanges is a list of changes associated with the midiStream and omrStream,\nnot a list of lists",
+        "type": "ListItem"
+    },
+    {
+        "text": "OMRMidiFixer methods",
+        "type": "Title"
+    },
+    {
+        "text": "OMRMidiFixer.",
+        "type": "Title"
+    },
+    {
+        "text": "checkIfNoteInstance",
+        "type": "Title"
+    },
+    {
+        "text": "midiRef",
+        "type": "Title"
+    },
+    {
+        "text": "omrRef",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "OMRMidiFixer.",
+        "type": "Title"
+    },
+    {
+        "text": "fix",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "OrnamentFixer\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.alpha.analysis.fixer.",
+        "type": "Title"
+    },
+    {
+        "text": "OrnamentFixer",
+        "type": "Title"
+    },
+    {
+        "text": "changes",
+        "type": "Title"
+    },
+    {
+        "text": "midiStream",
+        "type": "Title"
+    },
+    {
+        "text": "omrStream",
+        "type": "Title"
+    },
+    {
+        "text": "recognizers",
+        "type": "Title"
+    },
+    {
+        "text": "markChangeColor",
+        "type": "Title"
+    },
+    {
+        "text": "'blue'",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Fixes missed ornaments in OMR using expanded ornaments in MIDI\ninitialized with self.changes \u2014 a list of tuples in this form:\n(MIDIReference, OMRReference, op)\nMIDIReference and OMRReference are actual note/rest/chord object in some stream\nop is a ChangeOp that relates the two references\nrecognizers can be a single recognizer or list of recognizers,\nbut self.recognizers is always a list.\nrecognizers take in stream of busy notes and optional stream of simple note(s)\nand return False or an instance of the ornament recognized",
+        "type": "ListItem"
+    },
+    {
+        "text": "OrnamentFixer bases",
+        "type": "Title"
+    },
+    {
+        "text": "OMRMidiFixer",
+        "type": "ListItem"
+    },
+    {
+        "text": "OrnamentFixer methods",
+        "type": "Title"
+    },
+    {
+        "text": "OrnamentFixer.",
+        "type": "Title"
+    },
+    {
+        "text": "addOrnament",
+        "type": "Title"
+    },
+    {
+        "text": "selectedNote",
+        "type": "Title"
+    },
+    {
+        "text": "Note",
+        "type": "Title"
+    },
+    {
+        "text": "ornament",
+        "type": "Title"
+    },
+    {
+        "text": "Ornament",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Adds the ornament to the selectedNote when selectedNote has no ornaments already.\n\nselectedNote: Note.note to add ornament to\nornament: Expressions.ornament to add to note\nshow: True when note should be colored blue\n\nReturns True if added successfully, or False if there was already an\nornament on the note and it wasn't added.",
+        "type": "ListItem"
+    },
+    {
+        "text": "OrnamentFixer.",
+        "type": "Title"
+    },
+    {
+        "text": "findOrnament",
+        "type": "Title"
+    },
+    {
+        "text": "busyNotes",
+        "type": "Title"
+    },
+    {
+        "text": "simpleNotes",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 Ornament | None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Finds an ornament in busyNotes based from simpleNote\nusing provided recognizers.\n\nParameters:\n\nbusyNotes \u2014 stream of notes\nsimpleNotes \u2014 stream of notes\n\n\n\nTries the recognizers in order, returning the result of the first\none to successfully recognize an ornament.",
+        "type": "ListItem"
+    },
+    {
+        "text": "OrnamentFixer.",
+        "type": "Title"
+    },
+    {
+        "text": "fix",
+        "type": "Title"
+    },
+    {
+        "text": "show",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "inPlace",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 OMRMidiFixer | None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Corrects missed ornaments in omrStream according to midiStream\n:param show: Whether to show results\n:param inPlace: Whether to make changes to own omr stream or\nreturn a new OrnamentFixer with changes",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from OMRMidiFixer:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "checkIfNoteInstance()",
+        "type": "Table"
+    },
+    {
+        "text": "TrillFixer\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.alpha.analysis.fixer.",
+        "type": "Title"
+    },
+    {
+        "text": "TrillFixer",
+        "type": "Title"
+    },
+    {
+        "text": "changes",
+        "type": "Title"
+    },
+    {
+        "text": "midiStream",
+        "type": "Title"
+    },
+    {
+        "text": "omrStream",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Fixes missed trills in OMR using expanded ornaments in MIDI.\ninitialized with self.changes \u2014 a list of tuples in this form:\n(MIDIReference, OMRReference, op)\nMIDIReference and OMRReference are actual note/rest/chord object in some stream\nop is a ChangeOp that relates the two references",
+        "type": "ListItem"
+    },
+    {
+        "text": "TrillFixer bases",
+        "type": "Title"
+    },
+    {
+        "text": "OrnamentFixer",
+        "type": "ListItem"
+    },
+    {
+        "text": "OMRMidiFixer",
+        "type": "ListItem"
+    },
+    {
+        "text": "TrillFixer methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from OrnamentFixer:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "addOrnament() findOrnament() fix()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from OMRMidiFixer:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "checkIfNoteInstance()",
+        "type": "Table"
+    },
+    {
+        "text": "TurnFixer\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.alpha.analysis.fixer.",
+        "type": "Title"
+    },
+    {
+        "text": "TurnFixer",
+        "type": "Title"
+    },
+    {
+        "text": "changes",
+        "type": "Title"
+    },
+    {
+        "text": "midiStream",
+        "type": "Title"
+    },
+    {
+        "text": "omrStream",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Fixes missed turns/inverted turns in OMR using expanded ornaments in MIDI.\ninitialized with self.changes \u2014 a list of tuples in this form:\n(MIDIReference, OMRReference, op)\nMIDIReference and OMRReference are actual note/rest/chord object in some stream\nop is a ChangeOp that relates the two references",
+        "type": "ListItem"
+    },
+    {
+        "text": "TurnFixer bases",
+        "type": "Title"
+    },
+    {
+        "text": "OrnamentFixer",
+        "type": "ListItem"
+    },
+    {
+        "text": "OMRMidiFixer",
+        "type": "ListItem"
+    },
+    {
+        "text": "TurnFixer methods",
+        "type": "Title"
+    },
+    {
+        "text": "Methods inherited from OrnamentFixer:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "addOrnament() findOrnament() fix()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from OMRMidiFixer:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "checkIfNoteInstance()",
+        "type": "Table"
+    },
+    {
+        "text": "Functions\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "music21.alpha.analysis.fixer.",
+        "type": "Title"
+    },
+    {
+        "text": "getNotesWithinDuration",
+        "type": "Title"
+    },
+    {
+        "text": "startingGeneralNote",
+        "type": "Title"
+    },
+    {
+        "text": "totalDuration",
+        "type": "Title"
+    },
+    {
+        "text": "referenceStream",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns maximal stream of deepcopies of notes, rests, and chords following\n(and including) startingNote which occupy no more than totalDuration combined.\n\nstartingGeneralNote is a GeneralNote (could be a note, rest, or chord)\ntotalDuration is a duration\n\nreferenceStream is optionally a stream which the startingGeneralNote'sactive site should be set to when provided",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.alpha.analysis.fixer",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

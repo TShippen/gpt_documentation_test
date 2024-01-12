@@ -1,0 +1,1794 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.stream.iterator",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.stream.filters",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.stream.makeNotation",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.stream.iterator\nStreamIterator\nStreamIterator\nStreamIterator.activeElementList\nStreamIterator.notes\nStreamIterator.notesAndRests\nStreamIterator.parts\nStreamIterator.spanners\nStreamIterator.voices\nStreamIterator.__getitem__()\nStreamIterator.addFilter()\nStreamIterator.cleanup()\nStreamIterator.clone()\nStreamIterator.first()\nStreamIterator.getElementById()\nStreamIterator.getElementsByClass()\nStreamIterator.getElementsByGroup()\nStreamIterator.getElementsByOffset()\nStreamIterator.getElementsByQuerySelector()\nStreamIterator.getElementsNotOfClass()\nStreamIterator.last()\nStreamIterator.matchesFilters()\nStreamIterator.matchingElements()\nStreamIterator.removeFilter()\nStreamIterator.reset()\nStreamIterator.resetCaches()\nStreamIterator.stream()\nStreamIterator.updateActiveInformation()\n\n\n\n\nRecursiveIterator\nRecursiveIterator\nRecursiveIterator.currentHierarchyOffset()\nRecursiveIterator.getElementsByClass()\nRecursiveIterator.getElementsByOffsetInHierarchy()\nRecursiveIterator.iteratorStack()\nRecursiveIterator.matchingElements()\nRecursiveIterator.reset()\nRecursiveIterator.streamStack()\n\n\n\n\nOffsetIterator\nOffsetIterator\nOffsetIterator.getElementsByClass()\nOffsetIterator.reset()\n\n\n\n\nActiveInformation\nActiveInformation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.stream.iterator\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "this class contains iterators and filters for walking through streams",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "StreamIterators are explicitly allowed to access private methods on streams.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "StreamIterator\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.stream.iterator.",
+        "type": "Title"
+    },
+    {
+        "text": "StreamIterator",
+        "type": "Title"
+    },
+    {
+        "text": "srcStream",
+        "type": "Title"
+    },
+    {
+        "text": "StreamType",
+        "type": "Title"
+    },
+    {
+        "text": "filterList",
+        "type": "Title"
+    },
+    {
+        "text": "list",
+        "type": "Title"
+    },
+    {
+        "text": "Union",
+        "type": "Title"
+    },
+    {
+        "text": "collections.abc.Callable",
+        "type": "Title"
+    },
+    {
+        "text": "Any",
+        "type": "Title"
+    },
+    {
+        "text": "Optional",
+        "type": "Title"
+    },
+    {
+        "text": "Any",
+        "type": "Title"
+    },
+    {
+        "text": "Any",
+        "type": "Title"
+    },
+    {
+        "text": "music21.stream.filters.StreamFilter",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "restoreActiveSites",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "activeInformation",
+        "type": "Title"
+    },
+    {
+        "text": "ActiveInformation | None",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "ignoreSorting",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "An Iterator object used to handle getting items from Streams.\nThe __iter__() method\nreturns this object, passing a reference to self.\nNote that this iterator automatically sets the active site of\nreturned elements to the source Stream.\nThere is one property to know about: .overrideDerivation which overrides the set\nderivation of the class when .stream() is called\nSets:\n\nStreamIterator.srcStream \u2014 the Stream iterated over\nStreamIterator.elementIndex \u2014 current index item\nStreamIterator.streamLength \u2014 length of elements.\nStreamIterator.srcStreamElements \u2014 srcStream._elements\nStreamIterator.cleanupOnStop \u2014 should the StreamIterator delete the\nreference to srcStream and srcStreamElements when stopping? default\nFalse\nStreamIterator.activeInformation \u2014 a dict that contains information\nabout where we are in the parse.  Especially useful for recursive\nstreams:\n\n\nstream = the stream that is currently active,\nelementIndex = where in .elements we are,\niterSection is _elements or _endElements,\nsectionIndex is where we are in the iterSection, or -1 if\nwe have not started.\nlastYielded the element that was last returned by the iterator.\n(for OffsetIterators, contains the first element last returned)\n(This dict is shared among all sub iterators.)\n\n\n\n\nConstructor keyword only arguments:\n\nfilterList is a list of stream.filters.Filter objects to apply\nif restoreActiveSites is True (default) then on iterating, the activeSite is set\nto the Stream being iterated over.\nif ignoreSorting is True (default is False) then the Stream is not sorted before\niterating.  If the Stream is already sorted, then this value does not matter, and\nno time will be saved by setting to False.\nFor activeInformation see above.\nChanged in v5.2: all arguments except srcStream are keyword only.\nChanged in v8:\n- filterList must be a list or None, not a single filter.\n- StreamIterator inherits from typing.Sequence, hence index\nwas moved to elementIndex.",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamIterator bases",
+        "type": "Title"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamIterator read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "StreamIterator.",
+        "type": "Title"
+    },
+    {
+        "text": "activeElementList",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns the element list (_elements or _endElements)\nfor the current activeInformation.",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamIterator.",
+        "type": "Title"
+    },
+    {
+        "text": "notes",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns all NotRest objects\n(will sometime become simply Note and Chord objects\u2026)\n>>> s = stream.Stream()\n>>> s.append(note.Note('C'))\n>>> s.append(note.Rest())\n>>> s.append(note.Note('D'))\n>>> for el in s.iter().notes:\n...     print(el)\n<music21.note.Note C>\n<music21.note.Note D>",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamIterator.",
+        "type": "Title"
+    },
+    {
+        "text": "notesAndRests",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns all GeneralNote objects, including\nRests and Unpitched elements.\n>>> s = stream.Stream()\n>>> s.append(meter.TimeSignature('4/4'))\n>>> s.append(note.Note('C'))\n>>> s.append(note.Rest())\n>>> s.append(note.Note('D'))\n>>> for el in s.iter().notesAndRests:\n...     print(el)\n<music21.note.Note C>\n<music21.note.Rest quarter>\n<music21.note.Note D>\n\n\nchained filters\u2026 (this makes no sense since notes is a subset of notesAndRests)\n>>> for el in s.iter().notesAndRests.notes:\n...     print(el)\n<music21.note.Note C>\n<music21.note.Note D>",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamIterator.",
+        "type": "Title"
+    },
+    {
+        "text": "parts",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Adds a ClassFilter for Part objects",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamIterator.",
+        "type": "Title"
+    },
+    {
+        "text": "spanners",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Adds a ClassFilter for Spanner objects",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamIterator.",
+        "type": "Title"
+    },
+    {
+        "text": "voices",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Adds a ClassFilter for Voice objects",
+        "type": "ListItem"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "StreamIterator methods",
+        "type": "Title"
+    },
+    {
+        "text": "StreamIterator.",
+        "type": "Title"
+    },
+    {
+        "text": "__getitem__",
+        "type": "Title"
+    },
+    {
+        "text": "int",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 M21ObjType",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "StreamIterator.",
+        "type": "Title"
+    },
+    {
+        "text": "__getitem__",
+        "type": "Title"
+    },
+    {
+        "text": "slice",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 list[M21ObjType]",
+        "type": "Title"
+    },
+    {
+        "text": "StreamIterator.",
+        "type": "Title"
+    },
+    {
+        "text": "__getitem__",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 M21ObjType | None",
+        "type": "Title"
+    },
+    {
+        "text": "Iterators can request other items by index or slice.\n>>> s = stream.Stream()\n>>> s.insert(0, note.Note('F#'))\n>>> s.repeatAppend(note.Note('C'), 2)\n>>> sI = s.iter()\n>>> sI\n<music21.stream.iterator.StreamIterator for Stream:0x104743be0 @:0>\n\n\n>>> sI.srcStream is s\nTrue\n\n\n>>> for n in sI:\n...    printer = (repr(n), repr(sI[0]))\n...    print(printer)\n('<music21.note.Note F#>', '<music21.note.Note F#>')\n('<music21.note.Note C>', '<music21.note.Note F#>')\n('<music21.note.Note C>', '<music21.note.Note F#>')\n>>> sI.srcStream is s\nTrue\n\n\nTo request an element by id, put a \u0098#' sign in front of the id,\nlike in HTML DOM queries:\n>>> bach = corpus.parse('bwv66.6')\n>>> soprano = bach.recurse()['#Soprano']\n>>> soprano\n<music21.stream.Part Soprano>\n\n\nThis behavior is often used to get an element from the Parts iterator:\n>>> bach.parts['#soprano']  # notice: case-insensitive retrieval\n<music21.stream.Part Soprano>\n\n\nSlices work:\n>>> nSlice = sI[1:]\n>>> for n in nSlice:\n...     print(n)\n<music21.note.Note C>\n<music21.note.Note C>\n\n\nFilters, such as \u009cnotes\u009d apply.\n>>> s.insert(0, clef.TrebleClef())\n>>> s[0]\n<music21.clef.TrebleClef>\n>>> s.iter().notes[0]\n<music21.note.Note F#>\n\n\nDemo of cleanupOnStop = True\n>>> sI.cleanupOnStop = True\n>>> for n in sI:\n...    printer = (repr(n), repr(sI[0]))\n...    print(printer)\n('<music21.note.Note F#>', '<music21.note.Note F#>')\n('<music21.note.Note C>', '<music21.note.Note F#>')\n('<music21.note.Note C>', '<music21.note.Note F#>')\n>>> sI.srcStream is s  # set to an empty stream\nFalse\n>>> for n in sI:\n...    printer = (repr(n), repr(sI[0]))\n...    print(printer)\n\n\n(nothing is printed)\n\nChanged in v8: for strings: prepend a \u0098#' sign to get elements by id.\nThe old behavior still works until v9.\nThis is an attempt to unify __getitem__ behavior in\nStreamIterators and Streams.",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamIterator.",
+        "type": "Title"
+    },
+    {
+        "text": "addFilter",
+        "type": "Title"
+    },
+    {
+        "text": "newFilter",
+        "type": "Title"
+    },
+    {
+        "text": "returnClone",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 StreamIteratorType",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a new StreamIterator with an additional filter.\nAlso resets caches \u2014 so do not add filters any other way.\nIf returnClone is False then adds without creating a new StreamIterator\n\nChanged in v6: Encourage creating new StreamIterators: change\ndefault to return a new StreamIterator.",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamIterator.",
+        "type": "Title"
+    },
+    {
+        "text": "cleanup",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "stop iteration; and cleanup if need be.",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamIterator.",
+        "type": "Title"
+    },
+    {
+        "text": "clone",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 StreamIteratorType",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns a new copy of the same iterator.\n(a shallow copy of some things except activeInformation)",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamIterator.",
+        "type": "Title"
+    },
+    {
+        "text": "first",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 M21ObjType | None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Efficiently return the first matching element, or None if no\nelements match.\nDoes not require creating the whole list of matching elements.\n>>> s = converter.parse('tinyNotation: 3/4 D4 E2 F4 r2 G2 r4')\n>>> s.recurse().notes.first()\n<music21.note.Note D>\n>>> s[note.Rest].first()\n<music21.note.Rest half>\n\n\nIf no elements match, returns None:\n>>> print(s[chord.Chord].first())\nNone\n\n\n\nNew in v7.",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamIterator.",
+        "type": "Title"
+    },
+    {
+        "text": "getElementById",
+        "type": "Title"
+    },
+    {
+        "text": "elementId",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 M21ObjType | None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns a single element (or None) that matches elementId.\nIf chaining filters, this should be the last one, as it returns an element\n>>> s = stream.Stream(id='s1')\n>>> s.append(note.Note('C'))\n>>> r = note.Rest()\n>>> r.id = 'restId'\n>>> s.append(r)\n>>> r2 = s.recurse().getElementById('restId')\n>>> r2 is r\nTrue\n>>> r2.id\n'restId'",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamIterator.",
+        "type": "Title"
+    },
+    {
+        "text": "getElementsByClass",
+        "type": "Title"
+    },
+    {
+        "text": "classFilterList",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "returnClone",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 StreamIterator[M21ObjType]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "StreamIterator.",
+        "type": "Title"
+    },
+    {
+        "text": "getElementsByClass",
+        "type": "Title"
+    },
+    {
+        "text": "classFilterList",
+        "type": "Title"
+    },
+    {
+        "text": "Iterable[str]",
+        "type": "Title"
+    },
+    {
+        "text": "returnClone",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 StreamIterator[M21ObjType]",
+        "type": "Title"
+    },
+    {
+        "text": "StreamIterator.",
+        "type": "Title"
+    },
+    {
+        "text": "getElementsByClass",
+        "type": "Title"
+    },
+    {
+        "text": "classFilterList",
+        "type": "Title"
+    },
+    {
+        "text": "type[ChangedM21ObjType]",
+        "type": "Title"
+    },
+    {
+        "text": "returnClone",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 StreamIterator[ChangedM21ObjType]",
+        "type": "Title"
+    },
+    {
+        "text": "StreamIterator.",
+        "type": "Title"
+    },
+    {
+        "text": "getElementsByClass",
+        "type": "Title"
+    },
+    {
+        "text": "classFilterList",
+        "type": "Title"
+    },
+    {
+        "text": "Iterable[type]",
+        "type": "Title"
+    },
+    {
+        "text": "returnClone",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 StreamIterator[M21ObjType]",
+        "type": "Title"
+    },
+    {
+        "text": "Add a filter to the Iterator to remove all elements\nexcept those that match one\nor more classes in the classFilterList. A single class\ncan also be used for the classFilterList parameter instead of a List.\n>>> s = stream.Stream(id='s1')\n>>> s.append(note.Note('C'))\n>>> r = note.Rest()\n>>> s.append(r)\n>>> s.append(note.Note('D'))\n>>> for el in s.iter().getElementsByClass(note.Rest):\n...     print(el)\n<music21.note.Rest quarter>\n\n\nActiveSite is restored\u2026\n>>> s2 = stream.Stream(id='s2')\n>>> s2.insert(0, r)\n>>> r.activeSite.id\n's2'\n\n\n>>> for el in s.iter().getElementsByClass(note.Rest):\n...     print(el.activeSite.id)\ns1\n\n\nStrings work in addition to classes, but your IDE will not know that\nel is a Rest object.\n>>> for el in s.iter().getElementsByClass('Rest'):\n...     print(el)\n<music21.note.Rest quarter>",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamIterator.",
+        "type": "Title"
+    },
+    {
+        "text": "getElementsByGroup",
+        "type": "Title"
+    },
+    {
+        "text": "groupFilterList",
+        "type": "Title"
+    },
+    {
+        "text": "returnClone",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": ">>> n1 = note.Note('C')\n>>> n1.groups.append('trombone')\n>>> n2 = note.Note('D')\n>>> n2.groups.append('trombone')\n>>> n2.groups.append('tuba')\n>>> n3 = note.Note('E')\n>>> n3.groups.append('tuba')\n>>> s1 = stream.Stream()\n>>> s1.append(n1)\n>>> s1.append(n2)\n>>> s1.append(n3)\n\n\n>>> tboneSubStream = s1.iter().getElementsByGroup('trombone')\n>>> for thisNote in tboneSubStream:\n...     print(thisNote.name)\nC\nD\n>>> tubaSubStream = s1.iter().getElementsByGroup('tuba')\n>>> for thisNote in tubaSubStream:\n...     print(thisNote.name)\nD\nE",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamIterator.",
+        "type": "Title"
+    },
+    {
+        "text": "getElementsByOffset",
+        "type": "Title"
+    },
+    {
+        "text": "offsetStart",
+        "type": "Title"
+    },
+    {
+        "text": "offsetEnd",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "includeEndBoundary",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "mustFinishInSpan",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "mustBeginInSpan",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "includeElementsThatEndAtStart",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "stopAfterEnd",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "returnClone",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 StreamIteratorType",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Adds a filter keeping only Music21Objects that\nare found at a certain offset or within a certain\noffset time range (given the start and optional stop values).\nThere are several attributes that govern how this range is\ndetermined:\nIf mustFinishInSpan is True then an event that begins\nbetween offsetStart and offsetEnd but which ends after offsetEnd\nwill not be included.  The default is False.\nFor instance, a half note at offset 2.0 will be found in\ngetElementsByOffset(1.5, 2.5) or getElementsByOffset(1.5, 2.5,\nmustFinishInSpan = False) but not by getElementsByOffset(1.5, 2.5,\nmustFinishInSpan = True).\nThe includeEndBoundary option determines if an element\nbegun just at the offsetEnd should be included.  For instance,\nthe half note at offset 2.0 above would be found by\ngetElementsByOffset(0, 2.0) or by getElementsByOffset(0, 2.0,\nincludeEndBoundary = True) but not by getElementsByOffset(0, 2.0,\nincludeEndBoundary = False).\nSetting includeEndBoundary to False at the same time as\nmustFinishInSpan is set to True is probably NOT what you want to do\nunless you want to find things like clefs at the end of the region\nto display as courtesy clefs.\nThe mustBeginInSpan option determines whether notes or other\nobjects that do not begin in the region but are still sounding\nat the beginning of the region are excluded.  The default is\nTrue \u2014 that is, these notes will not be included.\nFor instance the half note at offset 2.0 from above would not be found by\ngetElementsByOffset(3.0, 3.5) or getElementsByOffset(3.0, 3.5,\nmustBeginInSpan = True) but it would be found by\ngetElementsByOffset(3.0, 3.5, mustBeginInSpan = False)\nSetting includeElementsThatEndAtStart to False is useful for zeroLength\nsearches that set mustBeginInSpan == False to not catch notes that were\nplaying before the search but that end just before the end of the search type.\nSee the code for allPlayingWhileSounding for a demonstration.\nThis chart, like the examples below, demonstrates the various\nfeatures of getElementsByOffset.  It is one of the most complex\nmethods of music21 but also one of the most powerful, so it\nis worth learning at least the basics.\n\n\n\n>>> st1 = stream.Stream()\n>>> n0 = note.Note('C')\n>>> n0.duration.type = 'half'\n>>> n0.offset = 0\n>>> st1.insert(n0)\n>>> n2 = note.Note('D')\n>>> n2.duration.type = 'half'\n>>> n2.offset = 2\n>>> st1.insert(n2)\n>>> out1 = list(st1.iter().getElementsByOffset(2))\n>>> len(out1)\n1\n>>> out1[0].step\n'D'\n>>> out2 = list(st1.iter().getElementsByOffset(1, 3))\n>>> len(out2)\n1\n>>> out2[0].step\n'D'\n>>> out3 = list(st1.iter().getElementsByOffset(1, 3, mustFinishInSpan=True))\n>>> len(out3)\n0\n>>> out4 = list(st1.iter().getElementsByOffset(1, 2))\n>>> len(out4)\n1\n>>> out4[0].step\n'D'\n>>> out5 = list(st1.iter().getElementsByOffset(1, 2, includeEndBoundary=False))\n>>> len(out5)\n0\n>>> out6 = list(st1.iter().getElementsByOffset(1, 2, includeEndBoundary=False,\n...                                          mustBeginInSpan=False))\n>>> len(out6)\n1\n>>> out6[0].step\n'C'\n>>> out7 = list(st1.iter().getElementsByOffset(1, 3, mustBeginInSpan=False))\n>>> len(out7)\n2\n>>> [el.step for el in out7]\n['C', 'D']\n\n\nNote, that elements that end at the start offset are included if mustBeginInSpan is False\n>>> out8 = list(st1.iter().getElementsByOffset(2, 4, mustBeginInSpan=False))\n>>> len(out8)\n2\n>>> [el.step for el in out8]\n['C', 'D']\n\n\nTo change this behavior set includeElementsThatEndAtStart=False\n>>> out9 = list(st1.iter().getElementsByOffset(2, 4, mustBeginInSpan=False,\n...                                          includeElementsThatEndAtStart=False))\n>>> len(out9)\n1\n>>> [el.step for el in out9]\n['D']\n\n\n>>> a = stream.Stream(id='a')\n>>> n = note.Note('G')\n>>> n.quarterLength = 0.5\n>>> a.repeatInsert(n, list(range(8)))\n>>> b = stream.Stream(id='b')\n>>> b.repeatInsert(a, [0, 3, 6])\n>>> c = list(b.iter().getElementsByOffset(2, 6.9))\n>>> len(c)\n2\n>>> c = list(b.flatten().iter().getElementsByOffset(2, 6.9))\n>>> len(c)\n10\n\n\nTesting multiple zero-length elements with mustBeginInSpan:\n>>> c = clef.TrebleClef()\n>>> ts = meter.TimeSignature('4/4')\n>>> ks = key.KeySignature(2)\n>>> s = stream.Stream()\n>>> s.insert(0.0, c)\n>>> s.insert(0.0, ts)\n>>> s.insert(0.0, ks)\n>>> len(list(s.iter().getElementsByOffset(0.0, mustBeginInSpan=True)))\n3\n>>> len(list(s.iter().getElementsByOffset(0.0, mustBeginInSpan=False)))\n3\n\n\nOn a RecursiveIterator,\n.getElementsByOffset(0.0), will get everything\nat the start of the piece, which is useful:\n>>> bwv66 = corpus.parse('bwv66.6')\n>>> list(bwv66.recurse().getElementsByOffset(0.0))\n[<music21.metadata.Metadata object at 0x10a32f490>,\n <music21.stream.Part Soprano>,\n <music21.instrument.Instrument 'P1: Soprano: Instrument 1'>,\n <music21.stream.Measure 0 offset=0.0>,\n <music21.clef.TrebleClef>,\n <music21.tempo.MetronomeMark Quarter=96 (playback only)>,\n <music21.key.Key of f# minor>,\n <music21.meter.TimeSignature 4/4>,\n <music21.note.Note C#>,\n <music21.stream.Part Alto>,\n ...\n <music21.note.Note E>,\n <music21.stream.Part Tenor>,\n ...]\n\n\nHowever, any other offset passed to getElementsByOffset on a\nRecursiveIterator without additional arguments, is unlikely to be useful,\nbecause the iterator ends as soon as it encounters an element\nwith an offset beyond the offsetEnd point.  For instance,\ncalling .getElementsByOffset(1.0).notes on a Part,\nin bwv66.6 only gets the note that appears at offset 1.0 of a measure that begins\nor includes offset 1.0.\n(Fortunately, this piece begins with a one-beat pickup, so there is such a note):\n>>> soprano = bwv66.parts['#Soprano']  # = getElementById('Soprano')\n>>> for el in soprano.recurse().getElementsByOffset(1.0):\n...     print(el, el.offset, el.getOffsetInHierarchy(bwv66), el.activeSite)\n<music21.stream.Measure 1 offset=1.0> 1.0 1.0 <music21.stream.Part Soprano>\n<music21.note.Note B> 1.0 2.0 <music21.stream.Measure 1 offset=1.0>\n\n\nRecursiveIterators will probably want to use\ngetElementsByOffsetInHierarchy()\ninstead.  Or to get all elements with a particular local offset, such as everything\non the third quarter note of a measure, use the stopAfterEnd=False keyword,\nwhich lets the iteration continue to search for elements even after encountering\nsome within Streams whose offsets are greater than the end element.\n>>> len(soprano.recurse().getElementsByOffset(2.0, stopAfterEnd=False))\n9\n\n\n\nChanged in v5.5: all arguments changing behavior are keyword only.\nNew in v6.5: stopAfterEnd keyword.",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamIterator.",
+        "type": "Title"
+    },
+    {
+        "text": "getElementsByQuerySelector",
+        "type": "Title"
+    },
+    {
+        "text": "querySelector",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "returnClone",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "First implementation of a query selector, similar to CSS QuerySelectors used in\nHTML DOM:\n\nA leading # indicates the id of an element, so \u0098#hello' will find elements\nwith el.id=='hello' (should only be one)\nA leading . indicates the group of an element, so \u0098.high' will find elements\nwith \u0098high' in el.groups.\nAny other string is considered to be the type/class of the element.  So Note\nwill find all Note elements.  Can be fully qualified like music21.note.Note\nor partially qualified like note.Note.\n\nEventually, more complex query selectors will be implemented.  This is just a start.\nSetting up an example:\n>>> s = converter.parse('tinyNotation: 4/4 GG4 AA4 BB4 r4 C4 D4 E4 F4 r1')\n>>> s[note.Note].last().id = 'last'\n>>> for n in s[note.Note]:\n...     if n.octave == 3:\n...         n.groups.append('tenor')\n\n\n>>> list(s.recurse().getElementsByQuerySelector('.tenor'))\n[<music21.note.Note C>,\n <music21.note.Note D>,\n <music21.note.Note E>,\n <music21.note.Note F>]\n\n\n>>> list(s.recurse().getElementsByQuerySelector('Rest'))\n[<music21.note.Rest quarter>,\n <music21.note.Rest whole>]\n\n\nNote that unlike with stream slices, the querySelector does not do anything special\nfor id searches.  .first() will need to be called to find the element (if any)\n>>> s.recurse().getElementsByQuerySelector('#last').first()\n<music21.note.Note F>\n\n\n\nNew in v7.",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamIterator.",
+        "type": "Title"
+    },
+    {
+        "text": "getElementsNotOfClass",
+        "type": "Title"
+    },
+    {
+        "text": "classFilterList",
+        "type": "Title"
+    },
+    {
+        "text": "returnClone",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Adds a filter, removing all Elements that do not\nmatch the one or more classes in the classFilterList.\nIn lieu of a list, a single class can be used as the classFilterList parameter.\n>>> a = stream.Stream()\n>>> a.repeatInsert(note.Rest(), range(10))\n>>> for x in range(4):\n...     n = note.Note('G#')\n...     n.offset = x * 3\n...     a.insert(n)\n>>> found = a.iter().getElementsNotOfClass(note.Note)\n>>> len(found)\n10\n>>> found = a.iter().getElementsNotOfClass('Rest')\n>>> len(found)\n4\n>>> found = a.iter().getElementsNotOfClass(['Note', 'Rest'])\n>>> len(found)\n0\n\n\n>>> b = stream.Stream()\n>>> b.repeatInsert(note.Rest(), range(15))\n>>> a.insert(b)\n\n\n>>> found = a.recurse().getElementsNotOfClass([note.Rest, 'Stream'])\n>>> len(found)\n4\n>>> found = a.recurse().getElementsNotOfClass([note.Note, 'Stream'])\n>>> len(found)\n25",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamIterator.",
+        "type": "Title"
+    },
+    {
+        "text": "last",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 M21ObjType | None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns the last matching element, or None if no elements match.\nCurrently is not efficient (does not iterate backwards, for instance),\nbut easier than checking for an IndexError.  Might be refactored later\nto iterate the stream backwards instead if it gets a lot of use.\n>>> s = converter.parse('tinyNotation: 3/4 D4 E2 F4 r2 G2 r4')\n>>> s.recurse().notes.last()\n<music21.note.Note G>\n>>> s[note.Rest].last()\n<music21.note.Rest quarter>\n\n\n\nNew in v7.",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamIterator.",
+        "type": "Title"
+    },
+    {
+        "text": "matchesFilters",
+        "type": "Title"
+    },
+    {
+        "text": "Music21Object",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 bool",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "returns False if any filter returns False, True otherwise.",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamIterator.",
+        "type": "Title"
+    },
+    {
+        "text": "matchingElements",
+        "type": "Title"
+    },
+    {
+        "text": "restoreActiveSites",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 list[M21ObjType]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns a list of elements that match the filter.\nThis sort of defeats the point of using a generator, so only used if\nit's requested by __len__ or __getitem__ etc.\nSubclasses should override to cache anything they need saved (index,\nrecursion objects, etc.)\nactiveSite will not be set.\nCached for speed.\n>>> s = converter.parse('tinynotation: 3/4 c4 d e f g a', makeNotation=False)\n>>> s.id = 'tn3/4'\n>>> sI = s.iter()\n>>> sI\n<music21.stream.iterator.StreamIterator for Part:tn3/4 @:0>\n\n\n>>> sI.matchingElements()\n[<music21.meter.TimeSignature 3/4>, <music21.note.Note C>, <music21.note.Note D>,\n <music21.note.Note E>, <music21.note.Note F>, <music21.note.Note G>,\n <music21.note.Note A>]\n\n\n>>> sI_notes = sI.notes\n>>> sI_notes\n<music21.stream.iterator.StreamIterator for Part:tn3/4 @:0>\n\n\nAdding a filter to the Stream iterator returns a new Stream iterator; it\ndoes not change the original.\n>>> sI_notes is sI\nFalse\n\n\n>>> sI.filters\n[]\n\n\n>>> sI_notes.filters\n[<music21.stream.filters.ClassFilter <class 'music21.note.NotRest'>>]\n\n\n>>> sI_notes.matchingElements()\n[<music21.note.Note C>, <music21.note.Note D>,\n <music21.note.Note E>, <music21.note.Note F>, <music21.note.Note G>,\n <music21.note.Note A>]\n\n\nIf restoreActiveSites is False then the elements will not have\ntheir activeSites changed (callers should use it when they do not plan to actually\nexpose the elements to users, such as in __len__).\n\nNew in v7: restoreActiveSites",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamIterator.",
+        "type": "Title"
+    },
+    {
+        "text": "removeFilter",
+        "type": "Title"
+    },
+    {
+        "text": "oldFilter",
+        "type": "Title"
+    },
+    {
+        "text": "returnClone",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 StreamIteratorType",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a new StreamIterator where oldFilter is removed.",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamIterator.",
+        "type": "Title"
+    },
+    {
+        "text": "reset",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "reset prior to iteration",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamIterator.",
+        "type": "Title"
+    },
+    {
+        "text": "resetCaches",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "reset any cached data. \u2014 do not use this at\nthe start of iteration since we might as well\nsave this information. But do call it if\nthe filter changes.",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamIterator.",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "returnStreamSubClass",
+        "type": "Title"
+    },
+    {
+        "text": "Literal[False]",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 stream.Stream",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "StreamIterator.",
+        "type": "Title"
+    },
+    {
+        "text": "stream",
+        "type": "Title"
+    },
+    {
+        "text": "returnStreamSubClass",
+        "type": "Title"
+    },
+    {
+        "text": "Literal[True]",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 StreamType",
+        "type": "Title"
+    },
+    {
+        "text": "return a new stream from this iterator.\nDoes nothing except copy if there are no filters, but a drop in\nreplacement for the old .getElementsByClass() etc. if it does.\nIn other words:\ns.getElementsByClass() == s.iter().getElementsByClass().stream()\n>>> s = stream.Part()\n>>> s.insert(0, note.Note('C'))\n>>> s.append(note.Rest())\n>>> s.append(note.Note('D'))\n>>> b = bar.Barline()\n>>> s.storeAtEnd(b)\n\n\n>>> s2 = s.iter().getElementsByClass(note.Note).stream()\n>>> s2.show('t')\n{0.0} <music21.note.Note C>\n{2.0} <music21.note.Note D>\n>>> s2.derivation.method\n'getElementsByClass'\n>>> s2\n<music21.stream.Part ...>\n\n\n>>> s3 = s.iter().stream()\n>>> s3.show('t')\n{0.0} <music21.note.Note C>\n{1.0} <music21.note.Rest quarter>\n{2.0} <music21.note.Note D>\n{3.0} <music21.bar.Barline type=regular>\n\n\n>>> s3.elementOffset(b, returnSpecial=True)\n<OffsetSpecial.AT_END>\n\n\n>>> s4 = s.iter().getElementsByClass(bar.Barline).stream()\n>>> s4.show('t')\n{0.0} <music21.bar.Barline type=regular>\n\n\nNote that this routine can create Streams that have elements that the original\nstream did not, in the case of recursion:\n>>> bach = corpus.parse('bwv66.6')\n>>> bn = bach.flatten()[34]\n>>> bn\n<music21.note.Note E>\n\n\n>>> bn in bach\nFalse\n>>> bfn = bach.recurse().notes.stream()\n>>> bn in bfn\nTrue\n>>> bn.getOffsetBySite(bfn)\n2.0\n>>> bn.getOffsetInHierarchy(bach)\n2.0",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamIterator.",
+        "type": "Title"
+    },
+    {
+        "text": "updateActiveInformation",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Updates the (shared) activeInformation dictionary\nwith information about where we are.\nCall before any element return.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "RecursiveIterator\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.stream.iterator.",
+        "type": "Title"
+    },
+    {
+        "text": "RecursiveIterator",
+        "type": "Title"
+    },
+    {
+        "text": "srcStream",
+        "type": "Title"
+    },
+    {
+        "text": "filterList",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "restoreActiveSites",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "activeInformation",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "streamsOnly",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "includeSelf",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "ignoreSorting",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "One of the most powerful iterators in music21.  Generally not called\ndirectly, but created by being invoked on a stream with Stream.recurse()\n>>> b = corpus.parse('bwv66.6')\n>>> ri = stream.iterator.RecursiveIterator(b, streamsOnly=True)\n>>> for x in ri:\n...     print(x)\n<music21.stream.Part Soprano>\n<music21.stream.Measure 0 offset=0.0>\n<music21.stream.Measure 1 offset=1.0>\n<music21.stream.Measure 2 offset=5.0>\n...\n<music21.stream.Part Alto>\n<music21.stream.Measure 0 offset=0.0>\n...\n<music21.stream.Part Tenor>\n...\n<music21.stream.Part Bass>\n...\n\n\nBut this is how you'll actually use it:\n>>> for x in b.recurse(streamsOnly=True, includeSelf=True):\n...     print(x)\n<music21.stream.Score bach/bwv66.6.mxl>\n<music21.stream.Part Soprano>\n<music21.stream.Measure 0 offset=0.0>\n<music21.stream.Measure 1 offset=1.0>\n<music21.stream.Measure 2 offset=5.0>\n...\n<music21.stream.Part Alto>\n<music21.stream.Measure 0 offset=0.0>\n...\n<music21.stream.Part Tenor>\n...\n<music21.stream.Part Bass>\n...\n\n\n>>> hasExpressions = lambda el, i: True if (hasattr(el, 'expressions')\n...       and el.expressions) else False\n>>> expressive = b.recurse().addFilter(hasExpressions)\n>>> expressive\n<music21.stream.iterator.RecursiveIterator for Score:bach/bwv66.6.mxl @:0>\n\n\n>>> for el in expressive:\n...     print(el, el.expressions)\n<music21.note.Note C#> [<music21.expressions.Fermata>]\n<music21.note.Note A> [<music21.expressions.Fermata>]\n<music21.note.Note F#> [<music21.expressions.Fermata>]\n<music21.note.Note C#> [<music21.expressions.Fermata>]\n<music21.note.Note G#> [<music21.expressions.Fermata>]\n<music21.note.Note F#> [<music21.expressions.Fermata>]\n\n\n>>> len(expressive)\n6\n>>> expressive[-1].measureNumber\n9\n>>> bool(expressive)\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "RecursiveIterator bases",
+        "type": "Title"
+    },
+    {
+        "text": "StreamIterator",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "RecursiveIterator read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from StreamIterator:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeElementList notes notesAndRests parts spanners voices",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "RecursiveIterator methods",
+        "type": "Title"
+    },
+    {
+        "text": "RecursiveIterator.",
+        "type": "Title"
+    },
+    {
+        "text": "currentHierarchyOffset",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Called on the current iterator, returns the current offset in the hierarchy.\nOr None if we are not currently iterating.\n>>> b = corpus.parse('bwv66.6')\n>>> bRecurse = b.recurse().notes\n>>> print(bRecurse.currentHierarchyOffset())\nNone\n>>> for n in bRecurse:\n...     print(n.measureNumber, bRecurse.currentHierarchyOffset(), n)\n0 0.0 <music21.note.Note C#>\n0 0.5 <music21.note.Note B>\n1 1.0 <music21.note.Note A>\n1 2.0 <music21.note.Note B>\n1 3.0 <music21.note.Note C#>\n1 4.0 <music21.note.Note E>\n2 5.0 <music21.note.Note C#>\n...\n9 34.5 <music21.note.Note E#>\n9 35.0 <music21.note.Note F#>\n0 0.0 <music21.note.Note E>\n1 1.0 <music21.note.Note F#>\n...\n\n\nAfter iteration completes, the figure is reset to None:\n>>> print(bRecurse.currentHierarchyOffset())\nNone\n\n\nThe offsets are with respect to the position inside the stream\nbeing iterated, so for instance, this will not change the output from above:\n>>> o = stream.Opus()\n>>> o.insert(20.0, b)\n>>> bRecurse = b.recurse().notes\n>>> for n in bRecurse:\n...     print(n.measureNumber, bRecurse.currentHierarchyOffset(), n)\n0 0.0 <music21.note.Note C#>\n...\n\n\nBut of course, this will add 20.0 to all numbers:\n>>> oRecurse = o.recurse().notes\n>>> for n in oRecurse:\n...     print(n.measureNumber, oRecurse.currentHierarchyOffset(), n)\n0 20.0 <music21.note.Note C#>\n...\n\n\n\nNew in v4.",
+        "type": "ListItem"
+    },
+    {
+        "text": "RecursiveIterator.",
+        "type": "Title"
+    },
+    {
+        "text": "getElementsByClass",
+        "type": "Title"
+    },
+    {
+        "text": "classFilterList",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "returnClone",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 RecursiveIterator[M21ObjType]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "RecursiveIterator.",
+        "type": "Title"
+    },
+    {
+        "text": "getElementsByClass",
+        "type": "Title"
+    },
+    {
+        "text": "classFilterList",
+        "type": "Title"
+    },
+    {
+        "text": "Iterable[str]",
+        "type": "Title"
+    },
+    {
+        "text": "returnClone",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 RecursiveIterator[M21ObjType]",
+        "type": "Title"
+    },
+    {
+        "text": "RecursiveIterator.",
+        "type": "Title"
+    },
+    {
+        "text": "getElementsByClass",
+        "type": "Title"
+    },
+    {
+        "text": "classFilterList",
+        "type": "Title"
+    },
+    {
+        "text": "type[ChangedM21ObjType]",
+        "type": "Title"
+    },
+    {
+        "text": "returnClone",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 RecursiveIterator[ChangedM21ObjType]",
+        "type": "Title"
+    },
+    {
+        "text": "RecursiveIterator.",
+        "type": "Title"
+    },
+    {
+        "text": "getElementsByClass",
+        "type": "Title"
+    },
+    {
+        "text": "classFilterList",
+        "type": "Title"
+    },
+    {
+        "text": "Iterable[type]",
+        "type": "Title"
+    },
+    {
+        "text": "returnClone",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 RecursiveIterator[M21ObjType]",
+        "type": "Title"
+    },
+    {
+        "text": "Add a filter to the Iterator to remove all elements\nexcept those that match one\nor more classes in the classFilterList. A single class\ncan also be used for the classFilterList parameter instead of a List.\n>>> s = stream.Stream(id='s1')\n>>> s.append(note.Note('C'))\n>>> r = note.Rest()\n>>> s.append(r)\n>>> s.append(note.Note('D'))\n>>> for el in s.iter().getElementsByClass(note.Rest):\n...     print(el)\n<music21.note.Rest quarter>\n\n\nActiveSite is restored\u2026\n>>> s2 = stream.Stream(id='s2')\n>>> s2.insert(0, r)\n>>> r.activeSite.id\n's2'\n\n\n>>> for el in s.iter().getElementsByClass(note.Rest):\n...     print(el.activeSite.id)\ns1\n\n\nStrings work in addition to classes, but your IDE will not know that\nel is a Rest object.\n>>> for el in s.iter().getElementsByClass('Rest'):\n...     print(el)\n<music21.note.Rest quarter>",
+        "type": "ListItem"
+    },
+    {
+        "text": "RecursiveIterator.",
+        "type": "Title"
+    },
+    {
+        "text": "getElementsByOffsetInHierarchy",
+        "type": "Title"
+    },
+    {
+        "text": "offsetStart",
+        "type": "Title"
+    },
+    {
+        "text": "offsetEnd",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "includeEndBoundary",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "mustFinishInSpan",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "mustBeginInSpan",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "includeElementsThatEndAtStart",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 StreamIteratorType",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Adds a filter keeping only Music21Objects that\nare found at a certain offset or within a certain\noffset time range (given the offsetStart and optional offsetEnd values) from\nthe beginning of the hierarchy.\n>>> b = corpus.parse('bwv66.6')\n>>> for n in b.recurse().getElementsByOffsetInHierarchy(8, 9.5).notes:\n...     print(n,\n...           n.getOffsetInHierarchy(b),\n...           n.measureNumber,\n...           n.getContextByClass(stream.Part).id)\n<music21.note.Note C#> 8.0 2 Soprano\n<music21.note.Note A> 9.0 3 Soprano\n<music21.note.Note B> 9.5 3 Soprano\n<music21.note.Note G#> 8.0 2 Alto\n<music21.note.Note F#> 9.0 3 Alto\n<music21.note.Note G#> 9.5 3 Alto\n<music21.note.Note C#> 8.0 2 Tenor\n<music21.note.Note C#> 9.0 3 Tenor\n<music21.note.Note D> 9.5 3 Tenor\n<music21.note.Note E#> 8.0 2 Bass\n<music21.note.Note F#> 9.0 3 Bass\n<music21.note.Note B> 9.5 3 Bass\n\n\n\nChanged in v5.5: all behavior changing options are keyword only.",
+        "type": "ListItem"
+    },
+    {
+        "text": "RecursiveIterator.",
+        "type": "Title"
+    },
+    {
+        "text": "iteratorStack",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 list[music21.stream.iterator.RecursiveIterator]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns a stack of RecursiveIterators at this point in the iteration.  Last is most recent.\n>>> b = corpus.parse('bwv66.6')\n>>> bRecurse = b.recurse()\n>>> i = 0\n>>> for _ in bRecurse:\n...     i += 1\n...     if i > 13:\n...         break\n>>> bRecurse.iteratorStack()\n[<music21.stream.iterator.RecursiveIterator for Score:bach/bwv66.6.mxl @:2>,\n <music21.stream.iterator.RecursiveIterator for Part:Soprano @:3>,\n <music21.stream.iterator.RecursiveIterator for Measure:m.1 @:3>]",
+        "type": "ListItem"
+    },
+    {
+        "text": "RecursiveIterator.",
+        "type": "Title"
+    },
+    {
+        "text": "matchingElements",
+        "type": "Title"
+    },
+    {
+        "text": "restoreActiveSites",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns a list of elements that match the filter.\nThis sort of defeats the point of using a generator, so only used if\nit's requested by __len__ or __getitem__ etc.\nSubclasses should override to cache anything they need saved (index,\nrecursion objects, etc.)\nactiveSite will not be set.\nCached for speed.\n>>> s = converter.parse('tinynotation: 3/4 c4 d e f g a', makeNotation=False)\n>>> s.id = 'tn3/4'\n>>> sI = s.iter()\n>>> sI\n<music21.stream.iterator.StreamIterator for Part:tn3/4 @:0>\n\n\n>>> sI.matchingElements()\n[<music21.meter.TimeSignature 3/4>, <music21.note.Note C>, <music21.note.Note D>,\n <music21.note.Note E>, <music21.note.Note F>, <music21.note.Note G>,\n <music21.note.Note A>]\n\n\n>>> sI_notes = sI.notes\n>>> sI_notes\n<music21.stream.iterator.StreamIterator for Part:tn3/4 @:0>\n\n\nAdding a filter to the Stream iterator returns a new Stream iterator; it\ndoes not change the original.\n>>> sI_notes is sI\nFalse\n\n\n>>> sI.filters\n[]\n\n\n>>> sI_notes.filters\n[<music21.stream.filters.ClassFilter <class 'music21.note.NotRest'>>]\n\n\n>>> sI_notes.matchingElements()\n[<music21.note.Note C>, <music21.note.Note D>,\n <music21.note.Note E>, <music21.note.Note F>, <music21.note.Note G>,\n <music21.note.Note A>]\n\n\nIf restoreActiveSites is False then the elements will not have\ntheir activeSites changed (callers should use it when they do not plan to actually\nexpose the elements to users, such as in __len__).\n\nNew in v7: restoreActiveSites",
+        "type": "ListItem"
+    },
+    {
+        "text": "RecursiveIterator.",
+        "type": "Title"
+    },
+    {
+        "text": "reset",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "reset prior to iteration",
+        "type": "ListItem"
+    },
+    {
+        "text": "RecursiveIterator.",
+        "type": "Title"
+    },
+    {
+        "text": "streamStack",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Returns a stack of Streams at this point.  Last is most recent.\nHowever, the current element may be the same as the last element in the stack\n>>> b = corpus.parse('bwv66.6')\n>>> bRecurse = b.recurse()\n>>> i = 0\n>>> for x in bRecurse:\n...     i += 1\n...     if i > 12:\n...         break\n>>> bRecurse.streamStack()\n[<music21.stream.Score bach/bwv66.6.mxl>,\n <music21.stream.Part Soprano>,\n <music21.stream.Measure 1 offset=1.0>]",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from StreamIterator:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__getitem__() addFilter() cleanup() clone() first() getElementById() getElementsByGroup() getElementsByOffset() getElementsByQuerySelector() getElementsNotOfClass() last() matchesFilters() removeFilter() resetCaches() stream() updateActiveInformation()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "OffsetIterator\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.stream.iterator.",
+        "type": "Title"
+    },
+    {
+        "text": "OffsetIterator",
+        "type": "Title"
+    },
+    {
+        "text": "srcStream",
+        "type": "Title"
+    },
+    {
+        "text": "filterList",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "restoreActiveSites",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "activeInformation",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "ignoreSorting",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "An iterator that with each iteration returns a list of elements\nthat are at the same offset (or all at end)\n>>> s = stream.Stream()\n>>> s.insert(0, note.Note('C'))\n>>> s.insert(0, note.Note('D'))\n>>> s.insert(1, note.Note('E'))\n>>> s.insert(2, note.Note('F'))\n>>> s.insert(2, note.Note('G'))\n>>> s.storeAtEnd(bar.Repeat('end'))\n>>> s.storeAtEnd(clef.TrebleClef())\n\n\n>>> oIter = stream.iterator.OffsetIterator(s)\n>>> for groupedElements in oIter:\n...     print(groupedElements)\n[<music21.note.Note C>, <music21.note.Note D>]\n[<music21.note.Note E>]\n[<music21.note.Note F>, <music21.note.Note G>]\n[<music21.bar.Repeat direction=end>, <music21.clef.TrebleClef>]\n\n\nDoes it work again?\n>>> for groupedElements2 in oIter:\n...     print(groupedElements2)\n[<music21.note.Note C>, <music21.note.Note D>]\n[<music21.note.Note E>]\n[<music21.note.Note F>, <music21.note.Note G>]\n[<music21.bar.Repeat direction=end>, <music21.clef.TrebleClef>]\n\n\n>>> for groupedElements in oIter.notes:\n...     print(groupedElements)\n[<music21.note.Note C>, <music21.note.Note D>]\n[<music21.note.Note E>]\n[<music21.note.Note F>, <music21.note.Note G>]\n\n\n>>> for groupedElements in stream.iterator.OffsetIterator(s).getElementsByClass(clef.Clef):\n...     print(groupedElements)\n[<music21.clef.TrebleClef>]",
+        "type": "ListItem"
+    },
+    {
+        "text": "OffsetIterator bases",
+        "type": "Title"
+    },
+    {
+        "text": "StreamIterator",
+        "type": "ListItem"
+    },
+    {
+        "text": "ProtoM21Object",
+        "type": "ListItem"
+    },
+    {
+        "text": "OffsetIterator read-only properties",
+        "type": "Title"
+    },
+    {
+        "text": "Read-only properties inherited from StreamIterator:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "activeElementList notes notesAndRests parts spanners voices",
+        "type": "Table"
+    },
+    {
+        "text": "Read-only properties inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "classSet classes",
+        "type": "Table"
+    },
+    {
+        "text": "OffsetIterator methods",
+        "type": "Title"
+    },
+    {
+        "text": "OffsetIterator.",
+        "type": "Title"
+    },
+    {
+        "text": "getElementsByClass",
+        "type": "Title"
+    },
+    {
+        "text": "classFilterList",
+        "type": "Title"
+    },
+    {
+        "text": "str",
+        "type": "Title"
+    },
+    {
+        "text": "returnClone",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 OffsetIterator[M21ObjType]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "OffsetIterator.",
+        "type": "Title"
+    },
+    {
+        "text": "getElementsByClass",
+        "type": "Title"
+    },
+    {
+        "text": "classFilterList",
+        "type": "Title"
+    },
+    {
+        "text": "Iterable[str]",
+        "type": "Title"
+    },
+    {
+        "text": "returnClone",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 OffsetIterator[M21ObjType]",
+        "type": "Title"
+    },
+    {
+        "text": "OffsetIterator.",
+        "type": "Title"
+    },
+    {
+        "text": "getElementsByClass",
+        "type": "Title"
+    },
+    {
+        "text": "classFilterList",
+        "type": "Title"
+    },
+    {
+        "text": "type[ChangedM21ObjType]",
+        "type": "Title"
+    },
+    {
+        "text": "returnClone",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 OffsetIterator[ChangedM21ObjType]",
+        "type": "Title"
+    },
+    {
+        "text": "OffsetIterator.",
+        "type": "Title"
+    },
+    {
+        "text": "getElementsByClass",
+        "type": "Title"
+    },
+    {
+        "text": "classFilterList",
+        "type": "Title"
+    },
+    {
+        "text": "Iterable[type]",
+        "type": "Title"
+    },
+    {
+        "text": "returnClone",
+        "type": "Title"
+    },
+    {
+        "text": "bool",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 OffsetIterator[M21ObjType]",
+        "type": "Title"
+    },
+    {
+        "text": "Identical to the same method in StreamIterator, but needs to be duplicated\nfor now.",
+        "type": "ListItem"
+    },
+    {
+        "text": "OffsetIterator.",
+        "type": "Title"
+    },
+    {
+        "text": "reset",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "runs before iteration",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from StreamIterator:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "__getitem__() addFilter() cleanup() clone() first() getElementById() getElementsByGroup() getElementsByOffset() getElementsByQuerySelector() getElementsNotOfClass() last() matchesFilters() matchingElements() removeFilter() resetCaches() stream() updateActiveInformation()",
+        "type": "Table"
+    },
+    {
+        "text": "Methods inherited from ProtoM21Object:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "isClassOrSubclass()",
+        "type": "Table"
+    },
+    {
+        "text": "ActiveInformation\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.stream.iterator.",
+        "type": "Title"
+    },
+    {
+        "text": "ActiveInformation",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.stream.iterator",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]

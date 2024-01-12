@@ -1,0 +1,786 @@
+[
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.freezeThaw",
+        "type": "ListItem"
+    },
+    {
+        "text": "Previous topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.figuredBass.segment",
+        "type": "Title"
+    },
+    {
+        "text": "Next topic",
+        "type": "Title"
+    },
+    {
+        "text": "music21.graph",
+        "type": "Title"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "music21.freezeThaw\nStreamFreezeThawBase\nStreamFreezeThawBase\nStreamFreezeThawBase.getJsonFp()\nStreamFreezeThawBase.getPickleFp()\n\n\n\n\nStreamFreezer\nStreamFreezer\nStreamFreezer.findActiveStreamIdsInHierarchy()\nStreamFreezer.packStream()\nStreamFreezer.parseWriteFmt()\nStreamFreezer.recursiveClearSites()\nStreamFreezer.removeStreamStatusClient()\nStreamFreezer.setupSerializationScaffold()\nStreamFreezer.setupStoredElementOffsetTuples()\nStreamFreezer.write()\nStreamFreezer.writeStr()\n\n\n\n\nStreamThawer\nStreamThawer\nStreamThawer.open()\nStreamThawer.openStr()\nStreamThawer.parseOpenFmt()\nStreamThawer.restoreElementsFromTuples()\nStreamThawer.restoreStreamStatusClient()\nStreamThawer.teardownSerializationScaffold()\nStreamThawer.unpackStream()",
+        "type": "ListItem"
+    },
+    {
+        "text": "Table of Contents",
+        "type": "Title"
+    },
+    {
+        "text": "About music21",
+        "type": "ListItem"
+    },
+    {
+        "text": "User's Guide",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Installation",
+        "type": "ListItem"
+    },
+    {
+        "text": "Developer Reference",
+        "type": "ListItem"
+    },
+    {
+        "text": "Documentation and tests in progress",
+        "type": "ListItem"
+    },
+    {
+        "text": "Quick search",
+        "type": "Title"
+    },
+    {
+        "text": "This Page",
+        "type": "Title"
+    },
+    {
+        "text": "Show Source",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.freezeThaw\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "This module contains objects for storing complete Music21Objects, especially\nStream and Score objects on disk.  Freezing (or \u009cpickling\u009d) refers to\nwriting the object to a file on disk (or to a string).  Thawing (or\n\u009cunpickling\u009d) refers to reading in a string or file and returning a Music21\nobject.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "There are two formats that freezeThaw can produce: \u009cPickle\u009d or JSON (for\nJavaScript Object Notation \u2014 essentially a string representation of the\nJavaScript equivalent of a Python dictionary).",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Pickle is a Python-specific\nidea for storing objects.  The pickle module stores objects as a text file\nthat can't be easily read by non-Python applications; it also isn't guaranteed\nto work across Python versions or even computers.  However, it works well, is\nfast, and is a standard part of python.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "JSON was originally created to pass\nJavaScript objects from a web server to a web browser, but its utility\n(combining the power of XML with the ease of use of objects) has made it a\ngrowing standard for other languages.  (see\nhttps://docs.python.org/3/library/json.html).\nMusic21 has two implementations of JSON (confusing, no?)\nbecause we weren't sure and are still not sure which will be best in the long-run:\nthe first approach\nuses explicit lists of attributes that need to be stored and just saves those. This uses a\nhomemade set of methods that are specifically tailored for music21; but it misses some things that\nmay be important to you.  The second approach uses the freely distributable\njsonpickle module. This approach probably stores more data than\na person not using music21 or python is likely to want, but can be used to get back an entire\nmusic21 Stream with no conversion.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Both JSON and Pickle files can be huge, but freezeThaw can compress them with\ngzip or ZipFile and thus they're not that large at all.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "Streams need to be run through .setupSerializationScaffold and .teardownSerializationScaffold\nbefore and after either Pickle or jsonpickle in order to restore all the weakrefs that we use.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "The name freezeThaw comes from Perl's implementation of similar methods \u2014 I\nlike the idea of thawing something that's frozen; \u009cunpickling\u009d just doesn't\nseem possible.  In any event, I needed a name that wouldn't already\nexist in the Python namespace.",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "StreamFreezeThawBase\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.freezeThaw.",
+        "type": "Title"
+    },
+    {
+        "text": "StreamFreezeThawBase",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Contains a few methods that are used for both\nStreamFreezer and StreamThawer",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamFreezeThawBase methods",
+        "type": "Title"
+    },
+    {
+        "text": "StreamFreezeThawBase.",
+        "type": "Title"
+    },
+    {
+        "text": "getJsonFp",
+        "type": "Title"
+    },
+    {
+        "text": "directory",
+        "type": "Title"
+    },
+    {
+        "text": "str | Path",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 Path",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamFreezeThawBase.",
+        "type": "Title"
+    },
+    {
+        "text": "getPickleFp",
+        "type": "Title"
+    },
+    {
+        "text": "directory",
+        "type": "Title"
+    },
+    {
+        "text": "str | Path",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 Path",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamFreezer\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.freezeThaw.",
+        "type": "Title"
+    },
+    {
+        "text": "StreamFreezer",
+        "type": "Title"
+    },
+    {
+        "text": "streamObj",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "fastButUnsafe",
+        "type": "Title"
+    },
+    {
+        "text": "False",
+        "type": "Title"
+    },
+    {
+        "text": "topLevel",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "streamIds",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "This class is used to freeze a Stream, preparing it for serialization\nand providing conversion routines.\nIn general, use freeze()\nfor serializing to a file.\nUse the unfreeze() to read from a\nserialized file\n>>> s = stream.Stream()\n>>> s.repeatAppend(note.Note('C4'), 8)\n>>> temp = [s[n].transpose(n, inPlace=True) for n in range(len(s))]\n\n\n>>> sf = freezeThaw.StreamFreezer(s)  # provide a Stream at init\n>>> data = sf.writeStr(fmt='pickle')  # pickle is default format\n\n\n>>> st = freezeThaw.StreamThawer()\n>>> st.openStr(data)\n>>> s = st.stream\n>>> s.show('t')\n{0.0} <music21.note.Note C>\n{1.0} <music21.note.Note C#>\n{2.0} <music21.note.Note D>\n{3.0} <music21.note.Note E->\n{4.0} <music21.note.Note E>\n{5.0} <music21.note.Note F>\n{6.0} <music21.note.Note F#>\n{7.0} <music21.note.Note G>\n\n\n>>> sf2 = freezeThaw.StreamFreezer(s)  # do not reuse StreamFreezers\n>>> data2 = sf2.writeStr(fmt='jsonpickle')\n\n\n>>> st2 = freezeThaw.StreamThawer()\n>>> st2.openStr(data2)\n>>> s2 = st2.stream\n>>> s2.show('t')\n{0.0} <music21.note.Note C>\n{1.0} <music21.note.Note C#>\n{2.0} <music21.note.Note D>\n{3.0} <music21.note.Note E->\n{4.0} <music21.note.Note E>\n{5.0} <music21.note.Note F>\n{6.0} <music21.note.Note F#>\n{7.0} <music21.note.Note G>\n\n\n>>> c = corpus.parse('luca/gloria')\n>>> sf = freezeThaw.StreamFreezer(c)\n>>> data = sf.writeStr(fmt='pickle')\n\n\n>>> st = freezeThaw.StreamThawer()\n>>> st.openStr(data)\n>>> s2 = st.stream\n>>> len(s2.parts[0].measure(7).notes) == 6\nTrue\n\n\nJSONPickle is also an acceptable way of Freezing streams.  Especially\nfor going to music21j in Javascript:\n>>> sf2 = freezeThaw.StreamFreezer(c)  # do not reuse StreamFreezers\n>>> data2 = sf2.writeStr(fmt='jsonpickle')\n>>> st2 = freezeThaw.StreamThawer()\n>>> st2.openStr(data2)\n>>> s3 = st2.stream\n>>> len(s3.parts[0].measure(7).notes) == 6\nTrue\n\n\nOr by writing to disk:\n>>> sf2 = freezeThaw.StreamFreezer(c)  # do not reuse StreamFreezers\n>>> fp2 = sf2.write(fmt='jsonpickle')\n>>> st2 = freezeThaw.StreamThawer()\n>>> st2.open(fp2)\n>>> s3 = st2.stream\n>>> len(s3.parts[0].measure(7).notes) == 6\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamFreezer bases",
+        "type": "Title"
+    },
+    {
+        "text": "StreamFreezeThawBase",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamFreezer methods",
+        "type": "Title"
+    },
+    {
+        "text": "StreamFreezer.",
+        "type": "Title"
+    },
+    {
+        "text": "findActiveStreamIdsInHierarchy",
+        "type": "Title"
+    },
+    {
+        "text": "hierarchyObject",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "getSpanners",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "getVariants",
+        "type": "Title"
+    },
+    {
+        "text": "True",
+        "type": "Title"
+    },
+    {
+        "text": "\u2192 list[int]",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Return a list of all Stream ids anywhere in the hierarchy.  By id,\nwe mean id(s) not s.id \u2014 so they are memory locations and unique.\nStores them in .streamIds.\nif hierarchyObject is None, uses self.stream.\n>>> sc = stream.Score()\n>>> p1 = stream.Part()\n>>> p2 = stream.Part()\n>>> m1 = stream.Measure()\n>>> v1 = stream.Voice()\n>>> m1.insert(0, v1)\n>>> p2.insert(0, m1)\n>>> sc.insert(0, p1)\n>>> sc.insert(0, p2)\n>>> shouldFindIds = [id(sc), id(p1), id(p2), id(m1), id(v1)]\n\n\nfastButUnsafe is needed because it does not make a deepcopy\nand thus lets you compare ids before and after.\n>>> sf = freezeThaw.StreamFreezer(sc, fastButUnsafe=True)\n>>> foundIds = sf.findActiveStreamIdsInHierarchy()\n>>> for thisId in shouldFindIds:\n...     if thisId not in foundIds:\n...         raise ValueError('Missing Id')\n>>> for thisId in foundIds:\n...     if thisId not in shouldFindIds:\n...         raise ValueError('Additional Id Found')\n\n\nSpanners are included unless getSpanners is False\n>>> staffGroup = layout.StaffGroup([p1, p2])\n>>> sc.insert(0, staffGroup)\n\n\nStaffGroup is a spanner, so\nit should be found\n>>> sf2 = freezeThaw.StreamFreezer(sc, fastButUnsafe=True)\n>>> foundIds = sf2.findActiveStreamIdsInHierarchy()\n\n\nBut you won't find the id of the spanner itself in\nthe foundIds:\n>>> id(staffGroup) in foundIds\nFalse\n\n\ninstead it's the id of the storage object:\n>>> id(staffGroup.spannerStorage) in foundIds\nTrue\n\n\nVariants are treated similarly:\n>>> s = stream.Stream()\n>>> m = stream.Measure()\n>>> m.append(note.Note(type='whole'))\n>>> s.append(m)\n\n\n>>> s2 = stream.Stream()\n>>> m2 = stream.Measure()\n>>> n2 = note.Note('D#4')\n>>> n2.duration.type = 'whole'\n>>> m2.append(n2)\n>>> s2.append(m2)\n>>> v = variant.Variant(s2.elements)\n>>> s.insert(0, v)\n>>> sf = freezeThaw.StreamFreezer(s, fastButUnsafe=True)\n>>> allIds = sf.findActiveStreamIdsInHierarchy()\n>>> len(allIds)\n4\n>>> for streamElement in [s, m, m2, v._stream]:\n...    if id(streamElement) not in allIds:\n...        print('this should not happen...', allIds, id(streamElement))\n\n\nN.B. with variants:\n>>> id(s2) == id(v._stream)\nFalse\n\n\nThe method also sets self.streamIds to the returned list:\n>>> sf.streamIds is allIds\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamFreezer.",
+        "type": "Title"
+    },
+    {
+        "text": "packStream",
+        "type": "Title"
+    },
+    {
+        "text": "streamObj",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Prepare the passed in Stream in place, return storage\ndictionary format.\n>>> from pprint import pprint\n>>> s = stream.Stream()\n>>> n = note.Note('D#4')\n>>> s.append(n)\n>>> sf = freezeThaw.StreamFreezer(s)\n>>> pprint(sf.packStream())\n{'m21Version': (...), 'stream': <music21.stream.Stream 0x1289212>}",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamFreezer.",
+        "type": "Title"
+    },
+    {
+        "text": "parseWriteFmt",
+        "type": "Title"
+    },
+    {
+        "text": "fmt",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Parse a passed-in write format\n>>> sf = freezeThaw.StreamFreezer()\n>>> sf.parseWriteFmt(None)\n'pickle'\n>>> sf.parseWriteFmt('JSON')\n'jsonpickle'\n\n\nAnything else returns \u0098pickle' as a default:\n>>> sf.parseWriteFmt('inconceivable')\n'pickle'",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamFreezer.",
+        "type": "Title"
+    },
+    {
+        "text": "recursiveClearSites",
+        "type": "Title"
+    },
+    {
+        "text": "startObj",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "recursively clear all sites, including activeSites, taking into account\nthat spanners and variants behave differently.\nCalled by setupSerializationScaffold.\nTo be run after setupStoredElementOffsetTuples() has been run\n>>> n = note.Note('D#4')\n>>> len(n.sites)\n1\n>>> s = stream.Stream()\n>>> s.id = 'stream s'\n>>> s.insert(10, n)\n>>> len(n.sites)\n2\n>>> s2 = stream.Stream()\n>>> s2.insert(20, n)\n>>> s2.id = 'stream s2'\n>>> len(n.sites)\n3\n\n\n>>> n.getOffsetBySite(s)\n10.0\n>>> n.getOffsetBySite(s2)\n20.0\n\n\n>>> sf = freezeThaw.StreamFreezer()\n\n\nThis will remove n from s but leave the rest of the sites intact\u2026\n>>> sf.setupStoredElementOffsetTuples(s)\n>>> len(n.sites)\n2\n>>> n.getOffsetBySite(s)\nTraceback (most recent call last):\nmusic21.sites.SitesException: an entry for this object <music21.note.Note D#>\n       is not stored in stream <music21.stream.Stream stream s>\n>>> n.getOffsetBySite(s2)\n20.0\n\n\nAfter recursiveClearSites n will be not know its location anywhere\u2026\n>>> sf.recursiveClearSites(s)\n>>> len(n.sites)  # just the None site\n1\n\n\nThis leaves n and s2 in strange positions, because n is in s2.elements still\u2026.\n>>> n in s2.elements\nTrue\n\n\nThis predicament is why when the standard freezeThaw call is made, what is frozen is a\ndeepcopy of the Stream so that nothing is left in an unusable position",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamFreezer.",
+        "type": "Title"
+    },
+    {
+        "text": "removeStreamStatusClient",
+        "type": "Title"
+    },
+    {
+        "text": "streamObj",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "if s is a stream then\ns.streamStatus._client is s\nthis can be hard to pickle, so this method removes the streamStatus._client from the\nstreamObj (not recursive).  Called by setupSerializationScaffold.",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamFreezer.",
+        "type": "Title"
+    },
+    {
+        "text": "setupSerializationScaffold",
+        "type": "Title"
+    },
+    {
+        "text": "streamObj",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Prepare this stream and all of its contents for pickle/pickling, that\nis, serializing and storing an object representation on file or as a string.\nThe topLevel and streamIdsFound arguments are used to keep track of recursive calls.\nNote that this is a destructive process: elements contained within this Stream\nwill have their sites cleared of all contents not in the hierarchy\nof the Streams. Thus, when doing a normal .write(\u0098pickle')\nthe Stream is deepcopied before this method is called. The\nattribute fastButUnsafe = True setting of StreamFreezer ignores the destructive\neffects of these processes and skips the deepcopy.\n>>> a = stream.Stream()\n>>> n = note.Note()\n>>> n.duration.type = 'whole'\n>>> a.repeatAppend(n, 10)\n>>> sf = freezeThaw.StreamFreezer(a)\n>>> sf.setupSerializationScaffold()",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamFreezer.",
+        "type": "Title"
+    },
+    {
+        "text": "setupStoredElementOffsetTuples",
+        "type": "Title"
+    },
+    {
+        "text": "streamObj",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "move all elements from ._elements and ._endElements\nto a new attribute ._storedElementOffsetTuples\nwhich contains a list of tuples of the form\n(el, offset or \u0098end').\nCalled by setupSerializationScaffold.\n>>> s = stream.Measure()\n>>> n1 = note.Note('C#')\n>>> n2 = note.Note('E-')\n>>> bl1 = bar.Barline()\n>>> s.insert(0.0, n1)\n>>> s.insert(1.0, n2)\n>>> s.storeAtEnd(bl1)\n\n\n>>> sFreeze = freezeThaw.StreamFreezer()\n>>> sFreeze.setupStoredElementOffsetTuples(s)\n>>> s._elements, s._endElements\n([], [])\n>>> s._storedElementOffsetTuples\n[(<music21.note.Note C#>, 0.0),\n (<music21.note.Note E->, 1.0),\n (<music21.bar.Barline type=regular>, 'end')]\n>>> n1.getOffsetBySite(s)\nTraceback (most recent call last):\nmusic21.sites.SitesException: an entry for this object <music21.note.Note C#> is\n     not stored in stream <music21.stream.Measure 0 offset=0.0>\n\n\nTrying it again, but now with substreams:\n>>> s2 = stream.Measure()\n>>> n1 = note.Note('C#')\n>>> n2 = note.Note('E-')\n>>> bl1 = bar.Barline()\n>>> v1 = stream.Voice()\n>>> n3 = note.Note('F#')\n>>> v1.insert(2.0, n3)\n>>> s2.insert(0.0, n1)\n>>> s2.insert(1.0, n2)\n>>> s2.storeAtEnd(bl1)\n>>> s2.insert(2.0, v1)\n>>> sFreeze.setupStoredElementOffsetTuples(s2)\n\n\n>>> v1._storedElementOffsetTuples\n[(<music21.note.Note F#>, 2.0)]\n>>> s2._storedElementOffsetTuples\n[(<music21.note.Note C#>, 0.0),\n (<music21.note.Note E->, 1.0),\n (<music21.stream.Voice ...>, 2.0),\n (<music21.bar.Barline type=regular>, 'end')]\n>>> s2._storedElementOffsetTuples[2][0] is v1\nTrue",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamFreezer.",
+        "type": "Title"
+    },
+    {
+        "text": "write",
+        "type": "Title"
+    },
+    {
+        "text": "fmt",
+        "type": "Title"
+    },
+    {
+        "text": "'pickle'",
+        "type": "Title"
+    },
+    {
+        "text": "fp",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "zipType",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "For a supplied Stream, write a serialized version to\ndisk in either \u0098pickle' or \u0098jsonpickle' format and\nreturn the filepath to the file.\njsonpickle is the better format for transporting from\none computer to another, but slower and may have some bugs.\nIf zipType == \u0098zlib' then zlib compression is done after serializing.\nNo other compression types are currently supported.",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamFreezer.",
+        "type": "Title"
+    },
+    {
+        "text": "writeStr",
+        "type": "Title"
+    },
+    {
+        "text": "fmt",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "**",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "keywords",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Convert the object to a pickled/jsonpickled string\nand return the string",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from StreamFreezeThawBase:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "getJsonFp() getPickleFp()",
+        "type": "Table"
+    },
+    {
+        "text": "StreamThawer\u00c2\u00b6",
+        "type": "Title"
+    },
+    {
+        "text": "class",
+        "type": "Title"
+    },
+    {
+        "text": "music21.freezeThaw.",
+        "type": "Title"
+    },
+    {
+        "text": "StreamThawer",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "This class is used to thaw a data string into a Stream\nIn general user parse() to read from a\nserialized file.\n>>> s = stream.Stream()\n>>> s.repeatAppend(note.Note('C4'), 8)\n>>> temp = [s[n].transpose(n, inPlace=True) for n in range(len(s))]\n\n\n>>> sf = freezeThaw.StreamFreezer(s)  # provide a Stream at init\n>>> data = sf.writeStr(fmt='pickle')  # pickle is default format\n\n\n>>> sfOut = freezeThaw.StreamThawer()\n>>> sfOut.openStr(data)\n>>> s = sfOut.stream\n>>> s.show('t')\n{0.0} <music21.note.Note C>\n{1.0} <music21.note.Note C#>\n{2.0} <music21.note.Note D>\n{3.0} <music21.note.Note E->\n{4.0} <music21.note.Note E>\n{5.0} <music21.note.Note F>\n{6.0} <music21.note.Note F#>\n{7.0} <music21.note.Note G>",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamThawer bases",
+        "type": "Title"
+    },
+    {
+        "text": "StreamFreezeThawBase",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamThawer methods",
+        "type": "Title"
+    },
+    {
+        "text": "StreamThawer.",
+        "type": "Title"
+    },
+    {
+        "text": "open",
+        "type": "Title"
+    },
+    {
+        "text": "fp",
+        "type": "Title"
+    },
+    {
+        "text": "zipType",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "For a supplied file path to a pickled stream, unpickle",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamThawer.",
+        "type": "Title"
+    },
+    {
+        "text": "openStr",
+        "type": "Title"
+    },
+    {
+        "text": "fileData",
+        "type": "Title"
+    },
+    {
+        "text": "bytes",
+        "type": "Title"
+    },
+    {
+        "text": "pickleFormat",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Take bytes representing a Frozen(pickled/jsonpickled)\nStream and convert it to a normal Stream.\nif format is None then the format is automatically\ndetermined from the bytes contents.\nThe name of the function is a legacy of Py2.  With\npickle (not jsonpickle), it works on bytes, not strings.",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamThawer.",
+        "type": "Title"
+    },
+    {
+        "text": "parseOpenFmt",
+        "type": "Title"
+    },
+    {
+        "text": "storage",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Look at the file and determine the format",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamThawer.",
+        "type": "Title"
+    },
+    {
+        "text": "restoreElementsFromTuples",
+        "type": "Title"
+    },
+    {
+        "text": "streamObj",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Take a Stream with elements and offsets stored in\na list of tuples (element, offset or \u0098end') at\n_storedElementOffsetTuples\nand restore it to the ._elements and ._endElements lists\nin the proper locations:\n>>> s = stream.Measure()\n>>> s._elements, s._endElements\n([], [])\n\n\n>>> n1 = note.Note('C#')\n>>> n2 = note.Note('E-')\n>>> bl1 = bar.Barline()\n>>> tupleList = [(n1, 0.0), (n2, 1.0), (bl1, 'end')]\n>>> s._storedElementOffsetTuples = tupleList\n\n\n>>> sThaw = freezeThaw.StreamThawer()\n>>> sThaw.restoreElementsFromTuples(s)\n>>> s.show('text')\n{0.0} <music21.note.Note C#>\n{1.0} <music21.note.Note E->\n{2.0} <music21.bar.Barline type=regular>\n>>> s._endElements\n[<music21.bar.Barline type=regular>]\n>>> s[1].getOffsetBySite(s)\n1.0\n\n\nTrying it again, but now with substreams:\n>>> s2 = stream.Measure()\n>>> v1 = stream.Voice()\n>>> n3 = note.Note('F#')\n>>> v1._storedElementOffsetTuples = [(n3, 2.0)]\n>>> tupleList = [(n1, 0.0), (n2, 1.0), (bl1, 'end'), (v1, 2.0)]\n>>> s2._storedElementOffsetTuples = tupleList\n>>> sThaw.restoreElementsFromTuples(s2)\n>>> s2.show('text')\n{0.0} <music21.note.Note C#>\n{1.0} <music21.note.Note E->\n{2.0} <music21.stream.Voice ...>\n    {2.0} <music21.note.Note F#>\n{5.0} <music21.bar.Barline type=regular>",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamThawer.",
+        "type": "Title"
+    },
+    {
+        "text": "restoreStreamStatusClient",
+        "type": "Title"
+    },
+    {
+        "text": "streamObj",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Restore the streamStatus client to point to the Stream\n(do we do this for derivations?  No: there should not be derivations stored.\nOther objects?  Unclear\u2026)",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamThawer.",
+        "type": "Title"
+    },
+    {
+        "text": "teardownSerializationScaffold",
+        "type": "Title"
+    },
+    {
+        "text": "streamObj",
+        "type": "Title"
+    },
+    {
+        "text": "None",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "After rebuilding this Stream from pickled storage, prepare this as a normal Stream.\nIf streamObj is None, runs it on the embedded stream\n>>> a = stream.Stream()\n>>> n = note.Note()\n>>> n.duration.type = 'whole'\n>>> a.repeatAppend(n, 10)\n>>> sf = freezeThaw.StreamFreezer(a)\n>>> sf.setupSerializationScaffold()\n\n\n>>> st = freezeThaw.StreamThawer()\n>>> st.teardownSerializationScaffold(a)",
+        "type": "ListItem"
+    },
+    {
+        "text": "StreamThawer.",
+        "type": "Title"
+    },
+    {
+        "text": "unpackStream",
+        "type": "Title"
+    },
+    {
+        "text": "storage",
+        "type": "Title"
+    },
+    {
+        "text": "\u00c2\u00b6",
+        "type": "UncategorizedText"
+    },
+    {
+        "text": "Convert from storage dictionary to Stream.",
+        "type": "ListItem"
+    },
+    {
+        "text": "Methods inherited from StreamFreezeThawBase:",
+        "type": "NarrativeText"
+    },
+    {
+        "text": "getJsonFp() getPickleFp()",
+        "type": "Table"
+    },
+    {
+        "text": "Navigation",
+        "type": "Title"
+    },
+    {
+        "text": "index",
+        "type": "ListItem"
+    },
+    {
+        "text": "modules |",
+        "type": "ListItem"
+    },
+    {
+        "text": "next |",
+        "type": "ListItem"
+    },
+    {
+        "text": "previous |",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21 \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "Module Reference \u00bb",
+        "type": "ListItem"
+    },
+    {
+        "text": "music21.freezeThaw",
+        "type": "ListItem"
+    },
+    {
+        "text": "\u00a9 Copyright 2006-2023 Michael Scott Asato Cuthbert.\n      Last updated on Jun 12, 2023.",
+        "type": "NarrativeText"
+    }
+]
